@@ -14,6 +14,11 @@ import Status from "./pages/Status";
 import Security from "./pages/Security";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
+import Defense from "./pages/Defense";
+import Intelligence from "./pages/Intelligence";
+import Services from "./pages/Services";
+import Aerospace from "./pages/industries/Aerospace";
+import DefenseIndustry from "./pages/industries/Defense";
 import { Blocks, Code2, Bot } from "lucide-react";
 import ProductPage from "./components/ProductPage";
 
@@ -49,6 +54,12 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/solutions" element={<Solutions />} />
+          <Route path="/defense" element={<Defense />} />
+          <Route path="/intelligence" element={<Intelligence />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/industries/aerospace" element={<Aerospace />} />
+          <Route path="/industries/defense" element={<DefenseIndustry />} />
+          <Route path="/industries/aerospace-defense" element={<Navigate to="/industries/defense" replace />} />
           <Route path="/install" element={<Install />} />
           <Route path="/install.sh" element={<Install />} />
           <Route path="/status" element={<Status />} />

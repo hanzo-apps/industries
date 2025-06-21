@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(curl:*)",
+      "Bash(mv:*)",
+      "Bash(true)",
+      "Bash(rm:*)",
+      "Bash(npm install)"
+    ],
+    "deny": []
+  }
+}

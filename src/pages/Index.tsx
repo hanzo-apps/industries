@@ -2,8 +2,11 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import QuickStart from "@/components/QuickStart";
-import Products from "@/components/Products";
+import ServicesOverview from "@/components/ServicesOverview";
+import DefenseCapabilities from "@/components/DefenseCapabilities";
+import CaseStudies from "@/components/CaseStudies";
+import Leadership from "@/components/Leadership";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -32,12 +35,15 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Navbar />
       <main>
         <Hero />
-        <QuickStart />
-        <Products />
+        <ServicesOverview />
+        <DefenseCapabilities />
+        <CaseStudies />
+        <Leadership />
+        <Contact />
       </main>
       <Footer />
     </div>
