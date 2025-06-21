@@ -25,6 +25,19 @@ export const ProductsMenu = () => {
     }
   };
 
+  const getProductPath = (productName: string) => {
+    switch (productName) {
+      case "Hanzo App":
+        return "/products/zen";
+      case "Hanzo Code":
+        return "/products/koan";
+      case "Hanzo Dev":
+        return "/products/hanzo-dev";
+      default:
+        return `/products/${productName.toLowerCase().replace(/\s+/g, '-')}`;
+    }
+  };
+
   return (
     <div onMouseLeave={() => setOpen(false)}>
       <Popover open={open} onOpenChange={setOpen}>
@@ -43,7 +56,7 @@ export const ProductsMenu = () => {
                   {category.items.map(item => (
                     <a
                       key={item.name}
-                      href={`/products/${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={getProductPath(item.name)}
                       className="flex items-start space-x-3 group"
                     >
                       {getIconForProduct(item.name)}

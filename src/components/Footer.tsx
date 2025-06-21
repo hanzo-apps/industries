@@ -34,8 +34,8 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Solutions</h4>
             <ul className="space-y-2">
+              <li><a href="/intelligence" className="text-gray-400 hover:text-white text-sm">AI & ML</a></li>
               <li><a href="/defense" className="text-gray-400 hover:text-white text-sm">Defense Systems</a></li>
-              <li><a href="/intelligence" className="text-gray-400 hover:text-white text-sm">Intelligence Analysis</a></li>
               <li><a href="/cybersecurity" className="text-gray-400 hover:text-white text-sm">Cybersecurity</a></li>
               <li><a href="/cloud" className="text-gray-400 hover:text-white text-sm">Secure Cloud</a></li>
             </ul>

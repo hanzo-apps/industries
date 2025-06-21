@@ -23,6 +23,11 @@ import ComingSoon from "./pages/ComingSoon";
 import About from "./pages/About";
 import Cybersecurity from "./pages/Cybersecurity";
 import SecureCloud from "./pages/SecureCloud";
+import Team from "./pages/Team";
+import Capabilities from "./pages/Capabilities";
+import DecentralizedAI from "./pages/capabilities/DecentralizedAI";
+import CaseStudies from "./pages/CaseStudies";
+import Examples from "./pages/Examples";
 import { Blocks, Code2, Bot, Brain, Shield, Users, Cpu, Zap } from "lucide-react";
 import ProductPage from "./components/ProductPage";
 
@@ -146,8 +151,13 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/about" element={<About />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/solutions" element={<Solutions />} />
+          <Route path="/capabilities" element={<Capabilities />} />
+          <Route path="/capabilities/decentralized-ai" element={<DecentralizedAI />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/examples" element={<Examples />} />
           <Route path="/defense" element={<Defense />} />
           <Route path="/intelligence" element={<Intelligence />} />
           <Route path="/services" element={<Services />} />
