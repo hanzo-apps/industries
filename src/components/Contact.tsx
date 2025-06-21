@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2
@@ -58,10 +57,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
-            <Button className="w-full mt-8 bg-black text-white hover:bg-gray-800">
-              Schedule Classified Briefing
-            </Button>
           </motion.div>
 
           <motion.div
@@ -95,10 +90,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
-            <Button className="w-full mt-8 bg-black text-white hover:bg-gray-800">
-              Explore Commercial Solutions
-            </Button>
           </motion.div>
         </div>
 

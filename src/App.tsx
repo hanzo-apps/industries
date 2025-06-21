@@ -19,6 +19,10 @@ import Intelligence from "./pages/Intelligence";
 import Services from "./pages/Services";
 import Aerospace from "./pages/industries/Aerospace";
 import DefenseIndustry from "./pages/industries/Defense";
+import ComingSoon from "./pages/ComingSoon";
+import About from "./pages/About";
+import Cybersecurity from "./pages/Cybersecurity";
+import SecureCloud from "./pages/SecureCloud";
 import { Blocks, Code2, Bot } from "lucide-react";
 import ProductPage from "./components/ProductPage";
 
@@ -52,6 +56,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/defense" element={<Defense />} />
@@ -64,8 +69,11 @@ const App = () => (
           <Route path="/install.sh" element={<Install />} />
           <Route path="/status" element={<Status />} />
           <Route path="/security" element={<Security />} />
+          <Route path="/cybersecurity" element={<Cybersecurity />} />
+          <Route path="/cloud" element={<SecureCloud />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/coming-soon" element={<ComingSoon />} />
           {productPages.map((product) => (
             <Route
               key={product.path}

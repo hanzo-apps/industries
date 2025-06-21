@@ -1,31 +1,26 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 const DefenseCapabilities = () => {
   const capabilities = [
     {
       title: "Intelligence Analysis Platform",
       description: "Multi-source data fusion and analysis for actionable intelligence",
-      features: ["Real-time data processing", "Predictive threat modeling", "Geospatial analysis", "Pattern recognition"],
-      cta: "Learn More"
+      features: ["Real-time data processing", "Predictive threat modeling", "Geospatial analysis", "Pattern recognition"]
     },
     {
       title: "Secure Communications Suite", 
       description: "End-to-end encrypted communications for classified operations",
-      features: ["Quantum-resistant", "Zero-knowledge", "Multi-factor authentication", "Audit logging"],
-      cta: "Explore Solution"
+      features: ["Quantum-resistant", "Zero-knowledge", "Multi-factor authentication", "Audit logging"]
     },
     {
       title: "Mission Planning System",
       description: "AI-powered planning and simulation for complex operations",
-      features: ["Scenario modeling", "Resource optimization", "Risk assessment", "Real-time collaboration"],
-      cta: "View Demo"
+      features: ["Scenario modeling", "Resource optimization", "Risk assessment", "Real-time collaboration"]
     },
     {
       title: "Cyber Defense Platform",
       description: "Advanced threat detection and response for critical infrastructure",
-      features: ["24/7 monitoring", "Automated response", "Threat hunting", "Compliance reporting"],
-      cta: "Get Started"
+      features: ["24/7 monitoring", "Automated response", "Threat hunting", "Compliance reporting"]
     }
   ];
 
@@ -65,7 +60,7 @@ const DefenseCapabilities = () => {
                 <h3 className="text-2xl font-semibold text-black mb-3">{capability.title}</h3>
                 <p className="text-gray-600 mb-6">{capability.description}</p>
                 
-                <div className="grid grid-cols-2 gap-3 mb-8">
+                <div className="grid grid-cols-2 gap-3">
                   {capability.features.map((feature) => (
                     <div key={feature} className="flex items-center text-sm text-gray-700">
                       <svg className="w-4 h-4 mr-2 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,12 +70,6 @@ const DefenseCapabilities = () => {
                     </div>
                   ))}
                 </div>
-
-                <Button 
-                  className="w-full bg-black text-white hover:bg-gray-800 transition-colors"
-                >
-                  {capability.cta}
-                </Button>
               </div>
             </motion.div>
           ))}

@@ -55,7 +55,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-300 overflow-visible ${
         isScrolled
           ? "bg-white shadow-md border-b border-gray-200"
           : "bg-white/95 backdrop-blur-sm"
@@ -75,10 +75,10 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-6">
             <CapabilitiesMenu />
             <IndustriesMenu />
-            <a href="/about" className="text-gray-700 hover:text-black font-medium transition-colors">
+            <a href="/about" className="text-gray-700 hover:text-black font-medium transition-colors text-sm">
               About
             </a>
-            <a href="/contact" className="text-gray-700 hover:text-black font-medium transition-colors">
+            <a href="#contact" className="text-gray-700 hover:text-black font-medium transition-colors text-sm">
               Contact
             </a>
 
@@ -86,7 +86,13 @@ const Navbar = () => {
               <Button 
                 size="sm" 
                 className="bg-black text-white hover:bg-gray-800"
-                onClick={() => navigate("/contact")}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 Get Started
               </Button>

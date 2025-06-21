@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ServicesOverview from "@/components/ServicesOverview";
 import DefenseCapabilities from "@/components/DefenseCapabilities";
-import CaseStudies from "@/components/CaseStudies";
 import Leadership from "@/components/Leadership";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -41,7 +40,6 @@ const Index = () => {
         <Hero />
         <ServicesOverview />
         <DefenseCapabilities />
-        <CaseStudies />
         <Leadership />
         <Contact />
       </main>

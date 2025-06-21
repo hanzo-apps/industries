@@ -6,7 +6,15 @@
       "Bash(mv:*)",
       "Bash(true)",
       "Bash(rm:*)",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(sips:*)",
+      "Bash(for img in *.png *.jpg)",
+      "Bash(do sips:*)",
+      "Bash(done)",
+      "Bash(git add:*)",
+      "Bash(rg:*)"
     ],
     "deny": []
   }

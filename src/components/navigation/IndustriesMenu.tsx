@@ -14,43 +14,43 @@ const industries = [
     icon: Plane,
     title: "Aerospace",
     description: "Solutions for Aerospace Industry",
-    href: "/industries/aerospace"
+    href: "/coming-soon"
   },
   {
     icon: Shield,
     title: "Defense",
     description: "Solutions for Defense Sector",
-    href: "/industries/defense"
+    href: "/coming-soon"
   },
   {
     icon: Car,
     title: "Automotive",
     description: "Solutions for Automotive",
-    href: "/industries/automotive"
+    href: "/coming-soon"
   },
   {
     icon: Building,
     title: "Banking",
     description: "Solutions for Banking",
-    href: "/industries/banking"
+    href: "/coming-soon"
   },
   {
     icon: Globe,
     title: "Capital Markets",
     description: "Solutions for Capital Markets",
-    href: "/industries/capital-markets"
+    href: "/coming-soon"
   },
   {
     icon: Beaker,
     title: "Chemicals",
     description: "Solutions for Chemicals",
-    href: "/industries/chemicals"
+    href: "/coming-soon"
   },
   {
     icon: Radio,
     title: "Communications and Media",
     description: "Solutions for Communications and Media",
-    href: "/industries/communications-media"
+    href: "/coming-soon"
   }
 ];
 
@@ -59,18 +59,18 @@ export function IndustriesMenu() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-black text-white hover:bg-gray-800">
+          <NavigationMenuTrigger className="h-auto p-0 text-gray-700 hover:text-black font-medium transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent text-sm">
             Industries
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="w-[850px] p-6 bg-white">
+            <div className="w-[90vw] max-w-[850px] max-h-[80vh] overflow-y-auto p-4 md:p-6 bg-white border border-gray-200 shadow-lg rounded-lg mx-auto">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-lg font-semibold text-black">Industries</h3>
-                <a href="/industries" className="text-sm text-gray-600 hover:text-black">
+                <a href="/coming-soon" className="text-sm text-gray-600 hover:text-black">
                   View all
                 </a>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {industries.map((industry) => {
                   const Icon = industry.icon;
                   return (
@@ -99,7 +99,7 @@ export function IndustriesMenu() {
                   solutions with safety and alignment at the core.
                 </p>
                 <a 
-                  href="/contact" 
+                  href="#contact" 
                   className="text-sm font-medium text-white hover:underline inline-flex items-center"
                 >
                   Contact Hanzo Industries

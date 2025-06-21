@@ -7,25 +7,29 @@ const ServicesOverview = () => {
       icon: Brain,
       title: "Frontier AI Models",
       description: "State-of-the-art language models and multimodal AI with built-in safety mechanisms and alignment research",
-      capabilities: ["Zen MoE Architecture", "Constitutional AI", "RLHF Training", "Safety Benchmarks"]
+      capabilities: ["Zen MoE Architecture", "Constitutional AI", "RLHF Training", "Safety Benchmarks"],
+      link: "https://docs.google.com/document/d/19rZTIUZShaITzwp35XK1893OE83HA1bIIhmQNzFvKrg/edit?usp=sharing"
     },
     {
       icon: Shield,
       title: "AI Safety & Alignment",
       description: "Research and implementation of AI safety measures, interpretability tools, and alignment techniques",
-      capabilities: ["Mechanistic Interpretability", "Value Alignment", "Robustness Testing", "Safety Monitoring"]
+      capabilities: ["Mechanistic Interpretability", "Value Alignment", "Robustness Testing", "Safety Monitoring"],
+      link: "https://hanzo.ai/ai"
     },
     {
       icon: Database,
       title: "Edge AI Infrastructure",
       description: "Deploy AI locally with our decentralized, private, and configurable edge computing solutions",
-      capabilities: ["On-Device Inference", "Federated Learning", "Privacy Preservation", "Offline Capability"]
+      capabilities: ["On-Device Inference", "Federated Learning", "Privacy Preservation", "Offline Capability"],
+      link: "https://docs.google.com/document/d/1Dga5hEIxTopxwYzmLh7L-NgZlJR8XB5V7du-UdY2Nk8/edit?usp=sharing"
     },
     {
       icon: Cloud,
       title: "Resilient AI Systems",
       description: "Build fault-tolerant, distributed AI systems that maintain performance under adverse conditions",
-      capabilities: ["Decentralized Training", "Redundant Architecture", "Graceful Degradation", "Self-Healing Systems"]
+      capabilities: ["Decentralized Training", "Redundant Architecture", "Graceful Degradation", "Self-Healing Systems"],
+      link: "https://drive.google.com/drive/folders/1IoRe9gJo3IGHa5G6J_xDMZWsKcFjlRa7?usp=sharing"
     }
   ];
 
@@ -70,7 +74,20 @@ const ServicesOverview = () => {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-black mb-3">{service.title}</h3>
+                    <h3 className="text-2xl font-semibold text-black mb-3">
+                      {service.link ? (
+                        <a 
+                          href={service.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          {service.title}
+                        </a>
+                      ) : (
+                        service.title
+                      )}
+                    </h3>
                     <p className="text-gray-600 mb-4">{service.description}</p>
                     <div className="space-y-2">
                       {service.capabilities.map((capability) => (

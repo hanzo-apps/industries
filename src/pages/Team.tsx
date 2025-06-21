@@ -9,86 +9,72 @@ import CallToAction from "@/components/team/CallToAction";
 export default function Team() {
   const teamMembers = [
     {
-      name: "Dev",
-      role: "AI Developer",
-      description: "Your expert AI developer, specializing in full-stack development and system architecture.",
+      name: "Zach Kelling",
+      role: "Founder and CTO",
+      description: "Leading technical vision and innovation at Hanzo Industries.",
       icon: Code2,
       gradient: "from-blue-500 to-cyan-500"
     },
     {
-      name: "Des",
-      role: "AI Designer",
-      description: "Your creative AI designer, crafting beautiful and intuitive user experiences.",
-      icon: Paintbrush,
+      name: "Antje Worring",
+      role: "Chief Operating Officer",
+      description: "Driving operational excellence and strategic execution.",
+      icon: Settings,
       gradient: "from-purple-500 to-pink-500"
     },
     {
-      name: "Opera",
-      role: "Operations Engineer",
-      description: "Your efficient AI operations engineer, maintaining system reliability and performance.",
-      icon: Settings,
+      name: "Michael Kelling",
+      role: "President",
+      description: "Guiding company strategy and vision for the future.",
+      icon: Lightbulb,
       gradient: "from-yellow-500 to-orange-500"
     },
     {
-      name: "Mark",
-      role: "AI Marketing Director",
-      description: "Your strategic AI marketing director, driving growth and engagement.",
-      icon: Megaphone,
-      gradient: "from-orange-500 to-red-500"
-    },
-    {
-      name: "Su",
-      role: "Help & Support Engineer",
-      description: "Your dedicated AI support engineer, ensuring smooth operations and user satisfaction.",
-      icon: HelpCircle,
+      name: "Vincent Butta",
+      role: "Executive VP",
+      description: "Leading key initiatives and business operations.",
+      icon: MessagesSquare,
       gradient: "from-green-500 to-emerald-500"
     },
     {
-      name: "Art",
-      role: "Creative Director",
-      description: "Leads art direction and video production initiatives.",
+      name: "Leigh Ferreria",
+      role: "Chief Revenue Officer",
+      description: "Driving revenue growth and market expansion.",
+      icon: DollarSign,
+      gradient: "from-orange-500 to-red-500"
+    },
+    {
+      name: "Danielle Savage",
+      role: "Chief Brand Officer",
+      description: "Building and elevating the Hanzo brand globally.",
       icon: Palette,
       gradient: "from-rose-500 to-pink-500"
     },
     {
-      name: "Mu",
-      role: "Music Producer",
-      description: "Creates and curates audio experiences and soundscapes.",
-      icon: Music,
+      name: "Ashley Kathleen Christie",
+      role: "Chief of Staff",
+      description: "Ensuring organizational effectiveness and leadership alignment.",
+      icon: HelpCircle,
       gradient: "from-amber-500 to-orange-500"
     },
     {
-      name: "Data",
-      role: "Data Scientist",
-      description: "Analyzes complex data sets to drive informed decision-making.",
-      icon: ChartBar,
+      name: "Anastasia Zacharaoff",
+      role: "VP Engineering",
+      description: "Leading engineering teams and technical development.",
+      icon: Code2,
       gradient: "from-violet-500 to-purple-500"
     },
     {
-      name: "Biz",
-      role: "BizDev and Partnerships",
-      description: "Drives business development and strategic partnerships to fuel growth.",
-      icon: MessagesSquare,
+      name: "Rob Ruiz",
+      role: "VP Strategy",
+      description: "Developing strategic initiatives and business intelligence.",
+      icon: ChartBar,
       gradient: "from-teal-500 to-green-500"
     },
     {
-      name: "Fin",
-      role: "Financial Analyst",
-      description: "Manages financial strategies and optimizes resource allocation.",
-      icon: DollarSign,
-      gradient: "from-green-500 to-teal-500"
-    },
-    {
-      name: "Sal",
-      role: "Sales and Lead Generation",
-      description: "Drives sales growth and generates high-quality leads through AI-powered strategies.",
-      icon: Calculator,
-      gradient: "from-purple-500 to-indigo-500"
-    },
-    {
-      name: "Vi",
-      role: "Visionary Leader",
-      description: "Your innovative AI visionary leader, guiding the team towards excellence.",
+      name: "Marcus White",
+      role: "VP Research",
+      description: "Leading research and development initiatives.",
       icon: Lightbulb,
       gradient: "from-indigo-500 to-purple-500"
     }
