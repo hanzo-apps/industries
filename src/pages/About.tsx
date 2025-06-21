@@ -4,13 +4,13 @@ import Footer from "@/components/Footer";
 
 export default function About() {
   const products = [
-    { name: "ZEN", link: "https://docs.google.com/document/d/1CNrg4FwqttLbG4re3PeMg0MD548gUh5xKk-ij-BtJUs/edit?usp=drive_link" },
-    { name: "KOAN", link: "https://docs.google.com/document/d/10M7A9AqsshqhgUYCjkbTSmL25OcCC0cU6qoddmYNbAI/edit?usp=sharing" }, 
-    { name: "HANZO AI", link: "https://hanzo.industries/" },
-    { name: "HANZO DX", link: "https://github.com/hanzoai" },
-    { name: "HANZO ML", link: "https://hanzo.ai/ai" },
-    { name: "HANZO DEV", link: "https://hanzo.ai/dev" },
-    { name: "HANZO TEAM", link: "https://hanzo.team/login%3Acomponent%3ALoginApp" }
+    { name: "ZEN", link: "/products/zen" },
+    { name: "KOAN", link: "/products/koan" }, 
+    { name: "HANZO AI", link: "/products/hanzo-ai" },
+    { name: "HANZO DX", link: "/products/hanzo-dx" },
+    { name: "HANZO ML", link: "/products/hanzo-ml" },
+    { name: "HANZO DEV", link: "/products/hanzo-dev" },
+    { name: "HANZO TEAM", link: "/products/hanzo-team" }
   ];
 
   return (
@@ -69,8 +69,6 @@ export default function About() {
                     {product.link ? (
                       <a
                         href={product.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="block"
                       >
                         <div 

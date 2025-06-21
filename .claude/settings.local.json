@@ -14,7 +14,8 @@
       "Bash(do sips:*)",
       "Bash(done)",
       "Bash(git add:*)",
-      "Bash(rg:*)"
+      "Bash(rg:*)",
+      "Bash(git push:*)"
     ],
     "deny": []
   }

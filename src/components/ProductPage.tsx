@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { LucideIcon } from "lucide-react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 interface ProductPageProps {
   icon: LucideIcon;
@@ -14,7 +16,8 @@ interface ProductPageProps {
 const ProductPage = ({ icon: Icon, title, description, features, documentation }: ProductPageProps) => {
   return (
     <div className="min-h-screen bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <Navbar />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,6 +67,7 @@ const ProductPage = ({ icon: Icon, title, description, features, documentation }
           </div>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 };

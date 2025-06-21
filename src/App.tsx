@@ -23,28 +23,117 @@ import ComingSoon from "./pages/ComingSoon";
 import About from "./pages/About";
 import Cybersecurity from "./pages/Cybersecurity";
 import SecureCloud from "./pages/SecureCloud";
-import { Blocks, Code2, Bot } from "lucide-react";
+import { Blocks, Code2, Bot, Brain, Shield, Users, Cpu, Zap } from "lucide-react";
 import ProductPage from "./components/ProductPage";
 
 const queryClient = new QueryClient();
 
 const productPages = [
   {
-    path: "hanzo-app",
-    icon: Blocks,
-    title: "Hanzo App",
-    description: "Design, Engineer, and Market AI-powered applications with our unified platform.",
+    path: "zen",
+    icon: Brain,
+    title: "ZEN",
+    description: "Advanced AI orchestration platform for building and deploying intelligent systems at scale.",
     features: [
-      "Build and deploy applications with ease",
-      "Integrated development environment",
-      "Real-time collaboration tools",
-      "AI-powered development assistance",
-      "Automated testing and deployment",
-      "Performance monitoring and optimization"
+      "Multi-model AI orchestration and management",
+      "Automated prompt engineering and optimization",
+      "Real-time performance monitoring and analytics",
+      "Enterprise-grade security and compliance",
+      "Seamless integration with existing infrastructure",
+      "Cost optimization and resource management"
     ],
-    documentation: "https://docs.hanzo.ai/app"
+    documentation: "https://docs.google.com/document/d/1CNrg4FwqttLbG4re3PeMg0MD548gUh5xKk-ij-BtJUs/edit?usp=drive_link"
   },
-  // ... Add similar configurations for other products
+  {
+    path: "koan",
+    icon: Shield,
+    title: "KOAN",
+    description: "Enterprise knowledge management and AI-powered insights platform.",
+    features: [
+      "Intelligent document processing and analysis",
+      "Knowledge graph construction and visualization",
+      "Natural language querying and exploration",
+      "Automated insight generation and reporting",
+      "Secure data governance and access control",
+      "Cross-organizational knowledge sharing"
+    ],
+    documentation: "https://docs.google.com/document/d/10M7A9AqsshqhgUYCjkbTSmL25OcCC0cU6qoddmYNbAI/edit?usp=sharing"
+  },
+  {
+    path: "hanzo-ai",
+    icon: Bot,
+    title: "HANZO AI",
+    description: "Comprehensive AI platform powering next-generation intelligent applications.",
+    features: [
+      "State-of-the-art language models and APIs",
+      "Custom model training and fine-tuning",
+      "Multimodal AI capabilities",
+      "Edge deployment and optimization",
+      "AI safety and alignment tools",
+      "Developer-friendly SDKs and integrations"
+    ],
+    documentation: "https://hanzo.industries/"
+  },
+  {
+    path: "hanzo-dx",
+    icon: Code2,
+    title: "HANZO DX",
+    description: "Developer experience platform for building AI-powered applications.",
+    features: [
+      "Comprehensive development toolkit",
+      "CI/CD pipeline automation",
+      "Code generation and optimization",
+      "Testing and quality assurance tools",
+      "Performance profiling and debugging",
+      "Open source libraries and frameworks"
+    ],
+    documentation: "https://github.com/hanzoai"
+  },
+  {
+    path: "hanzo-ml",
+    icon: Cpu,
+    title: "HANZO ML",
+    description: "Machine learning operations platform for enterprise AI deployment.",
+    features: [
+      "Model versioning and registry",
+      "Automated training pipelines",
+      "A/B testing and experimentation",
+      "Model monitoring and drift detection",
+      "Scalable inference infrastructure",
+      "MLOps best practices and governance"
+    ],
+    documentation: "https://hanzo.ai/ai"
+  },
+  {
+    path: "hanzo-dev",
+    icon: Zap,
+    title: "HANZO DEV",
+    description: "Accelerated development environment for AI applications.",
+    features: [
+      "AI-powered code completion",
+      "Intelligent debugging and error detection",
+      "Automated documentation generation",
+      "Performance optimization suggestions",
+      "Collaborative development features",
+      "Integrated learning resources"
+    ],
+    documentation: "https://hanzo.ai/dev"
+  },
+  {
+    path: "hanzo-team",
+    icon: Users,
+    title: "HANZO TEAM",
+    description: "Team collaboration and project management platform for AI initiatives.",
+    features: [
+      "Project planning and tracking",
+      "Resource allocation and management",
+      "Real-time collaboration tools",
+      "Knowledge sharing and documentation",
+      "Performance analytics and reporting",
+      "Integration with development workflows"
+    ],
+    documentation: "https://hanzo.team/login%3Acomponent%3ALoginApp"
+  }
 ];
 
 const App = () => (
