@@ -29,6 +29,8 @@ import DecentralizedAI from "./pages/capabilities/DecentralizedAI";
 import CaseStudies from "./pages/CaseStudies";
 import Examples from "./pages/Examples";
 import Research from "./pages/Research";
+import Press from "./pages/Press";
+import AIModels from "./pages/AIModels";
 import { Blocks, Code2, Bot, Brain, Shield, Users, Cpu, Zap } from "lucide-react";
 import ProductPage from "./components/ProductPage";
 
@@ -162,6 +164,9 @@ const App = () => (
           <Route path="/research" element={<Research />} />
           <Route path="/research/papers" element={<Research />} />
           <Route path="/research/open-source" element={<Research />} />
+          <Route path="/press" element={<Press />} />
+          <Route path="/models" element={<AIModels />} />
+          <Route path="/ai-models" element={<AIModels />} />
           <Route path="/blog" element={<ComingSoon />} />
           <Route path="/careers" element={<ComingSoon />} />
           <Route path="/news" element={<ComingSoon />} />
