@@ -14,7 +14,6 @@ const navMenus = {
       { label: "Overview", href: "/research", description: "Our research mission and approach" },
       { label: "Papers", href: "/research/papers", description: "Published research papers" },
       { label: "Open Source", href: "/research/open-source", description: "GitHub repositories and projects" },
-      { label: "Blog", href: "/blog", description: "Research updates and insights" },
     ],
   },
   products: {
@@ -33,6 +32,16 @@ const navMenus = {
       { label: "Defense & Intelligence", href: "/defense", description: "Secure AI for government" },
       { label: "Edge Deployment", href: "/solutions/edge", description: "On-premise AI infrastructure" },
       { label: "Custom Models", href: "/solutions/custom", description: "Fine-tuned models for your needs" },
+    ],
+  },
+  learn: {
+    title: "Learn",
+    items: [
+      { label: "Blog", href: "/blog", description: "Latest insights and updates" },
+      { label: "Research", href: "/research", description: "Our research and publications" },
+      { label: "Documentation", href: "/docs", description: "Technical guides and API docs" },
+      { label: "Examples", href: "/examples", description: "Sample code and tutorials" },
+      { label: "Case Studies", href: "/case-studies", description: "Real-world implementations" },
     ],
   },
   company: {
@@ -184,6 +193,12 @@ const Navbar = () => {
           menu={navMenus.solutions}
           isOpen={openMenu === "solutions"}
           onToggle={() => handleMenuToggle("solutions")}
+          onClose={() => setOpenMenu(null)}
+        />
+        <DropdownMenu
+          menu={navMenus.learn}
+          isOpen={openMenu === "learn"}
+          onToggle={() => handleMenuToggle("learn")}
           onClose={() => setOpenMenu(null)}
         />
         <DropdownMenu

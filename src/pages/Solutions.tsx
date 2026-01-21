@@ -20,18 +20,53 @@ const Solutions = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />
-      
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+
+      {/* Hero Section with Gradient Background */}
+      <section className="relative py-24 px-4 overflow-hidden">
+        {/* Radial gradient background */}
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            background: 'radial-gradient(ellipse 80% 50% at 50% -20%, #fd4444, transparent)'
+          }}
+        />
+        {/* Blur effect orbs */}
+        <div
+          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-30"
+          style={{
+            background: '#fd4444',
+            filter: 'blur(100px)'
+          }}
+        />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full opacity-20"
+          style={{
+            background: '#fd4444',
+            filter: 'blur(100px)'
+          }}
+        />
+
+        <div className="relative max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
               Solutions for Every Industry
             </h1>
-            <p className="text-gray-400 text-lg">
-              Explore our comprehensive suite of solutions designed to transform businesses 
+            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+              Explore our comprehensive suite of solutions designed to transform businesses
               across industries and capabilities.
             </p>
-          </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <main className="pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
 
           {solutions.map((section) => {
             const displayCount = expandedSections[section.title] || 6;

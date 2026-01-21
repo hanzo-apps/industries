@@ -4,7 +4,13 @@ import Footer from "@/components/Footer";
 import { Brain, Shield, Cog, Cloud, Zap, Users, Lock, Cpu, Globe, Database } from "lucide-react";
 
 export default function Capabilities() {
-  const capabilities = [
+  const capabilities: {
+    icon: typeof Brain;
+    title: string;
+    description: string;
+    link: string;
+    features: string[];
+  }[] = [
     {
       icon: Brain,
       title: "Frontier AI Models",
@@ -130,24 +136,52 @@ export default function Capabilities() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />
-      
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Hero Section */}
+
+      {/* Hero Section with Gradient Background */}
+      <section className="relative py-24 px-4 overflow-hidden">
+        {/* Radial gradient background */}
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            background: 'radial-gradient(ellipse 80% 50% at 50% -20%, #fd4444, transparent)'
+          }}
+        />
+        {/* Blur effect orbs */}
+        <div
+          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-30"
+          style={{
+            background: '#fd4444',
+            filter: 'blur(100px)'
+          }}
+        />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full opacity-20"
+          style={{
+            background: '#fd4444',
+            filter: 'blur(100px)'
+          }}
+        />
+
+        <div className="relative max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
               Our Capabilities
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
               Comprehensive AI solutions from frontier research to production deployment
             </p>
           </motion.div>
+        </div>
+      </section>
 
+      <main className="pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           {/* Capabilities Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilities.map((capability, index) => {
