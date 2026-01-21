@@ -1,9 +1,13 @@
-
+import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
+import PageTransition from "./components/PageTransition";
+import GlobalChatWidget from "./components/GlobalChatWidget";
+import CommandPalette from "./components/CommandPalette";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Pricing from "./pages/Pricing";
@@ -144,69 +148,91 @@ const productPages = [
   }
 ];
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/capabilities" element={<Capabilities />} />
-          <Route path="/capabilities/decentralized-ai" element={<DecentralizedAI />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/examples" element={<Examples />} />
-          <Route path="/research" element={<Research />} />
-          <Route path="/research/papers" element={<Research />} />
-          <Route path="/research/open-source" element={<Research />} />
-          <Route path="/press" element={<Press />} />
-          <Route path="/models" element={<AIModels />} />
-          <Route path="/ai-models" element={<AIModels />} />
-          <Route path="/blog" element={<ComingSoon />} />
-          <Route path="/careers" element={<ComingSoon />} />
-          <Route path="/news" element={<ComingSoon />} />
-          <Route path="/contact" element={<ComingSoon />} />
-          <Route path="/defense" element={<Defense />} />
-          <Route path="/intelligence" element={<Intelligence />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/industries/aerospace" element={<Aerospace />} />
-          <Route path="/industries/defense" element={<DefenseIndustry />} />
-          <Route path="/industries/aerospace-defense" element={<Navigate to="/industries/defense" replace />} />
-          <Route path="/install" element={<Install />} />
-          <Route path="/install.sh" element={<Install />} />
-          <Route path="/status" element={<Status />} />
-          <Route path="/security" element={<Security />} />
-          <Route path="/cybersecurity" element={<Cybersecurity />} />
-          <Route path="/cloud" element={<SecureCloud />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/coming-soon" element={<ComingSoon />} />
-          {productPages.map((product) => (
-            <Route
-              key={product.path}
-              path={`/products/${product.path}`}
-              element={
-                <ProductPage
-                  icon={product.icon}
-                  title={product.title}
-                  description={product.description}
-                  features={product.features}
-                  documentation={product.documentation}
-                />
-              }
-            />
-          ))}
-          <Route path="/index.html" element={<Navigate to="/" replace />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+
+  // Global keyboard shortcut for command palette
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <PageTransition>
+            <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/capabilities" element={<Capabilities />} />
+            <Route path="/capabilities/decentralized-ai" element={<DecentralizedAI />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/examples" element={<Examples />} />
+            <Route path="/research" element={<Research />} />
+            <Route path="/research/papers" element={<Research />} />
+            <Route path="/research/open-source" element={<Research />} />
+            <Route path="/press" element={<Press />} />
+            <Route path="/models" element={<AIModels />} />
+            <Route path="/ai-models" element={<AIModels />} />
+            <Route path="/blog" element={<ComingSoon />} />
+            <Route path="/careers" element={<ComingSoon />} />
+            <Route path="/news" element={<ComingSoon />} />
+            <Route path="/contact" element={<ComingSoon />} />
+            <Route path="/defense" element={<Defense />} />
+            <Route path="/intelligence" element={<Intelligence />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/industries/aerospace" element={<Aerospace />} />
+            <Route path="/industries/defense" element={<DefenseIndustry />} />
+            <Route path="/industries/aerospace-defense" element={<Navigate to="/industries/defense" replace />} />
+            <Route path="/install" element={<Install />} />
+            <Route path="/install.sh" element={<Install />} />
+            <Route path="/status" element={<Status />} />
+            <Route path="/security" element={<Security />} />
+            <Route path="/cybersecurity" element={<Cybersecurity />} />
+            <Route path="/cloud" element={<SecureCloud />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/coming-soon" element={<ComingSoon />} />
+            {productPages.map((product) => (
+              <Route
+                key={product.path}
+                path={`/products/${product.path}`}
+                element={
+                  <ProductPage
+                    icon={product.icon}
+                    title={product.title}
+                    description={product.description}
+                    features={product.features}
+                    documentation={product.documentation}
+                  />
+                }
+              />
+            ))}
+            <Route path="/index.html" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFound />} />
+            </Routes>
+          </PageTransition>
+          <GlobalChatWidget />
+          <CommandPalette isOpen={isCommandPaletteOpen} onClose={() => setIsCommandPaletteOpen(false)} />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
