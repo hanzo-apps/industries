@@ -35,6 +35,9 @@ import Examples from "./pages/Examples";
 import Research from "./pages/Research";
 import Press from "./pages/Press";
 import AIModels from "./pages/AIModels";
+import Blog from "./pages/Blog";
+import News from "./pages/News";
+import Help from "./pages/Help";
 import { Blocks, Code2, Bot, Brain, Shield, Users, Cpu, Zap } from "lucide-react";
 import ProductPage from "./components/ProductPage";
 
@@ -189,9 +192,10 @@ const App = () => {
             <Route path="/press" element={<Press />} />
             <Route path="/models" element={<AIModels />} />
             <Route path="/ai-models" element={<AIModels />} />
-            <Route path="/blog" element={<ComingSoon />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/careers" element={<ComingSoon />} />
-            <Route path="/news" element={<ComingSoon />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/help" element={<Help />} />
             <Route path="/contact" element={<ComingSoon />} />
             <Route path="/defense" element={<Defense />} />
             <Route path="/intelligence" element={<Intelligence />} />
