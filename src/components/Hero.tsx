@@ -94,7 +94,11 @@ const Hero = () => {
             <Link to="/research">
               <Button
                 size="lg"
-                className="w-full sm:w-auto text-base px-8 h-12 bg-[#fd4444] text-white hover:bg-[#e03d3d] rounded-full transition-colors"
+                className={`w-full sm:w-auto text-base px-8 h-12 rounded-full transition-colors ${
+                  isDarkMode
+                    ? 'bg-white text-black hover:bg-white/90'
+                    : 'bg-black text-white hover:bg-black/90'
+                }`}
               >
                 Explore Our Research
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -106,8 +110,8 @@ const Hero = () => {
                 variant="outline"
                 className={`w-full sm:w-auto text-base px-8 h-12 rounded-full transition-colors ${
                   isDarkMode
-                    ? 'border-white/20 bg-white/5 text-white hover:bg-white/10'
-                    : 'border-black/20 bg-black/5 text-black hover:bg-black/10'
+                    ? 'border-white/30 text-white hover:bg-white/10'
+                    : 'border-black/30 text-black hover:bg-black/10'
                 }`}
               >
                 <Sparkles className="w-4 h-4 mr-2" />
