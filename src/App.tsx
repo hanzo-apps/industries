@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
 import GlobalChatWidget from "./components/GlobalChatWidget";
@@ -24,6 +25,7 @@ import Services from "./pages/Services";
 import Aerospace from "./pages/industries/Aerospace";
 import DefenseIndustry from "./pages/industries/Defense";
 import ComingSoon from "./pages/ComingSoon";
+import ContactPage from "./pages/ContactPage";
 import About from "./pages/About";
 import Cybersecurity from "./pages/Cybersecurity";
 import SecureCloud from "./pages/SecureCloud";
@@ -168,14 +170,15 @@ const App = () => {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
-          <PageTransition>
-            <Routes>
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <ScrollToTop />
+            <PageTransition>
+              <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/about" element={<About />} />
@@ -196,7 +199,7 @@ const App = () => {
             <Route path="/careers" element={<ComingSoon />} />
             <Route path="/news" element={<News />} />
             <Route path="/help" element={<Help />} />
-            <Route path="/contact" element={<ComingSoon />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/defense" element={<Defense />} />
             <Route path="/intelligence" element={<Intelligence />} />
             <Route path="/services" element={<Services />} />
@@ -227,15 +230,16 @@ const App = () => {
                 }
               />
             ))}
-            <Route path="/index.html" element={<Navigate to="/" replace />} />
-            <Route path="*" element={<NotFound />} />
-            </Routes>
-          </PageTransition>
-          <GlobalChatWidget />
-          <CommandPalette isOpen={isCommandPaletteOpen} onClose={() => setIsCommandPaletteOpen(false)} />
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+              <Route path="/index.html" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<NotFound />} />
+              </Routes>
+            </PageTransition>
+            <GlobalChatWidget />
+            <CommandPalette isOpen={isCommandPaletteOpen} onClose={() => setIsCommandPaletteOpen(false)} />
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 };
 

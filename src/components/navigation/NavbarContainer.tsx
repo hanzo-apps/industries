@@ -1,5 +1,6 @@
 import { useState, useEffect, ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface NavbarContainerProps {
   children: ReactNode;
@@ -7,6 +8,7 @@ interface NavbarContainerProps {
 
 const NavbarContainer = ({ children }: NavbarContainerProps) => {
   const [scrolled, setScrolled] = useState(false);
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -20,7 +22,12 @@ const NavbarContainer = ({ children }: NavbarContainerProps) => {
         className={cn(
           "mx-auto transition-all duration-500 ease-out",
           scrolled
-            ? "mt-4 mx-4 md:mx-8 lg:mx-auto lg:max-w-6xl rounded-full bg-black/80 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50"
+            ? cn(
+                "mt-4 mx-4 md:mx-8 lg:mx-auto lg:max-w-6xl rounded-full backdrop-blur-xl border shadow-2xl",
+                isDarkMode
+                  ? "bg-black/80 border-white/10 shadow-black/50"
+                  : "bg-white/80 border-black/10 shadow-black/10"
+              )
             : "bg-transparent"
         )}
       >

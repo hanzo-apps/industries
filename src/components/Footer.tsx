@@ -1,82 +1,120 @@
-
+import { Link } from "react-router-dom";
 import { Check, Shield, Lock, Award } from "lucide-react";
+import Logo from "./Logo";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const Footer = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <footer className="border-t border-gray-200 bg-black text-white">
+    <footer className={`border-t transition-colors ${
+      isDarkMode
+        ? 'border-white/10 bg-black text-white'
+        : 'border-black/10 bg-white text-black'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src="/hanzo-logo.png" 
-                alt="Hanzo Industries" 
-                className="h-10 w-auto"
-              />
-              <span className="text-white font-bold text-xl">Hanzo Industries</span>
-            </div>
-            <p className="text-gray-400 mb-6 max-w-md">
-              Delivering mission-critical defense and intelligence solutions through 
+            <Logo size="md" showText={true} className="mb-6" />
+            <p className={`mb-6 max-w-md ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+              Delivering mission-critical defense and intelligence solutions through
               advanced AI, secure cloud infrastructure, and innovative engineering.
             </p>
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
-                <Shield className="h-5 w-5 text-gray-400" />
-                <span className="text-sm text-gray-400">Security Focused</span>
+                <Shield className={`h-5 w-5 ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`} />
+                <span className={`text-sm ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>Security Focused</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Lock className="h-5 w-5 text-gray-400" />
-                <span className="text-sm text-gray-400">Compliance Ready</span>
+                <Lock className={`h-5 w-5 ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`} />
+                <span className={`text-sm ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>Compliance Ready</span>
               </div>
             </div>
           </div>
-          
+
           <div>
-            <h4 className="font-semibold mb-4">Solutions</h4>
-            <ul className="space-y-2">
-              <li><a href="/intelligence" className="text-gray-400 hover:text-white text-sm">AI & ML</a></li>
-              <li><a href="/defense" className="text-gray-400 hover:text-white text-sm">Defense Systems</a></li>
-              <li><a href="/cybersecurity" className="text-gray-400 hover:text-white text-sm">Cybersecurity</a></li>
-              <li><a href="/cloud" className="text-gray-400 hover:text-white text-sm">Secure Cloud</a></li>
+            <h4 className={`font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>Solutions</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/intelligence" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  AI & ML
+                </Link>
+              </li>
+              <li>
+                <Link to="/defense" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  Defense Systems
+                </Link>
+              </li>
+              <li>
+                <Link to="/cybersecurity" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  Cybersecurity
+                </Link>
+              </li>
+              <li>
+                <Link to="/cloud" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  Secure Cloud
+                </Link>
+              </li>
             </ul>
           </div>
-          
+
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><a href="/about" className="text-gray-400 hover:text-white text-sm">About Us</a></li>
-              <li><a href="/#contact" className="text-gray-400 hover:text-white text-sm">Careers</a></li>
-              <li><a href="/#contact" className="text-gray-400 hover:text-white text-sm">News</a></li>
-              <li><a href="/#contact" className="text-gray-400 hover:text-white text-sm">Contact</a></li>
+            <h4 className={`font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>Company</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/about" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/team" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  Team
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link to="/news" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  News
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className={`mt-12 pt-8 border-t ${isDarkMode ? 'border-white/10' : 'border-black/10'}`}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-8">
-              <div className="text-gray-500 text-sm">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
+              <div className={`text-sm ${isDarkMode ? 'text-neutral-500' : 'text-neutral-500'}`}>
                 © 2025 Hanzo Industries Inc. All rights reserved.
               </div>
-              <a href="/status" className="inline-flex items-center space-x-2 text-gray-500 hover:text-white text-sm">
+              <Link to="/status" className={`inline-flex items-center space-x-2 text-sm transition-colors ${isDarkMode ? 'text-neutral-500 hover:text-white' : 'text-neutral-500 hover:text-black'}`}>
                 <Check className="h-4 w-4 text-green-500" />
                 <span>All systems operational</span>
-              </a>
+              </Link>
             </div>
-            <div className="flex items-center space-x-6">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
               <div className="flex items-center space-x-2">
-                <Award className="h-4 w-4 text-gray-500" />
-                <span className="text-sm text-gray-500">Techstars Backed</span>
+                <Award className={`h-4 w-4 ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`} />
+                <span className={`text-sm ${isDarkMode ? 'text-neutral-500' : 'text-neutral-500'}`}>Techstars '17</span>
               </div>
-              <a href="/privacy" className="text-gray-500 hover:text-white text-sm">
+              <Link to="/privacy" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-500 hover:text-white' : 'text-neutral-500 hover:text-black'}`}>
                 Privacy Policy
-              </a>
-              <a href="/terms" className="text-gray-500 hover:text-white text-sm">
+              </Link>
+              <Link to="/terms" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-500 hover:text-white' : 'text-neutral-500 hover:text-black'}`}>
                 Terms of Service
-              </a>
-              <a href="/security" className="text-gray-500 hover:text-white text-sm">
+              </Link>
+              <Link to="/security" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-500 hover:text-white' : 'text-neutral-500 hover:text-black'}`}>
                 Security
-              </a>
+              </Link>
             </div>
           </div>
         </div>
