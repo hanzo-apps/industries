@@ -27,6 +27,7 @@ import {
   BookOpen,
   Newspaper,
   Building,
+  Network,
 } from "lucide-react";
 
 const BRAND_COLOR = "#fd4444";
