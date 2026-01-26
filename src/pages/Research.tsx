@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -14,17 +14,34 @@ import {
   Shield,
   Cpu,
   Network,
-  Sparkles
+  Sparkles,
+  Search,
+  X
 } from "lucide-react";
 
-// Category metadata for display
-const categoryMeta = {
-  all: { label: "All Papers", color: "neutral" },
+// Organization metadata for display
+const orgMeta = {
+  all: { label: "All Organizations", color: "neutral" },
   hanzo: { label: "Hanzo AI", color: "red" },
   lux: { label: "Lux Network", color: "blue" },
   zoo: { label: "Zoo Labs", color: "green" },
   zen: { label: "Zen LM", color: "purple" },
-  crypto: { label: "Cryptography", color: "yellow" },
+};
+
+// Topic/category metadata for display
+const topicMeta = {
+  all: { label: "All Topics", color: "neutral" },
+  consensus: { label: "Consensus", color: "blue" },
+  fhe: { label: "FHE", color: "green" },
+  mpc: { label: "MPC", color: "purple" },
+  zkp: { label: "Zero-Knowledge", color: "yellow" },
+  pqc: { label: "Post-Quantum", color: "pink" },
+  defi: { label: "DeFi", color: "orange" },
+  identity: { label: "Identity", color: "cyan" },
+  ai: { label: "AI/ML", color: "red" },
+  models: { label: "Models", color: "violet" },
+  agents: { label: "Agents", color: "emerald" },
+  infrastructure: { label: "Infrastructure", color: "slate" },
 };
 
 // Research areas
@@ -108,8 +125,9 @@ const openSourceProjects = [
   },
 ];
 
-// Paper categories for filtering
-type PaperCategory = "hanzo" | "lux" | "zoo" | "zen" | "crypto";
+// Type definitions
+type Organization = "hanzo" | "lux" | "zoo" | "zen";
+type Topic = "consensus" | "fhe" | "mpc" | "zkp" | "pqc" | "defi" | "identity" | "ai" | "models" | "agents" | "infrastructure";
 
 interface Paper {
   title: string;
@@ -117,191 +135,34 @@ interface Paper {
   date: string;
   abstract: string;
   link: string;
-  category: PaperCategory;
+  org: Organization;
+  topics: Topic[];
+  featured?: boolean;
 }
 
-// Research papers - organized by organization
+// Research papers with multi-dimensional categorization
 const papers: Paper[] = [
-  // Hanzo AI Papers
-  {
-    title: "Active Semantic Optimization (ASO): Training-Free Adaptation for Foundation Models",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "A novel framework for adapting foundation models to new tasks without additional training, using semantic optimization techniques.",
-    link: "https://github.com/hanzoai/papers/blob/main/hanzo-aso.pdf",
-    category: "hanzo",
-  },
-  {
-    title: "Decentralized Semantic Optimization with Byzantine-Robust Prior Aggregation",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "A distributed approach to semantic optimization that maintains robustness against Byzantine failures in decentralized AI systems.",
-    link: "https://github.com/hanzoai/papers/blob/main/hanzo-dso.pdf",
-    category: "hanzo",
-  },
-  {
-    title: "Hamiltonian Market Maker (HMM): Decentralized AI Compute Exchange",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "A market-making protocol for decentralized AI compute resources using Hamiltonian dynamics for optimal pricing.",
-    link: "https://github.com/hanzoai/papers/blob/main/hanzo-hmm.pdf",
-    category: "hanzo",
-  },
-  {
-    title: "Hanzo Network Whitepaper: Decentralized AI Infrastructure",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "Technical architecture for distributed AI inference and training across a decentralized network of compute providers.",
-    link: "https://github.com/hanzoai/papers/blob/main/hanzo-network-whitepaper.pdf",
-    category: "hanzo",
-  },
-  // Lux Network Papers - Consensus & Architecture
-  {
-    title: "Lux Quantum Consensus: Post-Quantum BFT Protocol",
-    authors: "Lux Network Research",
-    date: "2025",
-    abstract: "Byzantine fault-tolerant consensus protocol designed for quantum-resistant security with lattice-based cryptography.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-quantum-consensus.pdf",
-    category: "lux",
-  },
-  {
-    title: "Quasar Consensus: High-Throughput DAG-Based Protocol",
-    authors: "Lux Network Research",
-    date: "2025",
-    abstract: "DAG-based consensus mechanism achieving high throughput with asynchronous finality guarantees.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-quasar-consensus.pdf",
-    category: "lux",
-  },
-  {
-    title: "FPC Consensus: Fast Probabilistic Consensus",
-    authors: "Lux Network Research",
-    date: "2025",
-    abstract: "Probabilistic consensus protocol for rapid finality in high-volume transaction environments.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-fpc-consensus.pdf",
-    category: "lux",
-  },
-  {
-    title: "ETHFalcon: Post-Quantum Signatures for Ethereum",
-    authors: "Lux Network Research",
-    date: "2025",
-    abstract: "Integration of FALCON lattice-based signatures into Ethereum-compatible chains for quantum resistance.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-ethfalcon-post-quantum.pdf",
-    category: "lux",
-  },
-  {
-    title: "Lux Bridge: Cross-Chain Asset Transfer",
-    authors: "Lux Network Research",
-    date: "2025",
-    abstract: "Secure cross-chain bridge protocol for trustless asset transfers between heterogeneous chains.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-bridge.pdf",
-    category: "lux",
-  },
-  // Zoo Labs Papers
-  {
-    title: "Gym Training Platform: Decentralized Model Training at Scale",
-    authors: "Zoo Labs Foundation",
-    date: "2025",
-    abstract: "Infrastructure for distributed deep learning training across heterogeneous compute resources.",
-    link: "https://github.com/zooai/papers/blob/main/pdfs/gym-training-platform.pdf",
-    category: "zoo",
-  },
-  {
-    title: "Experience Ledger: Decentralized Semantic Optimization",
-    authors: "Zoo Labs Foundation",
-    date: "2025",
-    abstract: "Community-driven semantic optimization protocol for collaborative AI model improvement.",
-    link: "https://github.com/zooai/papers/blob/main/pdfs/experience-ledger-dso.pdf",
-    category: "zoo",
-  },
-  {
-    title: "Zoo Foundation Mission",
-    authors: "Zoo Labs Foundation",
-    date: "2025",
-    abstract: "Mission and vision for the Zoo Labs Foundation - open AI research network.",
-    link: "https://github.com/zooai/papers/blob/main/pdfs/zoo-foundation-mission.pdf",
-    category: "zoo",
-  },
-  {
-    title: "Zoo Network Architecture",
-    authors: "Zoo Labs Foundation",
-    date: "2025",
-    abstract: "Technical architecture for the Zoo decentralized AI network infrastructure.",
-    link: "https://github.com/zooai/papers/blob/main/pdfs/zoo-network-architecture.pdf",
-    category: "zoo",
-  },
-  {
-    title: "Zoo Tokenomics: Incentive Design for Decentralized AI",
-    authors: "Zoo Labs Foundation",
-    date: "2025",
-    abstract: "Economic model for incentivizing contributions to decentralized AI training and inference.",
-    link: "https://github.com/zooai/papers/blob/main/pdfs/zoo-tokenomics.pdf",
-    category: "zoo",
-  },
-  {
-    title: "HLLM: Training-Free GRPO for Language Models",
-    authors: "Zoo Labs Foundation",
-    date: "2025",
-    abstract: "Training-free group relative policy optimization techniques for language model alignment.",
-    link: "https://github.com/zooai/papers/blob/main/pdfs/hllm-training-free-grpo.pdf",
-    category: "zoo",
-  },
-  {
-    title: "ZIP-002: Zen Reranker Specification",
-    authors: "Zoo Labs Foundation",
-    date: "2025",
-    abstract: "Zoo Improvement Proposal for the Zen Reranker search reranking specification.",
-    link: "https://github.com/zooai/papers/blob/main/pdfs/zip-002-zen-reranker.pdf",
-    category: "zoo",
-  },
-  // Zen LM Papers - Model Whitepapers
-  {
-    title: "Zen Coder: Code-Specialized Language Model Architecture",
-    authors: "Zen LM Research",
-    date: "2025",
-    abstract: "Architecture and training methodology for code-specialized language models with multi-language support.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-coder_whitepaper.pdf",
-    category: "zen",
-  },
-  {
-    title: "Zen Omni: Unified Multimodal Foundation Model",
-    authors: "Zen LM Research",
-    date: "2025",
-    abstract: "Single model architecture for text, vision, audio, and code understanding with emergent cross-modal reasoning.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-omni_whitepaper.pdf",
-    category: "zen",
-  },
-  {
-    title: "Zen Nano: Efficient Small Language Models",
-    authors: "Zen LM Research",
-    date: "2025",
-    abstract: "Techniques for training highly capable small language models (600M-3B parameters) for edge deployment.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-nano_whitepaper.pdf",
-    category: "zen",
-  },
-  // Additional Hanzo Stack Papers
+  // ===== FEATURED: ZAP Protocol =====
   {
     title: "ZAP: Zero-copy Agent Protocol",
     authors: "Hanzo AI Research",
     date: "2026",
-    abstract: "The MCP Killer—a unified protocol using Cap'n Proto RPC for ~500x faster agent communication with zero-copy performance, capability-secure routing, and native consensus integration.",
+    abstract: "The MCP Killer—unified protocol using Cap'n Proto RPC for ~500x faster agent communication. Features zero-copy performance (<1μs latency), capability-secure routing, native metastable consensus, and post-quantum security. Achieves 1.2M/s throughput vs MCP's 2.2k/s.",
     link: "https://github.com/zap-protocol/zap",
-    category: "hanzo",
+    org: "hanzo",
+    topics: ["agents", "infrastructure", "consensus"],
+    featured: true,
   },
+
+  // ===== HANZO AI - Agents & Infrastructure =====
   {
     title: "Model Context Protocol: Standardized Tool Interface for LLM Augmentation",
     authors: "Hanzo AI Research",
     date: "2025",
     abstract: "A standardized framework for tool use in large language models with 260+ production tools across filesystem, code search, shell execution, and agent delegation.",
     link: "https://github.com/hanzoai/mcp",
-    category: "hanzo",
-  },
-  {
-    title: "LLM Gateway: Unified Multi-Provider API Translation and Optimization",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "Architecture for unified proxy layer abstracting 100+ LLM providers with intelligent routing, cost optimization, and 20-30% cost reduction through smart failover.",
-    link: "https://github.com/hanzoai/llm",
-    category: "hanzo",
+    org: "hanzo",
+    topics: ["agents", "infrastructure"],
   },
   {
     title: "Agent Networks: Semantic Routing and Orchestration for Collaborative AI",
@@ -309,7 +170,8 @@ const papers: Paper[] = [
     date: "2025",
     abstract: "Framework for multi-agent systems with intelligent routing strategies, handoff mechanisms, shared state management, and workflow orchestration.",
     link: "https://github.com/hanzoai/agent",
-    category: "hanzo",
+    org: "hanzo",
+    topics: ["agents", "ai"],
   },
   {
     title: "Operative: Autonomous Computer Control via Vision-Language Models",
@@ -317,7 +179,57 @@ const papers: Paper[] = [
     date: "2025",
     abstract: "System design enabling LLMs to autonomously control computers through vision, mouse/keyboard input, with safety isolation and multi-provider support.",
     link: "https://github.com/hanzoai/operative",
-    category: "hanzo",
+    org: "hanzo",
+    topics: ["agents", "ai"],
+  },
+  {
+    title: "LLM Gateway: Unified Multi-Provider API Translation and Optimization",
+    authors: "Hanzo AI Research",
+    date: "2025",
+    abstract: "Architecture for unified proxy layer abstracting 100+ LLM providers with intelligent routing, cost optimization, and 20-30% cost reduction through smart failover.",
+    link: "https://github.com/hanzoai/llm",
+    org: "hanzo",
+    topics: ["infrastructure", "ai"],
+  },
+
+  // ===== HANZO AI - AI Research =====
+  {
+    title: "Active Semantic Optimization (ASO): Training-Free Adaptation for Foundation Models",
+    authors: "Hanzo AI Research",
+    date: "2025",
+    abstract: "A novel framework for adapting foundation models to new tasks without additional training, using semantic optimization techniques. Achieves 18.2% SWE-bench resolution.",
+    link: "https://github.com/hanzoai/papers/blob/main/hanzo-aso.pdf",
+    org: "hanzo",
+    topics: ["ai", "models"],
+    featured: true,
+  },
+  {
+    title: "Decentralized Semantic Optimization with Byzantine-Robust Prior Aggregation",
+    authors: "Hanzo AI Research",
+    date: "2025",
+    abstract: "A distributed approach to semantic optimization that maintains robustness against Byzantine failures in decentralized AI systems.",
+    link: "https://github.com/hanzoai/papers/blob/main/hanzo-dso.pdf",
+    org: "hanzo",
+    topics: ["ai", "consensus"],
+  },
+  {
+    title: "Hamiltonian Market Maker (HMM): Decentralized AI Compute Exchange",
+    authors: "Hanzo AI Research",
+    date: "2025",
+    abstract: "A market-making protocol for decentralized AI compute resources using Hamiltonian dynamics. Achieves <200ms quote latency, 98.7% price stability, zero impermanent loss.",
+    link: "https://github.com/hanzoai/papers/blob/main/hanzo-hmm.pdf",
+    org: "hanzo",
+    topics: ["defi", "infrastructure"],
+    featured: true,
+  },
+  {
+    title: "Hanzo Network Whitepaper: Decentralized AI Infrastructure",
+    authors: "Hanzo AI Research",
+    date: "2025",
+    abstract: "Technical architecture for distributed AI inference and training across a decentralized network of compute providers.",
+    link: "https://github.com/hanzoai/papers/blob/main/hanzo-network-whitepaper.pdf",
+    org: "hanzo",
+    topics: ["infrastructure", "ai"],
   },
   {
     title: "Jin: Unified Multimodal Architecture for Text, Vision, Audio, and 3D",
@@ -325,23 +237,26 @@ const papers: Paper[] = [
     date: "2025",
     abstract: "Novel architecture unifying text, vision, audio, and 3D modalities through shared embedding space with diffusion transformer and mixture-of-experts routing.",
     link: "https://github.com/hanzoai/jin",
-    category: "hanzo",
+    org: "hanzo",
+    topics: ["models", "ai"],
   },
   {
     title: "Hanzo Memory: Local Vector Database with Multimodal Embeddings",
     authors: "Hanzo AI Research",
     date: "2025",
-    abstract: "High-performance AI memory system using embedded vector database (InfinityDB), local embeddings (FastEmbed), and semantic search over 100+ LLM providers.",
+    abstract: "High-performance AI memory system using embedded vector database (InfinityDB), local embeddings (FastEmbed), and semantic search.",
     link: "https://github.com/hanzoai/memory",
-    category: "hanzo",
+    org: "hanzo",
+    topics: ["infrastructure", "ai"],
   },
   {
     title: "Hanzo Platform: Self-Hosted PaaS for AI Infrastructure",
     authors: "Hanzo AI Research",
     date: "2025",
-    abstract: "Self-hostable platform-as-a-service providing deployment, database management, monitoring with Traefik integration and multi-language support.",
+    abstract: "Self-hostable platform-as-a-service providing deployment, database management, monitoring with Traefik integration.",
     link: "https://github.com/hanzoai/platform",
-    category: "hanzo",
+    org: "hanzo",
+    topics: ["infrastructure"],
   },
   {
     title: "Post-Quantum Cryptography for Confidential AI Workloads",
@@ -349,386 +264,528 @@ const papers: Paper[] = [
     date: "2025",
     abstract: "Integration of ML-KEM/ML-DSA post-quantum algorithms with privacy-tier framework for GPU TEE isolation in confidential computing.",
     link: "https://github.com/hanzoai/rust-sdk",
-    category: "hanzo",
+    org: "hanzo",
+    topics: ["pqc", "ai"],
   },
-  // Additional Lux Network Papers (23 papers)
+  {
+    title: "Confidential AI: GPU TEE Isolation Patterns",
+    authors: "Hanzo AI Research",
+    date: "2025",
+    abstract: "Security architecture for running AI workloads in GPU trusted execution environments with Intel SGX and AMD SEV support.",
+    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-confidential-ai.pdf",
+    org: "hanzo",
+    topics: ["mpc", "infrastructure"],
+  },
+  {
+    title: "Scaling Laws for AI Compute: GPU Cluster Optimization",
+    authors: "Hanzo AI Research",
+    date: "2025",
+    abstract: "Empirical analysis of scaling laws for distributed AI training and inference optimization across heterogeneous GPU clusters.",
+    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-scaling-laws.pdf",
+    org: "hanzo",
+    topics: ["ai", "infrastructure"],
+  },
+  {
+    title: "RAG Architecture: Retrieval-Augmented Generation Patterns",
+    authors: "Hanzo AI Research",
+    date: "2025",
+    abstract: "Design patterns for building robust retrieval-augmented generation systems in production with hybrid search and reranking.",
+    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-rag-architecture.pdf",
+    org: "hanzo",
+    topics: ["ai", "infrastructure"],
+  },
+  {
+    title: "Model Routing: Intelligent Request Distribution",
+    authors: "Hanzo AI Research",
+    date: "2025",
+    abstract: "Algorithms for routing AI requests to optimal models based on cost, latency, quality, and capability matching.",
+    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-model-routing.pdf",
+    org: "hanzo",
+    topics: ["ai", "infrastructure"],
+  },
+
+  // ===== LUX NETWORK - Consensus =====
   {
     title: "Lux Quantum Consensus: Post-Quantum BFT Protocol",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Byzantine fault-tolerant consensus protocol designed for quantum-resistant security with lattice-based cryptography.",
+    abstract: "Byzantine fault-tolerant consensus protocol with quantum-resistant security using FALCON lattice-based signatures and dual-certificate finality.",
     link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-quantum-consensus.pdf",
-    category: "lux",
+    org: "lux",
+    topics: ["consensus", "pqc"],
+    featured: true,
   },
   {
     title: "Quasar Consensus: High-Throughput DAG-Based Protocol",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "DAG-based consensus mechanism achieving high throughput with asynchronous finality guarantees.",
+    abstract: "DAG-based consensus mechanism achieving high throughput with asynchronous finality guarantees and metastable voting.",
     link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-quasar-consensus.pdf",
-    category: "lux",
+    org: "lux",
+    topics: ["consensus"],
   },
   {
     title: "FPC Consensus: Fast Probabilistic Consensus",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Probabilistic consensus protocol for rapid finality in high-volume transaction environments.",
+    abstract: "Probabilistic consensus protocol for rapid finality using opinion dynamics and threshold voting.",
     link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-fpc-consensus.pdf",
-    category: "lux",
+    org: "lux",
+    topics: ["consensus"],
   },
+  {
+    title: "Wave Consensus: Sub-Second Finality Protocol",
+    authors: "Lux Network Research",
+    date: "2025",
+    abstract: "Optimistic consensus protocol achieving sub-second finality for high-frequency transaction environments.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-wave-consensus.pdf",
+    org: "lux",
+    topics: ["consensus"],
+  },
+  {
+    title: "Focus Consensus: High-Throughput Streaming Protocol",
+    authors: "Lux Network Research",
+    date: "2025",
+    abstract: "Streaming consensus protocol optimized for continuous transaction throughput with parallel validation.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-focus-consensus.pdf",
+    org: "lux",
+    topics: ["consensus"],
+  },
+  {
+    title: "Snow++ Consensus: Enhanced Avalanche Protocol",
+    authors: "Lux Network Research",
+    date: "2025",
+    abstract: "Enhanced Snow consensus with improved liveness guarantees and adaptive sampling strategies.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-snow-plus-plus.pdf",
+    org: "lux",
+    topics: ["consensus"],
+  },
+
+  // ===== LUX NETWORK - Post-Quantum Cryptography =====
   {
     title: "ETHFalcon: Post-Quantum Signatures for Ethereum",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Integration of FALCON lattice-based signatures into Ethereum-compatible chains for quantum resistance.",
+    abstract: "Integration of FALCON lattice-based signatures into Ethereum-compatible chains for quantum resistance with EIP compatibility.",
     link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-ethfalcon-post-quantum.pdf",
-    category: "lux",
+    org: "lux",
+    topics: ["pqc", "consensus"],
+  },
+  {
+    title: "Ringtail: Threshold Post-Quantum Signatures",
+    authors: "Lux Network Research",
+    date: "2025",
+    abstract: "Threshold signature scheme combining FALCON with distributed key generation for post-quantum multi-party signing.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-ringtail-threshold.pdf",
+    org: "lux",
+    topics: ["pqc", "mpc"],
   },
   {
     title: "Universal Threshold Signatures: Multi-Party Signing",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Threshold signature schemes for secure multi-party signing with configurable thresholds.",
+    abstract: "Threshold signature schemes for secure multi-party signing with configurable thresholds and dealer-free setup.",
     link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-universal-threshold-signatures.pdf",
-    category: "lux",
+    org: "lux",
+    topics: ["mpc", "pqc"],
   },
   {
-    title: "Verkle Trees: Efficient State Commitments",
+    title: "BLS-FALCON Hybrid Signatures",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Verkle tree implementation for efficient blockchain state proofs with smaller witness sizes.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-verkle-trees.pdf",
-    category: "lux",
+    abstract: "Dual-certificate signature scheme combining BLS aggregate signatures with FALCON for quantum-transitional security.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-bls-falcon-hybrid.pdf",
+    org: "lux",
+    topics: ["pqc", "consensus"],
   },
+
+  // ===== LUX NETWORK - MPC & TEE =====
   {
-    title: "TEE Computing Mesh: Trusted Execution Network",
+    title: "LSSS Threshold Cryptography: Linear Secret Sharing Schemes",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Distributed trusted execution environment mesh for confidential computing at scale.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-tee-computing-mesh.pdf",
-    category: "lux",
+    abstract: "Implementation of Linear Secret Sharing Schemes (LSSS) for threshold cryptography with arbitrary access structures and efficient reconstruction.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-lsss-threshold.pdf",
+    org: "lux",
+    topics: ["mpc", "pqc"],
+    featured: true,
   },
   {
     title: "MPC Chain: Multi-Party Computation Infrastructure",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Multi-party computation protocol for privacy-preserving blockchain operations.",
+    abstract: "Multi-party computation protocol for privacy-preserving blockchain operations with SPDZ and BGW protocols.",
     link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-mchain-mpc.pdf",
-    category: "lux",
+    org: "lux",
+    topics: ["mpc"],
   },
   {
-    title: "Lux Bridge: Cross-Chain Asset Transfer",
+    title: "TEE Computing Mesh: Trusted Execution Network",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Secure cross-chain bridge protocol for trustless asset transfers between heterogeneous chains.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-bridge.pdf",
-    category: "lux",
+    abstract: "Distributed trusted execution environment mesh for confidential computing with Intel SGX and AMD SEV attestation.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-tee-computing-mesh.pdf",
+    org: "lux",
+    topics: ["mpc", "infrastructure"],
   },
+  {
+    title: "Threshold ECDSA on Lux: Distributed Key Management",
+    authors: "Lux Network Research",
+    date: "2025",
+    abstract: "Implementation of threshold ECDSA for distributed custody without any party learning the full private key.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-threshold-ecdsa.pdf",
+    org: "lux",
+    topics: ["mpc"],
+  },
+
+  // ===== LUX NETWORK - Zero-Knowledge =====
   {
     title: "Fraud Proofs: Optimistic Rollup Verification",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Interactive fraud proof system for optimistic rollup security and dispute resolution.",
+    abstract: "Interactive fraud proof system for optimistic rollup security with bisection-based dispute resolution.",
     link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-fraud-proofs.pdf",
-    category: "lux",
+    org: "lux",
+    topics: ["zkp", "consensus"],
   },
   {
-    title: "Lux DID Specification: Decentralized Identity",
+    title: "Verkle Trees: Efficient State Commitments",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "W3C-compliant decentralized identifier specification for self-sovereign identity on Lux.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-id-did-specification.pdf",
-    category: "lux",
+    abstract: "Verkle tree implementation for efficient blockchain state proofs with 10x smaller witness sizes than Merkle trees.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-verkle-trees.pdf",
+    org: "lux",
+    topics: ["zkp", "infrastructure"],
   },
   {
-    title: "Lux IAM: Identity and Access Management",
+    title: "KZG Data Availability Sampling",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Decentralized identity and access management framework with verifiable credentials.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-id-iam.pdf",
-    category: "lux",
+    abstract: "KZG polynomial commitment scheme for data availability sampling in modular blockchain architecture.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-kzg-das.pdf",
+    org: "lux",
+    topics: ["zkp", "consensus"],
   },
+
+  // ===== LUX NETWORK - DeFi =====
   {
-    title: "DAO Governance Framework: On-Chain Governance",
+    title: "Lightspeed DEX: High-Performance Exchange",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Comprehensive DAO governance framework with voting mechanisms and treasury management.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-dao-governance-framework.pdf",
-    category: "lux",
+    abstract: "High-throughput decentralized exchange with sub-second finality, concentrated liquidity, and MEV protection.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-lightspeed-dex.pdf",
+    org: "lux",
+    topics: ["defi"],
   },
   {
     title: "Credit Lending Protocol: DeFi Lending",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Decentralized lending protocol with dynamic interest rates and collateral management.",
+    abstract: "Decentralized lending protocol with dynamic interest rates, isolated collateral pools, and liquidation mechanisms.",
     link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-credit-lending.pdf",
-    category: "lux",
+    org: "lux",
+    topics: ["defi"],
   },
   {
     title: "Perpetuals & Derivatives: On-Chain Derivatives",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Perpetual futures and derivatives protocol with oracle-based price feeds and liquidation mechanisms.",
+    abstract: "Perpetual futures and derivatives protocol with oracle-based price feeds and cross-margin support.",
     link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-perpetuals-derivatives.pdf",
-    category: "lux",
+    org: "lux",
+    topics: ["defi"],
   },
   {
-    title: "Lightspeed DEX: High-Performance Exchange",
+    title: "Lux Bridge: Cross-Chain Asset Transfer",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "High-throughput decentralized exchange with sub-second finality and MEV protection.",
-    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-lightspeed-dex.pdf",
-    category: "lux",
+    abstract: "Secure cross-chain bridge protocol for trustless asset transfers using light client verification.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-bridge.pdf",
+    org: "lux",
+    topics: ["defi", "infrastructure"],
   },
   {
     title: "Oracle Infrastructure: Decentralized Data Feeds",
     authors: "Lux Network Research",
     date: "2025",
-    abstract: "Decentralized oracle network for reliable off-chain data delivery to smart contracts.",
+    abstract: "Decentralized oracle network for reliable off-chain data delivery with economic security guarantees.",
     link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-oracle-infrastructure.pdf",
-    category: "lux",
-  },
-  // Additional Zen LM Papers (20+ more model papers)
-  {
-    title: "Zen Artist: Image Generation Model",
-    authors: "Zen LM Research",
-    date: "2025",
-    abstract: "State-of-the-art image generation model with style control and high-resolution output.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-artist_whitepaper.pdf",
-    category: "zen",
+    org: "lux",
+    topics: ["defi", "infrastructure"],
   },
   {
-    title: "Zen Artist Edit: Image Editing Model",
-    authors: "Zen LM Research",
+    title: "DAO Governance Framework: On-Chain Governance",
+    authors: "Lux Network Research",
     date: "2025",
-    abstract: "Instruction-following image editing model for precise visual modifications.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-artist-edit_whitepaper.pdf",
-    category: "zen",
+    abstract: "Comprehensive DAO governance framework with timelock, voting delegation, and treasury management.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-dao-governance-framework.pdf",
+    org: "lux",
+    topics: ["defi", "infrastructure"],
+  },
+
+  // ===== LUX NETWORK - Identity =====
+  {
+    title: "Lux DID Specification: Decentralized Identity",
+    authors: "Lux Network Research",
+    date: "2025",
+    abstract: "W3C-compliant decentralized identifier specification for self-sovereign identity with key rotation support.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-id-did-specification.pdf",
+    org: "lux",
+    topics: ["identity"],
   },
   {
-    title: "Zen Designer Instruct: Design Instruction Model",
-    authors: "Zen LM Research",
+    title: "Lux IAM: Identity and Access Management",
+    authors: "Lux Network Research",
     date: "2025",
-    abstract: "Design-focused model for creating layouts, graphics, and visual compositions from instructions.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-designer-instruct_whitepaper.pdf",
-    category: "zen",
+    abstract: "Decentralized identity and access management framework with verifiable credentials and selective disclosure.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-id-iam.pdf",
+    org: "lux",
+    topics: ["identity"],
   },
   {
-    title: "Zen Designer Thinking: Design Reasoning Model",
+    title: "Verifiable Credentials on Lux",
+    authors: "Lux Network Research",
+    date: "2025",
+    abstract: "Implementation of W3C Verifiable Credentials with zero-knowledge selective disclosure proofs.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-verifiable-credentials.pdf",
+    org: "lux",
+    topics: ["identity", "zkp"],
+  },
+
+  // ===== ZOO LABS - Decentralized AI =====
+  {
+    title: "Gym Training Platform: Decentralized Model Training at Scale",
+    authors: "Zoo Labs Foundation",
+    date: "2025",
+    abstract: "Infrastructure for distributed deep learning training across heterogeneous compute resources with 99.8% cost reduction via TF-GRPO.",
+    link: "https://github.com/zooai/papers/blob/main/pdfs/gym-training-platform.pdf",
+    org: "zoo",
+    topics: ["ai", "infrastructure"],
+    featured: true,
+  },
+  {
+    title: "Experience Ledger: Decentralized Semantic Optimization",
+    authors: "Zoo Labs Foundation",
+    date: "2025",
+    abstract: "Community-driven semantic optimization protocol for collaborative AI model improvement with Byzantine-robust aggregation.",
+    link: "https://github.com/zooai/papers/blob/main/pdfs/experience-ledger-dso.pdf",
+    org: "zoo",
+    topics: ["ai", "consensus"],
+  },
+  {
+    title: "HLLM: Training-Free GRPO for Language Models",
+    authors: "Zoo Labs Foundation",
+    date: "2025",
+    abstract: "Training-free group relative policy optimization achieving $18 training cost vs $10,000+ traditional methods with 100× data efficiency.",
+    link: "https://github.com/zooai/papers/blob/main/pdfs/hllm-training-free-grpo.pdf",
+    org: "zoo",
+    topics: ["ai", "models"],
+    featured: true,
+  },
+  {
+    title: "Zoo Network Architecture",
+    authors: "Zoo Labs Foundation",
+    date: "2025",
+    abstract: "Technical architecture for the Zoo decentralized AI network with proof-of-contribution consensus.",
+    link: "https://github.com/zooai/papers/blob/main/pdfs/zoo-network-architecture.pdf",
+    org: "zoo",
+    topics: ["infrastructure", "consensus"],
+  },
+  {
+    title: "Zoo Tokenomics: Incentive Design for Decentralized AI",
+    authors: "Zoo Labs Foundation",
+    date: "2025",
+    abstract: "Economic model for incentivizing contributions to decentralized AI training and inference.",
+    link: "https://github.com/zooai/papers/blob/main/pdfs/zoo-tokenomics.pdf",
+    org: "zoo",
+    topics: ["defi", "ai"],
+  },
+  {
+    title: "ZIP-002: Zen Reranker Specification",
+    authors: "Zoo Labs Foundation",
+    date: "2025",
+    abstract: "Zoo Improvement Proposal for the Zen Reranker cross-encoder search reranking model.",
+    link: "https://github.com/zooai/papers/blob/main/pdfs/zip-002-zen-reranker.pdf",
+    org: "zoo",
+    topics: ["ai", "models"],
+  },
+  {
+    title: "Zoo Foundation Mission",
+    authors: "Zoo Labs Foundation",
+    date: "2025",
+    abstract: "Mission and vision for the Zoo Labs Foundation - open AI research network for decentralized science.",
+    link: "https://github.com/zooai/papers/blob/main/pdfs/zoo-foundation-mission.pdf",
+    org: "zoo",
+    topics: ["infrastructure"],
+  },
+
+  // ===== ZEN LM - Models =====
+  {
+    title: "Zen Family Overview: Model Architecture Guide",
     authors: "Zen LM Research",
     date: "2025",
-    abstract: "Model with explicit design reasoning for iterative visual creation and refinement.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-designer-thinking_whitepaper.pdf",
-    category: "zen",
+    abstract: "Comprehensive overview of the Zen model family (600M-480B parameters) with 22 variants across 6 size tiers.",
+    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen_family_overview.pdf",
+    org: "zen",
+    topics: ["models"],
+    featured: true,
+  },
+  {
+    title: "Zen Omni: Unified Multimodal Foundation Model",
+    authors: "Zen LM Research",
+    date: "2025",
+    abstract: "Single model architecture for text, vision, audio, and code understanding with emergent cross-modal reasoning.",
+    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-omni_whitepaper.pdf",
+    org: "zen",
+    topics: ["models", "ai"],
+  },
+  {
+    title: "Zen Coder: Code-Specialized Language Model Architecture",
+    authors: "Zen LM Research",
+    date: "2025",
+    abstract: "Architecture for code-specialized language models with multi-language support and repository-level understanding.",
+    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-coder_whitepaper.pdf",
+    org: "zen",
+    topics: ["models", "ai"],
+  },
+  {
+    title: "Zen Nano: Efficient Small Language Models",
+    authors: "Zen LM Research",
+    date: "2025",
+    abstract: "Techniques for training highly capable small models (600M-3B) for edge deployment with 95% energy reduction.",
+    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-nano_whitepaper.pdf",
+    org: "zen",
+    topics: ["models"],
+  },
+  {
+    title: "Zen Agent: Autonomous AI Agent Model",
+    authors: "Zen LM Research",
+    date: "2025",
+    abstract: "Agent-optimized model for tool use, planning, and autonomous task execution with ReAct-style reasoning.",
+    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-agent.pdf",
+    org: "zen",
+    topics: ["models", "agents"],
   },
   {
     title: "Zen Guard: Safety and Moderation Model",
     authors: "Zen LM Research",
     date: "2025",
-    abstract: "Content safety and moderation model for filtering harmful or inappropriate content.",
+    abstract: "Content safety and moderation model for filtering harmful content with constitutional AI techniques.",
     link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-guard_whitepaper.pdf",
-    category: "zen",
-  },
-  {
-    title: "Zen Eco: Energy-Efficient Model",
-    authors: "Zen LM Research",
-    date: "2025",
-    abstract: "Energy-optimized model architecture for sustainable AI deployment.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-eco_whitepaper.pdf",
-    category: "zen",
-  },
-  {
-    title: "Zen Next: Next-Generation Architecture",
-    authors: "Zen LM Research",
-    date: "2025",
-    abstract: "Advanced architecture incorporating latest research in attention, scaling, and efficiency.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-next_whitepaper.pdf",
-    category: "zen",
-  },
-  {
-    title: "Zen Scribe: Transcription and Generation",
-    authors: "Zen LM Research",
-    date: "2025",
-    abstract: "Speech-to-text and text generation model for transcription and content creation.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-scribe_whitepaper.pdf",
-    category: "zen",
+    org: "zen",
+    topics: ["models", "ai"],
   },
   {
     title: "Zen Reranker: Search Reranking Model",
     authors: "Zen LM Research",
     date: "2025",
-    abstract: "Cross-encoder reranking model for improving search relevance and retrieval quality.",
+    abstract: "Cross-encoder reranking model for improving search relevance with 30% MRR improvement over BM25.",
     link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-reranker.pdf",
-    category: "zen",
+    org: "zen",
+    topics: ["models", "ai"],
   },
   {
-    title: "Zen Agent: Autonomous AI Agent",
+    title: "Zen Artist: Image Generation Model",
     authors: "Zen LM Research",
     date: "2025",
-    abstract: "Agent-optimized model for tool use, planning, and autonomous task execution.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-agent.pdf",
-    category: "zen",
+    abstract: "State-of-the-art image generation with style control, high-resolution output, and text fidelity.",
+    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-artist_whitepaper.pdf",
+    org: "zen",
+    topics: ["models"],
   },
   {
     title: "Zen Video: Video Generation Model",
     authors: "Zen LM Research",
     date: "2025",
-    abstract: "Text-to-video generation model for creating dynamic visual content.",
+    abstract: "Text-to-video generation model for creating dynamic visual content up to 60 seconds.",
     link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-video.pdf",
-    category: "zen",
-  },
-  {
-    title: "Zen Director: Video Direction Model",
-    authors: "Zen LM Research",
-    date: "2025",
-    abstract: "Video editing and direction model for cinematic control and scene composition.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-director.pdf",
-    category: "zen",
-  },
-  {
-    title: "Zen Foley: Audio Generation Model",
-    authors: "Zen LM Research",
-    date: "2025",
-    abstract: "Audio and sound effects generation model for multimedia production.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-foley.pdf",
-    category: "zen",
-  },
-  {
-    title: "Zen Musician: Music Generation Model",
-    authors: "Zen LM Research",
-    date: "2025",
-    abstract: "AI music composition model for creating original musical pieces across genres.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-musician.pdf",
-    category: "zen",
+    org: "zen",
+    topics: ["models"],
   },
   {
     title: "Zen 3D: 3D Generation Model",
     authors: "Zen LM Research",
     date: "2025",
-    abstract: "Text-to-3D generation model for creating 3D assets and environments.",
+    abstract: "Text-to-3D generation model for creating 3D assets and environments with NeRF and Gaussian splatting.",
     link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-3d.pdf",
-    category: "zen",
+    org: "zen",
+    topics: ["models"],
+  },
+  {
+    title: "Zen Musician: Music Generation Model",
+    authors: "Zen LM Research",
+    date: "2025",
+    abstract: "AI music composition model for creating original musical pieces across genres with stem separation.",
+    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-musician.pdf",
+    org: "zen",
+    topics: ["models"],
+  },
+  {
+    title: "Zen Scribe: Transcription and Generation",
+    authors: "Zen LM Research",
+    date: "2025",
+    abstract: "Speech-to-text model with 98% accuracy on conversational audio and speaker diarization.",
+    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-scribe_whitepaper.pdf",
+    org: "zen",
+    topics: ["models"],
   },
   {
     title: "Zen World: World Model for Simulation",
     authors: "Zen LM Research",
     date: "2025",
-    abstract: "World model for environment simulation, physics understanding, and planning.",
+    abstract: "World model for environment simulation, physics understanding, and planning in embodied AI.",
     link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-world.pdf",
-    category: "zen",
+    org: "zen",
+    topics: ["models", "ai"],
   },
   {
-    title: "Zen Voyager: Navigation and Exploration Model",
+    title: "Zen Eco: Energy-Efficient Model",
     authors: "Zen LM Research",
     date: "2025",
-    abstract: "Spatial reasoning model for navigation, mapping, and exploration tasks.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-voyager.pdf",
-    category: "zen",
+    abstract: "Energy-optimized architecture achieving 95% inference cost reduction through quantization and sparsity.",
+    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-eco_whitepaper.pdf",
+    org: "zen",
+    topics: ["models"],
   },
+
+  // ===== LUX NETWORK - FHE =====
   {
-    title: "Zen Family Overview: Model Architecture Guide",
-    authors: "Zen LM Research",
+    title: "Lux FHE: Threshold Fully Homomorphic Encryption",
+    authors: "Lux Network Research",
     date: "2025",
-    abstract: "Comprehensive overview of the Zen model family architecture and capabilities.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen_family_overview.pdf",
-    category: "zen",
+    abstract: "Independent threshold FHE implementation in Go and C++ for privacy-preserving computation with distributed key generation and multi-party decryption.",
+    link: "https://github.com/luxfi/fhe",
+    org: "lux",
+    topics: ["fhe", "mpc"],
   },
   {
-    title: "Zen Technical Paper: Ultra-Efficient Language Models",
-    authors: "Zen LM Research",
+    title: "FHE-VM: Encrypted Smart Contract Execution",
+    authors: "Lux Network Research",
     date: "2025",
-    abstract: "Technical overview of the Zen model family for local deployment and privacy preservation.",
-    link: "https://github.com/zenlm/papers/blob/main/pdfs/zen-technical-paper.pdf",
-    category: "zen",
-  },
-  // Cryptography Papers
-  {
-    title: "Fully Homomorphic Encryption for Machine Learning: TFHE-rs",
-    authors: "Zama Research",
-    date: "2024",
-    abstract: "Implementation of TFHE (Torus Fully Homomorphic Encryption) in Rust for privacy-preserving ML computations.",
-    link: "https://github.com/zama-ai/tfhe-rs",
-    category: "crypto",
+    abstract: "Virtual machine for executing smart contracts on encrypted data using our threshold FHE scheme with EVM compatibility.",
+    link: "https://github.com/luxfi/fhe-vm",
+    org: "lux",
+    topics: ["fhe", "infrastructure"],
   },
   {
-    title: "fhEVM: Confidential Smart Contracts on Ethereum",
-    authors: "Zama Research",
-    date: "2024",
-    abstract: "Protocol for executing encrypted smart contracts using fully homomorphic encryption on EVM chains.",
-    link: "https://github.com/zama-ai/fhevm",
-    category: "crypto",
+    title: "Threshold FHE for Decentralized AI Inference",
+    authors: "Lux Network Research",
+    date: "2025",
+    abstract: "Privacy-preserving AI inference using threshold FHE where no single party can decrypt intermediate computations.",
+    link: "https://github.com/luxfi/papers/blob/main/pdfs/lux-threshold-fhe-ai.pdf",
+    org: "lux",
+    topics: ["fhe", "ai"],
   },
-  {
-    title: "Concrete ML: Privacy-Preserving Machine Learning",
-    authors: "Zama Research",
-    date: "2024",
-    abstract: "Framework for training and deploying ML models that operate on encrypted data using FHE.",
-    link: "https://github.com/zama-ai/concrete-ml",
-    category: "crypto",
-  },
+
+  // ===== REFERENCE - ZKP =====
   {
     title: "RISC Zero zkVM: Zero-Knowledge Virtual Machine",
     authors: "RISC Zero",
     date: "2024",
     abstract: "General-purpose zero-knowledge virtual machine enabling verifiable computation with STARK proofs.",
     link: "https://github.com/risc0/risc0",
-    category: "crypto",
-  },
-  {
-    title: "ML-KEM: Post-Quantum Key Encapsulation Mechanism",
-    authors: "NIST Post-Quantum Cryptography Project",
-    date: "2024",
-    abstract: "Lattice-based key encapsulation for quantum-resistant key exchange, standardized in FIPS 203.",
-    link: "https://csrc.nist.gov/pubs/fips/203/final",
-    category: "crypto",
-  },
-  {
-    title: "ML-DSA: Post-Quantum Digital Signature Algorithm",
-    authors: "NIST Post-Quantum Cryptography Project",
-    date: "2024",
-    abstract: "Lattice-based digital signatures for quantum-resistant authentication, standardized in FIPS 204.",
-    link: "https://csrc.nist.gov/pubs/fips/204/final",
-    category: "crypto",
-  },
-  {
-    title: "SLH-DSA: Stateless Hash-Based Digital Signatures",
-    authors: "NIST Post-Quantum Cryptography Project",
-    date: "2024",
-    abstract: "Hash-based signature scheme providing conservative quantum resistance, standardized in FIPS 205.",
-    link: "https://csrc.nist.gov/pubs/fips/205/final",
-    category: "crypto",
-  },
-  {
-    title: "BLS Signatures: Aggregate Signature Schemes",
-    authors: "Boneh-Lynn-Shacham",
-    date: "2024",
-    abstract: "Pairing-based aggregate signature scheme used in blockchain consensus and threshold cryptography.",
-    link: "https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.md",
-    category: "crypto",
-  },
-  {
-    title: "Threshold ECDSA: Distributed Key Generation",
-    authors: "Multi-Party Computation Research",
-    date: "2024",
-    abstract: "Protocol for distributed ECDSA signing without any party learning the full private key.",
-    link: "https://eprint.iacr.org/2019/114",
-    category: "crypto",
-  },
-  {
-    title: "Verifiable Random Functions for Blockchain",
-    authors: "Cryptography Research",
-    date: "2024",
-    abstract: "VRF constructions for provably random leader election in proof-of-stake protocols.",
-    link: "https://eprint.iacr.org/2017/099",
-    category: "crypto",
-  },
-  {
-    title: "KZG Polynomial Commitments",
-    authors: "Kate-Zaverucha-Goldberg",
-    date: "2024",
-    abstract: "Constant-size polynomial commitments for data availability sampling and zkSNARKs.",
-    link: "https://dankradfeist.de/ethereum/2020/06/16/kate-polynomial-commitments.html",
-    category: "crypto",
+    org: "lux",
+    topics: ["zkp"],
   },
   {
     title: "Plonk: Universal zkSNARK Construction",
@@ -736,15 +793,17 @@ const papers: Paper[] = [
     date: "2024",
     abstract: "Universal and updateable structured reference string zkSNARK with efficient verification.",
     link: "https://eprint.iacr.org/2019/953",
-    category: "crypto",
+    org: "lux",
+    topics: ["zkp"],
   },
   {
     title: "Groth16: Efficient zkSNARK Proofs",
     authors: "Groth",
     date: "2024",
-    abstract: "Most efficient pairing-based zkSNARK construction with constant proof size and verification time.",
+    abstract: "Most efficient pairing-based zkSNARK with constant proof size and verification time.",
     link: "https://eprint.iacr.org/2016/260",
-    category: "crypto",
+    org: "lux",
+    topics: ["zkp"],
   },
   {
     title: "STARKs: Scalable Transparent Arguments of Knowledge",
@@ -752,123 +811,155 @@ const papers: Paper[] = [
     date: "2024",
     abstract: "Post-quantum zero-knowledge proofs without trusted setup using hash functions.",
     link: "https://eprint.iacr.org/2018/046",
-    category: "crypto",
+    org: "lux",
+    topics: ["zkp", "pqc"],
   },
+
+  // ===== REFERENCE - Post-Quantum =====
   {
-    title: "Recursive SNARKs: Proof Composition",
-    authors: "Valiant, Bitansky et al.",
+    title: "ML-KEM: Post-Quantum Key Encapsulation Mechanism",
+    authors: "NIST Post-Quantum Cryptography Project",
     date: "2024",
-    abstract: "Techniques for composing SNARKs to verify proofs of proof verification recursively.",
-    link: "https://eprint.iacr.org/2019/1021",
-    category: "crypto",
-  },
-  // Additional Hanzo AI Papers
-  {
-    title: "Scaling Laws for AI Compute: GPU Cluster Optimization",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "Empirical analysis of scaling laws for distributed AI training and inference optimization.",
-    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-scaling-laws.pdf",
-    category: "hanzo",
+    abstract: "Lattice-based key encapsulation for quantum-resistant key exchange, standardized in FIPS 203.",
+    link: "https://csrc.nist.gov/pubs/fips/203/final",
+    org: "lux",
+    topics: ["pqc"],
   },
   {
-    title: "Continuous Learning: Online Model Adaptation",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "Framework for continuous model updates without catastrophic forgetting in production systems.",
-    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-continuous-learning.pdf",
-    category: "hanzo",
+    title: "ML-DSA: Post-Quantum Digital Signature Algorithm",
+    authors: "NIST Post-Quantum Cryptography Project",
+    date: "2024",
+    abstract: "Lattice-based digital signatures for quantum-resistant authentication, standardized in FIPS 204.",
+    link: "https://csrc.nist.gov/pubs/fips/204/final",
+    org: "lux",
+    topics: ["pqc"],
   },
   {
-    title: "Confidential AI: GPU TEE Isolation Patterns",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "Security architecture for running AI workloads in GPU trusted execution environments.",
-    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-confidential-ai.pdf",
-    category: "hanzo",
-  },
-  {
-    title: "AI Observability: Monitoring and Debugging Production Models",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "Comprehensive framework for monitoring model performance, drift detection, and debugging.",
-    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-ai-observability.pdf",
-    category: "hanzo",
-  },
-  {
-    title: "Prompt Engineering: Systematic Optimization Techniques",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "Methodologies for systematic prompt optimization and template management at scale.",
-    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-prompt-engineering.pdf",
-    category: "hanzo",
-  },
-  {
-    title: "RAG Architecture: Retrieval-Augmented Generation Patterns",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "Design patterns for building robust retrieval-augmented generation systems in production.",
-    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-rag-architecture.pdf",
-    category: "hanzo",
-  },
-  {
-    title: "Fine-Tuning at Scale: Efficient Model Customization",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "Infrastructure and techniques for efficient fine-tuning of large models with LoRA and QLoRA.",
-    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-fine-tuning.pdf",
-    category: "hanzo",
-  },
-  {
-    title: "Model Routing: Intelligent Request Distribution",
-    authors: "Hanzo AI Research",
-    date: "2025",
-    abstract: "Algorithms for routing AI requests to optimal models based on cost, latency, and quality.",
-    link: "https://github.com/hanzoai/papers/blob/main/pdfs/hanzo-model-routing.pdf",
-    category: "hanzo",
+    title: "SLH-DSA: Stateless Hash-Based Digital Signatures",
+    authors: "NIST Post-Quantum Cryptography Project",
+    date: "2024",
+    abstract: "Hash-based signature scheme providing conservative quantum resistance, standardized in FIPS 205.",
+    link: "https://csrc.nist.gov/pubs/fips/205/final",
+    org: "lux",
+    topics: ["pqc"],
   },
 ];
 
 const Research = () => {
   const { isDarkMode } = useTheme();
   const location = useLocation();
-  const [activeCategory, setActiveCategory] = useState<"all" | PaperCategory>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeOrg, setActiveOrg] = useState<"all" | Organization>("all");
+  const [activeTopic, setActiveTopic] = useState<"all" | Topic>("all");
+  const [sortBy, setSortBy] = useState<"date" | "title">("date");
 
   // Handle hash-based navigation and filtering
   useEffect(() => {
     const hash = location.hash.replace('#', '');
     if (!hash) return;
 
-    // Map hash to category filter
-    const hashToCategoryMap: Record<string, "all" | PaperCategory> = {
-      'ai': 'hanzo',       // AI/ML research → Hanzo AI papers
-      'crypto': 'crypto',  // Cryptography papers
-      'consensus': 'lux',  // Consensus protocols → Lux Network papers
+    // Map hash to topic filter
+    const hashToTopicMap: Record<string, Topic> = {
+      'ai': 'ai',
+      'consensus': 'consensus',
+      'crypto': 'pqc',
+      'fhe': 'fhe',
+      'mpc': 'mpc',
+      'zkp': 'zkp',
+      'defi': 'defi',
+      'models': 'models',
+      'agents': 'agents',
     };
 
-    if (hashToCategoryMap[hash]) {
-      setActiveCategory(hashToCategoryMap[hash]);
-      // Scroll to papers section after a brief delay for render
+    // Map hash to org filter
+    const hashToOrgMap: Record<string, Organization> = {
+      'hanzo': 'hanzo',
+      'lux': 'lux',
+      'zoo': 'zoo',
+      'zen': 'zen',
+    };
+
+    if (hashToTopicMap[hash]) {
+      setActiveTopic(hashToTopicMap[hash]);
       setTimeout(() => {
-        const papersSection = document.getElementById('papers');
-        if (papersSection) {
-          papersSection.scrollIntoView({ behavior: 'smooth' });
-        }
+        document.getElementById('papers')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else if (hashToOrgMap[hash]) {
+      setActiveOrg(hashToOrgMap[hash]);
+      setTimeout(() => {
+        document.getElementById('papers')?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     } else if (hash === 'papers' || hash === 'open-source') {
-      // Direct scroll to existing sections
       setTimeout(() => {
-        const section = document.getElementById(hash);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
+        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
   }, [location.hash]);
 
-  const filteredPapers = activeCategory === "all"
-    ? papers
-    : papers.filter(p => p.category === activeCategory);
+  // Filter and sort papers
+  const filteredPapers = useMemo(() => {
+    let result = papers;
+
+    // Filter by search query
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(p =>
+        p.title.toLowerCase().includes(query) ||
+        p.abstract.toLowerCase().includes(query) ||
+        p.authors.toLowerCase().includes(query) ||
+        p.topics.some(t => t.toLowerCase().includes(query))
+      );
+    }
+
+    // Filter by organization
+    if (activeOrg !== "all") {
+      result = result.filter(p => p.org === activeOrg);
+    }
+
+    // Filter by topic
+    if (activeTopic !== "all") {
+      result = result.filter(p => p.topics.includes(activeTopic));
+    }
+
+    // Sort
+    result = [...result].sort((a, b) => {
+      if (sortBy === "date") {
+        return parseInt(b.date) - parseInt(a.date);
+      }
+      return a.title.localeCompare(b.title);
+    });
+
+    // Featured papers first
+    result = [...result].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+
+    return result;
+  }, [searchQuery, activeOrg, activeTopic, sortBy]);
+
+  // Get topic counts
+  const topicCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    papers.forEach(p => {
+      p.topics.forEach(t => {
+        counts[t] = (counts[t] || 0) + 1;
+      });
+    });
+    return counts;
+  }, []);
+
+  // Get org counts
+  const orgCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    papers.forEach(p => {
+      counts[p.org] = (counts[p.org] || 0) + 1;
+    });
+    return counts;
+  }, []);
+
+  const clearFilters = () => {
+    setSearchQuery("");
+    setActiveOrg("all");
+    setActiveTopic("all");
+  };
 
   return (
     <div className={`min-h-screen ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
@@ -1012,7 +1103,7 @@ const Research = () => {
               <div>
                 <h2 className={`text-3xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>Research Papers</h2>
                 <p className={isDarkMode ? 'text-neutral-400' : 'text-gray-600'}>
-                  Published work from Hanzo AI, Lux Network, Zoo Labs, and Zen LM.
+                  {filteredPapers.length} papers from Hanzo AI, Lux Network, Zoo Labs, and Zen LM.
                 </p>
               </div>
               <a
@@ -1027,44 +1118,126 @@ const Research = () => {
               </a>
             </div>
 
-            {/* Category Filter Tabs */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {(["all", "hanzo", "lux", "zoo", "zen", "crypto"] as const).map((cat) => (
+            {/* Search Bar */}
+            <div className="mb-6">
+              <div className={`relative flex items-center ${isDarkMode ? 'bg-neutral-800' : 'bg-white border border-gray-200'} rounded-lg`}>
+                <Search className={`absolute left-4 w-5 h-5 ${isDarkMode ? 'text-neutral-500' : 'text-gray-400'}`} />
+                <input
+                  type="text"
+                  placeholder="Search papers by title, author, or topic..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className={`w-full pl-12 pr-4 py-3 bg-transparent rounded-lg outline-none ${isDarkMode ? 'text-white placeholder-neutral-500' : 'text-black placeholder-gray-400'}`}
+                />
+                {(searchQuery || activeOrg !== "all" || activeTopic !== "all") && (
+                  <button
+                    onClick={clearFilters}
+                    className={`absolute right-4 p-1 rounded-full ${isDarkMode ? 'hover:bg-neutral-700' : 'hover:bg-gray-100'}`}
+                  >
+                    <X className={`w-4 h-4 ${isDarkMode ? 'text-neutral-400' : 'text-gray-500'}`} />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Organization Filter */}
+            <div className="mb-4">
+              <div className={`text-xs font-semibold uppercase tracking-wider mb-2 ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>
+                Organization
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {(["all", "hanzo", "lux", "zoo", "zen"] as const).map((org) => (
+                  <button
+                    key={org}
+                    onClick={() => setActiveOrg(org)}
+                    className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+                      activeOrg === org
+                        ? org === 'hanzo' ? 'bg-red-500 text-white' :
+                          org === 'lux' ? 'bg-blue-500 text-white' :
+                          org === 'zoo' ? 'bg-green-500 text-white' :
+                          org === 'zen' ? 'bg-purple-500 text-white' :
+                          'bg-[#fd4444] text-white'
+                        : isDarkMode
+                          ? 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'
+                          : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    }`}
+                  >
+                    {orgMeta[org].label}
+                    {org !== "all" && (
+                      <span className="ml-1.5 opacity-70">({orgCounts[org] || 0})</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Topic Filter */}
+            <div className="mb-8">
+              <div className={`text-xs font-semibold uppercase tracking-wider mb-2 ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>
+                Topic
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {(["all", "consensus", "ai", "models", "agents", "fhe", "mpc", "zkp", "pqc", "defi", "identity", "infrastructure"] as const).map((topic) => (
+                  <button
+                    key={topic}
+                    onClick={() => setActiveTopic(topic)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                      activeTopic === topic
+                        ? 'bg-[#fd4444] text-white'
+                        : isDarkMode
+                          ? 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'
+                          : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    }`}
+                  >
+                    {topicMeta[topic].label}
+                    {topic !== "all" && topicCounts[topic] && (
+                      <span className="ml-1.5 opacity-70">({topicCounts[topic]})</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Sort Controls */}
+            <div className="flex items-center justify-between mb-6">
+              <div className={`text-sm ${isDarkMode ? 'text-neutral-400' : 'text-gray-600'}`}>
+                Showing {filteredPapers.length} of {papers.length} papers
+              </div>
+              <div className="flex items-center gap-2">
+                <span className={`text-sm ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>Sort:</span>
                 <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    activeCategory === cat
-                      ? 'bg-[#fd4444] text-white'
-                      : isDarkMode
-                        ? 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'
-                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                  }`}
+                  onClick={() => setSortBy("date")}
+                  className={`px-3 py-1 rounded text-sm ${sortBy === "date" ? (isDarkMode ? 'bg-neutral-700 text-white' : 'bg-gray-200 text-black') : (isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-gray-500 hover:text-black')}`}
                 >
-                  {categoryMeta[cat].label}
-                  {cat !== "all" && (
-                    <span className="ml-2 opacity-70">
-                      ({papers.filter(p => p.category === cat).length})
-                    </span>
-                  )}
+                  Date
                 </button>
-              ))}
+                <button
+                  onClick={() => setSortBy("title")}
+                  className={`px-3 py-1 rounded text-sm ${sortBy === "title" ? (isDarkMode ? 'bg-neutral-700 text-white' : 'bg-gray-200 text-black') : (isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-gray-500 hover:text-black')}`}
+                >
+                  Title
+                </button>
+              </div>
             </div>
 
             <div className="space-y-4">
               {filteredPapers.map((paper, index) => (
                 <motion.a
-                  key={paper.title}
+                  key={`${paper.title}-${index}`}
                   href={paper.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.3) }}
                   className={`block p-6 rounded-xl transition-all group ${
-                    isDarkMode
-                      ? 'bg-black/50 border border-white/10 hover:border-white/20'
-                      : 'bg-white border border-gray-200 hover:border-gray-300 hover:shadow-sm'
+                    paper.featured
+                      ? isDarkMode
+                        ? 'bg-gradient-to-br from-[#fd4444]/10 to-transparent border-2 border-[#fd4444]/30 hover:border-[#fd4444]/50'
+                        : 'bg-gradient-to-br from-red-50 to-white border-2 border-red-200 hover:border-red-300'
+                      : isDarkMode
+                        ? 'bg-black/50 border border-white/10 hover:border-white/20'
+                        : 'bg-white border border-gray-200 hover:border-gray-300 hover:shadow-sm'
                   }`}
                 >
                   <div className="flex items-start justify-between">
@@ -1072,21 +1245,36 @@ const Research = () => {
                       <div className="flex items-center gap-3 mb-2 flex-wrap">
                         <FileText className={`w-5 h-5 ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`} />
                         <span className={`text-sm ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>{paper.date}</span>
+                        {paper.featured && (
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-[#fd4444]/20 text-[#fd4444] font-medium">
+                            Featured
+                          </span>
+                        )}
                         <span className={`text-xs px-2 py-0.5 rounded-full ${
-                          paper.category === 'hanzo' ? 'bg-red-500/20 text-red-400' :
-                          paper.category === 'lux' ? 'bg-blue-500/20 text-blue-400' :
-                          paper.category === 'zoo' ? 'bg-green-500/20 text-green-400' :
-                          paper.category === 'crypto' ? 'bg-yellow-500/20 text-yellow-400' :
+                          paper.org === 'hanzo' ? 'bg-red-500/20 text-red-400' :
+                          paper.org === 'lux' ? 'bg-blue-500/20 text-blue-400' :
+                          paper.org === 'zoo' ? 'bg-green-500/20 text-green-400' :
                           'bg-purple-500/20 text-purple-400'
                         }`}>
-                          {categoryMeta[paper.category].label}
+                          {orgMeta[paper.org].label}
                         </span>
                       </div>
                       <h3 className={`text-lg font-semibold mb-2 group-hover:underline ${isDarkMode ? 'text-white' : 'text-black'}`}>
                         {paper.title}
                       </h3>
                       <p className={`text-sm mb-2 ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>{paper.authors}</p>
-                      <p className={isDarkMode ? 'text-neutral-400' : 'text-gray-600'}>{paper.abstract}</p>
+                      <p className={`mb-3 ${isDarkMode ? 'text-neutral-400' : 'text-gray-600'}`}>{paper.abstract}</p>
+                      {/* Topic tags */}
+                      <div className="flex flex-wrap gap-1.5">
+                        {paper.topics.map(topic => (
+                          <span
+                            key={topic}
+                            className={`text-xs px-2 py-0.5 rounded ${isDarkMode ? 'bg-neutral-800 text-neutral-400' : 'bg-gray-100 text-gray-600'}`}
+                          >
+                            {topicMeta[topic].label}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                     <ExternalLink className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0 ${isDarkMode ? 'text-neutral-500' : 'text-gray-400'}`} />
                   </div>
@@ -1096,7 +1284,13 @@ const Research = () => {
 
             {filteredPapers.length === 0 && (
               <div className={`text-center py-12 ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>
-                No papers found in this category.
+                No papers found matching your search.
+                <button
+                  onClick={clearFilters}
+                  className="block mx-auto mt-4 text-[#fd4444] hover:underline"
+                >
+                  Clear filters
+                </button>
               </div>
             )}
           </div>
