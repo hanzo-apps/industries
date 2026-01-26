@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -831,7 +831,40 @@ const papers: Paper[] = [
 
 const Research = () => {
   const { isDarkMode } = useTheme();
+  const location = useLocation();
   const [activeCategory, setActiveCategory] = useState<"all" | PaperCategory>("all");
+
+  // Handle hash-based navigation and filtering
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (!hash) return;
+
+    // Map hash to category filter
+    const hashToCategoryMap: Record<string, "all" | PaperCategory> = {
+      'ai': 'hanzo',       // AI/ML research → Hanzo AI papers
+      'crypto': 'crypto',  // Cryptography papers
+      'consensus': 'lux',  // Consensus protocols → Lux Network papers
+    };
+
+    if (hashToCategoryMap[hash]) {
+      setActiveCategory(hashToCategoryMap[hash]);
+      // Scroll to papers section after a brief delay for render
+      setTimeout(() => {
+        const papersSection = document.getElementById('papers');
+        if (papersSection) {
+          papersSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else if (hash === 'papers' || hash === 'open-source') {
+      // Direct scroll to existing sections
+      setTimeout(() => {
+        const section = document.getElementById(hash);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
 
   const filteredPapers = activeCategory === "all"
     ? papers
