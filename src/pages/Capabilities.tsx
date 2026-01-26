@@ -61,14 +61,14 @@ export default function Capabilities() {
     },
     {
       icon: Zap,
-      title: "Defense & Security AI",
-      description: "Mission-critical AI solutions for defense and intelligence operations",
-      link: "https://docs.google.com/document/d/19rZTIUZShaITzwp35XK1893OE83HA1bIIhmQNzFvKrg/edit?usp=drive_link",
+      title: "Post-Quantum Cryptography",
+      description: "Quantum-secure consensus and cryptographic protocols for future-proof infrastructure",
+      link: "/research#crypto",
       features: [
-        "Classified deployments",
-        "Air-gapped systems",
-        "Real-time analysis",
-        "Threat detection"
+        "FALCON signatures",
+        "Ringtail threshold crypto",
+        "BLS aggregation",
+        "NTT acceleration"
       ]
     },
     {
@@ -85,13 +85,13 @@ export default function Capabilities() {
     },
     {
       icon: Lock,
-      title: "Cybersecurity Solutions",
-      description: "Defense-grade security infrastructure and post-quantum cryptography",
-      link: "/cybersecurity",
+      title: "Secure Infrastructure",
+      description: "Enterprise-grade security infrastructure with post-quantum cryptography",
+      link: "/security",
       features: [
         "Post-quantum encryption",
         "Zero-trust architecture",
-        "Threat monitoring",
+        "Secure enclaves (TEE)",
         "Compliance automation"
       ]
     },

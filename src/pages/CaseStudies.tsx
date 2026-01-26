@@ -1,100 +1,121 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Shield, Brain, Globe, Zap, Users, Lock } from "lucide-react";
+import { Brain, Shield, Network, Sparkles, Cpu, Lock, Zap } from "lucide-react";
 
 export default function CaseStudies() {
   const caseStudies = [
     {
-      icon: Shield,
-      category: "Defense & Security",
-      title: "US Department of Defense: Secure AI Operations",
-      description: "Deployed resilient AI infrastructure for classified intelligence analysis",
-      results: [
-        "99.99% uptime in mission-critical operations",
-        "10x faster threat detection and analysis",
-        "Zero security breaches in 24 months",
-        "Reduced operational costs by 40%"
-      ],
-      technologies: ["Edge AI", "Secure Cloud", "Post-Quantum Encryption"],
-      impact: "Enhanced national security capabilities while maintaining strict compliance"
-    },
-    {
       icon: Brain,
-      category: "Research & Development",
-      title: "DARPA: Advanced AI Research Platform",
-      description: "Built scalable infrastructure for frontier AI research and experimentation",
+      category: "AI Training",
+      title: "Training-Free GRPO: 99.8% Cost Reduction",
+      description: "Developed Training-Free GRPO achieving $18 training cost versus $10,000+ traditional methods",
       results: [
-        "50% reduction in model training time",
-        "Support for 100+ concurrent experiments",
-        "Seamless integration with existing systems",
-        "Enhanced collaboration across teams"
+        "99.8% reduction in training costs",
+        "100× data efficiency (100 examples vs 10,000+)",
+        "Comparable performance to full fine-tuning",
+        "Open-sourced via Zoo Labs Foundation"
       ],
-      technologies: ["Frontier AI Models", "Distributed Computing", "MLOps"],
-      impact: "Accelerated breakthrough research in AI safety and capabilities"
+      technologies: ["GRPO", "LoRA", "Qwen3", "Distributed Training"],
+      impact: "Democratizing AI training for researchers and organizations worldwide",
+      link: "https://github.com/zooai/gym"
     },
     {
-      icon: Globe,
-      category: "Enterprise",
-      title: "Fortune 500 Financial Services",
-      description: "Implemented AI-powered fraud detection and risk management system",
+      icon: Sparkles,
+      category: "Research Publication",
+      title: "Active Semantic Optimization (ASO)",
+      description: "Published ASO framework achieving 18.2% SWE-bench resolution through training-free adaptation",
       results: [
-        "95% fraud detection accuracy",
-        "$50M+ in prevented losses annually",
-        "Real-time transaction analysis",
-        "Regulatory compliance maintained"
+        "18.2% SWE-bench resolution rate",
+        "29.5× memory savings with BitDelta compression",
+        "Zero additional training required",
+        "Published HIP-002 specification"
       ],
-      technologies: ["AI & ML", "Secure Cloud", "Real-time Analytics"],
-      impact: "Transformed security posture while improving customer experience"
+      technologies: ["TF-GRPO", "BitDelta", "1-bit Compression", "Semantic Optimization"],
+      impact: "Advancing state-of-the-art in efficient model adaptation",
+      link: "https://github.com/hanzoai/papers"
     },
     {
-      icon: Zap,
-      category: "Critical Infrastructure",
-      title: "National Power Grid Optimization",
-      description: "Deployed AI for predictive maintenance and grid optimization",
+      icon: Shield,
+      category: "Post-Quantum Cryptography",
+      title: "Quasar: Quantum-Secure Consensus",
+      description: "Developed dual-certificate quantum-secure finality using BLS and Ringtail threshold signatures",
       results: [
-        "30% reduction in outages",
-        "20% energy efficiency improvement",
-        "Predictive maintenance accuracy of 92%",
-        "ROI achieved in 18 months"
+        "Post-quantum secure finality guarantees",
+        "Dual-certificate architecture for safety",
+        "Integration with existing consensus protocols",
+        "24 research papers published"
       ],
-      technologies: ["Edge AI", "IoT Integration", "Predictive Analytics"],
-      impact: "Enhanced grid reliability and sustainability"
+      technologies: ["FALCON", "Ringtail", "BLS Signatures", "Threshold Cryptography"],
+      impact: "Future-proofing blockchain infrastructure against quantum threats",
+      link: "https://github.com/luxfi/papers"
     },
     {
-      icon: Users,
-      category: "Healthcare",
-      title: "Multi-Hospital Network AI Deployment",
-      description: "Privacy-preserving AI for medical imaging and diagnostics",
+      icon: Network,
+      category: "Consensus Protocols",
+      title: "Lux Multi-Consensus Architecture",
+      description: "Built multi-consensus blockchain with Wave, Focus, and Quasar protocols",
       results: [
-        "40% faster diagnosis times",
-        "98% accuracy in early detection",
-        "HIPAA compliant implementation",
-        "Seamless integration with PACS"
+        "Sub-second finality with Wave consensus",
+        "High-throughput with Focus protocol",
+        "Quantum-secure with Quasar consensus",
+        "TEE attestation integration"
       ],
-      technologies: ["Federated Learning", "Privacy-Preserving AI", "Edge Computing"],
-      impact: "Improved patient outcomes while maintaining data privacy"
+      technologies: ["Snow++", "DAG Consensus", "TEE", "Post-Quantum Crypto"],
+      impact: "Creating the most versatile consensus framework for diverse use cases",
+      link: "https://github.com/luxfi/papers"
+    },
+    {
+      icon: Cpu,
+      category: "AI Models",
+      title: "Zen Model Family (600M-480B parameters)",
+      description: "Released 22 frontier AI models including multimodal, code, and edge variants",
+      results: [
+        "22 models across 6 size tiers",
+        "95% energy reduction through efficient architecture",
+        "Multimodal (Omni), Code (Coder), Edge (Nano) variants",
+        "Open weights on HuggingFace"
+      ],
+      technologies: ["Qwen3", "Flash Attention", "RLHF", "DPO"],
+      impact: "Providing accessible, efficient frontier AI to the research community",
+      link: "https://huggingface.co/zenlm"
     },
     {
       icon: Lock,
-      category: "Cybersecurity",
-      title: "Global Threat Intelligence Network",
-      description: "Built decentralized threat detection and response system",
+      category: "AI Economics",
+      title: "Hamiltonian Market Maker (HMM)",
+      description: "Novel invariant H(Ψ,Θ) = κ for decentralized AI compute markets",
       results: [
-        "Real-time threat detection across networks",
-        "75% reduction in response time",
-        "Automated incident response",
-        "Zero-day vulnerability detection"
+        "<200ms quote latency",
+        "98.7% price stability",
+        "No impermanent loss for providers",
+        "Published HIP-004 specification"
       ],
-      technologies: ["Cybersecurity AI", "Decentralized Infrastructure", "Threat Intelligence"],
-      impact: "Created resilient defense against evolving cyber threats"
+      technologies: ["AMM", "Energy-based Pricing", "Compute Markets", "DeFi"],
+      impact: "Enabling efficient, fair markets for AI compute resources",
+      link: "https://github.com/hanzoai/papers"
+    },
+    {
+      icon: Zap,
+      category: "Agent Infrastructure",
+      title: "ZAP: Zero-copy Agent Protocol",
+      description: "The MCP Killer—unified protocol achieving ~500x faster agent communication with Cap'n Proto RPC",
+      results: [
+        "<1μs local latency (vs 500μs MCP)",
+        "1.2M/s throughput (vs 2.2k/s MCP)",
+        "~5% message overhead (vs 40% JSON)",
+        "40-50× infrastructure cost reduction"
+      ],
+      technologies: ["Cap'n Proto", "Zero-copy", "Metastable Consensus", "Post-Quantum"],
+      impact: "Enabling real-time agent swarms with native consensus and capability security",
+      link: "https://github.com/zap-protocol/zap"
     }
   ];
 
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />
-      
+
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
@@ -105,10 +126,10 @@ export default function CaseStudies() {
             className="text-center mb-16"
           >
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
-              Case Studies
+              Research Impact
             </h1>
             <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto">
-              Real-world success stories of AI transformation across industries
+              Delivering measurable breakthroughs in AI efficiency, cryptography, and distributed systems
             </p>
           </motion.div>
 
@@ -120,20 +141,20 @@ export default function CaseStudies() {
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
           >
             <div className="bg-gray-900 p-6 rounded-lg text-center border border-gray-800">
-              <div className="text-3xl font-bold text-white mb-2">100+</div>
-              <div className="text-sm text-gray-400">Successful Deployments</div>
+              <div className="text-3xl font-bold text-white mb-2">58</div>
+              <div className="text-sm text-gray-400">Published Papers</div>
             </div>
             <div className="bg-gray-900 p-6 rounded-lg text-center border border-gray-800">
-              <div className="text-3xl font-bold text-white mb-2">$500M+</div>
-              <div className="text-sm text-gray-400">Value Generated</div>
+              <div className="text-3xl font-bold text-white mb-2">22</div>
+              <div className="text-sm text-gray-400">AI Models Released</div>
             </div>
             <div className="bg-gray-900 p-6 rounded-lg text-center border border-gray-800">
-              <div className="text-3xl font-bold text-white mb-2">15+</div>
-              <div className="text-sm text-gray-400">Industries Served</div>
+              <div className="text-3xl font-bold text-white mb-2">99.8%</div>
+              <div className="text-sm text-gray-400">Training Cost Reduction</div>
             </div>
             <div className="bg-gray-900 p-6 rounded-lg text-center border border-gray-800">
-              <div className="text-3xl font-bold text-white mb-2">99.9%</div>
-              <div className="text-sm text-gray-400">Customer Satisfaction</div>
+              <div className="text-3xl font-bold text-white mb-2">4</div>
+              <div className="text-sm text-gray-400">Research Organizations</div>
             </div>
           </motion.div>
 
@@ -142,22 +163,25 @@ export default function CaseStudies() {
             {caseStudies.map((study, index) => {
               const Icon = study.icon;
               return (
-                <motion.div
+                <motion.a
                   key={study.title}
+                  href={study.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gray-900 border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-colors"
+                  className="block bg-gray-900 border border-gray-800 rounded-lg p-8 hover:border-gray-600 transition-colors group"
                 >
                   <div className="flex items-start space-x-4 mb-6">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+                      <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center group-hover:bg-gray-100 transition-colors">
                         <Icon className="w-6 h-6 text-black" />
                       </div>
                     </div>
                     <div className="flex-1">
                       <div className="text-sm text-gray-400 mb-1">{study.category}</div>
-                      <h3 className="text-2xl font-semibold mb-2">{study.title}</h3>
+                      <h3 className="text-2xl font-semibold mb-2 group-hover:text-gray-200 transition-colors">{study.title}</h3>
                       <p className="text-gray-300">{study.description}</p>
                     </div>
                   </div>
@@ -178,7 +202,7 @@ export default function CaseStudies() {
                       <h4 className="text-lg font-semibold mb-3">Technologies Used</h4>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {study.technologies.map((tech, idx) => (
-                          <span 
+                          <span
                             key={idx}
                             className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm"
                           >
@@ -191,7 +215,7 @@ export default function CaseStudies() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </motion.a>
               );
             })}
           </div>
@@ -204,17 +228,27 @@ export default function CaseStudies() {
             className="mt-20 text-center"
           >
             <h2 className="text-3xl font-bold mb-6">
-              Ready to Write Your Success Story?
+              Explore Our Research
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how our AI solutions can transform your operations
+              Dive deeper into our published papers and open source projects
             </p>
-            <a 
-              href="/#contact"
-              className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
-            >
-              Start Your Journey
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/research#papers"
+                className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+              >
+                View All Papers
+              </a>
+              <a
+                href="https://github.com/hanzoai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-transparent border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+              >
+                Open Source
+              </a>
+            </div>
           </motion.div>
         </div>
       </main>

@@ -45,27 +45,19 @@ export const solutions = [
   {
     title: "Industries",
     items: [
-      "Aerospace and Defense",
-      "Automotive",
-      "Banking",
-      "Capital Markets",
-      "Chemicals",
+      "AI & Machine Learning",
+      "Blockchain & Web3",
+      "Cloud Computing",
       "Communications and Media",
-      "Consumer Goods and Services",
+      "Consumer Technology",
       "Energy",
-      "Health",
+      "Financial Services",
+      "Healthcare & Biotech",
       "High Tech",
-      "Industrial",
       "Insurance",
       "Life Sciences",
-      "Natural Resources",
-      "Public Service",
-      "Private Equity",
-      "Retail",
-      "Software and Platforms",
-      "Travel",
-      "US Federal Government",
-      "Utilities"
+      "Robotics & Automation",
+      "Software and Platforms"
     ]
   }
 ];

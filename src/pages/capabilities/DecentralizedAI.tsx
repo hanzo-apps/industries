@@ -53,8 +53,8 @@ export default function DecentralizedAI() {
 
   const useCases = [
     {
-      title: "Defense Operations",
-      description: "Resilient AI for mission-critical defense applications",
+      title: "Enterprise AI",
+      description: "Resilient AI for mission-critical enterprise applications",
       icon: Shield
     },
     {

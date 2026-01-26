@@ -58,6 +58,13 @@ const researchAreas = [
 // Open source projects
 const openSourceProjects = [
   {
+    name: "zap",
+    description: "Zero-copy Agent Protocol - MCP killer with ~500x faster performance via Cap'n Proto RPC",
+    stars: "3.1k",
+    language: "Rust",
+    href: "https://github.com/zap-protocol/zap",
+  },
+  {
     name: "hanzo-mcp",
     description: "Model Context Protocol - infrastructure for AI context management and tool use",
     stars: "2.3k",
@@ -272,6 +279,14 @@ const papers: Paper[] = [
     category: "zen",
   },
   // Additional Hanzo Stack Papers
+  {
+    title: "ZAP: Zero-copy Agent Protocol",
+    authors: "Hanzo AI Research",
+    date: "2026",
+    abstract: "The MCP Killer—a unified protocol using Cap'n Proto RPC for ~500x faster agent communication with zero-copy performance, capability-secure routing, and native consensus integration.",
+    link: "https://github.com/zap-protocol/zap",
+    category: "hanzo",
+  },
   {
     title: "Model Context Protocol: Standardized Tool Interface for LLM Augmentation",
     authors: "Hanzo AI Research",
@@ -1069,7 +1084,7 @@ const Research = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/careers">
-                <Button size="lg" className="bg-[#fd4444] text-white hover:bg-[#fd4444]/90 rounded-full px-8">
+                <Button size="lg" className={`rounded-full px-8 ${isDarkMode ? 'bg-white text-black hover:bg-white/90' : 'bg-black text-white hover:bg-black/90'}`}>
                   View Open Positions
                 </Button>
               </Link>

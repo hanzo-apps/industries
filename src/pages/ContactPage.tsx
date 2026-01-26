@@ -236,7 +236,7 @@ const ContactPage = () => {
                           className="w-full bg-neutral-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-all"
                         >
                           <option value="general">General Inquiry</option>
-                          <option value="defense">Defense Solutions</option>
+                          <option value="research">Research Collaboration</option>
                           <option value="enterprise">Enterprise AI</option>
                           <option value="partnership">Partnership</option>
                           <option value="careers">Careers</option>
@@ -362,11 +362,11 @@ const ContactPage = () => {
                   <div className="p-5 rounded-xl border border-white/10 bg-neutral-900/30">
                     <div className="flex items-center gap-2 mb-3">
                       <Shield className="w-4 h-4 text-white/60" />
-                      <h3 className="font-medium text-white text-sm">Defense Division</h3>
+                      <h3 className="font-medium text-white text-sm">Research Division</h3>
                     </div>
-                    <p className="text-xs text-neutral-400 mb-2">Secure AI for government</p>
-                    <a href="mailto:defense@hanzo.industries" className="text-xs text-white/80 hover:text-white transition-colors">
-                      defense@hanzo.industries
+                    <p className="text-xs text-neutral-400 mb-2">Academic & industry collaboration</p>
+                    <a href="mailto:research@hanzo.industries" className="text-xs text-white/80 hover:text-white transition-colors">
+                      research@hanzo.industries
                     </a>
                   </div>
                   <div className="p-5 rounded-xl border border-white/10 bg-neutral-900/30">

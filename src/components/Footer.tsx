@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Check, Shield, Lock, Award } from "lucide-react";
+import { Check, Github, FileText, Award } from "lucide-react";
 import Logo from "./Logo";
 import { useTheme } from "@/contexts/ThemeContext";
 
@@ -17,42 +17,47 @@ const Footer = () => {
           <div className="md:col-span-2">
             <Logo size="md" showText={true} className="mb-6" />
             <p className={`mb-6 max-w-md ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
-              Delivering mission-critical defense and intelligence solutions through
-              advanced AI, secure cloud infrastructure, and innovative engineering.
+              Frontier AI research lab advancing the state of the art in machine learning,
+              cryptography, consensus protocols, and distributed systems.
             </p>
             <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2">
-                <Shield className={`h-5 w-5 ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`} />
-                <span className={`text-sm ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>Security Focused</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Lock className={`h-5 w-5 ${isDarkMode ? 'text-neutral-500' : 'text-neutral-400'}`} />
-                <span className={`text-sm ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>Compliance Ready</span>
-              </div>
+              <a
+                href="https://github.com/hanzoai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 group"
+              >
+                <Github className={`h-5 w-5 ${isDarkMode ? 'text-neutral-500 group-hover:text-white' : 'text-neutral-400 group-hover:text-black'} transition-colors`} />
+                <span className={`text-sm ${isDarkMode ? 'text-neutral-400 group-hover:text-white' : 'text-neutral-600 group-hover:text-black'} transition-colors`}>Open Source</span>
+              </a>
+              <Link to="/research#papers" className="flex items-center space-x-2 group">
+                <FileText className={`h-5 w-5 ${isDarkMode ? 'text-neutral-500 group-hover:text-white' : 'text-neutral-400 group-hover:text-black'} transition-colors`} />
+                <span className={`text-sm ${isDarkMode ? 'text-neutral-400 group-hover:text-white' : 'text-neutral-600 group-hover:text-black'} transition-colors`}>58 Papers</span>
+              </Link>
             </div>
           </div>
 
           <div>
-            <h4 className={`font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>Solutions</h4>
+            <h4 className={`font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>Research</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/intelligence" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
-                  AI & ML
+                <Link to="/research#ai" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  AI & Machine Learning
                 </Link>
               </li>
               <li>
-                <Link to="/defense" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
-                  Defense Systems
+                <Link to="/research#crypto" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  Cryptography
                 </Link>
               </li>
               <li>
-                <Link to="/cybersecurity" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
-                  Cybersecurity
+                <Link to="/research#consensus" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  Consensus & Networks
                 </Link>
               </li>
               <li>
-                <Link to="/cloud" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
-                  Secure Cloud
+                <Link to="/models" className={`text-sm transition-colors ${isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-black'}`}>
+                  Zen Models
                 </Link>
               </li>
             </ul>

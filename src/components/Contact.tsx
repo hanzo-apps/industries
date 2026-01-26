@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Shield, Building2 } from "lucide-react";
+import { Mail, Phone, MapPin, Microscope, Building2 } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -17,8 +17,8 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
           >
-            <Shield className="w-4 h-4 text-white/60" />
-            <span className="text-sm font-medium text-white/60">Mission Ready</span>
+            <Microscope className="w-4 h-4 text-white/60" />
+            <span className="text-sm font-medium text-white/60">Research Collaboration</span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -26,7 +26,7 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.05 }}
             className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
-            Mission, Accepted.
+            Let's Build Together
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -34,13 +34,13 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-lg text-neutral-400 max-w-3xl mx-auto"
           >
-            From single-scope initiatives to enterprise-wide transformations,
-            we align with your objectives and scale to your mission requirements
+            From research collaborations to enterprise AI deployments,
+            we partner with teams pushing the boundaries of what's possible
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {/* Defense Division */}
+          {/* Research Division */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -49,9 +49,9 @@ const Contact = () => {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-white/5">
-                <Shield className="w-5 h-5 text-white" />
+                <Microscope className="w-5 h-5 text-white" />
               </div>
-              <h3 className="text-2xl font-semibold text-white">Defense Division</h3>
+              <h3 className="text-2xl font-semibold text-white">Research Division</h3>
             </div>
 
             <div className="space-y-6">
@@ -71,15 +71,15 @@ const Contact = () => {
 
               <div className="group">
                 <h4 className="font-semibold text-white mb-1 group-hover:text-white/80 transition-colors">
-                  Leigh Ferreira
+                  Research Partnerships
                 </h4>
-                <p className="text-sm text-neutral-400 mb-2">VP of Defense Solutions</p>
+                <p className="text-sm text-neutral-400 mb-2">Academic & Industry Collaboration</p>
                 <a
-                  href="mailto:leigh@hanzo.industries"
+                  href="mailto:research@hanzo.industries"
                   className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  <span className="text-sm">leigh@hanzo.industries</span>
+                  <span className="text-sm">research@hanzo.industries</span>
                 </a>
               </div>
             </div>

@@ -1,5 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 
@@ -10,20 +9,7 @@ interface LogoProps {
 }
 
 const Logo = ({ className = "", showText = true, size = "md" }: LogoProps) => {
-  const [textIndex, setTextIndex] = useState(0);
-  const texts = ["Hanzo", "Industries"];
   const { isDarkMode } = useTheme();
-
-  // Cycle through texts
-  useEffect(() => {
-    if (!showText) return;
-
-    const interval = setInterval(() => {
-      setTextIndex((prev) => (prev + 1) % texts.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [showText]);
 
   const sizes = {
     sm: { logo: "h-6 w-6", text: "text-lg" },
@@ -31,77 +17,80 @@ const Logo = ({ className = "", showText = true, size = "md" }: LogoProps) => {
     lg: { logo: "h-10 w-10", text: "text-2xl" },
   };
 
-  const gradientId = `logoGradient-${isDarkMode ? 'dark' : 'light'}`;
+  // Official Hanzo logo colors based on theme
+  const fillColor = isDarkMode ? "#ffffff" : "#000000";
+  const accentColor = isDarkMode ? "#DDDDDD" : "#666666";
 
   return (
     <Link to="/" className={`flex items-center space-x-3 group ${className}`}>
-      {/* Animated Logo SVG */}
+      {/* Official Hanzo Logo SVG */}
       <motion.div
         className="relative"
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
       >
         <svg
-          className={`${sizes[size].logo} transition-all duration-300 ${
-            isDarkMode ? 'text-white' : 'text-black'
-          }`}
-          viewBox="0 0 100 100"
+          className={`${sizes[size].logo} transition-all duration-300`}
+          viewBox="0 0 67 67"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Outer ring with gradient */}
-          <motion.circle
-            cx="50"
-            cy="50"
-            r="45"
-            stroke={`url(#${gradientId})`}
-            strokeWidth="2"
-            fill="none"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          />
-
-          {/* Inner geometric shape - stylized H */}
+          {/* Bottom left square */}
           <motion.path
-            d="M30 25L30 75M70 25L70 75M30 50L70 50"
-            stroke="currentColor"
-            strokeWidth="6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            d="M22.21 67V44.6369H0V67H22.21Z"
+            fill={fillColor}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
           />
-
-          {/* Accent dots */}
-          <motion.circle
-            cx="50"
-            cy="25"
-            r="4"
-            fill="currentColor"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.3, delay: 1 }}
+          {/* Bottom left accent */}
+          <motion.path
+            d="M0 44.6369L22.21 46.8285V44.6369H0Z"
+            fill={accentColor}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
           />
-          <motion.circle
-            cx="50"
-            cy="75"
-            r="4"
-            fill="currentColor"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.3, delay: 1.1 }}
+          {/* Diagonal bar */}
+          <motion.path
+            d="M66.7038 22.3184H22.2534L0.0878906 44.6367H44.4634L66.7038 22.3184Z"
+            fill={fillColor}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0 }}
           />
-
-          {/* Gradient definition - theme aware */}
-          <defs>
-            <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor={isDarkMode ? "#ffffff" : "#000000"} stopOpacity="0.8" />
-              <stop offset="50%" stopColor={isDarkMode ? "#ffffff" : "#000000"} stopOpacity="0.4" />
-              <stop offset="100%" stopColor={isDarkMode ? "#ffffff" : "#000000"} stopOpacity="0.8" />
-            </linearGradient>
-          </defs>
+          {/* Top left square */}
+          <motion.path
+            d="M22.21 0H0V22.3184H22.21V0Z"
+            fill={fillColor}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
+          />
+          {/* Top right square */}
+          <motion.path
+            d="M66.7198 0H44.5098V22.3184H66.7198V0Z"
+            fill={fillColor}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          />
+          {/* Top right accent */}
+          <motion.path
+            d="M66.6753 22.3185L44.5098 20.0822V22.3185H66.6753Z"
+            fill={accentColor}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.25 }}
+          />
+          {/* Bottom right square */}
+          <motion.path
+            d="M66.7198 67V44.6369H44.5098V67H66.7198Z"
+            fill={fillColor}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.25 }}
+          />
         </svg>
 
         {/* Glow effect on hover */}
@@ -112,26 +101,17 @@ const Logo = ({ className = "", showText = true, size = "md" }: LogoProps) => {
         />
       </motion.div>
 
-      {/* Animated Text */}
+      {/* Text */}
       {showText && (
-        <div className="relative h-7 overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={textIndex}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className={`block font-semibold ${sizes[size].text} transition-colors duration-300 ${
-                isDarkMode
-                  ? 'text-white group-hover:text-white/90'
-                  : 'text-black group-hover:text-black/90'
-              }`}
-            >
-              {texts[textIndex]}
-            </motion.span>
-          </AnimatePresence>
-        </div>
+        <span
+          className={`font-semibold ${sizes[size].text} transition-colors duration-300 ${
+            isDarkMode
+              ? 'text-white group-hover:text-white/90'
+              : 'text-black group-hover:text-black/90'
+          }`}
+        >
+          Hanzo
+        </span>
       )}
     </Link>
   );
