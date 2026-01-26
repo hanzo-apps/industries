@@ -53,10 +53,10 @@ const commands: CommandItem[] = [
   { id: "hanzo-team", title: "Hanzo Team", description: "Collaboration platform", href: "/products/hanzo-team", icon: Users, category: "Products", keywords: ["team", "collaboration", "project"] },
 
   // Platform / Services
-  { id: "defense", title: "Defense", description: "Defense AI solutions", href: "/defense", icon: Shield, category: "Platform", keywords: ["defense", "military", "national security"] },
-  { id: "intelligence", title: "Intelligence", description: "AI-powered intelligence", href: "/intelligence", icon: Eye, category: "Platform", keywords: ["intelligence", "analysis", "insights"] },
-  { id: "cybersecurity", title: "Cybersecurity", description: "Advanced threat detection", href: "/cybersecurity", icon: Lock, category: "Platform", keywords: ["security", "threat", "cyber"] },
-  { id: "cloud", title: "Secure Cloud", description: "FedRAMP cloud infrastructure", href: "/cloud", icon: Cloud, category: "Platform", keywords: ["cloud", "fedramp", "government"] },
+  { id: "research", title: "Research", description: "AI research and publications", href: "/research", icon: FileText, category: "Platform", keywords: ["research", "papers", "publications"] },
+  { id: "cryptography", title: "Cryptography", description: "Post-quantum cryptography", href: "/research#crypto", icon: Lock, category: "Platform", keywords: ["crypto", "quantum", "security"] },
+  { id: "consensus", title: "Consensus", description: "Consensus protocols", href: "/research#consensus", icon: Network, category: "Platform", keywords: ["consensus", "blockchain", "protocols"] },
+  { id: "cloud", title: "Lux Network", description: "Decentralized compute", href: "/products/lux", icon: Cloud, category: "Platform", keywords: ["cloud", "compute", "decentralized"] },
   { id: "services", title: "Services", description: "Professional services", href: "/services", icon: Server, category: "Platform", keywords: ["consulting", "services", "professional"] },
   { id: "capabilities", title: "Capabilities", description: "AI capabilities overview", href: "/capabilities", icon: Zap, category: "Platform", keywords: ["capabilities", "features", "ai"] },
 
@@ -78,8 +78,8 @@ const commands: CommandItem[] = [
   { id: "solutions", title: "Solutions", description: "Industry solutions", href: "/solutions", icon: Globe, category: "Company", keywords: ["solutions", "industries", "use cases"] },
 
   // Industries
-  { id: "aerospace", title: "Aerospace", description: "Aerospace AI solutions", href: "/industries/aerospace", icon: Plane, category: "Industries", keywords: ["aerospace", "aviation", "space"] },
-  { id: "defense-industry", title: "Defense Industry", description: "Defense contractors", href: "/industries/defense", icon: Shield, category: "Industries", keywords: ["defense", "contractor", "government"] },
+  { id: "ai-ml", title: "AI & ML", description: "AI & Machine Learning research", href: "/research#ai", icon: Brain, category: "Industries", keywords: ["ai", "ml", "machine learning"] },
+  { id: "blockchain", title: "Blockchain", description: "Consensus and cryptography", href: "/research#consensus", icon: Network, category: "Industries", keywords: ["blockchain", "consensus", "crypto"] },
 ];
 
 interface CommandPaletteProps {

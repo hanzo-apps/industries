@@ -25,10 +25,10 @@ const announcements = [
       },
       {
         day: "05",
-        title: "Partnership with Department of Defense",
-        description: "Hanzo announces strategic partnership to provide secure AI solutions for defense applications.",
-        type: "Partnership",
-        link: "#",
+        title: "58 Research Papers Published",
+        description: "Hanzo research teams publish comprehensive papers across AI training, post-quantum cryptography, and consensus protocols.",
+        type: "Research",
+        link: "/research",
       },
     ],
   },
@@ -100,9 +100,9 @@ const pressReleases = [
     summary: "Funding round led by Andreessen Horowitz to expand engineering team and accelerate product development.",
   },
   {
-    title: "Hanzo Partners with Department of Defense for Secure AI Solutions",
+    title: "58 Research Papers Published Across AI, Cryptography, and Consensus",
     date: "January 5, 2025",
-    summary: "Multi-year agreement to provide classified AI infrastructure for defense applications.",
+    summary: "Hanzo and partner organizations publish comprehensive research spanning frontier AI, post-quantum cryptography, and consensus protocols.",
   },
   {
     title: "KOAN 2.0: Redefining Enterprise Knowledge Management",

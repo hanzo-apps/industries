@@ -7,49 +7,49 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Plane, Car, Building, Globe, Beaker, Radio, Shield } from "lucide-react";
+import { Brain, Cpu, Cloud, Building, Beaker, Radio, Bot } from "lucide-react";
 
 const industries = [
   {
-    icon: Plane,
-    title: "Aerospace",
-    description: "Solutions for Aerospace Industry",
-    href: "/coming-soon"
+    icon: Brain,
+    title: "AI & Machine Learning",
+    description: "Research and applications in frontier AI",
+    href: "/research#ai"
   },
   {
-    icon: Shield,
-    title: "Defense",
-    description: "Solutions for Defense Sector",
-    href: "/coming-soon"
+    icon: Cpu,
+    title: "Blockchain & Web3",
+    description: "Consensus protocols and distributed systems",
+    href: "/research#consensus"
   },
   {
-    icon: Car,
-    title: "Automotive",
-    description: "Solutions for Automotive",
-    href: "/coming-soon"
+    icon: Cloud,
+    title: "Cloud Computing",
+    description: "Decentralized AI infrastructure",
+    href: "/capabilities/decentralized-ai"
   },
   {
     icon: Building,
-    title: "Banking",
-    description: "Solutions for Banking",
-    href: "/coming-soon"
-  },
-  {
-    icon: Globe,
-    title: "Capital Markets",
-    description: "Solutions for Capital Markets",
+    title: "Financial Services",
+    description: "AI for banking and capital markets",
     href: "/coming-soon"
   },
   {
     icon: Beaker,
-    title: "Chemicals",
-    description: "Solutions for Chemicals",
+    title: "Healthcare & Biotech",
+    description: "AI applications in life sciences",
     href: "/coming-soon"
   },
   {
     icon: Radio,
-    title: "Communications and Media",
-    description: "Solutions for Communications and Media",
+    title: "Communications",
+    description: "AI-powered communications systems",
+    href: "/coming-soon"
+  },
+  {
+    icon: Bot,
+    title: "Robotics & Automation",
+    description: "Intelligent systems and autonomy",
     href: "/coming-soon"
   }
 ];

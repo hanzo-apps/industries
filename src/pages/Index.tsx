@@ -3,12 +3,15 @@ import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ServicesOverview from "@/components/ServicesOverview";
-import DefenseCapabilities from "@/components/DefenseCapabilities";
+import ResearchHighlights from "@/components/ResearchHighlights";
 import Leadership from "@/components/Leadership";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const Index = () => {
+  const { isDarkMode } = useTheme();
+
   useEffect(() => {
     // Smooth scroll behavior
     const smoothScroll = (e: MouseEvent) => {
@@ -34,12 +37,12 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
       <Navbar />
       <main>
         <Hero />
         <ServicesOverview />
-        <DefenseCapabilities />
+        <ResearchHighlights />
         <Leadership />
         <Contact />
       </main>

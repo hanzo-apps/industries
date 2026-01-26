@@ -39,10 +39,9 @@ const capabilities = [
   },
   {
     icon: Zap,
-    title: "Defense & Security AI",
-    description: "Mission-critical AI for defense applications",
-    href: "https://docs.google.com/document/d/19rZTIUZShaITzwp35XK1893OE83HA1bIIhmQNzFvKrg/edit?usp=drive_link",
-    external: true
+    title: "Post-Quantum Cryptography",
+    description: "Quantum-secure consensus and cryptographic protocols",
+    href: "/research#crypto"
   },
   {
     icon: Users,

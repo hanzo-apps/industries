@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSquare } from "lucide-react";
+import { ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSquare, BookOpen, Microscope, Brain, Shield, Network, Boxes, FlaskConical, FileText, Github, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarContainer from "./navigation/NavbarContainer";
 import Logo from "./Logo";
@@ -22,8 +22,15 @@ const tryHanzoItems = [
 const TryHanzoDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { isDarkMode } = useTheme();
+
+  const clearTimeoutRef = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -38,12 +45,13 @@ const TryHanzoDropdown = () => {
   }, [isOpen]);
 
   const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    clearTimeoutRef();
     setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setIsOpen(false), 150);
+    clearTimeoutRef();
+    timeoutRef.current = setTimeout(() => setIsOpen(false), 300);
   };
 
   return (
@@ -64,7 +72,7 @@ const TryHanzoDropdown = () => {
           isOpen && (isDarkMode ? "bg-white/90" : "bg-black/90")
         )}
       >
-        Try Hanzo
+        Try Zen
         <ChevronDown className={cn("w-4 h-4 ml-1 transition-transform duration-200", isOpen && "rotate-180")} />
       </Button>
 
@@ -147,89 +155,98 @@ const TryHanzoDropdown = () => {
   );
 };
 
-// Navigation menu configuration
+// Navigation menu configuration - Research-focused
 const navMenus = {
   research: {
     title: "Research",
     items: [
-      { label: "Overview", href: "/research", description: "Our research mission and approach" },
-      { label: "Papers", href: "/research/papers", description: "Published research papers" },
-      { label: "Open Source", href: "/research/open-source", description: "GitHub repositories and projects" },
+      { label: "Overview", href: "/research", description: "Our research mission and approach", icon: Microscope },
+      { label: "AI & Machine Learning", href: "/research#ai", description: "Frontier AI models and training", icon: Brain },
+      { label: "Cryptography", href: "/research#crypto", description: "Post-quantum and FHE research", icon: Shield },
+      { label: "Consensus & Networks", href: "/research#consensus", description: "Distributed systems and blockchain", icon: Network },
+      { label: "Papers", href: "/research#papers", description: "58 published research papers", icon: FileText },
+      { label: "Open Source", href: "https://github.com/hanzoai", description: "GitHub repositories", icon: Github, external: true },
+    ],
+  },
+  models: {
+    title: "Models",
+    items: [
+      { label: "Zen Models", href: "/models", description: "600M-480B parameter models", icon: Sparkles },
+      { label: "Zen Coder", href: "/models#coder", description: "Code generation and analysis", icon: Code2 },
+      { label: "Zen Omni", href: "/models#omni", description: "Multimodal vision & audio", icon: Boxes },
+      { label: "Model API", href: "https://hanzo.ai/api", description: "API access and pricing", icon: Cpu, external: true },
+      { label: "Hugging Face", href: "https://huggingface.co/zenlm", description: "Download models", icon: Bot, external: true },
     ],
   },
   products: {
     title: "Products",
     items: [
-      { label: "Hanzo AI", href: "https://hanzo.ai", description: "AI platform and models", external: true },
-      { label: "Hanzo Dev", href: "https://hanzo.ai/dev", description: "AI-powered development tools", external: true },
-      { label: "Hanzo Cloud", href: "https://cloud.hanzo.ai", description: "Enterprise AI infrastructure", external: true },
-      { label: "API Access", href: "https://hanzo.ai/api", description: "Model API and integrations", external: true },
-    ],
-  },
-  solutions: {
-    title: "Solutions",
-    items: [
-      { label: "Enterprise", href: "/solutions/enterprise", description: "AI solutions for enterprise" },
-      { label: "Defense & Intelligence", href: "/defense", description: "Secure AI for government" },
-      { label: "Edge Deployment", href: "/solutions/edge", description: "On-premise AI infrastructure" },
-      { label: "Custom Models", href: "/solutions/custom", description: "Fine-tuned models for your needs" },
+      { label: "Hanzo AI", href: "https://hanzo.ai", description: "AI platform and models", icon: Bot, external: true },
+      { label: "Hanzo Dev", href: "https://hanzo.ai/dev", description: "AI-powered development tools", icon: Code2, external: true },
+      { label: "Zoo Gym", href: "https://gym.zoo.ngo", description: "AI training platform", icon: FlaskConical, external: true },
+      { label: "Lux Network", href: "https://lux.network", description: "Blockchain infrastructure", icon: Network, external: true },
     ],
   },
   learn: {
     title: "Learn",
     items: [
-      { label: "Blog", href: "/blog", description: "Latest insights and updates" },
-      { label: "Research", href: "/research", description: "Our research and publications" },
-      { label: "Documentation", href: "/docs", description: "Technical guides and API docs" },
-      { label: "Examples", href: "/examples", description: "Sample code and tutorials" },
-      { label: "Case Studies", href: "/case-studies", description: "Real-world implementations" },
+      { label: "Blog", href: "/blog", description: "Latest insights and updates", icon: BookOpen },
+      { label: "News", href: "/news", description: "Announcements and press", icon: FileText },
+      { label: "Documentation", href: "https://docs.hanzo.ai", description: "Technical guides", icon: BookOpen, external: true },
+      { label: "Case Studies", href: "/case-studies", description: "Real-world implementations", icon: Microscope },
     ],
   },
   company: {
     title: "Company",
     items: [
       { label: "About", href: "/about", description: "Our mission and values" },
-      { label: "Team", href: "/team", description: "Meet our team" },
+      { label: "Team", href: "/team", description: "Meet our researchers" },
       { label: "Careers", href: "/careers", description: "Join us" },
-      { label: "News", href: "/news", description: "Latest announcements" },
       { label: "Contact", href: "/contact", description: "Get in touch" },
     ],
   },
 };
 
-interface DropdownMenuProps {
-  menu: typeof navMenus.research;
-  isOpen: boolean;
-  onToggle: () => void;
-  onClose: () => void;
-  onHover: () => void;
+interface MenuItem {
+  label: string;
+  href: string;
+  description: string;
+  icon?: React.ComponentType<{ className?: string }>;
+  external?: boolean;
 }
 
-const DropdownMenu = ({ menu, isOpen, onToggle, onClose, onHover }: DropdownMenuProps) => {
+interface MenuConfig {
+  title: string;
+  items: MenuItem[];
+}
+
+interface DropdownMenuProps {
+  menu: MenuConfig;
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+}
+
+const DropdownMenu = ({ menu, isOpen, onOpen, onClose }: DropdownMenuProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { isDarkMode } = useTheme();
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+  const clearTimeoutRef = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
     }
+  }, []);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen, onClose]);
+  useEffect(() => {
+    return () => clearTimeoutRef();
+  }, [clearTimeoutRef]);
 
-  const handleItemClick = (item: (typeof menu.items)[0]) => {
+  const handleItemClick = (item: MenuItem) => {
     onClose();
-    if ("external" in item && item.external) {
+    if (item.external) {
       window.open(item.href, "_blank");
     } else {
       navigate(item.href);
@@ -237,16 +254,15 @@ const DropdownMenu = ({ menu, isOpen, onToggle, onClose, onHover }: DropdownMenu
   };
 
   const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    onHover();
+    clearTimeoutRef();
+    onOpen();
   };
 
   const handleMouseLeave = () => {
+    clearTimeoutRef();
     timeoutRef.current = setTimeout(() => {
       onClose();
-    }, 150);
+    }, 300);
   };
 
   return (
@@ -257,7 +273,7 @@ const DropdownMenu = ({ menu, isOpen, onToggle, onClose, onHover }: DropdownMenu
       onMouseLeave={handleMouseLeave}
     >
       <button
-        onClick={onToggle}
+        onClick={() => isOpen ? onClose() : onOpen()}
         className={cn(
           "flex items-center gap-1 font-medium transition-all duration-200 text-sm py-2 px-3 rounded-lg",
           isOpen
@@ -286,53 +302,75 @@ const DropdownMenu = ({ menu, isOpen, onToggle, onClose, onHover }: DropdownMenu
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
             className={cn(
-              "absolute left-0 mt-2 w-72 backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden z-50",
+              "absolute left-0 mt-2 w-80 backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden z-50",
               isDarkMode
                 ? "bg-neutral-900/95 border-white/10 shadow-black/50"
                 : "bg-white/95 border-black/10 shadow-black/10"
             )}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <div className="py-2">
-              {menu.items.map((item, index) => (
-                <motion.button
-                  key={item.label}
-                  onClick={() => handleItemClick(item)}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.15, delay: index * 0.03 }}
-                  className={cn(
-                    "w-full text-left px-4 py-3 transition-all duration-150 group",
-                    isDarkMode ? "hover:bg-white/10" : "hover:bg-black/5"
-                  )}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className={cn(
-                      "font-medium text-sm transition-colors duration-150",
-                      isDarkMode
-                        ? "text-white/90 group-hover:text-white"
-                        : "text-black/90 group-hover:text-black"
-                    )}>
-                      {item.label}
-                    </span>
-                    {"external" in item && item.external && (
-                      <ExternalLink className={cn(
-                        "w-3.5 h-3.5 transition-colors duration-150",
-                        isDarkMode
-                          ? "text-white/30 group-hover:text-white/60"
-                          : "text-black/30 group-hover:text-black/60"
-                      )} />
+              {menu.items.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.button
+                    key={item.label}
+                    onClick={() => handleItemClick(item)}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.15, delay: index * 0.03 }}
+                    className={cn(
+                      "w-full text-left px-4 py-3 transition-all duration-150 group flex items-center gap-3",
+                      isDarkMode ? "hover:bg-white/10" : "hover:bg-black/5"
                     )}
-                  </div>
-                  <p className={cn(
-                    "text-xs mt-0.5 transition-colors duration-150",
-                    isDarkMode
-                      ? "text-white/40 group-hover:text-white/60"
-                      : "text-black/40 group-hover:text-black/60"
-                  )}>
-                    {item.description}
-                  </p>
-                </motion.button>
-              ))}
+                  >
+                    {Icon && (
+                      <div className={cn(
+                        "w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors",
+                        isDarkMode
+                          ? "bg-white/10 group-hover:bg-white/20"
+                          : "bg-black/5 group-hover:bg-black/10"
+                      )}>
+                        <Icon className={cn(
+                          "w-4 h-4",
+                          isDarkMode
+                            ? "text-white/70 group-hover:text-white"
+                            : "text-black/70 group-hover:text-black"
+                        )} />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between">
+                        <span className={cn(
+                          "font-medium text-sm transition-colors duration-150",
+                          isDarkMode
+                            ? "text-white/90 group-hover:text-white"
+                            : "text-black/90 group-hover:text-black"
+                        )}>
+                          {item.label}
+                        </span>
+                        {item.external && (
+                          <ExternalLink className={cn(
+                            "w-3.5 h-3.5 flex-shrink-0 transition-colors duration-150",
+                            isDarkMode
+                              ? "text-white/30 group-hover:text-white/60"
+                              : "text-black/30 group-hover:text-black/60"
+                          )} />
+                        )}
+                      </div>
+                      <p className={cn(
+                        "text-xs mt-0.5 transition-colors duration-150 truncate",
+                        isDarkMode
+                          ? "text-white/40 group-hover:text-white/60"
+                          : "text-black/40 group-hover:text-black/60"
+                      )}>
+                        {item.description}
+                      </p>
+                    </div>
+                  </motion.button>
+                );
+              })}
             </div>
           </motion.div>
         )}
@@ -344,6 +382,7 @@ const DropdownMenu = ({ menu, isOpen, onToggle, onClose, onHover }: DropdownMenu
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const { isDarkMode } = useTheme();
 
   // Close menu on escape
   useEffect(() => {
@@ -357,17 +396,17 @@ const Navbar = () => {
     return () => document.removeEventListener("keydown", handleEscape);
   }, []);
 
-  const handleMenuToggle = (menuKey: string) => {
-    setOpenMenu(openMenu === menuKey ? null : menuKey);
+  const handleMenuOpen = (menuKey: string) => {
+    setOpenMenu(menuKey);
   };
 
-  const handleMenuHover = (menuKey: string) => {
-    setOpenMenu(menuKey);
+  const handleMenuClose = () => {
+    setOpenMenu(null);
   };
 
   return (
     <NavbarContainer>
-      {/* Animated Logo */}
+      {/* Logo */}
       <Logo size="md" showText={true} />
 
       {/* Desktop Navigation */}
@@ -375,50 +414,50 @@ const Navbar = () => {
         <DropdownMenu
           menu={navMenus.research}
           isOpen={openMenu === "research"}
-          onToggle={() => handleMenuToggle("research")}
-          onClose={() => setOpenMenu(null)}
-          onHover={() => handleMenuHover("research")}
+          onOpen={() => handleMenuOpen("research")}
+          onClose={handleMenuClose}
+        />
+        <DropdownMenu
+          menu={navMenus.models}
+          isOpen={openMenu === "models"}
+          onOpen={() => handleMenuOpen("models")}
+          onClose={handleMenuClose}
         />
         <DropdownMenu
           menu={navMenus.products}
           isOpen={openMenu === "products"}
-          onToggle={() => handleMenuToggle("products")}
-          onClose={() => setOpenMenu(null)}
-          onHover={() => handleMenuHover("products")}
-        />
-        <DropdownMenu
-          menu={navMenus.solutions}
-          isOpen={openMenu === "solutions"}
-          onToggle={() => handleMenuToggle("solutions")}
-          onClose={() => setOpenMenu(null)}
-          onHover={() => handleMenuHover("solutions")}
+          onOpen={() => handleMenuOpen("products")}
+          onClose={handleMenuClose}
         />
         <DropdownMenu
           menu={navMenus.learn}
           isOpen={openMenu === "learn"}
-          onToggle={() => handleMenuToggle("learn")}
-          onClose={() => setOpenMenu(null)}
-          onHover={() => handleMenuHover("learn")}
+          onOpen={() => handleMenuOpen("learn")}
+          onClose={handleMenuClose}
         />
         <DropdownMenu
           menu={navMenus.company}
           isOpen={openMenu === "company"}
-          onToggle={() => handleMenuToggle("company")}
-          onClose={() => setOpenMenu(null)}
-          onHover={() => handleMenuHover("company")}
+          onOpen={() => handleMenuOpen("company")}
+          onClose={handleMenuClose}
         />
       </div>
 
       {/* CTA Buttons */}
       <div className="hidden md:flex items-center space-x-3">
         <ThemeSwitcher size="sm" />
-        <Link to="/contact">
+        <Link to="/news">
           <Button
             variant="ghost"
             size="sm"
-            className="text-white/70 hover:text-white hover:bg-white/10 font-medium transition-all duration-200 rounded-full px-5 dark:text-white/70 dark:hover:text-white"
+            className={cn(
+              "font-medium transition-all duration-200 rounded-full px-5",
+              isDarkMode
+                ? "text-white/70 hover:text-white hover:bg-white/10"
+                : "text-black/70 hover:text-black hover:bg-black/10"
+            )}
           >
-            Contact Sales
+            News
           </Button>
         </Link>
         <TryHanzoDropdown />
@@ -426,7 +465,12 @@ const Navbar = () => {
 
       {/* Mobile Menu Toggle */}
       <button
-        className="md:hidden p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200"
+        className={cn(
+          "md:hidden p-2 rounded-lg transition-all duration-200",
+          isDarkMode
+            ? "text-white/70 hover:text-white hover:bg-white/10"
+            : "text-black/70 hover:text-black hover:bg-black/10"
+        )}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       >
         <AnimatePresence mode="wait">
@@ -462,42 +506,66 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 md:hidden bg-neutral-900/98 backdrop-blur-xl border-t border-white/10 rounded-b-2xl overflow-hidden"
+            className={cn(
+              "absolute top-full left-0 right-0 md:hidden backdrop-blur-xl border-t rounded-b-2xl overflow-hidden",
+              isDarkMode
+                ? "bg-neutral-900/98 border-white/10"
+                : "bg-white/98 border-black/10"
+            )}
           >
             <div className="py-4 space-y-4 px-4 max-h-[70vh] overflow-y-auto">
               {Object.entries(navMenus).map(([key, menu]) => (
                 <div key={key} className="space-y-2">
-                  <div className="text-xs font-medium text-white/40 uppercase tracking-wider px-2">
+                  <div className={cn(
+                    "text-xs font-medium uppercase tracking-wider px-2",
+                    isDarkMode ? "text-white/40" : "text-black/40"
+                  )}>
                     {menu.title}
                   </div>
                   {menu.items.map((item) => (
                     <Link
                       key={item.label}
-                      to={"external" in item && item.external ? "#" : item.href}
+                      to={item.external ? "#" : item.href}
                       onClick={(e) => {
-                        if ("external" in item && item.external) {
+                        if (item.external) {
                           e.preventDefault();
                           window.open(item.href, "_blank");
                         }
                         setIsMobileMenuOpen(false);
                       }}
-                      className="flex items-center justify-between py-2 px-2 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-150"
+                      className={cn(
+                        "flex items-center justify-between py-2 px-2 rounded-lg transition-all duration-150",
+                        isDarkMode
+                          ? "text-white/70 hover:text-white hover:bg-white/5"
+                          : "text-black/70 hover:text-black hover:bg-black/5"
+                      )}
                     >
                       <span>{item.label}</span>
-                      {"external" in item && item.external && (
-                        <ExternalLink className="w-3.5 h-3.5 text-white/30" />
+                      {item.external && (
+                        <ExternalLink className={cn(
+                          "w-3.5 h-3.5",
+                          isDarkMode ? "text-white/30" : "text-black/30"
+                        )} />
                       )}
                     </Link>
                   ))}
                 </div>
               ))}
-              <div className="pt-4 space-y-2 border-t border-white/10">
+              <div className={cn(
+                "pt-4 space-y-2 border-t",
+                isDarkMode ? "border-white/10" : "border-black/10"
+              )}>
                 <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button
                     variant="outline"
-                    className="w-full border-white/20 text-white hover:bg-white/10 transition-all duration-200"
+                    className={cn(
+                      "w-full transition-all duration-200",
+                      isDarkMode
+                        ? "border-white/20 text-white hover:bg-white/10"
+                        : "border-black/20 text-black hover:bg-black/10"
+                    )}
                   >
-                    Contact Sales
+                    Contact
                   </Button>
                 </Link>
                 <a
@@ -505,8 +573,13 @@ const Navbar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button className="w-full bg-white text-black hover:bg-white/90 transition-all duration-200">
-                    Try Hanzo
+                  <Button className={cn(
+                    "w-full transition-all duration-200",
+                    isDarkMode
+                      ? "bg-white text-black hover:bg-white/90"
+                      : "bg-black text-white hover:bg-black/90"
+                  )}>
+                    Try Zen
                   </Button>
                 </a>
               </div>

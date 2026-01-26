@@ -36,26 +36,23 @@ const chatPresets = [
 // Page context mapping for Hanzo Industries
 const getPageContext = (pathname: string): string => {
   const contexts: Record<string, string> = {
-    "/": "Hanzo Industries homepage - Defense and government AI solutions",
+    "/": "Hanzo Industries homepage - Frontier AI research lab",
     "/about": "About Hanzo Industries - Company overview and mission",
     "/team": "Hanzo Industries Team - Meet our leadership and experts",
-    "/defense": "Defense Solutions - AI for defense and national security",
-    "/intelligence": "Intelligence Solutions - AI-powered intelligence analysis",
-    "/cybersecurity": "Cybersecurity Solutions - Advanced threat detection and response",
-    "/cloud": "Secure Cloud - FedRAMP and government cloud infrastructure",
+    "/research": "Research - AI research and publications (58 papers)",
+    "/research#ai": "AI & Machine Learning Research",
+    "/research#crypto": "Post-Quantum Cryptography Research",
+    "/research#consensus": "Consensus Protocols Research",
     "/services": "Services - Professional services and consulting",
     "/capabilities": "Capabilities - AI capabilities overview",
     "/capabilities/decentralized-ai": "Decentralized AI - Distributed AI systems",
     "/solutions": "Solutions - Industry solutions and use cases",
-    "/industries/aerospace": "Aerospace Industry - AI for aerospace applications",
-    "/industries/defense": "Defense Industry - AI for defense contractors",
     "/pricing": "Pricing - Plans and enterprise pricing",
-    "/case-studies": "Case Studies - Success stories and implementations",
+    "/case-studies": "Research Impact - Success stories and implementations",
     "/examples": "Examples - Technical demonstrations",
-    "/research": "Research - AI research and publications",
     "/press": "Press - News and media coverage",
-    "/models": "AI Models - Foundation models and capabilities",
-    "/ai-models": "AI Models - Foundation models and capabilities",
+    "/models": "Zen Models - Foundation models (600M-480B parameters)",
+    "/ai-models": "Zen Models - Foundation models and capabilities",
     "/security": "Security - Security practices and compliance",
     "/status": "Status - System status and uptime",
     "/contact": "Contact - Get in touch with our team",
@@ -66,6 +63,8 @@ const getPageContext = (pathname: string): string => {
     "/products/hanzo-ml": "Hanzo ML - Machine learning operations",
     "/products/hanzo-dev": "Hanzo Dev - Accelerated development environment",
     "/products/hanzo-team": "Hanzo Team - Collaboration platform",
+    "/products/lux": "Lux Network - Decentralized AI compute",
+    "/products/zoo": "Zoo Gym - AI training infrastructure",
   };
 
   // Check for partial matches
@@ -195,7 +194,7 @@ const GlobalChatWidget = () => {
           messages: [
             {
               role: "system",
-              content: `You are Zen AI, powered by the ${selectedModel.name} model (${selectedModel.params}). You're helping users on the Hanzo Industries website, which focuses on defense, government, and enterprise AI solutions. Current page context: ${pageContext}. Be helpful, concise, and knowledgeable about Hanzo's products, defense capabilities, secure cloud infrastructure, and AI solutions for government and enterprise. For pricing or sales inquiries, direct users to /pricing or /contact.`,
+              content: `You are Zen AI, powered by the ${selectedModel.name} model (${selectedModel.params}). You're helping users on the Hanzo Industries website, a frontier AI research lab focused on AI, cryptography, consensus protocols, and distributed systems. Current page context: ${pageContext}. Be helpful, concise, and knowledgeable about Hanzo's research (58 papers), Zen models (600M-480B params), post-quantum cryptography, and AI products. For pricing or sales inquiries, direct users to /pricing or /contact.`,
             },
             ...messages.slice(-10).map((m) => ({ role: m.role, content: m.content })),
             { role: "user", content: input.trim() },

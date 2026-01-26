@@ -19,16 +19,10 @@ import Status from "./pages/Status";
 import Security from "./pages/Security";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
-import Defense from "./pages/Defense";
-import Intelligence from "./pages/Intelligence";
 import Services from "./pages/Services";
-import Aerospace from "./pages/industries/Aerospace";
-import DefenseIndustry from "./pages/industries/Defense";
 import ComingSoon from "./pages/ComingSoon";
 import ContactPage from "./pages/ContactPage";
 import About from "./pages/About";
-import Cybersecurity from "./pages/Cybersecurity";
-import SecureCloud from "./pages/SecureCloud";
 import Team from "./pages/Team";
 import Capabilities from "./pages/Capabilities";
 import DecentralizedAI from "./pages/capabilities/DecentralizedAI";
@@ -40,7 +34,7 @@ import AIModels from "./pages/AIModels";
 import Blog from "./pages/Blog";
 import News from "./pages/News";
 import Help from "./pages/Help";
-import { Blocks, Code2, Bot, Brain, Shield, Users, Cpu, Zap } from "lucide-react";
+import { Brain, Code2, Bot, Users, Cpu, Zap, Shield } from "lucide-react";
 import ProductPage from "./components/ProductPage";
 
 const queryClient = new QueryClient();
@@ -50,52 +44,37 @@ const productPages = [
     path: "zen",
     icon: Brain,
     title: "ZEN",
-    description: "Advanced AI orchestration platform for building and deploying intelligent systems at scale.",
+    description: "Frontier AI models from 600M to 480B parameters, optimized for efficiency and deployed across edge to cloud.",
     features: [
-      "Multi-model AI orchestration and management",
-      "Automated prompt engineering and optimization",
-      "Real-time performance monitoring and analytics",
-      "Enterprise-grade security and compliance",
-      "Seamless integration with existing infrastructure",
-      "Cost optimization and resource management"
+      "State-of-the-art language models (Qwen3+ based)",
+      "95% energy reduction through efficient architecture",
+      "Multi-model orchestration and management",
+      "Edge deployment optimization",
+      "Automated prompt engineering",
+      "Real-time performance monitoring"
     ],
-    documentation: "https://docs.google.com/document/d/1CNrg4FwqttLbG4re3PeMg0MD548gUh5xKk-ij-BtJUs/edit?usp=drive_link"
-  },
-  {
-    path: "koan",
-    icon: Shield,
-    title: "KOAN",
-    description: "Enterprise knowledge management and AI-powered insights platform.",
-    features: [
-      "Intelligent document processing and analysis",
-      "Knowledge graph construction and visualization",
-      "Natural language querying and exploration",
-      "Automated insight generation and reporting",
-      "Secure data governance and access control",
-      "Cross-organizational knowledge sharing"
-    ],
-    documentation: "https://docs.google.com/document/d/10M7A9AqsshqhgUYCjkbTSmL25OcCC0cU6qoddmYNbAI/edit?usp=sharing"
+    documentation: "https://huggingface.co/zenlm"
   },
   {
     path: "hanzo-ai",
     icon: Bot,
     title: "HANZO AI",
-    description: "Comprehensive AI platform powering next-generation intelligent applications.",
+    description: "Comprehensive AI platform powering next-generation intelligent applications and agentic systems.",
     features: [
       "State-of-the-art language models and APIs",
       "Custom model training and fine-tuning",
-      "Multimodal AI capabilities",
+      "Multimodal AI capabilities (vision, audio, 3D)",
       "Edge deployment and optimization",
       "AI safety and alignment tools",
       "Developer-friendly SDKs and integrations"
     ],
-    documentation: "https://hanzo.industries/"
+    documentation: "https://hanzo.ai"
   },
   {
     path: "hanzo-dx",
     icon: Code2,
     title: "HANZO DX",
-    description: "Developer experience platform for building AI-powered applications.",
+    description: "Developer experience platform for building AI-powered applications with best-in-class tooling.",
     features: [
       "Comprehensive development toolkit",
       "CI/CD pipeline automation",
@@ -110,10 +89,10 @@ const productPages = [
     path: "hanzo-ml",
     icon: Cpu,
     title: "HANZO ML",
-    description: "Machine learning operations platform for enterprise AI deployment.",
+    description: "Machine learning operations platform for enterprise AI deployment with 99.8% cost reduction in training.",
     features: [
       "Model versioning and registry",
-      "Automated training pipelines",
+      "Training-Free GRPO optimization",
       "A/B testing and experimentation",
       "Model monitoring and drift detection",
       "Scalable inference infrastructure",
@@ -125,7 +104,7 @@ const productPages = [
     path: "hanzo-dev",
     icon: Zap,
     title: "HANZO DEV",
-    description: "Accelerated development environment for AI applications.",
+    description: "AI-accelerated development environment with intelligent coding assistance.",
     features: [
       "AI-powered code completion",
       "Intelligent debugging and error detection",
@@ -140,7 +119,7 @@ const productPages = [
     path: "hanzo-team",
     icon: Users,
     title: "HANZO TEAM",
-    description: "Team collaboration and project management platform for AI initiatives.",
+    description: "Team collaboration and project management platform for AI research initiatives.",
     features: [
       "Project planning and tracking",
       "Resource allocation and management",
@@ -149,7 +128,22 @@ const productPages = [
       "Performance analytics and reporting",
       "Integration with development workflows"
     ],
-    documentation: "https://hanzo.team/login%3Acomponent%3ALoginApp"
+    documentation: "https://hanzo.team"
+  },
+  {
+    path: "lux",
+    icon: Shield,
+    title: "LUX NETWORK",
+    description: "Post-quantum secure blockchain infrastructure for AI compute settlement and decentralized systems.",
+    features: [
+      "Multi-consensus architecture (Wave, Focus, Quasar)",
+      "Post-quantum cryptography (Dilithium, FALCON)",
+      "TEE attestation and verification",
+      "Cross-chain interoperability",
+      "GPU-accelerated FHE",
+      "24 published research papers"
+    ],
+    documentation: "https://lux.network"
   }
 ];
 
@@ -179,59 +173,60 @@ const App = () => {
             <ScrollToTop />
             <PageTransition>
               <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/capabilities" element={<Capabilities />} />
-            <Route path="/capabilities/decentralized-ai" element={<DecentralizedAI />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/examples" element={<Examples />} />
-            <Route path="/research" element={<Research />} />
-            <Route path="/research/papers" element={<Research />} />
-            <Route path="/research/open-source" element={<Research />} />
-            <Route path="/press" element={<Press />} />
-            <Route path="/models" element={<AIModels />} />
-            <Route path="/ai-models" element={<AIModels />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/careers" element={<ComingSoon />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/defense" element={<Defense />} />
-            <Route path="/intelligence" element={<Intelligence />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/industries/aerospace" element={<Aerospace />} />
-            <Route path="/industries/defense" element={<DefenseIndustry />} />
-            <Route path="/industries/aerospace-defense" element={<Navigate to="/industries/defense" replace />} />
-            <Route path="/install" element={<Install />} />
-            <Route path="/install.sh" element={<Install />} />
-            <Route path="/status" element={<Status />} />
-            <Route path="/security" element={<Security />} />
-            <Route path="/cybersecurity" element={<Cybersecurity />} />
-            <Route path="/cloud" element={<SecureCloud />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/coming-soon" element={<ComingSoon />} />
-            {productPages.map((product) => (
-              <Route
-                key={product.path}
-                path={`/products/${product.path}`}
-                element={
-                  <ProductPage
-                    icon={product.icon}
-                    title={product.title}
-                    description={product.description}
-                    features={product.features}
-                    documentation={product.documentation}
+                <Route path="/" element={<Index />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/solutions" element={<Solutions />} />
+                <Route path="/capabilities" element={<Capabilities />} />
+                <Route path="/capabilities/decentralized-ai" element={<DecentralizedAI />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/examples" element={<Examples />} />
+                <Route path="/research" element={<Research />} />
+                <Route path="/research/papers" element={<Research />} />
+                <Route path="/research/open-source" element={<Research />} />
+                <Route path="/press" element={<Press />} />
+                <Route path="/models" element={<AIModels />} />
+                <Route path="/ai-models" element={<AIModels />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/careers" element={<ComingSoon />} />
+                <Route path="/news" element={<News />} />
+                <Route path="/help" element={<Help />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/install" element={<Install />} />
+                <Route path="/install.sh" element={<Install />} />
+                <Route path="/status" element={<Status />} />
+                <Route path="/security" element={<Security />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/coming-soon" element={<ComingSoon />} />
+                {productPages.map((product) => (
+                  <Route
+                    key={product.path}
+                    path={`/products/${product.path}`}
+                    element={
+                      <ProductPage
+                        icon={product.icon}
+                        title={product.title}
+                        description={product.description}
+                        features={product.features}
+                        documentation={product.documentation}
+                      />
+                    }
                   />
-                }
-              />
-            ))}
-              <Route path="/index.html" element={<Navigate to="/" replace />} />
-              <Route path="*" element={<NotFound />} />
+                ))}
+                <Route path="/index.html" element={<Navigate to="/" replace />} />
+                {/* Redirect old defense routes */}
+                <Route path="/defense" element={<Navigate to="/research" replace />} />
+                <Route path="/intelligence" element={<Navigate to="/research" replace />} />
+                <Route path="/industries/defense" element={<Navigate to="/research" replace />} />
+                <Route path="/industries/aerospace" element={<Navigate to="/research" replace />} />
+                <Route path="/industries/aerospace-defense" element={<Navigate to="/research" replace />} />
+                <Route path="/cybersecurity" element={<Navigate to="/security" replace />} />
+                <Route path="/cloud" element={<Navigate to="/products/lux" replace />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </PageTransition>
             <GlobalChatWidget />
