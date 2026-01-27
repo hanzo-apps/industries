@@ -99,16 +99,16 @@ export default function CaseStudies() {
       icon: Zap,
       category: "Agent Infrastructure",
       title: "ZAP: Zero-copy Agent Protocol",
-      description: "The MCP Killer—unified protocol achieving ~500x faster agent communication with Cap'n Proto RPC",
+      description: "The MCP Killer—unified protocol achieving ~500x faster agent communication with zero-copy RPC",
       results: [
         "<1μs local latency (vs 500μs MCP)",
         "1.2M/s throughput (vs 2.2k/s MCP)",
         "~5% message overhead (vs 40% JSON)",
         "40-50× infrastructure cost reduction"
       ],
-      technologies: ["Cap'n Proto", "Zero-copy", "Metastable Consensus", "Post-Quantum"],
+      technologies: ["ZAP Binary Format", "Zero-copy", "Metastable Consensus", "Post-Quantum"],
       impact: "Enabling real-time agent swarms with native consensus and capability security",
-      link: "https://github.com/zap-protocol/zap"
+      link: "https://github.com/zap-proto/zap"
     }
   ];
 
@@ -137,6 +137,7 @@ export default function CaseStudies() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
           >
@@ -170,7 +171,8 @@ export default function CaseStudies() {
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.5, delay: Math.min(index * 0.1, 0.3) }}
                   className="block bg-gray-900 border border-gray-800 rounded-lg p-8 hover:border-gray-600 transition-colors group"
                 >
                   <div className="flex items-start space-x-4 mb-6">
@@ -224,6 +226,7 @@ export default function CaseStudies() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5 }}
             className="mt-20 text-center"
           >

@@ -34,7 +34,8 @@ import AIModels from "./pages/AIModels";
 import Blog from "./pages/Blog";
 import News from "./pages/News";
 import Help from "./pages/Help";
-import { Brain, Code2, Bot, Users, Cpu, Zap, Shield } from "lucide-react";
+import Careers from "./pages/Careers";
+import { Brain, Code2, Bot, Users, Cpu, Zap, Shield, Database, Vote, ArrowLeftRight, Building2, Repeat } from "lucide-react";
 import ProductPage from "./components/ProductPage";
 
 const queryClient = new QueryClient();
@@ -54,6 +55,21 @@ const productPages = [
       "Real-time performance monitoring"
     ],
     documentation: "https://huggingface.co/zenlm"
+  },
+  {
+    path: "koan",
+    icon: Database,
+    title: "KOAN",
+    description: "Enterprise knowledge management and retrieval-augmented generation platform for organizational intelligence.",
+    features: [
+      "Semantic knowledge graph construction",
+      "Multi-modal document ingestion",
+      "Real-time knowledge retrieval",
+      "Context-aware AI responses",
+      "Enterprise security and compliance",
+      "Integration with existing systems"
+    ],
+    documentation: "https://koan.hanzo.ai"
   },
   {
     path: "hanzo-ai",
@@ -144,6 +160,66 @@ const productPages = [
       "24 published research papers"
     ],
     documentation: "https://lux.network"
+  },
+  {
+    path: "hanzo-dao",
+    icon: Vote,
+    title: "HANZO DAO",
+    description: "Launch and manage decentralized autonomous organizations with enterprise-grade governance, voting, and treasury management.",
+    features: [
+      "One-click DAO deployment with customizable governance",
+      "Multi-signature treasury management and smart vaults",
+      "Linear and quadratic voting mechanisms",
+      "Role-based access control with DecentHats",
+      "Proposal creation, voting, and execution workflows",
+      "Multi-chain support across EVM networks"
+    ],
+    documentation: "https://lux.vote"
+  },
+  {
+    path: "hanzo-dex",
+    icon: ArrowLeftRight,
+    title: "HANZO DEX",
+    description: "Decentralized exchange infrastructure with automated market makers, liquidity pools, and cross-chain swaps.",
+    features: [
+      "Automated Market Maker (AMM) protocol",
+      "Concentrated liquidity pools",
+      "Cross-chain token swaps",
+      "MEV protection and fair ordering",
+      "Yield farming and staking rewards",
+      "Gas-optimized smart contracts"
+    ],
+    documentation: "https://hanzo.ai/dex"
+  },
+  {
+    path: "hanzo-amm",
+    icon: Repeat,
+    title: "HANZO AMM",
+    description: "Advanced automated market maker with Hamiltonian dynamics for optimal pricing and minimal slippage.",
+    features: [
+      "Hamiltonian Market Maker (HMM) algorithm",
+      "Dynamic fee adjustment based on volatility",
+      "Impermanent loss protection mechanisms",
+      "Multi-asset liquidity pools",
+      "Oracle-integrated price feeds",
+      "Flash loan resistant architecture"
+    ],
+    documentation: "https://hanzo.ai/amm"
+  },
+  {
+    path: "hanzo-cex",
+    icon: Building2,
+    title: "HANZO CEX",
+    description: "White-label centralized exchange platform with institutional-grade matching engine and compliance tools.",
+    features: [
+      "High-frequency order matching engine",
+      "KYC/AML compliance integration",
+      "Hot and cold wallet management",
+      "Margin trading and derivatives",
+      "Real-time market data feeds",
+      "Multi-currency fiat on/off ramps"
+    ],
+    documentation: "https://hanzo.ai/cex"
   }
 ];
 
@@ -190,7 +266,7 @@ const App = () => {
                 <Route path="/models" element={<AIModels />} />
                 <Route path="/ai-models" element={<AIModels />} />
                 <Route path="/blog" element={<Blog />} />
-                <Route path="/careers" element={<ComingSoon />} />
+                <Route path="/careers" element={<Careers />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/help" element={<Help />} />
                 <Route path="/contact" element={<ContactPage />} />

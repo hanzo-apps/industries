@@ -315,7 +315,7 @@ const ContactPage = () => {
                   <div className="space-y-4">
                     {/* Email */}
                     <a
-                      href="mailto:info@hanzo.industries"
+                      href="mailto:info@hanzo.ai"
                       className="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-neutral-900/30 hover:border-white/20 hover:bg-neutral-900/50 transition-all group"
                     >
                       <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-white/10 transition-colors">
@@ -323,7 +323,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <p className="font-medium text-white">Email</p>
-                        <p className="text-sm text-neutral-400">info@hanzo.industries</p>
+                        <p className="text-sm text-neutral-400">info@hanzo.ai</p>
                       </div>
                     </a>
 
@@ -365,8 +365,8 @@ const ContactPage = () => {
                       <h3 className="font-medium text-white text-sm">Research Division</h3>
                     </div>
                     <p className="text-xs text-neutral-400 mb-2">Academic & industry collaboration</p>
-                    <a href="mailto:research@hanzo.industries" className="text-xs text-white/80 hover:text-white transition-colors">
-                      research@hanzo.industries
+                    <a href="mailto:research@hanzo.ai" className="text-xs text-white/80 hover:text-white transition-colors">
+                      research@hanzo.ai
                     </a>
                   </div>
                   <div className="p-5 rounded-xl border border-white/10 bg-neutral-900/30">
@@ -375,8 +375,8 @@ const ContactPage = () => {
                       <h3 className="font-medium text-white text-sm">Commercial</h3>
                     </div>
                     <p className="text-xs text-neutral-400 mb-2">Enterprise AI solutions</p>
-                    <a href="mailto:sales@hanzo.industries" className="text-xs text-white/80 hover:text-white transition-colors">
-                      sales@hanzo.industries
+                    <a href="mailto:sales@hanzo.ai" className="text-xs text-white/80 hover:text-white transition-colors">
+                      sales@hanzo.ai
                     </a>
                   </div>
                 </div>

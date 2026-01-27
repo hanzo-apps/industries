@@ -28,6 +28,11 @@ import {
   Newspaper,
   Building,
   Network,
+  Vote,
+  ArrowLeftRight,
+  Repeat,
+  Building2,
+  Cpu,
 } from "lucide-react";
 
 const BRAND_COLOR = "#fd4444";
@@ -44,14 +49,21 @@ interface CommandItem {
 }
 
 const commands: CommandItem[] = [
-  // Products
-  { id: "zen", title: "ZEN", description: "AI orchestration platform", href: "/products/zen", icon: Brain, category: "Products", keywords: ["ai", "orchestration", "platform"] },
-  { id: "koan", title: "KOAN", description: "Enterprise knowledge management", href: "/products/koan", icon: Database, category: "Products", keywords: ["knowledge", "enterprise", "insights"] },
-  { id: "hanzo-ai", title: "Hanzo AI", description: "Comprehensive AI platform", href: "/products/hanzo-ai", icon: Bot, category: "Products", keywords: ["ai", "models", "api"] },
+  // Products - AI
+  { id: "zen", title: "ZEN", description: "AI orchestration platform", href: "/products/zen", icon: Brain, category: "Products", keywords: ["ai", "orchestration", "platform", "models"] },
+  { id: "koan", title: "KOAN", description: "Enterprise knowledge management", href: "/products/koan", icon: Database, category: "Products", keywords: ["knowledge", "enterprise", "insights", "rag"] },
+  { id: "hanzo-ai", title: "Hanzo AI", description: "Comprehensive AI platform", href: "/products/hanzo-ai", icon: Bot, category: "Products", keywords: ["ai", "models", "api", "llm"] },
   { id: "hanzo-dx", title: "Hanzo DX", description: "Developer experience platform", href: "/products/hanzo-dx", icon: Code, category: "Products", keywords: ["developer", "tools", "sdk"] },
-  { id: "hanzo-ml", title: "Hanzo ML", description: "ML operations platform", href: "/products/hanzo-ml", icon: Zap, category: "Products", keywords: ["mlops", "training", "deployment"] },
+  { id: "hanzo-ml", title: "Hanzo ML", description: "ML operations platform", href: "/products/hanzo-ml", icon: Cpu, category: "Products", keywords: ["mlops", "training", "deployment"] },
   { id: "hanzo-dev", title: "Hanzo Dev", description: "Accelerated development", href: "/products/hanzo-dev", icon: Terminal, category: "Products", keywords: ["code", "development", "ai"] },
   { id: "hanzo-team", title: "Hanzo Team", description: "Collaboration platform", href: "/products/hanzo-team", icon: Users, category: "Products", keywords: ["team", "collaboration", "project"] },
+  { id: "lux", title: "Lux Network", description: "Post-quantum blockchain", href: "/products/lux", icon: Shield, category: "Products", keywords: ["blockchain", "crypto", "network", "decentralized"] },
+
+  // Products - Blockchain/Finance
+  { id: "hanzo-dao", title: "Hanzo DAO", description: "Decentralized governance", href: "/products/hanzo-dao", icon: Vote, category: "Products", keywords: ["dao", "governance", "voting", "treasury"] },
+  { id: "hanzo-dex", title: "Hanzo DEX", description: "Decentralized exchange", href: "/products/hanzo-dex", icon: ArrowLeftRight, category: "Products", keywords: ["dex", "swap", "trading", "liquidity"] },
+  { id: "hanzo-amm", title: "Hanzo AMM", description: "Automated market maker", href: "/products/hanzo-amm", icon: Repeat, category: "Products", keywords: ["amm", "liquidity", "trading", "defi"] },
+  { id: "hanzo-cex", title: "Hanzo CEX", description: "Centralized exchange", href: "/products/hanzo-cex", icon: Building2, category: "Products", keywords: ["cex", "exchange", "trading", "fiat"] },
 
   // Platform / Services
   { id: "research", title: "Research", description: "AI research and publications", href: "/research", icon: FileText, category: "Platform", keywords: ["research", "papers", "publications"] },
@@ -203,7 +215,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.15 }}
-            className="fixed top-[15%] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] max-w-xl mx-auto z-[101]"
+            className="fixed top-[10%] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] max-w-xl mx-auto z-[101]"
           >
             <div className="bg-neutral-900 border border-neutral-700 rounded-xl shadow-2xl overflow-hidden">
               {/* Search input */}

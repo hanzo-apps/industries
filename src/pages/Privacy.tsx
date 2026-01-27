@@ -16,8 +16,8 @@ const Privacy = () => {
               <p>Hanzo Industries, Inc. ("Hanzo", "we", "us", or "our") is the data controller for the personal information we process under this policy.</p>
               <p>For privacy-related inquiries, you can reach our Data Protection Officer (DPO) at:</p>
               <ul>
-                <li>Email: dpo@hanzo.industries</li>
-                <li>General Support: help@hanzo.industries</li>
+                <li>Email: dpo@hanzo.ai</li>
+                <li>General Support: help@hanzo.ai</li>
               </ul>
               <p>Our registered agent information:</p>
               <ul>
@@ -88,7 +88,7 @@ const Privacy = () => {
                 <li>Object to data processing</li>
                 <li>Export your data</li>
               </ul>
-              <p>To exercise these rights, please contact our DPO at dpo@hanzo.industries</p>
+              <p>To exercise these rights, please contact our DPO at dpo@hanzo.ai</p>
             </section>
 
             <section>
@@ -105,8 +105,8 @@ const Privacy = () => {
               <h2>9. Contact Information</h2>
               <p>For any questions about our Privacy Policy or data practices:</p>
               <ul>
-                <li>Data Protection Officer: dpo@hanzo.industries</li>
-                <li>General Support: help@hanzo.industries</li>
+                <li>Data Protection Officer: dpo@hanzo.ai</li>
+                <li>General Support: help@hanzo.ai</li>
                 <li>Company: Hanzo Industries, Inc.</li>
                 <li>Registered Agent: Legalinc Corporate Services Inc.</li>
                 <li>Address: 131 Continental Dr, Suite 305, Newark, DE 19713 US</li>
