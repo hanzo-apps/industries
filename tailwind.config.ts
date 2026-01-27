@@ -55,8 +55,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Inter var", "sans-serif"],
-        display: ["CalSans Semibold", "sans-serif"],
+        sans: ["Geist", "system-ui", "sans-serif"],
+        display: ["Geist", "system-ui", "sans-serif"],
+        mono: ["Geist Mono", "ui-monospace", "monospace"],
       },
       keyframes: {
         "fade-up": {

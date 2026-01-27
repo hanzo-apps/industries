@@ -69,9 +69,9 @@ const Terms = () => {
               <h2>9. Contact Information</h2>
               <p>For any questions about these Terms of Service, please contact us at:</p>
               <ul>
-                <li>Email: help@hanzo.industries</li>
+                <li>Email: help@hanzo.ai</li>
                 <li>Company: Hanzo Industries, Inc.</li>
-                <li>For legal notices: legal@hanzo.industries</li>
+                <li>For legal notices: legal@hanzo.ai</li>
               </ul>
               <p>Our registered agent information:</p>
               <ul>
