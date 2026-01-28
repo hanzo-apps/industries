@@ -1,0 +1,26 @@
+# Hanzo Industries
+
+> Enterprise and industry-specific AI solutions by Hanzo AI.
+
+## About
+Hanzo Industries delivers vertical AI solutions tailored for specific industries. Built on the Hanzo AI platform, these solutions provide domain-specific models, compliance frameworks, and integration patterns for enterprises in finance, healthcare, government, retail, and other regulated sectors. Each solution includes pre-trained models, industry data pipelines, and deployment templates.
+
+## Key Features
+- Finance: Risk modeling, fraud detection, algorithmic trading, regulatory compliance
+- Healthcare: Medical imaging analysis, clinical NLP, drug discovery, HIPAA-compliant infrastructure
+- Government: Secure AI deployment, document processing, citizen services, FedRAMP-ready
+- Retail: Demand forecasting, personalization engines, inventory optimization
+- Custom model fine-tuning for domain-specific use cases
+- Enterprise SLAs with dedicated support
+- On-premise and hybrid cloud deployment options
+- Compliance and audit frameworks (SOC 2, HIPAA, FedRAMP)
+
+## Links
+- [Website](https://hanzo.industries)
+- [Hanzo AI Platform](https://hanzo.ai)
+- [Documentation](https://docs.hanzo.ai)
+- [Case Studies](https://hanzo.industries/cases)
+
+## Contact
+- Enterprise Sales: sales@hanzo.ai
+- Support: support@hanzo.ai
