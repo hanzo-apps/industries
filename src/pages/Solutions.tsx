@@ -6,8 +6,11 @@ import { ChevronRight } from "lucide-react";
 import { getIcon } from "@/constants/iconMappings";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const Solutions = () => {
+  const { isDarkMode } = useTheme();
   const [expandedSections, setExpandedSections] = useState<Record<string, number>>({});
 
   const toggleSection = (title: string) => {
@@ -18,7 +21,7 @@ const Solutions = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
 
       {/* Hero Section with Gradient Background */}
@@ -54,10 +57,13 @@ const Solutions = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
+            <h1 className={cn(
+              "text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent",
+              isDarkMode ? "bg-gradient-to-b from-white to-white/70" : "bg-gradient-to-b from-black to-black/70"
+            )}>
               Solutions for Every Industry
             </h1>
-            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+            <p className={cn("text-lg md:text-xl max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
               Explore our comprehensive suite of solutions designed to transform businesses
               across industries and capabilities.
             </p>
@@ -88,19 +94,22 @@ const Solutions = () => {
                           exit={{ opacity: 0, y: -20 }}
                           transition={{ duration: 0.2, delay: index * 0.1 }}
                           whileHover={{ y: -5 }}
-                          className="relative group rounded-xl border border-gray-800 bg-black/50 p-6 backdrop-blur-sm overflow-hidden"
+                          className={cn(
+                            "relative group rounded-xl border p-6 backdrop-blur-sm overflow-hidden",
+                            isDarkMode ? "border-white/10 bg-black/50" : "border-black/10 bg-white/50"
+                          )}
                         >
                           <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                           <div className="relative">
                             <div className="flex items-center justify-between mb-4">
                               <Icon className="h-6 w-6 text-purple-400" strokeWidth={1.5} />
-                              <ChevronRight className="h-5 w-5 text-gray-500 group-hover:text-purple-400 transition-colors" />
+                              <ChevronRight className={cn("h-5 w-5 group-hover:text-purple-400 transition-colors", isDarkMode ? "text-white/40" : "text-black/40")} />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-400 transition-colors">
                               {item}
                             </h3>
-                            <p className="text-gray-400 text-sm">
-                              Explore our solutions for {item.toLowerCase()} and discover how we can 
+                            <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
+                              Explore our solutions for {item.toLowerCase()} and discover how we can
                               help transform your business.
                             </p>
                           </div>
@@ -110,7 +119,7 @@ const Solutions = () => {
                   </AnimatePresence>
                 </div>
                 {hasMore && (
-                  <motion.div 
+                  <motion.div
                     className="text-center mt-8"
                     initial={false}
                     animate={{ opacity: 1 }}
@@ -132,7 +141,7 @@ const Solutions = () => {
           <div className="mt-20 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
-              <p className="text-gray-400 mb-8">
+              <p className={cn("mb-8", isDarkMode ? "text-white/50" : "text-black/50")}>
                 Connect with our team to learn how our solutions can help you achieve your goals.
               </p>
               <a

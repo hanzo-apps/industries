@@ -2,40 +2,13 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Search,
-  ArrowRight,
-  Terminal,
-  Brain,
-  Bot,
-  Database,
-  Zap,
-  Shield,
-  Cloud,
-  Code,
-  Server,
-  Globe,
-  CreditCard,
-  Users,
-  FileText,
-  Settings,
-  HelpCircle,
-  ExternalLink,
-  Command,
-  Plane,
-  Lock,
-  Eye,
-  BookOpen,
-  Newspaper,
-  Building,
-  Network,
-  Vote,
-  ArrowLeftRight,
-  Repeat,
-  Building2,
-  Cpu,
+  Search, ArrowRight, Terminal, Brain, Bot, Database, Zap, Shield, Cloud,
+  Code, Server, Globe, CreditCard, Users, FileText, Settings, ExternalLink,
+  Command, Lock, BookOpen, Newspaper, Building, Network, Vote,
+  ArrowLeftRight, Repeat, Building2, Cpu,
 } from "lucide-react";
-
-const BRAND_COLOR = "#fd4444";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 interface CommandItem {
   id: string;
@@ -49,7 +22,6 @@ interface CommandItem {
 }
 
 const commands: CommandItem[] = [
-  // Products - AI
   { id: "zen", title: "ZEN", description: "AI orchestration platform", href: "/products/zen", icon: Brain, category: "Products", keywords: ["ai", "orchestration", "platform", "models"] },
   { id: "koan", title: "KOAN", description: "Enterprise knowledge management", href: "/products/koan", icon: Database, category: "Products", keywords: ["knowledge", "enterprise", "insights", "rag"] },
   { id: "hanzo-ai", title: "Hanzo AI", description: "Comprehensive AI platform", href: "/products/hanzo-ai", icon: Bot, category: "Products", keywords: ["ai", "models", "api", "llm"] },
@@ -58,41 +30,28 @@ const commands: CommandItem[] = [
   { id: "hanzo-dev", title: "Hanzo Dev", description: "Accelerated development", href: "/products/hanzo-dev", icon: Terminal, category: "Products", keywords: ["code", "development", "ai"] },
   { id: "hanzo-team", title: "Hanzo Team", description: "Collaboration platform", href: "/products/hanzo-team", icon: Users, category: "Products", keywords: ["team", "collaboration", "project"] },
   { id: "lux", title: "Lux Network", description: "Post-quantum blockchain", href: "/products/lux", icon: Shield, category: "Products", keywords: ["blockchain", "crypto", "network", "decentralized"] },
-
-  // Products - Blockchain/Finance
   { id: "hanzo-dao", title: "Hanzo DAO", description: "Decentralized governance", href: "/products/hanzo-dao", icon: Vote, category: "Products", keywords: ["dao", "governance", "voting", "treasury"] },
   { id: "hanzo-dex", title: "Hanzo DEX", description: "Decentralized exchange", href: "/products/hanzo-dex", icon: ArrowLeftRight, category: "Products", keywords: ["dex", "swap", "trading", "liquidity"] },
   { id: "hanzo-amm", title: "Hanzo AMM", description: "Automated market maker", href: "/products/hanzo-amm", icon: Repeat, category: "Products", keywords: ["amm", "liquidity", "trading", "defi"] },
   { id: "hanzo-cex", title: "Hanzo CEX", description: "Centralized exchange", href: "/products/hanzo-cex", icon: Building2, category: "Products", keywords: ["cex", "exchange", "trading", "fiat"] },
-
-  // Platform / Services
   { id: "research", title: "Research", description: "AI research and publications", href: "/research", icon: FileText, category: "Platform", keywords: ["research", "papers", "publications"] },
   { id: "cryptography", title: "Cryptography", description: "Post-quantum cryptography", href: "/research#crypto", icon: Lock, category: "Platform", keywords: ["crypto", "quantum", "security"] },
   { id: "consensus", title: "Consensus", description: "Consensus protocols", href: "/research#consensus", icon: Network, category: "Platform", keywords: ["consensus", "blockchain", "protocols"] },
   { id: "cloud", title: "Lux Network", description: "Decentralized compute", href: "/products/lux", icon: Cloud, category: "Platform", keywords: ["cloud", "compute", "decentralized"] },
   { id: "services", title: "Services", description: "Professional services", href: "/services", icon: Server, category: "Platform", keywords: ["consulting", "services", "professional"] },
   { id: "capabilities", title: "Capabilities", description: "AI capabilities overview", href: "/capabilities", icon: Zap, category: "Platform", keywords: ["capabilities", "features", "ai"] },
-
-  // Resources
   { id: "docs", title: "Documentation", description: "API docs and guides", href: "https://docs.hanzo.ai", icon: FileText, category: "Resources", external: true, keywords: ["api", "guide", "tutorial"] },
   { id: "models", title: "AI Models", description: "Foundation models", href: "/models", icon: Brain, category: "Resources", keywords: ["models", "llm", "ai"] },
   { id: "case-studies", title: "Case Studies", description: "Success stories", href: "/case-studies", icon: BookOpen, category: "Resources", keywords: ["case", "study", "success"] },
   { id: "examples", title: "Examples", description: "Technical demonstrations", href: "/examples", icon: Code, category: "Resources", keywords: ["examples", "demo", "technical"] },
-  { id: "research", title: "Research", description: "AI research and papers", href: "/research", icon: FileText, category: "Resources", keywords: ["research", "papers", "publications"] },
   { id: "pricing", title: "Pricing", description: "Plans and pricing", href: "/pricing", icon: CreditCard, category: "Resources", keywords: ["cost", "price", "plan"] },
   { id: "status", title: "Status", description: "System status", href: "/status", icon: Settings, category: "Resources", keywords: ["uptime", "health", "status"] },
-
-  // Company
   { id: "about", title: "About", description: "About Hanzo Industries", href: "/about", icon: Building, category: "Company", keywords: ["about", "company", "mission"] },
   { id: "team", title: "Team", description: "Meet the team", href: "/team", icon: Users, category: "Company", keywords: ["team", "people", "leadership"] },
   { id: "press", title: "Press", description: "News and media", href: "/press", icon: Newspaper, category: "Company", keywords: ["news", "press", "media"] },
   { id: "security", title: "Security", description: "Security practices", href: "/security", icon: Shield, category: "Company", keywords: ["compliance", "soc2", "security"] },
   { id: "contact", title: "Contact", description: "Get in touch", href: "/contact", icon: Users, category: "Company", keywords: ["support", "help", "contact"] },
   { id: "solutions", title: "Solutions", description: "Industry solutions", href: "/solutions", icon: Globe, category: "Company", keywords: ["solutions", "industries", "use cases"] },
-
-  // Industries
-  { id: "ai-ml", title: "AI & ML", description: "AI & Machine Learning research", href: "/research#ai", icon: Brain, category: "Industries", keywords: ["ai", "ml", "machine learning"] },
-  { id: "blockchain", title: "Blockchain", description: "Consensus and cryptography", href: "/research#consensus", icon: Network, category: "Industries", keywords: ["blockchain", "consensus", "crypto"] },
 ];
 
 interface CommandPaletteProps {
@@ -105,8 +64,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const { isDarkMode } = useTheme();
 
-  // Filter commands based on search
   const filteredCommands = search
     ? commands.filter(
         (cmd) =>
@@ -116,22 +75,16 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
       )
     : commands;
 
-  // Group by category
   const groupedCommands = filteredCommands.reduce((acc, cmd) => {
     if (!acc[cmd.category]) acc[cmd.category] = [];
     acc[cmd.category].push(cmd);
     return acc;
   }, {} as Record<string, CommandItem[]>);
 
-  // Flatten for keyboard navigation
   const flatCommands = Object.values(groupedCommands).flat();
 
-  // Reset selection when search changes
-  useEffect(() => {
-    setSelectedIndex(0);
-  }, [search]);
+  useEffect(() => { setSelectedIndex(0); }, [search]);
 
-  // Focus input when opened
   useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
@@ -140,7 +93,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
-  // Handle keyboard navigation
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       switch (e.key) {
@@ -156,11 +108,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
           e.preventDefault();
           if (flatCommands[selectedIndex]) {
             const cmd = flatCommands[selectedIndex];
-            if (cmd.external) {
-              window.open(cmd.href, "_blank");
-            } else {
-              navigate(cmd.href);
-            }
+            if (cmd.external) window.open(cmd.href, "_blank");
+            else navigate(cmd.href);
             onClose();
           }
           break;
@@ -172,27 +121,20 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
     [flatCommands, selectedIndex, navigate, onClose]
   );
 
-  // Global keyboard shortcut
   useEffect(() => {
     const handleGlobalKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        if (isOpen) {
-          onClose();
-        }
+        if (isOpen) onClose();
       }
     };
-
     document.addEventListener("keydown", handleGlobalKeyDown);
     return () => document.removeEventListener("keydown", handleGlobalKeyDown);
   }, [isOpen, onClose]);
 
   const handleSelect = (cmd: CommandItem) => {
-    if (cmd.external) {
-      window.open(cmd.href, "_blank");
-    } else {
-      navigate(cmd.href);
-    }
+    if (cmd.external) window.open(cmd.href, "_blank");
+    else navigate(cmd.href);
     onClose();
   };
 
@@ -200,7 +142,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -209,7 +150,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
           />
 
-          {/* Command palette */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -217,10 +157,17 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             transition={{ duration: 0.15 }}
             className="fixed top-[10%] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] max-w-xl mx-auto z-[101]"
           >
-            <div className="bg-neutral-900 border border-neutral-700 rounded-xl shadow-2xl overflow-hidden">
-              {/* Search input */}
-              <div className="flex items-center gap-3 px-4 py-3 border-b border-neutral-800">
-                <Search className="w-5 h-5 text-neutral-500" />
+            <div className={cn(
+              "border rounded-xl shadow-2xl overflow-hidden",
+              isDarkMode
+                ? "bg-neutral-900 border-white/10"
+                : "bg-white border-black/10"
+            )}>
+              <div className={cn(
+                "flex items-center gap-3 px-4 py-3 border-b",
+                isDarkMode ? "border-white/10" : "border-black/10"
+              )}>
+                <Search className={cn("w-5 h-5", isDarkMode ? "text-white/40" : "text-black/40")} />
                 <input
                   ref={inputRef}
                   type="text"
@@ -228,23 +175,36 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                   onChange={(e) => setSearch(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Search pages, products, docs..."
-                  className="flex-1 bg-transparent text-white text-sm placeholder-neutral-500 outline-none"
+                  className={cn(
+                    "flex-1 bg-transparent text-sm outline-none",
+                    isDarkMode
+                      ? "text-white placeholder-white/40"
+                      : "text-black placeholder-black/40"
+                  )}
                 />
-                <kbd className="px-2 py-1 text-[10px] font-mono bg-neutral-800 rounded text-neutral-500">
+                <kbd className={cn(
+                  "px-2 py-1 text-[10px] font-mono rounded",
+                  isDarkMode ? "bg-white/10 text-white/40" : "bg-black/5 text-black/40"
+                )}>
                   ESC
                 </kbd>
               </div>
 
-              {/* Results */}
               <div className="max-h-[400px] overflow-y-auto py-2">
                 {Object.keys(groupedCommands).length === 0 ? (
-                  <div className="px-4 py-8 text-center text-neutral-500 text-sm">
+                  <div className={cn(
+                    "px-4 py-8 text-center text-sm",
+                    isDarkMode ? "text-white/40" : "text-black/40"
+                  )}>
                     No results found for "{search}"
                   </div>
                 ) : (
                   Object.entries(groupedCommands).map(([category, items]) => (
                     <div key={category}>
-                      <div className="px-4 py-2 text-[10px] font-semibold text-neutral-500 uppercase tracking-wider">
+                      <div className={cn(
+                        "px-4 py-2 text-[10px] font-semibold uppercase tracking-wider",
+                        isDarkMode ? "text-white/40" : "text-black/40"
+                      )}>
                         {category}
                       </div>
                       {items.map((cmd) => {
@@ -257,40 +217,54 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                             key={cmd.id}
                             onClick={() => handleSelect(cmd)}
                             onMouseEnter={() => setSelectedIndex(index)}
-                            className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
+                            className={cn(
+                              "w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors",
                               isSelected
-                                ? "bg-neutral-800 text-white"
-                                : "text-neutral-300 hover:bg-neutral-800/50"
-                            }`}
+                                ? isDarkMode
+                                  ? "bg-white/10 text-white"
+                                  : "bg-black/5 text-black"
+                                : isDarkMode
+                                  ? "text-white/70 hover:bg-white/5"
+                                  : "text-black/70 hover:bg-black/5"
+                            )}
                           >
-                            <div
-                              className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                                isSelected ? "bg-[#fd4444]/20" : "bg-neutral-800"
-                              }`}
-                            >
-                              <Icon
-                                className={`w-4 h-4 ${
-                                  isSelected ? "text-[#fd4444]" : "text-neutral-500"
-                                }`}
-                              />
+                            <div className={cn(
+                              "w-8 h-8 rounded-lg flex items-center justify-center",
+                              isSelected
+                                ? "bg-[#fd4444]/20"
+                                : isDarkMode ? "bg-white/10" : "bg-black/5"
+                            )}>
+                              <Icon className={cn(
+                                "w-4 h-4",
+                                isSelected
+                                  ? "text-[#fd4444]"
+                                  : isDarkMode ? "text-white/50" : "text-black/50"
+                              )} />
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2">
-                                <span className="text-sm font-medium truncate">
-                                  {cmd.title}
-                                </span>
+                                <span className="text-sm font-medium truncate">{cmd.title}</span>
                                 {cmd.external && (
-                                  <ExternalLink className="w-3 h-3 text-neutral-500" />
+                                  <ExternalLink className={cn(
+                                    "w-3 h-3",
+                                    isDarkMode ? "text-white/40" : "text-black/40"
+                                  )} />
                                 )}
                               </div>
                               {cmd.description && (
-                                <div className="text-xs text-neutral-500 truncate">
+                                <div className={cn(
+                                  "text-xs truncate",
+                                  isDarkMode ? "text-white/40" : "text-black/40"
+                                )}>
                                   {cmd.description}
                                 </div>
                               )}
                             </div>
                             {isSelected && (
-                              <ArrowRight className="w-4 h-4 text-neutral-500" />
+                              <ArrowRight className={cn(
+                                "w-4 h-4",
+                                isDarkMode ? "text-white/40" : "text-black/40"
+                              )} />
                             )}
                           </button>
                         );
@@ -300,20 +274,28 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                 )}
               </div>
 
-              {/* Footer */}
-              <div className="px-4 py-2 border-t border-neutral-800 flex items-center justify-between">
-                <div className="flex items-center gap-4 text-[10px] text-neutral-500">
+              <div className={cn(
+                "px-4 py-2 border-t flex items-center justify-between",
+                isDarkMode ? "border-white/10" : "border-black/10"
+              )}>
+                <div className={cn(
+                  "flex items-center gap-4 text-[10px]",
+                  isDarkMode ? "text-white/40" : "text-black/40"
+                )}>
                   <span className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 bg-neutral-800 rounded">up</kbd>
-                    <kbd className="px-1.5 py-0.5 bg-neutral-800 rounded">down</kbd>
+                    <kbd className={cn("px-1.5 py-0.5 rounded", isDarkMode ? "bg-white/10" : "bg-black/5")}>up</kbd>
+                    <kbd className={cn("px-1.5 py-0.5 rounded", isDarkMode ? "bg-white/10" : "bg-black/5")}>down</kbd>
                     Navigate
                   </span>
                   <span className="flex items-center gap-1">
-                    <kbd className="px-1.5 py-0.5 bg-neutral-800 rounded">enter</kbd>
+                    <kbd className={cn("px-1.5 py-0.5 rounded", isDarkMode ? "bg-white/10" : "bg-black/5")}>enter</kbd>
                     Select
                   </span>
                 </div>
-                <div className="flex items-center gap-1 text-[10px] text-neutral-500">
+                <div className={cn(
+                  "flex items-center gap-1 text-[10px]",
+                  isDarkMode ? "text-white/40" : "text-black/40"
+                )}>
                   <Command className="w-3 h-3" />
                   <span>K to toggle</span>
                 </div>

@@ -23,6 +23,8 @@ import {
   ExternalLink,
   HelpCircle,
 } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const faqs = [
   {
@@ -135,8 +137,10 @@ const documentationLinks = [
 ];
 
 const Help = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <div className="min-h-screen bg-black">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
 
       <main className="pt-24">
@@ -153,20 +157,23 @@ const Help = () => {
                 <HelpCircle className="w-4 h-4 text-[#fd4444]" />
                 <span className="text-[#fd4444] text-sm font-medium">Help Center</span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 How can we help?
               </h1>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+              <p className={cn("text-xl max-w-2xl mx-auto mb-8", isDarkMode ? "text-white/50" : "text-black/50")}>
                 Find answers to common questions, explore our documentation, or get in touch with our support team.
               </p>
 
               {/* Search */}
               <div className="max-w-xl mx-auto relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
+                <Search className={cn("absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5", isDarkMode ? "text-white/40" : "text-black/40")} />
                 <Input
                   type="text"
                   placeholder="Search for help articles..."
-                  className="w-full pl-12 pr-4 py-6 bg-gray-900 border-gray-700 text-white placeholder:text-gray-500 rounded-xl text-lg"
+                  className={cn(
+                    "w-full pl-12 pr-4 py-6 rounded-xl text-lg",
+                    isDarkMode ? "bg-white/5 border-white/10 text-white placeholder:text-white/40" : "bg-black/5 border-black/10 text-black placeholder:text-black/40"
+                  )}
                 />
               </div>
             </motion.div>
@@ -174,7 +181,7 @@ const Help = () => {
         </section>
 
         {/* Documentation Links */}
-        <section className="py-24 px-4 bg-gray-900/30">
+        <section className={cn("py-24 px-4", isDarkMode ? "bg-white/[0.03]" : "bg-black/[0.03]")}>
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -183,8 +190,8 @@ const Help = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">Documentation</h2>
-              <p className="text-gray-400">Explore our comprehensive documentation and guides</p>
+              <h2 className="text-3xl font-bold mb-4">Documentation</h2>
+              <p className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>Explore our comprehensive documentation and guides</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -200,18 +207,21 @@ const Help = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#fd4444]/50 transition-colors group"
+                    className={cn(
+                      "border rounded-xl p-6 hover:border-[#fd4444]/50 transition-colors group",
+                      isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+                    )}
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className="w-12 h-12 bg-[#fd4444]/10 rounded-lg flex items-center justify-center">
                         <Icon className="w-6 h-6 text-[#fd4444]" />
                       </div>
-                      <ExternalLink className="w-4 h-4 text-gray-600 group-hover:text-[#fd4444] transition-colors" />
+                      <ExternalLink className={cn("w-4 h-4 group-hover:text-[#fd4444] transition-colors", isDarkMode ? "text-white/20" : "text-black/20")} />
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[#fd4444] transition-colors">
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-[#fd4444] transition-colors">
                       {doc.title}
                     </h3>
-                    <p className="text-gray-400 text-sm">{doc.description}</p>
+                    <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>{doc.description}</p>
                   </motion.a>
                 );
               })}
@@ -229,8 +239,8 @@ const Help = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-              <p className="text-gray-400">Quick answers to common questions</p>
+              <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+              <p className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>Quick answers to common questions</p>
             </motion.div>
 
             <div className="grid lg:grid-cols-2 gap-8">
@@ -241,9 +251,12 @@ const Help = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-6"
+                  className={cn(
+                    "border rounded-xl p-6",
+                    isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+                  )}
                 >
-                  <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                     <span className="w-2 h-2 bg-[#fd4444] rounded-full" />
                     {category.category}
                   </h3>
@@ -252,12 +265,12 @@ const Help = () => {
                       <AccordionItem
                         key={faqIndex}
                         value={`${categoryIndex}-${faqIndex}`}
-                        className="border-gray-800"
+                        className={cn(isDarkMode ? "border-white/10" : "border-black/10")}
                       >
-                        <AccordionTrigger className="text-left text-white hover:text-[#fd4444] hover:no-underline py-3">
+                        <AccordionTrigger className="text-left hover:text-[#fd4444] hover:no-underline py-3">
                           {faq.q}
                         </AccordionTrigger>
-                        <AccordionContent className="text-gray-400 pb-4">
+                        <AccordionContent className={cn("pb-4", isDarkMode ? "text-white/50" : "text-black/50")}>
                           {faq.a}
                         </AccordionContent>
                       </AccordionItem>
@@ -270,7 +283,7 @@ const Help = () => {
         </section>
 
         {/* Contact Support Section */}
-        <section className="py-24 px-4 bg-gray-900/30">
+        <section className={cn("py-24 px-4", isDarkMode ? "bg-white/[0.03]" : "bg-black/[0.03]")}>
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -279,8 +292,8 @@ const Help = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">Need More Help?</h2>
-              <p className="text-gray-400">Our support team is here to assist you</p>
+              <h2 className="text-3xl font-bold mb-4">Need More Help?</h2>
+              <p className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>Our support team is here to assist you</p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -289,13 +302,16 @@ const Help = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gray-900/50 border border-gray-800 rounded-xl p-8 text-center hover:border-[#fd4444]/50 transition-colors"
+                className={cn(
+                  "border rounded-xl p-8 text-center hover:border-[#fd4444]/50 transition-colors",
+                  isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+                )}
               >
                 <div className="w-16 h-16 bg-[#fd4444]/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <MessageCircle className="w-8 h-8 text-[#fd4444]" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Live Chat</h3>
-                <p className="text-gray-400 mb-6">
+                <h3 className="text-xl font-semibold mb-3">Live Chat</h3>
+                <p className={cn("mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Chat with our support team in real-time for immediate assistance.
                 </p>
                 <Button className="bg-[#fd4444] hover:bg-[#fd4444]/90 text-white w-full">
@@ -308,17 +324,23 @@ const Help = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gray-900/50 border border-gray-800 rounded-xl p-8 text-center hover:border-[#fd4444]/50 transition-colors"
+                className={cn(
+                  "border rounded-xl p-8 text-center hover:border-[#fd4444]/50 transition-colors",
+                  isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+                )}
               >
                 <div className="w-16 h-16 bg-[#fd4444]/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Mail className="w-8 h-8 text-[#fd4444]" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Email Support</h3>
-                <p className="text-gray-400 mb-6">
+                <h3 className="text-xl font-semibold mb-3">Email Support</h3>
+                <p className={cn("mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Send us a detailed message and we'll respond within 24 hours.
                 </p>
                 <a href="mailto:support@hanzo.ai">
-                  <Button variant="outline" className="border-gray-700 text-white hover:bg-gray-800 w-full">
+                  <Button variant="outline" className={cn(
+                    "w-full",
+                    isDarkMode ? "border-white/10 text-white hover:bg-white/10" : "border-black/10 text-black hover:bg-black/10"
+                  )}>
                     support@hanzo.ai
                   </Button>
                 </a>
@@ -329,17 +351,23 @@ const Help = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="bg-gray-900/50 border border-gray-800 rounded-xl p-8 text-center hover:border-[#fd4444]/50 transition-colors"
+                className={cn(
+                  "border rounded-xl p-8 text-center hover:border-[#fd4444]/50 transition-colors",
+                  isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+                )}
               >
                 <div className="w-16 h-16 bg-[#fd4444]/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Book className="w-8 h-8 text-[#fd4444]" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Community</h3>
-                <p className="text-gray-400 mb-6">
+                <h3 className="text-xl font-semibold mb-3">Community</h3>
+                <p className={cn("mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Join our Discord community to connect with other developers.
                 </p>
                 <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="border-gray-700 text-white hover:bg-gray-800 w-full">
+                  <Button variant="outline" className={cn(
+                    "w-full",
+                    isDarkMode ? "border-white/10 text-white hover:bg-white/10" : "border-black/10 text-black hover:bg-black/10"
+                  )}>
                     Join Discord
                   </Button>
                 </a>
@@ -360,13 +388,13 @@ const Help = () => {
             >
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
                     Enterprise Support
                   </h2>
-                  <p className="text-gray-400 mb-6">
+                  <p className={cn("mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>
                     Get dedicated support, custom SLAs, and direct access to our engineering team with an enterprise plan.
                   </p>
-                  <ul className="space-y-3 text-gray-300 mb-8">
+                  <ul className={cn("space-y-3 mb-8", isDarkMode ? "text-white/70" : "text-black/70")}>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-[#fd4444] rounded-full" />
                       24/7 priority support

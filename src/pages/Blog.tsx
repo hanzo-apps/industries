@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowRight, Calendar, Clock, User } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const blogPosts = [
   {
@@ -73,11 +75,12 @@ const blogPosts = [
 const categories = ["All", "Product", "Research", "Engineering", "Security"];
 
 const Blog = () => {
+  const { isDarkMode } = useTheme();
   const featuredPost = blogPosts.find((post) => post.featured);
   const regularPosts = blogPosts.filter((post) => !post.featured);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
 
       <main className="pt-24">
@@ -90,10 +93,10 @@ const Blog = () => {
               transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Hanzo Blog
               </h1>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              <p className={cn("text-xl max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
                 Insights, updates, and deep dives into AI technology, research, and innovation from the Hanzo team.
               </p>
             </motion.div>
@@ -108,11 +111,14 @@ const Blog = () => {
               {categories.map((category) => (
                 <button
                   key={category}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={cn(
+                    "px-4 py-2 rounded-full text-sm font-medium transition-colors",
                     category === "All"
                       ? "bg-[#fd4444] text-white"
-                      : "bg-gray-900 text-gray-400 hover:bg-gray-800 hover:text-white"
-                  }`}
+                      : isDarkMode
+                        ? "bg-white/5 text-white/50 hover:bg-white/10 hover:text-white"
+                        : "bg-black/5 text-black/50 hover:bg-black/5 hover:text-black"
+                  )}
                 >
                   {category}
                 </button>
@@ -127,23 +133,23 @@ const Blog = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="mb-16"
               >
-                <div className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden hover:border-[#fd4444]/50 transition-colors group">
+                <div className={cn("rounded-2xl overflow-hidden hover:border-[#fd4444]/50 transition-colors group", isDarkMode ? "bg-white/5 border border-white/10" : "bg-black/5 border border-black/10")}>
                   <div className="grid md:grid-cols-2 gap-8">
-                    <div className="aspect-video md:aspect-auto bg-gray-800 flex items-center justify-center">
-                      <div className="text-gray-600 text-6xl font-bold">H</div>
+                    <div className={cn("aspect-video md:aspect-auto flex items-center justify-center", isDarkMode ? "bg-white/10" : "bg-black/5")}>
+                      <div className={cn("text-6xl font-bold", isDarkMode ? "text-white/20" : "text-black/20")}>H</div>
                     </div>
                     <div className="p-8 flex flex-col justify-center">
                       <div className="flex items-center gap-3 mb-4">
                         <span className="px-3 py-1 bg-[#fd4444] text-white text-xs font-medium rounded-full">
                           Featured
                         </span>
-                        <span className="text-gray-500 text-sm">{featuredPost.category}</span>
+                        <span className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>{featuredPost.category}</span>
                       </div>
-                      <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-[#fd4444] transition-colors">
+                      <h2 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-[#fd4444] transition-colors">
                         {featuredPost.title}
                       </h2>
-                      <p className="text-gray-400 mb-6">{featuredPost.excerpt}</p>
-                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
+                      <p className={cn("mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>{featuredPost.excerpt}</p>
+                      <div className={cn("flex items-center gap-4 text-sm mb-6", isDarkMode ? "text-white/40" : "text-black/40")}>
                         <span className="flex items-center gap-1">
                           <User className="w-4 h-4" />
                           {featuredPost.author}
@@ -175,18 +181,18 @@ const Blog = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden hover:border-[#fd4444]/50 transition-colors group"
+                  className={cn("rounded-xl overflow-hidden hover:border-[#fd4444]/50 transition-colors group", isDarkMode ? "bg-white/5 border border-white/10" : "bg-black/5 border border-black/10")}
                 >
-                  <div className="aspect-video bg-gray-800 flex items-center justify-center">
-                    <div className="text-gray-700 text-4xl font-bold">H</div>
+                  <div className={cn("aspect-video flex items-center justify-center", isDarkMode ? "bg-white/10" : "bg-black/5")}>
+                    <div className={cn("text-4xl font-bold", isDarkMode ? "text-white/20" : "text-black/20")}>H</div>
                   </div>
                   <div className="p-6">
                     <span className="text-[#fd4444] text-sm font-medium">{post.category}</span>
-                    <h3 className="text-xl font-bold text-white mt-2 mb-3 group-hover:text-[#fd4444] transition-colors line-clamp-2">
+                    <h3 className="text-xl font-bold mt-2 mb-3 group-hover:text-[#fd4444] transition-colors line-clamp-2">
                       {post.title}
                     </h3>
-                    <p className="text-gray-400 text-sm mb-4 line-clamp-2">{post.excerpt}</p>
-                    <div className="flex items-center justify-between text-xs text-gray-500">
+                    <p className={cn("text-sm mb-4 line-clamp-2", isDarkMode ? "text-white/50" : "text-black/50")}>{post.excerpt}</p>
+                    <div className={cn("flex items-center justify-between text-xs", isDarkMode ? "text-white/40" : "text-black/40")}>
                       <span>{post.author}</span>
                       <span>{post.readTime}</span>
                     </div>
@@ -202,7 +208,7 @@ const Blog = () => {
               transition={{ duration: 0.5, delay: 0.8 }}
               className="text-center mt-12"
             >
-              <Button variant="outline" className="border-gray-700 text-white hover:bg-gray-800">
+              <Button variant="outline" className={cn(isDarkMode ? "border-white/10 text-white hover:bg-white/10" : "border-black/10 text-black hover:bg-black/5")}>
                 Load More Articles
               </Button>
             </motion.div>
@@ -210,7 +216,7 @@ const Blog = () => {
         </section>
 
         {/* Newsletter Section */}
-        <section className="py-24 px-4 bg-gray-900/30">
+        <section className={cn("py-24 px-4", isDarkMode ? "bg-white/5" : "bg-black/5")}>
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -219,23 +225,23 @@ const Blog = () => {
               viewport={{ once: true }}
               className="max-w-2xl mx-auto text-center"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Stay Updated
               </h2>
-              <p className="text-gray-400 mb-8">
+              <p className={cn("mb-8", isDarkMode ? "text-white/50" : "text-black/50")}>
                 Subscribe to our newsletter for the latest insights on AI technology, research breakthroughs, and product updates.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <Input
                   type="email"
                   placeholder="Enter your email"
-                  className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-500 flex-1"
+                  className={cn("flex-1", isDarkMode ? "bg-white/5 border-white/10 text-white placeholder:text-white/40" : "bg-black/5 border-black/10 text-black placeholder:text-black/40")}
                 />
                 <Button className="bg-[#fd4444] hover:bg-[#fd4444]/90 text-white whitespace-nowrap">
                   Subscribe
                 </Button>
               </div>
-              <p className="text-gray-500 text-sm mt-4">
+              <p className={cn("text-sm mt-4", isDarkMode ? "text-white/40" : "text-black/40")}>
                 No spam. Unsubscribe anytime.
               </p>
             </motion.div>

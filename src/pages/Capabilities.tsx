@@ -2,8 +2,12 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Brain, Shield, Cog, Cloud, Zap, Users, Lock, Cpu, Globe, Database } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 export default function Capabilities() {
+  const { isDarkMode } = useTheme();
+
   const capabilities: {
     icon: typeof Brain;
     title: string;
@@ -134,7 +138,7 @@ export default function Capabilities() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
 
       {/* Hero Section with Gradient Background */}
@@ -170,10 +174,10 @@ export default function Capabilities() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
+            <h1 className={cn("text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent", isDarkMode ? "bg-gradient-to-b from-white to-white/70" : "bg-gradient-to-b from-black to-black/70")}>
               Our Capabilities
             </h1>
-            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+            <p className={cn("text-lg md:text-xl max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
               Comprehensive AI solutions from frontier research to production deployment
             </p>
           </motion.div>
@@ -187,43 +191,43 @@ export default function Capabilities() {
             {capabilities.map((capability, index) => {
               const Icon = capability.icon;
               const isExternal = capability.link.startsWith("http");
-              
+
               return (
                 <motion.div
                   key={capability.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gray-900 border border-gray-800 rounded-lg p-8 hover:border-gray-700 transition-all hover:shadow-lg"
+                  className={cn("rounded-lg p-8 transition-all hover:shadow-lg", isDarkMode ? "bg-white/5 border border-white/10 hover:border-white/20" : "bg-black/5 border border-black/10 hover:border-black/20")}
                 >
                   <div className="flex items-start space-x-4 mb-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-black" />
+                      <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center", isDarkMode ? "bg-white" : "bg-black")}>
+                        <Icon className={cn("w-6 h-6", isDarkMode ? "text-black" : "text-white")} />
                       </div>
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold">{capability.title}</h3>
                     </div>
                   </div>
-                  
-                  <p className="text-gray-400 mb-4">{capability.description}</p>
-                  
+
+                  <p className={cn("mb-4", isDarkMode ? "text-white/50" : "text-black/50")}>{capability.description}</p>
+
                   <ul className="space-y-2 mb-6">
                     {capability.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start">
-                        <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 mr-3 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
+                        <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", isDarkMode ? "bg-white" : "bg-black")} />
+                        <span className={cn("text-sm", isDarkMode ? "text-white/70" : "text-black/70")}>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  
+
                   {capability.link !== "#" && (
-                    <a 
+                    <a
                       href={capability.link}
                       target={isExternal ? "_blank" : undefined}
                       rel={isExternal ? "noopener noreferrer" : undefined}
-                      className="inline-flex items-center text-white hover:text-gray-300 text-sm font-medium transition-colors"
+                      className={cn("inline-flex items-center text-sm font-medium transition-colors", isDarkMode ? "text-white hover:text-white/70" : "text-black hover:text-black/70")}
                     >
                       Learn more
                       <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -246,12 +250,12 @@ export default function Capabilities() {
             <h2 className="text-3xl font-bold mb-6">
               Ready to Transform Your AI Infrastructure?
             </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", isDarkMode ? "text-white/70" : "text-black/70")}>
               Let's discuss how our capabilities can accelerate your mission
             </p>
-            <a 
+            <a
               href="/#contact"
-              className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+              className={cn("inline-block px-8 py-4 rounded-lg font-semibold transition-colors", isDarkMode ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-black/80")}
             >
               Contact Us
             </a>

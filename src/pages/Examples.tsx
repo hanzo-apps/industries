@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 import { Code2, Terminal, FileCode, Package, Rocket, BookOpen, Cpu, Lock, Users, Zap, Globe } from "lucide-react";
 
 export default function Examples() {
+  const { isDarkMode } = useTheme();
+
   const examples = [
     {
       title: "Quick Start: Deploy Your First AI Model",
@@ -127,7 +131,7 @@ const processor = new StreamProcessor({
 // Process incoming data stream
 processor.on('data', async (batch) => {
   const predictions = await processor.predict(batch);
-  
+
   // Real-time response
   predictions.forEach(pred => {
     if (pred.confidence > 0.95) {
@@ -179,9 +183,9 @@ processor.on('data', async (batch) => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
-      
+
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
@@ -194,7 +198,7 @@ processor.on('data', async (batch) => {
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
               Code Examples
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto">
+            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", isDarkMode ? "text-white/70" : "text-black/70")}>
               Ready-to-use code examples to accelerate your AI development
             </p>
           </motion.div>
@@ -214,9 +218,14 @@ processor.on('data', async (batch) => {
                   href={integration.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-900 p-4 rounded-lg border border-gray-800 hover:border-gray-700 transition-colors text-center"
+                  className={cn(
+                    "p-4 rounded-lg border transition-colors text-center",
+                    isDarkMode
+                      ? "bg-white/5 border-white/10 hover:border-white/20"
+                      : "bg-black/5 border-black/10 hover:border-black/20"
+                  )}
                 >
-                  <Icon className="w-8 h-8 text-white mx-auto mb-2" />
+                  <Icon className="w-8 h-8 mx-auto mb-2" />
                   <div className="text-sm font-medium">{integration.name}</div>
                 </a>
               );
@@ -233,24 +242,34 @@ processor.on('data', async (batch) => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden"
+                  className={cn(
+                    "border rounded-lg overflow-hidden",
+                    isDarkMode
+                      ? "bg-white/5 border-white/10"
+                      : "bg-black/5 border-black/10"
+                  )}
                 >
-                  <div className="p-6 border-b border-gray-800">
+                  <div className={cn("p-6 border-b", isDarkMode ? "border-white/10" : "border-black/10")}>
                     <div className="flex items-center space-x-3">
-                      <Icon className="w-6 h-6 text-white" />
+                      <Icon className="w-6 h-6" />
                       <h3 className="text-xl font-semibold">{example.title}</h3>
                     </div>
-                    <p className="text-gray-400 mt-2">{example.description}</p>
+                    <p className={cn("mt-2", isDarkMode ? "text-white/50" : "text-black/50")}>{example.description}</p>
                   </div>
-                  
+
                   <div className="relative">
                     <div className="absolute top-4 right-4">
-                      <span className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded">
+                      <span className={cn(
+                        "text-xs px-2 py-1 rounded",
+                        isDarkMode
+                          ? "text-white/40 bg-white/10"
+                          : "text-black/40 bg-black/10"
+                      )}>
                         {example.language}
                       </span>
                     </div>
                     <pre className="p-6 overflow-x-auto">
-                      <code className="text-sm text-gray-300 whitespace-pre">
+                      <code className={cn("text-sm whitespace-pre", isDarkMode ? "text-white/70" : "text-black/70")}>
                         {example.code}
                       </code>
                     </pre>
@@ -265,31 +284,36 @@ processor.on('data', async (batch) => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mt-20 bg-gradient-to-r from-gray-900 to-black p-12 rounded-lg border border-gray-800"
+            className={cn(
+              "mt-20 p-12 rounded-lg border",
+              isDarkMode
+                ? "bg-gradient-to-r from-white/5 to-transparent border-white/10"
+                : "bg-gradient-to-r from-black/5 to-transparent border-black/10"
+            )}
           >
             <h2 className="text-3xl font-bold mb-8 text-center">Developer Resources</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
-                <Terminal className="w-12 h-12 text-white mx-auto mb-4" />
+                <Terminal className="w-12 h-12 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Interactive Playground</h3>
-                <p className="text-gray-400 mb-4">Test our APIs in your browser</p>
-                <a href="https://playground.hanzo.ai" className="text-white hover:text-gray-300">
+                <p className={cn("mb-4", isDarkMode ? "text-white/50" : "text-black/50")}>Test our APIs in your browser</p>
+                <a href="https://playground.hanzo.ai" className={cn(isDarkMode ? "text-white hover:text-white/70" : "text-black hover:text-black/70")}>
                   Try Playground →
                 </a>
               </div>
               <div>
-                <BookOpen className="w-12 h-12 text-white mx-auto mb-4" />
+                <BookOpen className="w-12 h-12 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">API Reference</h3>
-                <p className="text-gray-400 mb-4">Complete API documentation</p>
-                <a href="https://docs.hanzo.ai/api" className="text-white hover:text-gray-300">
+                <p className={cn("mb-4", isDarkMode ? "text-white/50" : "text-black/50")}>Complete API documentation</p>
+                <a href="https://docs.hanzo.ai/api" className={cn(isDarkMode ? "text-white hover:text-white/70" : "text-black hover:text-black/70")}>
                   View Docs →
                 </a>
               </div>
               <div>
-                <Users className="w-12 h-12 text-white mx-auto mb-4" />
+                <Users className="w-12 h-12 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Community</h3>
-                <p className="text-gray-400 mb-4">Join our developer community</p>
-                <a href="https://community.hanzo.ai" className="text-white hover:text-gray-300">
+                <p className={cn("mb-4", isDarkMode ? "text-white/50" : "text-black/50")}>Join our developer community</p>
+                <a href="https://community.hanzo.ai" className={cn(isDarkMode ? "text-white hover:text-white/70" : "text-black hover:text-black/70")}>
                   Join Discord →
                 </a>
               </div>
@@ -306,21 +330,31 @@ processor.on('data', async (batch) => {
             <h2 className="text-3xl font-bold mb-6">
               Ready to Build?
             </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", isDarkMode ? "text-white/70" : "text-black/70")}>
               Start building with Hanzo AI today
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="https://console.hanzo.ai/signup"
-                className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+                className={cn(
+                  "inline-block px-8 py-4 rounded-lg font-semibold transition-colors",
+                  isDarkMode
+                    ? "bg-white text-black hover:bg-white/90"
+                    : "bg-black text-white hover:bg-black/90"
+                )}
               >
                 Get API Key
               </a>
-              <a 
+              <a
                 href="https://github.com/hanzoai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors"
+                className={cn(
+                  "inline-block border px-8 py-4 rounded-lg font-semibold transition-colors",
+                  isDarkMode
+                    ? "border-white text-white hover:bg-white hover:text-black"
+                    : "border-black text-black hover:bg-black hover:text-white"
+                )}
               >
                 View on GitHub
               </a>

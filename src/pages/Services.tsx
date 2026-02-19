@@ -3,8 +3,12 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Code, Database, Cloud, Shield, Lightbulb, Users } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const Services = () => {
+  const { isDarkMode } = useTheme();
+
   const services = [
     {
       icon: Code,
@@ -93,11 +97,11 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
-      
+
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-b from-gray-50 to-white">
+      <section className={cn("pt-24 pb-16 bg-gradient-to-b", isDarkMode ? "from-white/5 to-transparent" : "from-gray-50 to-white")}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -105,16 +109,16 @@ const Services = () => {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <h1 className="text-5xl font-bold text-black mb-6">Professional Services</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              From strategy to implementation, we provide end-to-end services to help you 
+            <h1 className="text-5xl font-bold mb-6">Professional Services</h1>
+            <p className={cn("text-xl max-w-3xl mx-auto mb-8", isDarkMode ? "text-white/60" : "text-black/60")}>
+              From strategy to implementation, we provide end-to-end services to help you
               harness the power of AI and modern technology
             </p>
             <div className="flex justify-center gap-4">
-              <Button size="lg" className="bg-black text-white hover:bg-gray-800">
+              <Button size="lg" className={cn(isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
                 Get Started
               </Button>
-              <Button size="lg" variant="outline" className="border-black text-black hover:bg-gray-50">
+              <Button size="lg" variant="outline">
                 View Case Studies
               </Button>
             </div>
@@ -131,11 +135,11 @@ const Services = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-black mb-4">
+            <h2 className="text-4xl font-bold mb-4">
               Comprehensive Service Offerings
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Expert services across the entire technology stack, delivered by our team 
+            <p className={cn("text-xl max-w-3xl mx-auto", isDarkMode ? "text-white/60" : "text-black/60")}>
+              Expert services across the entire technology stack, delivered by our team
               of specialists
             </p>
           </motion.div>
@@ -149,17 +153,17 @@ const Services = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow"
+                  className={cn("p-8 rounded-lg border hover:shadow-lg transition-shadow", isDarkMode ? "bg-white/5 border-white/10" : "bg-white border-black/10")}
                 >
-                  <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-6">
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center mb-6", isDarkMode ? "bg-white" : "bg-black")}>
+                    <Icon className={cn("w-6 h-6", isDarkMode ? "text-black" : "text-white")} />
                   </div>
-                  <h3 className="text-xl font-semibold text-black mb-3">{service.title}</h3>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
+                  <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                  <p className={cn("mb-6", isDarkMode ? "text-white/60" : "text-black/60")}>{service.description}</p>
                   <ul className="space-y-2">
                     {service.offerings.map((offering) => (
-                      <li key={offering} className="flex items-start text-sm text-gray-700">
-                        <span className="text-black mr-2">•</span>
+                      <li key={offering} className={cn("flex items-start text-sm", isDarkMode ? "text-white/70" : "text-black/70")}>
+                        <span className="mr-2">*</span>
                         {offering}
                       </li>
                     ))}
@@ -172,7 +176,7 @@ const Services = () => {
       </section>
 
       {/* Engagement Models */}
-      <section className="py-20 bg-gray-50">
+      <section className={cn("py-20", isDarkMode ? "bg-white/5" : "bg-gray-50")}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -180,8 +184,8 @@ const Services = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-black mb-4">Flexible Engagement Models</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">Flexible Engagement Models</h2>
+            <p className={cn("text-xl max-w-3xl mx-auto", isDarkMode ? "text-white/60" : "text-black/60")}>
               Choose the engagement model that best fits your needs and budget
             </p>
           </motion.div>
@@ -193,11 +197,11 @@ const Services = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-lg shadow-sm"
+                className={cn("p-8 rounded-lg shadow-sm", isDarkMode ? "bg-white/5" : "bg-white")}
               >
-                <h3 className="text-2xl font-semibold text-black mb-4">{model.title}</h3>
-                <p className="text-gray-600 mb-4">{model.description}</p>
-                <p className="text-sm text-gray-500">
+                <h3 className="text-2xl font-semibold mb-4">{model.title}</h3>
+                <p className={cn("mb-4", isDarkMode ? "text-white/60" : "text-black/60")}>{model.description}</p>
+                <p className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>
                   <strong>Ideal for:</strong> {model.ideal}
                 </p>
               </motion.div>
@@ -207,7 +211,7 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-black text-white">
+      <section className={cn("py-20", isDarkMode ? "bg-white/5" : "bg-black text-white")}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -215,8 +219,8 @@ const Services = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">Our Process</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <h2 className={cn("text-4xl font-bold mb-4", isDarkMode ? "text-white" : "text-white")}>Our Process</h2>
+            <p className={cn("text-xl max-w-3xl mx-auto", isDarkMode ? "text-white/70" : "text-white/70")}>
               A proven methodology that ensures successful outcomes
             </p>
           </motion.div>
@@ -235,9 +239,9 @@ const Services = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl font-bold text-gray-600 mb-4">{phase.step}</div>
-                <h3 className="text-xl font-semibold mb-2">{phase.title}</h3>
-                <p className="text-gray-400">{phase.desc}</p>
+                <div className={cn("text-5xl font-bold mb-4", isDarkMode ? "text-white/30" : "text-white/40")}>{phase.step}</div>
+                <h3 className={cn("text-xl font-semibold mb-2", isDarkMode ? "text-white" : "text-white")}>{phase.title}</h3>
+                <p className={cn(isDarkMode ? "text-white/50" : "text-white/60")}>{phase.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -252,13 +256,13 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bold text-black mb-6">
+            <h2 className="text-4xl font-bold mb-6">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className={cn("text-xl mb-8", isDarkMode ? "text-white/60" : "text-black/60")}>
               Let's discuss how our services can help you achieve your goals
             </p>
-            <Button size="lg" className="bg-black text-white hover:bg-gray-800">
+            <Button size="lg" className={cn(isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
               Schedule a Consultation
             </Button>
           </motion.div>

@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { Shield, Database, Cloud, Brain } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const ServicesOverview = () => {
+  const { isDarkMode } = useTheme();
+
   const services = [
     {
       icon: Brain,
@@ -34,14 +38,20 @@ const ServicesOverview = () => {
   ];
 
   return (
-    <section id="capabilities" className="py-20 bg-gray-50">
+    <section id="capabilities" className={cn(
+      "py-20 transition-colors duration-300",
+      isDarkMode ? "bg-neutral-900" : "bg-neutral-50"
+    )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold text-black mb-4"
+            className={cn(
+              "text-4xl font-bold mb-4",
+              isDarkMode ? "text-white" : "text-black"
+            )}
           >
             Building the Future of Safe AI
           </motion.h2>
@@ -49,9 +59,12 @@ const ServicesOverview = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className={cn(
+              "text-xl max-w-3xl mx-auto",
+              isDarkMode ? "text-white/60" : "text-black/60"
+            )}
           >
-            From frontier model development to edge deployment, we're advancing AI capabilities 
+            From frontier model development to edge deployment, we're advancing AI capabilities
             while prioritizing safety, privacy, and human alignment at every step
           </motion.p>
         </div>
@@ -65,18 +78,32 @@ const ServicesOverview = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+                className={cn(
+                  "p-8 rounded-lg border transition-shadow",
+                  isDarkMode
+                    ? "bg-white/5 border-white/10 hover:shadow-lg hover:shadow-white/5"
+                    : "bg-white border-black/10 shadow-sm hover:shadow-md"
+                )}
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className={cn(
+                      "w-12 h-12 rounded-lg flex items-center justify-center",
+                      isDarkMode ? "bg-white/10" : "bg-black"
+                    )}>
+                      <Icon className={cn(
+                        "w-6 h-6",
+                        isDarkMode ? "text-white" : "text-white"
+                      )} />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-black mb-3">
+                    <h3 className={cn(
+                      "text-2xl font-semibold mb-3",
+                      isDarkMode ? "text-white" : "text-black"
+                    )}>
                       {service.link ? (
-                        <a 
+                        <a
                           href={service.link}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -88,11 +115,22 @@ const ServicesOverview = () => {
                         service.title
                       )}
                     </h3>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    <p className={cn(
+                      "mb-4",
+                      isDarkMode ? "text-white/60" : "text-black/60"
+                    )}>
+                      {service.description}
+                    </p>
                     <div className="space-y-2">
                       {service.capabilities.map((capability) => (
-                        <div key={capability} className="flex items-center text-sm text-gray-700">
-                          <div className="w-1.5 h-1.5 bg-black rounded-full mr-2" />
+                        <div key={capability} className={cn(
+                          "flex items-center text-sm",
+                          isDarkMode ? "text-white/70" : "text-black/70"
+                        )}>
+                          <div className={cn(
+                            "w-1.5 h-1.5 rounded-full mr-2",
+                            isDarkMode ? "bg-white" : "bg-black"
+                          )} />
                           {capability}
                         </div>
                       ))}

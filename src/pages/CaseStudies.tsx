@@ -2,8 +2,12 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Brain, Shield, Network, Sparkles, Cpu, Lock, Zap } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 export default function CaseStudies() {
+  const { isDarkMode } = useTheme();
+
   const caseStudies = [
     {
       icon: Brain,
@@ -12,7 +16,7 @@ export default function CaseStudies() {
       description: "Developed Training-Free GRPO achieving $18 training cost versus $10,000+ traditional methods",
       results: [
         "99.8% reduction in training costs",
-        "100× data efficiency (100 examples vs 10,000+)",
+        "100x data efficiency (100 examples vs 10,000+)",
         "Comparable performance to full fine-tuning",
         "Open-sourced via Zoo Labs Foundation"
       ],
@@ -27,7 +31,7 @@ export default function CaseStudies() {
       description: "Published ASO framework achieving 18.2% SWE-bench resolution through training-free adaptation",
       results: [
         "18.2% SWE-bench resolution rate",
-        "29.5× memory savings with BitDelta compression",
+        "29.5x memory savings with BitDelta compression",
         "Zero additional training required",
         "Published HIP-002 specification"
       ],
@@ -84,7 +88,7 @@ export default function CaseStudies() {
       icon: Lock,
       category: "AI Economics",
       title: "Hamiltonian Market Maker (HMM)",
-      description: "Novel invariant H(Ψ,Θ) = κ for decentralized AI compute markets",
+      description: "Novel invariant H(Psi,Theta) = kappa for decentralized AI compute markets",
       results: [
         "<200ms quote latency",
         "98.7% price stability",
@@ -99,12 +103,12 @@ export default function CaseStudies() {
       icon: Zap,
       category: "Agent Infrastructure",
       title: "ZAP: Zero-copy Agent Protocol",
-      description: "The MCP Killer—unified protocol achieving ~500x faster agent communication with zero-copy RPC",
+      description: "The MCP Killer -- unified protocol achieving ~500x faster agent communication with zero-copy RPC",
       results: [
-        "<1μs local latency (vs 500μs MCP)",
+        "<1us local latency (vs 500us MCP)",
         "1.2M/s throughput (vs 2.2k/s MCP)",
         "~5% message overhead (vs 40% JSON)",
-        "40-50× infrastructure cost reduction"
+        "40-50x infrastructure cost reduction"
       ],
       technologies: ["ZAP Binary Format", "Zero-copy", "Metastable Consensus", "Post-Quantum"],
       impact: "Enabling real-time agent swarms with native consensus and capability security",
@@ -113,7 +117,7 @@ export default function CaseStudies() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
 
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
@@ -128,7 +132,7 @@ export default function CaseStudies() {
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
               Research Impact
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto">
+            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", isDarkMode ? "text-white/70" : "text-black/70")}>
               Delivering measurable breakthroughs in AI efficiency, cryptography, and distributed systems
             </p>
           </motion.div>
@@ -141,21 +145,21 @@ export default function CaseStudies() {
             transition={{ duration: 0.5 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
           >
-            <div className="bg-gray-900 p-6 rounded-lg text-center border border-gray-800">
-              <div className="text-3xl font-bold text-white mb-2">58</div>
-              <div className="text-sm text-gray-400">Published Papers</div>
+            <div className={cn("p-6 rounded-lg text-center", isDarkMode ? "bg-white/5 border border-white/10" : "bg-black/5 border border-black/10")}>
+              <div className="text-3xl font-bold mb-2">58</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Published Papers</div>
             </div>
-            <div className="bg-gray-900 p-6 rounded-lg text-center border border-gray-800">
-              <div className="text-3xl font-bold text-white mb-2">22</div>
-              <div className="text-sm text-gray-400">AI Models Released</div>
+            <div className={cn("p-6 rounded-lg text-center", isDarkMode ? "bg-white/5 border border-white/10" : "bg-black/5 border border-black/10")}>
+              <div className="text-3xl font-bold mb-2">22</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>AI Models Released</div>
             </div>
-            <div className="bg-gray-900 p-6 rounded-lg text-center border border-gray-800">
-              <div className="text-3xl font-bold text-white mb-2">99.8%</div>
-              <div className="text-sm text-gray-400">Training Cost Reduction</div>
+            <div className={cn("p-6 rounded-lg text-center", isDarkMode ? "bg-white/5 border border-white/10" : "bg-black/5 border border-black/10")}>
+              <div className="text-3xl font-bold mb-2">99.8%</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Training Cost Reduction</div>
             </div>
-            <div className="bg-gray-900 p-6 rounded-lg text-center border border-gray-800">
-              <div className="text-3xl font-bold text-white mb-2">4</div>
-              <div className="text-sm text-gray-400">Research Organizations</div>
+            <div className={cn("p-6 rounded-lg text-center", isDarkMode ? "bg-white/5 border border-white/10" : "bg-black/5 border border-black/10")}>
+              <div className="text-3xl font-bold mb-2">4</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Research Organizations</div>
             </div>
           </motion.div>
 
@@ -173,18 +177,18 @@ export default function CaseStudies() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.5, delay: Math.min(index * 0.1, 0.3) }}
-                  className="block bg-gray-900 border border-gray-800 rounded-lg p-8 hover:border-gray-600 transition-colors group"
+                  className={cn("block rounded-lg p-8 transition-colors group", isDarkMode ? "bg-white/5 border border-white/10 hover:border-white/30" : "bg-black/5 border border-black/10 hover:border-black/30")}
                 >
                   <div className="flex items-start space-x-4 mb-6">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center group-hover:bg-gray-100 transition-colors">
-                        <Icon className="w-6 h-6 text-black" />
+                      <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center transition-colors", isDarkMode ? "bg-white group-hover:bg-gray-100" : "bg-black group-hover:bg-black/80")}>
+                        <Icon className={cn("w-6 h-6", isDarkMode ? "text-black" : "text-white")} />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="text-sm text-gray-400 mb-1">{study.category}</div>
-                      <h3 className="text-2xl font-semibold mb-2 group-hover:text-gray-200 transition-colors">{study.title}</h3>
-                      <p className="text-gray-300">{study.description}</p>
+                      <div className={cn("text-sm mb-1", isDarkMode ? "text-white/50" : "text-black/50")}>{study.category}</div>
+                      <h3 className={cn("text-2xl font-semibold mb-2 transition-colors", isDarkMode ? "group-hover:text-white/80" : "group-hover:text-black/80")}>{study.title}</h3>
+                      <p className={cn(isDarkMode ? "text-white/70" : "text-black/70")}>{study.description}</p>
                     </div>
                   </div>
 
@@ -194,8 +198,8 @@ export default function CaseStudies() {
                       <ul className="space-y-2">
                         {study.results.map((result, idx) => (
                           <li key={idx} className="flex items-start">
-                            <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 mr-3 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">{result}</span>
+                            <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", isDarkMode ? "bg-white" : "bg-black")} />
+                            <span className={cn("text-sm", isDarkMode ? "text-white/70" : "text-black/70")}>{result}</span>
                           </li>
                         ))}
                       </ul>
@@ -206,13 +210,13 @@ export default function CaseStudies() {
                         {study.technologies.map((tech, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm"
+                            className={cn("px-3 py-1 rounded-full text-sm", isDarkMode ? "bg-white/10 text-white/70" : "bg-black/5 text-black/70")}
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
-                      <div className="text-sm text-gray-400">
+                      <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                         <strong>Impact:</strong> {study.impact}
                       </div>
                     </div>
@@ -233,13 +237,13 @@ export default function CaseStudies() {
             <h2 className="text-3xl font-bold mb-6">
               Explore Our Research
             </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", isDarkMode ? "text-white/70" : "text-black/70")}>
               Dive deeper into our published papers and open source projects
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/research#papers"
-                className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+                className={cn("inline-block px-8 py-4 rounded-lg font-semibold transition-colors", isDarkMode ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-black/80")}
               >
                 View All Papers
               </a>
@@ -247,7 +251,7 @@ export default function CaseStudies() {
                 href="https://github.com/hanzoai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-transparent border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+                className={cn("inline-block bg-transparent px-8 py-4 rounded-lg font-semibold transition-colors", isDarkMode ? "border border-white text-white hover:bg-white/10" : "border border-black text-black hover:bg-black/10")}
               >
                 Open Source
               </a>

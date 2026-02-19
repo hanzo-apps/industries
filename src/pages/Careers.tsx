@@ -8,6 +8,8 @@ import {
   ArrowLeft, Calendar, Clock, DollarSign, Users, Laptop, Heart,
   BookOpen, Globe, Zap, Shield, Brain, Code2, Database
 } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 interface Job {
   id: string;
@@ -450,6 +452,7 @@ const teams = ["All Teams", ...Array.from(new Set(jobs.map(j => j.team)))];
 const locations = ["All Locations", "San Francisco, CA", "New York, NY", "Remote"];
 
 export default function Careers() {
+  const { isDarkMode } = useTheme();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
   const [selectedLocation, setSelectedLocation] = useState("All Locations");
@@ -479,35 +482,35 @@ export default function Careers() {
   // Job Detail View
   if (selectedJob) {
     return (
-      <div className="min-h-screen bg-black text-white">
+      <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
         <Navbar />
         <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <button
               onClick={() => setSelectedJob(null)}
-              className="flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
+              className={cn("flex items-center gap-2 mb-8 transition-colors", isDarkMode ? "text-white/50 hover:text-white" : "text-black/50 hover:text-black")}
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Careers
             </button>
 
             {selectedJob.new && (
-              <span className="inline-block px-3 py-1 text-sm font-medium bg-white text-black rounded mb-4">
+              <span className={cn("inline-block px-3 py-1 text-sm font-medium rounded mb-4", isDarkMode ? "bg-white text-black" : "bg-black text-white")}>
                 New
               </span>
             )}
 
             <h1 className="text-4xl font-bold mb-4">{selectedJob.title}</h1>
-            <p className="text-xl text-gray-400 mb-6">{selectedJob.location}</p>
+            <p className={cn("text-xl mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>{selectedJob.location}</p>
 
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
+            <div className={cn("border rounded-lg p-8 mb-8", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
               <h2 className="text-xl font-semibold mb-4">About Hanzo Industries</h2>
-              <p className="text-gray-300 mb-4">
+              <p className={cn("mb-4", isDarkMode ? "text-white/70" : "text-black/70")}>
                 Hanzo Industries is a frontier AI research lab advancing the state of the art in machine learning,
                 cryptography, consensus protocols, and distributed systems. Our mission is to create reliable,
                 interpretable, and steerable AI systems that are safe and beneficial for humanity.
               </p>
-              <p className="text-gray-300">
+              <p className={cn(isDarkMode ? "text-white/70" : "text-black/70")}>
                 We're a quickly growing team of committed researchers, engineers, and business leaders working
                 together to build beneficial AI systems. We've published 58 research papers, released 22 AI models
                 (the Zen family, 600M-480B parameters), and achieved breakthrough results like 99.8% training cost
@@ -515,12 +518,12 @@ export default function Careers() {
               </p>
             </div>
 
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
+            <div className={cn("border rounded-lg p-8 mb-8", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
               <h2 className="text-xl font-semibold mb-4">About the Role</h2>
-              <p className="text-gray-300 mb-4">{selectedJob.description}</p>
+              <p className={cn("mb-4", isDarkMode ? "text-white/70" : "text-black/70")}>{selectedJob.description}</p>
 
               <h3 className="font-semibold mt-6 mb-3">Responsibilities</h3>
-              <ul className="list-disc list-inside text-gray-300 space-y-2">
+              <ul className={cn("list-disc list-inside space-y-2", isDarkMode ? "text-white/70" : "text-black/70")}>
                 <li>Contribute to cutting-edge research and engineering projects</li>
                 <li>Collaborate with world-class researchers and engineers</li>
                 <li>Publish research and contribute to open source</li>
@@ -528,7 +531,7 @@ export default function Careers() {
               </ul>
 
               <h3 className="font-semibold mt-6 mb-3">You May Be a Good Fit If You Have</h3>
-              <ul className="list-disc list-inside text-gray-300 space-y-2">
+              <ul className={cn("list-disc list-inside space-y-2", isDarkMode ? "text-white/70" : "text-black/70")}>
                 <li>Strong technical background relevant to the role</li>
                 <li>Track record of impactful work</li>
                 <li>Excellent communication and collaboration skills</li>
@@ -536,51 +539,51 @@ export default function Careers() {
               </ul>
             </div>
 
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
+            <div className={cn("border rounded-lg p-8 mb-8", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
               <h2 className="text-xl font-semibold mb-4">Compensation & Benefits</h2>
 
               {selectedJob.salary && (
                 <div className="flex items-center gap-3 mb-4">
-                  <DollarSign className="w-5 h-5 text-gray-500" />
-                  <span className="text-gray-300">Annual Salary: {selectedJob.salary} USD</span>
+                  <DollarSign className={cn("w-5 h-5", isDarkMode ? "text-white/40" : "text-black/40")} />
+                  <span className={cn(isDarkMode ? "text-white/70" : "text-black/70")}>Annual Salary: {selectedJob.salary} USD</span>
                 </div>
               )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                 <div className="flex items-start gap-3">
-                  <Heart className="w-5 h-5 text-gray-500 mt-0.5" />
+                  <Heart className={cn("w-5 h-5 mt-0.5", isDarkMode ? "text-white/40" : "text-black/40")} />
                   <div>
                     <div className="font-medium">Health & Wellness</div>
-                    <div className="text-sm text-gray-400">Comprehensive medical, dental, and vision</div>
+                    <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Comprehensive medical, dental, and vision</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <DollarSign className="w-5 h-5 text-gray-500 mt-0.5" />
+                  <DollarSign className={cn("w-5 h-5 mt-0.5", isDarkMode ? "text-white/40" : "text-black/40")} />
                   <div>
                     <div className="font-medium">Equity</div>
-                    <div className="text-sm text-gray-400">Competitive equity package</div>
+                    <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Competitive equity package</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Laptop className="w-5 h-5 text-gray-500 mt-0.5" />
+                  <Laptop className={cn("w-5 h-5 mt-0.5", isDarkMode ? "text-white/40" : "text-black/40")} />
                   <div>
                     <div className="font-medium">Equipment</div>
-                    <div className="text-sm text-gray-400">Top-tier equipment and setup</div>
+                    <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Top-tier equipment and setup</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <BookOpen className="w-5 h-5 text-gray-500 mt-0.5" />
+                  <BookOpen className={cn("w-5 h-5 mt-0.5", isDarkMode ? "text-white/40" : "text-black/40")} />
                   <div>
                     <div className="font-medium">Learning</div>
-                    <div className="text-sm text-gray-400">Generous learning budget</div>
+                    <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Generous learning budget</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 mb-8">
+            <div className={cn("border rounded-lg p-8 mb-8", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
               <h2 className="text-xl font-semibold mb-4">Logistics</h2>
-              <div className="space-y-4 text-gray-300">
+              <div className={cn("space-y-4", isDarkMode ? "text-white/70" : "text-black/70")}>
                 <p><strong>Location:</strong> {selectedJob.location}</p>
                 <p><strong>Type:</strong> {selectedJob.type.charAt(0).toUpperCase() + selectedJob.type.slice(1)}</p>
                 <p><strong>Visa Sponsorship:</strong> We sponsor visas and will make every reasonable effort to support your visa process.</p>
@@ -589,9 +592,9 @@ export default function Careers() {
             </div>
 
             {/* Apply Section */}
-            <div className="bg-white text-black rounded-lg p-8">
+            <div className={cn("rounded-lg p-8", isDarkMode ? "bg-white text-black" : "bg-black text-white")}>
               <h2 className="text-xl font-semibold mb-4">Apply for this Role</h2>
-              <p className="text-gray-700 mb-6">
+              <p className={cn("mb-6", isDarkMode ? "text-black/70" : "text-white/70")}>
                 We encourage you to apply even if you don't meet every qualification.
                 Research shows that people from underrepresented groups often doubt their candidacy—don't exclude yourself.
               </p>
@@ -601,14 +604,20 @@ export default function Careers() {
                   href="https://cal.com/hanzo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                  className={cn(
+                    "flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors",
+                    isDarkMode ? "bg-black text-white hover:bg-black/80" : "bg-white text-black hover:bg-white/80"
+                  )}
                 >
                   <Calendar className="w-5 h-5" />
                   Schedule a Call
                 </a>
                 <a
                   href={`mailto:careers@hanzo.ai?subject=Application: ${encodeURIComponent(selectedJob.title)}&body=Hi,%0A%0AI'm interested in the ${encodeURIComponent(selectedJob.title)} position.%0A%0A[Please attach your resume and include a brief introduction]`}
-                  className="flex items-center justify-center gap-2 bg-gray-200 text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
+                  className={cn(
+                    "flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors",
+                    isDarkMode ? "bg-gray-200 text-black hover:bg-gray-300" : "bg-white/20 text-white hover:bg-white/30"
+                  )}
                 >
                   <ExternalLink className="w-5 h-5" />
                   Email Application
@@ -624,7 +633,7 @@ export default function Careers() {
 
   // Job Listings View
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
 
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
@@ -639,10 +648,10 @@ export default function Careers() {
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
               Join Our Team
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto mb-8", isDarkMode ? "text-white/70" : "text-black/70")}>
               Help us build the future of AI. We're looking for exceptional people to join our mission of creating safe, beneficial AI systems.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+            <div className={cn("flex flex-wrap justify-center gap-6 text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
               <span className="flex items-center gap-2">
                 <Building2 className="w-4 h-4" />
                 San Francisco HQ
@@ -665,21 +674,21 @@ export default function Careers() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
           >
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center">
+            <div className={cn("border rounded-lg p-6 text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
               <div className="text-3xl font-bold mb-1">58</div>
-              <div className="text-sm text-gray-400">Published Papers</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Published Papers</div>
             </div>
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center">
+            <div className={cn("border rounded-lg p-6 text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
               <div className="text-3xl font-bold mb-1">22</div>
-              <div className="text-sm text-gray-400">AI Models</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>AI Models</div>
             </div>
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center">
+            <div className={cn("border rounded-lg p-6 text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
               <div className="text-3xl font-bold mb-1">4</div>
-              <div className="text-sm text-gray-400">Research Orgs</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Research Orgs</div>
             </div>
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center">
+            <div className={cn("border rounded-lg p-6 text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
               <div className="text-3xl font-bold mb-1">99.8%</div>
-              <div className="text-sm text-gray-400">Cost Reduction</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Cost Reduction</div>
             </div>
           </motion.div>
 
@@ -688,18 +697,21 @@ export default function Careers() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-gray-900 border border-gray-800 rounded-lg p-6 mb-8"
+            className={cn("border rounded-lg p-6 mb-8", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}
           >
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* Search */}
               <div className="md:col-span-2 relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+                <Search className={cn("absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5", isDarkMode ? "text-white/40" : "text-black/40")} />
                 <input
                   type="text"
                   placeholder="Search roles..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-gray-600"
+                  className={cn(
+                    "w-full border rounded-lg pl-10 pr-4 py-3 focus:outline-none",
+                    isDarkMode ? "bg-white/10 border-white/10 text-white placeholder-white/40 focus:border-white/20" : "bg-black/5 border-black/10 text-black placeholder-black/40 focus:border-black/20"
+                  )}
                 />
               </div>
 
@@ -708,13 +720,16 @@ export default function Careers() {
                 <select
                   value={selectedTeam}
                   onChange={(e) => setSelectedTeam(e.target.value)}
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:border-gray-600"
+                  className={cn(
+                    "w-full border rounded-lg px-4 py-3 appearance-none focus:outline-none",
+                    isDarkMode ? "bg-white/10 border-white/10 text-white focus:border-white/20" : "bg-black/5 border-black/10 text-black focus:border-black/20"
+                  )}
                 >
                   {teams.map(team => (
                     <option key={team} value={team}>{team}</option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" />
+                <ChevronDown className={cn("absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none", isDarkMode ? "text-white/40" : "text-black/40")} />
               </div>
 
               {/* Location Filter */}
@@ -722,19 +737,22 @@ export default function Careers() {
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:border-gray-600"
+                  className={cn(
+                    "w-full border rounded-lg px-4 py-3 appearance-none focus:outline-none",
+                    isDarkMode ? "bg-white/10 border-white/10 text-white focus:border-white/20" : "bg-black/5 border-black/10 text-black focus:border-black/20"
+                  )}
                 >
                   {locations.map(loc => (
                     <option key={loc} value={loc}>{loc}</option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" />
+                <ChevronDown className={cn("absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none", isDarkMode ? "text-white/40" : "text-black/40")} />
               </div>
             </div>
           </motion.div>
 
           {/* Results Count */}
-          <div className="mb-6 text-gray-400">
+          <div className={cn("mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>
             {filteredJobs.length} {filteredJobs.length === 1 ? 'role' : 'roles'} found
           </div>
 
@@ -748,35 +766,35 @@ export default function Careers() {
                 transition={{ duration: 0.5, delay: 0.1 * Math.min(groupIndex, 3) }}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-white">{team}</h3>
-                  <span className="text-sm text-gray-500">{teamJobs.length} {teamJobs.length === 1 ? 'role' : 'roles'}</span>
+                  <h3 className="text-xl font-semibold">{team}</h3>
+                  <span className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>{teamJobs.length} {teamJobs.length === 1 ? 'role' : 'roles'}</span>
                 </div>
-                <div className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden divide-y divide-gray-800">
+                <div className={cn("border rounded-lg overflow-hidden", isDarkMode ? "bg-white/5 border-white/10 divide-y divide-white/10" : "bg-black/5 border-black/10 divide-y divide-black/10")}>
                   {teamJobs.map((job) => (
                     <button
                       key={job.id}
                       onClick={() => setSelectedJob(job)}
-                      className="w-full flex items-center justify-between p-4 hover:bg-gray-800 transition-colors group text-left"
+                      className={cn("w-full flex items-center justify-between p-4 transition-colors group text-left", isDarkMode ? "hover:bg-white/10" : "hover:bg-black/10")}
                     >
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="font-medium text-white group-hover:text-gray-200 truncate">
+                          <span className="font-medium truncate">
                             {job.title}
                           </span>
                           {job.new && (
-                            <span className="px-2 py-0.5 text-xs font-medium bg-white text-black rounded">
+                            <span className={cn("px-2 py-0.5 text-xs font-medium rounded", isDarkMode ? "bg-white text-black" : "bg-black text-white")}>
                               New
                             </span>
                           )}
                         </div>
-                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                        <div className={cn("flex items-center gap-4 text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>
                           <span className="flex items-center gap-1">
                             <MapPin className="w-3.5 h-3.5" />
                             {job.location}
                           </span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <span className="text-sm">View</span>
                         <ExternalLink className="w-4 h-4" />
                       </div>
@@ -790,14 +808,14 @@ export default function Careers() {
           {/* No Results */}
           {filteredJobs.length === 0 && (
             <div className="text-center py-16">
-              <p className="text-gray-400 mb-4">No roles match your search criteria.</p>
+              <p className={cn("mb-4", isDarkMode ? "text-white/50" : "text-black/50")}>No roles match your search criteria.</p>
               <button
                 onClick={() => {
                   setSearchQuery("");
                   setSelectedTeam("All Teams");
                   setSelectedLocation("All Locations");
                 }}
-                className="text-white underline hover:no-underline"
+                className="underline hover:no-underline"
               >
                 Clear filters
               </button>
@@ -809,10 +827,10 @@ export default function Careers() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-16 bg-gray-900 border border-gray-800 rounded-lg p-8 text-center"
+            className={cn("mt-16 border rounded-lg p-8 text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}
           >
             <h2 className="text-2xl font-bold mb-4">Don't see the right role?</h2>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+            <p className={cn("mb-6 max-w-2xl mx-auto", isDarkMode ? "text-white/70" : "text-black/70")}>
               We're always looking for exceptional talent. Schedule a call to discuss how you could contribute to our mission.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -820,14 +838,20 @@ export default function Careers() {
                 href="https://cal.com/hanzo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+                className={cn(
+                  "inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold transition-colors",
+                  isDarkMode ? "bg-white text-black hover:bg-gray-200" : "bg-black text-white hover:bg-black/80"
+                )}
               >
                 <Calendar className="w-5 h-5" />
                 Schedule a Call
               </a>
               <a
                 href="mailto:careers@hanzo.ai?subject=General Application"
-                className="inline-flex items-center justify-center gap-2 bg-transparent border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+                className={cn(
+                  "inline-flex items-center justify-center gap-2 bg-transparent border px-8 py-3 rounded-lg font-semibold transition-colors",
+                  isDarkMode ? "border-white text-white hover:bg-white/10" : "border-black text-black hover:bg-black/10"
+                )}
               >
                 Send Resume
               </a>
@@ -843,45 +867,45 @@ export default function Careers() {
           >
             <h2 className="text-2xl font-bold mb-8 text-center">Why Hanzo?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-                <Brain className="w-8 h-8 mb-4 text-white" />
+              <div className={cn("border rounded-lg p-6", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
+                <Brain className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Cutting-Edge Research</h3>
-                <p className="text-sm text-gray-400">
+                <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Work on frontier AI models, post-quantum cryptography, and novel consensus protocols alongside world-class researchers.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-                <DollarSign className="w-8 h-8 mb-4 text-white" />
+              <div className={cn("border rounded-lg p-6", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
+                <DollarSign className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Competitive Compensation</h3>
-                <p className="text-sm text-gray-400">
+                <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Competitive salary, equity, comprehensive health benefits, and 401(k) matching.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-                <Laptop className="w-8 h-8 mb-4 text-white" />
+              <div className={cn("border rounded-lg p-6", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
+                <Laptop className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Flexible Work</h3>
-                <p className="text-sm text-gray-400">
+                <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Remote-friendly culture with offices in San Francisco. We trust you to do your best work wherever you are.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-                <BookOpen className="w-8 h-8 mb-4 text-white" />
+              <div className={cn("border rounded-lg p-6", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
+                <BookOpen className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Learning & Growth</h3>
-                <p className="text-sm text-gray-400">
+                <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Generous learning budget, conference attendance, and opportunities to publish research.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-                <Zap className="w-8 h-8 mb-4 text-white" />
+              <div className={cn("border rounded-lg p-6", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
+                <Zap className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Meaningful Impact</h3>
-                <p className="text-sm text-gray-400">
+                <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Your work directly contributes to building safe, beneficial AI systems that will shape the future.
                 </p>
               </div>
-              <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-                <Users className="w-8 h-8 mb-4 text-white" />
+              <div className={cn("border rounded-lg p-6", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
+                <Users className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Diverse Team</h3>
-                <p className="text-sm text-gray-400">
+                <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Join a team of researchers, engineers, and operators from diverse backgrounds united by a shared mission.
                 </p>
               </div>
@@ -893,19 +917,19 @@ export default function Careers() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-16 bg-gray-900 border border-gray-800 rounded-lg p-8"
+            className={cn("mt-16 border rounded-lg p-8", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}
           >
             <h2 className="text-2xl font-bold mb-6">How We're Different</h2>
             <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 mb-4">
+              <p className={cn("mb-4", isDarkMode ? "text-white/70" : "text-black/70")}>
                 We believe that the highest-impact AI research requires combining rigorous science with practical engineering.
                 At Hanzo, we work as a cohesive team on large-scale research efforts across AI, cryptography, and distributed systems.
               </p>
-              <p className="text-gray-300 mb-4">
+              <p className={cn("mb-4", isDarkMode ? "text-white/70" : "text-black/70")}>
                 Our research spans multiple domains: from frontier AI models (the Zen family) to post-quantum cryptography,
                 from novel consensus protocols to privacy-preserving computation. We publish openly and contribute to open source.
               </p>
-              <p className="text-gray-300">
+              <p className={cn(isDarkMode ? "text-white/70" : "text-black/70")}>
                 We value impact over individual publications. We're looking for people who want to work on hard problems
                 that matter and who can collaborate effectively across disciplines.
               </p>

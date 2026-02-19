@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const Leadership = () => {
+  const { isDarkMode } = useTheme();
+
   const leaders = [
     {
       name: "Zach Kelling",
@@ -71,14 +75,20 @@ const Leadership = () => {
   ];
 
   return (
-    <section className="py-20 bg-black">
+    <section className={cn(
+      "py-20 transition-colors duration-300",
+      isDarkMode ? "bg-neutral-950" : "bg-neutral-50"
+    )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold text-white mb-4"
+            className={cn(
+              "text-4xl font-bold mb-4",
+              isDarkMode ? "text-white" : "text-black"
+            )}
           >
             Leadership Team
           </motion.h2>
@@ -86,7 +96,10 @@ const Leadership = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-neutral-400 max-w-3xl mx-auto"
+            className={cn(
+              "text-xl max-w-3xl mx-auto",
+              isDarkMode ? "text-white/60" : "text-black/60"
+            )}
           >
             Our leadership team combines deep AI expertise with operational excellence,
             driving innovation in frontier AI research while maintaining focus on safety and alignment
@@ -103,7 +116,12 @@ const Leadership = () => {
               className="text-center group"
             >
               <div className="mb-4">
-                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden bg-neutral-800 ring-2 ring-neutral-700 group-hover:ring-white/30 transition-all duration-300">
+                <div className={cn(
+                  "w-32 h-32 mx-auto rounded-full overflow-hidden ring-2 transition-all duration-300",
+                  isDarkMode
+                    ? "bg-neutral-800 ring-neutral-700 group-hover:ring-white/40"
+                    : "bg-neutral-200 ring-neutral-300 group-hover:ring-black/40"
+                )}>
                   <img
                     src={leader.image}
                     alt={leader.name}
@@ -111,9 +129,24 @@ const Leadership = () => {
                   />
                 </div>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-1">{leader.name}</h3>
-              <p className="text-sm font-medium text-neutral-400 mb-3">{leader.title}</p>
-              <p className="text-sm text-neutral-500">{leader.bio}</p>
+              <h3 className={cn(
+                "text-lg font-semibold mb-1",
+                isDarkMode ? "text-white" : "text-black"
+              )}>
+                {leader.name}
+              </h3>
+              <p className={cn(
+                "text-sm font-medium mb-3",
+                isDarkMode ? "text-white/50" : "text-black/50"
+              )}>
+                {leader.title}
+              </p>
+              <p className={cn(
+                "text-sm",
+                isDarkMode ? "text-white/40" : "text-black/40"
+              )}>
+                {leader.bio}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -122,19 +155,43 @@ const Leadership = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-neutral-800 pt-16"
+          className={cn(
+            "mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t pt-16",
+            isDarkMode ? "border-white/10" : "border-black/10"
+          )}
         >
           <div className="text-center">
-            <h4 className="text-3xl font-bold text-white mb-2">Techstars '17</h4>
-            <p className="text-neutral-400">Backed Company</p>
+            <h4 className={cn(
+              "text-3xl font-bold mb-2",
+              isDarkMode ? "text-white" : "text-black"
+            )}>
+              Techstars '17
+            </h4>
+            <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
+              Backed Company
+            </p>
           </div>
           <div className="text-center">
-            <h4 className="text-3xl font-bold text-white mb-2">100+</h4>
-            <p className="text-neutral-400">Enterprise Clients</p>
+            <h4 className={cn(
+              "text-3xl font-bold mb-2",
+              isDarkMode ? "text-white" : "text-black"
+            )}>
+              100+
+            </h4>
+            <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
+              Enterprise Clients
+            </p>
           </div>
           <div className="text-center">
-            <h4 className="text-3xl font-bold text-white mb-2">24/7</h4>
-            <p className="text-neutral-400">AI Support</p>
+            <h4 className={cn(
+              "text-3xl font-bold mb-2",
+              isDarkMode ? "text-white" : "text-black"
+            )}>
+              24/7
+            </h4>
+            <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
+              AI Support
+            </p>
           </div>
         </motion.div>
       </div>

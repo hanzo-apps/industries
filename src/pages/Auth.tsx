@@ -5,8 +5,11 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const Auth = () => {
+  const { isDarkMode } = useTheme();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,7 +32,7 @@ const Auth = () => {
       } else {
         // Get the current URL for redirect
         const redirectTo = `${window.location.origin}/auth`;
-        
+
         const { error } = await supabase.auth.signUp({
           email,
           password,
@@ -55,10 +58,10 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center px-4">
+    <div className={cn("min-h-screen flex items-center justify-center px-4 transition-colors duration-300", isDarkMode ? "bg-black" : "bg-white")}>
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
+          <h2 className={cn("mt-6 text-center text-3xl font-extrabold", isDarkMode ? "text-white" : "text-black")}>
             {isLogin ? "Sign in to your account" : "Create your account"}
           </h2>
         </div>
@@ -70,7 +73,11 @@ const Auth = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="bg-gray-900 border-gray-700 text-white placeholder-gray-400"
+              className={cn(
+                isDarkMode
+                  ? "bg-white/5 border-white/10 text-white placeholder-white/40"
+                  : "bg-black/5 border-black/10 text-black placeholder-black/40"
+              )}
             />
             <Input
               type="password"
@@ -78,14 +85,23 @@ const Auth = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="bg-gray-900 border-gray-700 text-white placeholder-gray-400"
+              className={cn(
+                isDarkMode
+                  ? "bg-white/5 border-white/10 text-white placeholder-white/40"
+                  : "bg-black/5 border-black/10 text-black placeholder-black/40"
+              )}
             />
           </div>
 
           <div>
             <Button
               type="submit"
-              className="w-full bg-white text-black hover:bg-gray-100"
+              className={cn(
+                "w-full",
+                isDarkMode
+                  ? "bg-white text-black hover:bg-white/90"
+                  : "bg-black text-white hover:bg-black/90"
+              )}
               disabled={loading}
             >
               {loading ? "Loading..." : isLogin ? "Sign in" : "Sign up"}
@@ -97,7 +113,7 @@ const Auth = () => {
           <button
             type="button"
             onClick={() => setIsLogin(!isLogin)}
-            className="text-sm text-gray-400 hover:text-white"
+            className={cn("text-sm", isDarkMode ? "text-white/50 hover:text-white" : "text-black/50 hover:text-black")}
           >
             {isLogin ? "Need an account? Sign up" : "Already have an account? Sign in"}
           </button>

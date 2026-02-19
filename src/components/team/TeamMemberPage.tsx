@@ -7,12 +7,15 @@ import TeamSlack from "@/components/TeamSlack";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { teamMembers, TeamMemberId } from "@/constants/team-members";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 interface TeamMemberPageProps {
   memberId: TeamMemberId;
 }
 
 const TeamMemberPage = ({ memberId }: TeamMemberPageProps) => {
+  const { isDarkMode } = useTheme();
   const member = teamMembers[memberId];
   const MainIcon = member.mainIcon;
 
@@ -25,11 +28,11 @@ const TeamMemberPage = ({ memberId }: TeamMemberPageProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
-      
+
       <main className="pt-32 pb-16 px-4">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-7xl mx-auto"
@@ -41,7 +44,7 @@ const TeamMemberPage = ({ memberId }: TeamMemberPageProps) => {
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
               {member.title}
             </h1>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className={cn("text-lg max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
               {member.description}
             </p>
           </div>
@@ -50,14 +53,17 @@ const TeamMemberPage = ({ memberId }: TeamMemberPageProps) => {
             {member.features.map((feature, index) => {
               const FeatureIcon = feature.icon;
               return (
-                <motion.div 
+                <motion.div
                   key={index}
                   whileHover={{ y: -5 }}
-                  className="p-6 rounded-2xl border border-gray-800 bg-black/50"
+                  className={cn(
+                    "p-6 rounded-2xl border",
+                    isDarkMode ? "border-white/10 bg-black/50" : "border-black/10 bg-white/50"
+                  )}
                 >
                   <FeatureIcon className={`h-8 w-8 ${feature.color} mb-4`} />
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-gray-400">{feature.description}</p>
+                  <p className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>{feature.description}</p>
                 </motion.div>
               );
             })}
@@ -67,11 +73,11 @@ const TeamMemberPage = ({ memberId }: TeamMemberPageProps) => {
 
           <div className="text-center max-w-2xl mx-auto mt-16">
             <h2 className="text-2xl font-semibold mb-4">Need Human Assistance?</h2>
-            <p className="text-gray-400 mb-6">
+            <p className={cn("mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>
               While {member.name} is highly capable, sometimes you might need human expertise.
               Contact Sensei Group for dedicated support and consultation.
             </p>
-            <Button 
+            <Button
               onClick={handleContactSensei}
               className={`bg-gradient-to-r ${member.gradient} hover:opacity-90`}
             >

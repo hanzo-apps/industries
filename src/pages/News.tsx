@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 import { Calendar, ExternalLink, FileText, Megaphone } from "lucide-react";
 
 const announcements = [
@@ -122,8 +124,10 @@ const typeColors: Record<string, string> = {
 };
 
 const News = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <div className="min-h-screen bg-black">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
 
       <main className="pt-24">
@@ -140,10 +144,10 @@ const News = () => {
                 <Megaphone className="w-4 h-4 text-[#fd4444]" />
                 <span className="text-[#fd4444] text-sm font-medium">News & Announcements</span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Latest from Hanzo
               </h1>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              <p className={cn("text-xl max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
                 Stay up to date with product launches, company milestones, partnerships, and research breakthroughs.
               </p>
             </motion.div>
@@ -151,21 +155,21 @@ const News = () => {
         </section>
 
         {/* Timeline Section */}
-        <section className="py-24 px-4 bg-gray-900/30">
+        <section className={cn("py-24 px-4", isDarkMode ? "bg-white/5" : "bg-black/5")}>
           <div className="max-w-7xl mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-3xl font-bold text-white mb-12"
+              className="text-3xl font-bold mb-12"
             >
               Timeline
             </motion.h2>
 
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gray-800" />
+              <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5", isDarkMode ? "bg-white/10" : "bg-black/10")} />
 
               {announcements.map((month, monthIndex) => (
                 <div key={month.date} className="mb-16">
@@ -176,9 +180,9 @@ const News = () => {
                     viewport={{ once: true }}
                     className="relative flex items-center mb-8"
                   >
-                    <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-[#fd4444] rounded-full border-4 border-black" />
+                    <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-[#fd4444] rounded-full border-4", isDarkMode ? "border-black" : "border-white")} />
                     <div className="ml-8 md:ml-0 md:absolute md:left-1/2 md:transform md:translate-x-6">
-                      <span className="text-xl font-bold text-white">{month.date}</span>
+                      <span className="text-xl font-bold">{month.date}</span>
                     </div>
                   </motion.div>
 
@@ -194,20 +198,25 @@ const News = () => {
                           itemIndex % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
                         }`}
                       >
-                        <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#fd4444]/50 transition-colors group">
+                        <div className={cn(
+                          "border rounded-xl p-6 transition-colors group hover:border-[#fd4444]/50",
+                          isDarkMode
+                            ? "bg-white/5 border-white/10"
+                            : "bg-black/5 border-black/10"
+                        )}>
                           <div className="flex items-center gap-3 mb-3">
                             <span className={`px-2 py-1 text-xs font-medium text-white rounded ${typeColors[item.type] || "bg-gray-600"}`}>
                               {item.type}
                             </span>
-                            <span className="text-gray-500 text-sm flex items-center gap-1">
+                            <span className={cn("text-sm flex items-center gap-1", isDarkMode ? "text-white/40" : "text-black/40")}>
                               <Calendar className="w-3 h-3" />
                               {month.date.split(" ")[0]} {item.day}
                             </span>
                           </div>
-                          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#fd4444] transition-colors">
+                          <h3 className="text-xl font-bold mb-2 group-hover:text-[#fd4444] transition-colors">
                             {item.title}
                           </h3>
-                          <p className="text-gray-400 text-sm mb-4">{item.description}</p>
+                          <p className={cn("text-sm mb-4", isDarkMode ? "text-white/50" : "text-black/50")}>{item.description}</p>
                           <a
                             href={item.link}
                             className="text-[#fd4444] text-sm font-medium flex items-center gap-1 hover:underline"
@@ -237,9 +246,9 @@ const News = () => {
             >
               <div className="flex items-center gap-3">
                 <FileText className="w-6 h-6 text-[#fd4444]" />
-                <h2 className="text-3xl font-bold text-white">Press Releases</h2>
+                <h2 className="text-3xl font-bold">Press Releases</h2>
               </div>
-              <Button variant="outline" className="border-gray-700 text-white hover:bg-gray-800">
+              <Button variant="outline" className={cn(isDarkMode ? "border-white/10 text-white hover:bg-white/10" : "border-black/10 text-black hover:bg-black/5")}>
                 View All
               </Button>
             </motion.div>
@@ -252,15 +261,20 @@ const News = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#fd4444]/50 transition-colors group cursor-pointer"
+                  className={cn(
+                    "border rounded-xl p-6 transition-colors group cursor-pointer hover:border-[#fd4444]/50",
+                    isDarkMode
+                      ? "bg-white/5 border-white/10"
+                      : "bg-black/5 border-black/10"
+                  )}
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex-1">
-                      <span className="text-gray-500 text-sm">{release.date}</span>
-                      <h3 className="text-xl font-bold text-white mt-1 mb-2 group-hover:text-[#fd4444] transition-colors">
+                      <span className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>{release.date}</span>
+                      <h3 className="text-xl font-bold mt-1 mb-2 group-hover:text-[#fd4444] transition-colors">
                         {release.title}
                       </h3>
-                      <p className="text-gray-400 text-sm">{release.summary}</p>
+                      <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>{release.summary}</p>
                     </div>
                     <Button
                       variant="ghost"
@@ -277,7 +291,7 @@ const News = () => {
         </section>
 
         {/* Media Contact */}
-        <section className="py-24 px-4 bg-gray-900/30">
+        <section className={cn("py-24 px-4", isDarkMode ? "bg-white/5" : "bg-black/5")}>
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -286,10 +300,10 @@ const News = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Media Inquiries
               </h2>
-              <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+              <p className={cn("mb-8 max-w-xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
                 For press inquiries, interviews, or additional information, please contact our media relations team.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -298,7 +312,7 @@ const News = () => {
                     Contact Press Team
                   </Button>
                 </a>
-                <Button variant="outline" className="border-gray-700 text-white hover:bg-gray-800">
+                <Button variant="outline" className={cn(isDarkMode ? "border-white/10 text-white hover:bg-white/10" : "border-black/10 text-black hover:bg-black/5")}>
                   Download Press Kit
                 </Button>
               </div>

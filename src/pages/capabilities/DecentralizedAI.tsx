@@ -2,8 +2,12 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Globe, Server, Shield, Cpu, Network, Zap, Lock, Database } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 export default function DecentralizedAI() {
+  const { isDarkMode } = useTheme();
+
   const features = [
     {
       icon: Globe,
@@ -94,9 +98,9 @@ export default function DecentralizedAI() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
-      
+
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
@@ -109,7 +113,7 @@ export default function DecentralizedAI() {
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
               Decentralized AI Infrastructure
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto">
+            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", isDarkMode ? "text-white/70" : "text-black/70")}>
               Build resilient, distributed AI systems that operate without central points of failure
             </p>
           </motion.div>
@@ -122,12 +126,15 @@ export default function DecentralizedAI() {
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
           >
             {benefits.map((benefit, index) => (
-              <div 
+              <div
                 key={index}
-                className="bg-gray-900 p-6 rounded-lg text-center border border-gray-800"
+                className={cn(
+                  "p-6 rounded-lg text-center border",
+                  isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+                )}
               >
-                <div className="text-3xl font-bold text-white mb-2">{benefit.metric}</div>
-                <div className="text-sm text-gray-400">{benefit.label}</div>
+                <div className="text-3xl font-bold mb-2">{benefit.metric}</div>
+                <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>{benefit.label}</div>
               </div>
             ))}
           </motion.div>
@@ -142,7 +149,7 @@ export default function DecentralizedAI() {
             >
               Core Capabilities
             </motion.h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
@@ -152,22 +159,28 @@ export default function DecentralizedAI() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-gray-900 border border-gray-800 rounded-lg p-8"
+                    className={cn(
+                      "border rounded-lg p-8",
+                      isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+                    )}
                   >
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-black" />
+                        <div className={cn(
+                          "w-12 h-12 rounded-lg flex items-center justify-center",
+                          isDarkMode ? "bg-white" : "bg-black"
+                        )}>
+                          <Icon className={cn("w-6 h-6", isDarkMode ? "text-black" : "text-white")} />
                         </div>
                       </div>
                       <div className="flex-1">
                         <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                        <p className="text-gray-400 mb-4">{feature.description}</p>
+                        <p className={cn("mb-4", isDarkMode ? "text-white/50" : "text-black/50")}>{feature.description}</p>
                         <ul className="space-y-2">
                           {feature.details.map((detail, idx) => (
                             <li key={idx} className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 mr-3 flex-shrink-0" />
-                              <span className="text-gray-300 text-sm">{detail}</span>
+                              <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", isDarkMode ? "bg-white" : "bg-black")} />
+                              <span className={cn("text-sm", isDarkMode ? "text-white/70" : "text-black/70")}>{detail}</span>
                             </li>
                           ))}
                         </ul>
@@ -184,12 +197,15 @@ export default function DecentralizedAI() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-20 bg-gray-900 border border-gray-800 rounded-lg p-12 text-center"
+            className={cn(
+              "mb-20 border rounded-lg p-12 text-center",
+              isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+            )}
           >
-            <Network className="w-24 h-24 text-gray-600 mx-auto mb-4" />
+            <Network className={cn("w-24 h-24 mx-auto mb-4", isDarkMode ? "text-white/30" : "text-black/30")} />
             <h3 className="text-2xl font-semibold mb-4">Decentralized Architecture</h3>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Our decentralized AI infrastructure eliminates single points of failure through 
+            <p className={cn("max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
+              Our decentralized AI infrastructure eliminates single points of failure through
               distributed consensus, redundant nodes, and intelligent failover mechanisms.
             </p>
           </motion.div>
@@ -204,7 +220,7 @@ export default function DecentralizedAI() {
             >
               Industry Applications
             </motion.h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {useCases.map((useCase, index) => {
                 const Icon = useCase.icon;
@@ -214,11 +230,16 @@ export default function DecentralizedAI() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-gray-900 p-6 rounded-lg border border-gray-800 text-center hover:border-gray-700 transition-colors"
+                    className={cn(
+                      "p-6 rounded-lg border text-center transition-colors",
+                      isDarkMode
+                        ? "bg-white/5 border-white/10 hover:border-white/20"
+                        : "bg-black/5 border-black/10 hover:border-black/20"
+                    )}
                   >
-                    <Icon className="w-12 h-12 text-white mx-auto mb-4" />
+                    <Icon className="w-12 h-12 mx-auto mb-4" />
                     <h3 className="text-lg font-semibold mb-2">{useCase.title}</h3>
-                    <p className="text-gray-400 text-sm">{useCase.description}</p>
+                    <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>{useCase.description}</p>
                   </motion.div>
                 );
               })}
@@ -230,35 +251,37 @@ export default function DecentralizedAI() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-20 bg-gradient-to-r from-gray-900 to-black p-12 rounded-lg border border-gray-800"
+            className={cn(
+              "mb-20 p-12 rounded-lg border",
+              isDarkMode
+                ? "bg-gradient-to-r from-white/5 to-transparent border-white/10"
+                : "bg-gradient-to-r from-black/5 to-transparent border-black/10"
+            )}
           >
             <h2 className="text-3xl font-bold mb-8 text-center">Technical Specifications</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
                 <h3 className="text-xl font-semibold mb-4">Consensus Protocol</h3>
                 <ul className="space-y-2">
-                  <li className="text-gray-300">• Byzantine Fault Tolerant (BFT)</li>
-                  <li className="text-gray-300">• Practical Byzantine Fault Tolerance</li>
-                  <li className="text-gray-300">• Raft consensus for coordination</li>
-                  <li className="text-gray-300">• Custom AI workload consensus</li>
+                  {["Byzantine Fault Tolerant (BFT)", "Practical Byzantine Fault Tolerance", "Raft consensus for coordination", "Custom AI workload consensus"].map((item) => (
+                    <li key={item} className={cn(isDarkMode ? "text-white/70" : "text-black/70")}>• {item}</li>
+                  ))}
                 </ul>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-4">Network Architecture</h3>
                 <ul className="space-y-2">
-                  <li className="text-gray-300">• Peer-to-peer mesh network</li>
-                  <li className="text-gray-300">• Encrypted communication channels</li>
-                  <li className="text-gray-300">• Dynamic node discovery</li>
-                  <li className="text-gray-300">• Load balancing algorithms</li>
+                  {["Peer-to-peer mesh network", "Encrypted communication channels", "Dynamic node discovery", "Load balancing algorithms"].map((item) => (
+                    <li key={item} className={cn(isDarkMode ? "text-white/70" : "text-black/70")}>• {item}</li>
+                  ))}
                 </ul>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-4">Security Features</h3>
                 <ul className="space-y-2">
-                  <li className="text-gray-300">• End-to-end encryption</li>
-                  <li className="text-gray-300">• Zero-knowledge proofs</li>
-                  <li className="text-gray-300">• Secure multi-party computation</li>
-                  <li className="text-gray-300">• Homomorphic encryption support</li>
+                  {["End-to-end encryption", "Zero-knowledge proofs", "Secure multi-party computation", "Homomorphic encryption support"].map((item) => (
+                    <li key={item} className={cn(isDarkMode ? "text-white/70" : "text-black/70")}>• {item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -274,21 +297,29 @@ export default function DecentralizedAI() {
             <h2 className="text-3xl font-bold mb-6">
               Ready to Decentralize Your AI Infrastructure?
             </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", isDarkMode ? "text-white/70" : "text-black/70")}>
               Join the future of resilient, distributed AI systems
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="/#contact"
-                className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+                className={cn(
+                  "inline-block px-8 py-4 rounded-lg font-semibold transition-colors",
+                  isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90"
+                )}
               >
                 Get Started
               </a>
-              <a 
+              <a
                 href="https://docs.google.com/document/d/1mWC6mo9Wd4s3KaWPTF_4QhLqh5lRmzED12wRnLq71Sk/edit?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors"
+                className={cn(
+                  "inline-block border px-8 py-4 rounded-lg font-semibold transition-colors",
+                  isDarkMode
+                    ? "border-white text-white hover:bg-white hover:text-black"
+                    : "border-black text-black hover:bg-black hover:text-white"
+                )}
               >
                 View Documentation
               </a>

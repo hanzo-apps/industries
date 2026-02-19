@@ -6,8 +6,12 @@ import { Lightbulb, MessagesSquare, Bot, Globe, Server, Lock } from "lucide-reac
 import TeamSlack from "@/components/TeamSlack";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const TeamVi = () => {
+  const { isDarkMode } = useTheme();
+
   const handleContactSensei = () => {
     window.location.href = "https://sensei.group";
     toast({
@@ -17,11 +21,11 @@ const TeamVi = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
-      
+
       <main className="pt-32 pb-16 px-4">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-7xl mx-auto"
@@ -34,45 +38,45 @@ const TeamVi = () => {
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
               Meet Vi, Your Visionary Leader
             </h1>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Your innovative AI visionary leader, guiding the team towards excellence with strategic 
+            <p className={cn("text-lg max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
+              Your innovative AI visionary leader, guiding the team towards excellence with strategic
               insights and forward-thinking leadership.
             </p>
           </div>
 
           {/* Integration Platforms */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <motion.div 
+            <motion.div
               whileHover={{ y: -5 }}
-              className="p-6 rounded-2xl border border-gray-800 bg-black/50"
+              className={cn("p-6 rounded-2xl border", isDarkMode ? "border-white/10 bg-white/5" : "border-black/10 bg-black/5")}
             >
               <MessagesSquare className="h-8 w-8 text-purple-400 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Strategic Vision</h3>
-              <p className="text-gray-400">
+              <p className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>
                 Develops comprehensive strategies and roadmaps for sustainable growth
                 and innovation.
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               whileHover={{ y: -5 }}
-              className="p-6 rounded-2xl border border-gray-800 bg-black/50"
+              className={cn("p-6 rounded-2xl border", isDarkMode ? "border-white/10 bg-white/5" : "border-black/10 bg-black/5")}
             >
               <Bot className="h-8 w-8 text-blue-400 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Team Leadership</h3>
-              <p className="text-gray-400">
+              <p className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>
                 Coordinates and guides the AI team to achieve optimal performance
                 and collaboration.
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               whileHover={{ y: -5 }}
-              className="p-6 rounded-2xl border border-gray-800 bg-black/50"
+              className={cn("p-6 rounded-2xl border", isDarkMode ? "border-white/10 bg-white/5" : "border-black/10 bg-black/5")}
             >
               <Lock className="h-8 w-8 text-green-400 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Innovation Drive</h3>
-              <p className="text-gray-400">
+              <p className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>
                 Promotes cutting-edge solutions and encourages creative problem-solving
                 across all projects.
               </p>
@@ -85,11 +89,11 @@ const TeamVi = () => {
           {/* Contact Section */}
           <div className="text-center max-w-2xl mx-auto mt-16">
             <h2 className="text-2xl font-semibold mb-4">Need Human Assistance?</h2>
-            <p className="text-gray-400 mb-6">
+            <p className={cn("mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>
               While Vi is highly capable, sometimes you might need human expertise.
               Contact Sensei Group for dedicated support and consultation.
             </p>
-            <Button 
+            <Button
               onClick={handleContactSensei}
               className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600"
             >
