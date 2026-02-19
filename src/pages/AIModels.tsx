@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 import {
   ArrowRight,
   ExternalLink,
@@ -233,32 +235,34 @@ const capabilitiesMatrix = [
 ];
 
 const AIModels = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
 
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <section className={cn("py-24 px-4 bg-gradient-to-b", isDarkMode ? "from-white/5 to-transparent" : "from-gray-50 to-white")}>
           <div className="max-w-5xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-block px-4 py-1 rounded-full bg-black text-white text-sm font-medium mb-6">
+              <div className={cn("inline-block px-4 py-1 rounded-full text-sm font-medium mb-6", isDarkMode ? "bg-white text-black" : "bg-black text-white")}>
                 Zen AI Model Family
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-black tracking-tight mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
                 Hypermodal AI
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              <p className={cn("text-xl max-w-3xl mx-auto mb-8", isDarkMode ? "text-white/60" : "text-black/60")}>
                 The world's most comprehensive open-weight AI model ecosystem.
                 From edge computing to world simulation, covering text, vision, video, audio, and 3D.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-black text-white hover:bg-gray-800 rounded-full px-8 gap-2">
+                  <Button size="lg" className={cn("rounded-full px-8 gap-2", isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
                     <Sparkles className="w-4 h-4" />
                     Browse Models
                   </Button>
@@ -275,24 +279,24 @@ const AIModels = () => {
         </section>
 
         {/* Stats */}
-        <section className="py-12 px-4 border-y border-gray-200">
+        <section className={cn("py-12 px-4 border-y", isDarkMode ? "border-white/10" : "border-black/10")}>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-black mb-1">20+</div>
-                <div className="text-sm text-gray-500">Models</div>
+                <div className="text-4xl font-bold mb-1">20+</div>
+                <div className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>Models</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-black mb-1">44K</div>
-                <div className="text-sm text-gray-500">Tokens/sec (nano)</div>
+                <div className="text-4xl font-bold mb-1">44K</div>
+                <div className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>Tokens/sec (nano)</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-black mb-1">6</div>
-                <div className="text-sm text-gray-500">Modalities</div>
+                <div className="text-4xl font-bold mb-1">6</div>
+                <div className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>Modalities</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-black mb-1">Apache 2.0</div>
-                <div className="text-sm text-gray-500">License</div>
+                <div className="text-4xl font-bold mb-1">Apache 2.0</div>
+                <div className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>License</div>
               </div>
             </div>
           </div>
@@ -304,7 +308,7 @@ const AIModels = () => {
           return (
             <section
               key={key}
-              className={`py-20 px-4 ${familyIndex % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+              className={cn("py-20 px-4", familyIndex % 2 === 0 ? "" : isDarkMode ? "bg-white/5" : "bg-gray-50")}
             >
               <div className="max-w-6xl mx-auto">
                 <motion.div
@@ -315,10 +319,10 @@ const AIModels = () => {
                   className="mb-12"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <FamilyIcon className="w-8 h-8 text-gray-700" />
-                    <h2 className="text-3xl font-bold text-black">{family.title}</h2>
+                    <FamilyIcon className={cn("w-8 h-8", isDarkMode ? "text-white/70" : "text-black/70")} />
+                    <h2 className="text-3xl font-bold">{family.title}</h2>
                   </div>
-                  <p className="text-gray-600 max-w-2xl">{family.description}</p>
+                  <p className={cn("max-w-2xl", isDarkMode ? "text-white/60" : "text-black/60")}>{family.description}</p>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -332,29 +336,29 @@ const AIModels = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="block p-6 bg-white border border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-lg transition-all group"
+                      className={cn("block p-6 border rounded-xl hover:shadow-lg transition-all group", isDarkMode ? "bg-white/5 border-white/10 hover:border-white/20" : "bg-white border-black/10 hover:border-black/20")}
                     >
                       <div className="flex items-start justify-between mb-4">
                         <div>
-                          <h3 className="text-lg font-semibold text-black group-hover:underline">
+                          <h3 className="text-lg font-semibold group-hover:underline">
                             {model.name}
                           </h3>
-                          <span className="text-sm font-mono text-gray-500">{model.params}</span>
+                          <span className={cn("text-sm font-mono", isDarkMode ? "text-white/40" : "text-black/40")}>{model.params}</span>
                         </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", isDarkMode ? "text-white/50" : "text-black/50")} />
                       </div>
-                      <p className="text-gray-600 text-sm mb-4">{model.description}</p>
+                      <p className={cn("text-sm mb-4", isDarkMode ? "text-white/60" : "text-black/60")}>{model.description}</p>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {model.capabilities.map((cap) => (
                           <span
                             key={cap}
-                            className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full"
+                            className={cn("px-2 py-0.5 text-xs rounded-full", isDarkMode ? "bg-white/10 text-white/60" : "bg-black/5 text-black/60")}
                           >
                             {cap}
                           </span>
                         ))}
                       </div>
-                      <div className="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-gray-100">
+                      <div className={cn("flex items-center justify-between text-xs pt-4 border-t", isDarkMode ? "text-white/40 border-white/10" : "text-black/40 border-black/10")}>
                         <span className="flex items-center gap-1">
                           <Zap className="w-3 h-3" />
                           {model.performance}
@@ -373,7 +377,7 @@ const AIModels = () => {
         })}
 
         {/* Capabilities Matrix */}
-        <section className="py-20 px-4 bg-black text-white">
+        <section className={cn("py-20 px-4", isDarkMode ? "bg-white/5" : "bg-black text-white")}>
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -382,8 +386,8 @@ const AIModels = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4">Capabilities Matrix</h2>
-              <p className="text-gray-400">
+              <h2 className={cn("text-3xl font-bold mb-4", isDarkMode ? "text-white" : "text-white")}>Capabilities Matrix</h2>
+              <p className={cn(isDarkMode ? "text-white/50" : "text-white/60")}>
                 Each model specializes in different modalities and tasks
               </p>
             </motion.div>
@@ -391,7 +395,7 @@ const AIModels = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-gray-800">
+                  <tr className={cn("border-b", isDarkMode ? "border-white/10" : "border-white/20")}>
                     <th className="text-left py-4 px-4 font-semibold">Model</th>
                     <th className="text-center py-4 px-4 font-semibold">Text</th>
                     <th className="text-center py-4 px-4 font-semibold">Image</th>
@@ -404,15 +408,15 @@ const AIModels = () => {
                 </thead>
                 <tbody>
                   {capabilitiesMatrix.map((row) => (
-                    <tr key={row.model} className="border-b border-gray-800/50 hover:bg-gray-900/50">
-                      <td className="py-3 px-4 font-mono text-white">{row.model}</td>
-                      <td className="text-center py-3 px-4">{row.text ? "✓" : "—"}</td>
-                      <td className="text-center py-3 px-4">{row.image ? "✓" : "—"}</td>
-                      <td className="text-center py-3 px-4">{row.video ? "✓" : "—"}</td>
-                      <td className="text-center py-3 px-4">{row.audio ? "✓" : "—"}</td>
-                      <td className="text-center py-3 px-4">{row.threeD ? "✓" : "—"}</td>
-                      <td className="text-center py-3 px-4">{row.code ? "✓" : "—"}</td>
-                      <td className="text-center py-3 px-4">{row.agents ? "✓" : "—"}</td>
+                    <tr key={row.model} className={cn("border-b", isDarkMode ? "border-white/5 hover:bg-white/5" : "border-white/10 hover:bg-white/10")}>
+                      <td className={cn("py-3 px-4 font-mono", isDarkMode ? "text-white" : "text-white")}>{row.model}</td>
+                      <td className="text-center py-3 px-4">{row.text ? "\u2713" : "\u2014"}</td>
+                      <td className="text-center py-3 px-4">{row.image ? "\u2713" : "\u2014"}</td>
+                      <td className="text-center py-3 px-4">{row.video ? "\u2713" : "\u2014"}</td>
+                      <td className="text-center py-3 px-4">{row.audio ? "\u2713" : "\u2014"}</td>
+                      <td className="text-center py-3 px-4">{row.threeD ? "\u2713" : "\u2014"}</td>
+                      <td className="text-center py-3 px-4">{row.code ? "\u2713" : "\u2014"}</td>
+                      <td className="text-center py-3 px-4">{row.agents ? "\u2713" : "\u2014"}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -431,8 +435,8 @@ const AIModels = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-black mb-4">Infrastructure</h2>
-              <p className="text-gray-600">
+              <h2 className="text-3xl font-bold mb-4">Infrastructure</h2>
+              <p className={cn(isDarkMode ? "text-white/60" : "text-black/60")}>
                 Production-ready tools for training and deploying Zen models
               </p>
             </motion.div>
@@ -450,15 +454,15 @@ const AIModels = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="block p-8 bg-gray-50 rounded-2xl border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all group text-center"
+                    className={cn("block p-8 rounded-2xl border hover:shadow-lg transition-all group text-center", isDarkMode ? "bg-white/5 border-white/10 hover:border-white/20" : "bg-black/5 border-black/10 hover:border-black/20")}
                   >
-                    <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <ToolIcon className="w-6 h-6 text-white" />
+                    <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4", isDarkMode ? "bg-white" : "bg-black")}>
+                      <ToolIcon className={cn("w-6 h-6", isDarkMode ? "text-black" : "text-white")} />
                     </div>
-                    <h3 className="text-xl font-semibold text-black mb-2 group-hover:underline">
+                    <h3 className="text-xl font-semibold mb-2 group-hover:underline">
                       {tool.name}
                     </h3>
-                    <p className="text-gray-600 text-sm">{tool.description}</p>
+                    <p className={cn("text-sm", isDarkMode ? "text-white/60" : "text-black/60")}>{tool.description}</p>
                   </motion.a>
                 );
               })}
@@ -467,7 +471,7 @@ const AIModels = () => {
         </section>
 
         {/* Code Example */}
-        <section className="py-20 px-4 bg-gray-50">
+        <section className={cn("py-20 px-4", isDarkMode ? "bg-white/5" : "bg-gray-50")}>
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -476,8 +480,8 @@ const AIModels = () => {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h2 className="text-3xl font-bold text-black mb-4">Quick Start</h2>
-              <p className="text-gray-600">Get started with any Zen model in seconds</p>
+              <h2 className="text-3xl font-bold mb-4">Quick Start</h2>
+              <p className={cn(isDarkMode ? "text-white/60" : "text-black/60")}>Get started with any Zen model in seconds</p>
             </motion.div>
 
             <motion.div
@@ -513,15 +517,15 @@ response = client.chat.completions.create(
         {/* CTA */}
         <section className="py-24 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-black mb-4">
+            <h2 className="text-3xl font-bold mb-4">
               Build with Zen AI
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className={cn("text-xl mb-8", isDarkMode ? "text-white/60" : "text-black/60")}>
               Open-weight models, Apache 2.0 licensed. Free to use for research and commercial applications.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-black text-white hover:bg-gray-800 rounded-full px-8 gap-2">
+                <Button size="lg" className={cn("rounded-full px-8 gap-2", isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
                   Get Started
                   <ArrowRight className="w-4 h-4" />
                 </Button>

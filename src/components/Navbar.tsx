@@ -84,7 +84,12 @@ const TryHanzoDropdown = () => {
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
             className={cn(
-              "absolute right-0 mt-2 w-64 backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden z-50",
+              "absolute right-0 pt-2 w-64 z-50"
+            )}
+          >
+          <div
+            className={cn(
+              "backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden",
               isDarkMode
                 ? "bg-neutral-900/95 border-white/10 shadow-black/50"
                 : "bg-white/95 border-black/10 shadow-black/10"
@@ -148,6 +153,7 @@ const TryHanzoDropdown = () => {
                 );
               })}
             </div>
+          </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -301,13 +307,18 @@ const DropdownMenu = ({ menu, isOpen, onOpen, onClose }: DropdownMenuProps) => {
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
             className={cn(
-              "absolute left-0 mt-2 w-80 backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden z-50",
+              "absolute left-0 pt-2 w-80 z-50"
+            )}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+          <div
+            className={cn(
+              "backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden",
               isDarkMode
                 ? "bg-neutral-900/95 border-white/10 shadow-black/50"
                 : "bg-white/95 border-black/10 shadow-black/10"
             )}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
           >
             <div className="py-2">
               {menu.items.map((item, index) => {
@@ -371,6 +382,7 @@ const DropdownMenu = ({ menu, isOpen, onOpen, onClose }: DropdownMenuProps) => {
                 );
               })}
             </div>
+          </div>
           </motion.div>
         )}
       </AnimatePresence>

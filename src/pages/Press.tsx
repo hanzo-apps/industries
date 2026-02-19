@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 import {
   Download,
   Mail,
@@ -143,32 +145,34 @@ const LogoPreview = ({ isDark }: { isDark: boolean }) => (
 );
 
 const Press = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
 
       <main className="pt-16">
         {/* Hero */}
-        <section className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <section className={cn("py-24 px-4 bg-gradient-to-b", isDarkMode ? "from-white/5 to-transparent" : "from-gray-50 to-white")}>
           <div className="max-w-5xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-black text-white text-sm font-medium mb-6">
+              <div className={cn("inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium mb-6", isDarkMode ? "bg-white text-black" : "bg-black text-white")}>
                 <FileText className="w-4 h-4" />
                 Press Room
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-black tracking-tight mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
                 Press & Media
               </h1>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+              <p className={cn("text-xl max-w-2xl mx-auto mb-8", isDarkMode ? "text-white/60" : "text-black/60")}>
                 Download brand assets, access press releases, and find everything you need to write about Hanzo AI.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a href="mailto:press@hanzo.ai">
-                  <Button className="bg-black text-white hover:bg-gray-800 gap-2">
+                  <Button className={cn("gap-2", isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
                     <Mail className="w-4 h-4" />
                     Contact Press Team
                   </Button>
@@ -188,17 +192,17 @@ const Press = () => {
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-6">
-              <Building2 className="w-6 h-6 text-gray-500" />
-              <h2 className="text-2xl font-bold text-black">About Hanzo AI</h2>
+              <Building2 className={cn("w-6 h-6", isDarkMode ? "text-white/40" : "text-black/40")} />
+              <h2 className="text-2xl font-bold">About Hanzo AI</h2>
             </div>
             <div className="max-w-3xl">
-              <p className="text-lg text-gray-600 leading-relaxed mb-4">
+              <p className={cn("text-lg leading-relaxed mb-4", isDarkMode ? "text-white/60" : "text-black/60")}>
                 <strong>Hanzo AI Inc</strong> (Techstars '17) is a frontier AI research lab building next-generation AI infrastructure. Founded in 2016 in Los Angeles, Hanzo develops large language models, AI training frameworks, and enterprise AI platforms.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed mb-4">
+              <p className={cn("text-lg leading-relaxed mb-4", isDarkMode ? "text-white/60" : "text-black/60")}>
                 Our research spans efficient model training (Training-Free GRPO, ASO), post-quantum cryptography, fully homomorphic encryption, and decentralized AI infrastructure. We publish open research and release open-source AI models through the Zen LM family.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className={cn("text-lg leading-relaxed", isDarkMode ? "text-white/60" : "text-black/60")}>
                 Hanzo operates alongside partner organizations: <strong>Zoo Labs Foundation</strong> (501c3 open AI research), <strong>Zen LM</strong> (frontier models), and <strong>Lux Network</strong> (blockchain infrastructure).
               </p>
             </div>
@@ -206,40 +210,40 @@ const Press = () => {
         </section>
 
         {/* Press Contact */}
-        <section className="py-16 px-4 bg-gray-50">
+        <section className={cn("py-16 px-4", isDarkMode ? "bg-white/5" : "bg-gray-50")}>
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <Mail className="w-6 h-6 text-gray-500" />
-              <h2 className="text-2xl font-bold text-black">Press Contact</h2>
+              <Mail className={cn("w-6 h-6", isDarkMode ? "text-white/40" : "text-black/40")} />
+              <h2 className="text-2xl font-bold">Press Contact</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-6 bg-white rounded-xl border border-gray-200">
+              <div className={cn("p-6 rounded-xl border", isDarkMode ? "bg-white/5 border-white/10" : "bg-white border-black/10")}>
                 <h3 className="font-semibold mb-4">Media Inquiries</h3>
                 <div className="space-y-3">
                   <a
                     href="mailto:press@hanzo.ai"
-                    className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors"
+                    className={cn("flex items-center gap-2 transition-colors", isDarkMode ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black")}
                   >
                     <Mail className="w-4 h-4" />
                     press@hanzo.ai
                   </a>
-                  <div className="flex items-center gap-2 text-gray-500">
+                  <div className={cn("flex items-center gap-2", isDarkMode ? "text-white/40" : "text-black/40")}>
                     <Phone className="w-4 h-4" />
                     +1 (913) 777-4443
                   </div>
                 </div>
               </div>
-              <div className="p-6 bg-white rounded-xl border border-gray-200">
+              <div className={cn("p-6 rounded-xl border", isDarkMode ? "bg-white/5 border-white/10" : "bg-white border-black/10")}>
                 <h3 className="font-semibold mb-4">Headquarters</h3>
-                <div className="space-y-1 text-gray-500">
-                  <p className="font-medium text-gray-700">Hanzo AI Inc</p>
+                <div className={cn("space-y-1", isDarkMode ? "text-white/40" : "text-black/40")}>
+                  <p className={cn("font-medium", isDarkMode ? "text-white/70" : "text-black/70")}>Hanzo AI Inc</p>
                   <p>Los Angeles, California</p>
                   <p>United States</p>
                 </div>
               </div>
-              <div className="p-6 bg-white rounded-xl border border-gray-200">
+              <div className={cn("p-6 rounded-xl border", isDarkMode ? "bg-white/5 border-white/10" : "bg-white border-black/10")}>
                 <h3 className="font-semibold mb-4">Schedule Interview</h3>
-                <p className="text-gray-500 text-sm mb-4">Book time with our communications team.</p>
+                <p className={cn("text-sm mb-4", isDarkMode ? "text-white/40" : "text-black/40")}>Book time with our communications team.</p>
                 <a href="https://cal.com/hanzo" target="_blank" rel="noopener noreferrer">
                   <Button size="sm" variant="outline" className="w-full gap-2">
                     <Calendar className="w-4 h-4" />
@@ -256,8 +260,8 @@ const Press = () => {
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                <Palette className="w-6 h-6 text-gray-500" />
-                <h2 className="text-2xl font-bold text-black">Brand Assets</h2>
+                <Palette className={cn("w-6 h-6", isDarkMode ? "text-white/40" : "text-black/40")} />
+                <h2 className="text-2xl font-bold">Brand Assets</h2>
               </div>
               <a href="https://github.com/hanzoai/brand" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="sm" className="gap-2">
@@ -269,31 +273,31 @@ const Press = () => {
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {/* Dark Background Logo */}
-              <div className="rounded-xl border border-gray-200 overflow-hidden">
+              <div className={cn("rounded-xl border overflow-hidden", isDarkMode ? "border-white/10" : "border-black/10")}>
                 <div className="h-32 bg-black flex items-center justify-center">
                   <LogoPreview isDark={true} />
                 </div>
-                <div className="p-4 bg-white">
+                <div className={cn("p-4", isDarkMode ? "bg-white/5" : "bg-white")}>
                   <h3 className="font-semibold mb-1">Logo - Dark Background</h3>
-                  <p className="text-sm text-gray-500 mb-2">White logo for dark backgrounds</p>
-                  <p className="text-xs text-gray-400">SVG, PNG available</p>
+                  <p className={cn("text-sm mb-2", isDarkMode ? "text-white/40" : "text-black/40")}>White logo for dark backgrounds</p>
+                  <p className={cn("text-xs", isDarkMode ? "text-white/30" : "text-black/30")}>SVG, PNG available</p>
                 </div>
               </div>
 
               {/* Light Background Logo */}
-              <div className="rounded-xl border border-gray-200 overflow-hidden">
-                <div className="h-32 bg-white flex items-center justify-center border-b border-gray-200">
+              <div className={cn("rounded-xl border overflow-hidden", isDarkMode ? "border-white/10" : "border-black/10")}>
+                <div className={cn("h-32 flex items-center justify-center border-b", isDarkMode ? "bg-white border-white/10" : "bg-white border-black/10")}>
                   <LogoPreview isDark={false} />
                 </div>
-                <div className="p-4 bg-white">
+                <div className={cn("p-4", isDarkMode ? "bg-white/5" : "bg-white")}>
                   <h3 className="font-semibold mb-1">Logo - Light Background</h3>
-                  <p className="text-sm text-gray-500 mb-2">Black logo for light backgrounds</p>
-                  <p className="text-xs text-gray-400">SVG, PNG available</p>
+                  <p className={cn("text-sm mb-2", isDarkMode ? "text-white/40" : "text-black/40")}>Black logo for light backgrounds</p>
+                  <p className={cn("text-xs", isDarkMode ? "text-white/30" : "text-black/30")}>SVG, PNG available</p>
                 </div>
               </div>
 
               {/* Brand Colors */}
-              <div className="rounded-xl border border-gray-200 overflow-hidden">
+              <div className={cn("rounded-xl border overflow-hidden", isDarkMode ? "border-white/10" : "border-black/10")}>
                 <div className="h-32 grid grid-cols-2 grid-rows-2">
                   {brandColors.map((color) => (
                     <div
@@ -308,17 +312,17 @@ const Press = () => {
                     </div>
                   ))}
                 </div>
-                <div className="p-4 bg-white">
+                <div className={cn("p-4", isDarkMode ? "bg-white/5" : "bg-white")}>
                   <h3 className="font-semibold mb-1">Brand Colors</h3>
-                  <p className="text-sm text-gray-500 mb-2">Primary color palette</p>
-                  <p className="text-xs text-gray-400">Black, White, Grays</p>
+                  <p className={cn("text-sm mb-2", isDarkMode ? "text-white/40" : "text-black/40")}>Primary color palette</p>
+                  <p className={cn("text-xs", isDarkMode ? "text-white/30" : "text-black/30")}>Black, White, Grays</p>
                 </div>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-4">
               <a href="https://github.com/hanzoai/brand/archive/refs/heads/main.zip">
-                <Button className="bg-black text-white hover:bg-gray-800 gap-2">
+                <Button className={cn("gap-2", isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
                   <Download className="w-4 h-4" />
                   Download All Assets (ZIP)
                 </Button>
@@ -334,11 +338,11 @@ const Press = () => {
         </section>
 
         {/* Press Releases Timeline */}
-        <section className="py-16 px-4 bg-gray-50">
+        <section className={cn("py-16 px-4", isDarkMode ? "bg-white/5" : "bg-gray-50")}>
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <Calendar className="w-6 h-6 text-gray-500" />
-              <h2 className="text-2xl font-bold text-black">Press Releases & Announcements</h2>
+              <Calendar className={cn("w-6 h-6", isDarkMode ? "text-white/40" : "text-black/40")} />
+              <h2 className="text-2xl font-bold">Press Releases & Announcements</h2>
             </div>
             <div className="space-y-4">
               {pressReleases.map((release, index) => (
@@ -348,11 +352,11 @@ const Press = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="p-6 bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-colors group"
+                  className={cn("p-6 rounded-xl border transition-colors group", isDarkMode ? "bg-white/5 border-white/10 hover:border-white/20" : "bg-white border-black/10 hover:border-black/20")}
                 >
                   <div className="flex flex-col md:flex-row md:items-start gap-4">
                     <div className="flex-shrink-0 w-24">
-                      <div className="text-sm font-medium text-gray-900">{release.date}</div>
+                      <div className={cn("text-sm font-medium", isDarkMode ? "text-white/90" : "text-black/90")}>{release.date}</div>
                       {release.type && (
                         <span className={`inline-block mt-1 px-2 py-0.5 text-xs rounded-full border ${typeColors[release.type] || "bg-gray-100 text-gray-600"}`}>
                           {release.type}
@@ -360,8 +364,8 @@ const Press = () => {
                       )}
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-black mb-2 group-hover:underline">{release.title}</h3>
-                      <p className="text-gray-600 text-sm">{release.description}</p>
+                      <h3 className="font-semibold mb-2 group-hover:underline">{release.title}</h3>
+                      <p className={cn("text-sm", isDarkMode ? "text-white/60" : "text-black/60")}>{release.description}</p>
                     </div>
                     {release.link && (
                       <a
@@ -370,7 +374,7 @@ const Press = () => {
                         rel={release.link.startsWith("http") ? "noopener noreferrer" : undefined}
                         className="flex-shrink-0"
                       >
-                        <Button variant="ghost" size="sm" className="gap-1 text-gray-500 hover:text-black">
+                        <Button variant="ghost" size="sm" className={cn("gap-1", isDarkMode ? "text-white/40 hover:text-white" : "text-black/40 hover:text-black")}>
                           Learn more
                           <ExternalLink className="w-3 h-3" />
                         </Button>
@@ -387,8 +391,8 @@ const Press = () => {
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <Globe className="w-6 h-6 text-gray-500" />
-              <h2 className="text-2xl font-bold text-black">Connect With Us</h2>
+              <Globe className={cn("w-6 h-6", isDarkMode ? "text-white/40" : "text-black/40")} />
+              <h2 className="text-2xl font-bold">Connect With Us</h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {socialLinks.map((social) => {
@@ -399,11 +403,11 @@ const Press = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors text-center group"
+                    className={cn("p-4 rounded-xl border transition-colors text-center group", isDarkMode ? "bg-white/5 border-white/10 hover:border-white/20" : "bg-black/5 border-black/10 hover:border-black/20")}
                   >
-                    <Icon className="w-5 h-5 mx-auto mb-2 text-gray-400 group-hover:text-black transition-colors" />
-                    <div className="font-semibold text-black mb-1">{social.name}</div>
-                    <div className="text-sm text-gray-500">{social.handle}</div>
+                    <Icon className={cn("w-5 h-5 mx-auto mb-2 transition-colors", isDarkMode ? "text-white/50 group-hover:text-white" : "text-black/50 group-hover:text-black")} />
+                    <div className="font-semibold mb-1">{social.name}</div>
+                    <div className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>{social.handle}</div>
                   </a>
                 );
               })}
@@ -412,15 +416,15 @@ const Press = () => {
         </section>
 
         {/* Leadership */}
-        <section className="py-16 px-4 bg-gray-50">
+        <section className={cn("py-16 px-4", isDarkMode ? "bg-white/5" : "bg-gray-50")}>
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <Users className="w-6 h-6 text-gray-500" />
-              <h2 className="text-2xl font-bold text-black">Leadership & Executive Bios</h2>
+              <Users className={cn("w-6 h-6", isDarkMode ? "text-white/40" : "text-black/40")} />
+              <h2 className="text-2xl font-bold">Leadership & Executive Bios</h2>
             </div>
-            <div className="p-8 bg-white rounded-xl border border-gray-200 text-center">
-              <Award className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-              <p className="text-gray-600 mb-6">
+            <div className={cn("p-8 rounded-xl border text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-white border-black/10")}>
+              <Award className={cn("w-12 h-12 mx-auto mb-4", isDarkMode ? "text-white/50" : "text-black/50")} />
+              <p className={cn("mb-6", isDarkMode ? "text-white/60" : "text-black/60")}>
                 For executive bios, headshots, and interview requests, please contact our press team directly.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
@@ -431,7 +435,7 @@ const Press = () => {
                   </Button>
                 </Link>
                 <a href="mailto:press@hanzo.ai">
-                  <Button className="bg-black text-white hover:bg-gray-800 gap-2">
+                  <Button className={cn("gap-2", isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
                     <Mail className="w-4 h-4" />
                     Request Executive Bios
                   </Button>
@@ -445,26 +449,26 @@ const Press = () => {
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <BookOpen className="w-6 h-6 text-gray-500" />
-              <h2 className="text-2xl font-bold text-black">Coverage Guidelines</h2>
+              <BookOpen className={cn("w-6 h-6", isDarkMode ? "text-white/40" : "text-black/40")} />
+              <h2 className="text-2xl font-bold">Coverage Guidelines</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="p-6 bg-gray-50 rounded-xl border border-gray-200">
+              <div className={cn("p-6 rounded-xl border", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
                 <h3 className="font-semibold mb-3">Preferred Terminology</h3>
-                <ul className="space-y-2 text-gray-600 text-sm">
+                <ul className={cn("space-y-2 text-sm", isDarkMode ? "text-white/60" : "text-black/60")}>
                   <li><strong>Company Name:</strong> Hanzo AI or Hanzo Industries Inc</li>
-                  <li><strong>Not:</strong> HANZO, Hanzō, or Hanzo.ai</li>
+                  <li><strong>Not:</strong> HANZO, Hanzo, or Hanzo.ai</li>
                   <li><strong>Products:</strong> Zen, KOAN, Hanzo Dev, Hanzo Cloud</li>
                   <li><strong>Partners:</strong> Zoo Labs Foundation, Lux Network, Zen LM</li>
                 </ul>
               </div>
-              <div className="p-6 bg-gray-50 rounded-xl border border-gray-200">
+              <div className={cn("p-6 rounded-xl border", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
                 <h3 className="font-semibold mb-3">Key Facts</h3>
-                <ul className="space-y-2 text-gray-600 text-sm">
+                <ul className={cn("space-y-2 text-sm", isDarkMode ? "text-white/60" : "text-black/60")}>
                   <li><strong>Founded:</strong> 2016 in Los Angeles</li>
                   <li><strong>Accelerator:</strong> Techstars Boulder 2017</li>
-                  <li><strong>Research:</strong> <a href="/research#papers" className="underline hover:text-black">Published papers</a></li>
-                  <li><strong>Models:</strong> <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">Zen LM family</a></li>
+                  <li><strong>Research:</strong> <a href="/research#papers" className="underline hover:opacity-80">Published papers</a></li>
+                  <li><strong>Models:</strong> <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80">Zen LM family</a></li>
                 </ul>
               </div>
             </div>

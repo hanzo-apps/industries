@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Code2, Paintbrush, HelpCircle, Settings, Lightbulb, Bot, MessagesSquare, DollarSign, ChartBar, Palette, Music, Calculator, Binary, Database, MessageCircle, Scale } from "lucide-react";
@@ -6,79 +5,101 @@ import TeamMemberCard from "@/components/team/TeamMemberCard";
 import PlatformCard from "@/components/team/PlatformCard";
 import CallToAction from "@/components/team/CallToAction";
 import { Link } from "react-router-dom";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 export default function Team() {
+  const { isDarkMode } = useTheme();
+
   // Human Leadership Team
   const humanLeadership = [
     {
       name: "Zach Kelling",
-      role: "Founder and CTO",
-      description: "Leading technical vision and innovation at Hanzo Industries.",
+      role: "Founder & CEO",
+      description: "Visionary leader driving Hanzo's mission to build frontier AI.",
       icon: Code2,
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-blue-500 to-cyan-500",
+      image: "/leadership/zach-kelling.png"
     },
     {
-      name: "Antje Worring",
-      role: "Chief Operating Officer",
-      description: "Driving operational excellence and strategic execution.",
-      icon: Settings,
-      gradient: "from-purple-500 to-pink-500"
+      name: "Dave Lorenzini",
+      role: "Chief Technology Officer",
+      description: "Technology visionary with decades of experience in immersive computing and AI.",
+      icon: Code2,
+      gradient: "from-indigo-500 to-blue-500",
+      image: "/leadership/dave-lorenzini.jpg"
     },
     {
       name: "Michael Kelling",
       role: "President",
       description: "Guiding company strategy and vision for the future.",
       icon: Lightbulb,
-      gradient: "from-yellow-500 to-orange-500"
+      gradient: "from-yellow-500 to-orange-500",
+      image: "/leadership/michael-kelling.png"
+    },
+    {
+      name: "Antje Worring",
+      role: "Chief Operating Officer",
+      description: "Driving operational excellence and strategic execution.",
+      icon: Settings,
+      gradient: "from-purple-500 to-pink-500",
+      image: "/leadership/antje-worring.png"
     },
     {
       name: "Vincent Butta",
       role: "Executive VP",
       description: "Leading key initiatives and business operations.",
       icon: MessagesSquare,
-      gradient: "from-green-500 to-emerald-500"
+      gradient: "from-green-500 to-emerald-500",
+      image: "/leadership/vincent-butta.jpg"
     },
     {
       name: "Leigh Ferreria",
       role: "Chief Revenue Officer",
       description: "Driving revenue growth and market expansion.",
       icon: DollarSign,
-      gradient: "from-orange-500 to-red-500"
+      gradient: "from-orange-500 to-red-500",
+      image: "/leadership/leigh-ferreria.png"
     },
     {
       name: "Danielle Savage",
       role: "Chief Brand Officer",
       description: "Building and elevating the Hanzo brand globally.",
       icon: Palette,
-      gradient: "from-rose-500 to-pink-500"
+      gradient: "from-rose-500 to-pink-500",
+      image: "/leadership/danielle-savage.png"
     },
     {
       name: "Ashley Kathleen Christie",
       role: "Chief of Staff",
       description: "Ensuring organizational effectiveness and leadership alignment.",
       icon: HelpCircle,
-      gradient: "from-amber-500 to-orange-500"
+      gradient: "from-amber-500 to-orange-500",
+      image: "/leadership/ashley-christie.png"
     },
     {
       name: "Anastasia Zacharaoff",
       role: "VP Engineering",
       description: "Leading engineering teams and technical development.",
       icon: Code2,
-      gradient: "from-violet-500 to-purple-500"
+      gradient: "from-violet-500 to-purple-500",
+      image: "/leadership/anastasia-zacharaoff.png"
     },
     {
       name: "Rob Ruiz",
       role: "VP Strategy",
       description: "Developing strategic initiatives and business intelligence.",
       icon: ChartBar,
-      gradient: "from-teal-500 to-green-500"
+      gradient: "from-teal-500 to-green-500",
+      image: "/leadership/rob-ruiz.png"
     },
     {
       name: "Marcus White",
       role: "VP Research",
       description: "Leading research and development initiatives.",
       icon: Lightbulb,
-      gradient: "from-indigo-500 to-purple-500"
+      gradient: "from-indigo-500 to-purple-500",
+      image: "/leadership/marcus-white.png"
     }
   ];
 
@@ -224,7 +245,10 @@ export default function Team() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={cn(
+      "min-h-screen transition-colors duration-300",
+      isDarkMode ? "bg-black text-white" : "bg-white text-black"
+    )}>
       <Navbar />
 
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
@@ -232,7 +256,7 @@ export default function Team() {
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">
             Our Team
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className={isDarkMode ? "text-white/50 text-lg" : "text-black/50 text-lg"}>
             Human leadership working alongside AI team members to build the future of work.
           </p>
         </div>
@@ -241,7 +265,10 @@ export default function Team() {
           {/* Human Leadership Section */}
           <div className="mb-20">
             <h2 className="text-3xl font-bold mb-4 text-center">Leadership</h2>
-            <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">
+            <p className={cn(
+              "text-center mb-10 max-w-2xl mx-auto",
+              isDarkMode ? "text-white/50" : "text-black/50"
+            )}>
               Our experienced leadership team brings decades of expertise in AI, technology, and business.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -254,7 +281,10 @@ export default function Team() {
           {/* AI Team Section */}
           <div className="mb-20">
             <h2 className="text-3xl font-bold mb-4 text-center">AI Team</h2>
-            <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">
+            <p className={cn(
+              "text-center mb-10 max-w-2xl mx-auto",
+              isDarkMode ? "text-white/50" : "text-black/50"
+            )}>
               Powered by Hanzo Bot, our AI team members work seamlessly to bring your ideas to life.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -269,7 +299,10 @@ export default function Team() {
           {/* Platform Section */}
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Platform</h2>
-            <p className="text-gray-400 mb-8">
+            <p className={cn(
+              "mb-8",
+              isDarkMode ? "text-white/50" : "text-black/50"
+            )}>
               Hanzo Works enables enterprises to create AI-powered clones of their workforce,
               enhancing productivity and innovation through our powerful platform.
             </p>

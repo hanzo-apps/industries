@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { useTheme } from "@/contexts/ThemeContext";
 
 type MessageRole = "user" | "assistant";
 
@@ -15,6 +16,7 @@ interface Message {
 }
 
 const NotFound = () => {
+  const { isDarkMode } = useTheme();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
@@ -56,33 +58,38 @@ const NotFound = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className={cn("min-h-screen flex items-center justify-center transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
+        <p className={cn("text-xl mb-4", isDarkMode ? "text-white/50" : "text-black/50")}>Oops! Page not found</p>
+        <a href="/" className={cn("underline", isDarkMode ? "text-white hover:text-white/70" : "text-black hover:text-black/70")}>
           Return to Home
         </a>
       </div>
 
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerTrigger asChild>
-          <Button 
-            className="fixed bottom-4 right-4 rounded-full p-4 bg-black hover:bg-gray-800 text-white shadow-lg animate-bounce"
+          <Button
+            className={cn(
+              "fixed bottom-4 right-4 rounded-full p-4 shadow-lg animate-bounce",
+              isDarkMode
+                ? "bg-white hover:bg-white/90 text-black"
+                : "bg-black hover:bg-black/90 text-white"
+            )}
             size="icon"
           >
             <Bot className="h-6 w-6" />
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="h-[500px] p-4 bg-white">
+        <DrawerContent className={cn("h-[500px] p-4", isDarkMode ? "bg-black border-white/10" : "bg-white border-black/10")}>
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
-                <Bot className="h-6 w-6 text-blue-500" />
+                <Bot className={cn("h-6 w-6", isDarkMode ? "text-white" : "text-black")} />
                 <h2 className="text-lg font-semibold">AI Assistant</h2>
               </div>
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 size="icon"
                 onClick={() => setIsOpen(false)}
               >
@@ -96,9 +103,9 @@ const NotFound = () => {
                   key={index}
                   className={cn(
                     "p-3 rounded-lg max-w-[80%]",
-                    msg.role === "user" 
-                      ? "bg-blue-500 text-white ml-auto" 
-                      : "bg-gray-100 text-gray-800"
+                    msg.role === "user"
+                      ? (isDarkMode ? "bg-white text-black ml-auto" : "bg-black text-white ml-auto")
+                      : (isDarkMode ? "bg-white/10 text-white/70" : "bg-black/5 text-black/70")
                   )}
                 >
                   {msg.content}
@@ -113,7 +120,12 @@ const NotFound = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
                 placeholder="Ask me anything..."
-                className="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={cn(
+                  "flex-1 p-2 border rounded-md focus:outline-none focus:ring-2",
+                  isDarkMode
+                    ? "bg-white/5 border-white/10 text-white placeholder-white/40 focus:ring-white/20"
+                    : "bg-black/5 border-black/10 text-black placeholder-black/40 focus:ring-black/20"
+                )}
               />
               <Button onClick={handleSendMessage} size="icon">
                 <Send className="h-4 w-4" />

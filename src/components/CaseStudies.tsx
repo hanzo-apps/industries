@@ -48,7 +48,7 @@ const CaseStudies = () => {
   return (
     <section className={cn(
       "py-20 transition-colors duration-300",
-      isDarkMode ? "bg-neutral-900/50" : "bg-gray-50"
+      isDarkMode ? "bg-white/[0.03]" : "bg-black/[0.03]"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -56,10 +56,7 @@ const CaseStudies = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className={cn(
-              "text-4xl font-bold mb-4",
-              isDarkMode ? "text-white" : "text-black"
-            )}
+            className="text-4xl font-bold mb-4"
           >
             Research Impact
           </motion.h2>
@@ -69,7 +66,7 @@ const CaseStudies = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
               "text-xl max-w-3xl mx-auto",
-              isDarkMode ? "text-neutral-400" : "text-gray-600"
+              isDarkMode ? "text-white/50" : "text-black/50"
             )}
           >
             Delivering measurable breakthroughs in AI efficiency, cryptography,
@@ -91,50 +88,44 @@ const CaseStudies = () => {
                 "p-8 rounded-lg border transition-all group cursor-pointer",
                 isDarkMode
                   ? "bg-black/50 border-white/10 hover:border-white/20"
-                  : "bg-white border-gray-200 hover:border-black"
+                  : "bg-white border-black/10 hover:border-black/20"
               )}
             >
               <div className="flex justify-between items-start mb-4">
                 <span className={cn(
                   "text-sm font-medium uppercase tracking-wider",
-                  isDarkMode ? "text-neutral-500" : "text-gray-500"
+                  isDarkMode ? "text-white/40" : "text-black/40"
                 )}>
                   {study.category}
                 </span>
                 <span className={cn(
                   "text-sm",
-                  isDarkMode ? "text-neutral-500" : "text-gray-500"
+                  isDarkMode ? "text-white/40" : "text-black/40"
                 )}>{study.year}</span>
               </div>
 
-              <h3 className={cn(
-                "text-xl font-semibold mb-2",
-                isDarkMode ? "text-white" : "text-black"
-              )}>{study.title}</h3>
+              <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
               <p className={cn(
                 "text-sm mb-4 font-medium",
-                isDarkMode ? "text-neutral-400" : "text-gray-600"
+                isDarkMode ? "text-white/50" : "text-black/50"
               )}>{study.client}</p>
               <p className={cn(
                 "mb-6",
-                isDarkMode ? "text-neutral-400" : "text-gray-600"
+                isDarkMode ? "text-white/50" : "text-black/50"
               )}>{study.description}</p>
 
               <div className="flex items-center justify-between">
                 <div className={cn(
                   "px-4 py-2 rounded-md",
-                  isDarkMode ? "bg-white/10" : "bg-gray-100"
+                  isDarkMode ? "bg-white/10" : "bg-black/5"
                 )}>
-                  <span className={cn(
-                    "text-sm font-semibold",
-                    isDarkMode ? "text-white" : "text-black"
-                  )}>{study.impact}</span>
+                  <span className="text-sm font-semibold">{study.impact}</span>
                 </div>
                 <ExternalLink className={cn(
                   "w-5 h-5 transition-colors",
                   isDarkMode
-                    ? "text-neutral-600 group-hover:text-white"
-                    : "text-gray-400 group-hover:text-black"
+                    ? "text-white/30 group-hover:text-white"
+                    : "text-black/30 group-hover:text-black"
                 )} />
               </div>
             </motion.a>
@@ -149,10 +140,7 @@ const CaseStudies = () => {
         >
           <a
             href="/research#papers"
-            className={cn(
-              "inline-flex items-center font-semibold hover:underline",
-              isDarkMode ? "text-white" : "text-black"
-            )}
+            className="inline-flex items-center font-semibold hover:underline"
           >
             View All Research Papers
             <ArrowRight className="w-4 h-4 ml-2" />

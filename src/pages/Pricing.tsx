@@ -2,11 +2,14 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Check, Zap, Building2, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Pricing = () => {
+  const { isDarkMode } = useTheme();
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "annual">("monthly");
 
   const plans = [
@@ -95,7 +98,7 @@ const Pricing = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
 
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
@@ -110,29 +113,31 @@ const Pricing = () => {
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
               Simple, transparent pricing
             </h1>
-            <p className="text-gray-400 text-lg mb-8">
+            <p className={cn("text-lg mb-8", isDarkMode ? "text-white/50" : "text-black/50")}>
               Start free, scale as you grow. Pay only for what you use.
             </p>
 
             {/* Billing Toggle */}
-            <div className="inline-flex items-center gap-4 p-1 bg-gray-900 rounded-full">
+            <div className={cn("inline-flex items-center gap-4 p-1 rounded-full", isDarkMode ? "bg-white/5" : "bg-black/5")}>
               <button
                 onClick={() => setBillingPeriod("monthly")}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={cn(
+                  "px-4 py-2 rounded-full text-sm font-medium transition-colors",
                   billingPeriod === "monthly"
-                    ? "bg-white text-black"
-                    : "text-gray-400 hover:text-white"
-                }`}
+                    ? (isDarkMode ? "bg-white text-black" : "bg-black text-white")
+                    : (isDarkMode ? "text-white/50 hover:text-white" : "text-black/50 hover:text-black")
+                )}
               >
                 Monthly
               </button>
               <button
                 onClick={() => setBillingPeriod("annual")}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={cn(
+                  "px-4 py-2 rounded-full text-sm font-medium transition-colors",
                   billingPeriod === "annual"
-                    ? "bg-white text-black"
-                    : "text-gray-400 hover:text-white"
-                }`}
+                    ? (isDarkMode ? "bg-white text-black" : "bg-black text-white")
+                    : (isDarkMode ? "text-white/50 hover:text-white" : "text-black/50 hover:text-black")
+                )}
               >
                 Annual
                 <span className="ml-1.5 text-xs text-green-400">Save 20%</span>
@@ -150,43 +155,56 @@ const Pricing = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`relative rounded-2xl border p-8 ${
+                  className={cn(
+                    "relative rounded-2xl border p-8",
                     plan.highlighted
-                      ? "border-white bg-white/5"
-                      : "border-gray-800 bg-black/50"
-                  }`}
+                      ? (isDarkMode ? "border-white bg-white/5" : "border-black bg-black/5")
+                      : (isDarkMode ? "border-white/10 bg-black/50" : "border-black/10 bg-white/50")
+                  )}
                 >
                   {plan.badge && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <div className="bg-white text-black px-3 py-1 rounded-full text-xs font-semibold">
+                      <div className={cn(
+                        "px-3 py-1 rounded-full text-xs font-semibold",
+                        isDarkMode ? "bg-white text-black" : "bg-black text-white"
+                      )}>
                         {plan.badge}
                       </div>
                     </div>
                   )}
 
                   <div className="flex items-center gap-3 mb-4">
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                      plan.highlighted ? "bg-white" : "bg-gray-800"
-                    }`}>
-                      <Icon className={`w-5 h-5 ${plan.highlighted ? "text-black" : "text-white"}`} />
+                    <div className={cn(
+                      "w-10 h-10 rounded-lg flex items-center justify-center",
+                      plan.highlighted
+                        ? (isDarkMode ? "bg-white" : "bg-black")
+                        : (isDarkMode ? "bg-white/10" : "bg-black/5")
+                    )}>
+                      <Icon className={cn(
+                        "w-5 h-5",
+                        plan.highlighted
+                          ? (isDarkMode ? "text-black" : "text-white")
+                          : ""
+                      )} />
                     </div>
                     <h3 className="text-xl font-semibold">{plan.name}</h3>
                   </div>
 
                   <div className="mb-4">
                     <span className="text-4xl font-bold">{plan.price}</span>
-                    <span className="text-gray-400 text-sm ml-1">{plan.billingPeriod}</span>
+                    <span className={cn("text-sm ml-1", isDarkMode ? "text-white/50" : "text-black/50")}>{plan.billingPeriod}</span>
                   </div>
 
-                  <p className="text-gray-400 text-sm mb-6">{plan.description}</p>
+                  <p className={cn("text-sm mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>{plan.description}</p>
 
                   <a href={plan.ctaLink} target="_blank" rel="noopener noreferrer">
                     <Button
-                      className={`w-full mb-6 ${
+                      className={cn(
+                        "w-full mb-6",
                         plan.highlighted
-                          ? "bg-white text-black hover:bg-gray-200"
-                          : "bg-gray-800 text-white hover:bg-gray-700"
-                      }`}
+                          ? (isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")
+                          : (isDarkMode ? "bg-white/10 text-white hover:bg-white/20" : "bg-black/5 text-black hover:bg-black/10")
+                      )}
                     >
                       {plan.cta}
                     </Button>
@@ -196,7 +214,7 @@ const Pricing = () => {
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
                         <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
+                        <span className={cn("text-sm", isDarkMode ? "text-white/70" : "text-black/70")}>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -211,30 +229,35 @@ const Pricing = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900/50 to-black p-8 md:p-12 mb-20"
+            className={cn(
+              "rounded-2xl border p-8 md:p-12 mb-20",
+              isDarkMode
+                ? "border-white/10 bg-gradient-to-br from-white/5 to-transparent"
+                : "border-black/10 bg-gradient-to-br from-black/5 to-transparent"
+            )}
           >
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-sm mb-4">
+                <div className={cn("inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm mb-4", isDarkMode ? "bg-white/10" : "bg-black/5")}>
                   <Building2 className="w-4 h-4" />
                   Enterprise
                 </div>
                 <h2 className="text-3xl font-bold mb-4">
                   Custom solutions for your organization
                 </h2>
-                <p className="text-gray-400 mb-6">
+                <p className={cn("mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Get dedicated infrastructure, custom model training, and enterprise-grade security.
                   Our team will work with you to build the perfect AI solution.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link to="/contact">
-                    <Button className="bg-white text-black hover:bg-gray-200">
+                    <Button className={cn(isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
                       Contact Sales
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
                   <a href="https://cal.com/hanzo" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="border-gray-700 hover:bg-gray-800">
+                    <Button variant="outline" className={cn(isDarkMode ? "border-white/10 hover:bg-white/10" : "border-black/10 hover:bg-black/5")}>
                       Schedule a Demo
                     </Button>
                   </a>
@@ -245,7 +268,7 @@ const Pricing = () => {
                   {enterpriseFeatures.map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">{feature}</span>
+                      <span className={cn("text-sm", isDarkMode ? "text-white/70" : "text-black/70")}>{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -262,13 +285,13 @@ const Pricing = () => {
             className="mb-20"
           >
             <h2 className="text-3xl font-bold mb-2">API Pricing</h2>
-            <p className="text-gray-400 mb-8">
+            <p className={cn("mb-8", isDarkMode ? "text-white/50" : "text-black/50")}>
               Pay-as-you-go pricing per million tokens. Volume discounts available.
             </p>
 
             <div className="overflow-x-auto">
-              <table className="w-full border border-gray-800 rounded-lg overflow-hidden">
-                <thead className="bg-gray-900">
+              <table className={cn("w-full border rounded-lg overflow-hidden", isDarkMode ? "border-white/10" : "border-black/10")}>
+                <thead className={cn(isDarkMode ? "bg-white/5" : "bg-black/5")}>
                   <tr>
                     <th className="px-6 py-4 text-left text-sm font-semibold">Model</th>
                     <th className="px-6 py-4 text-left text-sm font-semibold">Input (per 1M tokens)</th>
@@ -276,19 +299,19 @@ const Pricing = () => {
                     <th className="px-6 py-4 text-left text-sm font-semibold">Context</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-800">
+                <tbody className={cn("divide-y", isDarkMode ? "divide-white/10" : "divide-black/10")}>
                   {apiPricing.map((row) => (
-                    <tr key={row.model} className="hover:bg-gray-900/50 transition-colors">
+                    <tr key={row.model} className={cn("transition-colors", isDarkMode ? "hover:bg-white/5" : "hover:bg-black/5")}>
                       <td className="px-6 py-4 font-medium">{row.model}</td>
-                      <td className="px-6 py-4 text-gray-400">{row.input}</td>
-                      <td className="px-6 py-4 text-gray-400">{row.output}</td>
-                      <td className="px-6 py-4 text-gray-400">{row.context}</td>
+                      <td className={cn("px-6 py-4", isDarkMode ? "text-white/50" : "text-black/50")}>{row.input}</td>
+                      <td className={cn("px-6 py-4", isDarkMode ? "text-white/50" : "text-black/50")}>{row.output}</td>
+                      <td className={cn("px-6 py-4", isDarkMode ? "text-white/50" : "text-black/50")}>{row.context}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="text-gray-500 text-sm mt-4">
+            <p className={cn("text-sm mt-4", isDarkMode ? "text-white/40" : "text-black/40")}>
               * Prices shown are for standard API access. Enterprise customers receive volume discounts.
             </p>
           </motion.div>
@@ -304,28 +327,28 @@ const Pricing = () => {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-semibold mb-2">What counts as a token?</h3>
-                <p className="text-gray-400 text-sm">
+                <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Tokens are pieces of text that our models process. On average, 1 token is about 4 characters
                   or 0.75 words in English. Both input and output tokens are counted toward your usage.
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">Can I upgrade or downgrade my plan?</h3>
-                <p className="text-gray-400 text-sm">
+                <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                   Yes, you can change your plan at any time. Upgrades take effect immediately,
                   and downgrades take effect at the start of your next billing cycle.
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">What happens if I exceed my token limit?</h3>
-                <p className="text-gray-400 text-sm">
+                <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                   You'll be charged at the pay-as-you-go rate for additional tokens. We'll notify you
                   when you're approaching your limit so there are no surprises.
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">Is my data used to train models?</h3>
-                <p className="text-gray-400 text-sm">
+                <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                   By default, your data is not used for training. Team and Enterprise plans have
                   explicit data exclusion guarantees. See our privacy policy for details.
                 </p>
@@ -344,17 +367,17 @@ const Pricing = () => {
             <h2 className="text-2xl font-semibold mb-4">
               Ready to get started?
             </h2>
-            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={cn("mb-8 max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
               Start building with Hanzo AI today. No credit card required for the free tier.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://hanzo.ai/signup" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-white text-black hover:bg-gray-200">
+                <Button className={cn(isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
                   Start Building Free
                 </Button>
               </a>
               <Link to="/contact">
-                <Button variant="outline" className="border-gray-700 hover:bg-gray-800">
+                <Button variant="outline" className={cn(isDarkMode ? "border-white/10 hover:bg-white/10" : "border-black/10 hover:bg-black/5")}>
                   Talk to Sales
                 </Button>
               </Link>

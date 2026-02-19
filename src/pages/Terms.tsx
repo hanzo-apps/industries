@@ -1,16 +1,20 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const Terms = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <div className="min-h-screen bg-black">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
-      
+
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto prose prose-invert">
-          <h1 className="text-4xl font-bold text-white mb-8">Terms of Service</h1>
-          
+        <div className={cn("max-w-4xl mx-auto prose", isDarkMode ? "prose-invert" : "")}>
+          <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
+
           <div className="space-y-8">
             <section>
               <h2>1. Agreement to Terms</h2>

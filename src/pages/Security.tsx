@@ -3,8 +3,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Shield, Lock, Key, UserCheck, Server, FileCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const SecurityPage = () => {
+  const { isDarkMode } = useTheme();
+
   const securityFeatures = [
     {
       icon: Shield,
@@ -39,16 +43,16 @@ const SecurityPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
       <Navbar />
-      
+
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-4xl font-bold mb-4">
               Security First, Always
             </h1>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={cn("text-xl max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
               We prioritize the security and privacy of your data with enterprise-grade protection at every layer
             </p>
           </div>
@@ -57,19 +61,22 @@ const SecurityPage = () => {
             {securityFeatures.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div 
+                <div
                   key={index}
-                  className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors"
+                  className={cn(
+                    "border rounded-lg p-6 transition-colors",
+                    isDarkMode ? "bg-white/5 border-white/10 hover:border-white/20" : "bg-black/5 border-black/10 hover:border-black/20"
+                  )}
                 >
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="p-2 bg-gray-800 rounded-lg">
-                      <Icon className="h-6 w-6 text-white" />
+                    <div className={cn("p-2 rounded-lg", isDarkMode ? "bg-white/10" : "bg-black/5")}>
+                      <Icon className="h-6 w-6" />
                     </div>
-                    <h3 className="text-lg font-medium text-white">
+                    <h3 className="text-lg font-medium">
                       {feature.title}
                     </h3>
                   </div>
-                  <p className="text-gray-400">
+                  <p className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>
                     {feature.description}
                   </p>
                 </div>
@@ -78,33 +85,47 @@ const SecurityPage = () => {
           </div>
 
           <div className="mt-16 text-center space-y-8">
-            <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-lg p-8">
-              <h2 className="text-2xl font-bold text-white mb-4">
+            <div className={cn(
+              "rounded-lg p-8",
+              isDarkMode ? "bg-gradient-to-r from-white/5 to-white/10" : "bg-gradient-to-r from-black/5 to-black/10"
+            )}>
+              <h2 className="text-2xl font-bold mb-4">
                 SOC 2 Type II Certified
               </h2>
-              <p className="text-gray-400 mb-6">
+              <p className={cn("mb-6", isDarkMode ? "text-white/50" : "text-black/50")}>
                 Our security practices and controls have been audited and certified by independent third-party auditors
               </p>
-              <Button 
+              <Button
                 variant="outline"
-                className="text-white border-white hover:bg-white/10"
+                className={cn(
+                  isDarkMode ? "text-white border-white hover:bg-white/10" : "text-black border-black hover:bg-black/10"
+                )}
               >
                 Download Security Whitepaper
               </Button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                <div className="text-3xl font-bold text-white mb-2">99.99%</div>
-                <div className="text-gray-400">Uptime SLA</div>
+              <div className={cn(
+                "border rounded-lg p-6",
+                isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+              )}>
+                <div className="text-3xl font-bold mb-2">99.99%</div>
+                <div className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>Uptime SLA</div>
               </div>
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                <div className="text-3xl font-bold text-white mb-2">24/7</div>
-                <div className="text-gray-400">Security Monitoring</div>
+              <div className={cn(
+                "border rounded-lg p-6",
+                isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+              )}>
+                <div className="text-3xl font-bold mb-2">24/7</div>
+                <div className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>Security Monitoring</div>
               </div>
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                <div className="text-3xl font-bold text-white mb-2">100%</div>
-                <div className="text-gray-400">Data Encryption</div>
+              <div className={cn(
+                "border rounded-lg p-6",
+                isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+              )}>
+                <div className="text-3xl font-bold mb-2">100%</div>
+                <div className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>Data Encryption</div>
               </div>
             </div>
           </div>

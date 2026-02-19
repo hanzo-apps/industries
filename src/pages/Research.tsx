@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 import {
   ArrowRight,
   ExternalLink,
@@ -999,7 +1000,7 @@ const Research = () => {
   };
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
+    <div className={cn("min-h-screen", isDarkMode ? "bg-black" : "bg-white")}>
       <Navbar />
 
       <main className="pt-16">
@@ -1022,14 +1023,14 @@ const Research = () => {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fd4444]/10 border border-[#fd4444]/20 mb-6">
                 <Sparkles className="w-4 h-4 text-[#fd4444]" />
-                <span className={`text-sm font-medium ${isDarkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
+                <span className={cn("text-sm font-medium", isDarkMode ? "text-white/60" : "text-black/70")}>
                   100+ Research Papers
                 </span>
               </div>
-              <h1 className={`text-5xl md:text-6xl font-bold tracking-tight mb-6 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+              <h1 className={cn("text-5xl md:text-6xl font-bold tracking-tight mb-6", isDarkMode ? "text-white" : "text-black")}>
                 Research & Publications
               </h1>
-              <p className={`text-xl max-w-2xl mx-auto ${isDarkMode ? 'text-neutral-400' : 'text-gray-600'}`}>
+              <p className={cn("text-xl max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
                 Pioneering research in AI infrastructure, decentralized systems, and frontier models.
                 All papers are CC BY 4.0 licensed and available on GitHub.
               </p>
@@ -1038,9 +1039,9 @@ const Research = () => {
         </section>
 
         {/* Research Areas */}
-        <section className={`py-16 px-4 ${isDarkMode ? 'bg-neutral-900/50' : 'bg-gray-50'}`}>
+        <section className={cn("py-16 px-4", isDarkMode ? "bg-white/5" : "bg-black/5")}>
           <div className="max-w-6xl mx-auto">
-            <h2 className={`text-3xl font-bold mb-12 ${isDarkMode ? 'text-white' : 'text-black'}`}>Research Areas</h2>
+            <h2 className={cn("text-3xl font-bold mb-12", isDarkMode ? "text-white" : "text-black")}>Research Areas</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {researchAreas.map((area, index) => {
                 const Icon = area.icon;
@@ -1050,18 +1051,19 @@ const Research = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`p-8 rounded-xl border transition-colors group ${
+                    className={cn(
+                      "p-8 rounded-xl border transition-colors group",
                       isDarkMode
-                        ? 'bg-neutral-900/50 border-white/10 hover:border-white/20'
-                        : 'bg-white border-gray-200 hover:border-gray-300'
-                    }`}
+                        ? "bg-white/5 border-white/10 hover:border-white/20"
+                        : "bg-white border-black/10 hover:border-black/20"
+                    )}
                   >
-                    <Icon className={`w-10 h-10 mb-4 ${isDarkMode ? 'text-neutral-400' : 'text-gray-700'}`} />
-                    <h3 className={`text-xl font-semibold mb-3 ${isDarkMode ? 'text-white' : 'text-black'}`}>{area.title}</h3>
-                    <p className={`mb-4 ${isDarkMode ? 'text-neutral-400' : 'text-gray-600'}`}>{area.description}</p>
+                    <Icon className={cn("w-10 h-10 mb-4", isDarkMode ? "text-white/50" : "text-black/70")} />
+                    <h3 className={cn("text-xl font-semibold mb-3", isDarkMode ? "text-white" : "text-black")}>{area.title}</h3>
+                    <p className={cn("mb-4", isDarkMode ? "text-white/50" : "text-black/50")}>{area.description}</p>
                     <Link
                       to={area.link}
-                      className={`text-sm font-medium hover:underline inline-flex items-center gap-1 ${isDarkMode ? 'text-white' : 'text-black'}`}
+                      className={cn("text-sm font-medium hover:underline inline-flex items-center gap-1", isDarkMode ? "text-white" : "text-black")}
                     >
                       Learn more <ArrowRight className="w-3 h-3" />
                     </Link>
@@ -1077,8 +1079,8 @@ const Research = () => {
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between mb-12">
               <div>
-                <h2 className={`text-3xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>Open Source</h2>
-                <p className={isDarkMode ? 'text-neutral-400' : 'text-gray-600'}>
+                <h2 className={cn("text-3xl font-bold mb-2", isDarkMode ? "text-white" : "text-black")}>Open Source</h2>
+                <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
                   We believe in open research and share our tools with the community.
                 </p>
               </div>
@@ -1087,7 +1089,7 @@ const Research = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" className={`gap-2 ${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : ''}`}>
+                <Button variant="outline" className={cn("gap-2", isDarkMode && "border-white/20 text-white hover:bg-white/10")}>
                   <Github className="w-4 h-4" />
                   View all on GitHub
                 </Button>
@@ -1104,23 +1106,24 @@ const Research = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className={`block p-6 rounded-xl transition-all group ${
+                  className={cn(
+                    "block p-6 rounded-xl transition-all group",
                     isDarkMode
-                      ? 'bg-neutral-900/50 border border-white/10 hover:border-white/20'
-                      : 'bg-white border border-gray-200 hover:border-gray-300 hover:shadow-sm'
-                  }`}
+                      ? "bg-white/5 border border-white/10 hover:border-white/20"
+                      : "bg-white border border-black/10 hover:border-black/20 hover:shadow-sm"
+                  )}
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <Github className={`w-5 h-5 ${isDarkMode ? 'text-neutral-400' : 'text-gray-700'}`} />
-                      <span className={`font-semibold group-hover:underline ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                      <Github className={cn("w-5 h-5", isDarkMode ? "text-white/50" : "text-black/70")} />
+                      <span className={cn("font-semibold group-hover:underline", isDarkMode ? "text-white" : "text-black")}>
                         {project.name}
                       </span>
                     </div>
-                    <ExternalLink className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${isDarkMode ? 'text-neutral-500' : 'text-gray-400'}`} />
+                    <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", isDarkMode ? "text-white/40" : "text-black/40")} />
                   </div>
-                  <p className={`text-sm mb-4 ${isDarkMode ? 'text-neutral-400' : 'text-gray-600'}`}>{project.description}</p>
-                  <div className={`flex items-center gap-4 text-xs ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>
+                  <p className={cn("text-sm mb-4", isDarkMode ? "text-white/50" : "text-black/50")}>{project.description}</p>
+                  <div className={cn("flex items-center gap-4 text-xs", isDarkMode ? "text-white/40" : "text-black/40")}>
                     <span className="flex items-center gap-1">
                       <span className="w-2 h-2 rounded-full bg-yellow-400"></span>
                       {project.language}
@@ -1134,12 +1137,12 @@ const Research = () => {
         </section>
 
         {/* Papers Section */}
-        <section className={`py-24 px-4 ${isDarkMode ? 'bg-neutral-900/50' : 'bg-gray-50'}`} id="papers">
+        <section className={cn("py-24 px-4", isDarkMode ? "bg-white/5" : "bg-black/5")} id="papers">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
               <div>
-                <h2 className={`text-3xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>Research Papers</h2>
-                <p className={isDarkMode ? 'text-neutral-400' : 'text-gray-600'}>
+                <h2 className={cn("text-3xl font-bold mb-2", isDarkMode ? "text-white" : "text-black")}>Research Papers</h2>
+                <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
                   {filteredPapers.length} papers from Hanzo AI, Lux Network, Zoo Labs, and Zen LM.
                 </p>
               </div>
@@ -1148,7 +1151,7 @@ const Research = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" className={`gap-2 ${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : ''}`}>
+                <Button variant="outline" className={cn("gap-2", isDarkMode && "border-white/20 text-white hover:bg-white/10")}>
                   <Github className="w-4 h-4" />
                   View on GitHub
                 </Button>
@@ -1157,21 +1160,21 @@ const Research = () => {
 
             {/* Search Bar */}
             <div className="mb-6">
-              <div className={`relative flex items-center ${isDarkMode ? 'bg-neutral-800' : 'bg-white border border-gray-200'} rounded-lg`}>
-                <Search className={`absolute left-4 w-5 h-5 ${isDarkMode ? 'text-neutral-500' : 'text-gray-400'}`} />
+              <div className={cn("relative flex items-center rounded-lg", isDarkMode ? "bg-white/10" : "bg-white border border-black/10")}>
+                <Search className={cn("absolute left-4 w-5 h-5", isDarkMode ? "text-white/40" : "text-black/40")} />
                 <input
                   type="text"
                   placeholder="Search papers by title, author, or topic..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className={`w-full pl-12 pr-4 py-3 bg-transparent rounded-lg outline-none ${isDarkMode ? 'text-white placeholder-neutral-500' : 'text-black placeholder-gray-400'}`}
+                  className={cn("w-full pl-12 pr-4 py-3 bg-transparent rounded-lg outline-none", isDarkMode ? "text-white placeholder-white/40" : "text-black placeholder-black/40")}
                 />
                 {(searchQuery || activeOrg !== "all" || activeTopic !== "all") && (
                   <button
                     onClick={clearFilters}
-                    className={`absolute right-4 p-1 rounded-full ${isDarkMode ? 'hover:bg-neutral-700' : 'hover:bg-gray-100'}`}
+                    className={cn("absolute right-4 p-1 rounded-full", isDarkMode ? "hover:bg-white/10" : "hover:bg-black/5")}
                   >
-                    <X className={`w-4 h-4 ${isDarkMode ? 'text-neutral-400' : 'text-gray-500'}`} />
+                    <X className={cn("w-4 h-4", isDarkMode ? "text-white/50" : "text-black/40")} />
                   </button>
                 )}
               </div>
@@ -1179,7 +1182,7 @@ const Research = () => {
 
             {/* Organization Filter */}
             <div className="mb-4">
-              <div className={`text-xs font-semibold uppercase tracking-wider mb-2 ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>
+              <div className={cn("text-xs font-semibold uppercase tracking-wider mb-2", isDarkMode ? "text-white/40" : "text-black/40")}>
                 Organization
               </div>
               <div className="flex flex-wrap gap-2">
@@ -1187,17 +1190,18 @@ const Research = () => {
                   <button
                     key={org}
                     onClick={() => setActiveOrg(org)}
-                    className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+                    className={cn(
+                      "px-3 py-1.5 rounded-full text-sm font-medium transition-all",
                       activeOrg === org
-                        ? org === 'hanzo' ? 'bg-red-500 text-white' :
-                          org === 'lux' ? 'bg-blue-500 text-white' :
-                          org === 'zoo' ? 'bg-green-500 text-white' :
-                          org === 'zen' ? 'bg-purple-500 text-white' :
-                          'bg-[#fd4444] text-white'
+                        ? org === "hanzo" ? "bg-red-500 text-white" :
+                          org === "lux" ? "bg-blue-500 text-white" :
+                          org === "zoo" ? "bg-green-500 text-white" :
+                          org === "zen" ? "bg-purple-500 text-white" :
+                          "bg-[#fd4444] text-white"
                         : isDarkMode
-                          ? 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'
-                          : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                    }`}
+                          ? "bg-white/10 text-white/60 hover:bg-white/10"
+                          : "bg-white text-black/70 hover:bg-black/5 border border-black/10"
+                    )}
                   >
                     {orgMeta[org].label}
                     {org !== "all" && (
@@ -1210,7 +1214,7 @@ const Research = () => {
 
             {/* Topic Filter */}
             <div className="mb-8">
-              <div className={`text-xs font-semibold uppercase tracking-wider mb-2 ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>
+              <div className={cn("text-xs font-semibold uppercase tracking-wider mb-2", isDarkMode ? "text-white/40" : "text-black/40")}>
                 Topic
               </div>
               <div className="flex flex-wrap gap-2">
@@ -1218,13 +1222,14 @@ const Research = () => {
                   <button
                     key={topic}
                     onClick={() => setActiveTopic(topic)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    className={cn(
+                      "px-3 py-1.5 rounded-full text-xs font-medium transition-all",
                       activeTopic === topic
-                        ? 'bg-[#fd4444] text-white'
+                        ? "bg-[#fd4444] text-white"
                         : isDarkMode
-                          ? 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'
-                          : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                    }`}
+                          ? "bg-white/10 text-white/60 hover:bg-white/10"
+                          : "bg-white text-black/70 hover:bg-black/5 border border-black/10"
+                    )}
                   >
                     {topicMeta[topic].label}
                     {topic !== "all" && topicCounts[topic] && (
@@ -1237,20 +1242,30 @@ const Research = () => {
 
             {/* Sort Controls */}
             <div className="flex items-center justify-between mb-6">
-              <div className={`text-sm ${isDarkMode ? 'text-neutral-400' : 'text-gray-600'}`}>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
                 Showing {filteredPapers.length} of {papers.length} papers
               </div>
               <div className="flex items-center gap-2">
-                <span className={`text-sm ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>Sort:</span>
+                <span className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>Sort:</span>
                 <button
                   onClick={() => setSortBy("date")}
-                  className={`px-3 py-1 rounded text-sm ${sortBy === "date" ? (isDarkMode ? 'bg-neutral-700 text-white' : 'bg-gray-200 text-black') : (isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-gray-500 hover:text-black')}`}
+                  className={cn(
+                    "px-3 py-1 rounded text-sm",
+                    sortBy === "date"
+                      ? isDarkMode ? "bg-white/10 text-white" : "bg-black/10 text-black"
+                      : isDarkMode ? "text-white/50 hover:text-white" : "text-black/40 hover:text-black"
+                  )}
                 >
                   Date
                 </button>
                 <button
                   onClick={() => setSortBy("title")}
-                  className={`px-3 py-1 rounded text-sm ${sortBy === "title" ? (isDarkMode ? 'bg-neutral-700 text-white' : 'bg-gray-200 text-black') : (isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-gray-500 hover:text-black')}`}
+                  className={cn(
+                    "px-3 py-1 rounded text-sm",
+                    sortBy === "title"
+                      ? isDarkMode ? "bg-white/10 text-white" : "bg-black/10 text-black"
+                      : isDarkMode ? "text-white/50 hover:text-white" : "text-black/40 hover:text-black"
+                  )}
                 >
                   Title
                 </button>
@@ -1267,60 +1282,62 @@ const Research = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.3) }}
-                  className={`block p-6 rounded-xl transition-all group ${
+                  className={cn(
+                    "block p-6 rounded-xl transition-all group",
                     paper.featured
                       ? isDarkMode
-                        ? 'bg-gradient-to-br from-[#fd4444]/10 to-transparent border-2 border-[#fd4444]/30 hover:border-[#fd4444]/50'
-                        : 'bg-gradient-to-br from-red-50 to-white border-2 border-red-200 hover:border-red-300'
+                        ? "bg-gradient-to-br from-[#fd4444]/10 to-transparent border-2 border-[#fd4444]/30 hover:border-[#fd4444]/50"
+                        : "bg-gradient-to-br from-red-50 to-white border-2 border-red-200 hover:border-red-300"
                       : isDarkMode
-                        ? 'bg-black/50 border border-white/10 hover:border-white/20'
-                        : 'bg-white border border-gray-200 hover:border-gray-300 hover:shadow-sm'
-                  }`}
+                        ? "bg-black/50 border border-white/10 hover:border-white/20"
+                        : "bg-white border border-black/10 hover:border-black/20 hover:shadow-sm"
+                  )}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2 flex-wrap">
-                        <FileText className={`w-5 h-5 ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`} />
-                        <span className={`text-sm ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>{paper.date}</span>
+                        <FileText className={cn("w-5 h-5", isDarkMode ? "text-white/40" : "text-black/40")} />
+                        <span className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>{paper.date}</span>
                         {paper.featured && (
                           <span className="text-xs px-2 py-0.5 rounded-full bg-[#fd4444]/20 text-[#fd4444] font-medium">
                             Featured
                           </span>
                         )}
-                        <span className={`text-xs px-2 py-0.5 rounded-full ${
-                          paper.org === 'hanzo' ? 'bg-red-500/20 text-red-400' :
-                          paper.org === 'lux' ? 'bg-blue-500/20 text-blue-400' :
-                          paper.org === 'zoo' ? 'bg-green-500/20 text-green-400' :
-                          'bg-purple-500/20 text-purple-400'
-                        }`}>
+                        <span className={cn(
+                          "text-xs px-2 py-0.5 rounded-full",
+                          paper.org === "hanzo" ? "bg-red-500/20 text-red-400" :
+                          paper.org === "lux" ? "bg-blue-500/20 text-blue-400" :
+                          paper.org === "zoo" ? "bg-green-500/20 text-green-400" :
+                          "bg-purple-500/20 text-purple-400"
+                        )}>
                           {orgMeta[paper.org].label}
                         </span>
                       </div>
-                      <h3 className={`text-lg font-semibold mb-2 group-hover:underline ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                      <h3 className={cn("text-lg font-semibold mb-2 group-hover:underline", isDarkMode ? "text-white" : "text-black")}>
                         {paper.title}
                       </h3>
-                      <p className={`text-sm mb-2 ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>{paper.authors}</p>
-                      <p className={`mb-3 ${isDarkMode ? 'text-neutral-400' : 'text-gray-600'}`}>{paper.abstract}</p>
+                      <p className={cn("text-sm mb-2", isDarkMode ? "text-white/40" : "text-black/40")}>{paper.authors}</p>
+                      <p className={cn("mb-3", isDarkMode ? "text-white/50" : "text-black/50")}>{paper.abstract}</p>
                       {/* Topic tags */}
                       <div className="flex flex-wrap gap-1.5">
                         {paper.topics.map(topic => (
                           <span
                             key={topic}
-                            className={`text-xs px-2 py-0.5 rounded ${isDarkMode ? 'bg-neutral-800 text-neutral-400' : 'bg-gray-100 text-gray-600'}`}
+                            className={cn("text-xs px-2 py-0.5 rounded", isDarkMode ? "bg-white/10 text-white/50" : "bg-black/5 text-black/50")}
                           >
                             {topicMeta[topic].label}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <ExternalLink className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0 ${isDarkMode ? 'text-neutral-500' : 'text-gray-400'}`} />
+                    <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0", isDarkMode ? "text-white/40" : "text-black/40")} />
                   </div>
                 </motion.a>
               ))}
             </div>
 
             {filteredPapers.length === 0 && (
-              <div className={`text-center py-12 ${isDarkMode ? 'text-neutral-500' : 'text-gray-500'}`}>
+              <div className={cn("text-center py-12", isDarkMode ? "text-white/40" : "text-black/40")}>
                 No papers found matching your search.
                 <button
                   onClick={clearFilters}
@@ -1340,20 +1357,20 @@ const Research = () => {
           <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className={`text-3xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+            <h2 className={cn("text-3xl font-bold mb-4", isDarkMode ? "text-white" : "text-black")}>
               Join our research efforts
             </h2>
-            <p className={`text-xl mb-8 ${isDarkMode ? 'text-neutral-400' : 'text-gray-600'}`}>
+            <p className={cn("text-xl mb-8", isDarkMode ? "text-white/50" : "text-black/50")}>
               We're looking for talented researchers to help build the future of safe AI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/careers">
-                <Button size="lg" className={`rounded-full px-8 ${isDarkMode ? 'bg-white text-black hover:bg-white/90' : 'bg-black text-white hover:bg-black/90'}`}>
+                <Button size="lg" className={cn("rounded-full px-8", isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
                   View Open Positions
                 </Button>
               </Link>
               <a href="mailto:research@hanzo.ai">
-                <Button size="lg" variant="outline" className={`rounded-full px-8 ${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : ''}`}>
+                <Button size="lg" variant="outline" className={cn("rounded-full px-8", isDarkMode && "border-white/20 text-white hover:bg-white/10")}>
                   Contact Research Team
                 </Button>
               </a>

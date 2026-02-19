@@ -1,15 +1,19 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const Privacy = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <div className="min-h-screen bg-black">
+    <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black" : "bg-white")}>
       <Navbar />
-      
+
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto prose prose-invert">
-          <h1 className="text-4xl font-bold text-white mb-8">Privacy Policy</h1>
-          
+        <div className={cn("max-w-4xl mx-auto prose", isDarkMode ? "prose-invert" : "")}>
+          <h1 className={cn("text-4xl font-bold mb-8", isDarkMode ? "text-white" : "text-black")}>Privacy Policy</h1>
+
           <div className="space-y-8">
             <section>
               <h2>Data Controller</h2>

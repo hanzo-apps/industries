@@ -14,6 +14,8 @@ import {
   ChevronDown,
   Check,
 } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
 
 const BRAND_COLOR = "#e11633";
 
@@ -85,6 +87,7 @@ interface Message {
 }
 
 const GlobalChatWidget = () => {
+  const { isDarkMode } = useTheme();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -261,7 +264,10 @@ const GlobalChatWidget = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center bg-black border border-neutral-800"
+            className={cn(
+              "fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center",
+              isDarkMode ? "bg-black border border-white/10" : "bg-white border border-black/10"
+            )}
           >
             <img src="/zen-logo.png" alt="Zen AI" className="w-8 h-8" />
             {/* Pulse animation */}
@@ -278,33 +284,48 @@ const GlobalChatWidget = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className={`fixed z-50 bg-black border border-neutral-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col ${
+            className={cn(
+              "fixed z-50 rounded-2xl shadow-2xl overflow-hidden flex flex-col border",
+              isDarkMode ? "bg-black border-white/10" : "bg-white border-black/10",
               isExpanded
                 ? "inset-4 md:inset-8"
                 : "bottom-6 right-6 w-[380px] max-w-[calc(100vw-48px)] h-[520px] max-h-[80vh]"
-            }`}
+            )}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-800">
+            <div className={cn("flex items-center justify-between px-4 py-3 border-b", isDarkMode ? "border-white/10" : "border-black/10")}>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center bg-black border border-neutral-700">
+                <div className={cn(
+                  "w-8 h-8 rounded-full flex items-center justify-center border",
+                  isDarkMode ? "bg-black border-white/20" : "bg-white border-black/20"
+                )}>
                   <img src="/zen-logo.png" alt="Zen AI" className="w-5 h-5" />
                 </div>
                 {/* Model selector dropdown */}
                 <div className="relative" ref={modelDropdownRef}>
                   <button
                     onClick={() => setIsModelDropdownOpen(!isModelDropdownOpen)}
-                    className="flex items-center gap-1.5 hover:bg-neutral-800/50 rounded-md px-2 py-1 transition-colors"
+                    className={cn(
+                      "flex items-center gap-1.5 rounded-md px-2 py-1 transition-colors",
+                      isDarkMode ? "hover:bg-white/10" : "hover:bg-black/5"
+                    )}
                   >
                     <div className="text-left">
-                      <div className="text-white text-sm font-medium flex items-center gap-1.5">
+                      <div className={cn("text-sm font-medium flex items-center gap-1.5", isDarkMode ? "text-white" : "text-black")}>
                         {selectedModel.name}
-                        <span className="text-[10px] font-mono text-neutral-500 bg-neutral-800 px-1 py-0.5 rounded">
+                        <span className={cn(
+                          "text-[10px] font-mono px-1 py-0.5 rounded",
+                          isDarkMode ? "text-white/40 bg-white/10" : "text-black/40 bg-black/10"
+                        )}>
                           {selectedModel.params}
                         </span>
                       </div>
                     </div>
-                    <ChevronDown className={`w-3.5 h-3.5 text-neutral-500 transition-transform ${isModelDropdownOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={cn(
+                      "w-3.5 h-3.5 transition-transform",
+                      isDarkMode ? "text-white/40" : "text-black/40",
+                      isModelDropdownOpen && "rotate-180"
+                    )} />
                   </button>
 
                   {/* Model dropdown menu */}
@@ -314,7 +335,11 @@ const GlobalChatWidget = () => {
                         initial={{ opacity: 0, y: -4 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -4 }}
-                        className="absolute left-0 top-full mt-1 w-56 bg-neutral-900 border border-neutral-800 rounded-lg shadow-xl overflow-hidden z-10"
+                        className={cn(
+                          "absolute left-0 top-full mt-1 w-56 border rounded-lg shadow-xl overflow-hidden z-10",
+                          isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10"
+                        )}
+                        style={{ backgroundColor: isDarkMode ? "rgb(23,23,23)" : "rgb(250,250,250)" }}
                       >
                         {zenModels.map((model) => (
                           <button
@@ -323,26 +348,31 @@ const GlobalChatWidget = () => {
                               setSelectedModel(model);
                               setIsModelDropdownOpen(false);
                             }}
-                            className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-neutral-800 transition-colors ${
-                              selectedModel.id === model.id ? 'bg-neutral-800/50' : ''
-                            }`}
+                            className={cn(
+                              "w-full flex items-center justify-between px-3 py-2 text-left transition-colors",
+                              isDarkMode ? "hover:bg-white/10" : "hover:bg-black/5",
+                              selectedModel.id === model.id && (isDarkMode ? "bg-white/5" : "bg-black/5")
+                            )}
                           >
                             <div>
-                              <div className="text-sm text-white flex items-center gap-2">
+                              <div className={cn("text-sm flex items-center gap-2", isDarkMode ? "text-white" : "text-black")}>
                                 {model.name}
-                                <span className="text-[10px] font-mono text-neutral-500">{model.params}</span>
+                                <span className={cn("text-[10px] font-mono", isDarkMode ? "text-white/40" : "text-black/40")}>{model.params}</span>
                               </div>
-                              <div className="text-[10px] text-neutral-500">{model.description}</div>
+                              <div className={cn("text-[10px]", isDarkMode ? "text-white/40" : "text-black/40")}>{model.description}</div>
                             </div>
                             {selectedModel.id === model.id && (
                               <Check className="w-4 h-4 text-green-500" />
                             )}
                           </button>
                         ))}
-                        <div className="border-t border-neutral-800 px-3 py-2">
+                        <div className={cn("border-t px-3 py-2", isDarkMode ? "border-white/10" : "border-black/10")}>
                           <a
                             href="/models"
-                            className="text-xs text-neutral-500 hover:text-white transition-colors"
+                            className={cn(
+                              "text-xs transition-colors",
+                              isDarkMode ? "text-white/40 hover:text-white" : "text-black/40 hover:text-black"
+                            )}
                           >
                             View all models
                           </a>
@@ -355,7 +385,10 @@ const GlobalChatWidget = () => {
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="p-1.5 rounded-md text-neutral-500 hover:text-white hover:bg-neutral-800 transition-colors"
+                  className={cn(
+                    "p-1.5 rounded-md transition-colors",
+                    isDarkMode ? "text-white/40 hover:text-white hover:bg-white/10" : "text-black/40 hover:text-black hover:bg-black/5"
+                  )}
                 >
                   {isExpanded ? (
                     <Minimize2 className="w-4 h-4" />
@@ -365,7 +398,10 @@ const GlobalChatWidget = () => {
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 rounded-md text-neutral-500 hover:text-white hover:bg-neutral-800 transition-colors"
+                  className={cn(
+                    "p-1.5 rounded-md transition-colors",
+                    isDarkMode ? "text-white/40 hover:text-white hover:bg-white/10" : "text-black/40 hover:text-black hover:bg-black/5"
+                  )}
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -377,16 +413,18 @@ const GlobalChatWidget = () => {
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex ${
-                    message.role === "user" ? "justify-end" : "justify-start"
-                  }`}
+                  className={cn("flex", message.role === "user" ? "justify-end" : "justify-start")}
                 >
                   <div
-                    className={`max-w-[85%] px-3 py-2 rounded-2xl text-sm ${
+                    className={cn(
+                      "max-w-[85%] px-3 py-2 rounded-2xl text-sm",
                       message.role === "user"
                         ? "bg-[#fd4444] text-white rounded-br-md"
-                        : "bg-neutral-800 text-neutral-200 rounded-bl-md"
-                    }`}
+                        : cn(
+                            "rounded-bl-md",
+                            isDarkMode ? "bg-white/10 text-white/80" : "bg-black/5 text-black/80"
+                          )
+                    )}
                   >
                     {message.content}
                   </div>
@@ -394,11 +432,11 @@ const GlobalChatWidget = () => {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-neutral-800 px-4 py-2 rounded-2xl rounded-bl-md">
+                  <div className={cn("px-4 py-2 rounded-2xl rounded-bl-md", isDarkMode ? "bg-white/10" : "bg-black/5")}>
                     <div className="flex gap-1">
-                      <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                      <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                      <span className="w-2 h-2 bg-neutral-500 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                      <span className={cn("w-2 h-2 rounded-full animate-bounce", isDarkMode ? "bg-white/40" : "bg-black/40")} style={{ animationDelay: "0ms" }} />
+                      <span className={cn("w-2 h-2 rounded-full animate-bounce", isDarkMode ? "bg-white/40" : "bg-black/40")} style={{ animationDelay: "150ms" }} />
+                      <span className={cn("w-2 h-2 rounded-full animate-bounce", isDarkMode ? "bg-white/40" : "bg-black/40")} style={{ animationDelay: "300ms" }} />
                     </div>
                   </div>
                 </div>
@@ -416,7 +454,12 @@ const GlobalChatWidget = () => {
                       <button
                         key={preset.label}
                         onClick={() => handlePreset(preset)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-neutral-900 border border-neutral-800 text-neutral-400 text-xs font-medium hover:bg-neutral-800 hover:text-white transition-colors"
+                        className={cn(
+                          "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border text-xs font-medium transition-colors",
+                          isDarkMode
+                            ? "bg-white/5 border-white/10 text-white/50 hover:bg-white/10 hover:text-white"
+                            : "bg-black/5 border-black/10 text-black/50 hover:bg-black/10 hover:text-black"
+                        )}
                       >
                         <Icon className="w-3 h-3" />
                         {preset.label}
@@ -428,7 +471,7 @@ const GlobalChatWidget = () => {
             )}
 
             {/* Input */}
-            <div className="p-3 border-t border-neutral-800">
+            <div className={cn("p-3 border-t", isDarkMode ? "border-white/10" : "border-black/10")}>
               <div className="relative">
                 <input
                   ref={inputRef}
@@ -437,7 +480,12 @@ const GlobalChatWidget = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Ask anything..."
-                  className="w-full bg-neutral-900 border border-neutral-800 rounded-full px-4 py-2.5 pr-12 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-neutral-700 transition-colors"
+                  className={cn(
+                    "w-full rounded-full px-4 py-2.5 pr-12 text-sm focus:outline-none transition-colors border",
+                    isDarkMode
+                      ? "bg-white/5 border-white/10 text-white placeholder-white/40 focus:border-white/20"
+                      : "bg-black/5 border-black/10 text-black placeholder-black/40 focus:border-black/20"
+                  )}
                 />
                 <button
                   onClick={handleSend}
@@ -445,12 +493,12 @@ const GlobalChatWidget = () => {
                   className="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all disabled:opacity-50"
                   style={{ backgroundColor: input.trim() ? BRAND_COLOR : "transparent" }}
                 >
-                  <Send className={`w-4 h-4 ${input.trim() ? "text-white" : "text-neutral-500"}`} />
+                  <Send className={cn("w-4 h-4", input.trim() ? "text-white" : (isDarkMode ? "text-white/40" : "text-black/40"))} />
                 </button>
               </div>
               <div className="mt-2 text-center">
-                <span className="text-neutral-600 text-[10px]">
-                  Press Enter to send | <kbd className="px-1 py-0.5 bg-neutral-800 rounded text-neutral-500">Cmd+K</kbd> for quick navigation
+                <span className={cn("text-[10px]", isDarkMode ? "text-white/30" : "text-black/30")}>
+                  Press Enter to send | <kbd className={cn("px-1 py-0.5 rounded", isDarkMode ? "bg-white/10 text-white/40" : "bg-black/10 text-black/40")}>Cmd+K</kbd> for quick navigation
                 </span>
               </div>
             </div>
