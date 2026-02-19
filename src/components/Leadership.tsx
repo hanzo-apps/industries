@@ -177,7 +177,7 @@ const Leadership = () => {
               "text-3xl font-bold mb-2",
               isDarkMode ? "text-white" : "text-black"
             )}>
-              100+
+              2,500+
             </h4>
             <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
               OSS Projects
@@ -188,7 +188,7 @@ const Leadership = () => {
               "text-3xl font-bold mb-2",
               isDarkMode ? "text-white" : "text-black"
             )}>
-              50+
+              130+
             </h4>
             <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
               Research Papers
@@ -199,7 +199,7 @@ const Leadership = () => {
               "text-3xl font-bold mb-2",
               isDarkMode ? "text-white" : "text-black"
             )}>
-              30+
+              45+
             </h4>
             <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
               AI Models
