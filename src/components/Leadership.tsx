@@ -73,12 +73,6 @@ const Leadership = () => {
       image: "/leadership/marcus-white.png"
     },
     {
-      name: "Ari Lerner",
-      title: "Chief Technological Officer",
-      bio: "Deep systems architect driving core platform technology. Expert in building high-scale distributed infrastructure.",
-      image: "/leadership/ari-lerner.png"
-    },
-    {
       name: "Jackson Mori",
       title: "VP Engineering",
       bio: "Engineering leader building scalable distributed systems. Focused on performance, reliability, and developer experience.",
@@ -183,21 +177,10 @@ const Leadership = () => {
               "text-3xl font-bold mb-2",
               isDarkMode ? "text-white" : "text-black"
             )}>
-              Techstars '17
-            </h4>
-            <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
-              Backed Company
-            </p>
-          </div>
-          <div className="text-center">
-            <h4 className={cn(
-              "text-3xl font-bold mb-2",
-              isDarkMode ? "text-white" : "text-black"
-            )}>
               100+
             </h4>
             <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
-              Enterprise Clients
+              OSS Projects
             </p>
           </div>
           <div className="text-center">
@@ -205,10 +188,21 @@ const Leadership = () => {
               "text-3xl font-bold mb-2",
               isDarkMode ? "text-white" : "text-black"
             )}>
-              24/7
+              50+
             </h4>
             <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
-              AI Support
+              Research Papers
+            </p>
+          </div>
+          <div className="text-center">
+            <h4 className={cn(
+              "text-3xl font-bold mb-2",
+              isDarkMode ? "text-white" : "text-black"
+            )}>
+              30+
+            </h4>
+            <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
+              AI Models
             </p>
           </div>
         </motion.div>

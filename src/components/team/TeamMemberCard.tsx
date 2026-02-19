@@ -13,9 +13,10 @@ interface TeamMemberCardProps {
   image?: string;
   link?: string;
   emoji?: string;
+  botId?: string;
 }
 
-const TeamMemberCard = ({ name, role, description, icon: Icon, gradient, image, link, emoji }: TeamMemberCardProps) => {
+const TeamMemberCard = ({ name, role, description, icon: Icon, gradient, image, link, emoji, botId }: TeamMemberCardProps) => {
   const { isDarkMode } = useTheme();
   const isHuman = !!image;
 
@@ -48,10 +49,7 @@ const TeamMemberCard = ({ name, role, description, icon: Icon, gradient, image, 
             />
           </div>
         ) : emoji ? (
-          <div className={cn(
-            "w-16 h-16 rounded-full flex items-center justify-center mb-4 text-2xl",
-            isDarkMode ? "bg-white/5" : "bg-black/5"
-          )}>
+          <div className="mb-4 text-5xl leading-none">
             {emoji}
           </div>
         ) : (
@@ -124,7 +122,7 @@ const TeamMemberCard = ({ name, role, description, icon: Icon, gradient, image, 
       ) : (
         <div className="flex items-center gap-3 relative z-10">
           <a
-            href="https://hanzo.bot"
+            href={botId ? `https://app.hanzo.bot/${botId}` : "https://app.hanzo.bot"}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
@@ -133,7 +131,7 @@ const TeamMemberCard = ({ name, role, description, icon: Icon, gradient, image, 
                 ? "border-white/10 text-white/40 hover:text-white hover:bg-white/10"
                 : "border-black/10 text-black/40 hover:text-black hover:bg-black/5"
             )}
-            title="Deploy"
+            title="Launch"
           >
             <Rocket className="h-4 w-4" />
           </a>

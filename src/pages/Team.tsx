@@ -128,14 +128,6 @@ export default function Team() {
       image: "/leadership/marcus-white.png"
     },
     {
-      name: "Ari Lerner",
-      role: "Chief Technological Officer",
-      description: "Deep systems architect driving core platform technology.",
-      icon: Code2,
-      gradient: "from-emerald-500 to-teal-500",
-      image: "/leadership/ari-lerner.png"
-    },
-    {
       name: "Jackson Mori",
       role: "VP Engineering",
       description: "Engineering leader building scalable distributed systems.",
@@ -165,6 +157,7 @@ export default function Team() {
         icon: m.mainIcon,
         gradient: m.gradient,
         emoji: (m as any).emoji,
+        botId: id,
         link: `/team/${id}`,
       })),
   }));
@@ -210,7 +203,7 @@ export default function Team() {
               "text-center mb-12 max-w-2xl mx-auto",
               isDarkMode ? "text-white/50" : "text-black/50"
             )}>
-              16 autonomous agents organized across four departments — Build, Ship, Grow, Run.
+              16 autonomous agents organized across four departments — Build, Create, Ship, Run.
             </p>
 
             {aiTeamByDept.map((dept) => (

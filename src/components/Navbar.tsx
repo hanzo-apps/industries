@@ -18,15 +18,16 @@ const zenModels = [
 ];
 
 const quickAccess = [
-  { label: "Hanzo Dev", href: "https://hanzo.ai/dev", external: true },
-  { label: "Hanzo Cloud", href: "https://cloud.hanzo.ai", external: true },
-  { label: "All Zen Models", href: "/models", external: false },
-  { label: "Pricing", href: "/pricing", external: false },
+  { label: "Hanzo Dev", desc: "AI coding agent", href: "https://hanzo.ai/dev", external: true },
+  { label: "Hanzo Bot", desc: "AI team in a box", href: "https://hanzo.bot", external: true },
+  { label: "Hanzo Team", desc: "Work with Hanzo engineers", href: "https://hanzo.team", external: true },
+  { label: "All Zen Models", desc: "600M-480B parameters", href: "/models", external: false },
 ];
 
 const loginItems = [
+  { label: "Hanzo AI", href: "https://hanzo.ai", external: true },
   { label: "Hanzo Chat", href: "https://hanzo.chat", external: true },
-  { label: "Hanzo Cloud", href: "https://cloud.hanzo.ai", external: true },
+  { label: "Hanzo Bot", href: "https://app.hanzo.bot", external: true },
 ];
 
 // Try Hanzo Dropdown Component
@@ -187,7 +188,10 @@ const TryHanzoDropdown = () => {
                         isDarkMode ? "text-white hover:bg-white/5" : "text-black hover:bg-black/5"
                       )}
                     >
-                      <span className="text-sm">{item.label}</span>
+                      <div>
+                        <span className="text-sm">{item.label}</span>
+                        {item.desc && <span className={cn("text-xs ml-2", isDarkMode ? "text-white/30" : "text-black/30")}>{item.desc}</span>}
+                      </div>
                       <ExternalLink className={cn("w-3.5 h-3.5", isDarkMode ? "text-white/30" : "text-black/30")} />
                     </a>
                   ) : (
@@ -199,7 +203,10 @@ const TryHanzoDropdown = () => {
                         isDarkMode ? "text-white hover:bg-white/5" : "text-black hover:bg-black/5"
                       )}
                     >
-                      <span className="text-sm">{item.label}</span>
+                      <div>
+                        <span className="text-sm">{item.label}</span>
+                        {item.desc && <span className={cn("text-xs ml-2", isDarkMode ? "text-white/30" : "text-black/30")}>{item.desc}</span>}
+                      </div>
                     </button>
                   )
                 ))}
@@ -265,16 +272,21 @@ const navMenus = {
   products: {
     title: "Products",
     items: [
-      { label: "Hanzo AI", href: "https://hanzo.ai", description: "AI platform and models", icon: Bot, external: true },
-      { label: "Hanzo Dev", href: "https://hanzo.ai/dev", description: "AI-powered development tools", icon: Code2, external: true },
-      { label: "Zoo Gym", href: "https://gym.zoo.ngo", description: "AI training platform", icon: FlaskConical, external: true },
-      { label: "Lux Network", href: "https://lux.network", description: "Blockchain infrastructure", icon: Network, external: true },
+      { label: "Hanzo AI", href: "https://hanzo.ai", description: "Full AI platform and cloud", icon: Brain, external: true },
+      { label: "Hanzo Bot", href: "https://hanzo.bot", description: "AI team in a box", icon: Bot, external: true },
+      { label: "Hanzo Dev", href: "https://hanzo.ai/dev", description: "AI coding agent", icon: Code2, external: true },
+      { label: "Hanzo Team", href: "https://hanzo.team", description: "Work with Hanzo engineers", icon: Boxes, external: true },
+      { label: "Hanzo Chat", href: "https://hanzo.chat", description: "AI chat & bot manager", icon: MessageSquare, external: true },
+      { label: "LLM Gateway", href: "https://docs.hanzo.ai/docs/llm", description: "200+ AI models, one API", icon: Cpu, external: true },
     ],
   },
-  learn: {
-    title: "Learn",
+  developers: {
+    title: "Developers",
     items: [
       { label: "Documentation", href: "https://docs.hanzo.ai", description: "Technical guides", icon: BookOpen, external: true },
+      { label: "Hanzo MCP", href: "https://docs.hanzo.ai/docs/mcp", description: "260+ tools for AI models", icon: Cpu, external: true },
+      { label: "SDKs", href: "https://docs.hanzo.ai/docs/sdks", description: "Python, TS, Go, Rust", icon: Code2, external: true },
+      { label: "LLM Gateway", href: "https://docs.hanzo.ai/docs/llm", description: "200+ models, one API", icon: Network, external: true },
       { label: "Case Studies", href: "/case-studies", description: "Real-world implementations", icon: Microscope },
     ],
   },
@@ -518,9 +530,9 @@ const Navbar = () => {
           onClose={handleMenuClose}
         />
         <DropdownMenu
-          menu={navMenus.learn}
-          isOpen={openMenu === "learn"}
-          onOpen={() => handleMenuOpen("learn")}
+          menu={navMenus.developers}
+          isOpen={openMenu === "developers"}
+          onOpen={() => handleMenuOpen("developers")}
           onClose={handleMenuClose}
         />
         <DropdownMenu

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Shield, Database, Cloud, Brain } from "lucide-react";
+import { Shield, Database, Cloud, Brain, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
@@ -10,30 +11,38 @@ const ServicesOverview = () => {
     {
       icon: Brain,
       title: "Frontier AI Models",
-      description: "State-of-the-art language models and multimodal AI with built-in safety mechanisms and alignment research",
+      description: "State-of-the-art language models and multimodal AI — the Zen family spans 600M to 480B parameters across text, vision, audio, video, and 3D",
       capabilities: ["Zen MoE Architecture", "Constitutional AI", "RLHF Training", "Safety Benchmarks"],
-      link: "https://docs.google.com/document/d/19rZTIUZShaITzwp35XK1893OE83HA1bIIhmQNzFvKrg/edit?usp=sharing"
+      link: "/models",
+      cta: "Explore Zen Models",
+      external: false,
     },
     {
       icon: Shield,
       title: "AI Safety & Alignment",
-      description: "Research and implementation of AI safety measures, interpretability tools, and alignment techniques",
+      description: "Research and implementation of AI safety measures, interpretability tools, and alignment techniques across all Hanzo products",
       capabilities: ["Mechanistic Interpretability", "Value Alignment", "Robustness Testing", "Safety Monitoring"],
-      link: "https://hanzo.ai/ai"
+      link: "/research",
+      cta: "Read Our Research",
+      external: false,
     },
     {
       icon: Database,
-      title: "Edge AI Infrastructure",
-      description: "Deploy AI locally with our decentralized, private, and configurable edge computing solutions",
-      capabilities: ["On-Device Inference", "Federated Learning", "Privacy Preservation", "Offline Capability"],
-      link: "https://docs.google.com/document/d/1Dga5hEIxTopxwYzmLh7L-NgZlJR8XB5V7du-UdY2Nk8/edit?usp=sharing"
+      title: "AI Workforce & Automation",
+      description: "Deploy an autonomous AI team — Hanzo Bot gives you 16 specialized AI agents for engineering, design, marketing, and operations",
+      capabilities: ["Hanzo Bot — AI team in a box", "Hanzo Dev — AI coding agent", "Hanzo Team — Augmented engineering", "Hanzo Chat — AI assistant"],
+      link: "https://hanzo.bot",
+      cta: "Try Hanzo Bot",
+      external: true,
     },
     {
       icon: Cloud,
-      title: "Resilient AI Systems",
-      description: "Build fault-tolerant, distributed AI systems that maintain performance under adverse conditions",
-      capabilities: ["Decentralized Training", "Redundant Architecture", "Graceful Degradation", "Self-Healing Systems"],
-      link: "https://drive.google.com/drive/folders/1IoRe9gJo3IGHa5G6J_xDMZWsKcFjlRa7?usp=sharing"
+      title: "Platform & Infrastructure",
+      description: "Enterprise-grade AI platform with LLM gateway supporting 200+ models, secure deployment, and resilient infrastructure — from edge to cloud",
+      capabilities: ["Hanzo AI — Full AI platform", "LLM Gateway — 200+ models, one API", "Edge AI — On-device inference", "Self-Healing Distributed Systems"],
+      link: "https://hanzo.ai",
+      cta: "Try Hanzo AI",
+      external: true,
     }
   ];
 
@@ -102,18 +111,7 @@ const ServicesOverview = () => {
                       "text-2xl font-semibold mb-3",
                       isDarkMode ? "text-white" : "text-black"
                     )}>
-                      {service.link ? (
-                        <a
-                          href={service.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:underline"
-                        >
-                          {service.title}
-                        </a>
-                      ) : (
-                        service.title
-                      )}
+                      {service.title}
                     </h3>
                     <p className={cn(
                       "mb-4",
@@ -121,7 +119,7 @@ const ServicesOverview = () => {
                     )}>
                       {service.description}
                     </p>
-                    <div className="space-y-2">
+                    <div className="space-y-2 mb-4">
                       {service.capabilities.map((capability) => (
                         <div key={capability} className={cn(
                           "flex items-center text-sm",
@@ -135,6 +133,29 @@ const ServicesOverview = () => {
                         </div>
                       ))}
                     </div>
+                    {service.external ? (
+                      <a
+                        href={service.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={cn(
+                          "inline-flex items-center gap-1.5 text-sm font-medium transition-colors",
+                          isDarkMode ? "text-white/70 hover:text-white" : "text-black/70 hover:text-black"
+                        )}
+                      >
+                        {service.cta} <ArrowRight className="w-3.5 h-3.5" />
+                      </a>
+                    ) : (
+                      <Link
+                        to={service.link}
+                        className={cn(
+                          "inline-flex items-center gap-1.5 text-sm font-medium transition-colors",
+                          isDarkMode ? "text-white/70 hover:text-white" : "text-black/70 hover:text-black"
+                        )}
+                      >
+                        {service.cta} <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </motion.div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Check, Github, FileText, Award } from "lucide-react";
+import { Check, Github, FileText, Award, ExternalLink } from "lucide-react";
 import Logo from "./Logo";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -22,7 +22,7 @@ const Footer = () => {
         : "border-black/10 bg-white text-black"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="md:col-span-2">
             <Logo size="md" showText={true} className="mb-6" />
             <p className={cn(
@@ -62,12 +62,25 @@ const Footer = () => {
           </div>
 
           <div>
+            <h4 className="font-semibold mb-4">Products</h4>
+            <ul className="space-y-3">
+              <li><a href="https://hanzo.ai" target="_blank" rel="noopener noreferrer" className={linkCn}>Hanzo AI</a></li>
+              <li><a href="https://hanzo.bot" target="_blank" rel="noopener noreferrer" className={linkCn}>Hanzo Bot</a></li>
+              <li><a href="https://hanzo.ai/dev" target="_blank" rel="noopener noreferrer" className={linkCn}>Hanzo Dev</a></li>
+              <li><a href="https://hanzo.team" target="_blank" rel="noopener noreferrer" className={linkCn}>Hanzo Team</a></li>
+              <li><a href="https://hanzo.chat" target="_blank" rel="noopener noreferrer" className={linkCn}>Hanzo Chat</a></li>
+              <li><Link to="/models" className={linkCn}>Zen Models</Link></li>
+            </ul>
+          </div>
+
+          <div>
             <h4 className="font-semibold mb-4">Research</h4>
             <ul className="space-y-3">
               <li><Link to="/research#ai" className={linkCn}>AI & Machine Learning</Link></li>
               <li><Link to="/research#crypto" className={linkCn}>Cryptography</Link></li>
               <li><Link to="/research#consensus" className={linkCn}>Consensus & Networks</Link></li>
-              <li><Link to="/models" className={linkCn}>Zen Models</Link></li>
+              <li><Link to="/research#papers" className={linkCn}>Papers</Link></li>
+              <li><a href="https://docs.hanzo.ai" target="_blank" rel="noopener noreferrer" className={linkCn}>Documentation</a></li>
             </ul>
           </div>
 
@@ -77,14 +90,41 @@ const Footer = () => {
               <li><Link to="/about" className={linkCn}>About Us</Link></li>
               <li><Link to="/team" className={linkCn}>Team</Link></li>
               <li><Link to="/careers" className={linkCn}>Careers</Link></li>
-              <li><Link to="/news" className={linkCn}>News</Link></li>
+              <li><Link to="/press" className={linkCn}>Press</Link></li>
               <li><Link to="/contact" className={linkCn}>Contact</Link></li>
             </ul>
           </div>
         </div>
 
+        {/* Powered by Zen banner */}
         <div className={cn(
           "mt-12 pt-8 border-t",
+          isDarkMode ? "border-white/10" : "border-black/10"
+        )}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+            <span className={cn("text-sm", isDarkMode ? "text-white/30" : "text-black/30")}>
+              Powered by
+            </span>
+            <a
+              href="https://hanzo.ai/zen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "inline-flex items-center gap-2 px-4 py-1.5 rounded-full border transition-colors",
+                isDarkMode
+                  ? "border-white/10 bg-white/5 hover:bg-white/10 text-white/70 hover:text-white"
+                  : "border-black/10 bg-black/5 hover:bg-black/10 text-black/70 hover:text-black"
+              )}
+            >
+              <span className="text-amber-400 text-sm">&#9889;</span>
+              <span className="text-sm font-medium">Zen 4 Models</span>
+              <span className={cn("text-xs", isDarkMode ? "text-white/40" : "text-black/40")}>600M–480B params</span>
+            </a>
+          </div>
+        </div>
+
+        <div className={cn(
+          "pt-6 border-t",
           isDarkMode ? "border-white/10" : "border-black/10"
         )}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
