@@ -45,7 +45,7 @@ const productPages = [
     path: "zen",
     icon: Brain,
     title: "ZEN",
-    description: "Frontier AI models from 600M to 480B parameters, optimized for efficiency and deployed across edge to cloud.",
+    description: "Frontier AI models from 600M to 1T+ parameters, optimized for efficiency and deployed across edge to cloud.",
     features: [
       "State-of-the-art language models (Qwen3+ based)",
       "95% energy reduction through efficient architecture",
@@ -105,7 +105,7 @@ const productPages = [
     path: "hanzo-ml",
     icon: Cpu,
     title: "HANZO ML",
-    description: "Machine learning operations platform for enterprise AI deployment with 99.8% cost reduction in training.",
+    description: "Machine learning operations platform for enterprise AI deployment with efficient Training-Free GRPO optimization.",
     features: [
       "Model versioning and registry",
       "Training-Free GRPO optimization",

@@ -166,7 +166,7 @@ const Hero = () => {
           </div>
           <div className="text-center">
             <div className={cn("text-2xl sm:text-3xl font-bold", isDarkMode ? "text-white" : "text-black")}>
-              50+
+              130+
             </div>
             <div className={cn("text-sm mt-1", isDarkMode ? "text-white/50" : "text-black/50")}>
               Research Papers
@@ -174,10 +174,10 @@ const Hero = () => {
           </div>
           <div className="text-center">
             <div className={cn("text-2xl sm:text-3xl font-bold", isDarkMode ? "text-white" : "text-black")}>
-              100+
+              2,500+
             </div>
             <div className={cn("text-sm mt-1", isDarkMode ? "text-white/50" : "text-black/50")}>
-              Open Source Projects
+              OSS Projects
             </div>
           </div>
           <div className="text-center">

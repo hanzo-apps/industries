@@ -102,7 +102,7 @@ const historicalIncidents = [
     title: "Zen Model Deployment",
     status: "resolved",
     duration: "15 minutes",
-    description: "Brief latency increase during Zen-480B model deployment to production.",
+    description: "Brief latency increase during Zen Ultra model deployment to production.",
     type: "maintenance",
   },
   {

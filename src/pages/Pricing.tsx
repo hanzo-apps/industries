@@ -92,7 +92,7 @@ const Pricing = () => {
     { model: "Zen-32B", input: "$0.15", output: "$0.60", context: "128K" },
     { model: "Zen-72B", input: "$0.40", output: "$1.20", context: "128K" },
     { model: "Zen-235B", input: "$2.50", output: "$10.00", context: "128K" },
-    { model: "Zen-480B", input: "$5.00", output: "$15.00", context: "200K" },
+    { model: "Zen Ultra", input: "$5.00", output: "$15.00", context: "256K" },
     { model: "Zen-Coder-32B", input: "$0.15", output: "$0.60", context: "128K" },
     { model: "Zen-Omni", input: "$2.50", output: "$10.00", context: "128K" },
   ];
