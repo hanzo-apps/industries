@@ -11,7 +11,7 @@ const ResearchHighlights = () => {
     {
       icon: Brain,
       title: "AI & Machine Learning",
-      description: "Frontier models with 99.8% training cost reduction through Training-Free GRPO",
+      description: "100+ model weights from 0.6B to 1T+ with Training-Free GRPO optimization",
       papers: [
         { title: "Active Semantic Optimization (ASO)", href: "https://github.com/hanzoai/papers", result: "18.2% SWE-bench resolution" },
         { title: "Decentralized Semantic Optimization", href: "https://github.com/hanzoai/papers", result: "15.2% multi-agent improvement" },
@@ -44,7 +44,7 @@ const ResearchHighlights = () => {
     {
       icon: Sparkles,
       title: "Zen AI Models",
-      description: "Efficient frontier models from 600M to 480B parameters",
+      description: "Efficient frontier models from 600M to 1T+ parameters",
       papers: [
         { title: "Zen Model Family", href: "https://huggingface.co/zenlm", result: "95% energy reduction" },
         { title: "Zen-Reranker (ZIP-002)", href: "https://github.com/zooai/zips", result: "7680-dim embeddings" },

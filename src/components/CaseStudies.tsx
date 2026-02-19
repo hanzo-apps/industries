@@ -9,10 +9,10 @@ const CaseStudies = () => {
   const caseStudies = [
     {
       category: "AI Training",
-      title: "99.8% Cost Reduction in LLM Fine-tuning",
+      title: "Training-Free GRPO: Efficient Fine-tuning",
       client: "Zoo Labs Foundation",
-      description: "Implemented Training-Free GRPO achieving $18 training cost versus $10,000+ traditional methods. 100× data efficiency with only 100 examples instead of 10,000+.",
-      impact: "99.8% cost savings",
+      description: "Implemented Training-Free GRPO achieving dramatic training cost reduction versus traditional methods. 100× data efficiency with only 100 examples instead of 10,000+.",
+      impact: "100× data efficiency",
       year: "2025",
       link: "https://github.com/zooai/gym"
     },
@@ -36,10 +36,10 @@ const CaseStudies = () => {
     },
     {
       category: "Model Development",
-      title: "Zen Model Family (600M-480B params)",
+      title: "Zen Model Family (600M–1T+ params)",
       client: "Zen LM",
-      description: "Released 22 frontier AI models including multimodal (Omni), code (Coder), and edge (Nano) variants. 95% energy reduction through efficient architecture.",
-      impact: "22 models released",
+      description: "Released 100+ model weights spanning text, vision, video, audio, 3D, code, and agents. Open weights from 0.6B to 1T+ parameters. Zen5 (2T+) in training.",
+      impact: "1T+ frontier model",
       year: "2025",
       link: "https://huggingface.co/zenlm"
     }

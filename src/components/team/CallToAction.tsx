@@ -34,10 +34,10 @@ const CallToAction = () => {
         </div>
         <div className="text-center">
           <div className={cn("text-2xl font-bold", isDarkMode ? "text-white" : "text-black")}>
-            45+
+            100+
           </div>
           <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
-            AI Models
+            AI Model Weights
           </div>
         </div>
         <div className="text-center">

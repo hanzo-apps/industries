@@ -53,7 +53,7 @@ const getPageContext = (pathname: string): string => {
     "/case-studies": "Research Impact - Success stories and implementations",
     "/examples": "Examples - Technical demonstrations",
     "/press": "Press - News and media coverage",
-    "/models": "Zen Models - Foundation models (600M-480B parameters)",
+    "/models": "Zen Models - Foundation models (600M–1T+ parameters)",
     "/ai-models": "Zen Models - Foundation models and capabilities",
     "/security": "Security - Security practices and compliance",
     "/status": "Status - System status and uptime",
@@ -197,7 +197,7 @@ const GlobalChatWidget = () => {
           messages: [
             {
               role: "system",
-              content: `You are Zen AI, powered by the ${selectedModel.name} model (${selectedModel.params}). You're helping users on the Hanzo Industries website, a frontier AI research lab focused on AI, cryptography, consensus protocols, and distributed systems. Current page context: ${pageContext}. Be helpful, concise, and knowledgeable about Hanzo's research (58 papers), Zen models (600M-480B params), post-quantum cryptography, and AI products. For pricing or sales inquiries, direct users to /pricing or /contact.`,
+              content: `You are Zen AI, powered by the ${selectedModel.name} model (${selectedModel.params}). You're helping users on the Hanzo Industries website, a frontier AI research lab focused on AI, cryptography, consensus protocols, and distributed systems. Current page context: ${pageContext}. Be helpful, concise, and knowledgeable about Hanzo's research (58 papers), Zen models (600M–1T+ params), post-quantum cryptography, and AI products. For pricing or sales inquiries, direct users to /pricing or /contact.`,
             },
             ...messages.slice(-10).map((m) => ({ role: m.role, content: m.content })),
             { role: "user", content: input.trim() },

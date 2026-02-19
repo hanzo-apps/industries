@@ -199,10 +199,10 @@ const Leadership = () => {
               "text-3xl font-bold mb-2",
               isDarkMode ? "text-white" : "text-black"
             )}>
-              45+
+              100+
             </h4>
             <p className={isDarkMode ? "text-white/50" : "text-black/50"}>
-              AI Models
+              AI Model Weights
             </p>
           </div>
         </motion.div>

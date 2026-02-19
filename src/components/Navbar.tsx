@@ -21,7 +21,7 @@ const quickAccess = [
   { label: "Hanzo Dev", desc: "AI coding agent", href: "https://hanzo.ai/dev", external: true },
   { label: "Hanzo Bot", desc: "AI team in a box", href: "https://hanzo.bot", external: true },
   { label: "Hanzo Team", desc: "Work with Hanzo engineers", href: "https://hanzo.team", external: true },
-  { label: "All Zen Models", desc: "600M-480B parameters", href: "/models", external: false },
+  { label: "All Zen Models", desc: "600M–1T+ parameters", href: "/models", external: false },
 ];
 
 const loginItems = [
@@ -262,7 +262,7 @@ const navMenus = {
   models: {
     title: "Models",
     items: [
-      { label: "Zen Models", href: "/models", description: "600M-480B parameter models", icon: Sparkles },
+      { label: "Zen Models", href: "/models", description: "600M–1T+ parameter models", icon: Sparkles },
       { label: "Zen Coder", href: "/models#coder", description: "Code generation and analysis", icon: Code2 },
       { label: "Zen Omni", href: "/models#omni", description: "Multimodal vision & audio", icon: Boxes },
       { label: "Model API", href: "https://hanzo.ai/api", description: "API access and pricing", icon: Cpu, external: true },

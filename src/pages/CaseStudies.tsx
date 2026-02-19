@@ -12,10 +12,10 @@ export default function CaseStudies() {
     {
       icon: Brain,
       category: "AI Training",
-      title: "Training-Free GRPO: 99.8% Cost Reduction",
-      description: "Developed Training-Free GRPO achieving $18 training cost versus $10,000+ traditional methods",
+      title: "Training-Free GRPO: Efficient Model Adaptation",
+      description: "Developed Training-Free GRPO achieving dramatic training cost reduction versus traditional fine-tuning methods",
       results: [
-        "99.8% reduction in training costs",
+        "Significant reduction in training costs",
         "100x data efficiency (100 examples vs 10,000+)",
         "Comparable performance to full fine-tuning",
         "Open-sourced via Zoo Labs Foundation"
@@ -48,7 +48,7 @@ export default function CaseStudies() {
         "Post-quantum secure finality guarantees",
         "Dual-certificate architecture for safety",
         "Integration with existing consensus protocols",
-        "24 research papers published"
+        "29 research papers published"
       ],
       technologies: ["FALCON", "Ringtail", "BLS Signatures", "Threshold Cryptography"],
       impact: "Future-proofing blockchain infrastructure against quantum threats",
@@ -72,15 +72,15 @@ export default function CaseStudies() {
     {
       icon: Cpu,
       category: "AI Models",
-      title: "Zen Model Family (600M-480B parameters)",
-      description: "Released 22 frontier AI models including multimodal, code, and edge variants",
+      title: "Zen Model Family (600M–1T+ parameters)",
+      description: "Released 100+ model weights spanning text, vision, video, audio, 3D, code, and agents",
       results: [
-        "22 models across 6 size tiers",
-        "95% energy reduction through efficient architecture",
-        "Multimodal (Omni), Code (Coder), Edge (Nano) variants",
-        "Open weights on HuggingFace"
+        "100+ model weights across 10 families",
+        "1.04T MoE flagship (zen4-ultra, Kimi K2.5 base)",
+        "671B MoE (zen-max) with 71.3% SWE-bench",
+        "Zen5 (2T+) in training — on-chain via NVIDIA TEE"
       ],
-      technologies: ["Qwen3", "Flash Attention", "RLHF", "DPO"],
+      technologies: ["Qwen3", "Kimi K2/K2.5", "Flash Attention", "MoE"],
       impact: "Providing accessible, efficient frontier AI to the research community",
       link: "https://huggingface.co/zenlm"
     },
@@ -146,16 +146,16 @@ export default function CaseStudies() {
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
           >
             <div className={cn("p-6 rounded-lg text-center", isDarkMode ? "bg-white/5 border border-white/10" : "bg-black/5 border border-black/10")}>
-              <div className="text-3xl font-bold mb-2">58</div>
-              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Published Papers</div>
+              <div className="text-3xl font-bold mb-2">130+</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Research Papers</div>
             </div>
             <div className={cn("p-6 rounded-lg text-center", isDarkMode ? "bg-white/5 border border-white/10" : "bg-black/5 border border-black/10")}>
-              <div className="text-3xl font-bold mb-2">22</div>
-              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>AI Models Released</div>
+              <div className="text-3xl font-bold mb-2">100+</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>AI Model Weights</div>
             </div>
             <div className={cn("p-6 rounded-lg text-center", isDarkMode ? "bg-white/5 border border-white/10" : "bg-black/5 border border-black/10")}>
-              <div className="text-3xl font-bold mb-2">99.8%</div>
-              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Training Cost Reduction</div>
+              <div className="text-3xl font-bold mb-2">2,500+</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>OSS Projects</div>
             </div>
             <div className={cn("p-6 rounded-lg text-center", isDarkMode ? "bg-white/5 border border-white/10" : "bg-black/5 border border-black/10")}>
               <div className="text-3xl font-bold mb-2">4</div>

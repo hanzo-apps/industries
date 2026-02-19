@@ -22,7 +22,7 @@ const stackLayers = [
   {
     label: "Frontier Models",
     items: [
-      { name: "ZEN", description: "Frontier AI models — 600M to 480B params", link: "/products/zen" },
+      { name: "ZEN", description: "Frontier AI models — 600M to 1T+ params", link: "/products/zen" },
       { name: "KOAN", description: "Enterprise knowledge and retrieval", link: "/products/koan" },
     ],
   },
@@ -64,9 +64,9 @@ const stackLayers = [
 
 const stats = [
   { value: "Techstars '17", label: "Backed Company" },
-  { value: "100+", label: "Research Papers" },
-  { value: "300+", label: "Open Source Repos" },
-  { value: "22", label: "Frontier Models" },
+  { value: "130+", label: "Research Papers" },
+  { value: "2,500+", label: "OSS Projects" },
+  { value: "100+", label: "AI Model Weights" },
   { value: "100+", label: "LLM Providers" },
   { value: "260+", label: "MCP Tools" },
 ];
@@ -272,7 +272,7 @@ export default function About() {
                 {
                   name: "Zen LM",
                   role: "Frontier model family",
-                  detail: "22 models from 600M to 480B params. Coder, Omni, VL, Nano variants.",
+                  detail: "100+ model weights from 600M to 1T+ params. Text, vision, video, audio, 3D, code, agents.",
                   href: "https://github.com/zenlm",
                 },
               ].map((org) => (

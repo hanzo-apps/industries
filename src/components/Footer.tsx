@@ -56,7 +56,7 @@ const Footer = () => {
                 <span className={cn(
                   "text-sm transition-colors",
                   isDarkMode ? "text-white/50 group-hover:text-white" : "text-black/50 group-hover:text-black"
-                )}>58 Papers</span>
+                )}>130+ Papers</span>
               </Link>
             </div>
           </div>
@@ -118,7 +118,7 @@ const Footer = () => {
             >
               <span className="text-amber-400 text-sm">&#9889;</span>
               <span className="text-sm font-medium">Zen 4 Models</span>
-              <span className={cn("text-xs", isDarkMode ? "text-white/40" : "text-black/40")}>600M–480B params</span>
+              <span className={cn("text-xs", isDarkMode ? "text-white/40" : "text-black/40")}>600M–1T+ params</span>
             </a>
           </div>
         </div>

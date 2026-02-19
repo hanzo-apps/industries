@@ -513,7 +513,7 @@ export default function Careers() {
               <p className={cn(isDarkMode ? "text-white/70" : "text-black/70")}>
                 We're a quickly growing team of committed researchers, engineers, and business leaders working
                 together to build beneficial AI systems. We've published over 130 research papers, released
-                the Zen model family (45+ models, 600M-480B parameters), and maintain over 2,500 open-source
+                the Zen model family (100+ model weights, 600M–1T+ parameters), and maintain over 2,500 open-source
                 projects across AI, cryptography, and distributed systems.
               </p>
             </div>

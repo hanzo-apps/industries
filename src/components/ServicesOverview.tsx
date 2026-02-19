@@ -11,7 +11,7 @@ const ServicesOverview = () => {
     {
       icon: Brain,
       title: "Frontier AI Models",
-      description: "State-of-the-art language models and multimodal AI — the Zen family spans 600M to 480B parameters across text, vision, audio, video, and 3D",
+      description: "State-of-the-art language models and multimodal AI — the Zen family spans 600M to 1T+ parameters across text, vision, audio, video, and 3D",
       capabilities: ["Zen MoE Architecture", "Constitutional AI", "RLHF Training", "Safety Benchmarks"],
       link: "/models",
       cta: "Explore Zen Models",

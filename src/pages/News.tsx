@@ -27,8 +27,8 @@ const announcements = [
       },
       {
         day: "05",
-        title: "58 Research Papers Published",
-        description: "Hanzo research teams publish comprehensive papers across AI training, post-quantum cryptography, and consensus protocols.",
+        title: "130+ Research Papers Published",
+        description: "Hanzo research teams publish comprehensive papers across frontier AI, post-quantum cryptography, and consensus protocols.",
         type: "Research",
         link: "/research",
       },
@@ -102,9 +102,9 @@ const pressReleases = [
     summary: "Funding round led by Andreessen Horowitz to expand engineering team and accelerate product development.",
   },
   {
-    title: "58 Research Papers Published Across AI, Cryptography, and Consensus",
+    title: "130+ Research Papers Published Across AI, Cryptography, and Consensus",
     date: "January 5, 2025",
-    summary: "Hanzo and partner organizations publish comprehensive research spanning frontier AI, post-quantum cryptography, and consensus protocols.",
+    summary: "Hanzo and partner organizations publish 130+ research papers spanning frontier AI, post-quantum cryptography, and consensus protocols.",
   },
   {
     title: "KOAN 2.0: Redefining Enterprise Knowledge Management",

@@ -34,14 +34,14 @@ const pressReleases = [
   {
     date: "January 2025",
     title: "Zen Model Family Reaches 22 Models",
-    description: "Zen LM releases complete model family from 600M to 480B parameters, including Coder, Omni (multimodal), and Nano (edge) variants.",
+    description: "Zen LM releases complete model family from 600M to 1T+ parameters, including Coder, Omni (multimodal), and Nano (edge) variants.",
     link: "https://huggingface.co/zenlm",
     type: "Research",
   },
   {
     date: "December 2024",
-    title: "Training-Free GRPO Achieves 99.8% Cost Reduction",
-    description: "Zoo Labs Foundation releases Training-Free GRPO, reducing AI training costs from $10,000+ to just $18 while maintaining performance.",
+    title: "Training-Free GRPO: Efficient Model Adaptation",
+    description: "Zoo Labs Foundation releases Training-Free GRPO, dramatically reducing AI training costs while maintaining performance through data-efficient fine-tuning.",
     link: "https://github.com/zooai/gym",
     type: "Research",
   },

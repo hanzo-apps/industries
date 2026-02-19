@@ -558,7 +558,7 @@ const papers: Paper[] = [
     title: "Gym Training Platform: Decentralized Model Training at Scale",
     authors: "Zoo Labs Foundation",
     date: "2025",
-    abstract: "Infrastructure for distributed deep learning training across heterogeneous compute resources with 99.8% cost reduction via TF-GRPO.",
+    abstract: "Infrastructure for distributed deep learning training across heterogeneous compute resources with significant cost reduction via TF-GRPO.",
     link: "https://github.com/zooai/papers/raw/main/pdfs/gym-training-platform.pdf",
     org: "zoo",
     topics: ["ai", "infrastructure"],
@@ -625,7 +625,7 @@ const papers: Paper[] = [
     title: "Zen Family Overview: Model Architecture Guide",
     authors: "Zen LM Research",
     date: "2025",
-    abstract: "Comprehensive overview of the Zen model family (600M-480B parameters) with 22 variants across 6 size tiers.",
+    abstract: "Comprehensive overview of the Zen model family (600M–1T+ parameters) with 22 variants across 6 size tiers.",
     link: "https://github.com/zenlm/papers/raw/main/pdfs/zen_family_overview.pdf",
     org: "zen",
     topics: ["models"],
@@ -1024,7 +1024,7 @@ const Research = () => {
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fd4444]/10 border border-[#fd4444]/20 mb-6">
                 <Sparkles className="w-4 h-4 text-[#fd4444]" />
                 <span className={cn("text-sm font-medium", isDarkMode ? "text-white/60" : "text-black/70")}>
-                  100+ Research Papers
+                  130+ Research Papers
                 </span>
               </div>
               <h1 className={cn("text-5xl md:text-6xl font-bold tracking-tight mb-6", isDarkMode ? "text-white" : "text-black")}>
