@@ -1,17 +1,17 @@
 import {
   Code2, Paintbrush, Settings, MessagesSquare, HelpCircle,
   ChartBar, Bot, DollarSign, Shield, Binary, Database,
-  FileText, Users, Megaphone, Briefcase, Scale,
-  Search, TestTube, Rocket, Brain
+  FileText, Users, Megaphone, Briefcase, Scale, Music, Film, Image,
+  Rocket, Brain
 } from "lucide-react";
 
 // 4x4 Autonomous AI Workforce
-// BUILD (Engineering) | SHIP (Product) | GROW (Go-to-Market) | RUN (Operations)
+// BUILD (Engineering) | CREATE (Creative) | SHIP (Product & Growth) | RUN (Operations)
 
 export const teamDepartments = [
   { key: "build", label: "Build", description: "Engineering & infrastructure" },
-  { key: "ship", label: "Ship", description: "Product & quality" },
-  { key: "grow", label: "Grow", description: "Go-to-market & growth" },
+  { key: "create", label: "Create", description: "Design & creative production" },
+  { key: "ship", label: "Ship", description: "Product & growth" },
   { key: "run", label: "Run", description: "Operations & strategy" },
 ] as const;
 
@@ -78,13 +78,13 @@ export const teamMembers = {
     ]
   },
 
-  // ── SHIP (Product) ───────────────────────────────────────
+  // ── CREATE (Creative Production) ───────────────────────────
   desi: {
     name: "Desi",
     emoji: "\u{1F9D1}\u{200D}\u{1F3A8}",
     title: "Meet Desi, Your AI Designer",
     role: "Design & UX",
-    department: "ship",
+    department: "create",
     description: "Creates interfaces, prototypes, design systems, and brand assets with pixel-perfect precision.",
     gradient: "from-purple-500 to-pink-500",
     mainIcon: Paintbrush,
@@ -94,10 +94,57 @@ export const teamMembers = {
       { icon: Settings, color: "text-purple-400", title: "Prototyping", description: "Builds interactive prototypes to validate concepts and flows." }
     ]
   },
-  pax: {
-    name: "Pax",
+  art: {
+    name: "Art",
+    emoji: "\u{1F5BC}\u{FE0F}",
+    title: "Meet Art, Your AI Visual Artist",
+    role: "Visual Art & Illustration",
+    department: "create",
+    description: "Generates images, illustrations, concept art, and visual assets for any medium or style.",
+    gradient: "from-rose-500 to-orange-500",
+    mainIcon: Image,
+    features: [
+      { icon: Image, color: "text-rose-400", title: "Image Generation", description: "Creates original illustrations, concept art, and visual assets." },
+      { icon: Paintbrush, color: "text-orange-400", title: "Style & Branding", description: "Maintains visual consistency across brand touchpoints." },
+      { icon: Bot, color: "text-rose-400", title: "Asset Production", description: "Produces marketing visuals, social graphics, and presentations." }
+    ]
+  },
+  mu: {
+    name: "Mu",
+    emoji: "\u{1F3B5}",
+    title: "Meet Mu, Your AI Music Producer",
+    role: "Music & Audio",
+    department: "create",
+    description: "Composes music, produces audio, creates soundscapes, and handles sound design for any project.",
+    gradient: "from-violet-500 to-indigo-500",
+    mainIcon: Music,
+    features: [
+      { icon: Music, color: "text-violet-400", title: "Music Composition", description: "Composes original scores, jingles, and background music." },
+      { icon: Settings, color: "text-indigo-400", title: "Audio Production", description: "Mixes, masters, and produces broadcast-ready audio." },
+      { icon: Bot, color: "text-violet-400", title: "Sound Design", description: "Creates sound effects, ambient audio, and sonic branding." }
+    ]
+  },
+  fil: {
+    name: "Fil",
+    emoji: "\u{1F3AC}",
+    title: "Meet Fil, Your AI Filmmaker",
+    role: "Video & Film",
+    department: "create",
+    description: "Produces video content, edits footage, creates animations, and directs visual storytelling.",
+    gradient: "from-cyan-500 to-teal-500",
+    mainIcon: Film,
+    features: [
+      { icon: Film, color: "text-cyan-400", title: "Video Production", description: "Shoots, edits, and produces video content for any platform." },
+      { icon: Bot, color: "text-teal-400", title: "Animation & Motion", description: "Creates animations, motion graphics, and visual effects." },
+      { icon: Megaphone, color: "text-cyan-400", title: "Visual Storytelling", description: "Directs narrative content and brand films." }
+    ]
+  },
+
+  // ── SHIP (Product & Growth) ────────────────────────────────
+  mana: {
+    name: "Mana",
     emoji: "\u{1F9D1}\u{200D}\u{1F4BC}",
-    title: "Meet Pax, Your AI Product Manager",
+    title: "Meet Mana, Your AI Product Manager",
     role: "Product Management",
     department: "ship",
     description: "Owns roadmap, writes specs, prioritizes features, and coordinates cross-functional execution.",
@@ -109,25 +156,10 @@ export const teamMembers = {
       { icon: Users, color: "text-indigo-400", title: "Cross-Functional Coordination", description: "Aligns engineering, design, and go-to-market teams." }
     ]
   },
-  quinn: {
-    name: "Quinn",
-    emoji: "\u{1F50D}",
-    title: "Meet Quinn, Your AI Test Engineer",
-    role: "Quality Assurance",
-    department: "ship",
-    description: "Writes and runs tests, catches regressions, validates builds, and gates releases.",
-    gradient: "from-teal-500 to-cyan-500",
-    mainIcon: TestTube,
-    features: [
-      { icon: TestTube, color: "text-teal-400", title: "Test Automation", description: "Writes and maintains unit, integration, and E2E test suites." },
-      { icon: Search, color: "text-cyan-400", title: "Bug Detection", description: "Identifies regressions, edge cases, and performance issues." },
-      { icon: Shield, color: "text-teal-400", title: "Release Validation", description: "Gates deployments with comprehensive quality checks." }
-    ]
-  },
-  doxi: {
-    name: "Doxi",
+  doc: {
+    name: "Doc",
     emoji: "\u270D\uFE0F",
-    title: "Meet Doxi, Your AI Technical Writer",
+    title: "Meet Doc, Your AI Technical Writer",
     role: "Documentation",
     department: "ship",
     description: "Writes API docs, guides, tutorials, and knowledge base articles that developers actually read.",
@@ -136,17 +168,15 @@ export const teamMembers = {
     features: [
       { icon: FileText, color: "text-slate-400", title: "API Documentation", description: "Generates and maintains comprehensive API references." },
       { icon: Bot, color: "text-gray-400", title: "Guides & Tutorials", description: "Creates step-by-step guides and onboarding documentation." },
-      { icon: Search, color: "text-slate-400", title: "Knowledge Base", description: "Builds searchable knowledge bases and FAQs." }
+      { icon: ChartBar, color: "text-slate-400", title: "Knowledge Base", description: "Builds searchable knowledge bases and FAQs." }
     ]
   },
-
-  // ── GROW (Go-to-Market) ──────────────────────────────────
   mark: {
     name: "Mark",
     emoji: "\u{1F4E3}",
     title: "Meet Mark, Your AI Marketing Lead",
     role: "Marketing",
-    department: "grow",
+    department: "ship",
     description: "Runs campaigns, creates content, optimizes SEO, manages social, and tracks attribution.",
     gradient: "from-green-500 to-emerald-500",
     mainIcon: Megaphone,
@@ -161,7 +191,7 @@ export const teamMembers = {
     emoji: "\u{1F91D}",
     title: "Meet Sal, Your AI Sales Agent",
     role: "Sales & Revenue",
-    department: "grow",
+    department: "ship",
     description: "Qualifies leads, runs outreach, demos products, writes proposals, and manages pipeline.",
     gradient: "from-emerald-500 to-green-500",
     mainIcon: DollarSign,
@@ -171,12 +201,14 @@ export const teamMembers = {
       { icon: ChartBar, color: "text-emerald-400", title: "Revenue Analytics", description: "Tracks metrics, forecasts revenue, and optimizes conversion." }
     ]
   },
-  suki: {
-    name: "Suki",
+
+  // ── RUN (Operations) ─────────────────────────────────────
+  su: {
+    name: "Su",
     emoji: "\u{1F481}",
-    title: "Meet Suki, Your AI Support Agent",
+    title: "Meet Su, Your AI Support Agent",
     role: "Support & Success",
-    department: "grow",
+    department: "run",
     description: "Handles tickets, onboards users, resolves issues, and drives retention through proactive support.",
     gradient: "from-pink-500 to-rose-500",
     mainIcon: HelpCircle,
@@ -186,23 +218,6 @@ export const teamMembers = {
       { icon: MessagesSquare, color: "text-pink-400", title: "Proactive Support", description: "Monitors for issues and reaches out before users ask." }
     ]
   },
-  priya: {
-    name: "Priya",
-    emoji: "\u{1F5E3}\uFE0F",
-    title: "Meet Priya, Your AI Communications Lead",
-    role: "Communications & PR",
-    department: "grow",
-    description: "Writes press releases, manages announcements, handles media, and protects brand reputation.",
-    gradient: "from-sky-500 to-blue-500",
-    mainIcon: MessagesSquare,
-    features: [
-      { icon: MessagesSquare, color: "text-sky-400", title: "Press & Announcements", description: "Drafts press releases, blog posts, and public announcements." },
-      { icon: Megaphone, color: "text-blue-400", title: "Media Relations", description: "Manages journalist outreach and media coverage." },
-      { icon: Shield, color: "text-sky-400", title: "Brand & Reputation", description: "Monitors brand sentiment and manages crisis communications." }
-    ]
-  },
-
-  // ── RUN (Operations) ─────────────────────────────────────
   fin: {
     name: "Fin",
     emoji: "\u{1F4B0}",
@@ -231,21 +246,6 @@ export const teamMembers = {
       { icon: Scale, color: "text-amber-400", title: "Contract Review", description: "Reviews and drafts contracts, NDAs, and agreements." },
       { icon: Shield, color: "text-yellow-400", title: "Regulatory Compliance", description: "Tracks regulations and ensures organizational compliance." },
       { icon: FileText, color: "text-amber-400", title: "IP & Risk", description: "Manages intellectual property and assesses legal risk." }
-    ]
-  },
-  huma: {
-    name: "Huma",
-    emoji: "\u{1F917}",
-    title: "Meet Huma, Your AI People Lead",
-    role: "People & Recruiting",
-    department: "run",
-    description: "Sources candidates, screens resumes, onboards hires, and manages team operations.",
-    gradient: "from-violet-500 to-purple-500",
-    mainIcon: Users,
-    features: [
-      { icon: Users, color: "text-violet-400", title: "Recruiting & Sourcing", description: "Sources candidates, screens applications, and schedules interviews." },
-      { icon: Bot, color: "text-purple-400", title: "Onboarding", description: "Guides new hires through setup, access, and orientation." },
-      { icon: ChartBar, color: "text-violet-400", title: "Team Operations", description: "Tracks performance, manages reviews, and supports culture." }
     ]
   },
   vi: {

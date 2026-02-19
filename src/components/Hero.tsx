@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Bot } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
@@ -126,6 +126,21 @@ const Hero = () => {
               >
                 <Sparkles className="w-4 h-4 mr-2" />
                 Try Hanzo AI
+              </Button>
+            </a>
+            <a href="https://hanzo.bot" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                variant="outline"
+                className={cn(
+                  "w-full sm:w-auto text-base px-8 h-12 rounded-full transition-colors",
+                  isDarkMode
+                    ? "border-white/30 text-white hover:bg-white/10"
+                    : "border-black/30 text-black hover:bg-black/10"
+                )}
+              >
+                <Bot className="w-4 h-4 mr-2" />
+                Deploy AI Team
               </Button>
             </a>
           </motion.div>

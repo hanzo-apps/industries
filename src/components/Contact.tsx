@@ -173,7 +173,7 @@ const Contact = () => {
                   Zach Kelling
                 </h4>
                 <p className={cn("text-sm mb-2", isDarkMode ? "text-white/50" : "text-black/50")}>
-                  Founder & Chief Executive Officer
+                  Founding CTO
                 </p>
                 <a
                   href="mailto:zach@hanzo.industries"
@@ -195,7 +195,7 @@ const Contact = () => {
                   Dave Lorenzini
                 </h4>
                 <p className={cn("text-sm mb-2", isDarkMode ? "text-white/50" : "text-black/50")}>
-                  Chief Technology Officer
+                  Chief Strategy Officer
                 </p>
                 <a
                   href="mailto:dave@hanzo.industries"
