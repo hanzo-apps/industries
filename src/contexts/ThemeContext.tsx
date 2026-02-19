@@ -22,13 +22,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return 'light'; // Default to light for hanzo.industries
   });
 
-  const [systemIsDark, setSystemIsDark] = useState<boolean>(true);
+  const [systemIsDark, setSystemIsDark] = useState<boolean>(() =>
+    typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
 
-  // Detect system preference
+  // Listen for system preference changes
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    setSystemIsDark(mediaQuery.matches);
-
     const handler = (e: MediaQueryListEvent) => setSystemIsDark(e.matches);
     mediaQuery.addEventListener('change', handler);
     return () => mediaQuery.removeEventListener('change', handler);
@@ -43,11 +43,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, [mode]);
 
   useEffect(() => {
-    // Apply theme to document root
-    document.documentElement.classList.toggle('dark', isDarkMode);
-    document.documentElement.classList.toggle('light', !isDarkMode);
+    const root = document.documentElement;
+    root.classList.toggle('dark', isDarkMode);
+    root.classList.toggle('light', !isDarkMode);
+    root.style.backgroundColor = isDarkMode ? '#000' : '#fff';
+    root.style.colorScheme = isDarkMode ? 'dark' : 'light';
 
-    // Update meta theme-color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
       metaThemeColor.setAttribute('content', isDarkMode ? '#000000' : '#ffffff');

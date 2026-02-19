@@ -38,7 +38,7 @@ const TeamMemberPage = ({ memberId }: TeamMemberPageProps) => {
           className="max-w-7xl mx-auto"
         >
           <div className="text-center mb-16">
-            <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${member.gradient} mb-4`}>
+            <div className={cn("inline-flex p-3 rounded-xl bg-gradient-to-br mb-4", member.gradient)}>
               <MainIcon className="h-8 w-8 text-white" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -61,7 +61,7 @@ const TeamMemberPage = ({ memberId }: TeamMemberPageProps) => {
                     isDarkMode ? "border-white/10 bg-black/50" : "border-black/10 bg-white/50"
                   )}
                 >
-                  <FeatureIcon className={`h-8 w-8 ${feature.color} mb-4`} />
+                  <FeatureIcon className={cn("h-8 w-8 mb-4", feature.color)} />
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                   <p className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>{feature.description}</p>
                 </motion.div>
@@ -79,7 +79,7 @@ const TeamMemberPage = ({ memberId }: TeamMemberPageProps) => {
             </p>
             <Button
               onClick={handleContactSensei}
-              className={`bg-gradient-to-r ${member.gradient} hover:opacity-90`}
+              className={cn("bg-gradient-to-r hover:opacity-90", member.gradient)}
             >
               Contact Sensei Group
             </Button>
