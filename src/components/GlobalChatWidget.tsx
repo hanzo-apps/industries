@@ -290,10 +290,7 @@ const GlobalChatWidget = () => {
             {/* Header */}
             <div className={cn("flex items-center justify-between px-4 py-3 border-b", isDarkMode ? "border-white/10" : "border-black/10")}>
               <div className="flex items-center gap-3">
-                <div className={cn(
-                  "w-8 h-8 rounded-full flex items-center justify-center border",
-                  isDarkMode ? "bg-black border-white/20" : "bg-white border-black/20"
-                )}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center bg-black border border-white/20 overflow-hidden">
                   <img src="/zen-logo.png" alt="Zen AI" className="w-5 h-5" />
                 </div>
                 {/* Model selector dropdown */}
