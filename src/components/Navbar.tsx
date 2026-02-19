@@ -304,11 +304,13 @@ const DropdownMenu = ({ menu, isOpen, onOpen, onClose }: DropdownMenuProps) => {
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
             className={cn(
-              "absolute left-0 pt-2 w-80 z-50"
+              "absolute left-0 top-full w-80 z-50"
             )}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
+          {/* Invisible bridge between pill and dropdown to prevent dismiss */}
+          <div className="h-2" />
           <div
             className={cn(
               "backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden",
