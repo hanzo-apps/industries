@@ -96,17 +96,14 @@ const TryHanzoDropdown = () => {
             )}
           >
             <div className="py-2">
-              {tryHanzoItems.map((item, index) => {
+              {tryHanzoItems.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <motion.a
+                  <a
                     key={item.label}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.15, delay: index * 0.03 }}
                     className={cn(
                       "flex items-center gap-3 px-4 py-3 transition-all duration-150 group",
                       isDarkMode ? "hover:bg-white/10" : "hover:bg-black/5"
@@ -149,7 +146,7 @@ const TryHanzoDropdown = () => {
                           : "text-black/40 group-hover:text-black/60"
                       )}>{item.description}</p>
                     </div>
-                  </motion.a>
+                  </a>
                 );
               })}
             </div>
@@ -321,15 +318,12 @@ const DropdownMenu = ({ menu, isOpen, onOpen, onClose }: DropdownMenuProps) => {
             )}
           >
             <div className="py-2">
-              {menu.items.map((item, index) => {
+              {menu.items.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <motion.button
+                  <button
                     key={item.label}
                     onClick={() => handleItemClick(item)}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.15, delay: index * 0.03 }}
                     className={cn(
                       "w-full text-left px-4 py-3 transition-all duration-150 group flex items-center gap-3",
                       isDarkMode ? "hover:bg-white/10" : "hover:bg-black/5"
@@ -378,7 +372,7 @@ const DropdownMenu = ({ menu, isOpen, onOpen, onClose }: DropdownMenuProps) => {
                         {item.description}
                       </p>
                     </div>
-                  </motion.button>
+                  </button>
                 );
               })}
             </div>
