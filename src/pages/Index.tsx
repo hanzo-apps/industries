@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import ServicesOverview from "@/components/ServicesOverview";
 import ResearchHighlights from "@/components/ResearchHighlights";
 import Leadership from "@/components/Leadership";
+import TrustedBySection from "@/components/TrustedBySection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -43,6 +44,7 @@ const Index = () => {
         <ServicesOverview />
         <ResearchHighlights />
         <Leadership />
+        <TrustedBySection />
         <Contact />
       </main>
       <Footer />
