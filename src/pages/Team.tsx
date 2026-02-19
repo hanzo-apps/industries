@@ -16,22 +16,6 @@ export default function Team() {
   // Human Leadership Team
   const humanLeadership = [
     {
-      name: "Zach Kelling",
-      role: "Founding CTO",
-      description: "Technical founder driving Hanzo's mission to build frontier AI.",
-      icon: Code2,
-      gradient: "from-blue-500 to-cyan-500",
-      image: "/leadership/zach-kelling.png"
-    },
-    {
-      name: "Dave Lorenzini",
-      role: "Chief Strategy Officer",
-      description: "Strategy visionary with decades of experience in immersive computing and AI.",
-      icon: Code2,
-      gradient: "from-indigo-500 to-blue-500",
-      image: "/leadership/dave-lorenzini.jpg"
-    },
-    {
       name: "Michael Kelling",
       role: "President",
       description: "Guiding company strategy and vision for the future.",
@@ -46,6 +30,22 @@ export default function Team() {
       icon: Settings,
       gradient: "from-purple-500 to-pink-500",
       image: "/leadership/antje-worring.png"
+    },
+    {
+      name: "Zach Kelling",
+      role: "Founding CTO",
+      description: "Technical founder driving Hanzo's mission to build frontier AI.",
+      icon: Code2,
+      gradient: "from-blue-500 to-cyan-500",
+      image: "/leadership/zach-kelling.png"
+    },
+    {
+      name: "Dave Lorenzini",
+      role: "Chief Strategy Officer",
+      description: "Strategy visionary with decades of experience in immersive computing and AI.",
+      icon: Code2,
+      gradient: "from-indigo-500 to-blue-500",
+      image: "/leadership/dave-lorenzini.jpg"
     },
     {
       name: "Vincent Butta",
