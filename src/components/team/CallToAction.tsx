@@ -18,7 +18,7 @@ const CallToAction = () => {
       )}>
         <div className="text-center">
           <div className={cn("text-2xl font-bold", isDarkMode ? "text-white" : "text-black")}>
-            100+
+            2,500+
           </div>
           <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
             OSS Projects
@@ -26,7 +26,7 @@ const CallToAction = () => {
         </div>
         <div className="text-center">
           <div className={cn("text-2xl font-bold", isDarkMode ? "text-white" : "text-black")}>
-            50+
+            130+
           </div>
           <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
             Research Papers
@@ -34,7 +34,7 @@ const CallToAction = () => {
         </div>
         <div className="text-center">
           <div className={cn("text-2xl font-bold", isDarkMode ? "text-white" : "text-black")}>
-            30+
+            45+
           </div>
           <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
             AI Models

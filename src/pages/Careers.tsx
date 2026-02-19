@@ -67,7 +67,7 @@ const jobs: Job[] = [
     id: "5",
     title: "Research Engineer, Multimodal (Vision)",
     team: "AI Research & Engineering",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Los Angeles, CA",
     type: "full-time",
     new: true,
     salary: "$200,000 - $350,000",
@@ -96,7 +96,7 @@ const jobs: Job[] = [
     id: "8",
     title: "Research Engineer, Agents",
     team: "AI Research & Engineering",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Los Angeles, CA",
     type: "full-time",
     new: true,
     salary: "$200,000 - $350,000",
@@ -126,7 +126,7 @@ const jobs: Job[] = [
     id: "11",
     title: "ML Engineer, Real-time Inference",
     team: "AI Research & Engineering",
-    location: "San Francisco, CA",
+    location: "Los Angeles, CA | San Francisco, CA",
     type: "full-time",
     salary: "$180,000 - $300,000",
     description: "Build low-latency inference systems for real-time AI applications."
@@ -157,7 +157,7 @@ const jobs: Job[] = [
     id: "14",
     title: "Security Engineer, Infrastructure",
     team: "Cryptography & Security",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | New York, NY",
     type: "full-time",
     salary: "$180,000 - $280,000",
     description: "Secure our AI infrastructure and protect against adversarial attacks."
@@ -176,7 +176,7 @@ const jobs: Job[] = [
     id: "16",
     title: "Research Engineer, Zero-Knowledge Proofs",
     team: "Cryptography & Security",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Paris, France",
     type: "full-time",
     new: true,
     salary: "$200,000 - $350,000",
@@ -208,7 +208,7 @@ const jobs: Job[] = [
     id: "19",
     title: "Systems Engineer, Lux Node",
     team: "Blockchain & Consensus",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Los Angeles, CA",
     type: "full-time",
     salary: "$180,000 - $300,000",
     description: "Build and optimize the Lux Network node implementation in Go."
@@ -227,7 +227,7 @@ const jobs: Job[] = [
     id: "21",
     title: "Protocol Engineer, Cross-Chain",
     team: "Blockchain & Consensus",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Marbella, Spain",
     type: "full-time",
     new: true,
     salary: "$200,000 - $350,000",
@@ -239,7 +239,7 @@ const jobs: Job[] = [
     id: "22",
     title: "Staff Software Engineer, Platform",
     team: "Infrastructure & Platform",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Los Angeles, CA",
     type: "full-time",
     salary: "$250,000 - $400,000",
     description: "Lead platform engineering for our AI infrastructure."
@@ -258,11 +258,11 @@ const jobs: Job[] = [
     id: "24",
     title: "DevOps Engineer, GPU Infrastructure",
     team: "Infrastructure & Platform",
-    location: "San Francisco, CA",
+    location: "Kansas City, MO | Vancouver, BC | New York, NY",
     type: "full-time",
     new: true,
     salary: "$180,000 - $280,000",
-    description: "Manage and optimize our GPU cluster for AI training and inference."
+    description: "Manage and optimize our GPU clusters for AI training and inference across datacenter locations."
   },
   {
     id: "25",
@@ -278,7 +278,7 @@ const jobs: Job[] = [
     id: "26",
     title: "Software Engineer, MCP Infrastructure",
     team: "Infrastructure & Platform",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Los Angeles, CA",
     type: "full-time",
     new: true,
     salary: "$180,000 - $300,000",
@@ -301,7 +301,7 @@ const jobs: Job[] = [
     id: "28",
     title: "Product Manager, AI Platform",
     team: "Product & Design",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Los Angeles, CA",
     type: "full-time",
     salary: "$180,000 - $280,000",
     description: "Define and drive the product roadmap for our AI platform."
@@ -320,7 +320,7 @@ const jobs: Job[] = [
     id: "30",
     title: "Technical Product Manager, MCP",
     team: "Product & Design",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Los Angeles, CA",
     type: "full-time",
     new: true,
     salary: "$180,000 - $280,000",
@@ -330,7 +330,7 @@ const jobs: Job[] = [
     id: "31",
     title: "Product Manager, Zen Models",
     team: "Product & Design",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Marbella, Spain",
     type: "full-time",
     salary: "$180,000 - $280,000",
     description: "Drive product strategy for our Zen model family."
@@ -341,7 +341,7 @@ const jobs: Job[] = [
     id: "32",
     title: "Solutions Architect, Enterprise",
     team: "Go-to-Market",
-    location: "San Francisco, CA | New York, NY",
+    location: "San Francisco, CA | New York, NY | Marbella, Spain",
     type: "full-time",
     salary: "$180,000 - $280,000",
     description: "Help enterprise customers integrate our AI solutions."
@@ -383,7 +383,7 @@ const jobs: Job[] = [
     id: "36",
     title: "Research Program Manager",
     team: "Research Operations",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Los Angeles, CA",
     type: "full-time",
     salary: "$150,000 - $220,000",
     description: "Coordinate research programs across teams."
@@ -392,7 +392,7 @@ const jobs: Job[] = [
     id: "37",
     title: "Research Operations Manager",
     team: "Research Operations",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Paris, France",
     type: "full-time",
     salary: "$140,000 - $200,000",
     description: "Support research teams with operational excellence."
@@ -413,7 +413,7 @@ const jobs: Job[] = [
     id: "39",
     title: "People Operations Manager",
     team: "Operations",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Kansas City, MO",
     type: "full-time",
     salary: "$120,000 - $180,000",
     description: "Build and maintain a world-class employee experience."
@@ -422,7 +422,7 @@ const jobs: Job[] = [
     id: "40",
     title: "Finance & Strategy Analyst",
     team: "Operations",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Vancouver, BC",
     type: "full-time",
     salary: "$130,000 - $200,000",
     description: "Support financial planning and strategic decision-making."
@@ -431,7 +431,7 @@ const jobs: Job[] = [
     id: "41",
     title: "Recruiting Coordinator",
     team: "Operations",
-    location: "San Francisco, CA",
+    location: "San Francisco, CA | Los Angeles, CA | Kansas City, MO",
     type: "full-time",
     salary: "$80,000 - $120,000",
     description: "Coordinate interviews and support recruiting operations."
@@ -449,7 +449,7 @@ const jobs: Job[] = [
 ];
 
 const teams = ["All Teams", ...Array.from(new Set(jobs.map(j => j.team)))];
-const locations = ["All Locations", "San Francisco, CA", "New York, NY", "Remote"];
+const locations = ["All Locations", "San Francisco, CA", "Los Angeles, CA", "Kansas City, MO", "Vancouver, BC", "New York, NY", "Marbella, Spain", "Paris, France", "Remote"];
 
 export default function Careers() {
   const { isDarkMode } = useTheme();
@@ -512,9 +512,9 @@ export default function Careers() {
               </p>
               <p className={cn(isDarkMode ? "text-white/70" : "text-black/70")}>
                 We're a quickly growing team of committed researchers, engineers, and business leaders working
-                together to build beneficial AI systems. We've published 58 research papers, released 22 AI models
-                (the Zen family, 600M-480B parameters), and achieved breakthrough results like 99.8% training cost
-                reduction through our Training-Free GRPO methodology.
+                together to build beneficial AI systems. We've published over 130 research papers, released
+                the Zen model family (45+ models, 600M-480B parameters), and maintain over 2,500 open-source
+                projects across AI, cryptography, and distributed systems.
               </p>
             </div>
 
@@ -587,7 +587,7 @@ export default function Careers() {
                 <p><strong>Location:</strong> {selectedJob.location}</p>
                 <p><strong>Type:</strong> {selectedJob.type.charAt(0).toUpperCase() + selectedJob.type.slice(1)}</p>
                 <p><strong>Visa Sponsorship:</strong> We sponsor visas and will make every reasonable effort to support your visa process.</p>
-                <p><strong>Hybrid Policy:</strong> We expect staff to be in our San Francisco office at least 25% of the time, though some roles may be fully remote.</p>
+                <p><strong>Hybrid Policy:</strong> We expect staff to be in one of our offices (San Francisco, Los Angeles, Kansas City, Vancouver, New York, Marbella, or Paris) at least 25% of the time, though some roles may be fully remote.</p>
               </div>
             </div>
 
@@ -654,7 +654,7 @@ export default function Careers() {
             <div className={cn("flex flex-wrap justify-center gap-6 text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
               <span className="flex items-center gap-2">
                 <Building2 className="w-4 h-4" />
-                San Francisco HQ
+                7 Global Offices
               </span>
               <span className="flex items-center gap-2">
                 <Briefcase className="w-4 h-4" />
@@ -675,20 +675,20 @@ export default function Careers() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
           >
             <div className={cn("border rounded-lg p-6 text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
-              <div className="text-3xl font-bold mb-1">58</div>
-              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Published Papers</div>
+              <div className="text-3xl font-bold mb-1">2,500+</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>OSS Projects</div>
             </div>
             <div className={cn("border rounded-lg p-6 text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
-              <div className="text-3xl font-bold mb-1">22</div>
+              <div className="text-3xl font-bold mb-1">130+</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Research Papers</div>
+            </div>
+            <div className={cn("border rounded-lg p-6 text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
+              <div className="text-3xl font-bold mb-1">50+</div>
               <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>AI Models</div>
             </div>
             <div className={cn("border rounded-lg p-6 text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
-              <div className="text-3xl font-bold mb-1">4</div>
-              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Research Orgs</div>
-            </div>
-            <div className={cn("border rounded-lg p-6 text-center", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
-              <div className="text-3xl font-bold mb-1">99.8%</div>
-              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Cost Reduction</div>
+              <div className="text-3xl font-bold mb-1">$1B+</div>
+              <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>Client Revenue</div>
             </div>
           </motion.div>
 
@@ -885,7 +885,7 @@ export default function Careers() {
                 <Laptop className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Flexible Work</h3>
                 <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
-                  Remote-friendly culture with offices in San Francisco. We trust you to do your best work wherever you are.
+                  Remote-friendly culture with offices in San Francisco, Los Angeles, New York, Kansas City, Vancouver, Marbella, and Paris.
                 </p>
               </div>
               <div className={cn("border rounded-lg p-6", isDarkMode ? "bg-white/5 border-white/10" : "bg-black/5 border-black/10")}>
