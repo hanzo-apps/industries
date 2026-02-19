@@ -1353,8 +1353,8 @@ const Research = () => {
         {/* CTA Section */}
         <section className="relative py-24 px-4 overflow-hidden">
           {/* Decorative blur */}
-          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#fd4444]/20 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
-          <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
+          <div className={cn("absolute top-1/2 left-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", isDarkMode ? "bg-white/5" : "bg-black/[0.02]")} />
+          <div className={cn("absolute top-1/2 right-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", isDarkMode ? "bg-white/[0.03]" : "bg-black/[0.015]")} />
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <h2 className={cn("text-3xl font-bold mb-4", isDarkMode ? "text-white" : "text-black")}>

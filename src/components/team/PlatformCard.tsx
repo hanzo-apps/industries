@@ -21,7 +21,7 @@ const PlatformCard = ({ name, role, description, icon: Icon, gradient }: Platfor
         : "border-black/10 bg-white shadow-sm"
     )}>
       <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 ease-in-out" />
-      <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${gradient} mb-4`}>
+      <div className={cn("inline-flex p-3 rounded-xl bg-gradient-to-br mb-4", gradient)}>
         <Icon className="h-6 w-6 text-white" />
       </div>
       <h3 className={cn(

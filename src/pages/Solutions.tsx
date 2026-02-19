@@ -26,26 +26,13 @@ const Solutions = () => {
 
       {/* Hero Section with Gradient Background */}
       <section className="relative py-24 px-4 overflow-hidden">
-        {/* Radial gradient background */}
+        {/* Subtle gradient background */}
         <div
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse 80% 50% at 50% -20%, #fd4444, transparent)'
-          }}
-        />
-        {/* Blur effect orbs */}
-        <div
-          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-30"
-          style={{
-            background: '#fd4444',
-            filter: 'blur(100px)'
-          }}
-        />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full opacity-20"
-          style={{
-            background: '#fd4444',
-            filter: 'blur(100px)'
+            background: isDarkMode
+              ? 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255,255,255,0.05), transparent)'
+              : 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,0,0,0.03), transparent)'
           }}
         />
 

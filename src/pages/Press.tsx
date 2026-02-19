@@ -358,7 +358,7 @@ const Press = () => {
                     <div className="flex-shrink-0 w-24">
                       <div className={cn("text-sm font-medium", isDarkMode ? "text-white/90" : "text-black/90")}>{release.date}</div>
                       {release.type && (
-                        <span className={`inline-block mt-1 px-2 py-0.5 text-xs rounded-full border ${typeColors[release.type] || "bg-gray-100 text-gray-600"}`}>
+                        <span className={cn("inline-block mt-1 px-2 py-0.5 text-xs rounded-full border", typeColors[release.type] || (isDarkMode ? "bg-white/10 text-white/50 border-white/20" : "bg-black/5 text-black/50 border-black/10"))}>
                           {release.type}
                         </span>
                       )}

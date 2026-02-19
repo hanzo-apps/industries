@@ -194,9 +194,10 @@ const News = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: itemIndex * 0.1 }}
                         viewport={{ once: true }}
-                        className={`md:w-[calc(50%-2rem)] ${
+                        className={cn(
+                          "md:w-[calc(50%-2rem)]",
                           itemIndex % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
-                        }`}
+                        )}
                       >
                         <div className={cn(
                           "border rounded-xl p-6 transition-colors group hover:border-[#fd4444]/50",
@@ -205,7 +206,7 @@ const News = () => {
                             : "bg-black/5 border-black/10"
                         )}>
                           <div className="flex items-center gap-3 mb-3">
-                            <span className={`px-2 py-1 text-xs font-medium text-white rounded ${typeColors[item.type] || "bg-gray-600"}`}>
+                            <span className={cn("px-2 py-1 text-xs font-medium text-white rounded", typeColors[item.type] || "bg-black/50")}>
                               {item.type}
                             </span>
                             <span className={cn("text-sm flex items-center gap-1", isDarkMode ? "text-white/40" : "text-black/40")}>

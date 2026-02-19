@@ -44,7 +44,7 @@ const TeamMemberCard = ({ name, role, description, icon: Icon, gradient, image }
             />
           </div>
         ) : (
-          <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${gradient} mb-4`}>
+          <div className={cn("inline-flex p-3 rounded-xl bg-gradient-to-br mb-4", gradient)}>
             <Icon className="h-6 w-6 text-white" />
           </div>
         )}
