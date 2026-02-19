@@ -38,7 +38,7 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
             "relative flex items-center justify-center rounded-full transition-colors",
             buttonSize,
             mode === value
-              ? "text-[#fd4444]"
+              ? isDarkMode ? "text-white" : "text-black"
               : isDarkMode
                 ? "text-white/50 hover:text-white/80"
                 : "text-black/50 hover:text-black/80"

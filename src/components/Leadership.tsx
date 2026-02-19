@@ -8,14 +8,14 @@ const Leadership = () => {
   const leaders = [
     {
       name: "Zach Kelling",
-      title: "Founder & CEO",
-      bio: "Visionary leader driving Hanzo's mission to build frontier AI. Founded the company and leads overall strategy, product vision, and company culture.",
+      title: "Founding CTO",
+      bio: "Technical founder driving Hanzo's mission to build frontier AI. Leads architecture, product vision, and technical strategy across the full stack.",
       image: "/leadership/zach-kelling.png"
     },
     {
       name: "Dave Lorenzini",
-      title: "Chief Technology Officer",
-      bio: "Technology visionary with decades of experience in immersive computing and AI. Leads technical strategy, architecture, and innovation across all products.",
+      title: "Chief Strategy Officer",
+      bio: "Strategy visionary with decades of experience in immersive computing and AI. Leads strategic planning, partnerships, and long-term company direction.",
       image: "/leadership/dave-lorenzini.jpg"
     },
     {
@@ -32,8 +32,8 @@ const Leadership = () => {
     },
     {
       name: "Vincent Butta",
-      title: "Executive VP",
-      bio: "Leading key business initiatives and strategic operations. Expert in driving growth and operational excellence across the organization.",
+      title: "Chief Revenue Officer",
+      bio: "Driving revenue growth and commercial strategy. Expert in scaling enterprise sales and building high-performance go-to-market organizations.",
       image: "/leadership/vincent-butta.jpg"
     },
     {
@@ -71,6 +71,24 @@ const Leadership = () => {
       title: "VP Research",
       bio: "Research leader advancing AI capabilities and innovation. Expert in applied research and bringing cutting-edge technology to production.",
       image: "/leadership/marcus-white.png"
+    },
+    {
+      name: "Ari Lerner",
+      title: "Chief Technological Officer",
+      bio: "Deep systems architect driving core platform technology. Expert in building high-scale distributed infrastructure.",
+      image: "/leadership/ari-lerner.png"
+    },
+    {
+      name: "Jackson Mori",
+      title: "VP Engineering",
+      bio: "Engineering leader building scalable distributed systems. Focused on performance, reliability, and developer experience.",
+      image: "/leadership/jackson-mori.png"
+    },
+    {
+      name: "Ole Brereton",
+      title: "Executive VP",
+      bio: "Senior executive driving strategic initiatives and high-impact partnerships across the organization.",
+      image: "/leadership/ole-brereton.png"
     }
   ];
 
@@ -125,7 +143,7 @@ const Leadership = () => {
                   <img
                     src={leader.image}
                     alt={leader.name}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-cover grayscale transition-all duration-500"
                   />
                 </div>
               </div>
