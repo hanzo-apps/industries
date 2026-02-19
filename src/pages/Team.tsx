@@ -59,6 +59,14 @@ export default function Team() {
       image: "/leadership/vincent-butta.jpg"
     },
     {
+      name: 'Major "Dream" Williams',
+      role: "Chief Visionary Officer",
+      description: "Visionary leader bridging finance, technology, and global partnerships.",
+      icon: Lightbulb,
+      gradient: "from-amber-500 to-yellow-500",
+      image: "/leadership/major-williams.png"
+    },
+    {
       name: "Danielle Savage",
       role: "Chief Brand Officer",
       description: "Building and elevating the Hanzo brand globally.",
