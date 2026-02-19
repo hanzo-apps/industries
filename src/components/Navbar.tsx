@@ -195,7 +195,6 @@ const navMenus = {
     items: [
       { label: "Documentation", href: "https://docs.hanzo.ai", description: "Technical guides", icon: BookOpen, external: true },
       { label: "Case Studies", href: "/case-studies", description: "Real-world implementations", icon: Microscope },
-      { label: "Press Room", href: "/press", description: "Media resources and coverage", icon: FileText },
     ],
   },
   company: {
@@ -203,6 +202,7 @@ const navMenus = {
     items: [
       { label: "About", href: "/about", description: "Our mission and values" },
       { label: "Team", href: "/team", description: "Leadership and AI workforce" },
+      { label: "Press", href: "/press", description: "News and media coverage", icon: FileText },
       { label: "Careers", href: "/careers", description: "Join us" },
       { label: "Contact", href: "/contact", description: "Get in touch" },
     ],
@@ -450,20 +450,6 @@ const Navbar = () => {
 
       {/* CTA Buttons */}
       <div className="hidden md:flex items-center space-x-3">
-        <Link to="/press">
-          <Button
-            variant="ghost"
-            size="sm"
-            className={cn(
-              "font-medium transition-all duration-200 rounded-full px-5",
-              isDarkMode
-                ? "text-white/70 hover:text-white hover:bg-white/10"
-                : "text-black/70 hover:text-black hover:bg-black/10"
-            )}
-          >
-            Press
-          </Button>
-        </Link>
         <TryHanzoDropdown />
       </div>
 
