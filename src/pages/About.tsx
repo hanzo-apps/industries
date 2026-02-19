@@ -17,19 +17,49 @@ const HanzoLogo = ({ className, fill }: { className?: string; fill: string }) =>
   </svg>
 );
 
-const products = [
-  { name: "ZEN", description: "Frontier AI models (600M–480B)", link: "/products/zen", category: "AI" },
-  { name: "KOAN", description: "Enterprise knowledge management", link: "/products/koan", category: "AI" },
-  { name: "HANZO AI", description: "Comprehensive AI platform", link: "/products/hanzo-ai", category: "AI" },
-  { name: "HANZO DX", description: "Developer experience platform", link: "/products/hanzo-dx", category: "Developer" },
-  { name: "HANZO ML", description: "ML operations platform", link: "/products/hanzo-ml", category: "Developer" },
-  { name: "HANZO DEV", description: "AI coding agent", link: "/products/hanzo-dev", category: "Developer" },
-  { name: "HANZO TEAM", description: "Team collaboration", link: "/products/hanzo-team", category: "Developer" },
-  { name: "LUX NETWORK", description: "Post-quantum blockchain", link: "/products/lux", category: "Web3" },
-  { name: "HANZO DAO", description: "Decentralized governance", link: "/products/hanzo-dao", category: "Web3" },
-  { name: "HANZO DEX", description: "Decentralized exchange", link: "/products/hanzo-dex", category: "Web3" },
-  { name: "HANZO AMM", description: "Automated market maker", link: "/products/hanzo-amm", category: "Web3" },
-  { name: "HANZO CEX", description: "Centralized exchange", link: "/products/hanzo-cex", category: "Web3" },
+// The full stack — organized by layer
+const stackLayers = [
+  {
+    label: "Frontier Models",
+    items: [
+      { name: "ZEN", description: "Frontier AI models — 600M to 480B params", link: "/products/zen" },
+      { name: "KOAN", description: "Enterprise knowledge and retrieval", link: "/products/koan" },
+    ],
+  },
+  {
+    label: "AI Platform",
+    items: [
+      { name: "HANZO AI", description: "Full-stack AI platform — training, inference, orchestration", link: "/products/hanzo-ai" },
+      { name: "HANZO ML", description: "ML operations — experiment tracking, model registry, pipelines", link: "/products/hanzo-ml" },
+      { name: "LLM GATEWAY", description: "Unified proxy for 100+ models with auth, billing, observability", link: "/products/hanzo-ai" },
+      { name: "MCP", description: "Model Context Protocol — 260+ tools for AI agents", link: "/products/hanzo-ai" },
+    ],
+  },
+  {
+    label: "Agents & Bots",
+    items: [
+      { name: "HANZO DEV", description: "Agentic coding — AI pair programmer with full codebase context", link: "/products/hanzo-dev" },
+      { name: "HANZO BOT", description: "Bot platform — deploy, orchestrate, and monitor AI agents at scale", link: "/products/hanzo-bot" },
+      { name: "AGENT SDK", description: "Multi-agent framework — planning, tool use, memory, coordination", link: "/products/hanzo-ai" },
+    ],
+  },
+  {
+    label: "Cloud & Infrastructure",
+    items: [
+      { name: "HANZO CLOUD", description: "AI-native PaaS — deploy anything with zero-trust security", link: "/products/hanzo-cloud" },
+      { name: "HANZO NETWORK", description: "Confidential compute — private, decentralized AI workloads", link: "/products/hanzo-network" },
+      { name: "IAM", description: "Multi-tenant identity — SSO, OAuth, JWT across all services", link: "/products/hanzo-cloud" },
+      { name: "KMS", description: "Secrets management — org-scoped, auditable, zero-trust", link: "/products/hanzo-cloud" },
+    ],
+  },
+  {
+    label: "Developer Experience",
+    items: [
+      { name: "HANZO DX", description: "Developer platform — SDKs, APIs, CLI, documentation", link: "/products/hanzo-dx" },
+      { name: "HANZO TEAM", description: "Collaboration — shared workspaces, review, coordination", link: "/products/hanzo-team" },
+      { name: "CONSOLE", description: "Unified dashboard — usage, billing, observability, project management", link: "/products/hanzo-ai" },
+    ],
+  },
 ];
 
 const stats = [
@@ -37,6 +67,27 @@ const stats = [
   { value: "100+", label: "Research Papers" },
   { value: "300+", label: "Open Source Repos" },
   { value: "22", label: "Frontier Models" },
+  { value: "100+", label: "LLM Providers" },
+  { value: "260+", label: "MCP Tools" },
+];
+
+const capabilities = [
+  {
+    title: "Private by Default",
+    description: "AI that runs without routing data through centralized third parties. Confidential compute, secure enclaves, and privacy-preserving execution for sensitive workloads.",
+  },
+  {
+    title: "Full-Stack Vertical Integration",
+    description: "Models, training, inference, cloud, identity, secrets, observability, and developer tools — one integrated stack, not a patchwork of vendors.",
+  },
+  {
+    title: "Open Source Infrastructure",
+    description: "300+ open source repos powering critical AI software supply chains. Public tooling, reference implementations, and sustainable incentive mechanisms.",
+  },
+  {
+    title: "Secure-by-Design Operations",
+    description: "Audit trails, policy enforcement, human-in-the-loop approvals, incident-ready logging. Built for regulated and mission-critical environments.",
+  },
 ];
 
 export default function About() {
@@ -60,12 +111,14 @@ export default function About() {
               fill={isDarkMode ? "#ffffff" : "#000000"}
             />
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
-              Applied AI Lab
+              Full-Stack Private AI
             </h1>
             <p className={cn("text-xl max-w-3xl", isDarkMode ? "text-white/60" : "text-black/60")}>
-              Hanzo is a Techstars-backed AI research lab building frontier models,
-              decentralized infrastructure, and developer tools. We publish open research
-              and ship production systems.
+              Hanzo is a Techstars-backed AI company building a vertically integrated
+              stack — from frontier models to confidential compute to developer tools.
+              We make powerful AI private by default, enabling sensitive workloads in
+              government, defense, healthcare, and finance without routing data through
+              centralized third parties.
             </p>
           </motion.div>
 
@@ -75,7 +128,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
-              "grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 py-8 border-y",
+              "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20 py-8 border-y",
               isDarkMode ? "border-white/10" : "border-black/10"
             )}
           >
@@ -87,36 +140,79 @@ export default function About() {
             ))}
           </motion.div>
 
-          {/* Products */}
+          {/* Core Capabilities */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="mb-20"
+          >
+            <h2 className="text-3xl font-bold mb-8">Why Hanzo</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {capabilities.map((cap) => (
+                <div
+                  key={cap.title}
+                  className={cn(
+                    "p-6 rounded-lg border",
+                    isDarkMode ? "border-white/10" : "border-black/10"
+                  )}
+                >
+                  <h3 className="text-lg font-semibold mb-2">{cap.title}</h3>
+                  <p className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
+                    {cap.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* The Stack */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-8">Products</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {products.map((product) => (
-                <Link
-                  key={product.name}
-                  to={product.link}
-                  className={cn(
-                    "flex items-center justify-between px-6 py-4 rounded-lg border transition-colors group",
-                    isDarkMode
-                      ? "border-white/10 hover:bg-white/5"
-                      : "border-black/10 hover:bg-black/5"
-                  )}
-                >
-                  <div>
-                    <div className="font-semibold group-hover:underline">{product.name}</div>
-                    <div className={cn("text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
-                      {product.description}
-                    </div>
-                  </div>
-                  <span className={cn("text-lg", isDarkMode ? "text-white/30" : "text-black/30")}>→</span>
-                </Link>
-              ))}
-            </div>
+            <h2 className="text-3xl font-bold mb-2">The Stack</h2>
+            <p className={cn("text-lg mb-10", isDarkMode ? "text-white/50" : "text-black/50")}>
+              Vertically integrated from models to cloud — every layer built to work together.
+            </p>
+
+            {stackLayers.map((layer, layerIndex) => (
+              <div key={layer.label} className="mb-10 last:mb-0">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className={cn(
+                    "text-xs font-mono font-medium px-2 py-1 rounded",
+                    isDarkMode ? "bg-white/10 text-white/60" : "bg-black/10 text-black/60"
+                  )}>
+                    {String(layerIndex + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-xl font-semibold">{layer.label}</h3>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ml-10">
+                  {layer.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.link}
+                      className={cn(
+                        "flex items-center justify-between px-5 py-3 rounded-lg border transition-colors group",
+                        isDarkMode
+                          ? "border-white/10 hover:bg-white/5"
+                          : "border-black/10 hover:bg-black/5"
+                      )}
+                    >
+                      <div>
+                        <div className="font-semibold text-sm group-hover:underline">{item.name}</div>
+                        <div className={cn("text-xs", isDarkMode ? "text-white/40" : "text-black/40")}>
+                          {item.description}
+                        </div>
+                      </div>
+                      <span className={cn("text-sm", isDarkMode ? "text-white/20" : "text-black/20")}>→</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
           </motion.div>
 
           {/* Platforms */}
@@ -129,12 +225,12 @@ export default function About() {
             <h2 className="text-3xl font-bold mb-8">Platforms</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {[
-                { name: "hanzo.ai", description: "AI infrastructure", href: "https://hanzo.ai" },
-                { name: "hanzo.industries", description: "Research & enterprise", href: "https://hanzo.industries" },
-                { name: "hanzo.network", description: "Decentralized compute", href: "https://hanzo.network" },
-                { name: "lux.network", description: "Blockchain network", href: "https://lux.network" },
+                { name: "hanzo.ai", description: "AI platform", href: "https://hanzo.ai" },
+                { name: "hanzo.industries", description: "Enterprise & defense", href: "https://hanzo.industries" },
+                { name: "hanzo.network", description: "Confidential compute", href: "https://hanzo.network" },
+                { name: "cloud.hanzo.ai", description: "Cloud PaaS", href: "https://cloud.hanzo.ai" },
+                { name: "llm.hanzo.ai", description: "LLM gateway (100+ models)", href: "https://llm.hanzo.ai" },
                 { name: "docs.hanzo.ai", description: "API documentation", href: "https://docs.hanzo.ai" },
-                { name: "llm.hanzo.ai", description: "LLM gateway", href: "https://llm.hanzo.ai" },
               ].map((platform) => (
                 <a
                   key={platform.name}
@@ -157,39 +253,27 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Organizations */}
+          {/* Open Source */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-8">Organizations</h2>
+            <h2 className="text-3xl font-bold mb-8">Open Source</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
-                  name: "Hanzo AI Inc",
-                  role: "AI infrastructure and research",
-                  detail: "Techstars '17. ASO, HMM, MCP protocols. 300+ open source repos.",
+                  name: "Hanzo AI",
+                  role: "AI infrastructure and developer tools",
+                  detail: "MCP, LLM Gateway, Agent SDK, Cloud PaaS, CLI, SDKs. 300+ repos.",
                   href: "https://github.com/hanzoai",
                 },
                 {
                   name: "Zen LM",
-                  role: "Frontier model development",
+                  role: "Frontier model family",
                   detail: "22 models from 600M to 480B params. Coder, Omni, VL, Nano variants.",
                   href: "https://github.com/zenlm",
-                },
-                {
-                  name: "Lux Network",
-                  role: "Post-quantum blockchain",
-                  detail: "Multi-consensus architecture. FHE, threshold signatures, BFT.",
-                  href: "https://github.com/luxfi",
-                },
-                {
-                  name: "Zoo Labs Foundation",
-                  role: "Decentralized AI research (501c3)",
-                  detail: "Training-Free GRPO. ZIPs governance. Open AI research network.",
-                  href: "https://github.com/zooai",
                 },
               ].map((org) => (
                 <a
@@ -228,9 +312,12 @@ export default function About() {
           >
             <h2 className="text-3xl font-bold mb-4">Mission</h2>
             <p className={cn("text-lg", isDarkMode ? "text-white/60" : "text-black/60")}>
-              Build frontier AI systems with safety at the core. We develop foundation models
-              and deploy them through secure, decentralized infrastructure — publishing our
-              research openly and shipping tools that developers actually use.
+              Make powerful AI private by default. We build full-stack AI infrastructure
+              that converts compute into operational advantage — enabling sensitive workloads
+              in healthcare, finance, defense, and government without requiring organizations
+              to route data through centralized third parties. We publish our research openly,
+              treat open source as critical infrastructure, and ship production systems that
+              teams depend on.
             </p>
           </motion.div>
         </div>
