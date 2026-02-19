@@ -202,7 +202,7 @@ const navMenus = {
     title: "Company",
     items: [
       { label: "About", href: "/about", description: "Our mission and values" },
-      { label: "Team", href: "/team", description: "Meet our researchers" },
+      { label: "Team", href: "/team", description: "Leadership and AI workforce" },
       { label: "Careers", href: "/careers", description: "Join us" },
       { label: "Contact", href: "/contact", description: "Get in touch" },
     ],

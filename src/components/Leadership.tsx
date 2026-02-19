@@ -37,12 +37,6 @@ const Leadership = () => {
       image: "/leadership/vincent-butta.jpg"
     },
     {
-      name: "Leigh Ferreria",
-      title: "Chief Revenue Officer",
-      bio: "Revenue growth strategist leading sales and market expansion. Expert in building scalable revenue operations and driving commercial success.",
-      image: "/leadership/leigh-ferreria.png"
-    },
-    {
       name: "Danielle Savage",
       title: "Chief Brand Officer",
       bio: "Brand visionary elevating Hanzo's global presence and market positioning. Expert in creating compelling brand narratives and customer experiences.",

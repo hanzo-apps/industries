@@ -59,14 +59,6 @@ export default function Team() {
       image: "/leadership/vincent-butta.jpg"
     },
     {
-      name: "Leigh Ferreria",
-      role: "Chief Revenue Officer",
-      description: "Driving revenue growth and market expansion.",
-      icon: DollarSign,
-      gradient: "from-orange-500 to-red-500",
-      image: "/leadership/leigh-ferreria.png"
-    },
-    {
       name: "Danielle Savage",
       role: "Chief Brand Officer",
       description: "Building and elevating the Hanzo brand globally.",
