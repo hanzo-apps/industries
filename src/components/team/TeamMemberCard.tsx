@@ -1,6 +1,6 @@
 import { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter, MessageSquare, Rocket } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
@@ -12,9 +12,10 @@ interface TeamMemberCardProps {
   gradient: string;
   image?: string;
   link?: string;
+  emoji?: string;
 }
 
-const TeamMemberCard = ({ name, role, description, icon: Icon, gradient, image, link }: TeamMemberCardProps) => {
+const TeamMemberCard = ({ name, role, description, icon: Icon, gradient, image, link, emoji }: TeamMemberCardProps) => {
   const { isDarkMode } = useTheme();
   const isHuman = !!image;
 
@@ -43,8 +44,15 @@ const TeamMemberCard = ({ name, role, description, icon: Icon, gradient, image, 
             <img
               src={image}
               alt={name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover grayscale"
             />
+          </div>
+        ) : emoji ? (
+          <div className={cn(
+            "w-16 h-16 rounded-full flex items-center justify-center mb-4 text-2xl",
+            isDarkMode ? "bg-white/5" : "bg-black/5"
+          )}>
+            {emoji}
           </div>
         ) : (
           <div className={cn("inline-flex p-3 rounded-xl bg-gradient-to-br mb-4", gradient)}>
@@ -114,13 +122,49 @@ const TeamMemberCard = ({ name, role, description, icon: Icon, gradient, image, 
           </a>
         </div>
       ) : (
-        <div className="flex items-center gap-2 relative z-10">
-          <span className={cn(
-            "text-xs font-mono px-2 py-1 rounded",
-            isDarkMode ? "bg-white/10 text-white/40" : "bg-black/5 text-black/40"
-          )}>
-            AI Agent
-          </span>
+        <div className="flex items-center gap-3 relative z-10">
+          <a
+            href="https://hanzo.bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              "p-2 rounded-lg border transition-colors",
+              isDarkMode
+                ? "border-white/10 text-white/40 hover:text-white hover:bg-white/10"
+                : "border-black/10 text-black/40 hover:text-black hover:bg-black/5"
+            )}
+            title="Deploy"
+          >
+            <Rocket className="h-4 w-4" />
+          </a>
+          <a
+            href="https://hanzo.chat"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              "p-2 rounded-lg border transition-colors",
+              isDarkMode
+                ? "border-white/10 text-white/40 hover:text-white hover:bg-white/10"
+                : "border-black/10 text-black/40 hover:text-black hover:bg-black/5"
+            )}
+            title="Chat"
+          >
+            <MessageSquare className="h-4 w-4" />
+          </a>
+          <a
+            href="https://github.com/hanzoai/bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              "p-2 rounded-lg border transition-colors",
+              isDarkMode
+                ? "border-white/10 text-white/40 hover:text-white hover:bg-white/10"
+                : "border-black/10 text-black/40 hover:text-black hover:bg-black/5"
+            )}
+            title="GitHub"
+          >
+            <Github className="h-4 w-4" />
+          </a>
         </div>
       )}
     </motion.div>

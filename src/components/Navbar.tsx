@@ -5,7 +5,7 @@ import { ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSqua
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarContainer from "./navigation/NavbarContainer";
 import Logo from "./Logo";
-import ThemeSwitcher from "./ThemeSwitcher";
+
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
@@ -450,7 +450,6 @@ const Navbar = () => {
 
       {/* CTA Buttons */}
       <div className="hidden md:flex items-center space-x-3">
-        <ThemeSwitcher size="sm" />
         <Link to="/press">
           <Button
             variant="ghost"

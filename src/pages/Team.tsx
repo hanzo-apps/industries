@@ -2,12 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {
   Code2, Paintbrush, HelpCircle, Settings, Lightbulb, Bot,
-  MessagesSquare, DollarSign, ChartBar, Shield, Users,
-  Megaphone, Briefcase, Scale, FileText, TestTube, Rocket,
-  Brain, Database, Binary, Search
+  MessagesSquare, ChartBar, Shield, Users
 } from "lucide-react";
 import TeamMemberCard from "@/components/team/TeamMemberCard";
-import PlatformCard from "@/components/team/PlatformCard";
 import CallToAction from "@/components/team/CallToAction";
 import { teamMembers, teamDepartments } from "@/constants/team-members";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -20,16 +17,16 @@ export default function Team() {
   const humanLeadership = [
     {
       name: "Zach Kelling",
-      role: "Founder & CEO",
-      description: "Visionary leader driving Hanzo's mission to build frontier AI.",
+      role: "Founding CTO",
+      description: "Technical founder driving Hanzo's mission to build frontier AI.",
       icon: Code2,
       gradient: "from-blue-500 to-cyan-500",
       image: "/leadership/zach-kelling.png"
     },
     {
       name: "Dave Lorenzini",
-      role: "Chief Technology Officer",
-      description: "Technology visionary with decades of experience in immersive computing and AI.",
+      role: "Chief Strategy Officer",
+      description: "Strategy visionary with decades of experience in immersive computing and AI.",
       icon: Code2,
       gradient: "from-indigo-500 to-blue-500",
       image: "/leadership/dave-lorenzini.jpg"
@@ -52,8 +49,8 @@ export default function Team() {
     },
     {
       name: "Vincent Butta",
-      role: "Executive VP",
-      description: "Leading key initiatives and business operations.",
+      role: "Chief Revenue Officer",
+      description: "Driving revenue growth and commercial strategy.",
       icon: MessagesSquare,
       gradient: "from-green-500 to-emerald-500",
       image: "/leadership/vincent-butta.jpg"
@@ -130,6 +127,30 @@ export default function Team() {
       gradient: "from-indigo-500 to-purple-500",
       image: "/leadership/marcus-white.png"
     },
+    {
+      name: "Ari Lerner",
+      role: "Chief Technological Officer",
+      description: "Deep systems architect driving core platform technology.",
+      icon: Code2,
+      gradient: "from-emerald-500 to-teal-500",
+      image: "/leadership/ari-lerner.png"
+    },
+    {
+      name: "Jackson Mori",
+      role: "VP Engineering",
+      description: "Engineering leader building scalable distributed systems.",
+      icon: Code2,
+      gradient: "from-orange-500 to-red-500",
+      image: "/leadership/jackson-mori.png"
+    },
+    {
+      name: "Ole Brereton",
+      role: "Executive VP",
+      description: "Senior executive driving strategic initiatives and partnerships.",
+      icon: Lightbulb,
+      gradient: "from-amber-500 to-orange-500",
+      image: "/leadership/ole-brereton.png"
+    },
   ];
 
   // Build AI team from constants, grouped by department
@@ -143,26 +164,10 @@ export default function Team() {
         description: m.description,
         icon: m.mainIcon,
         gradient: m.gradient,
+        emoji: (m as any).emoji,
         link: `/team/${id}`,
       })),
   }));
-
-  const platformAgents = [
-    {
-      name: "Hanzo Chat",
-      role: "Team Communication Platform",
-      description: "Slack-like chat where all AI team members collaborate. Channels, DMs, and integrated AI workflows.",
-      icon: MessagesSquare,
-      gradient: "from-teal-500 to-blue-500"
-    },
-    {
-      name: "Hanzo Bot",
-      role: "Agentic Framework",
-      description: "The framework powering our AI workforce. Deploy autonomous agents for any business function at scale.",
-      icon: Bot,
-      gradient: "from-pink-500 to-rose-500"
-    }
-  ];
 
   return (
     <div className={cn(
@@ -174,10 +179,10 @@ export default function Team() {
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-            Our Team
+            People + AI, Building Together
           </h1>
           <p className={cn("text-lg", isDarkMode ? "text-white/50" : "text-black/50")}>
-            Human leadership working alongside an autonomous AI workforce.
+            World-class leadership paired with an autonomous AI workforce that ships around the clock.
           </p>
         </div>
 
@@ -189,7 +194,7 @@ export default function Team() {
               "text-center mb-10 max-w-2xl mx-auto",
               isDarkMode ? "text-white/50" : "text-black/50"
             )}>
-              Our team brings decades of expertise in AI, engineering, and business.
+              Decades of combined expertise in AI, distributed systems, and scaling technology companies.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {humanLeadership.map((member) => (
@@ -225,20 +230,6 @@ export default function Team() {
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Platform Section */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-4">Platform</h2>
-            <p className={cn("mb-8", isDarkMode ? "text-white/50" : "text-black/50")}>
-              The infrastructure powering our autonomous AI workforce.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {platformAgents.map((agent) => (
-              <PlatformCard key={agent.name} {...agent} />
             ))}
           </div>
 

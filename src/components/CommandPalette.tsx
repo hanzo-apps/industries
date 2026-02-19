@@ -4,8 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Search, ArrowRight, Terminal, Brain, Bot, Database, Zap, Shield, Cloud,
   Code, Server, Globe, CreditCard, Users, FileText, Settings, ExternalLink,
-  Command, Lock, BookOpen, Newspaper, Building, Network, Vote,
-  ArrowLeftRight, Repeat, Building2, Cpu,
+  Command, Lock, BookOpen, Newspaper, Building, Network, Cpu,
 } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
@@ -29,15 +28,12 @@ const commands: CommandItem[] = [
   { id: "hanzo-ml", title: "Hanzo ML", description: "ML operations platform", href: "/products/hanzo-ml", icon: Cpu, category: "Products", keywords: ["mlops", "training", "deployment"] },
   { id: "hanzo-dev", title: "Hanzo Dev", description: "Accelerated development", href: "/products/hanzo-dev", icon: Terminal, category: "Products", keywords: ["code", "development", "ai"] },
   { id: "hanzo-team", title: "Hanzo Team", description: "Collaboration platform", href: "/products/hanzo-team", icon: Users, category: "Products", keywords: ["team", "collaboration", "project"] },
-  { id: "lux", title: "Lux Network", description: "Post-quantum blockchain", href: "/products/lux", icon: Shield, category: "Products", keywords: ["blockchain", "crypto", "network", "decentralized"] },
-  { id: "hanzo-dao", title: "Hanzo DAO", description: "Decentralized governance", href: "/products/hanzo-dao", icon: Vote, category: "Products", keywords: ["dao", "governance", "voting", "treasury"] },
-  { id: "hanzo-dex", title: "Hanzo DEX", description: "Decentralized exchange", href: "/products/hanzo-dex", icon: ArrowLeftRight, category: "Products", keywords: ["dex", "swap", "trading", "liquidity"] },
-  { id: "hanzo-amm", title: "Hanzo AMM", description: "Automated market maker", href: "/products/hanzo-amm", icon: Repeat, category: "Products", keywords: ["amm", "liquidity", "trading", "defi"] },
-  { id: "hanzo-cex", title: "Hanzo CEX", description: "Centralized exchange", href: "/products/hanzo-cex", icon: Building2, category: "Products", keywords: ["cex", "exchange", "trading", "fiat"] },
+  { id: "hanzo-cloud", title: "Hanzo Cloud", description: "Private AI cloud infrastructure", href: "/products/hanzo-cloud", icon: Cloud, category: "Products", keywords: ["cloud", "infrastructure", "compute", "gpu"] },
+  { id: "hanzo-bot", title: "Hanzo Bot", description: "Autonomous AI agent framework", href: "/products/hanzo-bot", icon: Bot, category: "Products", keywords: ["bot", "agent", "autonomous", "workforce"] },
   { id: "research", title: "Research", description: "AI research and publications", href: "/research", icon: FileText, category: "Platform", keywords: ["research", "papers", "publications"] },
   { id: "cryptography", title: "Cryptography", description: "Post-quantum cryptography", href: "/research#crypto", icon: Lock, category: "Platform", keywords: ["crypto", "quantum", "security"] },
   { id: "consensus", title: "Consensus", description: "Consensus protocols", href: "/research#consensus", icon: Network, category: "Platform", keywords: ["consensus", "blockchain", "protocols"] },
-  { id: "cloud", title: "Lux Network", description: "Decentralized compute", href: "/products/lux", icon: Cloud, category: "Platform", keywords: ["cloud", "compute", "decentralized"] },
+  { id: "cloud", title: "Hanzo Cloud", description: "Private AI compute", href: "/products/hanzo-cloud", icon: Cloud, category: "Platform", keywords: ["cloud", "compute", "gpu", "private"] },
   { id: "services", title: "Services", description: "Professional services", href: "/services", icon: Server, category: "Platform", keywords: ["consulting", "services", "professional"] },
   { id: "capabilities", title: "Capabilities", description: "AI capabilities overview", href: "/capabilities", icon: Zap, category: "Platform", keywords: ["capabilities", "features", "ai"] },
   { id: "docs", title: "Documentation", description: "API docs and guides", href: "https://docs.hanzo.ai", icon: FileText, category: "Resources", external: true, keywords: ["api", "guide", "tutorial"] },
@@ -155,7 +151,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.15 }}
-            className="fixed top-[10%] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] max-w-xl mx-auto z-[101]"
+            className="fixed top-[10%] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] max-w-xl z-[101]"
           >
             <div className={cn(
               "border rounded-xl shadow-2xl overflow-hidden",
@@ -231,13 +227,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                             <div className={cn(
                               "w-8 h-8 rounded-lg flex items-center justify-center",
                               isSelected
-                                ? "bg-[#fd4444]/20"
+                                ? isDarkMode ? "bg-white/15" : "bg-black/10"
                                 : isDarkMode ? "bg-white/10" : "bg-black/5"
                             )}>
                               <Icon className={cn(
                                 "w-4 h-4",
                                 isSelected
-                                  ? "text-[#fd4444]"
+                                  ? isDarkMode ? "text-white" : "text-black"
                                   : isDarkMode ? "text-white/50" : "text-black/50"
                               )} />
                             </div>

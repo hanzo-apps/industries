@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Check, Github, FileText, Award } from "lucide-react";
 import Logo from "./Logo";
+import ThemeSwitcher from "./ThemeSwitcher";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
@@ -89,7 +90,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
               <div className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>
-                © 2025 Hanzo Industries Inc. All rights reserved.
+                © 2016–2026 Hanzo AI Inc & Hanzo Industries Inc. All rights reserved.
               </div>
               <Link to="/status" className={cn(
                 "inline-flex items-center space-x-2 text-sm transition-colors",
@@ -100,6 +101,7 @@ const Footer = () => {
               </Link>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+              <ThemeSwitcher size="sm" />
               <div className="flex items-center space-x-2">
                 <Award className={cn("h-4 w-4", isDarkMode ? "text-white/40" : "text-black/40")} />
                 <span className={cn("text-sm", isDarkMode ? "text-white/40" : "text-black/40")}>Techstars '17</span>
