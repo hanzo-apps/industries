@@ -1,10 +1,15 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Code2, Paintbrush, HelpCircle, Settings, Lightbulb, Bot, MessagesSquare, DollarSign, ChartBar, Palette, Music, Calculator, Binary, Database, MessageCircle, Scale } from "lucide-react";
+import {
+  Code2, Paintbrush, HelpCircle, Settings, Lightbulb, Bot,
+  MessagesSquare, DollarSign, ChartBar, Shield, Users,
+  Megaphone, Briefcase, Scale, FileText, TestTube, Rocket,
+  Brain, Database, Binary, Search
+} from "lucide-react";
 import TeamMemberCard from "@/components/team/TeamMemberCard";
 import PlatformCard from "@/components/team/PlatformCard";
 import CallToAction from "@/components/team/CallToAction";
-import { Link } from "react-router-dom";
+import { teamMembers, teamDepartments } from "@/constants/team-members";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
@@ -65,7 +70,7 @@ export default function Team() {
       name: "Danielle Savage",
       role: "Chief Brand Officer",
       description: "Building and elevating the Hanzo brand globally.",
-      icon: Palette,
+      icon: Paintbrush,
       gradient: "from-rose-500 to-pink-500",
       image: "/leadership/danielle-savage.png"
     },
@@ -78,12 +83,36 @@ export default function Team() {
       image: "/leadership/ashley-christie.png"
     },
     {
+      name: "Woo Bin",
+      role: "VP Engineering",
+      description: "Full-stack and AI engineer leading platform development.",
+      icon: Code2,
+      gradient: "from-cyan-500 to-blue-500",
+      image: "/leadership/woo-bin.png"
+    },
+    {
       name: "Anastasia Zacharaoff",
       role: "VP Engineering",
       description: "Leading engineering teams and technical development.",
       icon: Code2,
       gradient: "from-violet-500 to-purple-500",
       image: "/leadership/anastasia-zacharaoff.png"
+    },
+    {
+      name: "Jason Xu",
+      role: "Lead Mobile Engineer",
+      description: "Building cross-platform mobile and web applications.",
+      icon: Code2,
+      gradient: "from-sky-500 to-cyan-500",
+      image: "/leadership/jason-xu.png"
+    },
+    {
+      name: "Kaori Fujio",
+      role: "Lead Wallet Engineer",
+      description: "Full-stack developer specializing in wallet and payment systems.",
+      icon: Shield,
+      gradient: "from-pink-500 to-rose-500",
+      image: "/leadership/kaori-fujio.png"
     },
     {
       name: "Rob Ruiz",
@@ -96,149 +125,40 @@ export default function Team() {
     {
       name: "Marcus White",
       role: "VP Research",
-      description: "Leading research and development initiatives.",
+      description: "Leading AI research and development initiatives.",
       icon: Lightbulb,
       gradient: "from-indigo-500 to-purple-500",
       image: "/leadership/marcus-white.png"
-    }
+    },
   ];
 
-  // AI Team Members
-  const aiTeamMembers = [
-    {
-      name: "Dev",
-      role: "AI Developer",
-      description: "Expert in full-stack development and system architecture.",
-      icon: Code2,
-      gradient: "from-blue-500 to-cyan-500",
-      link: "/team/dev"
-    },
-    {
-      name: "Des",
-      role: "AI Designer",
-      description: "Crafting beautiful and intuitive user experiences.",
-      icon: Paintbrush,
-      gradient: "from-purple-500 to-pink-500",
-      link: "/team/des"
-    },
-    {
-      name: "Opera",
-      role: "Operations Engineer",
-      description: "Maintaining system reliability and performance.",
-      icon: Settings,
-      gradient: "from-yellow-500 to-orange-500",
-      link: "/team/opera"
-    },
-    {
-      name: "Mark",
-      role: "Marketing Director",
-      description: "Crafting compelling campaigns and driving engagement.",
-      icon: MessagesSquare,
-      gradient: "from-green-500 to-emerald-500",
-      link: "/team/mark"
-    },
-    {
-      name: "Su",
-      role: "Support Engineer",
-      description: "Ensuring smooth operations and user satisfaction.",
-      icon: HelpCircle,
-      gradient: "from-pink-500 to-rose-500",
-      link: "/team/su"
-    },
-    {
-      name: "Art",
-      role: "AI Artist",
-      description: "Bringing imagination to life through digital artistry.",
-      icon: Palette,
-      gradient: "from-violet-500 to-indigo-500",
-      link: "/team/art"
-    },
-    {
-      name: "Mu",
-      role: "AI Musician",
-      description: "Composing and producing original music.",
-      icon: Music,
-      gradient: "from-pink-500 to-purple-500",
-      link: "/team/mu"
-    },
-    {
-      name: "Data",
-      role: "Data Scientist",
-      description: "Unlocking insights from complex datasets.",
-      icon: ChartBar,
-      gradient: "from-blue-500 to-indigo-500",
-      link: "/team/data"
-    },
-    {
-      name: "Core",
-      role: "Core Engineer",
-      description: "Building robust system foundations.",
-      icon: Settings,
-      gradient: "from-gray-500 to-slate-500",
-      link: "/team/core"
-    },
-    {
-      name: "Fin",
-      role: "Financial Expert",
-      description: "Providing financial insights and strategy.",
-      icon: DollarSign,
-      gradient: "from-green-500 to-teal-500",
-      link: "/team/fin"
-    },
-    {
-      name: "Sec",
-      role: "Security Expert",
-      description: "Protecting digital assets and infrastructure.",
-      icon: Scale,
-      gradient: "from-red-500 to-orange-500",
-      link: "/team/sec"
-    },
-    {
-      name: "Algo",
-      role: "Algorithm Expert",
-      description: "Optimizing computational solutions.",
-      icon: Binary,
-      gradient: "from-cyan-500 to-blue-500",
-      link: "/team/algo"
-    },
-    {
-      name: "DB",
-      role: "Database Expert",
-      description: "Managing data infrastructure.",
-      icon: Database,
-      gradient: "from-emerald-500 to-green-500",
-      link: "/team/db"
-    },
-    {
-      name: "Cal",
-      role: "AI Calculator",
-      description: "Processing complex computations.",
-      icon: Calculator,
-      gradient: "from-purple-500 to-violet-500",
-      link: "/team/cal"
-    },
-    {
-      name: "Chat",
-      role: "Conversation Expert",
-      description: "Facilitating natural communication.",
-      icon: MessageCircle,
-      gradient: "from-blue-500 to-purple-500",
-      link: "/team/chat"
-    }
-  ];
+  // Build AI team from constants, grouped by department
+  const aiTeamByDept = teamDepartments.map((dept) => ({
+    ...dept,
+    members: Object.entries(teamMembers)
+      .filter(([_, m]) => m.department === dept.key)
+      .map(([id, m]) => ({
+        name: m.name,
+        role: m.role,
+        description: m.description,
+        icon: m.mainIcon,
+        gradient: m.gradient,
+        link: `/team/${id}`,
+      })),
+  }));
 
   const platformAgents = [
     {
       name: "Hanzo Chat",
       role: "Team Communication Platform",
-      description: "Our Slack-like chat platform where all AI team members collaborate seamlessly. Features channels, direct messaging, and integrated AI workflows.",
+      description: "Slack-like chat where all AI team members collaborate. Channels, DMs, and integrated AI workflows.",
       icon: MessagesSquare,
       gradient: "from-teal-500 to-blue-500"
     },
     {
       name: "Hanzo Bot",
-      role: "AI Framework",
-      description: "Our advanced Agentic Framework that powers your AI team. Perfect for enterprises looking to augment their workforce with AI clones.",
+      role: "Agentic Framework",
+      description: "The framework powering our AI workforce. Deploy autonomous agents for any business function at scale.",
       icon: Bot,
       gradient: "from-pink-500 to-rose-500"
     }
@@ -256,8 +176,8 @@ export default function Team() {
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">
             Our Team
           </h1>
-          <p className={isDarkMode ? "text-white/50 text-lg" : "text-black/50 text-lg"}>
-            Human leadership working alongside AI team members to build the future of work.
+          <p className={cn("text-lg", isDarkMode ? "text-white/50" : "text-black/50")}>
+            Human leadership working alongside an autonomous AI workforce.
           </p>
         </div>
 
@@ -269,7 +189,7 @@ export default function Team() {
               "text-center mb-10 max-w-2xl mx-auto",
               isDarkMode ? "text-white/50" : "text-black/50"
             )}>
-              Our experienced leadership team brings decades of expertise in AI, technology, and business.
+              Our team brings decades of expertise in AI, engineering, and business.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {humanLeadership.map((member) => (
@@ -278,33 +198,41 @@ export default function Team() {
             </div>
           </div>
 
-          {/* AI Team Section */}
+          {/* AI Team Section — 4x4 Grid */}
           <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-4 text-center">AI Team</h2>
+            <h2 className="text-3xl font-bold mb-4 text-center">AI Workforce</h2>
             <p className={cn(
-              "text-center mb-10 max-w-2xl mx-auto",
+              "text-center mb-12 max-w-2xl mx-auto",
               isDarkMode ? "text-white/50" : "text-black/50"
             )}>
-              Powered by Hanzo Bot, our AI team members work seamlessly to bring your ideas to life.
+              16 autonomous agents organized across four departments — Build, Ship, Grow, Run.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {aiTeamMembers.map((member) => (
-                <Link key={member.name} to={member.link}>
-                  <TeamMemberCard {...member} />
-                </Link>
-              ))}
-            </div>
+
+            {aiTeamByDept.map((dept) => (
+              <div key={dept.key} className="mb-12 last:mb-0">
+                <div className="flex items-center gap-3 mb-6">
+                  <h3 className="text-2xl font-bold">{dept.label}</h3>
+                  <span className={cn(
+                    "text-xs font-mono px-2 py-1 rounded",
+                    isDarkMode ? "bg-white/10 text-white/50" : "bg-black/10 text-black/50"
+                  )}>
+                    {dept.description}
+                  </span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {dept.members.map((member) => (
+                    <TeamMemberCard key={member.name} {...member} />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Platform Section */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our Platform</h2>
-            <p className={cn(
-              "mb-8",
-              isDarkMode ? "text-white/50" : "text-black/50"
-            )}>
-              Hanzo Works enables enterprises to create AI-powered clones of their workforce,
-              enhancing productivity and innovation through our powerful platform.
+            <h2 className="text-3xl font-bold mb-4">Platform</h2>
+            <p className={cn("mb-8", isDarkMode ? "text-white/50" : "text-black/50")}>
+              The infrastructure powering our autonomous AI workforce.
             </p>
           </div>
 

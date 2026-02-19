@@ -17,7 +17,7 @@ import {
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
-const BRAND_COLOR = "#e11633";
+// Theme-aware accent — no red branding
 
 // Available Zen models for the dropdown
 const zenModels = [
@@ -264,14 +264,9 @@ const GlobalChatWidget = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className={cn(
-              "fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center",
-              isDarkMode ? "bg-black border border-white/10" : "bg-white border border-black/10"
-            )}
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center bg-black border border-white/10"
           >
             <img src="/zen-logo.png" alt="Zen AI" className="w-8 h-8" />
-            {/* Pulse animation */}
-            <span className="absolute inset-0 rounded-full animate-ping opacity-20" style={{ backgroundColor: BRAND_COLOR }} />
           </motion.button>
         )}
       </AnimatePresence>
@@ -419,7 +414,7 @@ const GlobalChatWidget = () => {
                     className={cn(
                       "max-w-[85%] px-3 py-2 rounded-2xl text-sm",
                       message.role === "user"
-                        ? "bg-[#fd4444] text-white rounded-br-md"
+                        ? cn("rounded-br-md", isDarkMode ? "bg-white text-black" : "bg-black text-white")
                         : cn(
                             "rounded-bl-md",
                             isDarkMode ? "bg-white/10 text-white/80" : "bg-black/5 text-black/80"
@@ -490,10 +485,14 @@ const GlobalChatWidget = () => {
                 <button
                   onClick={handleSend}
                   disabled={!input.trim() || isLoading}
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all disabled:opacity-50"
-                  style={{ backgroundColor: input.trim() ? BRAND_COLOR : "transparent" }}
+                  className={cn(
+                    "absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all disabled:opacity-50",
+                    input.trim()
+                      ? (isDarkMode ? "bg-white" : "bg-black")
+                      : "bg-transparent"
+                  )}
                 >
-                  <Send className={cn("w-4 h-4", input.trim() ? "text-white" : (isDarkMode ? "text-white/40" : "text-black/40"))} />
+                  <Send className={cn("w-4 h-4", input.trim() ? (isDarkMode ? "text-black" : "text-white") : (isDarkMode ? "text-white/40" : "text-black/40"))} />
                 </button>
               </div>
               <div className="mt-2 text-center">
