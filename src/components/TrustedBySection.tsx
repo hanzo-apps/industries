@@ -1,0 +1,117 @@
+import { motion } from "framer-motion";
+import { partnerLogos } from "@/constants/partner-logos";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
+
+const clients = [
+  "Triller",
+  "Damon",
+  "Bellabeat",
+  "Unikrn",
+  "Cover",
+  "Casper",
+  "Myle",
+  "Drumpants",
+  "Cove",
+  "Aura",
+  "KANOA",
+  "SKULLY",
+  "Zoo Labs Foundation",
+  "Lux Network",
+];
+
+const TrustedBySection = () => {
+  const { isDarkMode } = useTheme();
+
+  return (
+    <section className={cn(
+      "py-20 px-4 md:px-8 transition-colors",
+      isDarkMode ? "bg-black" : "bg-white"
+    )}>
+      <div className="max-w-7xl mx-auto">
+        <style>
+          {`@keyframes brand-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}
+        </style>
+
+        {/* Investors & Partners */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className={cn(
+            "text-3xl md:text-4xl font-medium mb-4",
+            isDarkMode ? "text-white" : "text-black"
+          )}>
+            Investors & Partners
+          </h2>
+          <p className={isDarkMode ? "text-white/40" : "text-black/40"}>
+            Backed by world-class partners
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mb-16"
+        >
+          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6">
+            {partnerLogos.map((logo) => (
+              <div key={logo.name} className="flex items-center justify-center">
+                <img
+                  src={logo.src}
+                  alt={`${logo.name} logo`}
+                  loading="lazy"
+                  className={cn(
+                    "w-auto opacity-60 transition-opacity duration-200 hover:opacity-100",
+                    logo.className ?? "h-6",
+                    isDarkMode ? "invert" : ""
+                  )}
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Trusted by scroller */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <p className={cn(
+            "text-xs uppercase tracking-widest mb-6 text-center",
+            isDarkMode ? "text-white/30" : "text-black/30"
+          )}>
+            Trusted By
+          </p>
+          <div className={cn(
+            "relative overflow-hidden border rounded-full",
+            isDarkMode ? "border-white/10 bg-white/5" : "border-black/10 bg-black/5"
+          )}>
+            <div
+              className={cn(
+                "flex gap-10 py-4 px-6 text-sm w-max",
+                isDarkMode ? "text-white/40" : "text-black/40"
+              )}
+              style={{ animation: "brand-marquee 30s linear infinite" }}
+            >
+              {[...clients, ...clients].map((client, index) => (
+                <span key={`${client}-${index}`} className="whitespace-nowrap">
+                  {client}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default TrustedBySection;

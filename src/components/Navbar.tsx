@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSquare, BookOpen, Microscope, Brain, Shield, Network, Boxes, FlaskConical, FileText, Github, Sparkles } from "lucide-react";
+import { ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSquare, BookOpen, Microscope, Brain, Shield, Network, Boxes, FlaskConical, FileText, Github, Sparkles, Video, Box, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarContainer from "./navigation/NavbarContainer";
 import Logo from "./Logo";
@@ -9,13 +9,24 @@ import Logo from "./Logo";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
-// Try Hanzo dropdown items
-const tryHanzoItems = [
-  { label: "Hanzo AI", href: "https://hanzo.ai", description: "AI platform & models", icon: Bot },
-  { label: "Hanzo Chat", href: "https://hanzo.ai/chat", description: "AI assistant", icon: MessageSquare },
-  { label: "Hanzo Dev", href: "https://hanzo.ai/dev", description: "AI coding tools", icon: Code2 },
-  { label: "Hanzo Cloud", href: "https://cloud.hanzo.ai", description: "AI infrastructure", icon: Cloud },
-  { label: "API Console", href: "https://hanzo.ai/api", description: "API access", icon: Cpu },
+// Zen model family for dropdown
+const zenModels = [
+  { name: "zen-eco", params: "4B", description: "Fast general-purpose LLM", icon: Brain, href: "https://huggingface.co/zenlm/zen-eco-4b-instruct" },
+  { name: "zen-omni", params: "8B", description: "Multimodal vision + audio", icon: Sparkles, href: "https://huggingface.co/zenlm/zen-omni-8b" },
+  { name: "zen-director", params: "5B", description: "Text-to-video generation", icon: Video, href: "https://huggingface.co/zenlm/zen-director-5b" },
+  { name: "zen-3d", params: "3.3B", description: "3D asset generation", icon: Box, href: "https://huggingface.co/zenlm/zen-3d" },
+];
+
+const quickAccess = [
+  { label: "Hanzo Dev", href: "https://hanzo.ai/dev", external: true },
+  { label: "Hanzo Cloud", href: "https://cloud.hanzo.ai", external: true },
+  { label: "All Zen Models", href: "/models", external: false },
+  { label: "Pricing", href: "/pricing", external: false },
+];
+
+const loginItems = [
+  { label: "Hanzo Chat", href: "https://hanzo.chat", external: true },
+  { label: "Hanzo Cloud", href: "https://cloud.hanzo.ai", external: true },
 ];
 
 // Try Hanzo Dropdown Component
@@ -54,6 +65,8 @@ const TryHanzoDropdown = () => {
     timeoutRef.current = setTimeout(() => setIsOpen(false), 300);
   };
 
+  const navigate = useNavigate();
+
   return (
     <div
       className="relative"
@@ -72,7 +85,7 @@ const TryHanzoDropdown = () => {
           isOpen && (isDarkMode ? "bg-white/90" : "bg-black/90")
         )}
       >
-        Try Zen
+        Try Hanzo
         <ChevronDown className={cn("w-4 h-4 ml-1 transition-transform duration-200", isOpen && "rotate-180")} />
       </Button>
 
@@ -83,74 +96,142 @@ const TryHanzoDropdown = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className={cn(
-              "absolute right-0 pt-2 w-64 z-50"
-            )}
+            className="absolute right-0 top-full w-[420px] z-50"
           >
-          <div
-            className={cn(
-              "backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden",
+            {/* Bridge */}
+            <div className="h-2" />
+            <div className={cn(
+              "backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden",
               isDarkMode
                 ? "bg-neutral-900/95 border-white/10 shadow-black/50"
                 : "bg-white/95 border-black/10 shadow-black/10"
-            )}
-          >
-            <div className="py-2">
-              {tryHanzoItems.map((item) => {
-                const Icon = item.icon;
-                return (
+            )}>
+              {/* Zen AI Models */}
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-amber-400" />
+                    <span className={cn(
+                      "text-xs font-semibold uppercase tracking-wider",
+                      isDarkMode ? "text-white" : "text-black"
+                    )}>
+                      Zen AI Models
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => { setIsOpen(false); navigate("/models"); }}
+                    className={cn(
+                      "text-xs transition-colors",
+                      isDarkMode ? "text-white/40 hover:text-white" : "text-black/40 hover:text-black"
+                    )}
+                  >
+                    View all &rarr;
+                  </button>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {zenModels.map((model) => {
+                    const ModelIcon = model.icon;
+                    return (
+                      <a
+                        key={model.name}
+                        href={model.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "group flex items-start gap-3 p-3 rounded-xl transition-colors",
+                          isDarkMode ? "bg-white/5 hover:bg-white/10" : "bg-black/5 hover:bg-black/10"
+                        )}
+                      >
+                        <div className={cn(
+                          "w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0",
+                          isDarkMode ? "bg-white/10" : "bg-black/10"
+                        )}>
+                          <ModelIcon className={cn(
+                            "w-4 h-4",
+                            isDarkMode ? "text-white/70 group-hover:text-white" : "text-black/70 group-hover:text-black"
+                          )} />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className={cn("text-sm font-medium", isDarkMode ? "text-white" : "text-black")}>{model.name}</span>
+                            <span className={cn("text-[10px] font-mono", isDarkMode ? "text-white/40" : "text-black/40")}>{model.params}</span>
+                          </div>
+                          <p className={cn("text-xs truncate", isDarkMode ? "text-white/40" : "text-black/40")}>{model.description}</p>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className={cn("border-t", isDarkMode ? "border-white/10" : "border-black/10")} />
+
+              {/* Quick Access */}
+              <div className="py-2">
+                <div className="px-4 py-1.5">
+                  <span className={cn("text-[10px] font-medium uppercase tracking-wider", isDarkMode ? "text-white/40" : "text-black/40")}>
+                    Quick Access
+                  </span>
+                </div>
+                {quickAccess.map((item) => (
+                  item.external ? (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "flex items-center justify-between w-full py-2 px-4 transition-colors",
+                        isDarkMode ? "text-white hover:bg-white/5" : "text-black hover:bg-black/5"
+                      )}
+                    >
+                      <span className="text-sm">{item.label}</span>
+                      <ExternalLink className={cn("w-3.5 h-3.5", isDarkMode ? "text-white/30" : "text-black/30")} />
+                    </a>
+                  ) : (
+                    <button
+                      key={item.label}
+                      onClick={() => { setIsOpen(false); navigate(item.href); }}
+                      className={cn(
+                        "flex items-center justify-between w-full py-2 px-4 text-left transition-colors",
+                        isDarkMode ? "text-white hover:bg-white/5" : "text-black hover:bg-black/5"
+                      )}
+                    >
+                      <span className="text-sm">{item.label}</span>
+                    </button>
+                  )
+                ))}
+              </div>
+
+              <div className={cn("border-t", isDarkMode ? "border-white/10" : "border-black/10")} />
+
+              {/* Login */}
+              <div className="py-2">
+                <div className="px-4 py-1.5">
+                  <span className={cn("text-[10px] font-medium uppercase tracking-wider", isDarkMode ? "text-white/40" : "text-black/40")}>
+                    Log in
+                  </span>
+                </div>
+                {loginItems.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
                     className={cn(
-                      "flex items-center gap-3 px-4 py-3 transition-all duration-150 group",
-                      isDarkMode ? "hover:bg-white/10" : "hover:bg-black/5"
+                      "flex items-center justify-between w-full py-2 px-4 transition-colors",
+                      isDarkMode ? "text-white hover:bg-white/5" : "text-black hover:bg-black/5"
                     )}
                   >
-                    <div className={cn(
-                      "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
-                      isDarkMode
-                        ? "bg-white/10 group-hover:bg-white/20"
-                        : "bg-black/5 group-hover:bg-black/10"
-                    )}>
-                      <Icon className={cn(
-                        "w-4 h-4",
-                        isDarkMode
-                          ? "text-white/70 group-hover:text-white"
-                          : "text-black/70 group-hover:text-black"
-                      )} />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <span className={cn(
-                          "font-medium text-sm",
-                          isDarkMode
-                            ? "text-white/90 group-hover:text-white"
-                            : "text-black/90 group-hover:text-black"
-                        )}>
-                          {item.label}
-                        </span>
-                        <ExternalLink className={cn(
-                          "w-3 h-3",
-                          isDarkMode
-                            ? "text-white/30 group-hover:text-white/60"
-                            : "text-black/30 group-hover:text-black/60"
-                        )} />
-                      </div>
-                      <p className={cn(
-                        "text-xs",
-                        isDarkMode
-                          ? "text-white/40 group-hover:text-white/60"
-                          : "text-black/40 group-hover:text-black/60"
-                      )}>{item.description}</p>
-                    </div>
+                    <span className="text-sm">{item.label}</span>
+                    <ExternalLink className={cn("w-3.5 h-3.5", isDarkMode ? "text-white/30" : "text-black/30")} />
                   </a>
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </div>
           </motion.div>
         )}
       </AnimatePresence>
