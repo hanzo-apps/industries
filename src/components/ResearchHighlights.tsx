@@ -46,7 +46,7 @@ const ResearchHighlights = () => {
       title: "Zen AI Models",
       description: "Efficient frontier models from 600M to 1T+ parameters",
       papers: [
-        { title: "Zen Model Family", href: "https://huggingface.co/zenlm", result: "95% energy reduction" },
+        { title: "Zen Model Family", href: "https://huggingface.co/zenlm", result: "600M-1T+ parameters" },
         { title: "Zen-Reranker (ZIP-002)", href: "https://github.com/zooai/zips", result: "7680-dim embeddings" },
         { title: "JIN Multimodal", href: "https://github.com/hanzoai/jin", result: "Vision, audio, 3D unified" },
       ],
