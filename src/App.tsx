@@ -49,7 +49,7 @@ const productPages = [
     description: "Frontier AI models from 600M to 1T+ parameters, optimized for efficiency and deployed across edge to cloud.",
     features: [
       "State-of-the-art language models (Qwen3+ based)",
-      "95% energy reduction through efficient architecture",
+      "Optimized for edge-to-cloud deployment efficiency",
       "Multi-model orchestration and management",
       "Edge deployment optimization",
       "Automated prompt engineering",

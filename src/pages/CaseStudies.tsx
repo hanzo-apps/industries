@@ -31,7 +31,7 @@ export default function CaseStudies() {
       description: "Published ASO framework achieving 18.2% SWE-bench resolution through training-free adaptation",
       results: [
         "18.2% SWE-bench resolution rate",
-        "29.5x memory savings with BitDelta compression",
+        "BitDelta 1-bit compression for model adaptation",
         "Zero additional training required",
         "Published HIP-002 specification"
       ],
@@ -91,7 +91,7 @@ export default function CaseStudies() {
       description: "Novel invariant H(Psi,Theta) = kappa for decentralized AI compute markets",
       results: [
         "<200ms quote latency",
-        "98.7% price stability",
+        "Hamiltonian invariant pricing",
         "No impermanent loss for providers",
         "Published HIP-004 specification"
       ],

@@ -62,14 +62,14 @@ const pressReleases = [
   {
     date: "October 2024",
     title: "Hamiltonian Market Maker (HMM) Published",
-    description: "HIP-004 specification released for decentralized AI compute markets with <200ms quote latency and 98.7% price stability.",
+    description: "HIP-004 specification released for decentralized AI compute markets with Hamiltonian invariant pricing and <200ms quote latency.",
     link: "https://github.com/hanzoai/papers",
     type: "Research",
   },
   {
     date: "September 2024",
     title: "Active Semantic Optimization (ASO) Framework",
-    description: "Published ASO achieving 18.2% SWE-bench resolution through training-free adaptation and 29.5x memory savings with BitDelta compression.",
+    description: "Published ASO achieving 18.2% SWE-bench resolution through training-free adaptation and BitDelta 1-bit compression.",
     link: "https://github.com/hanzoai/papers",
     type: "Research",
   },
