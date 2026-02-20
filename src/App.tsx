@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,34 +9,35 @@ import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
 import GlobalChatWidget from "./components/GlobalChatWidget";
 import CommandPalette from "./components/CommandPalette";
-import Index from "./pages/Index";
-import Auth from "./pages/Auth";
-import Pricing from "./pages/Pricing";
-import Solutions from "./pages/Solutions";
-import NotFound from "./pages/NotFound";
-import Install from "./pages/Install";
-import Status from "./pages/Status";
-import Security from "./pages/Security";
-import Terms from "./pages/Terms";
-import Privacy from "./pages/Privacy";
-import Services from "./pages/Services";
-import ComingSoon from "./pages/ComingSoon";
-import ContactPage from "./pages/ContactPage";
-import About from "./pages/About";
-import Team from "./pages/Team";
-import Capabilities from "./pages/Capabilities";
-import DecentralizedAI from "./pages/capabilities/DecentralizedAI";
-import CaseStudies from "./pages/CaseStudies";
-import Examples from "./pages/Examples";
-import Research from "./pages/Research";
-import Press from "./pages/Press";
-import AIModels from "./pages/AIModels";
-import Blog from "./pages/Blog";
-import News from "./pages/News";
-import Help from "./pages/Help";
-import Careers from "./pages/Careers";
 import { Brain, Code2, Bot, Users, Cpu, Zap, Shield, Database, Vote, ArrowLeftRight, Building2, Repeat } from "lucide-react";
-import ProductPage from "./components/ProductPage";
+
+const Index = lazy(() => import("./pages/Index"));
+const Auth = lazy(() => import("./pages/Auth"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const Solutions = lazy(() => import("./pages/Solutions"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Install = lazy(() => import("./pages/Install"));
+const Status = lazy(() => import("./pages/Status"));
+const Security = lazy(() => import("./pages/Security"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Services = lazy(() => import("./pages/Services"));
+const ComingSoon = lazy(() => import("./pages/ComingSoon"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const About = lazy(() => import("./pages/About"));
+const Team = lazy(() => import("./pages/Team"));
+const Capabilities = lazy(() => import("./pages/Capabilities"));
+const DecentralizedAI = lazy(() => import("./pages/capabilities/DecentralizedAI"));
+const CaseStudies = lazy(() => import("./pages/CaseStudies"));
+const Examples = lazy(() => import("./pages/Examples"));
+const Research = lazy(() => import("./pages/Research"));
+const Press = lazy(() => import("./pages/Press"));
+const AIModels = lazy(() => import("./pages/AIModels"));
+const Blog = lazy(() => import("./pages/Blog"));
+const News = lazy(() => import("./pages/News"));
+const Help = lazy(() => import("./pages/Help"));
+const Careers = lazy(() => import("./pages/Careers"));
+const ProductPage = lazy(() => import("./components/ProductPage"));
 
 const queryClient = new QueryClient();
 
@@ -248,6 +249,7 @@ const App = () => {
           <BrowserRouter>
             <ScrollToTop />
             <PageTransition>
+              <Suspense fallback={<div className="min-h-screen" />}>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/auth" element={<Auth />} />
@@ -304,6 +306,7 @@ const App = () => {
                 <Route path="/cloud" element={<Navigate to="/products/lux" replace />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
+              </Suspense>
             </PageTransition>
             <GlobalChatWidget />
             <CommandPalette isOpen={isCommandPaletteOpen} onClose={() => setIsCommandPaletteOpen(false)} />
