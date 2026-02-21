@@ -69,7 +69,7 @@ Careers.tsx, CaseStudies.tsx (page+component), About.tsx, Research.tsx, News.tsx
 
 | Family | Icon | Count | Examples |
 |--------|------|-------|----------|
-| Foundation | Brain | 6 | zen-nano (0.6B), zen-eco (4B), zen (8–32B), zen-pro (32B), zen-max (1T+ MoE), zen-next |
+| Foundation | Brain | 6 | zen-nano (0.6B), zen-eco (4B), zen (8–32B), zen-pro (32B), zen-max/zen4-max (1T+ MoE), zen-next |
 | Zen 4 (latest gen) | Sparkles | 5 | zen4-mini (8B), zen4-pro (80B MoE), zen4 (744B MoE), zen4-max (1.04T MoE), zen4-ultra (744B MoE+CoT) |
 | Code | Code | 4 | zen4-coder-flash (30B MoE), zen4-coder (480B MoE), zen4-coder-pro (480B BF16), zen-coder |
 | Vision & Image | Eye | 5 | zen-vl, zen-omni, zen-artist, zen-artist-edit, zen-designer |
