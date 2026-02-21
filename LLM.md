@@ -56,7 +56,7 @@ All components use `isDarkMode` boolean for conditional styling.
 | AI model repos (zenlm) | 48 | 45+ AI Models |
 | Client Revenue | — | $1B+ |
 | Modalities | 7 | text, vision, video, audio, 3D, code, agents |
-| Max params | 480B | zen4-max (MoE) |
+| Max params | 1T+ | zen4-max (MoE) |
 | Global offices | 7 | SF, LA, KC, Vancouver, NY, Marbella, Paris |
 
 Stats are referenced in: Hero.tsx, Footer.tsx, Leadership.tsx, CallToAction.tsx,
@@ -69,9 +69,9 @@ Careers.tsx, CaseStudies.tsx (page+component), About.tsx, Research.tsx, News.tsx
 
 | Family | Icon | Count | Examples |
 |--------|------|-------|----------|
-| Foundation | Brain | 6 | zen-nano (0.6B), zen-eco (4B), zen (8–32B), zen-pro (32B), zen-max (235B MoE), zen-next |
-| Zen 4 (latest gen) | Sparkles | 5 | zen4 (8B), zen4-mini (4B), zen4-pro (32B), zen4-max (480B MoE), zen4-max-pro |
-| Code | Code | 5 | zen-coder, zen-coder-flash, zen4-coder, zen4-coder-flash, zen-code |
+| Foundation | Brain | 6 | zen-nano (0.6B), zen-eco (4B), zen (8–32B), zen-pro (32B), zen-max (1T+ MoE), zen-next |
+| Zen 4 (latest gen) | Sparkles | 5 | zen4-mini (8B), zen4-pro (80B MoE), zen4 (744B MoE), zen4-max (1.04T MoE), zen4-ultra (744B MoE+CoT) |
+| Code | Code | 4 | zen4-coder-flash (30B MoE), zen4-coder (480B MoE), zen4-coder-pro (480B BF16), zen-coder |
 | Vision & Image | Eye | 5 | zen-vl, zen-omni, zen-artist, zen-artist-edit, zen-designer |
 | Video | Video | 4 | zen-director, zen-video, zen-video-i2v, zen-voyager |
 | Audio & Speech | Mic | 7 | zen-musician, zen-foley, zen-dub, zen-dub-live, zen-scribe, zen-translator, zen-live |
