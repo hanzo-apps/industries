@@ -74,7 +74,7 @@ const modelFamilies = {
       {
         name: "zen-max (zen4-max)",
         params: "1T+ (MoE)",
-        description: "Frontier MoE — 1.04T total, 32B active params, 256K context. Based on Kimi K2-Thinking. See Zen4 Max below",
+        description: "Frontier MoE — 1.04T total, 32B active params, 256K context. See Zen4 Max below",
         performance: "Cloud only",
         memory: "Cloud API",
         capabilities: ["Text", "Code", "Math", "Reasoning", "Agents"],
@@ -99,7 +99,7 @@ const modelFamilies = {
       {
         name: "zen4-mini",
         params: "8B",
-        description: "Fast and efficient model for low-latency tasks. Based on Qwen3-8B",
+        description: "Fast and efficient model for low-latency tasks, 40K context",
         performance: "32K tokens/sec",
         memory: "8–16GB",
         capabilities: ["Text", "Code", "Math", "Edge"],
@@ -108,7 +108,7 @@ const modelFamilies = {
       {
         name: "zen4-pro",
         params: "80B (MoE, 3B active)",
-        description: "Production workhorse — Qwen3-Next-80B MoE, 131K context, strong reasoning and tool use",
+        description: "Production workhorse — 80B MoE with 3B active, 131K context, strong reasoning and tool use",
         performance: "Real-time",
         memory: "16–32GB",
         capabilities: ["Text", "Code", "Reasoning", "Tools"],
@@ -117,7 +117,7 @@ const modelFamilies = {
       {
         name: "zen4",
         params: "744B (MoE, 40B active)",
-        description: "Flagship model — GLM-5 base, 205K context, top-tier multilingual reasoning",
+        description: "Flagship model — 744B MoE with 40B active, 202K context, top-tier multilingual reasoning",
         performance: "Cloud / high-end GPU",
         memory: "Cloud API",
         capabilities: ["Text", "Code", "Math", "Reasoning"],
@@ -126,7 +126,7 @@ const modelFamilies = {
       {
         name: "zen4-max",
         params: "1.04T (MoE, 32B active)",
-        description: "Maximum scale — Kimi K2-Thinking base, 256K context, frontier reasoning",
+        description: "Maximum scale — 1.04T MoE with 32B active, 256K context, frontier reasoning",
         performance: "Cloud only",
         memory: "Cloud API",
         capabilities: ["Text", "Code", "Reasoning", "Frontier"],
@@ -135,7 +135,7 @@ const modelFamilies = {
       {
         name: "zen4-ultra",
         params: "744B (MoE, 40B active)",
-        description: "Maximum reasoning — GLM-5 with deep thinking mode, 205K context, extended chain-of-thought",
+        description: "Maximum reasoning — extended thinking mode, 202K context, deep chain-of-thought",
         performance: "Cloud only",
         memory: "Cloud API",
         capabilities: ["Text", "Code", "Reasoning", "Thinking"],
@@ -151,7 +151,7 @@ const modelFamilies = {
       {
         name: "zen4-coder-flash",
         params: "30B (MoE, 3B active)",
-        description: "Fast code completion — Qwen3-Coder-30B-A3B, 262K context, real-time inline suggestions",
+        description: "Fast code completion — 30B MoE with 3B active, 262K context, real-time inline suggestions",
         performance: "Real-time",
         memory: "8–16GB",
         capabilities: ["Code", "Completions", "Fast", "262K ctx"],
@@ -160,7 +160,7 @@ const modelFamilies = {
       {
         name: "zen4-coder",
         params: "480B (MoE, 35B active)",
-        description: "Professional code model — Qwen3-Coder-480B, 262K context, agentic coding",
+        description: "Professional code model — 480B MoE with 35B active, 262K context, agentic coding",
         performance: "Cloud / high-end GPU",
         memory: "Cloud API",
         capabilities: ["Code", "Agents", "Tools", "Agentic"],
@@ -169,7 +169,7 @@ const modelFamilies = {
       {
         name: "zen4-coder-pro",
         params: "480B (dense, BF16)",
-        description: "Maximum code accuracy — Qwen3-Coder-480B full precision, 262K context",
+        description: "Maximum code accuracy — 480B full precision BF16, 262K context",
         performance: "Cloud only",
         memory: "Cloud API",
         capabilities: ["Code", "Precision", "Deep Reasoning"],
