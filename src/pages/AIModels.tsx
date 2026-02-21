@@ -72,10 +72,10 @@ const modelFamilies = {
         href: "https://huggingface.co/zenlm/zen-pro-32b",
       },
       {
-        name: "zen-max",
+        name: "zen-max (zen4-max)",
         params: "1T+ (MoE)",
-        description: "Frontier MoE — 1.04T total, 32B active params, 256K context. Based on Kimi K2-Thinking",
-        performance: "Cluster inference",
+        description: "Frontier MoE — 1.04T total, 32B active params, 256K context. Based on Kimi K2-Thinking. See Zen4 Max below",
+        performance: "Cloud only",
         memory: "Cloud API",
         capabilities: ["Text", "Code", "Math", "Reasoning", "Agents"],
         href: "https://huggingface.co/zenlm/zen-max",
