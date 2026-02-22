@@ -141,11 +141,20 @@ enterprise→NY/Marbella, research→SF/LA/Paris, operations→SF/KC/Vancouver.
 | luxfhe | 64 | FHE crypto |
 | zoo-labs | 36 | Foundation |
 
+## Brand Policy: No Upstream References
+
+**CRITICAL**: All public-facing docs must present Zen models as our own family/architecture.
+- Never reference upstream model names (GLM-5, Kimi K2.5, Qwen3, Moonshot, Zhipu, etc.)
+- Keep factual specs (params, context, architecture type) accurate
+- Private upstream mapping lives in zen-gateway at `~/work/hanzo/zen/gateway/config.yaml`
+- Brand methodology: **Zen MoDE (Mixture of Distilled Experts)**
+- Applies to: hanzo.industries, hanzo.ai, zenlm.org (zen-docs), GitHub READMEs, HuggingFace model cards
+- Cleaned across all surfaces on 2026-02-21
+
 ## Pending Work
 
-- [ ] Zen repo pushes failing (SSH disconnect — likely GitHub rate limit or repo size issue)
+- [ ] Each model needs its own white paper (14 models)
 - [ ] hanzo/papers: Makefile needs rewrite to compile all 21 papers (only builds whitepaper)
 - [ ] zoo/papers: Needs Makefile, 8 papers need PDF compilation
 - [ ] lux/papers: 1 missing PDF (lux-consensus.tex)
-- [ ] Per-model sites, papers, HuggingFace repos, model cards (large multi-session scope)
 - [ ] Cross-site model integration (hanzo.ai, hanzo.bot)
