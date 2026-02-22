@@ -1,8 +1,8 @@
 /**
- * Zen model data for hanzo.industries — imported from @hanzo/zen-models.
+ * Zen model data for hanzo.industries — imported from @zenlm/models.
  *
  * This file re-exports the canonical model definitions.
- * Do NOT define model specs here. Edit @hanzo/zen-models instead.
+ * Do NOT define model specs here. Edit @zenlm/models instead.
  *
  * @see ~/work/hanzo/docs/packages/zen-models/src/models.ts
  */
@@ -66,9 +66,9 @@ export {
   zenEmbedding,
   zenReranker,
   zenAgent,
-} from '@hanzo/zen-models'
+} from '@zenlm/models'
 
-export { families } from '@hanzo/zen-models'
+export { families } from '@zenlm/models'
 
 export type {
   ZenModel,
@@ -77,4 +77,4 @@ export type {
   ModelTier,
   ModelCategory,
   ModelModality,
-} from '@hanzo/zen-models'
+} from '@zenlm/models'
