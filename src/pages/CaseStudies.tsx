@@ -20,7 +20,7 @@ export default function CaseStudies() {
         "Comparable performance to full fine-tuning",
         "Open-sourced via Zoo Labs Foundation"
       ],
-      technologies: ["GRPO", "LoRA", "Qwen3", "Distributed Training"],
+      technologies: ["GRPO", "LoRA", "Zen MoDE", "Distributed Training"],
       impact: "Democratizing AI training for researchers and organizations worldwide",
       link: "https://github.com/zooai/gym"
     },
@@ -76,11 +76,11 @@ export default function CaseStudies() {
       description: "Released 100+ model weights spanning text, vision, video, audio, 3D, code, and agents",
       results: [
         "100+ model weights across 10 families",
-        "1.04T MoE flagship (zen4-ultra, Kimi K2.5 base)",
+        "1.04T MoE flagship (zen4-max, Zen MoDE architecture)",
         "671B MoE (zen-max) with 71.3% SWE-bench",
         "Zen5 (2T+) in training — on-chain via NVIDIA TEE"
       ],
-      technologies: ["Qwen3", "Kimi K2/K2.5", "Flash Attention", "MoE"],
+      technologies: ["Zen MoDE", "Flash Attention", "MoE", "Mixture of Distilled Experts"],
       impact: "Providing accessible, efficient frontier AI to the research community",
       link: "https://huggingface.co/zenlm"
     },

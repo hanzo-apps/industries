@@ -1,16 +1,87 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Check, Zap, Building2, Sparkles, ArrowRight } from "lucide-react";
+import { Check, Zap, Building2, Sparkles, ArrowRight, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const PRICING_API = "https://api.hanzo.ai/v1/pricing";
+
+interface ModelPricing {
+  name: string;
+  fullName: string;
+  tier: string;
+  features: string[];
+  pricing: {
+    input: number;
+    output: number;
+    cacheRead: number | null;
+    cacheWrite: number | null;
+  };
+}
+
+interface ThirdPartyModel {
+  name: string;
+  features: string[];
+  contextWindow: number;
+  pricing: {
+    input: number;
+    output: number;
+    cacheRead: number | null;
+    cacheWrite: number | null;
+  };
+}
+
+interface PricingData {
+  updated: string;
+  hanzoModels: ModelPricing[];
+  thirdPartyModels: ThirdPartyModel[];
+}
+
+function extractContext(features: string[]): string {
+  const ctx = features.find((f) => f.toLowerCase().includes("context"));
+  if (!ctx) return "—";
+  const match = ctx.match(/(\d+[kK]?)/);
+  return match ? match[1].toUpperCase() : ctx;
+}
+
+function formatPrice(price: number): string {
+  if (price < 1) return `$${price.toFixed(2)}`;
+  return `$${price.toFixed(2)}`;
+}
+
+const TIER_ORDER = ["pro", "pro max", "ultra", "ultra max"];
+
+function tierSort(a: ModelPricing, b: ModelPricing): number {
+  return TIER_ORDER.indexOf(a.tier) - TIER_ORDER.indexOf(b.tier);
+}
 
 const Pricing = () => {
   const { isDarkMode } = useTheme();
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "annual">("monthly");
+  const [pricingData, setPricingData] = useState<PricingData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch(PRICING_API)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((data) => {
+        setPricingData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch pricing:", err);
+        setError("Unable to load live pricing. Please try again later.");
+        setLoading(false);
+      });
+  }, []);
 
   const plans = [
     {
@@ -21,14 +92,14 @@ const Pricing = () => {
       icon: Zap,
       features: [
         "Access to Zen models via API",
-        "1M tokens/month free",
+        "$5 free credit (new accounts)",
+        "60 requests/min",
+        "100K tokens/min",
         "Hanzo MCP tools",
         "Community Discord support",
-        "Basic documentation",
-        "Rate-limited API access",
       ],
       cta: "Start Free",
-      ctaLink: "https://hanzo.ai/signup",
+      ctaLink: "https://console.hanzo.ai",
       highlighted: false,
     },
     {
@@ -39,16 +110,15 @@ const Pricing = () => {
       icon: Sparkles,
       features: [
         "Everything in Developer",
-        "10M tokens/month included",
-        "Priority API access",
-        "Access to all Zen models",
+        "500 requests/min",
+        "1M tokens/min",
+        "Access to all Zen + third-party models",
         "Hanzo Dev CLI tools",
         "Email support",
         "Usage analytics dashboard",
-        "Custom model fine-tuning (limited)",
       ],
       cta: "Get Started",
-      ctaLink: "https://hanzo.ai/signup?plan=pro",
+      ctaLink: "https://console.hanzo.ai?plan=pro",
       highlighted: true,
       badge: "Most Popular",
     },
@@ -60,7 +130,6 @@ const Pricing = () => {
       icon: Building2,
       features: [
         "Everything in Pro",
-        "50M tokens/month included",
         "Up to 10 team members",
         "Shared workspaces",
         "Admin console",
@@ -70,7 +139,7 @@ const Pricing = () => {
         "Data excluded from training",
       ],
       cta: "Start Trial",
-      ctaLink: "https://hanzo.ai/signup?plan=team",
+      ctaLink: "https://console.hanzo.ai?plan=team",
       highlighted: false,
     },
   ];
@@ -88,14 +157,8 @@ const Pricing = () => {
     "Executive business reviews",
   ];
 
-  const apiPricing = [
-    { model: "Zen-32B", input: "$0.15", output: "$0.60", context: "128K" },
-    { model: "Zen-72B", input: "$0.40", output: "$1.20", context: "128K" },
-    { model: "Zen-235B", input: "$2.50", output: "$10.00", context: "128K" },
-    { model: "Zen Ultra", input: "$5.00", output: "$15.00", context: "256K" },
-    { model: "Zen-Coder-32B", input: "$0.15", output: "$0.60", context: "128K" },
-    { model: "Zen-Omni", input: "$2.50", output: "$10.00", context: "128K" },
-  ];
+  const hanzoModels = pricingData?.hanzoModels?.slice().sort(tierSort) ?? [];
+  const thirdPartyModels = pricingData?.thirdPartyModels ?? [];
 
   return (
     <div className={cn("min-h-screen transition-colors duration-300", isDarkMode ? "bg-black text-white" : "bg-white text-black")}>
@@ -276,7 +339,7 @@ const Pricing = () => {
             </div>
           </motion.div>
 
-          {/* API Pricing Table */}
+          {/* API Pricing — Zen Models (live from API) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -284,37 +347,116 @@ const Pricing = () => {
             transition={{ duration: 0.5 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-2">API Pricing</h2>
+            <h2 className="text-3xl font-bold mb-2">Zen Model Pricing</h2>
             <p className={cn("mb-8", isDarkMode ? "text-white/50" : "text-black/50")}>
-              Pay-as-you-go pricing per million tokens. Volume discounts available.
+              Pay-as-you-go per million tokens. All 14 Zen models via <code className="text-xs">api.hanzo.ai</code>.
+              {pricingData?.updated && (
+                <span className={cn("ml-2 text-xs", isDarkMode ? "text-white/30" : "text-black/30")}>
+                  Updated {new Date(pricingData.updated).toLocaleDateString()}
+                </span>
+              )}
             </p>
 
-            <div className="overflow-x-auto">
-              <table className={cn("w-full border rounded-lg overflow-hidden", isDarkMode ? "border-white/10" : "border-black/10")}>
-                <thead className={cn(isDarkMode ? "bg-white/5" : "bg-black/5")}>
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold">Model</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold">Input (per 1M tokens)</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold">Output (per 1M tokens)</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold">Context</th>
-                  </tr>
-                </thead>
-                <tbody className={cn("divide-y", isDarkMode ? "divide-white/10" : "divide-black/10")}>
-                  {apiPricing.map((row) => (
-                    <tr key={row.model} className={cn("transition-colors", isDarkMode ? "hover:bg-white/5" : "hover:bg-black/5")}>
-                      <td className="px-6 py-4 font-medium">{row.model}</td>
-                      <td className={cn("px-6 py-4", isDarkMode ? "text-white/50" : "text-black/50")}>{row.input}</td>
-                      <td className={cn("px-6 py-4", isDarkMode ? "text-white/50" : "text-black/50")}>{row.output}</td>
-                      <td className={cn("px-6 py-4", isDarkMode ? "text-white/50" : "text-black/50")}>{row.context}</td>
+            {loading ? (
+              <div className="flex items-center justify-center py-16">
+                <Loader2 className="w-6 h-6 animate-spin mr-2" />
+                <span className={cn(isDarkMode ? "text-white/50" : "text-black/50")}>Loading live pricing...</span>
+              </div>
+            ) : error ? (
+              <div className={cn("text-center py-16", isDarkMode ? "text-white/40" : "text-black/40")}>
+                {error}
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className={cn("w-full border rounded-lg overflow-hidden", isDarkMode ? "border-white/10" : "border-black/10")}>
+                  <thead className={cn(isDarkMode ? "bg-white/5" : "bg-black/5")}>
+                    <tr>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Model</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Tier</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Context</th>
+                      <th className="px-6 py-4 text-right text-sm font-semibold">Input / 1M tok</th>
+                      <th className="px-6 py-4 text-right text-sm font-semibold">Output / 1M tok</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className={cn("text-sm mt-4", isDarkMode ? "text-white/40" : "text-black/40")}>
-              * Prices shown are for standard API access. Enterprise customers receive volume discounts.
-            </p>
+                  </thead>
+                  <tbody className={cn("divide-y", isDarkMode ? "divide-white/10" : "divide-black/10")}>
+                    {hanzoModels.map((m) => (
+                      <tr key={m.name} className={cn("transition-colors", isDarkMode ? "hover:bg-white/5" : "hover:bg-black/5")}>
+                        <td className="px-6 py-4">
+                          <div className="font-medium">{m.name}</div>
+                          <div className={cn("text-xs", isDarkMode ? "text-white/40" : "text-black/40")}>{m.fullName}</div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className={cn(
+                            "text-xs px-2 py-0.5 rounded-full capitalize",
+                            isDarkMode ? "bg-white/10 text-white/60" : "bg-black/5 text-black/60"
+                          )}>
+                            {m.tier}
+                          </span>
+                        </td>
+                        <td className={cn("px-6 py-4 text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
+                          {extractContext(m.features)}
+                        </td>
+                        <td className={cn("px-6 py-4 text-right font-mono text-sm", isDarkMode ? "text-white/70" : "text-black/70")}>
+                          {formatPrice(m.pricing.input)}
+                        </td>
+                        <td className={cn("px-6 py-4 text-right font-mono text-sm", isDarkMode ? "text-white/70" : "text-black/70")}>
+                          {formatPrice(m.pricing.output)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </motion.div>
+
+          {/* Third-Party Models (live from API) */}
+          {thirdPartyModels.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-20"
+            >
+              <h2 className="text-3xl font-bold mb-2">Third-Party Models</h2>
+              <p className={cn("mb-8", isDarkMode ? "text-white/50" : "text-black/50")}>
+                100+ additional models via the Hanzo LLM Gateway. Same API, same SDK.
+              </p>
+
+              <div className="overflow-x-auto">
+                <table className={cn("w-full border rounded-lg overflow-hidden", isDarkMode ? "border-white/10" : "border-black/10")}>
+                  <thead className={cn(isDarkMode ? "bg-white/5" : "bg-black/5")}>
+                    <tr>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Model</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Context</th>
+                      <th className="px-6 py-4 text-right text-sm font-semibold">Input / 1M tok</th>
+                      <th className="px-6 py-4 text-right text-sm font-semibold">Output / 1M tok</th>
+                    </tr>
+                  </thead>
+                  <tbody className={cn("divide-y", isDarkMode ? "divide-white/10" : "divide-black/10")}>
+                    {thirdPartyModels.map((m) => (
+                      <tr key={m.name} className={cn("transition-colors", isDarkMode ? "hover:bg-white/5" : "hover:bg-black/5")}>
+                        <td className="px-6 py-4 font-medium">{m.name}</td>
+                        <td className={cn("px-6 py-4 text-sm", isDarkMode ? "text-white/50" : "text-black/50")}>
+                          {m.contextWindow ? `${Math.round(m.contextWindow / 1000)}K` : "—"}
+                        </td>
+                        <td className={cn("px-6 py-4 text-right font-mono text-sm", isDarkMode ? "text-white/70" : "text-black/70")}>
+                          {formatPrice(m.pricing.input)}
+                        </td>
+                        <td className={cn("px-6 py-4 text-right font-mono text-sm", isDarkMode ? "text-white/70" : "text-black/70")}>
+                          {formatPrice(m.pricing.output)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className={cn("text-sm mt-4", isDarkMode ? "text-white/40" : "text-black/40")}>
+                * Third-party model pricing includes a 20% gateway markup. Prices synced daily from upstream providers.
+              </p>
+            </motion.div>
+          )}
 
           {/* FAQ Section */}
           <motion.div
@@ -368,10 +510,10 @@ const Pricing = () => {
               Ready to get started?
             </h2>
             <p className={cn("mb-8 max-w-2xl mx-auto", isDarkMode ? "text-white/50" : "text-black/50")}>
-              Start building with Hanzo AI today. No credit card required for the free tier.
+              Start building with Hanzo AI today. Every new account gets $5 free credit.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://hanzo.ai/signup" target="_blank" rel="noopener noreferrer">
+              <a href="https://console.hanzo.ai" target="_blank" rel="noopener noreferrer">
                 <Button className={cn(isDarkMode ? "bg-white text-black hover:bg-white/90" : "bg-black text-white hover:bg-black/90")}>
                   Start Building Free
                 </Button>

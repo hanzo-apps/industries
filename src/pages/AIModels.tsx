@@ -824,9 +824,9 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 model = AutoModelForCausalLM.from_pretrained("zenlm/zen-eco-4b-instruct")
 tokenizer = AutoTokenizer.from_pretrained("zenlm/zen-eco-4b-instruct")
 
-# Or use with Zen Engine (OpenAI-compatible API)
-from openai import OpenAI
-client = OpenAI(base_url="http://localhost:3690/v1")
+# Or use via Hanzo Cloud API
+from hanzoai import Hanzo
+client = Hanzo(api_key="hk-your-api-key")
 
 response = client.chat.completions.create(
     model="zen-eco-4b-instruct",

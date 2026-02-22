@@ -10,136 +10,141 @@ export default function Examples() {
 
   const examples = [
     {
-      title: "Quick Start: Deploy Your First AI Model",
+      title: "Quick Start: Hanzo Cloud API",
       icon: Rocket,
       language: "bash",
-      code: `# Install Hanzo CLI
-curl -fsSL https://hanzo.ai/install.sh | sh
+      code: `# Install Hanzo Python SDK
+pip install hanzoai
 
-# Initialize a new project
-hanzo init my-ai-project
+# Set your API key
+export HANZO_API_KEY="hk-your-api-key"
 
-# Deploy a pre-trained model
-hanzo deploy --model gpt-4 --region us-west-2
-
-# Test your deployment
-hanzo test --endpoint https://api.hanzo.ai/v1/inference`,
-      description: "Get started with Hanzo AI in minutes"
+# Quick test with curl
+curl https://api.hanzo.ai/v1/chat/completions \\
+  -H "Authorization: Bearer $HANZO_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{"model": "zen4", "messages": [{"role": "user", "content": "Hello, Zen!"}]}'`,
+      description: "Get started with Hanzo AI in minutes — every new account gets $5 free credit"
     },
     {
-      title: "Python SDK: Text Generation",
+      title: "Python SDK: Chat Completions",
       icon: Code2,
       language: "python",
-      code: `import hanzo
+      code: `from hanzoai import Hanzo
 
 # Initialize the client
-client = hanzo.Client(api_key="your-api-key")
+client = Hanzo(api_key="hk-your-api-key")
 
-# Generate text
-response = client.generate(
-    prompt="Explain quantum computing in simple terms",
-    model="hanzo-gpt-4",
+# Generate a response with zen4
+response = client.chat.completions.create(
+    model="zen4",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Explain quantum computing in simple terms"}
+    ],
+    temperature=0.7,
     max_tokens=200,
-    temperature=0.7
 )
 
-print(response.text)`,
-      description: "Generate text using our Python SDK"
+print(response.choices[0].message.content)`,
+      description: "Generate text using the official Hanzo Python SDK (OpenAI + Claude compatible)"
     },
     {
-      title: "Edge Deployment: Local AI",
+      title: "TypeScript SDK: Streaming",
       icon: Cpu,
-      language: "javascript",
-      code: `// Edge AI deployment configuration
-const edge = require('@hanzo/edge-ai');
+      language: "typescript",
+      code: `import Hanzo from "hanzoai";
 
-// Initialize edge runtime
-const runtime = new edge.Runtime({
-  model: 'hanzo-edge-v2',
-  device: 'gpu',
-  maxMemory: '4GB'
+const client = new Hanzo({ apiKey: "hk-your-api-key" });
+
+// Stream a response from zen4-coder
+const stream = await client.chat.completions.create({
+  model: "zen4-coder",
+  messages: [{ role: "user", content: "Write a Go HTTP server with graceful shutdown" }],
+  stream: true,
 });
 
-// Run inference locally
-async function classify(image) {
-  const result = await runtime.classify(image);
-  return result.labels;
+for await (const chunk of stream) {
+  const content = chunk.choices[0]?.delta?.content;
+  if (content) process.stdout.write(content);
 }`,
-      description: "Deploy AI models at the edge for offline inference"
+      description: "Stream AI responses in real-time with the TypeScript SDK"
     },
     {
-      title: "Secure Multi-Party Computation",
+      title: "Vision: Image Understanding",
       icon: Lock,
       language: "python",
-      code: `from hanzo.secure import MPCClient
+      code: `from hanzoai import Hanzo
 
-# Initialize secure computation client
-mpc = MPCClient(
-    party_id="hospital_a",
-    protocol="shamir",
-    threshold=3
+client = Hanzo(api_key="hk-your-api-key")
+
+# Analyze an image with zen3-vl (vision-language model)
+response = client.chat.completions.create(
+    model="zen3-vl",
+    messages=[{
+        "role": "user",
+        "content": [
+            {"type": "text", "text": "What's in this image? Describe in detail."},
+            {"type": "image_url", "image_url": {"url": "https://example.com/photo.jpg"}}
+        ]
+    }],
 )
 
-# Perform computation on encrypted data
-@mpc.secure_function
-def analyze_patient_data(encrypted_data):
-    # Computation happens on encrypted values
-    risk_score = mpc.compute_risk(encrypted_data)
-    return risk_score
-
-# Result is only revealed to authorized parties
-result = analyze_patient_data(patient_records)`,
-      description: "Compute on sensitive data without exposing it"
+print(response.choices[0].message.content)`,
+      description: "Use zen3-vl or zen3-omni for multimodal vision understanding"
     },
     {
-      title: "Federated Learning Setup",
+      title: "Embeddings & RAG",
       icon: Users,
       language: "python",
-      code: `from hanzo.federated import FederatedServer, FederatedClient
+      code: `from hanzoai import Hanzo
 
-# Server configuration
-server = FederatedServer(
-    model="resnet50",
-    aggregation="fedavg",
-    rounds=100
+client = Hanzo(api_key="hk-your-api-key")
+
+# Generate embeddings with zen3-embedding (3072 dimensions)
+response = client.embeddings.create(
+    model="zen3-embedding",
+    input=["Quantum computing uses qubits", "Machine learning trains models"]
 )
 
-# Client setup (runs on edge devices)
-client = FederatedClient(
-    server_url="wss://fed.hanzo.ai",
-    local_data="/path/to/data"
-)
+# Use embeddings for semantic search / RAG
+for i, embedding in enumerate(response.data):
+    print(f"Vector {i}: {len(embedding.embedding)} dimensions")
 
-# Train without sharing raw data
-client.train_local()
-client.send_updates()`,
-      description: "Train models across distributed data sources"
+# Combine with chat for RAG pipeline
+context = "Retrieved context from vector search..."
+answer = client.chat.completions.create(
+    model="zen4",
+    messages=[
+        {"role": "system", "content": f"Answer based on: {context}"},
+        {"role": "user", "content": "What is quantum computing?"}
+    ],
+)`,
+      description: "Build retrieval-augmented generation with zen3-embedding"
     },
     {
-      title: "Real-time Stream Processing",
+      title: "Local Inference: Open Weights",
       icon: Zap,
-      language: "javascript",
-      code: `const { StreamProcessor } = require('@hanzo/stream');
+      language: "python",
+      code: `# Run Zen models locally with transformers
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
 
-// Create a real-time AI pipeline
-const processor = new StreamProcessor({
-  model: 'hanzo-stream-v1',
-  batchSize: 32,
-  latencyTarget: 50 // ms
-});
+model_id = "zenlm/zen-eco-4b-instruct"
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(
+    model_id, torch_dtype=torch.bfloat16, device_map="auto"
+)
 
-// Process incoming data stream
-processor.on('data', async (batch) => {
-  const predictions = await processor.predict(batch);
+messages = [{"role": "user", "content": "Write a binary search in Python"}]
+inputs = tokenizer.apply_chat_template(messages, tokenize=True,
+    add_generation_prompt=True, return_tensors="pt")
+outputs = model.generate(inputs.to(model.device), max_new_tokens=512)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
-  // Real-time response
-  predictions.forEach(pred => {
-    if (pred.confidence > 0.95) {
-      alertSystem.trigger(pred);
-    }
-  });
-});`,
-      description: "Process streaming data with low-latency AI"
+# Also available in GGUF, MLX, and ONNX formats
+# All open weights on huggingface.co/zenlm`,
+      description: "Run any Zen open-weight model locally — Apache 2.0 licensed"
     }
   ];
 
