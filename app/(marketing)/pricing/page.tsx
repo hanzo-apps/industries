@@ -198,7 +198,10 @@ export default function Pricing() {
                 )}
               >
                 Annual
-                <span className="ml-1.5 text-xs text-white/70">Save 20%</span>
+                <span className={cn(
+                  "ml-1.5 text-xs",
+                  billingPeriod === "annual" ? "text-black/50" : "text-white/50"
+                )}>Save 20%</span>
               </button>
             </div>
           </motion.div>
@@ -313,7 +316,7 @@ export default function Pricing() {
                     </Button>
                   </Link>
                   <a href="https://cal.com/hanzo" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className={cn("border-white/10 hover:bg-white/10")}>
+                    <Button variant="outline" className={cn("border-white/10 text-white hover:bg-white/10")}>
                       Schedule a Demo
                     </Button>
                   </a>
@@ -512,7 +515,7 @@ export default function Pricing() {
                 </Button>
               </a>
               <Link href="/contact">
-                <Button variant="outline" className={cn("border-white/10 hover:bg-white/10")}>
+                <Button variant="outline" className={cn("border-white/10 text-white hover:bg-white/10")}>
                   Talk to Sales
                 </Button>
               </Link>
