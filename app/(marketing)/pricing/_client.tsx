@@ -158,7 +158,7 @@ export default function PageClient() {
   const thirdPartyModels = pricingData?.thirdPartyModels ?? [];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Hero */}
@@ -171,19 +171,19 @@ export default function PageClient() {
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
               Simple, transparent pricing
             </h1>
-            <p className={cn("text-lg mb-8", "text-white/50")}>
+            <p className={cn("text-lg mb-8", "text-muted-foreground")}>
               Start free, scale as you grow. Pay only for what you use.
             </p>
 
             {/* Billing Toggle */}
-            <div className={cn("inline-flex items-center gap-4 p-1 rounded-full", "bg-white/5")}>
+            <div className={cn("inline-flex items-center gap-4 p-1 rounded-full", "bg-foreground/5")}>
               <button
                 onClick={() => setBillingPeriod("monthly")}
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-medium transition-colors",
                   billingPeriod === "monthly"
-                    ? ("bg-white text-black")
-                    : ("text-white/50 hover:text-white")
+                    ? ("bg-primary text-primary-foreground")
+                    : ("text-muted-foreground hover:text-foreground")
                 )}
               >
                 Monthly
@@ -193,14 +193,14 @@ export default function PageClient() {
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-medium transition-colors",
                   billingPeriod === "annual"
-                    ? ("bg-white text-black")
-                    : ("text-white/50 hover:text-white")
+                    ? ("bg-primary text-primary-foreground")
+                    : ("text-muted-foreground hover:text-foreground")
                 )}
               >
                 Annual
                 <span className={cn(
                   "ml-1.5 text-xs",
-                  billingPeriod === "annual" ? "text-black/50" : "text-white/50"
+                  billingPeriod === "annual" ? "text-primary-foreground/50" : "text-muted-foreground"
                 )}>Save 20%</span>
               </button>
             </div>
@@ -219,15 +219,15 @@ export default function PageClient() {
                   className={cn(
                     "relative rounded-2xl border p-8",
                     plan.highlighted
-                      ? ("border-white bg-white/5")
-                      : ("border-white/10 bg-black/50")
+                      ? ("border-primary bg-foreground/5")
+                      : ("border-border bg-background/50")
                   )}
                 >
                   {plan.badge && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <div className={cn(
                         "px-3 py-1 rounded-full text-xs font-semibold",
-                        "bg-white text-black"
+                        "bg-primary text-primary-foreground"
                       )}>
                         {plan.badge}
                       </div>
@@ -238,13 +238,13 @@ export default function PageClient() {
                     <div className={cn(
                       "w-10 h-10 rounded-lg flex items-center justify-center",
                       plan.highlighted
-                        ? ("bg-white")
-                        : ("bg-white/10")
+                        ? ("bg-primary")
+                        : ("bg-foreground/10")
                     )}>
                       <Icon className={cn(
                         "w-5 h-5",
                         plan.highlighted
-                          ? ("text-black")
+                          ? ("text-primary-foreground")
                           : ""
                       )} />
                     </div>
@@ -253,18 +253,18 @@ export default function PageClient() {
 
                   <div className="mb-4">
                     <span className="text-4xl font-bold">{plan.price}</span>
-                    <span className={cn("text-sm ml-1", "text-white/50")}>{plan.billingPeriod}</span>
+                    <span className={cn("text-sm ml-1", "text-muted-foreground")}>{plan.billingPeriod}</span>
                   </div>
 
-                  <p className={cn("text-sm mb-6", "text-white/50")}>{plan.description}</p>
+                  <p className={cn("text-sm mb-6", "text-muted-foreground")}>{plan.description}</p>
 
                   <a href={plan.ctaLink} target="_blank" rel="noopener noreferrer">
                     <Button
                       className={cn(
                         "w-full mb-6",
                         plan.highlighted
-                          ? ("bg-white text-black hover:bg-white/90")
-                          : ("bg-white/10 text-white hover:bg-white/20")
+                          ? ("bg-primary text-primary-foreground hover:bg-primary/90")
+                          : ("bg-foreground/10 text-foreground hover:bg-accent")
                       )}
                     >
                       {plan.cta}
@@ -274,8 +274,8 @@ export default function PageClient() {
                   <ul className="space-y-3">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-white/70 mt-0.5 flex-shrink-0" />
-                        <span className={cn("text-sm", "text-white/70")}>{feature}</span>
+                        <Check className="h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                        <span className={cn("text-sm", "text-muted-foreground")}>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -292,31 +292,31 @@ export default function PageClient() {
             transition={{ duration: 0.5 }}
             className={cn(
               "rounded-2xl border p-8 md:p-12 mb-20",
-              "border-white/10 bg-gradient-to-br from-white/5 to-transparent"
+              "border-border bg-gradient-to-br from-white/5 to-transparent"
             )}
           >
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <div className={cn("inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm mb-4", "bg-white/10")}>
+                <div className={cn("inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm mb-4", "bg-foreground/10")}>
                   <Building2 className="w-4 h-4" />
                   Enterprise
                 </div>
                 <h2 className="text-3xl font-bold mb-4">
                   Custom solutions for your organization
                 </h2>
-                <p className={cn("mb-6", "text-white/50")}>
+                <p className={cn("mb-6", "text-muted-foreground")}>
                   Get dedicated infrastructure, custom model training, and enterprise-grade security.
                   Our team will work with you to build the perfect AI solution.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/contact">
-                    <Button className={cn("bg-white text-black hover:bg-white/90")}>
+                    <Button className={cn("bg-primary text-primary-foreground hover:bg-primary/90")}>
                       Contact Sales
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
                   <a href="https://cal.com/hanzo" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className={cn("border-white/10 text-white hover:bg-white/10")}>
+                    <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
                       Schedule a Demo
                     </Button>
                   </a>
@@ -326,8 +326,8 @@ export default function PageClient() {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {enterpriseFeatures.map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-white/70 mt-0.5 flex-shrink-0" />
-                      <span className={cn("text-sm", "text-white/70")}>{feature}</span>
+                      <Check className="h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                      <span className={cn("text-sm", "text-muted-foreground")}>{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -344,10 +344,10 @@ export default function PageClient() {
             className="mb-20"
           >
             <h2 className="text-3xl font-bold mb-2">Zen Model Pricing</h2>
-            <p className={cn("mb-8", "text-white/50")}>
+            <p className={cn("mb-8", "text-muted-foreground")}>
               Pay-as-you-go per million tokens. All 14 Zen models via <code className="text-xs">api.hanzo.ai</code>.
               {pricingData?.updated && (
-                <span className={cn("ml-2 text-xs", "text-white/30")}>
+                <span className={cn("ml-2 text-xs", "text-foreground/30")}>
                   Updated {new Date(pricingData.updated).toLocaleDateString()}
                 </span>
               )}
@@ -356,16 +356,16 @@ export default function PageClient() {
             {loading ? (
               <div className="flex items-center justify-center py-16">
                 <Loader2 className="w-6 h-6 animate-spin mr-2" />
-                <span className={cn("text-white/50")}>Loading live pricing...</span>
+                <span className={cn("text-muted-foreground")}>Loading live pricing...</span>
               </div>
             ) : error ? (
-              <div className={cn("text-center py-16", "text-white/40")}>
+              <div className={cn("text-center py-16", "text-muted-foreground")}>
                 {error}
               </div>
             ) : (
               <div className="overflow-x-auto">
-                <table className={cn("w-full border rounded-lg overflow-hidden", "border-white/10")}>
-                  <thead className={cn("bg-white/5")}>
+                <table className={cn("w-full border rounded-lg overflow-hidden", "border-border")}>
+                  <thead className={cn("bg-foreground/5")}>
                     <tr>
                       <th className="px-6 py-4 text-left text-sm font-semibold">Model</th>
                       <th className="px-6 py-4 text-left text-sm font-semibold">Tier</th>
@@ -376,26 +376,26 @@ export default function PageClient() {
                   </thead>
                   <tbody className={cn("divide-y", "divide-white/10")}>
                     {hanzoModels.map((m) => (
-                      <tr key={m.name} className={cn("transition-colors", "hover:bg-white/5")}>
+                      <tr key={m.name} className={cn("transition-colors", "hover:bg-accent")}>
                         <td className="px-6 py-4">
                           <div className="font-medium">{m.name}</div>
-                          <div className={cn("text-xs", "text-white/40")}>{m.fullName}</div>
+                          <div className={cn("text-xs", "text-muted-foreground")}>{m.fullName}</div>
                         </td>
                         <td className="px-6 py-4">
                           <span className={cn(
                             "text-xs px-2 py-0.5 rounded-full capitalize",
-                            "bg-white/10 text-white/60"
+                            "bg-foreground/10 text-muted-foreground"
                           )}>
                             {m.tier}
                           </span>
                         </td>
-                        <td className={cn("px-6 py-4 text-sm", "text-white/50")}>
+                        <td className={cn("px-6 py-4 text-sm", "text-muted-foreground")}>
                           {extractContext(m.features)}
                         </td>
-                        <td className={cn("px-6 py-4 text-right font-mono text-sm", "text-white/70")}>
+                        <td className={cn("px-6 py-4 text-right font-mono text-sm", "text-muted-foreground")}>
                           {formatPrice(m.pricing.input)}
                         </td>
-                        <td className={cn("px-6 py-4 text-right font-mono text-sm", "text-white/70")}>
+                        <td className={cn("px-6 py-4 text-right font-mono text-sm", "text-muted-foreground")}>
                           {formatPrice(m.pricing.output)}
                         </td>
                       </tr>
@@ -416,13 +416,13 @@ export default function PageClient() {
               className="mb-20"
             >
               <h2 className="text-3xl font-bold mb-2">Third-Party Models</h2>
-              <p className={cn("mb-8", "text-white/50")}>
+              <p className={cn("mb-8", "text-muted-foreground")}>
                 100+ additional models via the Hanzo LLM Gateway. Same API, same SDK.
               </p>
 
               <div className="overflow-x-auto">
-                <table className={cn("w-full border rounded-lg overflow-hidden", "border-white/10")}>
-                  <thead className={cn("bg-white/5")}>
+                <table className={cn("w-full border rounded-lg overflow-hidden", "border-border")}>
+                  <thead className={cn("bg-foreground/5")}>
                     <tr>
                       <th className="px-6 py-4 text-left text-sm font-semibold">Model</th>
                       <th className="px-6 py-4 text-left text-sm font-semibold">Context</th>
@@ -432,15 +432,15 @@ export default function PageClient() {
                   </thead>
                   <tbody className={cn("divide-y", "divide-white/10")}>
                     {thirdPartyModels.map((m) => (
-                      <tr key={m.name} className={cn("transition-colors", "hover:bg-white/5")}>
+                      <tr key={m.name} className={cn("transition-colors", "hover:bg-accent")}>
                         <td className="px-6 py-4 font-medium">{m.name}</td>
-                        <td className={cn("px-6 py-4 text-sm", "text-white/50")}>
+                        <td className={cn("px-6 py-4 text-sm", "text-muted-foreground")}>
                           {m.contextWindow ? `${Math.round(m.contextWindow / 1000)}K` : "—"}
                         </td>
-                        <td className={cn("px-6 py-4 text-right font-mono text-sm", "text-white/70")}>
+                        <td className={cn("px-6 py-4 text-right font-mono text-sm", "text-muted-foreground")}>
                           {formatPrice(m.pricing.input)}
                         </td>
-                        <td className={cn("px-6 py-4 text-right font-mono text-sm", "text-white/70")}>
+                        <td className={cn("px-6 py-4 text-right font-mono text-sm", "text-muted-foreground")}>
                           {formatPrice(m.pricing.output)}
                         </td>
                       </tr>
@@ -448,7 +448,7 @@ export default function PageClient() {
                   </tbody>
                 </table>
               </div>
-              <p className={cn("text-sm mt-4", "text-white/40")}>
+              <p className={cn("text-sm mt-4", "text-muted-foreground")}>
                 * Third-party model pricing includes a 20% gateway markup. Prices synced daily from upstream providers.
               </p>
             </motion.div>
@@ -465,28 +465,28 @@ export default function PageClient() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-semibold mb-2">What counts as a token?</h3>
-                <p className={cn("text-sm", "text-white/50")}>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   Tokens are pieces of text that our models process. On average, 1 token is about 4 characters
                   or 0.75 words in English. Both input and output tokens are counted toward your usage.
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">Can I upgrade or downgrade my plan?</h3>
-                <p className={cn("text-sm", "text-white/50")}>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   Yes, you can change your plan at any time. Upgrades take effect immediately,
                   and downgrades take effect at the start of your next billing cycle.
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">What happens if I exceed my token limit?</h3>
-                <p className={cn("text-sm", "text-white/50")}>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   You'll be charged at the pay-as-you-go rate for additional tokens. We'll notify you
                   when you're approaching your limit so there are no surprises.
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">Is my data used to train models?</h3>
-                <p className={cn("text-sm", "text-white/50")}>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   By default, your data is not used for training. Team and Enterprise plans have
                   explicit data exclusion guarantees. See our privacy policy for details.
                 </p>
@@ -505,17 +505,17 @@ export default function PageClient() {
             <h2 className="text-2xl font-semibold mb-4">
               Ready to get started?
             </h2>
-            <p className={cn("mb-8 max-w-2xl mx-auto", "text-white/50")}>
+            <p className={cn("mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
               Start building with Hanzo AI today. Every new account gets $5 free credit.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://console.hanzo.ai" target="_blank" rel="noopener noreferrer">
-                <Button className={cn("bg-white text-black hover:bg-white/90")}>
+                <Button className={cn("bg-primary text-primary-foreground hover:bg-primary/90")}>
                   Start Building Free
                 </Button>
               </a>
               <Link href="/contact">
-                <Button variant="outline" className={cn("border-white/10 text-white hover:bg-white/10")}>
+                <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
                   Talk to Sales
                 </Button>
               </Link>

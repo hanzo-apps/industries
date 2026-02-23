@@ -113,18 +113,18 @@ const pressReleases = [
 ];
 
 const typeColors: Record<string, string> = {
-  "Product Launch": "bg-white",
-  "Funding": "bg-white/20",
-  "Partnership": "bg-white/20",
-  "Product Update": "bg-white/20",
-  "Milestone": "bg-white/30",
-  "Research": "bg-white/40",
-  "Company News": "bg-white/50",
+  "Product Launch": "bg-primary",
+  "Funding": "bg-foreground/20",
+  "Partnership": "bg-foreground/20",
+  "Product Update": "bg-foreground/20",
+  "Milestone": "bg-foreground/30",
+  "Research": "bg-foreground/40",
+  "Company News": "bg-foreground/50",
 };
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-24">
         {/* Hero Section */}
         <section className="py-24 px-4">
@@ -135,14 +135,14 @@ export default function PageClient() {
               transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
-                <Megaphone className="w-4 h-4 text-white" />
-                <span className="text-white text-sm font-medium">News & Announcements</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/10 border border-border rounded-full mb-6">
+                <Megaphone className="w-4 h-4 text-foreground" />
+                <span className="text-foreground text-sm font-medium">News & Announcements</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Latest from Hanzo
               </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto", "text-white/50")}>
+              <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
                 Stay up to date with product launches, company milestones, partnerships, and research breakthroughs.
               </p>
             </motion.div>
@@ -150,7 +150,7 @@ export default function PageClient() {
         </section>
 
         {/* Timeline Section */}
-        <section className={cn("py-24 px-4", "bg-white/5")}>
+        <section className={cn("py-24 px-4", "bg-foreground/5")}>
           <div className="max-w-7xl mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -164,7 +164,7 @@ export default function PageClient() {
 
             <div className="relative">
               {/* Timeline line */}
-              <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5", "bg-white/10")} />
+              <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5", "bg-foreground/10")} />
 
               {announcements.map((month, monthIndex) => (
                 <div key={month.date} className="mb-16">
@@ -175,7 +175,7 @@ export default function PageClient() {
                     viewport={{ once: true }}
                     className="relative flex items-center mb-8"
                   >
-                    <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-white rounded-full border-4", "border-black")} />
+                    <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4", "border-background")} />
                     <div className="ml-8 md:ml-0 md:absolute md:left-1/2 md:transform md:translate-x-6">
                       <span className="text-xl font-bold">{month.date}</span>
                     </div>
@@ -195,25 +195,25 @@ export default function PageClient() {
                         )}
                       >
                         <div className={cn(
-                          "border rounded-xl p-6 transition-colors group hover:border-white/30",
-                          "bg-white/5 border-white/10"
+                          "border rounded-xl p-6 transition-colors group hover:border-border",
+                          "bg-foreground/5 border-border"
                         )}>
                           <div className="flex items-center gap-3 mb-3">
-                            <span className={cn("px-2 py-1 text-xs font-medium text-white rounded", typeColors[item.type] || "bg-black/50")}>
+                            <span className={cn("px-2 py-1 text-xs font-medium text-foreground rounded", typeColors[item.type] || "bg-background/50")}>
                               {item.type}
                             </span>
-                            <span className={cn("text-sm flex items-center gap-1", "text-white/40")}>
+                            <span className={cn("text-sm flex items-center gap-1", "text-muted-foreground")}>
                               <Calendar className="w-3 h-3" />
                               {month.date.split(" ")[0]} {item.day}
                             </span>
                           </div>
-                          <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors">
+                          <h3 className="text-xl font-bold mb-2 group-hover:text-foreground transition-colors">
                             {item.title}
                           </h3>
-                          <p className={cn("text-sm mb-4", "text-white/50")}>{item.description}</p>
+                          <p className={cn("text-sm mb-4", "text-muted-foreground")}>{item.description}</p>
                           <a
                             href={item.link}
-                            className="text-white text-sm font-medium flex items-center gap-1 hover:underline"
+                            className="text-foreground text-sm font-medium flex items-center gap-1 hover:underline"
                           >
                             Read more
                             <ExternalLink className="w-3 h-3" />
@@ -239,10 +239,10 @@ export default function PageClient() {
               className="flex items-center justify-between mb-12"
             >
               <div className="flex items-center gap-3">
-                <FileText className="w-6 h-6 text-white" />
+                <FileText className="w-6 h-6 text-foreground" />
                 <h2 className="text-3xl font-bold">Press Releases</h2>
               </div>
-              <Button variant="outline" className={cn("border-white/10 text-white hover:bg-white/10")}>
+              <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
                 View All
               </Button>
             </motion.div>
@@ -256,21 +256,21 @@ export default function PageClient() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className={cn(
-                    "border rounded-xl p-6 transition-colors group cursor-pointer hover:border-white/30",
-                    "bg-white/5 border-white/10"
+                    "border rounded-xl p-6 transition-colors group cursor-pointer hover:border-border",
+                    "bg-foreground/5 border-border"
                   )}
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex-1">
-                      <span className={cn("text-sm", "text-white/40")}>{release.date}</span>
-                      <h3 className="text-xl font-bold mt-1 mb-2 group-hover:text-white transition-colors">
+                      <span className={cn("text-sm", "text-muted-foreground")}>{release.date}</span>
+                      <h3 className="text-xl font-bold mt-1 mb-2 group-hover:text-foreground transition-colors">
                         {release.title}
                       </h3>
-                      <p className={cn("text-sm", "text-white/50")}>{release.summary}</p>
+                      <p className={cn("text-sm", "text-muted-foreground")}>{release.summary}</p>
                     </div>
                     <Button
                       variant="ghost"
-                      className="text-white hover:text-white hover:bg-white/10 whitespace-nowrap"
+                      className="text-foreground hover:text-foreground hover:bg-accent whitespace-nowrap"
                     >
                       Read Release
                       <ExternalLink className="w-4 h-4 ml-2" />
@@ -283,7 +283,7 @@ export default function PageClient() {
         </section>
 
         {/* Media Contact */}
-        <section className={cn("py-24 px-4", "bg-white/5")}>
+        <section className={cn("py-24 px-4", "bg-foreground/5")}>
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -295,16 +295,16 @@ export default function PageClient() {
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Media Inquiries
               </h2>
-              <p className={cn("mb-8 max-w-xl mx-auto", "text-white/50")}>
+              <p className={cn("mb-8 max-w-xl mx-auto", "text-muted-foreground")}>
                 For press inquiries, interviews, or additional information, please contact our media relations team.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="mailto:press@hanzo.ai">
-                  <Button className="bg-white hover:bg-white/90 text-white">
+                  <Button className="bg-primary hover:bg-primary/90 text-foreground">
                     Contact Press Team
                   </Button>
                 </a>
-                <Button variant="outline" className={cn("border-white/10 text-white hover:bg-white/10")}>
+                <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
                   Download Press Kit
                 </Button>
               </div>

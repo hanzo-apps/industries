@@ -36,10 +36,10 @@ export default function PageClient() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-black">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-background">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-foreground">
             {isLogin ? "Sign in to your account" : "Create your account"}
           </h2>
         </div>
@@ -51,7 +51,7 @@ export default function PageClient() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="bg-white/5 border-white/10 text-white placeholder-white/40"
+              className="bg-foreground/5 border-border text-foreground placeholder-muted-foreground"
             />
             <Input
               type="password"
@@ -59,14 +59,14 @@ export default function PageClient() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="bg-white/5 border-white/10 text-white placeholder-white/40"
+              className="bg-foreground/5 border-border text-foreground placeholder-muted-foreground"
             />
           </div>
 
           <div>
             <Button
               type="submit"
-              className="w-full bg-white text-black hover:bg-white/90"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
               disabled={loading}
             >
               {loading ? "Loading..." : isLogin ? "Sign in" : "Sign up"}
@@ -78,7 +78,7 @@ export default function PageClient() {
           <button
             type="button"
             onClick={() => setIsLogin(!isLogin)}
-            className="text-sm text-white/50 hover:text-white"
+            className="text-sm text-muted-foreground hover:text-foreground"
           >
             {isLogin ? "Need an account? Sign up" : "Already have an account? Sign in"}
           </button>

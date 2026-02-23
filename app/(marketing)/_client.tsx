@@ -13,7 +13,7 @@ export default function MarketingShell({
   return (
     <TooltipProvider>
       <Toaster />
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <main>{children}</main>
         <Footer />

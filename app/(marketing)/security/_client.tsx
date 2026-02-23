@@ -39,14 +39,14 @@ export default function PageClient() {
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold mb-4">
               Security First, Always
             </h1>
-            <p className={cn("text-xl max-w-2xl mx-auto", "text-white/50")}>
+            <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
               We prioritize the security and privacy of your data with enterprise-grade protection at every layer
             </p>
           </div>
@@ -59,18 +59,18 @@ export default function PageClient() {
                   key={index}
                   className={cn(
                     "border rounded-lg p-6 transition-colors",
-                    "bg-white/5 border-white/10 hover:border-white/20"
+                    "bg-foreground/5 border-border hover:border-border"
                   )}
                 >
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className={cn("p-2 rounded-lg", "bg-white/10")}>
+                    <div className={cn("p-2 rounded-lg", "bg-foreground/10")}>
                       <Icon className="h-6 w-6" />
                     </div>
                     <h3 className="text-lg font-medium">
                       {feature.title}
                     </h3>
                   </div>
-                  <p className={cn("text-white/50")}>
+                  <p className={cn("text-muted-foreground")}>
                     {feature.description}
                   </p>
                 </div>
@@ -86,13 +86,13 @@ export default function PageClient() {
               <h2 className="text-2xl font-bold mb-4">
                 SOC 2 Type II Certified
               </h2>
-              <p className={cn("mb-6", "text-white/50")}>
+              <p className={cn("mb-6", "text-muted-foreground")}>
                 Our security practices and controls have been audited and certified by independent third-party auditors
               </p>
               <Button
                 variant="outline"
                 className={cn(
-                  "text-white border-white hover:bg-white/10"
+                  "text-foreground border-primary hover:bg-accent"
                 )}
               >
                 Download Security Whitepaper
@@ -102,24 +102,24 @@ export default function PageClient() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className={cn(
                 "border rounded-lg p-6",
-                "bg-white/5 border-white/10"
+                "bg-foreground/5 border-border"
               )}>
                 <div className="text-3xl font-bold mb-2">99.99%</div>
-                <div className={cn("text-white/50")}>Uptime SLA</div>
+                <div className={cn("text-muted-foreground")}>Uptime SLA</div>
               </div>
               <div className={cn(
                 "border rounded-lg p-6",
-                "bg-white/5 border-white/10"
+                "bg-foreground/5 border-border"
               )}>
                 <div className="text-3xl font-bold mb-2">24/7</div>
-                <div className={cn("text-white/50")}>Security Monitoring</div>
+                <div className={cn("text-muted-foreground")}>Security Monitoring</div>
               </div>
               <div className={cn(
                 "border rounded-lg p-6",
-                "bg-white/5 border-white/10"
+                "bg-foreground/5 border-border"
               )}>
                 <div className="text-3xl font-bold mb-2">100%</div>
-                <div className={cn("text-white/50")}>Data Encryption</div>
+                <div className={cn("text-muted-foreground")}>Data Encryption</div>
               </div>
             </div>
           </div>

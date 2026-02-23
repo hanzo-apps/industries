@@ -47,7 +47,7 @@ export default function CaseStudies() {
   return (
     <section className={cn(
       "py-20 transition-colors duration-300",
-      "bg-white/[0.03]"
+      "bg-foreground/[0.03]"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -65,7 +65,7 @@ export default function CaseStudies() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
               "text-xl max-w-3xl mx-auto",
-              "text-white/50"
+              "text-muted-foreground"
             )}
           >
             Delivering measurable breakthroughs in AI efficiency, cryptography,
@@ -85,42 +85,42 @@ export default function CaseStudies() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={cn(
                 "p-8 rounded-lg border transition-all group cursor-pointer",
-                "bg-black/50 border-white/10 hover:border-white/20"
+                "bg-background/50 border-border hover:border-border"
               )}
             >
               <div className="flex justify-between items-start mb-4">
                 <span className={cn(
                   "text-sm font-medium uppercase tracking-wider",
-                  "text-white/40"
+                  "text-muted-foreground"
                 )}>
                   {study.category}
                 </span>
                 <span className={cn(
                   "text-sm",
-                  "text-white/40"
+                  "text-muted-foreground"
                 )}>{study.year}</span>
               </div>
 
               <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
               <p className={cn(
                 "text-sm mb-4 font-medium",
-                "text-white/50"
+                "text-muted-foreground"
               )}>{study.client}</p>
               <p className={cn(
                 "mb-6",
-                "text-white/50"
+                "text-muted-foreground"
               )}>{study.description}</p>
 
               <div className="flex items-center justify-between">
                 <div className={cn(
                   "px-4 py-2 rounded-md",
-                  "bg-white/10"
+                  "bg-foreground/10"
                 )}>
                   <span className="text-sm font-semibold">{study.impact}</span>
                 </div>
                 <ExternalLink className={cn(
                   "w-5 h-5 transition-colors",
-                  "text-white/30 group-hover:text-white"
+                  "text-foreground/30 group-hover:text-foreground"
                 )} />
               </div>
             </motion.a>

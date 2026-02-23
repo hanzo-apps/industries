@@ -483,34 +483,34 @@ export default function PageClient() {
   // Job Detail View
   if (selectedJob) {
     return (
-      <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+      <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
         <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <button
               onClick={() => setSelectedJob(null)}
-              className={cn("flex items-center gap-2 mb-8 transition-colors", "text-white/50 hover:text-white")}
+              className={cn("flex items-center gap-2 mb-8 transition-colors", "text-muted-foreground hover:text-foreground")}
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Careers
             </button>
 
             {selectedJob.new && (
-              <span className={cn("inline-block px-3 py-1 text-sm font-medium rounded mb-4", "bg-white text-black")}>
+              <span className={cn("inline-block px-3 py-1 text-sm font-medium rounded mb-4", "bg-primary text-primary-foreground")}>
                 New
               </span>
             )}
 
             <h1 className="text-4xl font-bold mb-4">{selectedJob.title}</h1>
-            <p className={cn("text-xl mb-6", "text-white/50")}>{selectedJob.location}</p>
+            <p className={cn("text-xl mb-6", "text-muted-foreground")}>{selectedJob.location}</p>
 
-            <div className={cn("border rounded-lg p-8 mb-8", "bg-white/5 border-white/10")}>
+            <div className={cn("border rounded-lg p-8 mb-8", "bg-foreground/5 border-border")}>
               <h2 className="text-xl font-semibold mb-4">About Hanzo Industries</h2>
-              <p className={cn("mb-4", "text-white/70")}>
+              <p className={cn("mb-4", "text-muted-foreground")}>
                 Hanzo Industries is a frontier AI research lab advancing the state of the art in machine learning,
                 cryptography, consensus protocols, and distributed systems. Our mission is to create reliable,
                 interpretable, and steerable AI systems that are safe and beneficial for humanity.
               </p>
-              <p className={cn("text-white/70")}>
+              <p className={cn("text-muted-foreground")}>
                 We're a quickly growing team of committed researchers, engineers, and business leaders working
                 together to build beneficial AI systems. We've published over 130 research papers, released
                 the Zen model family (100+ model weights, 600M–1T+ parameters), and maintain over 2,500 open-source
@@ -518,12 +518,12 @@ export default function PageClient() {
               </p>
             </div>
 
-            <div className={cn("border rounded-lg p-8 mb-8", "bg-white/5 border-white/10")}>
+            <div className={cn("border rounded-lg p-8 mb-8", "bg-foreground/5 border-border")}>
               <h2 className="text-xl font-semibold mb-4">About the Role</h2>
-              <p className={cn("mb-4", "text-white/70")}>{selectedJob.description}</p>
+              <p className={cn("mb-4", "text-muted-foreground")}>{selectedJob.description}</p>
 
               <h3 className="font-semibold mt-6 mb-3">Responsibilities</h3>
-              <ul className={cn("list-disc list-inside space-y-2", "text-white/70")}>
+              <ul className={cn("list-disc list-inside space-y-2", "text-muted-foreground")}>
                 <li>Contribute to cutting-edge research and engineering projects</li>
                 <li>Collaborate with world-class researchers and engineers</li>
                 <li>Publish research and contribute to open source</li>
@@ -531,7 +531,7 @@ export default function PageClient() {
               </ul>
 
               <h3 className="font-semibold mt-6 mb-3">You May Be a Good Fit If You Have</h3>
-              <ul className={cn("list-disc list-inside space-y-2", "text-white/70")}>
+              <ul className={cn("list-disc list-inside space-y-2", "text-muted-foreground")}>
                 <li>Strong technical background relevant to the role</li>
                 <li>Track record of impactful work</li>
                 <li>Excellent communication and collaboration skills</li>
@@ -539,51 +539,51 @@ export default function PageClient() {
               </ul>
             </div>
 
-            <div className={cn("border rounded-lg p-8 mb-8", "bg-white/5 border-white/10")}>
+            <div className={cn("border rounded-lg p-8 mb-8", "bg-foreground/5 border-border")}>
               <h2 className="text-xl font-semibold mb-4">Compensation & Benefits</h2>
 
               {selectedJob.salary && (
                 <div className="flex items-center gap-3 mb-4">
-                  <DollarSign className={cn("w-5 h-5", "text-white/40")} />
-                  <span className={cn("text-white/70")}>Annual Salary: {selectedJob.salary} USD</span>
+                  <DollarSign className={cn("w-5 h-5", "text-muted-foreground")} />
+                  <span className={cn("text-muted-foreground")}>Annual Salary: {selectedJob.salary} USD</span>
                 </div>
               )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                 <div className="flex items-start gap-3">
-                  <Heart className={cn("w-5 h-5 mt-0.5", "text-white/40")} />
+                  <Heart className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
                   <div>
                     <div className="font-medium">Health & Wellness</div>
-                    <div className={cn("text-sm", "text-white/50")}>Comprehensive medical, dental, and vision</div>
+                    <div className={cn("text-sm", "text-muted-foreground")}>Comprehensive medical, dental, and vision</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <DollarSign className={cn("w-5 h-5 mt-0.5", "text-white/40")} />
+                  <DollarSign className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
                   <div>
                     <div className="font-medium">Equity</div>
-                    <div className={cn("text-sm", "text-white/50")}>Competitive equity package</div>
+                    <div className={cn("text-sm", "text-muted-foreground")}>Competitive equity package</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Laptop className={cn("w-5 h-5 mt-0.5", "text-white/40")} />
+                  <Laptop className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
                   <div>
                     <div className="font-medium">Equipment</div>
-                    <div className={cn("text-sm", "text-white/50")}>Top-tier equipment and setup</div>
+                    <div className={cn("text-sm", "text-muted-foreground")}>Top-tier equipment and setup</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <BookOpen className={cn("w-5 h-5 mt-0.5", "text-white/40")} />
+                  <BookOpen className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
                   <div>
                     <div className="font-medium">Learning</div>
-                    <div className={cn("text-sm", "text-white/50")}>Generous learning budget</div>
+                    <div className={cn("text-sm", "text-muted-foreground")}>Generous learning budget</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className={cn("border rounded-lg p-8 mb-8", "bg-white/5 border-white/10")}>
+            <div className={cn("border rounded-lg p-8 mb-8", "bg-foreground/5 border-border")}>
               <h2 className="text-xl font-semibold mb-4">Logistics</h2>
-              <div className={cn("space-y-4", "text-white/70")}>
+              <div className={cn("space-y-4", "text-muted-foreground")}>
                 <p><strong>Location:</strong> {selectedJob.location}</p>
                 <p><strong>Type:</strong> {selectedJob.type.charAt(0).toUpperCase() + selectedJob.type.slice(1)}</p>
                 <p><strong>Visa Sponsorship:</strong> We sponsor visas and will make every reasonable effort to support your visa process.</p>
@@ -592,9 +592,9 @@ export default function PageClient() {
             </div>
 
             {/* Apply Section */}
-            <div className={cn("rounded-lg p-8", "bg-white text-black")}>
+            <div className={cn("rounded-lg p-8", "bg-primary text-primary-foreground")}>
               <h2 className="text-xl font-semibold mb-4">Apply for this Role</h2>
-              <p className={cn("mb-6", "text-black/70")}>
+              <p className={cn("mb-6", "text-primary-foreground/70")}>
                 We encourage you to apply even if you don't meet every qualification.
                 Research shows that people from underrepresented groups often doubt their candidacy—don't exclude yourself.
               </p>
@@ -606,7 +606,7 @@ export default function PageClient() {
                   rel="noopener noreferrer"
                   className={cn(
                     "flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors",
-                    "bg-black text-white hover:bg-black/80"
+                    "bg-background text-foreground hover:bg-background/80"
                   )}
                 >
                   <Calendar className="w-5 h-5" />
@@ -616,7 +616,7 @@ export default function PageClient() {
                   href={`mailto:careers@hanzo.ai?subject=Application: ${encodeURIComponent(selectedJob.title)}&body=Hi,%0A%0AI'm interested in the ${encodeURIComponent(selectedJob.title)} position.%0A%0A[Please attach your resume and include a brief introduction]`}
                   className={cn(
                     "flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors",
-                    "bg-gray-200 text-black hover:bg-gray-300"
+                    "bg-secondary text-secondary-foreground hover:bg-accent"
                   )}
                 >
                   <ExternalLink className="w-5 h-5" />
@@ -632,7 +632,7 @@ export default function PageClient() {
 
   // Job Listings View
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
@@ -645,10 +645,10 @@ export default function PageClient() {
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
               Join Our Team
             </h1>
-            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto mb-8", "text-white/70")}>
+            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
               Help us build the future of AI. We're looking for exceptional people to join our mission of creating safe, beneficial AI systems.
             </p>
-            <div className={cn("flex flex-wrap justify-center gap-6 text-sm", "text-white/50")}>
+            <div className={cn("flex flex-wrap justify-center gap-6 text-sm", "text-muted-foreground")}>
               <span className="flex items-center gap-2">
                 <Building2 className="w-4 h-4" />
                 7 Global Offices
@@ -671,21 +671,21 @@ export default function PageClient() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
           >
-            <div className={cn("border rounded-lg p-6 text-center", "bg-white/5 border-white/10")}>
+            <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
               <div className="text-3xl font-bold mb-1">2,500+</div>
-              <div className={cn("text-sm", "text-white/50")}>OSS Projects</div>
+              <div className={cn("text-sm", "text-muted-foreground")}>OSS Projects</div>
             </div>
-            <div className={cn("border rounded-lg p-6 text-center", "bg-white/5 border-white/10")}>
+            <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
               <div className="text-3xl font-bold mb-1">130+</div>
-              <div className={cn("text-sm", "text-white/50")}>Research Papers</div>
+              <div className={cn("text-sm", "text-muted-foreground")}>Research Papers</div>
             </div>
-            <div className={cn("border rounded-lg p-6 text-center", "bg-white/5 border-white/10")}>
+            <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
               <div className="text-3xl font-bold mb-1">50+</div>
-              <div className={cn("text-sm", "text-white/50")}>AI Models</div>
+              <div className={cn("text-sm", "text-muted-foreground")}>AI Models</div>
             </div>
-            <div className={cn("border rounded-lg p-6 text-center", "bg-white/5 border-white/10")}>
+            <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
               <div className="text-3xl font-bold mb-1">$1B+</div>
-              <div className={cn("text-sm", "text-white/50")}>Client Revenue</div>
+              <div className={cn("text-sm", "text-muted-foreground")}>Client Revenue</div>
             </div>
           </motion.div>
 
@@ -694,12 +694,12 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className={cn("border rounded-lg p-6 mb-8", "bg-white/5 border-white/10")}
+            className={cn("border rounded-lg p-6 mb-8", "bg-foreground/5 border-border")}
           >
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* Search */}
               <div className="md:col-span-2 relative">
-                <Search className={cn("absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5", "text-white/40")} />
+                <Search className={cn("absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5", "text-muted-foreground")} />
                 <input
                   type="text"
                   placeholder="Search roles..."
@@ -707,7 +707,7 @@ export default function PageClient() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className={cn(
                     "w-full border rounded-lg pl-10 pr-4 py-3 focus:outline-none",
-                    "bg-white/10 border-white/10 text-white placeholder-white/40 focus:border-white/20"
+                    "bg-foreground/10 border-border text-foreground placeholder-muted-foreground focus:border-border"
                   )}
                 />
               </div>
@@ -715,7 +715,7 @@ export default function PageClient() {
               {/* Team Filter */}
               <Select value={selectedTeam} onValueChange={setSelectedTeam}>
                 <SelectTrigger className="w-full rounded-lg">
-                  <Building2 className="h-4 w-4 shrink-0 text-white/40 mr-2" />
+                  <Building2 className="h-4 w-4 shrink-0 text-muted-foreground mr-2" />
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -728,7 +728,7 @@ export default function PageClient() {
               {/* Location Filter */}
               <Select value={selectedLocation} onValueChange={setSelectedLocation}>
                 <SelectTrigger className="w-full rounded-lg">
-                  <MapPin className="h-4 w-4 shrink-0 text-white/40 mr-2" />
+                  <MapPin className="h-4 w-4 shrink-0 text-muted-foreground mr-2" />
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -741,7 +741,7 @@ export default function PageClient() {
           </motion.div>
 
           {/* Results Count */}
-          <div className={cn("mb-6", "text-white/50")}>
+          <div className={cn("mb-6", "text-muted-foreground")}>
             {filteredJobs.length} {filteredJobs.length === 1 ? 'role' : 'roles'} found
           </div>
 
@@ -756,14 +756,14 @@ export default function PageClient() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-semibold">{team}</h3>
-                  <span className={cn("text-sm", "text-white/40")}>{teamJobs.length} {teamJobs.length === 1 ? 'role' : 'roles'}</span>
+                  <span className={cn("text-sm", "text-muted-foreground")}>{teamJobs.length} {teamJobs.length === 1 ? 'role' : 'roles'}</span>
                 </div>
-                <div className={cn("border rounded-lg overflow-hidden", "bg-white/5 border-white/10 divide-y divide-white/10")}>
+                <div className={cn("border rounded-lg overflow-hidden", "bg-foreground/5 border-border divide-y divide-white/10")}>
                   {teamJobs.map((job) => (
                     <button
                       key={job.id}
                       onClick={() => setSelectedJob(job)}
-                      className={cn("w-full flex items-center justify-between p-4 transition-colors group text-left", "hover:bg-white/10")}
+                      className={cn("w-full flex items-center justify-between p-4 transition-colors group text-left", "hover:bg-accent")}
                     >
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
@@ -771,12 +771,12 @@ export default function PageClient() {
                             {job.title}
                           </span>
                           {job.new && (
-                            <span className={cn("px-2 py-0.5 text-xs font-medium rounded", "bg-white text-black")}>
+                            <span className={cn("px-2 py-0.5 text-xs font-medium rounded", "bg-primary text-primary-foreground")}>
                               New
                             </span>
                           )}
                         </div>
-                        <div className={cn("flex items-center gap-4 text-sm", "text-white/40")}>
+                        <div className={cn("flex items-center gap-4 text-sm", "text-muted-foreground")}>
                           <span className="flex items-center gap-1">
                             <MapPin className="w-3.5 h-3.5" />
                             {job.location}
@@ -797,7 +797,7 @@ export default function PageClient() {
           {/* No Results */}
           {filteredJobs.length === 0 && (
             <div className="text-center py-16">
-              <p className={cn("mb-4", "text-white/50")}>No roles match your search criteria.</p>
+              <p className={cn("mb-4", "text-muted-foreground")}>No roles match your search criteria.</p>
               <button
                 onClick={() => {
                   setSearchQuery("");
@@ -816,10 +816,10 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className={cn("mt-16 border rounded-lg p-8 text-center", "bg-white/5 border-white/10")}
+            className={cn("mt-16 border rounded-lg p-8 text-center", "bg-foreground/5 border-border")}
           >
             <h2 className="text-2xl font-bold mb-4">Don't see the right role?</h2>
-            <p className={cn("mb-6 max-w-2xl mx-auto", "text-white/70")}>
+            <p className={cn("mb-6 max-w-2xl mx-auto", "text-muted-foreground")}>
               We're always looking for exceptional talent. Schedule a call to discuss how you could contribute to our mission.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -829,7 +829,7 @@ export default function PageClient() {
                 rel="noopener noreferrer"
                 className={cn(
                   "inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold transition-colors",
-                  "bg-white text-black hover:bg-white/90"
+                  "bg-primary text-primary-foreground hover:bg-primary/90"
                 )}
               >
                 <Calendar className="w-5 h-5" />
@@ -839,7 +839,7 @@ export default function PageClient() {
                 href="mailto:careers@hanzo.ai?subject=General Application"
                 className={cn(
                   "inline-flex items-center justify-center gap-2 bg-transparent border px-8 py-3 rounded-lg font-semibold transition-colors",
-                  "border-white text-white hover:bg-white/10"
+                  "border-primary text-foreground hover:bg-accent"
                 )}
               >
                 Send Resume
@@ -856,45 +856,45 @@ export default function PageClient() {
           >
             <h2 className="text-2xl font-bold mb-8 text-center">Why Hanzo?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className={cn("border rounded-lg p-6", "bg-white/5 border-white/10")}>
+              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
                 <Brain className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Cutting-Edge Research</h3>
-                <p className={cn("text-sm", "text-white/50")}>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   Work on frontier AI models, post-quantum cryptography, and novel consensus protocols alongside world-class researchers.
                 </p>
               </div>
-              <div className={cn("border rounded-lg p-6", "bg-white/5 border-white/10")}>
+              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
                 <DollarSign className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Competitive Compensation</h3>
-                <p className={cn("text-sm", "text-white/50")}>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   Competitive salary, equity, comprehensive health benefits, and 401(k) matching.
                 </p>
               </div>
-              <div className={cn("border rounded-lg p-6", "bg-white/5 border-white/10")}>
+              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
                 <Laptop className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Flexible Work</h3>
-                <p className={cn("text-sm", "text-white/50")}>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   Remote-friendly culture with offices in San Francisco, Los Angeles, New York, Kansas City, Vancouver, Marbella, and Paris.
                 </p>
               </div>
-              <div className={cn("border rounded-lg p-6", "bg-white/5 border-white/10")}>
+              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
                 <BookOpen className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Learning & Growth</h3>
-                <p className={cn("text-sm", "text-white/50")}>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   Generous learning budget, conference attendance, and opportunities to publish research.
                 </p>
               </div>
-              <div className={cn("border rounded-lg p-6", "bg-white/5 border-white/10")}>
+              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
                 <Zap className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Meaningful Impact</h3>
-                <p className={cn("text-sm", "text-white/50")}>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   Your work directly contributes to building safe, beneficial AI systems that will shape the future.
                 </p>
               </div>
-              <div className={cn("border rounded-lg p-6", "bg-white/5 border-white/10")}>
+              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
                 <Users className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Diverse Team</h3>
-                <p className={cn("text-sm", "text-white/50")}>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   Join a team of researchers, engineers, and operators from diverse backgrounds united by a shared mission.
                 </p>
               </div>
@@ -906,19 +906,19 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className={cn("mt-16 border rounded-lg p-8", "bg-white/5 border-white/10")}
+            className={cn("mt-16 border rounded-lg p-8", "bg-foreground/5 border-border")}
           >
             <h2 className="text-2xl font-bold mb-6">How We're Different</h2>
             <div className="prose prose-invert max-w-none">
-              <p className={cn("mb-4", "text-white/70")}>
+              <p className={cn("mb-4", "text-muted-foreground")}>
                 We believe that the highest-impact AI research requires combining rigorous science with practical engineering.
                 At Hanzo, we work as a cohesive team on large-scale research efforts across AI, cryptography, and distributed systems.
               </p>
-              <p className={cn("mb-4", "text-white/70")}>
+              <p className={cn("mb-4", "text-muted-foreground")}>
                 Our research spans multiple domains: from frontier AI models (the Zen family) to post-quantum cryptography,
                 from novel consensus protocols to privacy-preserving computation. We publish openly and contribute to open source.
               </p>
-              <p className={cn("text-white/70")}>
+              <p className={cn("text-muted-foreground")}>
                 We value impact over individual publications. We're looking for people who want to work on hard problems
                 that matter and who can collaborate effectively across disciplines.
               </p>

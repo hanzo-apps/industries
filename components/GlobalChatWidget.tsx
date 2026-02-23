@@ -264,7 +264,7 @@ const [isOpen, setIsOpen] = useState(false);
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center bg-black border border-white/10"
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center bg-background border border-border"
           >
             <img src="/zen-logo.png" alt="Zen AI" className="w-8 h-8" />
           </motion.button>
@@ -281,16 +281,16 @@ const [isOpen, setIsOpen] = useState(false);
             transition={{ duration: 0.2 }}
             className={cn(
               "fixed z-50 rounded-2xl shadow-2xl overflow-hidden flex flex-col border",
-              "bg-black border-white/10",
+              "bg-background border-border",
               isExpanded
                 ? "inset-4 md:inset-8"
                 : "bottom-6 right-6 w-[380px] max-w-[calc(100vw-48px)] h-[520px] max-h-[80vh]"
             )}
           >
             {/* Header */}
-            <div className={cn("flex items-center justify-between px-4 py-3 border-b", "border-white/10")}>
+            <div className={cn("flex items-center justify-between px-4 py-3 border-b", "border-border")}>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center bg-black border border-white/20 overflow-hidden">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center bg-background border border-border overflow-hidden">
                   <img src="/zen-logo.png" alt="Zen AI" className="w-5 h-5" />
                 </div>
                 {/* Model selector dropdown */}
@@ -299,15 +299,15 @@ const [isOpen, setIsOpen] = useState(false);
                     onClick={() => setIsModelDropdownOpen(!isModelDropdownOpen)}
                     className={cn(
                       "flex items-center gap-1.5 rounded-md px-2 py-1 transition-colors",
-                      "hover:bg-white/10"
+                      "hover:bg-accent"
                     )}
                   >
                     <div className="text-left">
-                      <div className={cn("text-sm font-medium flex items-center gap-1.5", "text-white")}>
+                      <div className={cn("text-sm font-medium flex items-center gap-1.5", "text-foreground")}>
                         {selectedModel.name}
                         <span className={cn(
                           "text-[10px] font-mono px-1 py-0.5 rounded",
-                          "text-white/40 bg-white/10"
+                          "text-muted-foreground bg-foreground/10"
                         )}>
                           {selectedModel.params}
                         </span>
@@ -315,7 +315,7 @@ const [isOpen, setIsOpen] = useState(false);
                     </div>
                     <ChevronDown className={cn(
                       "w-3.5 h-3.5 transition-transform",
-                      "text-white/40",
+                      "text-muted-foreground",
                       isModelDropdownOpen && "rotate-180"
                     )} />
                   </button>
@@ -329,7 +329,7 @@ const [isOpen, setIsOpen] = useState(false);
                         exit={{ opacity: 0, y: -4 }}
                         className={cn(
                           "absolute left-0 top-full mt-1 w-56 border rounded-lg shadow-xl overflow-hidden z-10",
-                          "bg-white/5 border-white/10"
+                          "bg-foreground/5 border-border"
                         )}
                         style={{ backgroundColor: "#171717" }}
                       >
@@ -342,28 +342,28 @@ const [isOpen, setIsOpen] = useState(false);
                             }}
                             className={cn(
                               "w-full flex items-center justify-between px-3 py-2 text-left transition-colors",
-                              "hover:bg-white/10",
-                              selectedModel.id === model.id && ("bg-white/5")
+                              "hover:bg-accent",
+                              selectedModel.id === model.id && ("bg-foreground/5")
                             )}
                           >
                             <div>
-                              <div className={cn("text-sm flex items-center gap-2", "text-white")}>
+                              <div className={cn("text-sm flex items-center gap-2", "text-foreground")}>
                                 {model.name}
-                                <span className={cn("text-[10px] font-mono", "text-white/40")}>{model.params}</span>
+                                <span className={cn("text-[10px] font-mono", "text-muted-foreground")}>{model.params}</span>
                               </div>
-                              <div className={cn("text-[10px]", "text-white/40")}>{model.description}</div>
+                              <div className={cn("text-[10px]", "text-muted-foreground")}>{model.description}</div>
                             </div>
                             {selectedModel.id === model.id && (
-                              <Check className="w-4 h-4 text-white/70" />
+                              <Check className="w-4 h-4 text-muted-foreground" />
                             )}
                           </button>
                         ))}
-                        <div className={cn("border-t px-3 py-2", "border-white/10")}>
+                        <div className={cn("border-t px-3 py-2", "border-border")}>
                           <a
                             href="/models"
                             className={cn(
                               "text-xs transition-colors",
-                              "text-white/40 hover:text-white"
+                              "text-muted-foreground hover:text-foreground"
                             )}
                           >
                             View all models
@@ -379,7 +379,7 @@ const [isOpen, setIsOpen] = useState(false);
                   onClick={() => setIsExpanded(!isExpanded)}
                   className={cn(
                     "p-1.5 rounded-md transition-colors",
-                    "text-white/40 hover:text-white hover:bg-white/10"
+                    "text-muted-foreground hover:text-foreground hover:bg-accent"
                   )}
                 >
                   {isExpanded ? (
@@ -392,7 +392,7 @@ const [isOpen, setIsOpen] = useState(false);
                   onClick={() => setIsOpen(false)}
                   className={cn(
                     "p-1.5 rounded-md transition-colors",
-                    "text-white/40 hover:text-white hover:bg-white/10"
+                    "text-muted-foreground hover:text-foreground hover:bg-accent"
                   )}
                 >
                   <X className="w-4 h-4" />
@@ -411,10 +411,10 @@ const [isOpen, setIsOpen] = useState(false);
                     className={cn(
                       "max-w-[85%] px-3 py-2 rounded-2xl text-sm",
                       message.role === "user"
-                        ? cn("rounded-br-md", "bg-white text-black")
+                        ? cn("rounded-br-md", "bg-primary text-primary-foreground")
                         : cn(
                             "rounded-bl-md",
-                            "bg-white/10 text-white/80"
+                            "bg-foreground/10 text-foreground/80"
                           )
                     )}
                   >
@@ -424,11 +424,11 @@ const [isOpen, setIsOpen] = useState(false);
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className={cn("px-4 py-2 rounded-2xl rounded-bl-md", "bg-white/10")}>
+                  <div className={cn("px-4 py-2 rounded-2xl rounded-bl-md", "bg-foreground/10")}>
                     <div className="flex gap-1">
-                      <span className={cn("w-2 h-2 rounded-full animate-bounce", "bg-white/40")} style={{ animationDelay: "0ms" }} />
-                      <span className={cn("w-2 h-2 rounded-full animate-bounce", "bg-white/40")} style={{ animationDelay: "150ms" }} />
-                      <span className={cn("w-2 h-2 rounded-full animate-bounce", "bg-white/40")} style={{ animationDelay: "300ms" }} />
+                      <span className={cn("w-2 h-2 rounded-full animate-bounce", "bg-foreground/40")} style={{ animationDelay: "0ms" }} />
+                      <span className={cn("w-2 h-2 rounded-full animate-bounce", "bg-foreground/40")} style={{ animationDelay: "150ms" }} />
+                      <span className={cn("w-2 h-2 rounded-full animate-bounce", "bg-foreground/40")} style={{ animationDelay: "300ms" }} />
                     </div>
                   </div>
                 </div>
@@ -448,7 +448,7 @@ const [isOpen, setIsOpen] = useState(false);
                         onClick={() => handlePreset(preset)}
                         className={cn(
                           "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border text-xs font-medium transition-colors",
-                          "bg-white/5 border-white/10 text-white/50 hover:bg-white/10 hover:text-white"
+                          "bg-foreground/5 border-border text-muted-foreground hover:bg-accent hover:text-foreground"
                         )}
                       >
                         <Icon className="w-3 h-3" />
@@ -461,7 +461,7 @@ const [isOpen, setIsOpen] = useState(false);
             )}
 
             {/* Input */}
-            <div className={cn("p-3 border-t", "border-white/10")}>
+            <div className={cn("p-3 border-t", "border-border")}>
               <div className="relative">
                 <input
                   ref={inputRef}
@@ -472,7 +472,7 @@ const [isOpen, setIsOpen] = useState(false);
                   placeholder="Ask anything..."
                   className={cn(
                     "w-full rounded-full px-4 py-2.5 pr-12 text-sm focus:outline-none transition-colors border",
-                    "bg-white/5 border-white/10 text-white placeholder-white/40 focus:border-white/20"
+                    "bg-foreground/5 border-border text-foreground placeholder-muted-foreground focus:border-border"
                   )}
                 />
                 <button
@@ -481,16 +481,16 @@ const [isOpen, setIsOpen] = useState(false);
                   className={cn(
                     "absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all disabled:opacity-50",
                     input.trim()
-                      ? ("bg-white")
+                      ? ("bg-primary")
                       : "bg-transparent"
                   )}
                 >
-                  <Send className={cn("w-4 h-4", input.trim() ? ("text-black") : ("text-white/40"))} />
+                  <Send className={cn("w-4 h-4", input.trim() ? ("text-primary-foreground") : ("text-muted-foreground"))} />
                 </button>
               </div>
               <div className="mt-2 text-center">
-                <span className={cn("text-[10px]", "text-white/30")}>
-                  Press Enter to send | <kbd className={cn("px-1 py-0.5 rounded", "bg-white/10 text-white/40")}>Cmd+K</kbd> for quick navigation
+                <span className={cn("text-[10px]", "text-foreground/30")}>
+                  Press Enter to send | <kbd className={cn("px-1 py-0.5 rounded", "bg-foreground/10 text-muted-foreground")}>Cmd+K</kbd> for quick navigation
                 </span>
               </div>
             </div>

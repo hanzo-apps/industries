@@ -60,8 +60,8 @@ function TryHanzoDropdown() {
       <Button size="sm" onClick={() => setIsOpen(!isOpen)}
         className={cn(
           'rounded-full px-5 font-medium transition-all duration-200 hover:scale-[1.02] shadow-lg',
-          'bg-white text-black hover:bg-white/90 shadow-white/10',
-          isOpen && 'bg-white/90'
+          'bg-primary text-primary-foreground hover:bg-primary/90 shadow-foreground/10',
+          isOpen && 'bg-primary/90'
         )}
       >
         Try Hanzo
@@ -78,16 +78,16 @@ function TryHanzoDropdown() {
             className="absolute right-0 top-full w-[420px] z-50"
           >
             <div className="h-2" />
-            <div className="backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden bg-neutral-900/95 border-white/10 shadow-black/50">
+            <div className="backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden bg-secondary/95 border-border shadow-background/50">
               {/* Zen AI Models */}
               <div className="p-4">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-white/50" />
-                    <span className="text-xs font-semibold uppercase tracking-wider text-white">Zen AI Models</span>
+                    <Zap className="w-4 h-4 text-muted-foreground" />
+                    <span className="text-xs font-semibold uppercase tracking-wider text-foreground">Zen AI Models</span>
                   </div>
                   <button onClick={() => { setIsOpen(false); router.push('/models') }}
-                    className="text-xs transition-colors text-white/40 hover:text-white">
+                    className="text-xs transition-colors text-muted-foreground hover:text-foreground">
                     View all &rarr;
                   </button>
                 </div>
@@ -97,17 +97,17 @@ function TryHanzoDropdown() {
                     return (
                       <a key={model.name} href={model.href} target="_blank" rel="noopener noreferrer"
                         onClick={() => setIsOpen(false)}
-                        className="group flex items-start gap-3 p-3 rounded-xl transition-colors bg-white/5 hover:bg-white/10"
+                        className="group flex items-start gap-3 p-3 rounded-xl transition-colors bg-foreground/5 hover:bg-accent"
                       >
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-white/10">
-                          <ModelIcon className="w-4 h-4 text-white/70 group-hover:text-white" />
+                        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-foreground/10">
+                          <ModelIcon className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
                         </div>
                         <div className="min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-white">{model.name}</span>
-                            <span className="text-[10px] font-mono text-white/40">{model.params}</span>
+                            <span className="text-sm font-medium text-foreground">{model.name}</span>
+                            <span className="text-[10px] font-mono text-muted-foreground">{model.params}</span>
                           </div>
-                          <p className="text-xs truncate text-white/40">{model.description}</p>
+                          <p className="text-xs truncate text-muted-foreground">{model.description}</p>
                         </div>
                       </a>
                     )
@@ -115,53 +115,53 @@ function TryHanzoDropdown() {
                 </div>
               </div>
 
-              <div className="border-t border-white/10" />
+              <div className="border-t border-border" />
 
               {/* Quick Access */}
               <div className="py-2">
                 <div className="px-4 py-1.5">
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-white/40">Quick Access</span>
+                  <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Quick Access</span>
                 </div>
                 {quickAccess.map((item) =>
                   item.external ? (
                     <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-between w-full py-2 px-4 transition-colors text-white hover:bg-white/5"
+                      className="flex items-center justify-between w-full py-2 px-4 transition-colors text-foreground hover:bg-accent"
                     >
                       <div>
                         <span className="text-sm">{item.label}</span>
-                        {item.desc && <span className="text-xs ml-2 text-white/30">{item.desc}</span>}
+                        {item.desc && <span className="text-xs ml-2 text-foreground/30">{item.desc}</span>}
                       </div>
-                      <ExternalLink className="w-3.5 h-3.5 text-white/30" />
+                      <ExternalLink className="w-3.5 h-3.5 text-foreground/30" />
                     </a>
                   ) : (
                     <button key={item.label}
                       onClick={() => { setIsOpen(false); router.push(item.href) }}
-                      className="flex items-center justify-between w-full py-2 px-4 text-left transition-colors text-white hover:bg-white/5"
+                      className="flex items-center justify-between w-full py-2 px-4 text-left transition-colors text-foreground hover:bg-accent"
                     >
                       <div>
                         <span className="text-sm">{item.label}</span>
-                        {item.desc && <span className="text-xs ml-2 text-white/30">{item.desc}</span>}
+                        {item.desc && <span className="text-xs ml-2 text-foreground/30">{item.desc}</span>}
                       </div>
                     </button>
                   )
                 )}
               </div>
 
-              <div className="border-t border-white/10" />
+              <div className="border-t border-border" />
 
               {/* Login */}
               <div className="py-2">
                 <div className="px-4 py-1.5">
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-white/40">Log in</span>
+                  <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Log in</span>
                 </div>
                 {loginItems.map((item) => (
                   <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-between w-full py-2 px-4 transition-colors text-white hover:bg-white/5"
+                    className="flex items-center justify-between w-full py-2 px-4 transition-colors text-foreground hover:bg-accent"
                   >
                     <span className="text-sm">{item.label}</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-white/30" />
+                    <ExternalLink className="w-3.5 h-3.5 text-foreground/30" />
                   </a>
                 ))}
               </div>
@@ -259,7 +259,7 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
       <button onClick={() => isOpen ? onClose() : onOpen()}
         className={cn(
           'flex items-center gap-1 font-medium transition-all duration-200 text-sm py-2 px-3 rounded-lg',
-          isOpen ? 'text-white bg-white/10' : 'text-white/70 hover:text-white hover:bg-white/5'
+          isOpen ? 'text-foreground bg-foreground/10' : 'text-muted-foreground hover:text-foreground hover:bg-accent'
         )}
       >
         {menu.title}
@@ -278,25 +278,25 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
             onMouseLeave={() => { clearTimeoutRef(); timeoutRef.current = setTimeout(onClose, 300) }}
           >
             <div className="h-2" />
-            <div className="backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden bg-neutral-900/95 border-white/10 shadow-black/50">
+            <div className="backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden bg-secondary/95 border-border shadow-background/50">
               <div className="py-2">
                 {menu.items.map((item) => {
                   const Icon = item.icon
                   return (
                     <button key={item.label} onClick={() => handleItemClick(item)}
-                      className="w-full text-left px-4 py-3 transition-all duration-150 group flex items-center gap-3 hover:bg-white/10"
+                      className="w-full text-left px-4 py-3 transition-all duration-150 group flex items-center gap-3 hover:bg-accent"
                     >
                       {Icon && (
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors bg-white/10 group-hover:bg-white/20">
-                          <Icon className="w-4 h-4 text-white/70 group-hover:text-white" />
+                        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors bg-foreground/10 group-hover:bg-accent">
+                          <Icon className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <span className="font-medium text-sm transition-colors duration-150 text-white/90 group-hover:text-white">{item.label}</span>
-                          {item.external && <ExternalLink className="w-3.5 h-3.5 flex-shrink-0 text-white/30 group-hover:text-white/60" />}
+                          <span className="font-medium text-sm transition-colors duration-150 text-foreground/90 group-hover:text-foreground">{item.label}</span>
+                          {item.external && <ExternalLink className="w-3.5 h-3.5 flex-shrink-0 text-foreground/30 group-hover:text-muted-foreground" />}
                         </div>
-                        <p className="text-xs mt-0.5 transition-colors duration-150 truncate text-white/40 group-hover:text-white/60">{item.description}</p>
+                        <p className="text-xs mt-0.5 transition-colors duration-150 truncate text-muted-foreground group-hover:text-muted-foreground">{item.description}</p>
                       </div>
                     </button>
                   )
@@ -341,7 +341,7 @@ export default function Navbar() {
       </div>
 
       <button
-        className="md:hidden p-2 rounded-lg transition-all duration-200 text-white/70 hover:text-white hover:bg-white/10"
+        className="md:hidden p-2 rounded-lg transition-all duration-200 text-muted-foreground hover:text-foreground hover:bg-accent"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       >
         <AnimatePresence mode="wait">
@@ -364,12 +364,12 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 md:hidden backdrop-blur-xl border-t rounded-b-2xl overflow-hidden bg-neutral-900/98 border-white/10"
+            className="absolute top-full left-0 right-0 md:hidden backdrop-blur-xl border-t rounded-b-2xl overflow-hidden bg-secondary/98 border-border"
           >
             <div className="py-4 space-y-4 px-4 max-h-[70vh] overflow-y-auto">
               {Object.entries(navMenus).map(([key, menu]) => (
                 <div key={key} className="space-y-2">
-                  <div className="text-xs font-medium uppercase tracking-wider px-2 text-white/40">{menu.title}</div>
+                  <div className="text-xs font-medium uppercase tracking-wider px-2 text-muted-foreground">{menu.title}</div>
                   {menu.items.map((item) => (
                     <Link key={item.label}
                       href={item.external ? '#' : item.href}
@@ -377,20 +377,20 @@ export default function Navbar() {
                         if (item.external) { e.preventDefault(); window.open(item.href, '_blank') }
                         setIsMobileMenuOpen(false)
                       }}
-                      className="flex items-center justify-between py-2 px-2 rounded-lg transition-all duration-150 text-white/70 hover:text-white hover:bg-white/5"
+                      className="flex items-center justify-between py-2 px-2 rounded-lg transition-all duration-150 text-muted-foreground hover:text-foreground hover:bg-accent"
                     >
                       <span>{item.label}</span>
-                      {item.external && <ExternalLink className="w-3.5 h-3.5 text-white/30" />}
+                      {item.external && <ExternalLink className="w-3.5 h-3.5 text-foreground/30" />}
                     </Link>
                   ))}
                 </div>
               ))}
-              <div className="pt-4 space-y-2 border-t border-white/10">
+              <div className="pt-4 space-y-2 border-t border-border">
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10">Contact</Button>
+                  <Button variant="outline" className="w-full border-border text-foreground hover:bg-accent">Contact</Button>
                 </Link>
                 <a href="https://hanzo.ai" target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full bg-white text-black hover:bg-white/90">Try Zen</Button>
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Try Zen</Button>
                 </a>
               </div>
             </div>

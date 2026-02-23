@@ -8,13 +8,13 @@ export default function Contact() {
   return (
     <section id="contact" className={cn(
       "py-24 relative overflow-hidden transition-colors duration-300",
-      "bg-black"
+      "bg-background"
     )}>
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className={cn(
           "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-3xl",
-          "bg-white/[0.02]"
+          "bg-foreground/[0.02]"
         )} />
       </div>
 
@@ -26,11 +26,11 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className={cn(
               "inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-6",
-              "bg-white/5 border-white/10"
+              "bg-foreground/5 border-border"
             )}
           >
-            <Microscope className={cn("w-4 h-4", "text-white/60")} />
-            <span className={cn("text-sm font-medium", "text-white/60")}>
+            <Microscope className={cn("w-4 h-4", "text-muted-foreground")} />
+            <span className={cn("text-sm font-medium", "text-muted-foreground")}>
               Research Collaboration
             </span>
           </motion.div>
@@ -40,7 +40,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.05 }}
             className={cn(
               "text-4xl md:text-5xl font-bold mb-4",
-              "text-white"
+              "text-foreground"
             )}
           >
             Let's Build Together
@@ -51,7 +51,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
               "text-lg max-w-3xl mx-auto",
-              "text-white/50"
+              "text-muted-foreground"
             )}
           >
             From research collaborations to enterprise AI deployments,
@@ -67,19 +67,19 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className={cn(
               "backdrop-blur-sm p-8 rounded-2xl border transition-colors",
-              "bg-neutral-900/50 border-white/10 hover:border-white/20"
+              "bg-secondary/50 border-border hover:border-border"
             )}
           >
             <div className="flex items-center gap-3 mb-6">
               <div className={cn(
                 "p-2 rounded-lg",
-                "bg-white/5"
+                "bg-foreground/5"
               )}>
-                <Microscope className={cn("w-5 h-5", "text-white")} />
+                <Microscope className={cn("w-5 h-5", "text-foreground")} />
               </div>
               <h3 className={cn(
                 "text-2xl font-semibold",
-                "text-white"
+                "text-foreground"
               )}>
                 Research Division
               </h3>
@@ -89,18 +89,18 @@ export default function Contact() {
               <div className="group">
                 <h4 className={cn(
                   "font-semibold mb-1 transition-colors",
-                  "text-white group-hover:text-white/80"
+                  "text-foreground group-hover:text-foreground/80"
                 )}>
                   Antje Karina Worring
                 </h4>
-                <p className={cn("text-sm mb-2", "text-white/50")}>
+                <p className={cn("text-sm mb-2", "text-muted-foreground")}>
                   Chief Operating Officer
                 </p>
                 <a
                   href="mailto:a@hanzo.industries"
                   className={cn(
                     "inline-flex items-center gap-2 transition-colors",
-                    "text-white/50 hover:text-white"
+                    "text-muted-foreground hover:text-foreground"
                   )}
                 >
                   <Mail className="w-4 h-4" />
@@ -111,18 +111,18 @@ export default function Contact() {
               <div className="group">
                 <h4 className={cn(
                   "font-semibold mb-1 transition-colors",
-                  "text-white group-hover:text-white/80"
+                  "text-foreground group-hover:text-foreground/80"
                 )}>
                   Research Partnerships
                 </h4>
-                <p className={cn("text-sm mb-2", "text-white/50")}>
+                <p className={cn("text-sm mb-2", "text-muted-foreground")}>
                   Academic & Industry Collaboration
                 </p>
                 <a
                   href="mailto:research@hanzo.industries"
                   className={cn(
                     "inline-flex items-center gap-2 transition-colors",
-                    "text-white/50 hover:text-white"
+                    "text-muted-foreground hover:text-foreground"
                   )}
                 >
                   <Mail className="w-4 h-4" />
@@ -139,19 +139,19 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className={cn(
               "backdrop-blur-sm p-8 rounded-2xl border transition-colors",
-              "bg-neutral-900/50 border-white/10 hover:border-white/20"
+              "bg-secondary/50 border-border hover:border-border"
             )}
           >
             <div className="flex items-center gap-3 mb-6">
               <div className={cn(
                 "p-2 rounded-lg",
-                "bg-white/5"
+                "bg-foreground/5"
               )}>
-                <Building2 className={cn("w-5 h-5", "text-white")} />
+                <Building2 className={cn("w-5 h-5", "text-foreground")} />
               </div>
               <h3 className={cn(
                 "text-2xl font-semibold",
-                "text-white"
+                "text-foreground"
               )}>
                 Commercial Division
               </h3>
@@ -161,18 +161,18 @@ export default function Contact() {
               <div className="group">
                 <h4 className={cn(
                   "font-semibold mb-1 transition-colors",
-                  "text-white group-hover:text-white/80"
+                  "text-foreground group-hover:text-foreground/80"
                 )}>
                   Zach Kelling
                 </h4>
-                <p className={cn("text-sm mb-2", "text-white/50")}>
+                <p className={cn("text-sm mb-2", "text-muted-foreground")}>
                   Founding CTO
                 </p>
                 <a
                   href="mailto:zach@hanzo.industries"
                   className={cn(
                     "inline-flex items-center gap-2 transition-colors",
-                    "text-white/50 hover:text-white"
+                    "text-muted-foreground hover:text-foreground"
                   )}
                 >
                   <Mail className="w-4 h-4" />
@@ -183,18 +183,18 @@ export default function Contact() {
               <div className="group">
                 <h4 className={cn(
                   "font-semibold mb-1 transition-colors",
-                  "text-white group-hover:text-white/80"
+                  "text-foreground group-hover:text-foreground/80"
                 )}>
                   Dave Lorenzini
                 </h4>
-                <p className={cn("text-sm mb-2", "text-white/50")}>
+                <p className={cn("text-sm mb-2", "text-muted-foreground")}>
                   Chief Strategy Officer
                 </p>
                 <a
                   href="mailto:dave@hanzo.industries"
                   className={cn(
                     "inline-flex items-center gap-2 transition-colors",
-                    "text-white/50 hover:text-white"
+                    "text-muted-foreground hover:text-foreground"
                   )}
                 >
                   <Mail className="w-4 h-4" />
@@ -212,21 +212,21 @@ export default function Contact() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className={cn(
             "backdrop-blur-sm p-8 rounded-2xl border",
-            "bg-white/5 border-white/10"
+            "bg-foreground/5 border-border"
           )}
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center group">
               <div className={cn(
                 "inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors",
-                "bg-white/5 group-hover:bg-white/10"
+                "bg-foreground/5 group-hover:bg-accent"
               )}>
-                <MapPin className={cn("w-6 h-6", "text-white")} />
+                <MapPin className={cn("w-6 h-6", "text-foreground")} />
               </div>
-              <h4 className={cn("font-semibold mb-2", "text-white")}>
+              <h4 className={cn("font-semibold mb-2", "text-foreground")}>
                 Corporate Headquarters
               </h4>
-              <p className={cn("text-sm", "text-white/50")}>
+              <p className={cn("text-sm", "text-muted-foreground")}>
                 1824 S. Fairfax Ave<br />
                 Los Angeles, CA 90019<br />
                 United States
@@ -235,14 +235,14 @@ export default function Contact() {
             <div className="text-center group">
               <div className={cn(
                 "inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors",
-                "bg-white/5 group-hover:bg-white/10"
+                "bg-foreground/5 group-hover:bg-accent"
               )}>
-                <Phone className={cn("w-6 h-6", "text-white")} />
+                <Phone className={cn("w-6 h-6", "text-foreground")} />
               </div>
-              <h4 className={cn("font-semibold mb-2", "text-white")}>
+              <h4 className={cn("font-semibold mb-2", "text-foreground")}>
                 Secure Line
               </h4>
-              <p className={cn("text-sm", "text-white/50")}>
+              <p className={cn("text-sm", "text-muted-foreground")}>
                 +1 (913) 777-4443<br />
                 Available 24/7
               </p>
@@ -250,17 +250,17 @@ export default function Contact() {
             <div className="text-center group">
               <div className={cn(
                 "inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors",
-                "bg-white/5 group-hover:bg-white/10"
+                "bg-foreground/5 group-hover:bg-accent"
               )}>
-                <Mail className={cn("w-6 h-6", "text-white")} />
+                <Mail className={cn("w-6 h-6", "text-foreground")} />
               </div>
-              <h4 className={cn("font-semibold mb-2", "text-white")}>
+              <h4 className={cn("font-semibold mb-2", "text-foreground")}>
                 General Inquiries
               </h4>
-              <p className={cn("text-sm", "text-white/50")}>
-                <a href="mailto:info@hanzo.industries" className={cn("transition-colors", "hover:text-white")}>info@hanzo.industries</a><br />
-                <a href="mailto:contracts@hanzo.industries" className={cn("transition-colors", "hover:text-white")}>contracts@hanzo.industries</a><br />
-                <a href="mailto:security@hanzo.industries" className={cn("transition-colors", "hover:text-white")}>security@hanzo.industries</a>
+              <p className={cn("text-sm", "text-muted-foreground")}>
+                <a href="mailto:info@hanzo.industries" className={cn("transition-colors", "hover:text-foreground")}>info@hanzo.industries</a><br />
+                <a href="mailto:contracts@hanzo.industries" className={cn("transition-colors", "hover:text-foreground")}>contracts@hanzo.industries</a><br />
+                <a href="mailto:security@hanzo.industries" className={cn("transition-colors", "hover:text-foreground")}>security@hanzo.industries</a>
               </p>
             </div>
           </div>

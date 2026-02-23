@@ -499,7 +499,7 @@ const capabilitiesMatrix = [
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-16">
         {/* Hero Section */}
         <section className={cn("py-24 px-4 bg-gradient-to-b", "from-white/5 to-transparent")}>
@@ -509,19 +509,19 @@ export default function PageClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className={cn("inline-block px-4 py-1 rounded-full text-sm font-medium mb-6", "bg-white text-black")}>
+              <div className={cn("inline-block px-4 py-1 rounded-full text-sm font-medium mb-6", "bg-primary text-primary-foreground")}>
                 Zen AI Model Family
               </div>
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
                 Hypermodal AI
               </h1>
-              <p className={cn("text-xl max-w-3xl mx-auto mb-8", "text-white/60")}>
+              <p className={cn("text-xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
                 The world's most comprehensive open-weight AI model ecosystem.
                 100+ model weights from 0.6B to 1T+ parameters, covering text, vision, video, audio, 3D, code, and agents.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className={cn("rounded-full px-8 gap-2", "bg-white text-black hover:bg-white/90")}>
+                  <Button size="lg" className={cn("rounded-full px-8 gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                     <Sparkles className="w-4 h-4" />
                     Browse Models
                   </Button>
@@ -538,24 +538,24 @@ export default function PageClient() {
         </section>
 
         {/* Stats */}
-        <section className={cn("py-12 px-4 border-y", "border-white/10")}>
+        <section className={cn("py-12 px-4 border-y", "border-border")}>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
                 <div className="text-4xl font-bold mb-1">100+</div>
-                <div className={cn("text-sm", "text-white/40")}>Model Weights</div>
+                <div className={cn("text-sm", "text-muted-foreground")}>Model Weights</div>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-1">1T+</div>
-                <div className={cn("text-sm", "text-white/40")}>Max Parameters</div>
+                <div className={cn("text-sm", "text-muted-foreground")}>Max Parameters</div>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-1">7</div>
-                <div className={cn("text-sm", "text-white/40")}>Modalities</div>
+                <div className={cn("text-sm", "text-muted-foreground")}>Modalities</div>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-1">Apache 2.0</div>
-                <div className={cn("text-sm", "text-white/40")}>License</div>
+                <div className={cn("text-sm", "text-muted-foreground")}>License</div>
               </div>
             </div>
           </div>
@@ -569,48 +569,48 @@ export default function PageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className={cn("p-8 md:p-12 rounded-2xl border relative overflow-hidden", "border-white/20 bg-black/50")}
+              className={cn("p-8 md:p-12 rounded-2xl border relative overflow-hidden", "border-border bg-background/50")}
             >
-              <div className={cn("absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider", "bg-white text-black")}>
+              <div className={cn("absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider", "bg-primary text-primary-foreground")}>
                 Coming Soon
               </div>
               <div className="flex items-center gap-2 mb-4">
-                <Zap className={cn("w-6 h-6", "text-white")} />
-                <span className={cn("text-sm font-medium uppercase tracking-wider", "text-white/50")}>Next Generation</span>
+                <Zap className={cn("w-6 h-6", "text-foreground")} />
+                <span className={cn("text-sm font-medium uppercase tracking-wider", "text-muted-foreground")}>Next Generation</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 Zen 5 Ultra
               </h2>
-              <p className={cn("text-xl mb-6 max-w-2xl", "text-white/70")}>
+              <p className={cn("text-xl mb-6 max-w-2xl", "text-muted-foreground")}>
                 2T+ parameter MoDE (Mixture of Distilled Experts). The largest open-weight model in history — trained on-chain via NVIDIA TEE confidential compute on{" "}
                 <a href="https://hanzo.network" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">hanzo.network</a>.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-8">
-                <div className={cn("p-4 rounded-lg", "bg-white/5")}>
+                <div className={cn("p-4 rounded-lg", "bg-foreground/5")}>
                   <div className="text-2xl font-bold mb-1">2T+</div>
-                  <div className={cn("text-sm", "text-white/50")}>Parameters</div>
+                  <div className={cn("text-sm", "text-muted-foreground")}>Parameters</div>
                 </div>
-                <div className={cn("p-4 rounded-lg", "bg-white/5")}>
+                <div className={cn("p-4 rounded-lg", "bg-foreground/5")}>
                   <div className="text-2xl font-bold mb-1">MoDE</div>
-                  <div className={cn("text-sm", "text-white/50")}>Distilled Expert Routing</div>
+                  <div className={cn("text-sm", "text-muted-foreground")}>Distilled Expert Routing</div>
                 </div>
-                <div className={cn("p-4 rounded-lg", "bg-white/5")}>
+                <div className={cn("p-4 rounded-lg", "bg-foreground/5")}>
                   <div className="text-2xl font-bold mb-1">On-Chain</div>
-                  <div className={cn("text-sm", "text-white/50")}>Verifiable Training</div>
+                  <div className={cn("text-sm", "text-muted-foreground")}>Verifiable Training</div>
                 </div>
-                <div className={cn("p-4 rounded-lg", "bg-white/5")}>
+                <div className={cn("p-4 rounded-lg", "bg-foreground/5")}>
                   <div className="text-2xl font-bold mb-1">TEE</div>
-                  <div className={cn("text-sm", "text-white/50")}>NVIDIA Confidential Compute</div>
+                  <div className={cn("text-sm", "text-muted-foreground")}>NVIDIA Confidential Compute</div>
                 </div>
               </div>
-              <p className={cn("text-sm mb-6", "text-white/50")}>
+              <p className={cn("text-sm mb-6", "text-muted-foreground")}>
                 Private beta available. Researchers and institutions can request early access to preprints and weights under a special research license. Built on our{" "}
                 <a href="https://zenlm.org/papers/zen4-ultra-gt-qlora.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">GT-QLoRA</a>{" "}
                 MoE fine-tuning research.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a href="https://hanzo.ai/contact" target="_blank" rel="noopener noreferrer">
-                  <Button className={cn("rounded-full px-6 gap-2", "bg-white text-black hover:bg-white/90")}>
+                  <Button className={cn("rounded-full px-6 gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                     Request Research Access
                     <ArrowRight className="w-4 h-4" />
                   </Button>
@@ -632,7 +632,7 @@ export default function PageClient() {
           return (
             <section
               key={key}
-              className={cn("py-20 px-4", familyIndex % 2 === 0 ? "" : "bg-white/5")}
+              className={cn("py-20 px-4", familyIndex % 2 === 0 ? "" : "bg-foreground/5")}
             >
               <div className="max-w-6xl mx-auto">
                 <motion.div
@@ -643,10 +643,10 @@ export default function PageClient() {
                   className="mb-12"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <FamilyIcon className={cn("w-8 h-8", "text-white/70")} />
+                    <FamilyIcon className={cn("w-8 h-8", "text-muted-foreground")} />
                     <h2 className="text-3xl font-bold">{family.title}</h2>
                   </div>
-                  <p className={cn("max-w-2xl", "text-white/60")}>{family.description}</p>
+                  <p className={cn("max-w-2xl", "text-muted-foreground")}>{family.description}</p>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -660,29 +660,29 @@ export default function PageClient() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className={cn("block p-6 border rounded-xl hover:shadow-lg transition-all group", "bg-white/5 border-white/10 hover:border-white/20")}
+                      className={cn("block p-6 border rounded-xl hover:shadow-lg transition-all group", "bg-foreground/5 border-border hover:border-border")}
                     >
                       <div className="flex items-start justify-between mb-4">
                         <div>
                           <h3 className="text-lg font-semibold group-hover:underline">
                             {model.name}
                           </h3>
-                          <span className={cn("text-sm font-mono", "text-white/40")}>{model.params}</span>
+                          <span className={cn("text-sm font-mono", "text-muted-foreground")}>{model.params}</span>
                         </div>
-                        <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-white/50")} />
+                        <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-muted-foreground")} />
                       </div>
-                      <p className={cn("text-sm mb-4", "text-white/60")}>{model.description}</p>
+                      <p className={cn("text-sm mb-4", "text-muted-foreground")}>{model.description}</p>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {model.capabilities.map((cap) => (
                           <span
                             key={cap}
-                            className={cn("px-2 py-0.5 text-xs rounded-full", "bg-white/10 text-white/60")}
+                            className={cn("px-2 py-0.5 text-xs rounded-full", "bg-foreground/10 text-muted-foreground")}
                           >
                             {cap}
                           </span>
                         ))}
                       </div>
-                      <div className={cn("flex items-center justify-between text-xs pt-4 border-t", "text-white/40 border-white/10")}>
+                      <div className={cn("flex items-center justify-between text-xs pt-4 border-t", "text-muted-foreground border-border")}>
                         <span className="flex items-center gap-1">
                           <Zap className="w-3 h-3" />
                           {model.performance}
@@ -701,7 +701,7 @@ export default function PageClient() {
         })}
 
         {/* Capabilities Matrix */}
-        <section className={cn("py-20 px-4", "bg-white/5")}>
+        <section className={cn("py-20 px-4", "bg-foreground/5")}>
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -710,8 +710,8 @@ export default function PageClient() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4 text-white">Capabilities Matrix</h2>
-              <p className="text-white/60">
+              <h2 className="text-3xl font-bold mb-4 text-foreground">Capabilities Matrix</h2>
+              <p className="text-muted-foreground">
                 Each model specializes in different modalities and tasks
               </p>
             </motion.div>
@@ -719,7 +719,7 @@ export default function PageClient() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className={cn("border-b", "border-white/10")}>
+                  <tr className={cn("border-b", "border-border")}>
                     <th className="text-left py-4 px-4 font-semibold">Model</th>
                     <th className="text-center py-4 px-4 font-semibold">Text</th>
                     <th className="text-center py-4 px-4 font-semibold">Image</th>
@@ -732,8 +732,8 @@ export default function PageClient() {
                 </thead>
                 <tbody>
                   {capabilitiesMatrix.map((row) => (
-                    <tr key={row.model} className={cn("border-b", "border-white/5 hover:bg-white/5")}>
-                      <td className="py-3 px-4 font-mono text-white">{row.model}</td>
+                    <tr key={row.model} className={cn("border-b", "border-border hover:bg-accent")}>
+                      <td className="py-3 px-4 font-mono text-foreground">{row.model}</td>
                       <td className="text-center py-3 px-4">{row.text ? "\u2713" : "\u2014"}</td>
                       <td className="text-center py-3 px-4">{row.image ? "\u2713" : "\u2014"}</td>
                       <td className="text-center py-3 px-4">{row.video ? "\u2713" : "\u2014"}</td>
@@ -760,7 +760,7 @@ export default function PageClient() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl font-bold mb-4">Infrastructure</h2>
-              <p className={cn("text-white/60")}>
+              <p className={cn("text-muted-foreground")}>
                 Production-ready tools for training and deploying Zen models
               </p>
             </motion.div>
@@ -778,15 +778,15 @@ export default function PageClient() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className={cn("block p-8 rounded-2xl border hover:shadow-lg transition-all group text-center", "bg-white/5 border-white/10 hover:border-white/20")}
+                    className={cn("block p-8 rounded-2xl border hover:shadow-lg transition-all group text-center", "bg-foreground/5 border-border hover:border-border")}
                   >
-                    <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4", "bg-white")}>
-                      <ToolIcon className={cn("w-6 h-6", "text-black")} />
+                    <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4", "bg-primary")}>
+                      <ToolIcon className={cn("w-6 h-6", "text-primary-foreground")} />
                     </div>
                     <h3 className="text-xl font-semibold mb-2 group-hover:underline">
                       {tool.name}
                     </h3>
-                    <p className={cn("text-sm", "text-white/60")}>{tool.description}</p>
+                    <p className={cn("text-sm", "text-muted-foreground")}>{tool.description}</p>
                   </motion.a>
                 );
               })}
@@ -795,7 +795,7 @@ export default function PageClient() {
         </section>
 
         {/* Code Example */}
-        <section className={cn("py-20 px-4", "bg-white/5")}>
+        <section className={cn("py-20 px-4", "bg-foreground/5")}>
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -805,7 +805,7 @@ export default function PageClient() {
               className="text-center mb-8"
             >
               <h2 className="text-3xl font-bold mb-4">Quick Start</h2>
-              <p className={cn("text-white/60")}>Get started with any Zen model in seconds</p>
+              <p className={cn("text-muted-foreground")}>Get started with any Zen model in seconds</p>
             </motion.div>
 
             <motion.div
@@ -813,9 +813,9 @@ export default function PageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-gray-900 rounded-xl p-6 overflow-x-auto"
+              className="bg-secondary rounded-xl p-6 overflow-x-auto"
             >
-              <pre className="text-sm text-gray-300 font-mono">
+              <pre className="text-sm text-muted-foreground font-mono">
 {`# Install and run any model
 pip install transformers torch
 
@@ -844,12 +844,12 @@ response = client.chat.completions.create(
             <h2 className="text-3xl font-bold mb-4">
               Build with Zen AI
             </h2>
-            <p className={cn("text-xl mb-8", "text-white/60")}>
+            <p className={cn("text-xl mb-8", "text-muted-foreground")}>
               Open-weight models, Apache 2.0 licensed. Free to use for research and commercial applications.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className={cn("rounded-full px-8 gap-2", "bg-white text-black hover:bg-white/90")}>
+                <Button size="lg" className={cn("rounded-full px-8 gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                   Get Started
                   <ArrowRight className="w-4 h-4" />
                 </Button>

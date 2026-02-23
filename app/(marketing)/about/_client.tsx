@@ -107,7 +107,7 @@ export default function PageClient() {
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
               Full-Stack Private AI
             </h1>
-            <p className={cn("text-xl max-w-3xl", "text-white/60")}>
+            <p className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
               Hanzo is a Techstars-backed AI company building a vertically integrated
               stack — from frontier models to confidential compute to developer tools.
               We make powerful AI private by default, enabling sensitive workloads in
@@ -123,13 +123,13 @@ export default function PageClient() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
               "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20 py-8 border-y",
-              "border-white/10"
+              "border-border"
             )}
           >
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-2xl font-bold mb-1">{stat.value}</div>
-                <div className={cn("text-sm", "text-white/50")}>{stat.label}</div>
+                <div className={cn("text-sm", "text-muted-foreground")}>{stat.label}</div>
               </div>
             ))}
           </motion.div>
@@ -148,11 +148,11 @@ export default function PageClient() {
                   key={cap.title}
                   className={cn(
                     "p-6 rounded-lg border",
-                    "border-white/10"
+                    "border-border"
                   )}
                 >
                   <h3 className="text-lg font-semibold mb-2">{cap.title}</h3>
-                  <p className={cn("text-sm", "text-white/50")}>
+                  <p className={cn("text-sm", "text-muted-foreground")}>
                     {cap.description}
                   </p>
                 </div>
@@ -168,7 +168,7 @@ export default function PageClient() {
             className="mb-20"
           >
             <h2 className="text-3xl font-bold mb-2">The Stack</h2>
-            <p className={cn("text-lg mb-10", "text-white/50")}>
+            <p className={cn("text-lg mb-10", "text-muted-foreground")}>
               Vertically integrated from models to cloud — every layer built to work together.
             </p>
 
@@ -177,7 +177,7 @@ export default function PageClient() {
                 <div className="flex items-center gap-3 mb-4">
                   <span className={cn(
                     "text-xs font-mono font-medium px-2 py-1 rounded",
-                    "bg-white/10 text-white/60"
+                    "bg-foreground/10 text-muted-foreground"
                   )}>
                     {String(layerIndex + 1).padStart(2, "0")}
                   </span>
@@ -190,16 +190,16 @@ export default function PageClient() {
                       href={item.link}
                       className={cn(
                         "flex items-center justify-between px-5 py-3 rounded-lg border transition-colors group",
-                        "border-white/10 hover:bg-white/5"
+                        "border-border hover:bg-accent"
                       )}
                     >
                       <div>
                         <div className="font-semibold text-sm group-hover:underline">{item.name}</div>
-                        <div className={cn("text-xs", "text-white/40")}>
+                        <div className={cn("text-xs", "text-muted-foreground")}>
                           {item.description}
                         </div>
                       </div>
-                      <span className={cn("text-sm", "text-white/20")}>→</span>
+                      <span className={cn("text-sm", "text-foreground/20")}>→</span>
                     </Link>
                   ))}
                 </div>
@@ -231,11 +231,11 @@ export default function PageClient() {
                   rel="noopener noreferrer"
                   className={cn(
                     "px-5 py-4 rounded-lg border transition-colors group",
-                    "border-white/10 hover:bg-white/5"
+                    "border-border hover:bg-accent"
                   )}
                 >
                   <div className="font-medium font-mono text-sm group-hover:underline">{platform.name}</div>
-                  <div className={cn("text-sm", "text-white/40")}>
+                  <div className={cn("text-sm", "text-muted-foreground")}>
                     {platform.description}
                   </div>
                 </a>
@@ -273,14 +273,14 @@ export default function PageClient() {
                   rel="noopener noreferrer"
                   className={cn(
                     "p-6 rounded-lg border transition-colors group",
-                    "border-white/10 hover:border-white/20"
+                    "border-border hover:border-border"
                   )}
                 >
                   <h3 className="text-xl font-semibold mb-1 group-hover:underline">{org.name}</h3>
-                  <p className={cn("text-sm font-medium mb-2", "text-white/50")}>
+                  <p className={cn("text-sm font-medium mb-2", "text-muted-foreground")}>
                     {org.role}
                   </p>
-                  <p className={cn("text-sm", "text-white/40")}>
+                  <p className={cn("text-sm", "text-muted-foreground")}>
                     {org.detail}
                   </p>
                 </a>
@@ -295,11 +295,11 @@ export default function PageClient() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className={cn(
               "p-8 md:p-12 rounded-lg border",
-              "border-white/10 bg-white/[0.02]"
+              "border-border bg-foreground/[0.02]"
             )}
           >
             <h2 className="text-3xl font-bold mb-4">Mission</h2>
-            <p className={cn("text-lg", "text-white/60")}>
+            <p className={cn("text-lg", "text-muted-foreground")}>
               Make powerful AI private by default. We build full-stack AI infrastructure
               that converts compute into operational advantage — enabling sensitive workloads
               in healthcare, finance, defense, and government without requiring organizations

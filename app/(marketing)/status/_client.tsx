@@ -124,34 +124,34 @@ const historicalIncidents = [
 
 const statusColors = {
   operational: {
-    bg: "bg-white/20",
-    text: "text-white/70",
-    border: "border-white/20",
-    bgLight: "bg-white/10",
+    bg: "bg-foreground/20",
+    text: "text-muted-foreground",
+    border: "border-border",
+    bgLight: "bg-foreground/10",
   },
   degraded: {
-    bg: "bg-white/40",
-    text: "text-white/70",
-    border: "border-white/20",
-    bgLight: "bg-white/10",
+    bg: "bg-foreground/40",
+    text: "text-muted-foreground",
+    border: "border-border",
+    bgLight: "bg-foreground/10",
   },
   outage: {
-    bg: "bg-white/20",
-    text: "text-white/70",
-    border: "border-white/20",
-    bgLight: "bg-white/10",
+    bg: "bg-foreground/20",
+    text: "text-muted-foreground",
+    border: "border-border",
+    bgLight: "bg-foreground/10",
   },
   maintenance: {
-    bg: "bg-white/20",
-    text: "text-white/70",
-    border: "border-white/20",
-    bgLight: "bg-white/10",
+    bg: "bg-foreground/20",
+    text: "text-muted-foreground",
+    border: "border-border",
+    bgLight: "bg-foreground/10",
   },
   resolved: {
-    bg: "bg-white/50",
-    text: "text-gray-400",
-    border: "border-gray-500/20",
-    bgLight: "bg-white/50/10",
+    bg: "bg-foreground/50",
+    text: "text-muted-foreground",
+    border: "border-border",
+    bgLight: "bg-foreground/50/10",
   },
 };
 
@@ -186,7 +186,7 @@ export default function PageClient() {
   };
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-24">
         {/* Status Banner */}
         <section className="py-16 px-4">
@@ -198,22 +198,22 @@ export default function PageClient() {
               className={cn(
                 "rounded-2xl p-8 mb-8",
                 allOperational
-                  ? "bg-white/10 border border-white/20"
-                  : "bg-white/10 border border-white/30"
+                  ? "bg-foreground/10 border border-border"
+                  : "bg-foreground/10 border border-border"
               )}
             >
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-4">
                   {allOperational ? (
-                    <CheckCircle className="w-12 h-12 text-white/70" />
+                    <CheckCircle className="w-12 h-12 text-muted-foreground" />
                   ) : (
-                    <AlertCircle className="w-12 h-12 text-white/70" />
+                    <AlertCircle className="w-12 h-12 text-muted-foreground" />
                   )}
                   <div>
                     <h1 className="text-3xl md:text-4xl font-bold">
                       {allOperational ? "All Systems Operational" : "Partial System Outage"}
                     </h1>
-                    <p className={cn("mt-1", "text-white/50")}>
+                    <p className={cn("mt-1", "text-muted-foreground")}>
                       {allOperational
                         ? "All Hanzo services are running smoothly."
                         : "Some services are experiencing issues."}
@@ -226,12 +226,12 @@ export default function PageClient() {
                     size="sm"
                     onClick={handleRefresh}
                     disabled={isRefreshing}
-                    className={cn("text-white/50 hover:text-white")}
+                    className={cn("text-muted-foreground hover:text-foreground")}
                   >
                     <RefreshCw className={cn("w-4 h-4 mr-2", isRefreshing ? "animate-spin" : "")} />
                     Refresh
                   </Button>
-                  <div className={cn("flex items-center gap-2 text-sm", "text-white/50")}>
+                  <div className={cn("flex items-center gap-2 text-sm", "text-muted-foreground")}>
                     <Clock className="w-4 h-4" />
                     <span>Updated {formatTime(lastUpdated)}</span>
                   </div>
@@ -264,13 +264,13 @@ export default function PageClient() {
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       className={cn(
                         "border rounded-lg p-4 transition-colors",
-                        "bg-white/5 border-white/10 hover:border-white/20"
+                        "bg-foreground/5 border-border hover:border-border"
                       )}
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center", "bg-white/10")}>
-                            <Icon className={cn("w-5 h-5", "text-white/50")} />
+                          <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center", "bg-foreground/10")}>
+                            <Icon className={cn("w-5 h-5", "text-muted-foreground")} />
                           </div>
                           <div>
                             <div className="flex items-center gap-2">
@@ -280,13 +280,13 @@ export default function PageClient() {
                                   href={service.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className={cn("text-white/40 hover:text-white/70")}
+                                  className={cn("text-muted-foreground hover:text-muted-foreground")}
                                 >
                                   <ExternalLink className="w-3 h-3" />
                                 </a>
                               )}
                             </div>
-                            <p className={cn("text-sm", "text-white/40")}>{service.description}</p>
+                            <p className={cn("text-sm", "text-muted-foreground")}>{service.description}</p>
                           </div>
                         </div>
                         <div className={cn("flex items-center gap-2 px-3 py-1 rounded-full", colors.bgLight)}>
@@ -311,11 +311,11 @@ export default function PageClient() {
             >
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-semibold">90-Day Uptime</h2>
-                <span className="text-white/70 font-medium">99.99%</span>
+                <span className="text-muted-foreground font-medium">99.99%</span>
               </div>
               <div className={cn(
                 "border rounded-lg p-4",
-                "bg-white/5 border-white/10"
+                "bg-foreground/5 border-border"
               )}>
                 <div className="flex gap-0.5">
                   {Array.from({ length: 90 }).map((_, i) => {
@@ -326,21 +326,21 @@ export default function PageClient() {
                         key={i}
                         className={cn(
                           "flex-1 h-8 rounded-sm transition-colors hover:opacity-80",
-                          isMaintenance ? "bg-white/20" : "bg-white/20"
+                          isMaintenance ? "bg-foreground/20" : "bg-foreground/20"
                         )}
                         title={`Day ${90 - i}: ${isMaintenance ? "Scheduled Maintenance" : "Operational"}`}
                       />
                     );
                   })}
                 </div>
-                <div className={cn("flex justify-between mt-3 text-xs", "text-white/40")}>
+                <div className={cn("flex justify-between mt-3 text-xs", "text-muted-foreground")}>
                   <span>90 days ago</span>
                   <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1">
-                      <div className="w-2 h-2 rounded-sm bg-white/20" /> Operational
+                      <div className="w-2 h-2 rounded-sm bg-foreground/20" /> Operational
                     </span>
                     <span className="flex items-center gap-1">
-                      <div className="w-2 h-2 rounded-sm bg-white/20" /> Maintenance
+                      <div className="w-2 h-2 rounded-sm bg-foreground/20" /> Maintenance
                     </span>
                   </div>
                   <span>Today</span>
@@ -364,7 +364,7 @@ export default function PageClient() {
                     transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
                     className={cn(
                       "border rounded-lg p-4",
-                      "bg-white/5 border-white/10"
+                      "bg-foreground/5 border-border"
                     )}
                   >
                     <div className="flex items-start justify-between gap-4">
@@ -373,17 +373,17 @@ export default function PageClient() {
                           <h3 className="font-medium">{incident.title}</h3>
                           <span className={cn("px-2 py-0.5 text-xs rounded-full",
                             incident.type === "maintenance"
-                              ? "bg-white/10 text-white/70"
-                              : "bg-white/10 text-white/70"
+                              ? "bg-foreground/10 text-muted-foreground"
+                              : "bg-foreground/10 text-muted-foreground"
                           )}>
                             {incident.status}
                           </span>
                         </div>
-                        <p className={cn("text-sm", "text-white/50")}>{incident.description}</p>
+                        <p className={cn("text-sm", "text-muted-foreground")}>{incident.description}</p>
                       </div>
                       <div className="text-right text-sm">
-                        <div className={cn("text-white/50")}>{incident.date}</div>
-                        <div className={cn("text-white/40")}>{incident.duration}</div>
+                        <div className={cn("text-muted-foreground")}>{incident.date}</div>
+                        <div className={cn("text-muted-foreground")}>{incident.duration}</div>
                       </div>
                     </div>
                   </motion.div>
@@ -396,22 +396,22 @@ export default function PageClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className={cn("mt-12 text-center py-12 border-t", "border-white/10")}
+              className={cn("mt-12 text-center py-12 border-t", "border-border")}
             >
               <h2 className="text-2xl font-bold mb-3">
                 Get Status Updates
               </h2>
-              <p className={cn("mb-6 max-w-md mx-auto", "text-white/50")}>
+              <p className={cn("mb-6 max-w-md mx-auto", "text-muted-foreground")}>
                 Subscribe to receive notifications about system status and scheduled maintenance.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a href="https://twitter.com/hanaborobyai" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className={cn("border-white/10 hover:bg-white/10")}>
+                  <Button variant="outline" className={cn("border-border hover:bg-accent")}>
                     Follow @hanzoai
                   </Button>
                 </a>
                 <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className={cn("border-white/10 hover:bg-white/10")}>
+                  <Button variant="outline" className={cn("border-border hover:bg-accent")}>
                     Join Discord
                   </Button>
                 </a>

@@ -114,7 +114,7 @@ export default function PageClient() {
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
@@ -127,7 +127,7 @@ export default function PageClient() {
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
               Research Impact
             </h1>
-            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-white/70")}>
+            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Delivering measurable breakthroughs in AI efficiency, cryptography, and distributed systems
             </p>
           </motion.div>
@@ -140,21 +140,21 @@ export default function PageClient() {
             transition={{ duration: 0.5 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
           >
-            <div className={cn("p-6 rounded-lg text-center", "bg-white/5 border border-white/10")}>
+            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
               <div className="text-3xl font-bold mb-2">130+</div>
-              <div className={cn("text-sm", "text-white/50")}>Research Papers</div>
+              <div className={cn("text-sm", "text-muted-foreground")}>Research Papers</div>
             </div>
-            <div className={cn("p-6 rounded-lg text-center", "bg-white/5 border border-white/10")}>
+            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
               <div className="text-3xl font-bold mb-2">100+</div>
-              <div className={cn("text-sm", "text-white/50")}>AI Model Weights</div>
+              <div className={cn("text-sm", "text-muted-foreground")}>AI Model Weights</div>
             </div>
-            <div className={cn("p-6 rounded-lg text-center", "bg-white/5 border border-white/10")}>
+            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
               <div className="text-3xl font-bold mb-2">2,500+</div>
-              <div className={cn("text-sm", "text-white/50")}>OSS Projects</div>
+              <div className={cn("text-sm", "text-muted-foreground")}>OSS Projects</div>
             </div>
-            <div className={cn("p-6 rounded-lg text-center", "bg-white/5 border border-white/10")}>
+            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
               <div className="text-3xl font-bold mb-2">4</div>
-              <div className={cn("text-sm", "text-white/50")}>Research Organizations</div>
+              <div className={cn("text-sm", "text-muted-foreground")}>Research Organizations</div>
             </div>
           </motion.div>
 
@@ -172,18 +172,18 @@ export default function PageClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.5, delay: Math.min(index * 0.1, 0.3) }}
-                  className={cn("block rounded-lg p-8 transition-colors group", "bg-white/5 border border-white/10 hover:border-white/30")}
+                  className={cn("block rounded-lg p-8 transition-colors group", "bg-foreground/5 border border-border hover:border-border")}
                 >
                   <div className="flex items-start space-x-4 mb-6">
                     <div className="flex-shrink-0">
-                      <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center transition-colors", "bg-white group-hover:bg-white/90")}>
-                        <Icon className={cn("w-6 h-6", "text-black")} />
+                      <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center transition-colors", "bg-primary group-hover:bg-primary/90")}>
+                        <Icon className={cn("w-6 h-6", "text-primary-foreground")} />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className={cn("text-sm mb-1", "text-white/50")}>{study.category}</div>
-                      <h3 className={cn("text-2xl font-semibold mb-2 transition-colors", "group-hover:text-white/80")}>{study.title}</h3>
-                      <p className={cn("text-white/70")}>{study.description}</p>
+                      <div className={cn("text-sm mb-1", "text-muted-foreground")}>{study.category}</div>
+                      <h3 className={cn("text-2xl font-semibold mb-2 transition-colors", "group-hover:text-foreground/80")}>{study.title}</h3>
+                      <p className={cn("text-muted-foreground")}>{study.description}</p>
                     </div>
                   </div>
 
@@ -193,8 +193,8 @@ export default function PageClient() {
                       <ul className="space-y-2">
                         {study.results.map((result, idx) => (
                           <li key={idx} className="flex items-start">
-                            <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-white")} />
-                            <span className={cn("text-sm", "text-white/70")}>{result}</span>
+                            <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
+                            <span className={cn("text-sm", "text-muted-foreground")}>{result}</span>
                           </li>
                         ))}
                       </ul>
@@ -205,13 +205,13 @@ export default function PageClient() {
                         {study.technologies.map((tech, idx) => (
                           <span
                             key={idx}
-                            className={cn("px-3 py-1 rounded-full text-sm", "bg-white/10 text-white/70")}
+                            className={cn("px-3 py-1 rounded-full text-sm", "bg-foreground/10 text-muted-foreground")}
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
-                      <div className={cn("text-sm", "text-white/50")}>
+                      <div className={cn("text-sm", "text-muted-foreground")}>
                         <strong>Impact:</strong> {study.impact}
                       </div>
                     </div>
@@ -232,13 +232,13 @@ export default function PageClient() {
             <h2 className="text-3xl font-bold mb-6">
               Explore Our Research
             </h2>
-            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-white/70")}>
+            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
               Dive deeper into our published papers and open source projects
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/research#papers"
-                className={cn("inline-block px-8 py-4 rounded-lg font-semibold transition-colors", "bg-white text-black hover:bg-white/90")}
+                className={cn("inline-block px-8 py-4 rounded-lg font-semibold transition-colors", "bg-primary text-primary-foreground hover:bg-primary/90")}
               >
                 View All Papers
               </a>
@@ -246,7 +246,7 @@ export default function PageClient() {
                 href="https://github.com/hanzoai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn("inline-block bg-transparent px-8 py-4 rounded-lg font-semibold transition-colors", "border border-white text-white hover:bg-white/10")}
+                className={cn("inline-block bg-transparent px-8 py-4 rounded-lg font-semibold transition-colors", "border border-primary text-foreground hover:bg-accent")}
               >
                 Open Source
               </a>

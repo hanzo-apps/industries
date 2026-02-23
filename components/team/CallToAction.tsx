@@ -11,37 +11,37 @@ export default function CallToAction() {
       {/* Stats bar */}
       <div className={cn(
         "grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 p-8 rounded-2xl border",
-        "border-white/10 bg-white/5"
+        "border-border bg-foreground/5"
       )}>
         <div className="text-center">
-          <div className={cn("text-2xl font-bold", "text-white")}>
+          <div className={cn("text-2xl font-bold", "text-foreground")}>
             2,500+
           </div>
-          <div className={cn("text-sm", "text-white/50")}>
+          <div className={cn("text-sm", "text-muted-foreground")}>
             OSS Projects
           </div>
         </div>
         <div className="text-center">
-          <div className={cn("text-2xl font-bold", "text-white")}>
+          <div className={cn("text-2xl font-bold", "text-foreground")}>
             130+
           </div>
-          <div className={cn("text-sm", "text-white/50")}>
+          <div className={cn("text-sm", "text-muted-foreground")}>
             Research Papers
           </div>
         </div>
         <div className="text-center">
-          <div className={cn("text-2xl font-bold", "text-white")}>
+          <div className={cn("text-2xl font-bold", "text-foreground")}>
             100+
           </div>
-          <div className={cn("text-sm", "text-white/50")}>
+          <div className={cn("text-sm", "text-muted-foreground")}>
             AI Model Weights
           </div>
         </div>
         <div className="text-center">
-          <div className={cn("text-2xl font-bold", "text-white")}>
+          <div className={cn("text-2xl font-bold", "text-foreground")}>
             $1B+
           </div>
-          <div className={cn("text-sm", "text-white/50")}>
+          <div className={cn("text-sm", "text-muted-foreground")}>
             Client Revenue
           </div>
         </div>
@@ -51,13 +51,13 @@ export default function CallToAction() {
       <div className="text-center">
         <h2 className={cn(
           "text-3xl font-bold mb-4",
-          "text-white"
+          "text-foreground"
         )}>
           Build With Us
         </h2>
         <p className={cn(
           "mb-8 max-w-2xl mx-auto",
-          "text-white/50"
+          "text-muted-foreground"
         )}>
           We're hiring across engineering, research, and operations. Come build the future of AI.
         </p>
@@ -67,7 +67,7 @@ export default function CallToAction() {
               size="lg"
               className={cn(
                 "rounded-full px-8",
-                "bg-white text-black hover:bg-white/90"
+                "bg-primary text-primary-foreground hover:bg-primary/90"
               )}
             >
               View Open Roles
@@ -80,7 +80,7 @@ export default function CallToAction() {
               variant="outline"
               className={cn(
                 "rounded-full px-8",
-                "border-white/20 text-white hover:bg-white/10"
+                "border-border text-foreground hover:bg-accent"
               )}
             >
               Get in Touch

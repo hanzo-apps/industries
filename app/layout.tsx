@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { ThemeProvider } from '@/components/ThemeProvider'
 import './globals.css'
 
 const geist = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
@@ -31,9 +32,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`dark ${geist.variable} ${mono.variable}`} suppressHydrationWarning>
-      <body className="antialiased">
-        {children}
+    <html lang="en" className={`${geist.variable} ${mono.variable}`} suppressHydrationWarning>
+      <body className="antialiased bg-background text-foreground">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
         {/* Hanzo Analytics */}
         <Script
           id="hanzo-analytics"

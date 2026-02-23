@@ -4,10 +4,10 @@ import { cn } from "@/lib/utils";
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background")}>
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className={cn("max-w-4xl mx-auto prose", "prose-invert")}>
-          <h1 className={cn("text-4xl font-bold mb-8", "text-white")}>Privacy Policy</h1>
+          <h1 className={cn("text-4xl font-bold mb-8", "text-foreground")}>Privacy Policy</h1>
 
           <div className="space-y-8">
             <section>

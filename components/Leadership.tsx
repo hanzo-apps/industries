@@ -88,7 +88,7 @@ export default function Leadership() {
   return (
     <section className={cn(
       "py-20 transition-colors duration-300",
-      "bg-neutral-950"
+      "bg-secondary"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -98,7 +98,7 @@ export default function Leadership() {
             transition={{ duration: 0.5 }}
             className={cn(
               "text-4xl font-bold mb-4",
-              "text-white"
+              "text-foreground"
             )}
           >
             Leadership Team
@@ -109,7 +109,7 @@ export default function Leadership() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
               "text-xl max-w-3xl mx-auto",
-              "text-white/60"
+              "text-muted-foreground"
             )}
           >
             Our leadership team combines deep AI expertise with operational excellence,
@@ -129,7 +129,7 @@ export default function Leadership() {
               <div className="mb-4">
                 <div className={cn(
                   "w-32 h-32 mx-auto rounded-full overflow-hidden ring-2 transition-all duration-300",
-                  "bg-neutral-800 ring-neutral-700 group-hover:ring-white/40"
+                  "bg-card ring-border group-hover:ring-ring"
                 )}>
                   <img
                     src={leader.image}
@@ -140,19 +140,19 @@ export default function Leadership() {
               </div>
               <h3 className={cn(
                 "text-lg font-semibold mb-1",
-                "text-white"
+                "text-foreground"
               )}>
                 {leader.name}
               </h3>
               <p className={cn(
                 "text-sm font-medium mb-3",
-                "text-white/50"
+                "text-muted-foreground"
               )}>
                 {leader.title}
               </p>
               <p className={cn(
                 "text-sm",
-                "text-white/40"
+                "text-muted-foreground"
               )}>
                 {leader.bio}
               </p>
@@ -166,39 +166,39 @@ export default function Leadership() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className={cn(
             "mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t pt-16",
-            "border-white/10"
+            "border-border"
           )}
         >
           <div className="text-center">
             <h4 className={cn(
               "text-3xl font-bold mb-2",
-              "text-white"
+              "text-foreground"
             )}>
               2,500+
             </h4>
-            <p className={"text-white/50"}>
+            <p className={"text-muted-foreground"}>
               OSS Projects
             </p>
           </div>
           <div className="text-center">
             <h4 className={cn(
               "text-3xl font-bold mb-2",
-              "text-white"
+              "text-foreground"
             )}>
               130+
             </h4>
-            <p className={"text-white/50"}>
+            <p className={"text-muted-foreground"}>
               Research Papers
             </p>
           </div>
           <div className="text-center">
             <h4 className={cn(
               "text-3xl font-bold mb-2",
-              "text-white"
+              "text-foreground"
             )}>
               100+
             </h4>
-            <p className={"text-white/50"}>
+            <p className={"text-muted-foreground"}>
               AI Model Weights
             </p>
           </div>

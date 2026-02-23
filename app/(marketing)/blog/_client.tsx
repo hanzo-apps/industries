@@ -78,7 +78,7 @@ export default function PageClient() {
   const regularPosts = blogPosts.filter((post) => !post.featured);
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-24">
         {/* Hero Section */}
         <section className="py-24 px-4">
@@ -92,7 +92,7 @@ export default function PageClient() {
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Hanzo Blog
               </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto", "text-white/50")}>
+              <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
                 Insights, updates, and deep dives into AI technology, research, and innovation from the Hanzo team.
               </p>
             </motion.div>
@@ -110,8 +110,8 @@ export default function PageClient() {
                   className={cn(
                     "px-4 py-2 rounded-full text-sm font-medium transition-colors",
                     category === "All"
-                      ? "bg-white text-white"
-                      : "bg-white/5 text-white/50 hover:bg-white/10 hover:text-white"
+                      ? "bg-primary text-foreground"
+                      : "bg-foreground/5 text-muted-foreground hover:bg-accent hover:text-foreground"
                   )}
                 >
                   {category}
@@ -127,23 +127,23 @@ export default function PageClient() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="mb-16"
               >
-                <div className={cn("rounded-2xl overflow-hidden hover:border-white/30 transition-colors group", "bg-white/5 border border-white/10")}>
+                <div className={cn("rounded-2xl overflow-hidden hover:border-border transition-colors group", "bg-foreground/5 border border-border")}>
                   <div className="grid md:grid-cols-2 gap-8">
-                    <div className={cn("aspect-video md:aspect-auto flex items-center justify-center", "bg-white/10")}>
-                      <div className={cn("text-6xl font-bold", "text-white/20")}>H</div>
+                    <div className={cn("aspect-video md:aspect-auto flex items-center justify-center", "bg-foreground/10")}>
+                      <div className={cn("text-6xl font-bold", "text-foreground/20")}>H</div>
                     </div>
                     <div className="p-8 flex flex-col justify-center">
                       <div className="flex items-center gap-3 mb-4">
-                        <span className="px-3 py-1 bg-white text-white text-xs font-medium rounded-full">
+                        <span className="px-3 py-1 bg-primary text-foreground text-xs font-medium rounded-full">
                           Featured
                         </span>
-                        <span className={cn("text-sm", "text-white/40")}>{featuredPost.category}</span>
+                        <span className={cn("text-sm", "text-muted-foreground")}>{featuredPost.category}</span>
                       </div>
-                      <h2 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-white transition-colors">
+                      <h2 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-foreground transition-colors">
                         {featuredPost.title}
                       </h2>
-                      <p className={cn("mb-6", "text-white/50")}>{featuredPost.excerpt}</p>
-                      <div className={cn("flex items-center gap-4 text-sm mb-6", "text-white/40")}>
+                      <p className={cn("mb-6", "text-muted-foreground")}>{featuredPost.excerpt}</p>
+                      <div className={cn("flex items-center gap-4 text-sm mb-6", "text-muted-foreground")}>
                         <span className="flex items-center gap-1">
                           <User className="w-4 h-4" />
                           {featuredPost.author}
@@ -157,7 +157,7 @@ export default function PageClient() {
                           {featuredPost.readTime}
                         </span>
                       </div>
-                      <Button className="bg-white hover:bg-white/90 text-white w-fit group/btn">
+                      <Button className="bg-primary hover:bg-primary/90 text-foreground w-fit group/btn">
                         Read Article
                         <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
@@ -175,18 +175,18 @@ export default function PageClient() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className={cn("rounded-xl overflow-hidden hover:border-white/30 transition-colors group", "bg-white/5 border border-white/10")}
+                  className={cn("rounded-xl overflow-hidden hover:border-border transition-colors group", "bg-foreground/5 border border-border")}
                 >
-                  <div className={cn("aspect-video flex items-center justify-center", "bg-white/10")}>
-                    <div className={cn("text-4xl font-bold", "text-white/20")}>H</div>
+                  <div className={cn("aspect-video flex items-center justify-center", "bg-foreground/10")}>
+                    <div className={cn("text-4xl font-bold", "text-foreground/20")}>H</div>
                   </div>
                   <div className="p-6">
-                    <span className="text-white text-sm font-medium">{post.category}</span>
-                    <h3 className="text-xl font-bold mt-2 mb-3 group-hover:text-white transition-colors line-clamp-2">
+                    <span className="text-foreground text-sm font-medium">{post.category}</span>
+                    <h3 className="text-xl font-bold mt-2 mb-3 group-hover:text-foreground transition-colors line-clamp-2">
                       {post.title}
                     </h3>
-                    <p className={cn("text-sm mb-4 line-clamp-2", "text-white/50")}>{post.excerpt}</p>
-                    <div className={cn("flex items-center justify-between text-xs", "text-white/40")}>
+                    <p className={cn("text-sm mb-4 line-clamp-2", "text-muted-foreground")}>{post.excerpt}</p>
+                    <div className={cn("flex items-center justify-between text-xs", "text-muted-foreground")}>
                       <span>{post.author}</span>
                       <span>{post.readTime}</span>
                     </div>
@@ -202,7 +202,7 @@ export default function PageClient() {
               transition={{ duration: 0.5, delay: 0.8 }}
               className="text-center mt-12"
             >
-              <Button variant="outline" className={cn("border-white/10 text-white hover:bg-white/10")}>
+              <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
                 Load More Articles
               </Button>
             </motion.div>
@@ -210,7 +210,7 @@ export default function PageClient() {
         </section>
 
         {/* Newsletter Section */}
-        <section className={cn("py-24 px-4", "bg-white/5")}>
+        <section className={cn("py-24 px-4", "bg-foreground/5")}>
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -222,20 +222,20 @@ export default function PageClient() {
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Stay Updated
               </h2>
-              <p className={cn("mb-8", "text-white/50")}>
+              <p className={cn("mb-8", "text-muted-foreground")}>
                 Subscribe to our newsletter for the latest insights on AI technology, research breakthroughs, and product updates.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <Input
                   type="email"
                   placeholder="Enter your email"
-                  className={cn("flex-1", "bg-white/5 border-white/10 text-white placeholder:text-white/40")}
+                  className={cn("flex-1", "bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground")}
                 />
-                <Button className="bg-white hover:bg-white/90 text-white whitespace-nowrap">
+                <Button className="bg-primary hover:bg-primary/90 text-foreground whitespace-nowrap">
                   Subscribe
                 </Button>
               </div>
-              <p className={cn("text-sm mt-4", "text-white/40")}>
+              <p className={cn("text-sm mt-4", "text-muted-foreground")}>
                 No spam. Unsubscribe anytime.
               </p>
             </motion.div>

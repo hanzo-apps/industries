@@ -48,7 +48,7 @@ export default function ServicesOverview() {
   return (
     <section id="capabilities" className={cn(
       "py-20 transition-colors duration-300",
-      "bg-neutral-900"
+      "bg-secondary"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -58,7 +58,7 @@ export default function ServicesOverview() {
             transition={{ duration: 0.5 }}
             className={cn(
               "text-4xl font-bold mb-4",
-              "text-white"
+              "text-foreground"
             )}
           >
             Building the Future of Safe AI
@@ -69,7 +69,7 @@ export default function ServicesOverview() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
               "text-xl max-w-3xl mx-auto",
-              "text-white/60"
+              "text-muted-foreground"
             )}
           >
             From frontier model development to edge deployment, we're advancing AI capabilities
@@ -88,31 +88,31 @@ export default function ServicesOverview() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={cn(
                   "p-8 rounded-lg border transition-shadow",
-                  "bg-white/5 border-white/10 hover:shadow-lg hover:shadow-white/5"
+                  "bg-foreground/5 border-border hover:shadow-lg hover:shadow-foreground/5"
                 )}
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
                     <div className={cn(
                       "w-12 h-12 rounded-lg flex items-center justify-center",
-                      "bg-white/10"
+                      "bg-foreground/10"
                     )}>
                       <Icon className={cn(
                         "w-6 h-6",
-                        "text-white"
+                        "text-foreground"
                       )} />
                     </div>
                   </div>
                   <div className="flex-1">
                     <h3 className={cn(
                       "text-2xl font-semibold mb-3",
-                      "text-white"
+                      "text-foreground"
                     )}>
                       {service.title}
                     </h3>
                     <p className={cn(
                       "mb-4",
-                      "text-white/60"
+                      "text-muted-foreground"
                     )}>
                       {service.description}
                     </p>
@@ -120,11 +120,11 @@ export default function ServicesOverview() {
                       {service.capabilities.map((capability) => (
                         <div key={capability} className={cn(
                           "flex items-center text-sm",
-                          "text-white/70"
+                          "text-muted-foreground"
                         )}>
                           <div className={cn(
                             "w-1.5 h-1.5 rounded-full mr-2",
-                            "bg-white"
+                            "bg-primary"
                           )} />
                           {capability}
                         </div>
@@ -137,7 +137,7 @@ export default function ServicesOverview() {
                         rel="noopener noreferrer"
                         className={cn(
                           "inline-flex items-center gap-1.5 text-sm font-medium transition-colors",
-                          "text-white/70 hover:text-white"
+                          "text-muted-foreground hover:text-foreground"
                         )}
                       >
                         {service.cta} <ArrowRight className="w-3.5 h-3.5" />
@@ -146,7 +146,7 @@ export default function ServicesOverview() {
                       <Link href={service.link}
                         className={cn(
                           "inline-flex items-center gap-1.5 text-sm font-medium transition-colors",
-                          "text-white/70 hover:text-white"
+                          "text-muted-foreground hover:text-foreground"
                         )}
                       >
                         {service.cta} <ArrowRight className="w-3.5 h-3.5" />

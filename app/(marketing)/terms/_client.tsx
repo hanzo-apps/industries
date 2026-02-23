@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className={cn("max-w-4xl mx-auto prose", "prose-invert")}>
           <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>

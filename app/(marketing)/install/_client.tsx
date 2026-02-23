@@ -27,32 +27,32 @@ export default function PageClient() {
     <title>hanzo.sh | Install Hanzo Platform</title>
     <link rel="stylesheet" href="https://hanzo.sh/styles.css"/>
   </head>
-  <body class="bg-black text-white min-h-screen">
+  <body class="bg-background text-foreground min-h-screen">
     <div class="max-w-4xl mx-auto p-8">
       <div class="text-center mb-16">
         <div class="mb-8">
-          <span class="font-display text-8xl text-white">H</span>
+          <span class="font-display text-8xl text-foreground">H</span>
         </div>
-        <h1 class="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">Install Hanzo Platform</h1>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+        <h1 class="text-5xl font-bold mb-6">Install Hanzo Platform</h1>
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
           One command to install the complete Hanzo development platform. 
           This page doubles as both documentation and the installer script itself.
         </p>
       </div>
 
-      <div class="bg-black/50 rounded-lg p-8 mb-12 border border-white/20/20 backdrop-blur">
+      <div class="bg-background/50 rounded-lg p-8 mb-12 border border-border/20 backdrop-blur">
         <div class="flex items-center gap-3 mb-4">
-          <Terminal class="text-white/70" size="20" />
-          <h2 class="text-xl font-semibold text-white/70">Quick Install</h2>
+          <Terminal class="text-muted-foreground" size="20" />
+          <h2 class="text-xl font-semibold text-muted-foreground">Quick Install</h2>
         </div>
-        <pre class="bg-black rounded-lg p-4 overflow-x-auto border border-white/20/10"><code>curl -sL hanzo.sh | sh</code></pre>
-        <p class="mt-4 text-sm text-gray-400">This command downloads and executes the Hanzo Platform installer.</p>
+        <pre class="bg-background rounded-lg p-4 overflow-x-auto border border-border/10"><code>curl -sL hanzo.sh | sh</code></pre>
+        <p class="mt-4 text-sm text-muted-foreground">This command downloads and executes the Hanzo Platform installer.</p>
       </div>
 
       <div class="space-y-8">
-        <div class="bg-black/30 rounded-lg p-6">
-          <h2 class="text-2xl font-semibold mb-4 text-white/70">Requirements</h2>
-          <ul class="list-disc list-inside text-gray-400 space-y-2">
+        <div class="bg-background/30 rounded-lg p-6">
+          <h2 class="text-2xl font-semibold mb-4 text-muted-foreground">Requirements</h2>
+          <ul class="list-disc list-inside text-muted-foreground space-y-2">
             <li>Root access (sudo)</li>
             <li>Linux operating system</li>
             <li>Docker support</li>
@@ -60,9 +60,9 @@ export default function PageClient() {
           </ul>
         </div>
 
-        <div class="bg-black/30 rounded-lg p-6">
-          <h2 class="text-2xl font-semibold mb-4 text-white/70">What's Included</h2>
-          <ul class="list-disc list-inside text-gray-400 space-y-2">
+        <div class="bg-background/30 rounded-lg p-6">
+          <h2 class="text-2xl font-semibold mb-4 text-muted-foreground">What's Included</h2>
+          <ul class="list-disc list-inside text-muted-foreground space-y-2">
             <li>Docker Swarm initialization</li>
             <li>Hanzo Platform container</li>
             <li>PostgreSQL 16 database</li>
@@ -72,7 +72,7 @@ export default function PageClient() {
         </div>
       </div>
 
-      <footer class="mt-16 text-center text-gray-500 border-t border-gray-800 pt-8">
+      <footer class="mt-16 text-center text-muted-foreground border-t border-border pt-8">
         <p>&copy; 2024 Hanzo. All rights reserved.</p>
       </footer>
     </div>

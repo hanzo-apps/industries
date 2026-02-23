@@ -142,7 +142,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
+            className="fixed inset-0 bg-background/60 backdrop-blur-sm z-[100]"
           />
 
           <motion.div
@@ -154,13 +154,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
           >
             <div className={cn(
               "border rounded-xl shadow-2xl overflow-hidden",
-              "bg-neutral-900 border-white/10"
+              "bg-secondary border-border"
             )}>
               <div className={cn(
                 "flex items-center gap-3 px-4 py-3 border-b",
-                "border-white/10"
+                "border-border"
               )}>
-                <Search className={cn("w-5 h-5", "text-white/40")} />
+                <Search className={cn("w-5 h-5", "text-muted-foreground")} />
                 <input
                   ref={inputRef}
                   type="text"
@@ -170,12 +170,12 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                   placeholder="Search pages, products, docs..."
                   className={cn(
                     "flex-1 bg-transparent text-sm outline-none",
-                    "text-white placeholder-white/40"
+                    "text-foreground placeholder-muted-foreground"
                   )}
                 />
                 <kbd className={cn(
                   "px-2 py-1 text-[10px] font-mono rounded",
-                  "bg-white/10 text-white/40"
+                  "bg-foreground/10 text-muted-foreground"
                 )}>
                   ESC
                 </kbd>
@@ -185,7 +185,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                 {Object.keys(groupedCommands).length === 0 ? (
                   <div className={cn(
                     "px-4 py-8 text-center text-sm",
-                    "text-white/40"
+                    "text-muted-foreground"
                   )}>
                     No results found for "{search}"
                   </div>
@@ -194,7 +194,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                     <div key={category}>
                       <div className={cn(
                         "px-4 py-2 text-[10px] font-semibold uppercase tracking-wider",
-                        "text-white/40"
+                        "text-muted-foreground"
                       )}>
                         {category}
                       </div>
@@ -211,21 +211,21 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                             className={cn(
                               "w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors",
                               isSelected
-                                ? "bg-white/10 text-white"
-                                : "text-white/70 hover:bg-white/5"
+                                ? "bg-foreground/10 text-foreground"
+                                : "text-muted-foreground hover:bg-accent"
                             )}
                           >
                             <div className={cn(
                               "w-8 h-8 rounded-lg flex items-center justify-center",
                               isSelected
-                                ? "bg-white/15"
-                                : "bg-white/10"
+                                ? "bg-foreground/15"
+                                : "bg-foreground/10"
                             )}>
                               <Icon className={cn(
                                 "w-4 h-4",
                                 isSelected
-                                  ? "text-white"
-                                  : "text-white/50"
+                                  ? "text-foreground"
+                                  : "text-muted-foreground"
                               )} />
                             </div>
                             <div className="flex-1 min-w-0">
@@ -234,14 +234,14 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                                 {cmd.external && (
                                   <ExternalLink className={cn(
                                     "w-3 h-3",
-                                    "text-white/40"
+                                    "text-muted-foreground"
                                   )} />
                                 )}
                               </div>
                               {cmd.description && (
                                 <div className={cn(
                                   "text-xs truncate",
-                                  "text-white/40"
+                                  "text-muted-foreground"
                                 )}>
                                   {cmd.description}
                                 </div>
@@ -250,7 +250,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                             {isSelected && (
                               <ArrowRight className={cn(
                                 "w-4 h-4",
-                                "text-white/40"
+                                "text-muted-foreground"
                               )} />
                             )}
                           </button>
@@ -263,25 +263,25 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
 
               <div className={cn(
                 "px-4 py-2 border-t flex items-center justify-between",
-                "border-white/10"
+                "border-border"
               )}>
                 <div className={cn(
                   "flex items-center gap-4 text-[10px]",
-                  "text-white/40"
+                  "text-muted-foreground"
                 )}>
                   <span className="flex items-center gap-1">
-                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-white/10")}>up</kbd>
-                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-white/10")}>down</kbd>
+                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>up</kbd>
+                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>down</kbd>
                     Navigate
                   </span>
                   <span className="flex items-center gap-1">
-                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-white/10")}>enter</kbd>
+                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>enter</kbd>
                     Select
                   </span>
                 </div>
                 <div className={cn(
                   "flex items-center gap-1 text-[10px]",
-                  "text-white/40"
+                  "text-muted-foreground"
                 )}>
                   <Command className="w-3 h-3" />
                   <span>K to toggle</span>

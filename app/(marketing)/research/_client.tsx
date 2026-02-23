@@ -1034,16 +1034,16 @@ const [searchQuery, setSearchQuery] = useState("");
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
-                <Sparkles className="w-4 h-4 text-white" />
-                <span className={cn("text-sm font-medium", "text-white/60")}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/10 border border-border mb-6">
+                <Sparkles className="w-4 h-4 text-foreground" />
+                <span className={cn("text-sm font-medium", "text-muted-foreground")}>
                   130+ Research Papers
                 </span>
               </div>
-              <h1 className={cn("text-5xl md:text-6xl font-bold tracking-tight mb-6", "text-white")}>
+              <h1 className={cn("text-5xl md:text-6xl font-bold tracking-tight mb-6", "text-foreground")}>
                 Research & Publications
               </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto", "text-white/50")}>
+              <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
                 Pioneering research in AI infrastructure, decentralized systems, and frontier models.
                 All papers are CC BY 4.0 licensed and available on GitHub.
               </p>
@@ -1052,9 +1052,9 @@ const [searchQuery, setSearchQuery] = useState("");
         </section>
 
         {/* Research Areas */}
-        <section className={cn("py-16 px-4", "bg-white/5")}>
+        <section className={cn("py-16 px-4", "bg-foreground/5")}>
           <div className="max-w-6xl mx-auto">
-            <h2 className={cn("text-3xl font-bold mb-12", "text-white")}>Research Areas</h2>
+            <h2 className={cn("text-3xl font-bold mb-12", "text-foreground")}>Research Areas</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {researchAreas.map((area, index) => {
                 const Icon = area.icon;
@@ -1066,14 +1066,14 @@ const [searchQuery, setSearchQuery] = useState("");
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className={cn(
                       "p-8 rounded-xl border transition-colors group",
-                      "bg-white/5 border-white/10 hover:border-white/20"
+                      "bg-foreground/5 border-border hover:border-border"
                     )}
                   >
-                    <Icon className={cn("w-10 h-10 mb-4", "text-white/50")} />
-                    <h3 className={cn("text-xl font-semibold mb-3", "text-white")}>{area.title}</h3>
-                    <p className={cn("mb-4", "text-white/50")}>{area.description}</p>
+                    <Icon className={cn("w-10 h-10 mb-4", "text-muted-foreground")} />
+                    <h3 className={cn("text-xl font-semibold mb-3", "text-foreground")}>{area.title}</h3>
+                    <p className={cn("mb-4", "text-muted-foreground")}>{area.description}</p>
                     <Link href={area.link}
-                      className={cn("text-sm font-medium hover:underline inline-flex items-center gap-1", "text-white")}
+                      className={cn("text-sm font-medium hover:underline inline-flex items-center gap-1", "text-foreground")}
                     >
                       Learn more <ArrowRight className="w-3 h-3" />
                     </Link>
@@ -1089,8 +1089,8 @@ const [searchQuery, setSearchQuery] = useState("");
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between mb-12">
               <div>
-                <h2 className={cn("text-3xl font-bold mb-2", "text-white")}>Open Source</h2>
-                <p className={"text-white/50"}>
+                <h2 className={cn("text-3xl font-bold mb-2", "text-foreground")}>Open Source</h2>
+                <p className={"text-muted-foreground"}>
                   We believe in open research and share our tools with the community.
                 </p>
               </div>
@@ -1099,7 +1099,7 @@ const [searchQuery, setSearchQuery] = useState("");
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" className={cn("gap-2", "border-white/20 text-white hover:bg-white/10")}>
+                <Button variant="outline" className={cn("gap-2", "border-border text-foreground hover:bg-accent")}>
                   <Github className="w-4 h-4" />
                   View all on GitHub
                 </Button>
@@ -1118,22 +1118,22 @@ const [searchQuery, setSearchQuery] = useState("");
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   className={cn(
                     "block p-6 rounded-xl transition-all group",
-                    "bg-white/5 border border-white/10 hover:border-white/20"
+                    "bg-foreground/5 border border-border hover:border-border"
                   )}
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <Github className={cn("w-5 h-5", "text-white/50")} />
-                      <span className={cn("font-semibold group-hover:underline", "text-white")}>
+                      <Github className={cn("w-5 h-5", "text-muted-foreground")} />
+                      <span className={cn("font-semibold group-hover:underline", "text-foreground")}>
                         {project.name}
                       </span>
                     </div>
-                    <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-white/40")} />
+                    <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-muted-foreground")} />
                   </div>
-                  <p className={cn("text-sm mb-4", "text-white/50")}>{project.description}</p>
-                  <div className={cn("flex items-center gap-4 text-xs", "text-white/40")}>
+                  <p className={cn("text-sm mb-4", "text-muted-foreground")}>{project.description}</p>
+                  <div className={cn("flex items-center gap-4 text-xs", "text-muted-foreground")}>
                     <span className="flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-white/50"></span>
+                      <span className="w-2 h-2 rounded-full bg-foreground/50"></span>
                       {project.language}
                     </span>
                     <span>⭐ {project.stars}</span>
@@ -1145,12 +1145,12 @@ const [searchQuery, setSearchQuery] = useState("");
         </section>
 
         {/* Papers Section */}
-        <section className={cn("py-24 px-4", "bg-white/5")} id="papers">
+        <section className={cn("py-24 px-4", "bg-foreground/5")} id="papers">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
               <div>
-                <h2 className={cn("text-3xl font-bold mb-2", "text-white")}>Research Papers</h2>
-                <p className={"text-white/50"}>
+                <h2 className={cn("text-3xl font-bold mb-2", "text-foreground")}>Research Papers</h2>
+                <p className={"text-muted-foreground"}>
                   {filteredPapers.length} papers from Hanzo AI, Lux Network, Zoo Labs, and Zen LM.
                 </p>
               </div>
@@ -1159,7 +1159,7 @@ const [searchQuery, setSearchQuery] = useState("");
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" className={cn("gap-2", "border-white/20 text-white hover:bg-white/10")}>
+                <Button variant="outline" className={cn("gap-2", "border-border text-foreground hover:bg-accent")}>
                   <Github className="w-4 h-4" />
                   View on GitHub
                 </Button>
@@ -1168,21 +1168,21 @@ const [searchQuery, setSearchQuery] = useState("");
 
             {/* Search Bar */}
             <div className="mb-6">
-              <div className={cn("relative flex items-center rounded-lg", "bg-white/10")}>
-                <Search className={cn("absolute left-4 w-5 h-5", "text-white/40")} />
+              <div className={cn("relative flex items-center rounded-lg", "bg-foreground/10")}>
+                <Search className={cn("absolute left-4 w-5 h-5", "text-muted-foreground")} />
                 <input
                   type="text"
                   placeholder="Search papers by title, author, or topic..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className={cn("w-full pl-12 pr-4 py-3 bg-transparent rounded-lg outline-none", "text-white placeholder-white/40")}
+                  className={cn("w-full pl-12 pr-4 py-3 bg-transparent rounded-lg outline-none", "text-foreground placeholder-muted-foreground")}
                 />
                 {(searchQuery || activeOrg !== "all" || activeTopic !== "all") && (
                   <button
                     onClick={clearFilters}
-                    className={cn("absolute right-4 p-1 rounded-full", "hover:bg-white/10")}
+                    className={cn("absolute right-4 p-1 rounded-full", "hover:bg-accent")}
                   >
-                    <X className={cn("w-4 h-4", "text-white/50")} />
+                    <X className={cn("w-4 h-4", "text-muted-foreground")} />
                   </button>
                 )}
               </div>
@@ -1190,7 +1190,7 @@ const [searchQuery, setSearchQuery] = useState("");
 
             {/* Organization Filter */}
             <div className="mb-4">
-              <div className={cn("text-xs font-semibold uppercase tracking-wider mb-2", "text-white/40")}>
+              <div className={cn("text-xs font-semibold uppercase tracking-wider mb-2", "text-muted-foreground")}>
                 Organization
               </div>
               <div className="flex flex-wrap gap-2">
@@ -1201,12 +1201,12 @@ const [searchQuery, setSearchQuery] = useState("");
                     className={cn(
                       "px-3 py-1.5 rounded-full text-sm font-medium transition-all",
                       activeOrg === org
-                        ? org === "hanzo" ? "bg-white/20 text-white" :
-                          org === "lux" ? "bg-white/20 text-white" :
-                          org === "zoo" ? "bg-white/20 text-white" :
-                          org === "zen" ? "bg-white/20 text-white" :
-                          "bg-white text-white"
-                        : "bg-white/10 text-white/60 hover:bg-white/10"
+                        ? org === "hanzo" ? "bg-foreground/20 text-foreground" :
+                          org === "lux" ? "bg-foreground/20 text-foreground" :
+                          org === "zoo" ? "bg-foreground/20 text-foreground" :
+                          org === "zen" ? "bg-foreground/20 text-foreground" :
+                          "bg-primary text-foreground"
+                        : "bg-foreground/10 text-muted-foreground hover:bg-accent"
                     )}
                   >
                     {orgMeta[org].label}
@@ -1220,7 +1220,7 @@ const [searchQuery, setSearchQuery] = useState("");
 
             {/* Topic Filter */}
             <div className="mb-8">
-              <div className={cn("text-xs font-semibold uppercase tracking-wider mb-2", "text-white/40")}>
+              <div className={cn("text-xs font-semibold uppercase tracking-wider mb-2", "text-muted-foreground")}>
                 Topic
               </div>
               <div className="flex flex-wrap gap-2">
@@ -1231,8 +1231,8 @@ const [searchQuery, setSearchQuery] = useState("");
                     className={cn(
                       "px-3 py-1.5 rounded-full text-xs font-medium transition-all",
                       activeTopic === topic
-                        ? "bg-white text-white"
-                        : "bg-white/10 text-white/60 hover:bg-white/10"
+                        ? "bg-primary text-foreground"
+                        : "bg-foreground/10 text-muted-foreground hover:bg-accent"
                     )}
                   >
                     {topicMeta[topic].label}
@@ -1246,18 +1246,18 @@ const [searchQuery, setSearchQuery] = useState("");
 
             {/* Sort Controls */}
             <div className="flex items-center justify-between mb-6">
-              <div className={cn("text-sm", "text-white/50")}>
+              <div className={cn("text-sm", "text-muted-foreground")}>
                 Showing {filteredPapers.length} of {papers.length} papers
               </div>
               <div className="flex items-center gap-2">
-                <span className={cn("text-sm", "text-white/40")}>Sort:</span>
+                <span className={cn("text-sm", "text-muted-foreground")}>Sort:</span>
                 <button
                   onClick={() => setSortBy("date")}
                   className={cn(
                     "px-3 py-1 rounded text-sm",
                     sortBy === "date"
-                      ? "bg-white/10 text-white"
-                      : "text-white/50 hover:text-white"
+                      ? "bg-foreground/10 text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   )}
                 >
                   Date
@@ -1267,8 +1267,8 @@ const [searchQuery, setSearchQuery] = useState("");
                   className={cn(
                     "px-3 py-1 rounded text-sm",
                     sortBy === "title"
-                      ? "bg-white/10 text-white"
-                      : "text-white/50 hover:text-white"
+                      ? "bg-foreground/10 text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   )}
                 >
                   Title
@@ -1289,59 +1289,59 @@ const [searchQuery, setSearchQuery] = useState("");
                   className={cn(
                     "block p-6 rounded-xl transition-all group",
                     paper.featured
-                      ? "bg-gradient-to-br from-white/10 to-transparent border-2 border-white/20 hover:border-white/30"
-                      : "bg-black/50 border border-white/10 hover:border-white/20"
+                      ? "bg-gradient-to-br from-white/10 to-transparent border-2 border-border hover:border-border"
+                      : "bg-background/50 border border-border hover:border-border"
                   )}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2 flex-wrap">
-                        <FileText className={cn("w-5 h-5", "text-white/40")} />
-                        <span className={cn("text-sm", "text-white/40")}>{paper.date}</span>
+                        <FileText className={cn("w-5 h-5", "text-muted-foreground")} />
+                        <span className={cn("text-sm", "text-muted-foreground")}>{paper.date}</span>
                         {paper.featured && (
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-white font-medium">
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-foreground/10 text-foreground font-medium">
                             Featured
                           </span>
                         )}
                         <span className={cn(
                           "text-xs px-2 py-0.5 rounded-full",
-                          paper.org === "hanzo" ? "bg-white/10 text-white/70" :
-                          paper.org === "lux" ? "bg-white/10 text-white/70" :
-                          paper.org === "zoo" ? "bg-white/10 text-white/70" :
-                          "bg-white/10 text-white/70"
+                          paper.org === "hanzo" ? "bg-foreground/10 text-muted-foreground" :
+                          paper.org === "lux" ? "bg-foreground/10 text-muted-foreground" :
+                          paper.org === "zoo" ? "bg-foreground/10 text-muted-foreground" :
+                          "bg-foreground/10 text-muted-foreground"
                         )}>
                           {orgMeta[paper.org].label}
                         </span>
                       </div>
-                      <h3 className={cn("text-lg font-semibold mb-2 group-hover:underline", "text-white")}>
+                      <h3 className={cn("text-lg font-semibold mb-2 group-hover:underline", "text-foreground")}>
                         {paper.title}
                       </h3>
-                      <p className={cn("text-sm mb-2", "text-white/40")}>{paper.authors}</p>
-                      <p className={cn("mb-3", "text-white/50")}>{paper.abstract}</p>
+                      <p className={cn("text-sm mb-2", "text-muted-foreground")}>{paper.authors}</p>
+                      <p className={cn("mb-3", "text-muted-foreground")}>{paper.abstract}</p>
                       {/* Topic tags */}
                       <div className="flex flex-wrap gap-1.5">
                         {paper.topics.map(topic => (
                           <span
                             key={topic}
-                            className={cn("text-xs px-2 py-0.5 rounded", "bg-white/10 text-white/50")}
+                            className={cn("text-xs px-2 py-0.5 rounded", "bg-foreground/10 text-muted-foreground")}
                           >
                             {topicMeta[topic].label}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0", "text-white/40")} />
+                    <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0", "text-muted-foreground")} />
                   </div>
                 </motion.a>
               ))}
             </div>
 
             {filteredPapers.length === 0 && (
-              <div className={cn("text-center py-12", "text-white/40")}>
+              <div className={cn("text-center py-12", "text-muted-foreground")}>
                 No papers found matching your search.
                 <button
                   onClick={clearFilters}
-                  className="block mx-auto mt-4 text-white hover:underline"
+                  className="block mx-auto mt-4 text-foreground hover:underline"
                 >
                   Clear filters
                 </button>
@@ -1353,24 +1353,24 @@ const [searchQuery, setSearchQuery] = useState("");
         {/* CTA Section */}
         <section className="relative py-24 px-4 overflow-hidden">
           {/* Decorative blur */}
-          <div className={cn("absolute top-1/2 left-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-white/5")} />
-          <div className={cn("absolute top-1/2 right-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-white/[0.03]")} />
+          <div className={cn("absolute top-1/2 left-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-foreground/5")} />
+          <div className={cn("absolute top-1/2 right-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-foreground/[0.03]")} />
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className={cn("text-3xl font-bold mb-4", "text-white")}>
+            <h2 className={cn("text-3xl font-bold mb-4", "text-foreground")}>
               Join our research efforts
             </h2>
-            <p className={cn("text-xl mb-8", "text-white/50")}>
+            <p className={cn("text-xl mb-8", "text-muted-foreground")}>
               We're looking for talented researchers to help build the future of safe AI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/careers">
-                <Button size="lg" className={cn("rounded-full px-8", "bg-white text-black hover:bg-white/90")}>
+                <Button size="lg" className={cn("rounded-full px-8", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                   View Open Positions
                 </Button>
               </Link>
               <a href="mailto:research@hanzo.ai">
-                <Button size="lg" variant="outline" className={cn("rounded-full px-8", "border-white/20 text-white hover:bg-white/10")}>
+                <Button size="lg" variant="outline" className={cn("rounded-full px-8", "border-border text-foreground hover:bg-accent")}>
                   Contact Research Team
                 </Button>
               </a>

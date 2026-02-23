@@ -25,7 +25,7 @@ export default function TrustedBySection() {
   return (
     <section className={cn(
       "py-20 px-4 md:px-8 transition-colors",
-      "bg-black"
+      "bg-background"
     )}>
       <div className="max-w-7xl mx-auto">
         <style>
@@ -42,11 +42,11 @@ export default function TrustedBySection() {
         >
           <h2 className={cn(
             "text-3xl md:text-4xl font-medium mb-4",
-            "text-white"
+            "text-foreground"
           )}>
             Investors & Partners
           </h2>
-          <p className={"text-white/40"}>
+          <p className={"text-muted-foreground"}>
             Backed by world-class partners
           </p>
         </motion.div>
@@ -85,18 +85,18 @@ export default function TrustedBySection() {
         >
           <p className={cn(
             "text-xs uppercase tracking-widest mb-6 text-center",
-            "text-white/30"
+            "text-foreground/30"
           )}>
             Trusted By
           </p>
           <div className={cn(
             "relative overflow-hidden border rounded-full",
-            "border-white/10 bg-white/5"
+            "border-border bg-foreground/5"
           )}>
             <div
               className={cn(
                 "flex gap-10 py-4 px-6 text-sm w-max",
-                "text-white/40"
+                "text-muted-foreground"
               )}
               style={{ animation: "brand-marquee 30s linear infinite" }}
             >
