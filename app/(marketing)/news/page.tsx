@@ -117,8 +117,8 @@ const typeColors: Record<string, string> = {
   "Funding": "bg-white/20",
   "Partnership": "bg-white/20",
   "Product Update": "bg-white/20",
-  "Milestone": "bg-yellow-500",
-  "Research": "bg-cyan-500",
+  "Milestone": "bg-white/30",
+  "Research": "bg-white/40",
   "Company News": "bg-white/50",
 };
 

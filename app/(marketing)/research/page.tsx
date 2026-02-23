@@ -1270,7 +1270,7 @@ const [searchQuery, setSearchQuery] = useState("");
                   className={cn(
                     "block p-6 rounded-xl transition-all group",
                     paper.featured
-                      ? "bg-gradient-to-br from-[#fd4444]/10 to-transparent border-2 border-white/20 hover:border-white/30"
+                      ? "bg-gradient-to-br from-white/10 to-transparent border-2 border-white/20 hover:border-white/30"
                       : "bg-black/50 border border-white/10 hover:border-white/20"
                   )}
                 >

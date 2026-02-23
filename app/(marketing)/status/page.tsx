@@ -126,13 +126,13 @@ const statusColors = {
   operational: {
     bg: "bg-white/20",
     text: "text-white/70",
-    border: "border-green-500/20",
+    border: "border-white/20",
     bgLight: "bg-white/10",
   },
   degraded: {
-    bg: "bg-yellow-500",
+    bg: "bg-white/40",
     text: "text-white/70",
-    border: "border-yellow-500/20",
+    border: "border-white/20",
     bgLight: "bg-white/10",
   },
   outage: {
@@ -198,8 +198,8 @@ export default function StatusPage() {
               className={cn(
                 "rounded-2xl p-8 mb-8",
                 allOperational
-                  ? "bg-white/10 border border-green-500/20"
-                  : "bg-white/10 border border-yellow-500/20"
+                  ? "bg-white/10 border border-white/20"
+                  : "bg-white/10 border border-white/30"
               )}
             >
               <div className="flex items-center justify-between flex-wrap gap-4">

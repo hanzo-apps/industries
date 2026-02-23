@@ -379,7 +379,7 @@ export default function Help() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-[#fd4444]/20 to-transparent border border-white/20 rounded-2xl p-8 md:p-12"
+              className="bg-gradient-to-r from-white/10 to-transparent border border-white/20 rounded-2xl p-8 md:p-12"
             >
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
