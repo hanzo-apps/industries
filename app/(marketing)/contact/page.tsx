@@ -46,7 +46,7 @@ const socialLinks = [
     ),
     label: "Join Discord",
     href: "https://discord.gg/hanzo",
-    color: "#5865F2",
+    color: "#ffffff",
   },
   {
     icon: () => (
@@ -56,7 +56,7 @@ const socialLinks = [
     ),
     label: "Connect on LinkedIn",
     href: "https://linkedin.com/company/hanzoai",
-    color: "#0A66C2",
+    color: "#ffffff",
   },
 ];
 
@@ -144,7 +144,7 @@ export default function ContactPage() {
                 </h2>
 
                 {submitted ? (
-                  <div className="p-8 rounded-2xl border border-green-500/30 bg-white/10 text-center">
+                  <div className="p-8 rounded-2xl border border-white/20 bg-white/10 text-center">
                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
                       <Send className="w-6 h-6 text-white/70" />
                     </div>

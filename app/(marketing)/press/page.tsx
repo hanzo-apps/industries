@@ -126,20 +126,20 @@ const brandColors = [
 const typeColors: Record<string, string> = {
   "Product": "bg-white/10 text-white/70 border-white/20",
   "Research": "bg-white/10 text-white/70 border-white/20/20",
-  "Infrastructure": "bg-white/10 text-white/70 border-green-500/20",
-  "Organization": "bg-white/10 text-white/70 border-orange-500/20",
-  "Milestone": "bg-white/10 text-white/70 border-yellow-500/20",
+  "Infrastructure": "bg-white/10 text-white/70 border-white/20",
+  "Organization": "bg-white/10 text-white/70 border-white/20",
+  "Milestone": "bg-white/10 text-white/70 border-white/20",
 };
 
-const LogoPreview = ({ isDark }: { isDark: boolean }) => (
+const LogoPreview = () => (
   <svg viewBox="0 0 67 67" className="w-12 h-12">
-    <path d="M22.21 67V44.6369H0V67H22.21Z" fill={isDark ? "#ffffff" : "#000000"} />
+    <path d="M22.21 67V44.6369H0V67H22.21Z" fill="#ffffff" />
     <path d="M0 44.6369L22.21 46.8285V44.6369H0Z" fill="#DDDDDD" />
-    <path d="M66.7038 22.3184H22.2534L0.0878906 44.6367H44.4634L66.7038 22.3184Z" fill={isDark ? "#ffffff" : "#000000"} />
-    <path d="M22.21 0H0V22.3184H22.21V0Z" fill={isDark ? "#ffffff" : "#000000"} />
-    <path d="M66.7198 0H44.5098V22.3184H66.7198V0Z" fill={isDark ? "#ffffff" : "#000000"} />
+    <path d="M66.7038 22.3184H22.2534L0.0878906 44.6367H44.4634L66.7038 22.3184Z" fill="#ffffff" />
+    <path d="M22.21 0H0V22.3184H22.21V0Z" fill="#ffffff" />
+    <path d="M66.7198 0H44.5098V22.3184H66.7198V0Z" fill="#ffffff" />
     <path d="M66.6753 22.3185L44.5098 20.0822V22.3185H66.6753Z" fill="#DDDDDD" />
-    <path d="M66.7198 67V44.6369H44.5098V67H66.7198Z" fill={isDark ? "#ffffff" : "#000000"} />
+    <path d="M66.7198 67V44.6369H44.5098V67H66.7198Z" fill="#ffffff" />
   </svg>
 );
 
@@ -270,7 +270,7 @@ export default function Press() {
               {/* Dark Background Logo */}
               <div className={cn("rounded-xl border overflow-hidden", "border-white/10")}>
                 <div className="h-32 bg-black flex items-center justify-center">
-                  <LogoPreview isDark={true} />
+                  <LogoPreview />
                 </div>
                 <div className={cn("p-4", "bg-white/5")}>
                   <h3 className="font-semibold mb-1">Logo - Dark Background</h3>
@@ -282,7 +282,7 @@ export default function Press() {
               {/* Light Background Logo */}
               <div className={cn("rounded-xl border overflow-hidden", "border-white/10")}>
                 <div className={cn("h-32 flex items-center justify-center border-b", "bg-white border-white/10")}>
-                  <LogoPreview isDark={false} />
+                  <LogoPreview />
                 </div>
                 <div className={cn("p-4", "bg-white/5")}>
                   <h3 className="font-semibold mb-1">Logo - Light Background</h3>

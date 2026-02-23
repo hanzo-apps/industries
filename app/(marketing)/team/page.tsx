@@ -17,7 +17,7 @@ export default function Team() {
       role: "President",
       description: "Guiding company strategy and vision for the future.",
       icon: Lightbulb,
-      gradient: "from-yellow-500 to-orange-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/michael-kelling.png"
     },
     {
@@ -25,7 +25,7 @@ export default function Team() {
       role: "Chief Operating Officer",
       description: "Driving operational excellence and strategic execution.",
       icon: Settings,
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/antje-worring.png"
     },
     {
@@ -33,7 +33,7 @@ export default function Team() {
       role: "Founding CTO",
       description: "Technical founder driving Hanzo's mission to build frontier AI.",
       icon: Code2,
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/zach-kelling.png"
     },
     {
@@ -41,7 +41,7 @@ export default function Team() {
       role: "Chief Strategy Officer",
       description: "Strategy visionary with decades of experience in immersive computing and AI.",
       icon: Code2,
-      gradient: "from-indigo-500 to-blue-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/dave-lorenzini.jpg"
     },
     {
@@ -49,7 +49,7 @@ export default function Team() {
       role: "Chief Revenue Officer",
       description: "Driving revenue growth and commercial strategy.",
       icon: MessagesSquare,
-      gradient: "from-green-500 to-emerald-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/vincent-butta.jpg"
     },
     {
@@ -57,7 +57,7 @@ export default function Team() {
       role: "Chief Visionary Officer",
       description: "Visionary leader bridging finance, technology, and global partnerships.",
       icon: Lightbulb,
-      gradient: "from-amber-500 to-yellow-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/major-williams.png"
     },
     {
@@ -65,7 +65,7 @@ export default function Team() {
       role: "Chief Brand Officer",
       description: "Building and elevating the Hanzo brand globally.",
       icon: Paintbrush,
-      gradient: "from-rose-500 to-pink-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/danielle-savage.png"
     },
     {
@@ -73,7 +73,7 @@ export default function Team() {
       role: "Chief of Staff",
       description: "Ensuring organizational effectiveness and leadership alignment.",
       icon: HelpCircle,
-      gradient: "from-amber-500 to-orange-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/ashley-christie.png"
     },
     {
@@ -81,7 +81,7 @@ export default function Team() {
       role: "VP Engineering",
       description: "Full-stack and AI engineer leading platform development.",
       icon: Code2,
-      gradient: "from-cyan-500 to-blue-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/woo-bin.png"
     },
     {
@@ -89,7 +89,7 @@ export default function Team() {
       role: "VP Engineering",
       description: "Leading engineering teams and technical development.",
       icon: Code2,
-      gradient: "from-violet-500 to-purple-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/anastasia-zacharaoff.png"
     },
     {
@@ -97,7 +97,7 @@ export default function Team() {
       role: "Lead Mobile Engineer",
       description: "Building cross-platform mobile and web applications.",
       icon: Code2,
-      gradient: "from-sky-500 to-cyan-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/jason-xu.png"
     },
     {
@@ -105,7 +105,7 @@ export default function Team() {
       role: "Lead Wallet Engineer",
       description: "Full-stack developer specializing in wallet and payment systems.",
       icon: Shield,
-      gradient: "from-pink-500 to-rose-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/kaori-fujio.png"
     },
     {
@@ -113,7 +113,7 @@ export default function Team() {
       role: "VP Strategy",
       description: "Developing strategic initiatives and business intelligence.",
       icon: ChartBar,
-      gradient: "from-teal-500 to-green-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/rob-ruiz.png"
     },
     {
@@ -121,7 +121,7 @@ export default function Team() {
       role: "VP Research",
       description: "Leading AI research and development initiatives.",
       icon: Lightbulb,
-      gradient: "from-indigo-500 to-purple-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/marcus-white.png"
     },
     {
@@ -129,7 +129,7 @@ export default function Team() {
       role: "VP Engineering",
       description: "Engineering leader building scalable distributed systems.",
       icon: Code2,
-      gradient: "from-orange-500 to-red-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/jackson-mori.png"
     },
     {
@@ -137,7 +137,7 @@ export default function Team() {
       role: "Executive VP",
       description: "Senior executive driving strategic initiatives and partnerships.",
       icon: Lightbulb,
-      gradient: "from-amber-500 to-orange-500",
+      gradient: "from-white/20 to-white/10",
       image: "/leadership/ole-brereton.png"
     },
   ];

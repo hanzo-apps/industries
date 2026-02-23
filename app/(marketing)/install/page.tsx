@@ -27,7 +27,7 @@ export default function Install() {
     <title>hanzo.sh | Install Hanzo Platform</title>
     <link rel="stylesheet" href="https://hanzo.sh/styles.css"/>
   </head>
-  <body class="bg-[#1A1F2C] text-white min-h-screen">
+  <body class="bg-black text-white min-h-screen">
     <div class="max-w-4xl mx-auto p-8">
       <div class="text-center mb-16">
         <div class="mb-8">
