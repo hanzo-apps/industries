@@ -622,6 +622,25 @@ const papers: Paper[] = [
 
   // ===== ZEN LM - Models =====
   {
+    title: "GT-QLoRA: Gate-Targeted Fine-Tuning for Behavioral Modification in Large MoE Models",
+    authors: "Zen LM Research",
+    date: "2026",
+    abstract: "Gate-Targeted QLoRA for behavioral modification in trillion-parameter MoE models. Demonstrates why linear abliteration fails on MoE architectures (refusal encoded in expert routing, not residual stream) and introduces direct gate weight unfreezing alongside LoRA for effective behavioral steering.",
+    link: "https://zenlm.org/papers/zen4-ultra-gt-qlora.pdf",
+    org: "zen",
+    topics: ["models", "ai"],
+    featured: true,
+  },
+  {
+    title: "Zen4 Abliteration: MoE-Aware Refusal Removal at Scale",
+    authors: "Zen LM Research",
+    date: "2026",
+    abstract: "Comprehensive analysis of abliteration techniques across the Zen4 model family. Covers orthogonalization for dense models and GT-QLoRA for MoE architectures including the 1.04T Zen4 Ultra.",
+    link: "https://huggingface.co/zenlm/zen4-ultra",
+    org: "zen",
+    topics: ["models", "ai"],
+  },
+  {
     title: "Zen Family Overview: Model Architecture Guide",
     authors: "Zen LM Research",
     date: "2025",
