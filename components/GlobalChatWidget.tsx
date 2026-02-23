@@ -331,7 +331,7 @@ const [isOpen, setIsOpen] = useState(false);
                           "absolute left-0 top-full mt-1 w-56 border rounded-lg shadow-xl overflow-hidden z-10",
                           "bg-white/5 border-white/10"
                         )}
-                        style={{ backgroundColor: "rgb(23,23,23)" }}
+                        style={{ backgroundColor: "#171717" }}
                       >
                         {zenModels.map((model) => (
                           <button
