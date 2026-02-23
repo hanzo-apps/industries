@@ -94,7 +94,7 @@ export default function PageClient() {
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       {/* Hero Section */}
       <section className={cn("pt-24 pb-16 bg-gradient-to-b", "from-white/5 to-transparent")}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,12 +105,12 @@ export default function PageClient() {
             className="text-center"
           >
             <h1 className="text-5xl font-bold mb-6">Professional Services</h1>
-            <p className={cn("text-xl max-w-3xl mx-auto mb-8", "text-white/60")}>
+            <p className={cn("text-xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
               From strategy to implementation, we provide end-to-end services to help you
               harness the power of AI and modern technology
             </p>
             <div className="flex justify-center gap-4">
-              <Button size="lg" className={cn("bg-white text-black hover:bg-white/90")}>
+              <Button size="lg" className={cn("bg-primary text-primary-foreground hover:bg-primary/90")}>
                 Get Started
               </Button>
               <Button size="lg" variant="outline">
@@ -133,7 +133,7 @@ export default function PageClient() {
             <h2 className="text-4xl font-bold mb-4">
               Comprehensive Service Offerings
             </h2>
-            <p className={cn("text-xl max-w-3xl mx-auto", "text-white/60")}>
+            <p className={cn("text-xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Expert services across the entire technology stack, delivered by our team
               of specialists
             </p>
@@ -148,16 +148,16 @@ export default function PageClient() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={cn("p-8 rounded-lg border hover:shadow-lg transition-shadow", "bg-white/5 border-white/10")}
+                  className={cn("p-8 rounded-lg border hover:shadow-lg transition-shadow", "bg-foreground/5 border-border")}
                 >
-                  <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center mb-6", "bg-white")}>
-                    <Icon className={cn("w-6 h-6", "text-black")} />
+                  <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center mb-6", "bg-primary")}>
+                    <Icon className={cn("w-6 h-6", "text-primary-foreground")} />
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                  <p className={cn("mb-6", "text-white/60")}>{service.description}</p>
+                  <p className={cn("mb-6", "text-muted-foreground")}>{service.description}</p>
                   <ul className="space-y-2">
                     {service.offerings.map((offering) => (
-                      <li key={offering} className={cn("flex items-start text-sm", "text-white/70")}>
+                      <li key={offering} className={cn("flex items-start text-sm", "text-muted-foreground")}>
                         <span className="mr-2">*</span>
                         {offering}
                       </li>
@@ -171,7 +171,7 @@ export default function PageClient() {
       </section>
 
       {/* Engagement Models */}
-      <section className={cn("py-20", "bg-white/5")}>
+      <section className={cn("py-20", "bg-foreground/5")}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -180,7 +180,7 @@ export default function PageClient() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold mb-4">Flexible Engagement Models</h2>
-            <p className={cn("text-xl max-w-3xl mx-auto", "text-white/60")}>
+            <p className={cn("text-xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Choose the engagement model that best fits your needs and budget
             </p>
           </motion.div>
@@ -192,11 +192,11 @@ export default function PageClient() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={cn("p-8 rounded-lg shadow-sm", "bg-white/5")}
+                className={cn("p-8 rounded-lg shadow-sm", "bg-foreground/5")}
               >
                 <h3 className="text-2xl font-semibold mb-4">{model.title}</h3>
-                <p className={cn("mb-4", "text-white/60")}>{model.description}</p>
-                <p className={cn("text-sm", "text-white/40")}>
+                <p className={cn("mb-4", "text-muted-foreground")}>{model.description}</p>
+                <p className={cn("text-sm", "text-muted-foreground")}>
                   <strong>Ideal for:</strong> {model.ideal}
                 </p>
               </motion.div>
@@ -206,7 +206,7 @@ export default function PageClient() {
       </section>
 
       {/* Process Section */}
-      <section className={cn("py-20", "bg-white/5")}>
+      <section className={cn("py-20", "bg-foreground/5")}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -214,8 +214,8 @@ export default function PageClient() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className={cn("text-4xl font-bold mb-4", "text-white")}>Our Process</h2>
-            <p className={cn("text-xl max-w-3xl mx-auto", "text-white/70")}>
+            <h2 className={cn("text-4xl font-bold mb-4", "text-foreground")}>Our Process</h2>
+            <p className={cn("text-xl max-w-3xl mx-auto", "text-muted-foreground")}>
               A proven methodology that ensures successful outcomes
             </p>
           </motion.div>
@@ -234,9 +234,9 @@ export default function PageClient() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className={cn("text-5xl font-bold mb-4", "text-white/30")}>{phase.step}</div>
-                <h3 className={cn("text-xl font-semibold mb-2", "text-white")}>{phase.title}</h3>
-                <p className={cn("text-white/50")}>{phase.desc}</p>
+                <div className={cn("text-5xl font-bold mb-4", "text-foreground/30")}>{phase.step}</div>
+                <h3 className={cn("text-xl font-semibold mb-2", "text-foreground")}>{phase.title}</h3>
+                <p className={cn("text-muted-foreground")}>{phase.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -254,10 +254,10 @@ export default function PageClient() {
             <h2 className="text-4xl font-bold mb-6">
               Ready to Transform Your Business?
             </h2>
-            <p className={cn("text-xl mb-8", "text-white/60")}>
+            <p className={cn("text-xl mb-8", "text-muted-foreground")}>
               Let's discuss how our services can help you achieve your goals
             </p>
-            <Button size="lg" className={cn("bg-white text-black hover:bg-white/90")}>
+            <Button size="lg" className={cn("bg-primary text-primary-foreground hover:bg-primary/90")}>
               Schedule a Consultation
             </Button>
           </motion.div>

@@ -92,13 +92,13 @@ export default function PageClient() {
   };
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main>
         {/* Hero Section */}
         <section className="relative pt-32 pb-16 px-4 md:px-8 lg:px-12">
           {/* Background decoration */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className={cn("absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl", "bg-white/[0.02]")} />
+            <div className={cn("absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl", "bg-foreground/[0.02]")} />
           </div>
 
           <div className="max-w-6xl mx-auto text-center relative z-10">
@@ -106,10 +106,10 @@ export default function PageClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className={cn("inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6", "bg-white/5 border border-white/10")}
+              className={cn("inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6", "bg-foreground/5 border border-border")}
             >
-              <MessageSquare className={cn("w-4 h-4", "text-white/60")} />
-              <span className={cn("text-sm font-medium", "text-white/60")}>Get in Touch</span>
+              <MessageSquare className={cn("w-4 h-4", "text-muted-foreground")} />
+              <span className={cn("text-sm font-medium", "text-muted-foreground")}>Get in Touch</span>
             </motion.div>
 
             <motion.h1
@@ -125,7 +125,7 @@ export default function PageClient() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className={cn("text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto", "text-white/50")}
+              className={cn("text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto", "text-muted-foreground")}
             >
               Ready to transform your operations with frontier AI? Our team is here to help you build the future.
             </motion.p>
@@ -147,19 +147,19 @@ export default function PageClient() {
                 </h2>
 
                 {submitted ? (
-                  <div className="p-8 rounded-2xl border border-white/20 bg-white/10 text-center">
-                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
-                      <Send className="w-6 h-6 text-white/70" />
+                  <div className="p-8 rounded-2xl border border-border bg-foreground/10 text-center">
+                    <div className="w-12 h-12 rounded-full bg-foreground/10 flex items-center justify-center mx-auto mb-4">
+                      <Send className="w-6 h-6 text-muted-foreground" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">
                       Message Sent!
                     </h3>
-                    <p className={cn("text-sm", "text-white/50")}>
+                    <p className={cn("text-sm", "text-muted-foreground")}>
                       Thank you for reaching out. We'll get back to you within 24 hours.
                     </p>
                     <Button
                       onClick={() => setSubmitted(false)}
-                      className={cn("mt-4", "bg-white/10 hover:bg-white/20 text-white")}
+                      className={cn("mt-4", "bg-foreground/10 hover:bg-accent text-foreground")}
                     >
                       Send Another Message
                     </Button>
@@ -182,7 +182,7 @@ export default function PageClient() {
                           onChange={handleChange}
                           required
                           placeholder="Your name"
-                          className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all", "bg-white/5 border border-white/10 text-white placeholder-white/40 focus:ring-white/20 focus:border-white/20")}
+                          className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all", "bg-foreground/5 border border-border text-foreground placeholder-muted-foreground focus:ring-ring focus:border-border")}
                         />
                       </div>
                       <div>
@@ -200,7 +200,7 @@ export default function PageClient() {
                           onChange={handleChange}
                           required
                           placeholder="your.email@company.com"
-                          className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all", "bg-white/5 border border-white/10 text-white placeholder-white/40 focus:ring-white/20 focus:border-white/20")}
+                          className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all", "bg-foreground/5 border border-border text-foreground placeholder-muted-foreground focus:ring-ring focus:border-border")}
                         />
                       </div>
                     </div>
@@ -220,7 +220,7 @@ export default function PageClient() {
                           value={formData.company}
                           onChange={handleChange}
                           placeholder="Your organization"
-                          className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all", "bg-white/5 border border-white/10 text-white placeholder-white/40 focus:ring-white/20 focus:border-white/20")}
+                          className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all", "bg-foreground/5 border border-border text-foreground placeholder-muted-foreground focus:ring-ring focus:border-border")}
                         />
                       </div>
                       <div>
@@ -263,7 +263,7 @@ export default function PageClient() {
                         onChange={handleChange}
                         required
                         placeholder="What is this regarding?"
-                        className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all", "bg-white/5 border border-white/10 text-white placeholder-white/40 focus:ring-white/20 focus:border-white/20")}
+                        className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all", "bg-foreground/5 border border-border text-foreground placeholder-muted-foreground focus:ring-ring focus:border-border")}
                       />
                     </div>
 
@@ -282,14 +282,14 @@ export default function PageClient() {
                         required
                         rows={5}
                         placeholder="Tell us how we can help..."
-                        className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all resize-none", "bg-white/5 border border-white/10 text-white placeholder-white/40 focus:ring-white/20 focus:border-white/20")}
+                        className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all resize-none", "bg-foreground/5 border border-border text-foreground placeholder-muted-foreground focus:ring-ring focus:border-border")}
                       />
                     </div>
 
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className={cn("w-full sm:w-auto rounded-full px-6 disabled:opacity-50 transition-all", "bg-white text-black hover:bg-white/90")}
+                      className={cn("w-full sm:w-auto rounded-full px-6 disabled:opacity-50 transition-all", "bg-primary text-primary-foreground hover:bg-primary/90")}
                     >
                       {isSubmitting ? (
                         "Sending..."
@@ -320,39 +320,39 @@ export default function PageClient() {
                     {/* Email */}
                     <a
                       href="mailto:info@hanzo.ai"
-                      className={cn("flex items-start gap-4 p-4 rounded-xl transition-all group", "border border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10")}
+                      className={cn("flex items-start gap-4 p-4 rounded-xl transition-all group", "border border-border bg-foreground/5 hover:border-border hover:bg-accent")}
                     >
-                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors", "bg-white/5 group-hover:bg-white/10")}>
-                        <Mail className={cn("w-5 h-5 transition-colors", "text-white/60 group-hover:text-white")} />
+                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors", "bg-foreground/5 group-hover:bg-accent")}>
+                        <Mail className={cn("w-5 h-5 transition-colors", "text-muted-foreground group-hover:text-foreground")} />
                       </div>
                       <div>
                         <p className="font-medium">Email</p>
-                        <p className={cn("text-sm", "text-white/50")}>info@hanzo.ai</p>
+                        <p className={cn("text-sm", "text-muted-foreground")}>info@hanzo.ai</p>
                       </div>
                     </a>
 
                     {/* Phone */}
                     <a
                       href="tel:+19137774443"
-                      className={cn("flex items-start gap-4 p-4 rounded-xl transition-all group", "border border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10")}
+                      className={cn("flex items-start gap-4 p-4 rounded-xl transition-all group", "border border-border bg-foreground/5 hover:border-border hover:bg-accent")}
                     >
-                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors", "bg-white/5 group-hover:bg-white/10")}>
-                        <Phone className={cn("w-5 h-5 transition-colors", "text-white/60 group-hover:text-white")} />
+                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors", "bg-foreground/5 group-hover:bg-accent")}>
+                        <Phone className={cn("w-5 h-5 transition-colors", "text-muted-foreground group-hover:text-foreground")} />
                       </div>
                       <div>
                         <p className="font-medium">Phone</p>
-                        <p className={cn("text-sm", "text-white/50")}>+1 (913) 777-4443</p>
+                        <p className={cn("text-sm", "text-muted-foreground")}>+1 (913) 777-4443</p>
                       </div>
                     </a>
 
                     {/* Location */}
-                    <div className={cn("flex items-start gap-4 p-4 rounded-xl", "border border-white/10 bg-white/5")}>
-                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0", "bg-white/5")}>
-                        <MapPin className={cn("w-5 h-5", "text-white/60")} />
+                    <div className={cn("flex items-start gap-4 p-4 rounded-xl", "border border-border bg-foreground/5")}>
+                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0", "bg-foreground/5")}>
+                        <MapPin className={cn("w-5 h-5", "text-muted-foreground")} />
                       </div>
                       <div>
                         <p className="font-medium">Headquarters</p>
-                        <p className={cn("text-sm", "text-white/50")}>
+                        <p className={cn("text-sm", "text-muted-foreground")}>
                           1824 S. Fairfax Ave<br />
                           Los Angeles, CA 90019
                         </p>
@@ -363,36 +363,36 @@ export default function PageClient() {
 
                 {/* Division Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className={cn("p-5 rounded-xl", "border border-white/10 bg-white/5")}>
+                  <div className={cn("p-5 rounded-xl", "border border-border bg-foreground/5")}>
                     <div className="flex items-center gap-2 mb-3">
-                      <Shield className={cn("w-4 h-4", "text-white/60")} />
+                      <Shield className={cn("w-4 h-4", "text-muted-foreground")} />
                       <h3 className="font-medium text-sm">Research Division</h3>
                     </div>
-                    <p className={cn("text-xs mb-2", "text-white/50")}>Academic & industry collaboration</p>
-                    <a href="mailto:research@hanzo.ai" className={cn("text-xs transition-colors", "text-white/80 hover:text-white")}>
+                    <p className={cn("text-xs mb-2", "text-muted-foreground")}>Academic & industry collaboration</p>
+                    <a href="mailto:research@hanzo.ai" className={cn("text-xs transition-colors", "text-foreground/80 hover:text-foreground")}>
                       research@hanzo.ai
                     </a>
                   </div>
-                  <div className={cn("p-5 rounded-xl", "border border-white/10 bg-white/5")}>
+                  <div className={cn("p-5 rounded-xl", "border border-border bg-foreground/5")}>
                     <div className="flex items-center gap-2 mb-3">
-                      <Building2 className={cn("w-4 h-4", "text-white/60")} />
+                      <Building2 className={cn("w-4 h-4", "text-muted-foreground")} />
                       <h3 className="font-medium text-sm">Commercial</h3>
                     </div>
-                    <p className={cn("text-xs mb-2", "text-white/50")}>Enterprise AI solutions</p>
-                    <a href="mailto:sales@hanzo.ai" className={cn("text-xs transition-colors", "text-white/80 hover:text-white")}>
+                    <p className={cn("text-xs mb-2", "text-muted-foreground")}>Enterprise AI solutions</p>
+                    <a href="mailto:sales@hanzo.ai" className={cn("text-xs transition-colors", "text-foreground/80 hover:text-foreground")}>
                       sales@hanzo.ai
                     </a>
                   </div>
                 </div>
 
                 {/* Cal.com Booking */}
-                <div className={cn("rounded-xl overflow-hidden", "border border-white/20 bg-white/5")}>
-                  <div className={cn("p-4", "border-b border-white/10")}>
+                <div className={cn("rounded-xl overflow-hidden", "border border-border bg-foreground/5")}>
+                  <div className={cn("p-4", "border-b border-border")}>
                     <div className="flex items-center gap-3">
                       <Calendar className="w-5 h-5" />
                       <h3 className="font-semibold">Schedule a Call</h3>
                     </div>
-                    <p className={cn("text-sm mt-1", "text-white/50")}>
+                    <p className={cn("text-sm mt-1", "text-muted-foreground")}>
                       Book a meeting with our team
                     </p>
                   </div>
@@ -411,7 +411,7 @@ export default function PageClient() {
         </section>
 
         {/* Connect With Us */}
-        <section className={cn("py-16 px-4 md:px-8 lg:px-12", "border-t border-white/10")}>
+        <section className={cn("py-16 px-4 md:px-8 lg:px-12", "border-t border-border")}>
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -423,7 +423,7 @@ export default function PageClient() {
               <h2 className="text-2xl font-semibold mb-2">
                 Connect With Us
               </h2>
-              <p className={cn("text-white/50")}>
+              <p className={cn("text-muted-foreground")}>
                 Follow us on social media to stay updated on the latest developments.
               </p>
             </motion.div>
@@ -441,7 +441,7 @@ export default function PageClient() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className={cn("flex flex-col items-center gap-3 p-4 rounded-xl transition-all group", "border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20")}
+                    className={cn("flex flex-col items-center gap-3 p-4 rounded-xl transition-all group", "border border-border bg-foreground/5 hover:bg-accent hover:border-border")}
                   >
                     <div
                       className="w-10 h-10 rounded-lg flex items-center justify-center transition-colors"
@@ -449,7 +449,7 @@ export default function PageClient() {
                     >
                       <Icon />
                     </div>
-                    <span className={cn("text-xs font-medium transition-colors", "text-white/50 group-hover:text-white")}>
+                    <span className={cn("text-xs font-medium transition-colors", "text-muted-foreground group-hover:text-foreground")}>
                       {social.label}
                     </span>
                   </motion.a>

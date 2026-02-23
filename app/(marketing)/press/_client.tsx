@@ -124,11 +124,11 @@ const brandColors = [
 ];
 
 const typeColors: Record<string, string> = {
-  "Product": "bg-white/10 text-white/70 border-white/20",
-  "Research": "bg-white/10 text-white/70 border-white/20/20",
-  "Infrastructure": "bg-white/10 text-white/70 border-white/20",
-  "Organization": "bg-white/10 text-white/70 border-white/20",
-  "Milestone": "bg-white/10 text-white/70 border-white/20",
+  "Product": "bg-foreground/10 text-muted-foreground border-border",
+  "Research": "bg-foreground/10 text-muted-foreground border-border/20",
+  "Infrastructure": "bg-foreground/10 text-muted-foreground border-border",
+  "Organization": "bg-foreground/10 text-muted-foreground border-border",
+  "Milestone": "bg-foreground/10 text-muted-foreground border-border",
 };
 
 const LogoPreview = () => (
@@ -145,7 +145,7 @@ const LogoPreview = () => (
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-16">
         {/* Hero */}
         <section className={cn("py-24 px-4 bg-gradient-to-b", "from-white/5 to-transparent")}>
@@ -155,19 +155,19 @@ export default function PageClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className={cn("inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium mb-6", "bg-white text-black")}>
+              <div className={cn("inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium mb-6", "bg-primary text-primary-foreground")}>
                 <FileText className="w-4 h-4" />
                 Press Room
               </div>
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
                 Press & Media
               </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto mb-8", "text-white/60")}>
+              <p className={cn("text-xl max-w-2xl mx-auto mb-8", "text-muted-foreground")}>
                 Download brand assets, access press releases, and find everything you need to write about Hanzo AI.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a href="mailto:press@hanzo.ai">
-                  <Button className={cn("gap-2", "bg-white text-black hover:bg-white/90")}>
+                  <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                     <Mail className="w-4 h-4" />
                     Contact Press Team
                   </Button>
@@ -187,17 +187,17 @@ export default function PageClient() {
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-6">
-              <Building2 className={cn("w-6 h-6", "text-white/40")} />
+              <Building2 className={cn("w-6 h-6", "text-muted-foreground")} />
               <h2 className="text-2xl font-bold">About Hanzo AI</h2>
             </div>
             <div className="max-w-3xl">
-              <p className={cn("text-lg leading-relaxed mb-4", "text-white/60")}>
+              <p className={cn("text-lg leading-relaxed mb-4", "text-muted-foreground")}>
                 <strong>Hanzo AI Inc</strong> (Techstars '17) is a frontier AI research lab building next-generation AI infrastructure. Founded in 2016 in Los Angeles, Hanzo develops large language models, AI training frameworks, and enterprise AI platforms.
               </p>
-              <p className={cn("text-lg leading-relaxed mb-4", "text-white/60")}>
+              <p className={cn("text-lg leading-relaxed mb-4", "text-muted-foreground")}>
                 Our research spans efficient model training (Training-Free GRPO, ASO), post-quantum cryptography, fully homomorphic encryption, and decentralized AI infrastructure. We publish open research and release open-source AI models through the Zen LM family.
               </p>
-              <p className={cn("text-lg leading-relaxed", "text-white/60")}>
+              <p className={cn("text-lg leading-relaxed", "text-muted-foreground")}>
                 Hanzo operates alongside partner organizations: <strong>Zoo Labs Foundation</strong> (501c3 open AI research), <strong>Zen LM</strong> (frontier models), and <strong>Lux Network</strong> (blockchain infrastructure).
               </p>
             </div>
@@ -205,40 +205,40 @@ export default function PageClient() {
         </section>
 
         {/* Press Contact */}
-        <section className={cn("py-16 px-4", "bg-white/5")}>
+        <section className={cn("py-16 px-4", "bg-foreground/5")}>
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <Mail className={cn("w-6 h-6", "text-white/40")} />
+              <Mail className={cn("w-6 h-6", "text-muted-foreground")} />
               <h2 className="text-2xl font-bold">Press Contact</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className={cn("p-6 rounded-xl border", "bg-white/5 border-white/10")}>
+              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
                 <h3 className="font-semibold mb-4">Media Inquiries</h3>
                 <div className="space-y-3">
                   <a
                     href="mailto:press@hanzo.ai"
-                    className={cn("flex items-center gap-2 transition-colors", "text-white/60 hover:text-white")}
+                    className={cn("flex items-center gap-2 transition-colors", "text-muted-foreground hover:text-foreground")}
                   >
                     <Mail className="w-4 h-4" />
                     press@hanzo.ai
                   </a>
-                  <div className={cn("flex items-center gap-2", "text-white/40")}>
+                  <div className={cn("flex items-center gap-2", "text-muted-foreground")}>
                     <Phone className="w-4 h-4" />
                     +1 (913) 777-4443
                   </div>
                 </div>
               </div>
-              <div className={cn("p-6 rounded-xl border", "bg-white/5 border-white/10")}>
+              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
                 <h3 className="font-semibold mb-4">Headquarters</h3>
-                <div className={cn("space-y-1", "text-white/40")}>
-                  <p className={cn("font-medium", "text-white/70")}>Hanzo AI Inc</p>
+                <div className={cn("space-y-1", "text-muted-foreground")}>
+                  <p className={cn("font-medium", "text-muted-foreground")}>Hanzo AI Inc</p>
                   <p>Los Angeles, California</p>
                   <p>United States</p>
                 </div>
               </div>
-              <div className={cn("p-6 rounded-xl border", "bg-white/5 border-white/10")}>
+              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
                 <h3 className="font-semibold mb-4">Schedule Interview</h3>
-                <p className={cn("text-sm mb-4", "text-white/40")}>Book time with our communications team.</p>
+                <p className={cn("text-sm mb-4", "text-muted-foreground")}>Book time with our communications team.</p>
                 <a href="https://cal.com/hanzo" target="_blank" rel="noopener noreferrer">
                   <Button size="sm" variant="outline" className="w-full gap-2">
                     <Calendar className="w-4 h-4" />
@@ -255,7 +255,7 @@ export default function PageClient() {
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                <Palette className={cn("w-6 h-6", "text-white/40")} />
+                <Palette className={cn("w-6 h-6", "text-muted-foreground")} />
                 <h2 className="text-2xl font-bold">Brand Assets</h2>
               </div>
               <a href="https://github.com/hanzoai/brand" target="_blank" rel="noopener noreferrer">
@@ -268,31 +268,31 @@ export default function PageClient() {
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {/* Dark Background Logo */}
-              <div className={cn("rounded-xl border overflow-hidden", "border-white/10")}>
-                <div className="h-32 bg-black flex items-center justify-center">
+              <div className={cn("rounded-xl border overflow-hidden", "border-border")}>
+                <div className="h-32 bg-background flex items-center justify-center">
                   <LogoPreview />
                 </div>
-                <div className={cn("p-4", "bg-white/5")}>
+                <div className={cn("p-4", "bg-foreground/5")}>
                   <h3 className="font-semibold mb-1">Logo - Dark Background</h3>
-                  <p className={cn("text-sm mb-2", "text-white/40")}>White logo for dark backgrounds</p>
-                  <p className={cn("text-xs", "text-white/30")}>SVG, PNG available</p>
+                  <p className={cn("text-sm mb-2", "text-muted-foreground")}>White logo for dark backgrounds</p>
+                  <p className={cn("text-xs", "text-foreground/30")}>SVG, PNG available</p>
                 </div>
               </div>
 
               {/* Light Background Logo */}
-              <div className={cn("rounded-xl border overflow-hidden", "border-white/10")}>
-                <div className={cn("h-32 flex items-center justify-center border-b", "bg-white border-white/10")}>
+              <div className={cn("rounded-xl border overflow-hidden", "border-border")}>
+                <div className={cn("h-32 flex items-center justify-center border-b", "bg-primary border-border")}>
                   <LogoPreview />
                 </div>
-                <div className={cn("p-4", "bg-white/5")}>
+                <div className={cn("p-4", "bg-foreground/5")}>
                   <h3 className="font-semibold mb-1">Logo - Light Background</h3>
-                  <p className={cn("text-sm mb-2", "text-white/40")}>Black logo for light backgrounds</p>
-                  <p className={cn("text-xs", "text-white/30")}>SVG, PNG available</p>
+                  <p className={cn("text-sm mb-2", "text-muted-foreground")}>Black logo for light backgrounds</p>
+                  <p className={cn("text-xs", "text-foreground/30")}>SVG, PNG available</p>
                 </div>
               </div>
 
               {/* Brand Colors */}
-              <div className={cn("rounded-xl border overflow-hidden", "border-white/10")}>
+              <div className={cn("rounded-xl border overflow-hidden", "border-border")}>
                 <div className="h-32 grid grid-cols-2 grid-rows-2">
                   {brandColors.map((color) => (
                     <div
@@ -307,17 +307,17 @@ export default function PageClient() {
                     </div>
                   ))}
                 </div>
-                <div className={cn("p-4", "bg-white/5")}>
+                <div className={cn("p-4", "bg-foreground/5")}>
                   <h3 className="font-semibold mb-1">Brand Colors</h3>
-                  <p className={cn("text-sm mb-2", "text-white/40")}>Primary color palette</p>
-                  <p className={cn("text-xs", "text-white/30")}>Black, White, Grays</p>
+                  <p className={cn("text-sm mb-2", "text-muted-foreground")}>Primary color palette</p>
+                  <p className={cn("text-xs", "text-foreground/30")}>Black, White, Grays</p>
                 </div>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-4">
               <a href="https://github.com/hanzoai/brand/archive/refs/heads/main.zip">
-                <Button className={cn("gap-2", "bg-white text-black hover:bg-white/90")}>
+                <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                   <Download className="w-4 h-4" />
                   Download All Assets (ZIP)
                 </Button>
@@ -333,10 +333,10 @@ export default function PageClient() {
         </section>
 
         {/* Press Releases Timeline */}
-        <section className={cn("py-16 px-4", "bg-white/5")}>
+        <section className={cn("py-16 px-4", "bg-foreground/5")}>
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <Calendar className={cn("w-6 h-6", "text-white/40")} />
+              <Calendar className={cn("w-6 h-6", "text-muted-foreground")} />
               <h2 className="text-2xl font-bold">Press Releases & Announcements</h2>
             </div>
             <div className="space-y-4">
@@ -347,20 +347,20 @@ export default function PageClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className={cn("p-6 rounded-xl border transition-colors group", "bg-white/5 border-white/10 hover:border-white/20")}
+                  className={cn("p-6 rounded-xl border transition-colors group", "bg-foreground/5 border-border hover:border-border")}
                 >
                   <div className="flex flex-col md:flex-row md:items-start gap-4">
                     <div className="flex-shrink-0 w-24">
-                      <div className={cn("text-sm font-medium", "text-white/90")}>{release.date}</div>
+                      <div className={cn("text-sm font-medium", "text-foreground/90")}>{release.date}</div>
                       {release.type && (
-                        <span className={cn("inline-block mt-1 px-2 py-0.5 text-xs rounded-full border", typeColors[release.type] || ("bg-white/10 text-white/50 border-white/20"))}>
+                        <span className={cn("inline-block mt-1 px-2 py-0.5 text-xs rounded-full border", typeColors[release.type] || ("bg-foreground/10 text-muted-foreground border-border"))}>
                           {release.type}
                         </span>
                       )}
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold mb-2 group-hover:underline">{release.title}</h3>
-                      <p className={cn("text-sm", "text-white/60")}>{release.description}</p>
+                      <p className={cn("text-sm", "text-muted-foreground")}>{release.description}</p>
                     </div>
                     {release.link && (
                       <a
@@ -369,7 +369,7 @@ export default function PageClient() {
                         rel={release.link.startsWith("http") ? "noopener noreferrer" : undefined}
                         className="flex-shrink-0"
                       >
-                        <Button variant="ghost" size="sm" className={cn("gap-1", "text-white/40 hover:text-white")}>
+                        <Button variant="ghost" size="sm" className={cn("gap-1", "text-muted-foreground hover:text-foreground")}>
                           Learn more
                           <ExternalLink className="w-3 h-3" />
                         </Button>
@@ -386,7 +386,7 @@ export default function PageClient() {
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <Globe className={cn("w-6 h-6", "text-white/40")} />
+              <Globe className={cn("w-6 h-6", "text-muted-foreground")} />
               <h2 className="text-2xl font-bold">Connect With Us</h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -398,11 +398,11 @@ export default function PageClient() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={cn("p-4 rounded-xl border transition-colors text-center group", "bg-white/5 border-white/10 hover:border-white/20")}
+                    className={cn("p-4 rounded-xl border transition-colors text-center group", "bg-foreground/5 border-border hover:border-border")}
                   >
-                    <Icon className={cn("w-5 h-5 mx-auto mb-2 transition-colors", "text-white/50 group-hover:text-white")} />
+                    <Icon className={cn("w-5 h-5 mx-auto mb-2 transition-colors", "text-muted-foreground group-hover:text-foreground")} />
                     <div className="font-semibold mb-1">{social.name}</div>
-                    <div className={cn("text-sm", "text-white/40")}>{social.handle}</div>
+                    <div className={cn("text-sm", "text-muted-foreground")}>{social.handle}</div>
                   </a>
                 );
               })}
@@ -411,15 +411,15 @@ export default function PageClient() {
         </section>
 
         {/* Leadership */}
-        <section className={cn("py-16 px-4", "bg-white/5")}>
+        <section className={cn("py-16 px-4", "bg-foreground/5")}>
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <Users className={cn("w-6 h-6", "text-white/40")} />
+              <Users className={cn("w-6 h-6", "text-muted-foreground")} />
               <h2 className="text-2xl font-bold">Leadership & Executive Bios</h2>
             </div>
-            <div className={cn("p-8 rounded-xl border text-center", "bg-white/5 border-white/10")}>
-              <Award className={cn("w-12 h-12 mx-auto mb-4", "text-white/50")} />
-              <p className={cn("mb-6", "text-white/60")}>
+            <div className={cn("p-8 rounded-xl border text-center", "bg-foreground/5 border-border")}>
+              <Award className={cn("w-12 h-12 mx-auto mb-4", "text-muted-foreground")} />
+              <p className={cn("mb-6", "text-muted-foreground")}>
                 For executive bios, headshots, and interview requests, please contact our press team directly.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
@@ -430,7 +430,7 @@ export default function PageClient() {
                   </Button>
                 </Link>
                 <a href="mailto:press@hanzo.ai">
-                  <Button className={cn("gap-2", "bg-white text-black hover:bg-white/90")}>
+                  <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                     <Mail className="w-4 h-4" />
                     Request Executive Bios
                   </Button>
@@ -444,22 +444,22 @@ export default function PageClient() {
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <BookOpen className={cn("w-6 h-6", "text-white/40")} />
+              <BookOpen className={cn("w-6 h-6", "text-muted-foreground")} />
               <h2 className="text-2xl font-bold">Coverage Guidelines</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className={cn("p-6 rounded-xl border", "bg-white/5 border-white/10")}>
+              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
                 <h3 className="font-semibold mb-3">Preferred Terminology</h3>
-                <ul className={cn("space-y-2 text-sm", "text-white/60")}>
+                <ul className={cn("space-y-2 text-sm", "text-muted-foreground")}>
                   <li><strong>Company Name:</strong> Hanzo AI or Hanzo Industries Inc</li>
                   <li><strong>Not:</strong> HANZO, Hanzo, or Hanzo.ai</li>
                   <li><strong>Products:</strong> Zen, KOAN, Hanzo Dev, Hanzo Cloud</li>
                   <li><strong>Partners:</strong> Zoo Labs Foundation, Lux Network, Zen LM</li>
                 </ul>
               </div>
-              <div className={cn("p-6 rounded-xl border", "bg-white/5 border-white/10")}>
+              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
                 <h3 className="font-semibold mb-3">Key Facts</h3>
-                <ul className={cn("space-y-2 text-sm", "text-white/60")}>
+                <ul className={cn("space-y-2 text-sm", "text-muted-foreground")}>
                   <li><strong>Founded:</strong> 2016 in Los Angeles</li>
                   <li><strong>Accelerator:</strong> Techstars Boulder 2017</li>
                   <li><strong>Research:</strong> <a href="/research#papers" className="underline hover:opacity-80">Published papers</a></li>

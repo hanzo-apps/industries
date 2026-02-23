@@ -18,7 +18,7 @@ export default function NavbarContainer({ children }: { children: ReactNode }) {
         className={cn(
           'mx-auto transition-all duration-500 ease-out',
           scrolled
-            ? 'mt-4 mx-4 md:mx-8 lg:mx-auto lg:max-w-6xl rounded-full backdrop-blur-xl border bg-black/80 border-white/10 shadow-2xl shadow-black/50'
+            ? 'mt-4 mx-4 md:mx-8 lg:mx-auto lg:max-w-6xl rounded-full backdrop-blur-xl border bg-background/80 border-border shadow-2xl shadow-background/50'
             : 'bg-transparent'
         )}
       >

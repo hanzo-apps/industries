@@ -56,11 +56,11 @@ const [isOpen, setIsOpen] = useState(false);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white">
+    <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl mb-4 text-white/50">Oops! Page not found</p>
-        <a href="/" className="underline text-white hover:text-white/70">
+        <p className="text-xl mb-4 text-muted-foreground">Oops! Page not found</p>
+        <a href="/" className="underline text-foreground hover:text-muted-foreground">
           Return to Home
         </a>
       </div>
@@ -68,17 +68,17 @@ const [isOpen, setIsOpen] = useState(false);
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerTrigger asChild>
           <Button
-            className="fixed bottom-4 right-4 rounded-full p-4 shadow-lg animate-bounce bg-white hover:bg-white/90 text-black"
+            className="fixed bottom-4 right-4 rounded-full p-4 shadow-lg animate-bounce bg-primary hover:bg-primary/90 text-primary-foreground"
             size="icon"
           >
             <Bot className="h-6 w-6" />
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="h-[500px] p-4 bg-black border-white/10">
+        <DrawerContent className="h-[500px] p-4 bg-background border-border">
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
-                <Bot className="h-6 w-6 text-white" />
+                <Bot className="h-6 w-6 text-foreground" />
                 <h2 className="text-lg font-semibold">AI Assistant</h2>
               </div>
               <Button
@@ -97,8 +97,8 @@ const [isOpen, setIsOpen] = useState(false);
                   className={cn(
                     "p-3 rounded-lg max-w-[80%]",
                     msg.role === "user"
-                      ? "bg-white text-black ml-auto"
-                      : "bg-white/10 text-white/70"
+                      ? "bg-primary text-primary-foreground ml-auto"
+                      : "bg-foreground/10 text-muted-foreground"
                   )}
                 >
                   {msg.content}
@@ -113,7 +113,7 @@ const [isOpen, setIsOpen] = useState(false);
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
                 placeholder="Ask me anything..."
-                className="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 bg-white/5 border-white/10 text-white placeholder-white/40 focus:ring-white/20"
+                className="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 bg-foreground/5 border-border text-foreground placeholder-muted-foreground focus:ring-ring"
               />
               <Button onClick={handleSendMessage} size="icon">
                 <Send className="h-4 w-4" />

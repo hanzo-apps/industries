@@ -18,7 +18,7 @@ export default function PageClient() {
   };
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       {/* Hero Section with Gradient Background */}
       <section className="relative py-24 px-4 overflow-hidden">
         {/* Subtle gradient background */}
@@ -43,7 +43,7 @@ export default function PageClient() {
             )}>
               Solutions for Every Industry
             </h1>
-            <p className={cn("text-lg md:text-xl max-w-2xl mx-auto", "text-white/50")}>
+            <p className={cn("text-lg md:text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
               Explore our comprehensive suite of solutions designed to transform businesses
               across industries and capabilities.
             </p>
@@ -76,19 +76,19 @@ export default function PageClient() {
                           whileHover={{ y: -5 }}
                           className={cn(
                             "relative group rounded-xl border p-6 backdrop-blur-sm overflow-hidden",
-                            "border-white/10 bg-black/50"
+                            "border-border bg-background/50"
                           )}
                         >
                           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                           <div className="relative">
                             <div className="flex items-center justify-between mb-4">
-                              <Icon className="h-6 w-6 text-white/70" strokeWidth={1.5} />
-                              <ChevronRight className={cn("h-5 w-5 group-hover:text-white/70 transition-colors", "text-white/40")} />
+                              <Icon className="h-6 w-6 text-muted-foreground" strokeWidth={1.5} />
+                              <ChevronRight className={cn("h-5 w-5 group-hover:text-muted-foreground transition-colors", "text-muted-foreground")} />
                             </div>
-                            <h3 className="text-xl font-semibold mb-2 group-hover:text-white/70 transition-colors">
+                            <h3 className="text-xl font-semibold mb-2 group-hover:text-muted-foreground transition-colors">
                               {item}
                             </h3>
-                            <p className={cn("text-sm", "text-white/50")}>
+                            <p className={cn("text-sm", "text-muted-foreground")}>
                               Explore our solutions for {item.toLowerCase()} and discover how we can
                               help transform your business.
                             </p>
@@ -107,7 +107,7 @@ export default function PageClient() {
                   >
                     <button
                       onClick={() => toggleSection(section.title)}
-                      className="inline-flex items-center px-6 py-3 rounded-lg border border-white/20 text-white/70 hover:bg-white/10 transition-colors"
+                      className="inline-flex items-center px-6 py-3 rounded-lg border border-border text-muted-foreground hover:bg-accent transition-colors"
                     >
                       View More {section.title}
                       <ChevronRight className="ml-2 h-5 w-5" />
@@ -121,12 +121,12 @@ export default function PageClient() {
           <div className="mt-20 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
-              <p className={cn("mb-8", "text-white/50")}>
+              <p className={cn("mb-8", "text-muted-foreground")}>
                 Connect with our team to learn how our solutions can help you achieve your goals.
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center px-6 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium transition-colors"
+                className="inline-flex items-center px-6 py-3 rounded-lg bg-foreground/10 hover:bg-accent text-foreground font-medium transition-colors"
               >
                 Get Started
                 <ChevronRight className="ml-2 h-5 w-5" />

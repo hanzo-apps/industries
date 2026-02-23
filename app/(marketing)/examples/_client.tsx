@@ -185,7 +185,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
@@ -198,7 +198,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
               Code Examples
             </h1>
-            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-white/70")}>
+            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Ready-to-use code examples to accelerate your AI development
             </p>
           </motion.div>
@@ -220,7 +220,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                   rel="noopener noreferrer"
                   className={cn(
                     "p-4 rounded-lg border transition-colors text-center",
-                    "bg-white/5 border-white/10 hover:border-white/20"
+                    "bg-foreground/5 border-border hover:border-border"
                   )}
                 >
                   <Icon className="w-8 h-8 mx-auto mb-2" />
@@ -242,28 +242,28 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={cn(
                     "border rounded-lg overflow-hidden",
-                    "bg-white/5 border-white/10"
+                    "bg-foreground/5 border-border"
                   )}
                 >
-                  <div className={cn("p-6 border-b", "border-white/10")}>
+                  <div className={cn("p-6 border-b", "border-border")}>
                     <div className="flex items-center space-x-3">
                       <Icon className="w-6 h-6" />
                       <h3 className="text-xl font-semibold">{example.title}</h3>
                     </div>
-                    <p className={cn("mt-2", "text-white/50")}>{example.description}</p>
+                    <p className={cn("mt-2", "text-muted-foreground")}>{example.description}</p>
                   </div>
 
                   <div className="relative">
                     <div className="absolute top-4 right-4">
                       <span className={cn(
                         "text-xs px-2 py-1 rounded",
-                        "text-white/40 bg-white/10"
+                        "text-muted-foreground bg-foreground/10"
                       )}>
                         {example.language}
                       </span>
                     </div>
                     <pre className="p-6 overflow-x-auto">
-                      <code className={cn("text-sm whitespace-pre", "text-white/70")}>
+                      <code className={cn("text-sm whitespace-pre", "text-muted-foreground")}>
                         {example.code}
                       </code>
                     </pre>
@@ -280,7 +280,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             transition={{ duration: 0.5 }}
             className={cn(
               "mt-20 p-12 rounded-lg border",
-              "bg-gradient-to-r from-white/5 to-transparent border-white/10"
+              "bg-gradient-to-r from-white/5 to-transparent border-border"
             )}
           >
             <h2 className="text-3xl font-bold mb-8 text-center">Developer Resources</h2>
@@ -288,24 +288,24 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
               <div>
                 <Terminal className="w-12 h-12 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Interactive Playground</h3>
-                <p className={cn("mb-4", "text-white/50")}>Test our APIs in your browser</p>
-                <a href="https://playground.hanzo.ai" className={cn("text-white hover:text-white/70")}>
+                <p className={cn("mb-4", "text-muted-foreground")}>Test our APIs in your browser</p>
+                <a href="https://playground.hanzo.ai" className={cn("text-foreground hover:text-muted-foreground")}>
                   Try Playground →
                 </a>
               </div>
               <div>
                 <BookOpen className="w-12 h-12 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">API Reference</h3>
-                <p className={cn("mb-4", "text-white/50")}>Complete API documentation</p>
-                <a href="https://docs.hanzo.ai/api" className={cn("text-white hover:text-white/70")}>
+                <p className={cn("mb-4", "text-muted-foreground")}>Complete API documentation</p>
+                <a href="https://docs.hanzo.ai/api" className={cn("text-foreground hover:text-muted-foreground")}>
                   View Docs →
                 </a>
               </div>
               <div>
                 <Users className="w-12 h-12 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Community</h3>
-                <p className={cn("mb-4", "text-white/50")}>Join our developer community</p>
-                <a href="https://community.hanzo.ai" className={cn("text-white hover:text-white/70")}>
+                <p className={cn("mb-4", "text-muted-foreground")}>Join our developer community</p>
+                <a href="https://community.hanzo.ai" className={cn("text-foreground hover:text-muted-foreground")}>
                   Join Discord →
                 </a>
               </div>
@@ -322,7 +322,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             <h2 className="text-3xl font-bold mb-6">
               Ready to Build?
             </h2>
-            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-white/70")}>
+            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
               Start building with Hanzo AI today
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -330,7 +330,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 href="https://console.hanzo.ai/signup"
                 className={cn(
                   "inline-block px-8 py-4 rounded-lg font-semibold transition-colors",
-                  "bg-white text-black hover:bg-white/90"
+                  "bg-primary text-primary-foreground hover:bg-primary/90"
                 )}
               >
                 Get API Key
@@ -341,7 +341,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 rel="noopener noreferrer"
                 className={cn(
                   "inline-block border px-8 py-4 rounded-lg font-semibold transition-colors",
-                  "border-white text-white hover:bg-white hover:text-black"
+                  "border-primary text-foreground hover:bg-primary hover:text-primary-foreground"
                 )}
               >
                 View on GitHub

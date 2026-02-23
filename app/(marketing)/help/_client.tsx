@@ -137,7 +137,7 @@ const documentationLinks = [
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-black text-white")}>
+    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-24">
         {/* Hero Section */}
         <section className="py-24 px-4">
@@ -148,26 +148,26 @@ export default function PageClient() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
-                <HelpCircle className="w-4 h-4 text-white" />
-                <span className="text-white text-sm font-medium">Help Center</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/10 border border-border rounded-full mb-6">
+                <HelpCircle className="w-4 h-4 text-foreground" />
+                <span className="text-foreground text-sm font-medium">Help Center</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 How can we help?
               </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto mb-8", "text-white/50")}>
+              <p className={cn("text-xl max-w-2xl mx-auto mb-8", "text-muted-foreground")}>
                 Find answers to common questions, explore our documentation, or get in touch with our support team.
               </p>
 
               {/* Search */}
               <div className="max-w-xl mx-auto relative">
-                <Search className={cn("absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5", "text-white/40")} />
+                <Search className={cn("absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5", "text-muted-foreground")} />
                 <Input
                   type="text"
                   placeholder="Search for help articles..."
                   className={cn(
                     "w-full pl-12 pr-4 py-6 rounded-xl text-lg",
-                    "bg-white/5 border-white/10 text-white placeholder:text-white/40"
+                    "bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground"
                   )}
                 />
               </div>
@@ -176,7 +176,7 @@ export default function PageClient() {
         </section>
 
         {/* Documentation Links */}
-        <section className={cn("py-24 px-4", "bg-white/[0.03]")}>
+        <section className={cn("py-24 px-4", "bg-foreground/[0.03]")}>
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -186,7 +186,7 @@ export default function PageClient() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl font-bold mb-4">Documentation</h2>
-              <p className={cn("text-white/50")}>Explore our comprehensive documentation and guides</p>
+              <p className={cn("text-muted-foreground")}>Explore our comprehensive documentation and guides</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -203,20 +203,20 @@ export default function PageClient() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className={cn(
-                      "border rounded-xl p-6 hover:border-white/30 transition-colors group",
-                      "bg-white/5 border-white/10"
+                      "border rounded-xl p-6 hover:border-border transition-colors group",
+                      "bg-foreground/5 border-border"
                     )}
                   >
                     <div className="flex items-start justify-between mb-4">
-                      <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-white" />
+                      <div className="w-12 h-12 bg-foreground/10 rounded-lg flex items-center justify-center">
+                        <Icon className="w-6 h-6 text-foreground" />
                       </div>
-                      <ExternalLink className={cn("w-4 h-4 group-hover:text-white transition-colors", "text-white/20")} />
+                      <ExternalLink className={cn("w-4 h-4 group-hover:text-foreground transition-colors", "text-foreground/20")} />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-white transition-colors">
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-foreground transition-colors">
                       {doc.title}
                     </h3>
-                    <p className={cn("text-sm", "text-white/50")}>{doc.description}</p>
+                    <p className={cn("text-sm", "text-muted-foreground")}>{doc.description}</p>
                   </motion.a>
                 );
               })}
@@ -235,7 +235,7 @@ export default function PageClient() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-              <p className={cn("text-white/50")}>Quick answers to common questions</p>
+              <p className={cn("text-muted-foreground")}>Quick answers to common questions</p>
             </motion.div>
 
             <div className="grid lg:grid-cols-2 gap-8">
@@ -248,11 +248,11 @@ export default function PageClient() {
                   viewport={{ once: true }}
                   className={cn(
                     "border rounded-xl p-6",
-                    "bg-white/5 border-white/10"
+                    "bg-foreground/5 border-border"
                   )}
                 >
                   <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-white rounded-full" />
+                    <span className="w-2 h-2 bg-primary rounded-full" />
                     {category.category}
                   </h3>
                   <Accordion type="single" collapsible className="space-y-2">
@@ -260,12 +260,12 @@ export default function PageClient() {
                       <AccordionItem
                         key={faqIndex}
                         value={`${categoryIndex}-${faqIndex}`}
-                        className={cn("border-white/10")}
+                        className={cn("border-border")}
                       >
-                        <AccordionTrigger className="text-left hover:text-white hover:no-underline py-3">
+                        <AccordionTrigger className="text-left hover:text-foreground hover:no-underline py-3">
                           {faq.q}
                         </AccordionTrigger>
-                        <AccordionContent className={cn("pb-4", "text-white/50")}>
+                        <AccordionContent className={cn("pb-4", "text-muted-foreground")}>
                           {faq.a}
                         </AccordionContent>
                       </AccordionItem>
@@ -278,7 +278,7 @@ export default function PageClient() {
         </section>
 
         {/* Contact Support Section */}
-        <section className={cn("py-24 px-4", "bg-white/[0.03]")}>
+        <section className={cn("py-24 px-4", "bg-foreground/[0.03]")}>
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -288,7 +288,7 @@ export default function PageClient() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl font-bold mb-4">Need More Help?</h2>
-              <p className={cn("text-white/50")}>Our support team is here to assist you</p>
+              <p className={cn("text-muted-foreground")}>Our support team is here to assist you</p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -298,18 +298,18 @@ export default function PageClient() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
                 className={cn(
-                  "border rounded-xl p-8 text-center hover:border-white/30 transition-colors",
-                  "bg-white/5 border-white/10"
+                  "border rounded-xl p-8 text-center hover:border-border transition-colors",
+                  "bg-foreground/5 border-border"
                 )}
               >
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <MessageCircle className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <MessageCircle className="w-8 h-8 text-foreground" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Live Chat</h3>
-                <p className={cn("mb-6", "text-white/50")}>
+                <p className={cn("mb-6", "text-muted-foreground")}>
                   Chat with our support team in real-time for immediate assistance.
                 </p>
-                <Button className="bg-white hover:bg-white/90 text-white w-full">
+                <Button className="bg-primary hover:bg-primary/90 text-foreground w-full">
                   Start Chat
                 </Button>
               </motion.div>
@@ -320,21 +320,21 @@ export default function PageClient() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
                 className={cn(
-                  "border rounded-xl p-8 text-center hover:border-white/30 transition-colors",
-                  "bg-white/5 border-white/10"
+                  "border rounded-xl p-8 text-center hover:border-border transition-colors",
+                  "bg-foreground/5 border-border"
                 )}
               >
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Mail className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Mail className="w-8 h-8 text-foreground" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Email Support</h3>
-                <p className={cn("mb-6", "text-white/50")}>
+                <p className={cn("mb-6", "text-muted-foreground")}>
                   Send us a detailed message and we'll respond within 24 hours.
                 </p>
                 <a href="mailto:support@hanzo.ai">
                   <Button variant="outline" className={cn(
                     "w-full",
-                    "border-white/10 text-white hover:bg-white/10"
+                    "border-border text-foreground hover:bg-accent"
                   )}>
                     support@hanzo.ai
                   </Button>
@@ -347,21 +347,21 @@ export default function PageClient() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
                 className={cn(
-                  "border rounded-xl p-8 text-center hover:border-white/30 transition-colors",
-                  "bg-white/5 border-white/10"
+                  "border rounded-xl p-8 text-center hover:border-border transition-colors",
+                  "bg-foreground/5 border-border"
                 )}
               >
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Book className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Book className="w-8 h-8 text-foreground" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Community</h3>
-                <p className={cn("mb-6", "text-white/50")}>
+                <p className={cn("mb-6", "text-muted-foreground")}>
                   Join our Discord community to connect with other developers.
                 </p>
                 <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className={cn(
                     "w-full",
-                    "border-white/10 text-white hover:bg-white/10"
+                    "border-border text-foreground hover:bg-accent"
                   )}>
                     Join Discord
                   </Button>
@@ -379,43 +379,43 @@ export default function PageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-white/10 to-transparent border border-white/20 rounded-2xl p-8 md:p-12"
+              className="bg-gradient-to-r from-white/10 to-transparent border border-border rounded-2xl p-8 md:p-12"
             >
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold mb-4">
                     Enterprise Support
                   </h2>
-                  <p className={cn("mb-6", "text-white/50")}>
+                  <p className={cn("mb-6", "text-muted-foreground")}>
                     Get dedicated support, custom SLAs, and direct access to our engineering team with an enterprise plan.
                   </p>
-                  <ul className={cn("space-y-3 mb-8", "text-white/70")}>
+                  <ul className={cn("space-y-3 mb-8", "text-muted-foreground")}>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                       24/7 priority support
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                       Dedicated success manager
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                       Custom SLA agreements
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                       Direct engineering support
                     </li>
                   </ul>
                   <Link href="/contact">
-                    <Button className="bg-white hover:bg-white/90 text-white">
+                    <Button className="bg-primary hover:bg-primary/90 text-foreground">
                       Contact Sales
                     </Button>
                   </Link>
                 </div>
                 <div className="hidden md:flex justify-center">
-                  <div className="w-48 h-48 bg-white/10 rounded-full flex items-center justify-center">
-                    <Shield className="w-24 h-24 text-white" />
+                  <div className="w-48 h-48 bg-foreground/10 rounded-full flex items-center justify-center">
+                    <Shield className="w-24 h-24 text-foreground" />
                   </div>
                 </div>
               </div>

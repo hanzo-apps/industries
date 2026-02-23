@@ -162,14 +162,14 @@ export default function PageClient() {
   return (
     <div className={cn(
       "min-h-screen transition-colors duration-300",
-      "bg-black text-white"
+      "bg-background text-foreground"
     )}>
       <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">
             People + AI, Building Together
           </h1>
-          <p className={cn("text-lg", "text-white/50")}>
+          <p className={cn("text-lg", "text-muted-foreground")}>
             World-class leadership paired with an autonomous AI workforce that ships around the clock.
           </p>
         </div>
@@ -180,7 +180,7 @@ export default function PageClient() {
             <h2 className="text-3xl font-bold mb-4 text-center">Leadership</h2>
             <p className={cn(
               "text-center mb-10 max-w-2xl mx-auto",
-              "text-white/50"
+              "text-muted-foreground"
             )}>
               Decades of combined expertise in AI, distributed systems, and scaling technology companies.
             </p>
@@ -196,7 +196,7 @@ export default function PageClient() {
             <h2 className="text-3xl font-bold mb-4 text-center">AI Workforce</h2>
             <p className={cn(
               "text-center mb-12 max-w-2xl mx-auto",
-              "text-white/50"
+              "text-muted-foreground"
             )}>
               16 autonomous agents organized across four departments — Build, Create, Ship, Run.
             </p>
@@ -207,7 +207,7 @@ export default function PageClient() {
                   <h3 className="text-2xl font-bold">{dept.label}</h3>
                   <span className={cn(
                     "text-xs font-mono px-2 py-1 rounded",
-                    "bg-white/10 text-white/50"
+                    "bg-foreground/10 text-muted-foreground"
                   )}>
                     {dept.description}
                   </span>

@@ -28,7 +28,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
       whileHover={{ y: -5 }}
       className={cn(
         "relative group rounded-2xl border p-8 backdrop-blur-sm overflow-hidden",
-        "border-white/10 bg-white/5"
+        "border-border bg-foreground/5"
       )}
     >
       <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 ease-in-out -z-10" />
@@ -36,7 +36,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
         {image ? (
           <div className={cn(
             "w-16 h-16 rounded-full overflow-hidden ring-2 mb-4",
-            "ring-white/20 bg-neutral-800"
+            "ring-ring bg-card"
           )}>
             <img
               src={image}
@@ -50,24 +50,24 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
           </div>
         ) : (
           <div className={cn("inline-flex p-3 rounded-xl bg-gradient-to-br mb-4", gradient)}>
-            <Icon className="h-6 w-6 text-white" />
+            <Icon className="h-6 w-6 text-foreground" />
           </div>
         )}
         <h3 className={cn(
           "text-xl font-semibold mb-2 transition-colors",
-          "text-white"
+          "text-foreground"
         )}>
           {name}
         </h3>
         <p className={cn(
           "font-medium mb-3 text-sm",
-          "text-white/50"
+          "text-muted-foreground"
         )}>
           {role}
         </p>
         <p className={cn(
           "mb-4 text-sm",
-          "text-white/40"
+          "text-muted-foreground"
         )}>
           {description}
         </p>
@@ -81,7 +81,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             rel="noopener noreferrer"
             className={cn(
               "p-2 rounded-lg border transition-colors",
-              "border-white/10 text-white/40 hover:text-white hover:bg-white/10"
+              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
             )}
           >
             <Linkedin className="h-4 w-4" />
@@ -92,7 +92,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             rel="noopener noreferrer"
             className={cn(
               "p-2 rounded-lg border transition-colors",
-              "border-white/10 text-white/40 hover:text-white hover:bg-white/10"
+              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
             )}
           >
             <Twitter className="h-4 w-4" />
@@ -103,7 +103,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             rel="noopener noreferrer"
             className={cn(
               "p-2 rounded-lg border transition-colors",
-              "border-white/10 text-white/40 hover:text-white hover:bg-white/10"
+              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
             )}
           >
             <Github className="h-4 w-4" />
@@ -117,7 +117,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             rel="noopener noreferrer"
             className={cn(
               "p-2 rounded-lg border transition-colors",
-              "border-white/10 text-white/40 hover:text-white hover:bg-white/10"
+              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
             )}
             title="Launch"
           >
@@ -129,7 +129,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             rel="noopener noreferrer"
             className={cn(
               "p-2 rounded-lg border transition-colors",
-              "border-white/10 text-white/40 hover:text-white hover:bg-white/10"
+              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
             )}
             title="Chat"
           >
@@ -141,7 +141,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             rel="noopener noreferrer"
             className={cn(
               "p-2 rounded-lg border transition-colors",
-              "border-white/10 text-white/40 hover:text-white hover:bg-white/10"
+              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
             )}
             title="GitHub"
           >

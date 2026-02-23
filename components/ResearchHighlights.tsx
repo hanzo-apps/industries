@@ -80,7 +80,7 @@ export default function ResearchHighlights() {
   return (
     <section className={cn(
       "py-20 transition-colors duration-300",
-      "bg-neutral-900"
+      "bg-secondary"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -91,7 +91,7 @@ export default function ResearchHighlights() {
             transition={{ duration: 0.5 }}
             className={cn(
               "text-4xl font-bold mb-4",
-              "text-white"
+              "text-foreground"
             )}
           >
             Research at the Frontier
@@ -102,7 +102,7 @@ export default function ResearchHighlights() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
               "text-xl max-w-3xl mx-auto",
-              "text-white/60"
+              "text-muted-foreground"
             )}
           >
             58 published papers across AI, cryptography, consensus, and distributed systems.
@@ -122,29 +122,29 @@ export default function ResearchHighlights() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={cn(
                   "p-8 rounded-xl border transition-all duration-300 group",
-                  "bg-white/5 border-white/10 hover:border-white/20"
+                  "bg-foreground/5 border-border hover:border-border"
                 )}
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className={cn(
                     "w-12 h-12 rounded-xl flex items-center justify-center",
-                    "bg-white/10"
+                    "bg-foreground/10"
                   )}>
                     <Icon className={cn(
                       "w-6 h-6",
-                      "text-white"
+                      "text-foreground"
                     )} />
                   </div>
                   <div>
                     <h3 className={cn(
                       "text-xl font-semibold mb-1",
-                      "text-white"
+                      "text-foreground"
                     )}>
                       {area.title}
                     </h3>
                     <p className={cn(
                       "text-sm",
-                      "text-white/60"
+                      "text-muted-foreground"
                     )}>
                       {area.description}
                     </p>
@@ -160,18 +160,18 @@ export default function ResearchHighlights() {
                       rel="noopener noreferrer"
                       className={cn(
                         "flex items-center justify-between py-2 px-3 rounded-lg transition-colors group/paper",
-                        "hover:bg-white/10"
+                        "hover:bg-accent"
                       )}
                     >
                       <span className={cn(
                         "text-sm font-medium",
-                        "text-white/80"
+                        "text-foreground/80"
                       )}>
                         {paper.title}
                       </span>
                       <span className={cn(
                         "text-xs px-2 py-1 rounded-full",
-                        "bg-white/10 text-white/60"
+                        "bg-foreground/10 text-muted-foreground"
                       )}>
                         {paper.result}
                       </span>
@@ -182,7 +182,7 @@ export default function ResearchHighlights() {
                 <Link href={area.link}
                   className={cn(
                     "inline-flex items-center text-sm font-medium transition-colors",
-                    "text-white/70 hover:text-white"
+                    "text-muted-foreground hover:text-foreground"
                   )}
                 >
                   View all papers
@@ -201,7 +201,7 @@ export default function ResearchHighlights() {
         >
           <h3 className={cn(
             "text-2xl font-semibold mb-6",
-            "text-white"
+            "text-foreground"
           )}>
             Latest Publications
           </h3>
@@ -214,38 +214,38 @@ export default function ResearchHighlights() {
                 rel="noopener noreferrer"
                 className={cn(
                   "flex items-start gap-6 p-6 rounded-xl border transition-all duration-300 group",
-                  "bg-white/5 border-white/10 hover:border-white/20"
+                  "bg-foreground/5 border-border hover:border-border"
                 )}
               >
                 <div className={cn(
                   "text-sm shrink-0",
-                  "text-white/40"
+                  "text-muted-foreground"
                 )}>
                   {paper.date}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className={cn(
                     "text-xs font-medium uppercase tracking-wider mb-1",
-                    "text-white/40"
+                    "text-muted-foreground"
                   )}>
                     {paper.category}
                   </div>
                   <h4 className={cn(
                     "text-lg font-semibold mb-2 group-hover:underline",
-                    "text-white"
+                    "text-foreground"
                   )}>
                     {paper.title}
                   </h4>
                   <p className={cn(
                     "text-sm",
-                    "text-white/60"
+                    "text-muted-foreground"
                   )}>
                     {paper.description}
                   </p>
                 </div>
                 <ExternalLink className={cn(
                   "w-5 h-5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity",
-                  "text-white/60"
+                  "text-muted-foreground"
                 )} />
               </a>
             ))}
@@ -265,7 +265,7 @@ export default function ResearchHighlights() {
               whileTap={{ scale: 0.98 }}
               className={cn(
                 "inline-flex items-center px-6 py-3 rounded-full font-medium transition-colors",
-                "bg-white text-black hover:bg-white/90"
+                "bg-primary text-primary-foreground hover:bg-primary/90"
               )}
             >
               View All Research

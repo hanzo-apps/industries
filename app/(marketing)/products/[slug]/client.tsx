@@ -17,7 +17,7 @@ export default function ProductPageClient({ slug }: { slug: string }) {
   const Icon = product.icon
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero */}
       <section className="pt-32 pb-20 px-4">
         <div className="max-w-5xl mx-auto">
@@ -27,28 +27,28 @@ export default function ProductPageClient({ slug }: { slug: string }) {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                <Icon className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
+                <Icon className="w-6 h-6 text-foreground" />
               </div>
-              <span className="text-sm font-medium text-white/50 uppercase tracking-wider">Product</span>
+              <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Product</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
               {product.title}
             </h1>
-            <p className="text-xl text-white/60 max-w-3xl mb-10">
+            <p className="text-xl text-muted-foreground max-w-3xl mb-10">
               {product.description}
             </p>
             <div className="flex flex-wrap gap-4">
               {product.documentation && (
                 <a href={product.documentation} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="rounded-full px-8 bg-white text-black hover:bg-white/90 gap-2">
+                  <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
                     Documentation
                     <ExternalLink className="w-4 h-4" />
                   </Button>
                 </a>
               )}
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="rounded-full px-8 border-white/20 text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="rounded-full px-8 border-border text-foreground hover:bg-accent">
                   Contact Sales
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -59,7 +59,7 @@ export default function ProductPageClient({ slug }: { slug: string }) {
       </section>
 
       {/* Features */}
-      <section className="py-20 px-4 border-t border-white/10">
+      <section className="py-20 px-4 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -76,10 +76,10 @@ export default function ProductPageClient({ slug }: { slug: string }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="flex items-start gap-4 p-6 rounded-xl border border-white/10 bg-white/[0.02]"
+                  className="flex items-start gap-4 p-6 rounded-xl border border-border bg-foreground/[0.02]"
                 >
-                  <Check className="w-5 h-5 text-white/50 mt-0.5 flex-shrink-0" />
-                  <span className="text-white/80">{feature}</span>
+                  <Check className="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                  <span className="text-foreground/80">{feature}</span>
                 </motion.div>
               ))}
             </div>
@@ -88,21 +88,21 @@ export default function ProductPageClient({ slug }: { slug: string }) {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-4 border-t border-white/10">
+      <section className="py-24 px-4 border-t border-border">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Get Started with {product.title}</h2>
-          <p className="text-lg text-white/60 mb-8">
+          <p className="text-lg text-muted-foreground mb-8">
             Ready to integrate {product.title} into your workflow? Get in touch with our team.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact">
-              <Button size="lg" className="rounded-full px-8 bg-white text-black hover:bg-white/90">
+              <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90">
                 Contact Us
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
             <Link href="/research">
-              <Button size="lg" variant="outline" className="rounded-full px-8 border-white/20 text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="rounded-full px-8 border-border text-foreground hover:bg-accent">
                 View Research
               </Button>
             </Link>
