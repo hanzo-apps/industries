@@ -151,8 +151,31 @@ enterprise→NY/Marbella, research→SF/LA/Paris, operations→SF/KC/Vancouver.
 - Applies to: hanzo.industries, hanzo.ai, zenlm.org (zen-docs), GitHub READMEs, HuggingFace model cards
 - Cleaned across all surfaces on 2026-02-21
 
+## E2E Testing & QA (Feb 23, 2026)
+
+E2E verification performed on hanzo.id production site:
+- **Pages tested**: Homepage, Login, Signup
+- **Status**: Technical pass (loads, no errors), **CRITICAL BRAND VIOLATION**
+- **Finding**: Red color (#fd4444 / rgb(253, 68, 68)) used on 12+ elements
+- **Severity**: CRITICAL - Violates brand policy (monochrome-only requirement)
+- **Affected elements**: Sign In button, Create Account button, form submission button, icon elements
+- **Root cause**: Likely @hanzo/ui component library or Tailwind theme override
+- **Action required**: Update primary button color to monochrome (white/gray)
+- **Reports**: See E2E_TEST_REPORT.md and VISUAL_FINDINGS.md
+
+### Test Results
+- ✅ All pages load successfully
+- ✅ No JavaScript console errors
+- ✅ Forms render correctly
+- ❌ CRITICAL: Color scheme violates brand (red buttons instead of monochrome)
+
 ## Pending Work
 
+- [ ] **URGENT**: Fix hanzo.id red button colors (#fd4444) - violates brand policy
+  - [ ] Identify color source (@hanzo/ui or Tailwind theme)
+  - [ ] Change primary color to monochrome (white/gray)
+  - [ ] Re-test and verify no red remains
+  - [ ] Deploy to production
 - [ ] Each model needs its own white paper (14 models)
 - [ ] hanzo/papers: Makefile needs rewrite to compile all 21 papers (only builds whitepaper)
 - [ ] zoo/papers: Needs Makefile, 8 papers need PDF compilation
