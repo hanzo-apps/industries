@@ -16,6 +16,9 @@ import {
 } from "lucide-react";
 import { Button } from "@hanzo/ui";
 import { cn } from "@/lib/utils";
+import {
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue
+} from "@/components/ui/select";
 
 const socialLinks = [
   {
@@ -227,19 +230,21 @@ export default function ContactPage() {
                         >
                           Inquiry Type
                         </label>
-                        <select
-                          id="inquiryType"
-                          name="inquiryType"
+                        <Select
                           value={formData.inquiryType}
-                          onChange={handleChange}
-                          className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all", "bg-white/5 border border-white/10 text-white focus:ring-white/20 focus:border-white/20")}
+                          onValueChange={(value) => setFormData({ ...formData, inquiryType: value })}
                         >
-                          <option value="general">General Inquiry</option>
-                          <option value="research">Research Collaboration</option>
-                          <option value="enterprise">Enterprise AI</option>
-                          <option value="partnership">Partnership</option>
-                          <option value="careers">Careers</option>
-                        </select>
+                          <SelectTrigger id="inquiryType" className="w-full">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="general">General Inquiry</SelectItem>
+                            <SelectItem value="research">Research Collaboration</SelectItem>
+                            <SelectItem value="enterprise">Enterprise AI</SelectItem>
+                            <SelectItem value="partnership">Partnership</SelectItem>
+                            <SelectItem value="careers">Careers</SelectItem>
+                          </SelectContent>
+                        </Select>
                       </div>
                     </div>
 

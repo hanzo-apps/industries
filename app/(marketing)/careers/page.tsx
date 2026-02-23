@@ -4,11 +4,14 @@ import Link from "next/link";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import {
-  Search, MapPin, Building2, Briefcase, ExternalLink, ChevronDown,
+  Search, MapPin, Building2, Briefcase, ExternalLink,
   ArrowLeft, Calendar, Clock, DollarSign, Users, Laptop, Heart,
   BookOpen, Globe, Zap, Shield, Brain, Code2, Database
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue
+} from "@/components/ui/select";
 
 interface Job {
   id: string;
@@ -710,38 +713,30 @@ export default function Careers() {
               </div>
 
               {/* Team Filter */}
-              <div className="relative">
-                <select
-                  value={selectedTeam}
-                  onChange={(e) => setSelectedTeam(e.target.value)}
-                  className={cn(
-                    "w-full border rounded-lg px-4 py-3 appearance-none focus:outline-none",
-                    "bg-white/10 border-white/10 text-white focus:border-white/20"
-                  )}
-                >
+              <Select value={selectedTeam} onValueChange={setSelectedTeam}>
+                <SelectTrigger className="w-full rounded-lg">
+                  <Building2 className="h-4 w-4 shrink-0 text-white/40 mr-2" />
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
                   {teams.map(team => (
-                    <option key={team} value={team}>{team}</option>
+                    <SelectItem key={team} value={team}>{team}</SelectItem>
                   ))}
-                </select>
-                <ChevronDown className={cn("absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none", "text-white/40")} />
-              </div>
+                </SelectContent>
+              </Select>
 
               {/* Location Filter */}
-              <div className="relative">
-                <select
-                  value={selectedLocation}
-                  onChange={(e) => setSelectedLocation(e.target.value)}
-                  className={cn(
-                    "w-full border rounded-lg px-4 py-3 appearance-none focus:outline-none",
-                    "bg-white/10 border-white/10 text-white focus:border-white/20"
-                  )}
-                >
+              <Select value={selectedLocation} onValueChange={setSelectedLocation}>
+                <SelectTrigger className="w-full rounded-lg">
+                  <MapPin className="h-4 w-4 shrink-0 text-white/40 mr-2" />
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
                   {locations.map(loc => (
-                    <option key={loc} value={loc}>{loc}</option>
+                    <SelectItem key={loc} value={loc}>{loc}</SelectItem>
                   ))}
-                </select>
-                <ChevronDown className={cn("absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none", "text-white/40")} />
-              </div>
+                </SelectContent>
+              </Select>
             </div>
           </motion.div>
 
