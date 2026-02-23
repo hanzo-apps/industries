@@ -579,16 +579,20 @@ export default function AIModels() {
                 <span className={cn("text-sm font-medium uppercase tracking-wider", "text-white/50")}>Next Generation</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Zen 5
+                Zen 5 Ultra
               </h2>
               <p className={cn("text-xl mb-6 max-w-2xl", "text-white/70")}>
-                2T+ parameters. The largest open-source model in history — trained on-chain via NVIDIA TEE confidential compute on{" "}
+                2T+ parameter MoDE (Mixture of Distilled Experts). The largest open-weight model in history — trained on-chain via NVIDIA TEE confidential compute on{" "}
                 <a href="https://hanzo.network" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">hanzo.network</a>.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-8">
                 <div className={cn("p-4 rounded-lg", "bg-white/5")}>
                   <div className="text-2xl font-bold mb-1">2T+</div>
                   <div className={cn("text-sm", "text-white/50")}>Parameters</div>
+                </div>
+                <div className={cn("p-4 rounded-lg", "bg-white/5")}>
+                  <div className="text-2xl font-bold mb-1">MoDE</div>
+                  <div className={cn("text-sm", "text-white/50")}>Distilled Expert Routing</div>
                 </div>
                 <div className={cn("p-4 rounded-lg", "bg-white/5")}>
                   <div className="text-2xl font-bold mb-1">On-Chain</div>
@@ -600,7 +604,9 @@ export default function AIModels() {
                 </div>
               </div>
               <p className={cn("text-sm mb-6", "text-white/50")}>
-                Private beta available now. Researchers can request early access to preprints and weights under a special research license.
+                Private beta available. Researchers and institutions can request early access to preprints and weights under a special research license. Built on our{" "}
+                <a href="https://zenlm.org/papers/zen4-ultra-gt-qlora.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">GT-QLoRA</a>{" "}
+                MoE fine-tuning research.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a href="https://hanzo.ai/contact" target="_blank" rel="noopener noreferrer">

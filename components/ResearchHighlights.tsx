@@ -43,11 +43,11 @@ export default function ResearchHighlights() {
     {
       icon: Sparkles,
       title: "Zen AI Models",
-      description: "Efficient frontier models from 600M to 1T+ parameters",
+      description: "Zen4/5 — from 4B to 2T+ MoDE parameters with GT-QLoRA MoE fine-tuning",
       papers: [
-        { title: "Zen Model Family", href: "https://huggingface.co/zenlm", result: "600M-1T+ parameters" },
-        { title: "Zen-Reranker (ZIP-002)", href: "https://github.com/zooai/zips", result: "7680-dim embeddings" },
-        { title: "JIN Multimodal", href: "https://github.com/hanzoai/jin", result: "Vision, audio, 3D unified" },
+        { title: "GT-QLoRA: MoE Fine-Tuning", href: "https://zenlm.org/papers/zen4-ultra-gt-qlora.pdf", result: "Gate-targeted behavioral modification" },
+        { title: "Zen4 Model Family", href: "https://huggingface.co/zenlm", result: "4B-1T+ abliterated models" },
+        { title: "Zen5 Ultra (Research Preview)", href: "https://zenlm.org/docs/models#zen5", result: "2T+ MoDE — request access" },
       ],
       link: "/models"
     }
