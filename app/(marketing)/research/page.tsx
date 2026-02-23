@@ -22,27 +22,27 @@ import {
 
 // Organization metadata for display
 const orgMeta = {
-  all: { label: "All Organizations", color: "neutral" },
-  hanzo: { label: "Hanzo AI", color: "red" },
-  lux: { label: "Lux Network", color: "blue" },
-  zoo: { label: "Zoo Labs", color: "green" },
-  zen: { label: "Zen LM", color: "purple" },
+  all: { label: "All Organizations" },
+  hanzo: { label: "Hanzo AI" },
+  lux: { label: "Lux Network" },
+  zoo: { label: "Zoo Labs" },
+  zen: { label: "Zen LM" },
 };
 
 // Topic/category metadata for display
 const topicMeta = {
-  all: { label: "All Topics", color: "neutral" },
-  consensus: { label: "Consensus", color: "blue" },
-  fhe: { label: "FHE", color: "green" },
-  mpc: { label: "MPC", color: "purple" },
-  zkp: { label: "Zero-Knowledge", color: "yellow" },
-  pqc: { label: "Post-Quantum", color: "pink" },
-  defi: { label: "DeFi", color: "orange" },
-  identity: { label: "Identity", color: "cyan" },
-  ai: { label: "AI/ML", color: "red" },
-  models: { label: "Models", color: "violet" },
-  agents: { label: "Agents", color: "emerald" },
-  infrastructure: { label: "Infrastructure", color: "slate" },
+  all: { label: "All Topics" },
+  consensus: { label: "Consensus" },
+  fhe: { label: "FHE" },
+  mpc: { label: "MPC" },
+  zkp: { label: "Zero-Knowledge" },
+  pqc: { label: "Post-Quantum" },
+  defi: { label: "DeFi" },
+  identity: { label: "Identity" },
+  ai: { label: "AI/ML" },
+  models: { label: "Models" },
+  agents: { label: "Agents" },
+  infrastructure: { label: "Infrastructure" },
 };
 
 // Research areas
@@ -1006,7 +1006,7 @@ const [searchQuery, setSearchQuery] = useState("");
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: 'radial-gradient(ellipse 800px 800px at 50% 0%, rgba(253, 68, 68, 0.15), transparent)',
+              background: 'radial-gradient(ellipse 800px 800px at 50% 0%, rgba(255, 255, 255, 0.05), transparent)',
             }}
           />
           <div className="max-w-5xl mx-auto text-center relative z-10">
