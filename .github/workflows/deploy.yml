@@ -38,6 +38,36 @@ jobs:
       - name: SPA fallback for GitHub Pages
         run: cp out/index.html out/404.html
 
+      - name: Smoke test static build
+        run: |
+          npx serve out -l 3333 &
+          sleep 3
+
+          # Check that the homepage loads and doesn't contain error text
+          BODY=$(curl -s http://localhost:3333)
+          if echo "$BODY" | grep -q "Application error"; then
+            echo "FATAL: Homepage contains 'Application error'"
+            exit 1
+          fi
+
+          # Check that key pages return 200
+          for path in / /about /research /contact /careers /news /ai-models; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:3333${path}")
+            if [ "$STATUS" != "200" ]; then
+              STATUS=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:3333${path}.html")
+            fi
+            if [ "$STATUS" != "200" ]; then
+              STATUS=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:3333${path}/index.html")
+            fi
+            if [ "$STATUS" != "200" ]; then
+              echo "FATAL: ${path} returned status ${STATUS}"
+              exit 1
+            fi
+          done
+
+          echo "All smoke tests passed"
+          kill %1
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
