@@ -6,6 +6,7 @@ const geist = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const mono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://hanzo.industries'),
   title: {
     template: '%s | Hanzo Industries',
     default: 'Hanzo Industries — Frontier AI Research Lab',

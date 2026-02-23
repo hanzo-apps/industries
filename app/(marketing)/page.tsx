@@ -1,46 +1,12 @@
-"use client";
+import type { Metadata } from 'next'
+import PageClient from './_home-client'
 
-import { useEffect } from "react";
-import Hero from "@/components/Hero";
-import ServicesOverview from "@/components/ServicesOverview";
-import ResearchHighlights from "@/components/ResearchHighlights";
-import Leadership from "@/components/Leadership";
-import TrustedBySection from "@/components/TrustedBySection";
-import Contact from "@/components/Contact";
-import { cn } from "@/lib/utils";
+export const metadata: Metadata = {
+  title: 'Frontier AI Research Lab',
+  description:
+    'Hanzo Industries — frontier AI research lab advancing machine learning, cryptography, consensus protocols, and distributed systems. 130+ papers, 2,500+ OSS projects, 45+ AI models.',
+}
 
 export default function Page() {
-  useEffect(() => {
-    const smoothScroll = (e: MouseEvent) => {
-      const target = e.target as HTMLAnchorElement;
-      if (target.hash) {
-        e.preventDefault();
-        const element = document.querySelector(target.hash);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    };
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", smoothScroll);
-    });
-
-    return () => {
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.removeEventListener("click", smoothScroll);
-      });
-    };
-  }, []);
-
-  return (
-      <main>
-        <Hero />
-        <ServicesOverview />
-        <ResearchHighlights />
-        <Leadership />
-        <TrustedBySection />
-        <Contact />
-      </main>
-  );
+  return <PageClient />
 }
