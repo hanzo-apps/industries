@@ -73,7 +73,7 @@ export default function Hero() {
             <a href="https://hanzo.ai" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 h-12 rounded-full border-border text-foreground hover:bg-accent">
                 <Sparkles className="w-4 h-4 mr-2" />
-                Try Hanzo AI
+                Try Zen AI
               </Button>
             </a>
             <a href="https://hanzo.bot" target="_blank" rel="noopener noreferrer">
