@@ -64,7 +64,7 @@ function TryHanzoDropdown() {
           isOpen && 'bg-primary/90'
         )}
       >
-        Try Hanzo
+        Try Zen
         <ChevronDown className={cn('w-4 h-4 ml-1 transition-transform duration-200', isOpen && 'rotate-180')} />
       </Button>
 
@@ -83,7 +83,7 @@ function TryHanzoDropdown() {
               <div className="p-4">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-muted-foreground" />
+                    <Brain className="w-4 h-4 text-muted-foreground" />
                     <span className="text-xs font-semibold uppercase tracking-wider text-foreground">Zen AI Models</span>
                   </div>
                   <button onClick={() => { setIsOpen(false); router.push('/models') }}
