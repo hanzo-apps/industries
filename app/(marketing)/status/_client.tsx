@@ -84,6 +84,20 @@ const services: ServiceStatus[] = [
     description: "API documentation and guides",
     url: "https://docs.hanzo.ai",
   },
+  {
+    name: "Hanzo Engine",
+    icon: Server,
+    status: "operational",
+    description: "Cloud inference engine",
+    url: "https://engine.hanzo.ai",
+  },
+  {
+    name: "Hanzo Edge",
+    icon: Globe,
+    status: "operational",
+    description: "On-device inference",
+    url: "https://edge.hanzo.ai",
+  },
 ];
 
 // Real historical incidents
