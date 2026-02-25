@@ -455,16 +455,22 @@ const modelFamilies = {
 // Infrastructure tools
 const infrastructure = [
   {
+    name: "Hanzo Engine",
+    description: "High-performance cloud inference — 60+ architectures, CUDA/Metal, OpenAI-compatible API",
+    icon: Server,
+    href: "https://engine.hanzo.ai",
+  },
+  {
+    name: "Hanzo Edge",
+    description: "On-device AI inference — run models locally on any device, browser, or embedded system",
+    icon: Cpu,
+    href: "https://edge.hanzo.ai",
+  },
+  {
     name: "Zen Gym",
     description: "Unified training platform for all Zen models with LoRA, QLoRA, GRPO, and more",
     icon: Layers,
     href: "https://github.com/zenlm/zen-gym",
-  },
-  {
-    name: "Zen Engine",
-    description: "High-performance inference with OpenAI-compatible API",
-    icon: Server,
-    href: "https://github.com/zenlm/zen-engine",
   },
   {
     name: "Hanzo MCP",

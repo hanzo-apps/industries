@@ -7,7 +7,7 @@ import { Button } from '@hanzo/ui'
 import {
   ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSquare,
   BookOpen, Microscope, Brain, Shield, Network, Boxes, FlaskConical, FileText,
-  Github, Sparkles, Video, Box, Zap,
+  Github, Sparkles, Video, Box, Zap, Server, Smartphone,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import NavbarContainer from './navigation/NavbarContainer'
@@ -210,6 +210,8 @@ const navMenus: Record<string, MenuConfig> = {
       { label: 'Hanzo Team', href: 'https://hanzo.team', description: 'Work with Hanzo engineers', icon: Boxes, external: true },
       { label: 'Hanzo Chat', href: 'https://hanzo.chat', description: 'AI chat & bot manager', icon: MessageSquare, external: true },
       { label: 'LLM Gateway', href: 'https://docs.hanzo.ai/docs/llm', description: '200+ AI models, one API', icon: Cpu, external: true },
+      { label: 'Hanzo Engine', href: 'https://engine.hanzo.ai', description: 'Cloud GPU inference engine', icon: Server, external: true },
+      { label: 'Hanzo Edge', href: 'https://edge.hanzo.ai', description: 'On-device AI inference', icon: Smartphone, external: true },
     ],
   },
   developers: {
