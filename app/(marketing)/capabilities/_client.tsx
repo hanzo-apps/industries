@@ -40,7 +40,7 @@ export default function PageClient() {
       icon: Cog,
       title: "Edge AI & Local Deployment",
       description: "Private, on-device AI inference for maximum security and performance",
-      link: "https://docs.google.com/document/d/1Dga5hEIxTopxwYzmLh7L-NgZlJR8XB5V7du-UdY2Nk8/edit?usp=sharing",
+      link: "https://edge.hanzo.ai",
       features: [
         "On-device processing",
         "Offline capabilities",
