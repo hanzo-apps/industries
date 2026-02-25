@@ -46,6 +46,8 @@ const stackLayers = [
     label: "Cloud & Infrastructure",
     items: [
       { name: "HANZO CLOUD", description: "AI-native PaaS — deploy anything with zero-trust security", link: "/products/hanzo-cloud" },
+      { name: "HANZO ENGINE", description: "Cloud GPU inference — 60+ architectures, CUDA/Metal", link: "https://engine.hanzo.ai" },
+      { name: "HANZO EDGE", description: "On-device AI — run models locally, in browser, or embedded", link: "https://edge.hanzo.ai" },
       { name: "HANZO NETWORK", description: "Confidential compute — private, decentralized AI workloads", link: "/products/hanzo-network" },
       { name: "IAM", description: "Multi-tenant identity — SSO, OAuth, JWT across all services", link: "/products/hanzo-cloud" },
       { name: "KMS", description: "Secrets management — org-scoped, auditable, zero-trust", link: "/products/hanzo-cloud" },

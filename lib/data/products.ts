@@ -11,6 +11,8 @@ import {
   ArrowLeftRight,
   Building2,
   Repeat,
+  Server,
+  Smartphone,
 } from 'lucide-react'
 
 export const productPages = [
@@ -77,6 +79,38 @@ export const productPages = [
       'Open source libraries and frameworks',
     ],
     documentation: 'https://github.com/hanzoai',
+  },
+  {
+    path: 'hanzo-engine',
+    icon: Server,
+    title: 'HANZO ENGINE',
+    description:
+      'High-performance cloud inference engine serving 60+ model architectures with CUDA, Metal, and CPU backends.',
+    features: [
+      'Production GPU inference (CUDA 12+, Metal, CPU)',
+      '60+ model architectures (Llama, Qwen, Phi, Gemma, Mistral)',
+      'Paged attention and continuous batching',
+      'Speculative decoding and tensor parallelism',
+      'OpenAI-compatible REST API',
+      'Docker and Kubernetes native deployment',
+    ],
+    documentation: 'https://engine.hanzo.ai',
+  },
+  {
+    path: 'hanzo-edge',
+    icon: Smartphone,
+    title: 'HANZO EDGE',
+    description:
+      'On-device AI inference runtime for mobile, web, and embedded — run models locally with zero cloud dependency.',
+    features: [
+      'On-device inference with full data privacy',
+      'Cross-platform: macOS, Linux, iOS, Android, Web (WASM)',
+      'GGUF quantized model support (Q4, Q5, Q8)',
+      'Metal and Accelerate GPU acceleration',
+      'OpenAI-compatible local server',
+      'Browser inference via WebAssembly',
+    ],
+    documentation: 'https://edge.hanzo.ai',
   },
   {
     path: 'hanzo-ml',
