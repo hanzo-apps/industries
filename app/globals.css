@@ -91,4 +91,5 @@ body {
 
 * {
   border-color: var(--border);
+  --tw-ring-color: var(--ring);
 }
