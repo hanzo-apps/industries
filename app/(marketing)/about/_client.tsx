@@ -2,19 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { HanzoLogo } from "@hanzo/logo/react";
 import { cn } from "@/lib/utils";
-
-const HanzoLogo = ({ className, fill }: { className?: string; fill: string }) => (
-  <svg className={className} viewBox="0 0 67 67" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M22.21 67V44.6369H0V67H22.21Z" fill={fill} />
-    <path d="M0 44.6369L22.21 46.8285V44.6369H0Z" fill={fill} fillOpacity="0.6" />
-    <path d="M66.7038 22.3184H22.2534L0.0878906 44.6367H44.4634L66.7038 22.3184Z" fill={fill} />
-    <path d="M22.21 0H0V22.3184H22.21V0Z" fill={fill} />
-    <path d="M66.7198 0H44.5098V22.3184H66.7198V0Z" fill={fill} />
-    <path d="M66.6753 22.3185L44.5098 20.0822V22.3185H66.6753Z" fill={fill} fillOpacity="0.6" />
-    <path d="M66.7198 67V44.6369H44.5098V67H66.7198Z" fill={fill} />
-  </svg>
-);
 
 // The full stack — organized by layer
 const stackLayers = [
@@ -103,8 +92,8 @@ export default function PageClient() {
             className="mb-20"
           >
             <HanzoLogo
+              variant="white"
               className="w-16 h-16 mb-8"
-              fill={"#ffffff"}
             />
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
               Full-Stack Private AI
