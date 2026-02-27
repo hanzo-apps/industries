@@ -75,7 +75,7 @@ function TryHanzoDropdown() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="absolute right-0 top-full w-[420px] z-50"
+            className="absolute right-0 top-full w-[420px] max-w-[calc(100vw-2rem)] z-50"
           >
             <div className="h-2" />
             <div className="backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden bg-secondary/95 border-border shadow-background/50">
@@ -275,7 +275,7 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="absolute left-0 top-full w-80 z-50"
+            className="absolute left-0 top-full w-80 max-w-[calc(100vw-2rem)] z-50"
             onMouseEnter={() => { clearTimeoutRef(); onOpen() }}
             onMouseLeave={() => { clearTimeoutRef(); timeoutRef.current = setTimeout(onClose, 300) }}
           >
