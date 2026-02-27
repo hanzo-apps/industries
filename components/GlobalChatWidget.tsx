@@ -40,7 +40,7 @@ interface ZenModel {
 }
 
 const freeModels: ZenModel[] = [
-  { id: "qwen3-32b", name: "Zen", description: "Fast & capable", params: "32B", tier: "free" },
+  { id: "zen", name: "Zen", description: "Fast & capable", params: "32B", tier: "free" },
 ];
 
 const premiumModels: ZenModel[] = [
@@ -326,7 +326,7 @@ interface Message {
 
 function getAuthToken(): string | null {
   if (typeof window === "undefined") return null;
-  return localStorage.getItem(AUTH_TOKEN_KEY);
+  return sessionStorage.getItem(AUTH_TOKEN_KEY);
 }
 
 function isAuthenticated(): boolean {
@@ -457,25 +457,20 @@ export default function GlobalChatWidget() {
         // Validate state if present
         const returnedState = hashParams.get("state");
         const savedState = sessionStorage.getItem("hanzo_oauth_state");
-        if (!savedState || returnedState === savedState) {
+        if (savedState && returnedState === savedState) {
           token = hashToken;
           sessionStorage.removeItem("hanzo_oauth_state");
         }
       }
     }
 
-    // Fallback: check query params (hanzo.id-worker bridge flow)
-    if (!token) {
-      const params = new URLSearchParams(window.location.search);
-      const queryToken = params.get("access_token");
-      if (queryToken) {
-        token = queryToken;
-      }
-    }
+    // Note: query-param token fallback removed for security — tokens in query strings
+    // are logged by CDNs, analytics, and browser history. The hanzo.id-worker bridge
+    // flow must deliver tokens via hash fragment only.
 
     // Store token and clean URL
     if (token) {
-      localStorage.setItem(AUTH_TOKEN_KEY, token);
+      sessionStorage.setItem(AUTH_TOKEN_KEY, token);
       // Reset chat count so authenticated user gets unlimited
       localStorage.removeItem(CHAT_COUNT_KEY);
       const url = new URL(window.location.href);

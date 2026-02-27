@@ -89,8 +89,7 @@ export default function PageClient() {
                               {item}
                             </h3>
                             <p className={cn("text-sm", "text-muted-foreground")}>
-                              Explore our solutions for {item.toLowerCase()} and discover how we can
-                              help transform your business.
+                              End-to-end {item.toLowerCase()} solutions built on Hanzo AI infrastructure.
                             </p>
                           </div>
                         </motion.div>

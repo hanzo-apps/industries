@@ -419,7 +419,7 @@ export default function PageClient() {
                 Subscribe to receive notifications about system status and scheduled maintenance.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://twitter.com/hanaborobyai" target="_blank" rel="noopener noreferrer">
+                <a href="https://x.com/hanzoai" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className={cn("border-border hover:bg-accent")}>
                     Follow @hanzoai
                   </Button>

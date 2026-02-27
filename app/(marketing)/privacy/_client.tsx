@@ -41,7 +41,7 @@ export default function PageClient() {
               <p>We use collected information for:</p>
               <ul>
                 <li>Providing and improving our services</li>
-                <li>Training and fine-tuning our AI models</li>
+                <li>Improving service quality and reliability</li>
                 <li>Personalizing your experience</li>
                 <li>Marketing and advertising purposes</li>
                 <li>Analytics and service optimization</li>

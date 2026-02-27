@@ -51,19 +51,19 @@ const researchAreas = [
     icon: Brain,
     title: "AI Alignment",
     description: "Developing techniques to ensure AI systems reliably pursue intended goals and behave safely.",
-    link: "/research/alignment",
+    link: "https://github.com/hanzoai/papers",
   },
   {
     icon: Shield,
     title: "AI Safety",
     description: "Building robust safeguards and interpretability tools for understanding model behavior.",
-    link: "/research/safety",
+    link: "https://github.com/hanzoai/papers",
   },
   {
     icon: Network,
     title: "Decentralized AI",
     description: "Distributed inference, federated learning, and privacy-preserving AI infrastructure.",
-    link: "/research/decentralized",
+    link: "https://github.com/zoofoundation/papers",
   },
   {
     icon: Cpu,

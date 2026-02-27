@@ -601,7 +601,7 @@ export default function PageClient() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="https://cal.com/hanzo"
+                  href="https://cal.com/hanzo/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
@@ -680,7 +680,7 @@ export default function PageClient() {
               <div className={cn("text-sm", "text-muted-foreground")}>Research Papers</div>
             </div>
             <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
-              <div className="text-3xl font-bold mb-1">50+</div>
+              <div className="text-3xl font-bold mb-1">45+</div>
               <div className={cn("text-sm", "text-muted-foreground")}>AI Models</div>
             </div>
             <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
@@ -824,7 +824,7 @@ export default function PageClient() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://cal.com/hanzo"
+                href="https://cal.com/hanzo/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
@@ -858,7 +858,7 @@ export default function PageClient() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
                 <Brain className="w-8 h-8 mb-4" />
-                <h3 className="font-semibold mb-2">Cutting-Edge Research</h3>
+                <h3 className="font-semibold mb-2">Frontier Research</h3>
                 <p className={cn("text-sm", "text-muted-foreground")}>
                   Work on frontier AI models, post-quantum cryptography, and novel consensus protocols alongside world-class researchers.
                 </p>

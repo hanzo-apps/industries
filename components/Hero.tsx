@@ -30,7 +30,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border bg-foreground/5 border-border"
           >
             <Sparkles className="w-4 h-4 text-muted-foreground" />
-            <span className="text-sm text-muted-foreground">Hanzo L1 now available for enterprise deployment</span>
+            <span className="text-sm text-muted-foreground">Zen4 MoDE models now available for enterprise deployment</span>
             <Link href="/research" className="text-sm font-medium flex items-center gap-1 hover:underline text-foreground">
               Learn more <ArrowRight className="w-3 h-3" />
             </Link>

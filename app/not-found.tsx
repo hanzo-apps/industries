@@ -22,10 +22,10 @@ const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      pathname
-    );
+    // Track 404 via analytics if available
+    if (typeof window !== "undefined" && (window as any).ha) {
+      (window as any).ha.capture("404_page_view", { path: pathname });
+    }
   }, [pathname]);
 
   const handleSendMessage = async () => {

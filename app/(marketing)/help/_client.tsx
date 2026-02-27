@@ -39,7 +39,7 @@ const faqs = [
       },
       {
         q: "Is there a free tier available?",
-        a: "Yes! We offer a generous free tier with $10 in credits to help you explore our platform. This includes access to all models and features with some rate limiting.",
+        a: "Yes! We offer a free tier with $5 in credits to help you explore our platform. This includes access to all models and features with some rate limiting.",
       },
     ],
   },
@@ -309,9 +309,11 @@ export default function PageClient() {
                 <p className={cn("mb-6", "text-muted-foreground")}>
                   Chat with our support team in real-time for immediate assistance.
                 </p>
-                <Button className="bg-primary hover:bg-primary/90 text-foreground w-full">
-                  Start Chat
-                </Button>
+                <a href="https://hanzo.bot" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-primary hover:bg-primary/90 text-foreground w-full">
+                    Start Chat
+                  </Button>
+                </a>
               </motion.div>
 
               <motion.div

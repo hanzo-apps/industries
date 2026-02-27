@@ -382,10 +382,10 @@ const modelFamilies = {
     models: [
       {
         name: "zen-guard",
-        params: "1B",
+        params: "4B",
         description: "Content safety classifier for input/output filtering",
         performance: "< 5ms",
-        memory: "1–2GB",
+        memory: "4–6GB",
         capabilities: ["Safety", "Moderation", "Classification"],
         href: "https://huggingface.co/zenlm/zen-guard",
       },

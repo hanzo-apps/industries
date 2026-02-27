@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Button } from "@hanzo/ui";
 import { Code, Database, Cloud, Shield, Lightbulb, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -106,16 +107,20 @@ export default function PageClient() {
           >
             <h1 className="text-5xl font-bold mb-6">Professional Services</h1>
             <p className={cn("text-xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
-              From strategy to implementation, we provide end-to-end services to help you
-              harness the power of AI and modern technology
+              From strategy to implementation, we provide end-to-end services to deploy
+              AI and modern infrastructure in production
             </p>
             <div className="flex justify-center gap-4">
-              <Button size="lg" className={cn("bg-primary text-primary-foreground hover:bg-primary/90")}>
-                Get Started
-              </Button>
-              <Button size="lg" variant="outline">
-                View Case Studies
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className={cn("bg-primary text-primary-foreground hover:bg-primary/90")}>
+                  Get Started
+                </Button>
+              </Link>
+              <Link href="/case-studies">
+                <Button size="lg" variant="outline">
+                  View Case Studies
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

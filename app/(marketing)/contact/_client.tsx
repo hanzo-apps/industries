@@ -78,11 +78,27 @@ export default function PageClient() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ name: "", email: "", company: "", subject: "", message: "", inquiryType: "general" });
+    try {
+      const res = await fetch("https://api.hanzo.ai/v1/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+      setFormData({ name: "", email: "", company: "", subject: "", message: "", inquiryType: "general" });
+    } catch {
+      // Fallback: open Cal.com scheduling link with context
+      const params = new URLSearchParams({
+        name: formData.name,
+        email: formData.email,
+        notes: `${formData.company ? formData.company + " — " : ""}${formData.subject}\n\n${formData.message}`,
+      });
+      window.open(`https://cal.com/hanzo/30min?${params.toString()}`, "_blank");
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -398,7 +414,7 @@ export default function PageClient() {
                   </div>
                   <div className="aspect-[4/3] min-h-[300px]">
                     <iframe
-                      src={`https://cal.com/hanzo/30min?embed=true&theme=${"dark"}`}
+                      src="https://cal.com/hanzo/30min?embed=true&theme=dark"
                       className="w-full h-full border-0"
                       allow="payment"
                       title="Schedule a call with Hanzo"

@@ -89,14 +89,16 @@ export default function PageClient() {
               <p className={cn("mb-6", "text-muted-foreground")}>
                 Our security practices and controls have been audited and certified by independent third-party auditors
               </p>
-              <Button
-                variant="outline"
-                className={cn(
-                  "text-foreground border-primary hover:bg-accent"
-                )}
-              >
-                Download Security Whitepaper
-              </Button>
+              <a href="/contact">
+                <Button
+                  variant="outline"
+                  className={cn(
+                    "text-foreground border-primary hover:bg-accent"
+                  )}
+                >
+                  Request Security Documentation
+                </Button>
+              </a>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

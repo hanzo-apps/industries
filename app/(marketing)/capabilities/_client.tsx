@@ -15,8 +15,8 @@ export default function PageClient() {
     {
       icon: Brain,
       title: "Frontier AI Models",
-      description: "State-of-the-art language and multimodal models with built-in safety mechanisms",
-      link: "https://docs.google.com/document/d/19rZTIUZShaITzwp35XK1893OE83HA1bIIhmQNzFvKrg/edit?usp=sharing",
+      description: "Production-grade language and multimodal models with built-in safety mechanisms",
+      link: "/models",
       features: [
         "Advanced language understanding",
         "Multimodal processing",
@@ -52,7 +52,7 @@ export default function PageClient() {
       icon: Cloud,
       title: "Decentralized AI Infrastructure",
       description: "Resilient, distributed AI computing for mission-critical applications",
-      link: "/capabilities/decentralized-ai",
+      link: "/products/hanzo-network",
       features: [
         "Distributed computing",
         "Fault tolerance",
@@ -76,7 +76,7 @@ export default function PageClient() {
       icon: Users,
       title: "Open Source Ecosystem",
       description: "Community-driven development and collaborative AI innovation",
-      link: "https://docs.google.com/document/d/1mWC6mo9Wd4s3KaWPTF_4QhLqh5lRmzED12wRnLq71Sk/edit?usp=sharing",
+      link: "https://github.com/hanzoai",
       features: [
         "Open development",
         "Community contributions",
@@ -112,7 +112,7 @@ export default function PageClient() {
       icon: Cpu,
       title: "AI Hardware Acceleration",
       description: "Optimized hardware solutions for AI training and inference",
-      link: "#",
+      link: "/products/hanzo-network",
       features: [
         "GPU optimization",
         "TPU integration",
@@ -124,7 +124,7 @@ export default function PageClient() {
       icon: Globe,
       title: "Global AI Deployment",
       description: "Worldwide infrastructure for AI deployment and scaling",
-      link: "#",
+      link: "/products/hanzo-cloud",
       features: [
         "Multi-region presence",
         "Local compliance",
@@ -234,7 +234,7 @@ export default function PageClient() {
               Let's discuss how our capabilities can accelerate your mission
             </p>
             <a
-              href="/#contact"
+              href="/contact"
               className={cn("inline-block px-8 py-4 rounded-lg font-semibold transition-colors", "bg-primary text-primary-foreground hover:bg-primary/90")}
             >
               Contact Us

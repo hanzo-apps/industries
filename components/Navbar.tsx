@@ -187,7 +187,7 @@ const navMenus: Record<string, MenuConfig> = {
       { label: 'AI & Machine Learning', href: '/research#ai', description: 'Frontier AI models and training', icon: Brain },
       { label: 'Cryptography', href: '/research#crypto', description: 'Post-quantum and FHE research', icon: Shield },
       { label: 'Consensus & Networks', href: '/research#consensus', description: 'Distributed systems and blockchain', icon: Network },
-      { label: 'Papers', href: '/research#papers', description: '58 published research papers', icon: FileText },
+      { label: 'Papers', href: '/research#papers', description: '130+ published research papers', icon: FileText },
       { label: 'Open Source', href: 'https://github.com/hanzoai', description: 'GitHub repositories', icon: Github, external: true },
     ],
   },
