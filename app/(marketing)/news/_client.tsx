@@ -7,6 +7,47 @@ import { Calendar, ExternalLink, FileText, Megaphone } from "lucide-react";
 
 const announcements = [
   {
+    date: "February 2026",
+    year: "2026",
+    items: [
+      {
+        day: "26",
+        title: "Earn While You Sleep: 20% Idle Compute Revenue Sharing",
+        description: "Every Hanzo account now earns up to 20% of revenue when your allocated compute and LLM capacity is resold while idle. All plans eligible — Developer, Pro, Team, and Enterprise. Payouts via account credit or direct deposit.",
+        type: "Product Launch",
+        link: "/pricing",
+      },
+      {
+        day: "26",
+        title: "Hanzo Open Source Fund: 20% of Revenue to OSS Developers",
+        description: "We're committing 20% of all platform revenue directly to the open source developers whose work powers our infrastructure. Distributed proportionally based on actual OSS dependency usage across the platform.",
+        type: "Company News",
+        link: "/pricing",
+      },
+      {
+        day: "26",
+        title: "Transparent Pricing: No Hidden Fees, No Egress Charges",
+        description: "Hanzo adopts a transparent pricing policy: no hidden fees, no egress charges, no surprise bills. Every invoice includes a clear cost breakdown. Combined with idle revenue sharing and OSS funding, this is pricing that works for everyone.",
+        type: "Company News",
+        link: "/pricing",
+      },
+      {
+        day: "25",
+        title: "390+ AI Models Now Available via Hanzo LLM Gateway",
+        description: "The Hanzo LLM Gateway now serves 47 Zen models and 344+ third-party models from 58 providers through a single API. Live pricing at pricing.hanzo.ai, synced every 6 hours.",
+        type: "Product Launch",
+        link: "/models",
+      },
+      {
+        day: "24",
+        title: "Canonical Pricing API Launches at pricing.hanzo.ai",
+        description: "All Hanzo pricing — subscriptions, model costs, cloud plans, blockchain RPC, and transparent pricing policy — now served from a single canonical API. No more hardcoded prices across surfaces.",
+        type: "Product Launch",
+        link: "/pricing",
+      },
+    ],
+  },
+  {
     date: "January 2025",
     year: "2025",
     items: [
@@ -91,14 +132,29 @@ const announcements = [
 
 const pressReleases = [
   {
+    title: "Hanzo Launches Idle Compute Revenue Sharing — All Accounts Earn Up to 20%",
+    date: "February 26, 2026",
+    summary: "Every Hanzo account now earns up to 20% of revenue generated when their allocated compute and LLM capacity is resold during idle periods. Available across all plans from Developer (free) to Enterprise.",
+  },
+  {
+    title: "Hanzo Open Source Fund: 20% of Platform Revenue to OSS Developers",
+    date: "February 26, 2026",
+    summary: "Hanzo commits 20% of all platform revenue to the open source developers and projects that power its infrastructure, distributed proportionally to actual dependency usage.",
+  },
+  {
+    title: "Hanzo Adopts Transparent Pricing Policy: No Hidden Fees, No Egress Charges",
+    date: "February 26, 2026",
+    summary: "New transparent pricing policy guarantees no hidden fees, no egress charges, and no surprise bills. Every invoice includes a clear cost breakdown alongside idle revenue sharing and OSS fund contributions.",
+  },
+  {
+    title: "Canonical Pricing API and 390+ AI Models Now Live",
+    date: "February 25, 2026",
+    summary: "pricing.hanzo.ai launches as the single source of truth for all Hanzo pricing data. The LLM Gateway now serves 47 Zen models and 344+ third-party models from 58 providers.",
+  },
+  {
     title: "Hanzo Industries Announces ZEN Platform General Availability",
     date: "January 15, 2025",
     summary: "Enterprise AI orchestration platform now available to all customers with enhanced security features.",
-  },
-  {
-    title: "Hanzo Raises $50M Series B to Accelerate AI Infrastructure",
-    date: "January 10, 2025",
-    summary: "Funding round led by Andreessen Horowitz to expand engineering team and accelerate product development.",
   },
   {
     title: "130+ Research Papers Published Across AI, Cryptography, and Consensus",
