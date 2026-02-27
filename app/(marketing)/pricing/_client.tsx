@@ -20,8 +20,8 @@ import {
 /* ─── API endpoints ─── */
 
 const MODEL_PRICING_API = "https://api.hanzo.ai/v1/pricing";
-const SUBSCRIPTIONS_API = "https://pricing.hanzo.ai/v1/pricing/subscriptions";
-const POLICY_API = "https://pricing.hanzo.ai/v1/pricing/policy";
+const SUBSCRIPTIONS_API = "https://api.hanzo.ai/v1/pricing/subscriptions";
+const POLICY_API = "https://api.hanzo.ai/v1/pricing/policy";
 
 /* ─── Types: model pricing (existing) ─── */
 
@@ -714,7 +714,7 @@ export default function PageClient() {
           >
             <h2 className="text-3xl font-bold mb-2">Zen Model Pricing</h2>
             <p className={cn("mb-8", "text-muted-foreground")}>
-              Pay-as-you-go per million tokens. All 14 Zen models via{" "}
+              Pay-as-you-go per million tokens. All Zen models via{" "}
               <code className="text-xs">api.hanzo.ai</code>.
               {modelPricingData?.updated && (
                 <span

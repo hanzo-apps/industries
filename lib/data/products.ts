@@ -88,7 +88,7 @@ export const productPages = [
       'High-performance cloud inference engine serving 60+ model architectures with CUDA, Metal, and CPU backends.',
     features: [
       'Production GPU inference (CUDA 12+, Metal, CPU)',
-      '60+ model architectures (Llama, Qwen, Phi, Gemma, Mistral)',
+      '60+ model architectures (Llama, Phi, Gemma, Mistral, and more)',
       'Paged attention and continuous batching',
       'Speculative decoding and tensor parallelism',
       'OpenAI-compatible REST API',
