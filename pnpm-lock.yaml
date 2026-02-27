@@ -101,9 +101,6 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.90.21
         version: 5.90.21(react@19.2.4)
-      '@zenlm/models':
-        specifier: ^1.0.0
-        version: 1.0.0
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -1931,9 +1928,6 @@ packages:
 
   '@types/react@19.2.14':
     resolution: {integrity: sha512-ilcTH/UniCkMdtexkoCN0bI7pMcJDvmQFPvuPvmEaYA/NSfFTAgdUSLAoVjaRJm7+6PvcM+q1zYOwS4wTYMF9w==}
-
-  '@zenlm/models@1.0.0':
-    resolution: {integrity: sha512-F7IErOK3iTXkwV+qMqPALTWlwdu2ag29pmyT+0UVKLRcUUf4ft3iWoDfW212Lq4vCy1/DEMLH3zm3wRcidSQlQ==}
 
   aria-hidden@1.2.4:
     resolution: {integrity: sha512-y+CcFFwelSXpLZk/7fMB2mUbGtX9lKycf1MWJ7CaTIERyitVlyQx6C+sxcROU2BAJ24OiZyK+8wj2i8AlBoS3A==}
@@ -4320,8 +4314,6 @@ snapshots:
   '@types/react@19.2.14':
     dependencies:
       csstype: 3.2.3
-
-  '@zenlm/models@1.0.0': {}
 
   aria-hidden@1.2.4:
     dependencies:
