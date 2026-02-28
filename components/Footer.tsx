@@ -19,11 +19,10 @@ export default function Footer() {
               {site.brand.description}
             </p>
             <div className="flex items-center space-x-6">
-              <a href={site.links.github} target="_blank" rel="noopener noreferrer"
-                className="flex items-center space-x-2 group">
+              <Link href="/open-source" className="flex items-center space-x-2 group">
                 <Github className="h-5 w-5 transition-colors text-muted-foreground group-hover:text-foreground" />
                 <span className="text-sm transition-colors text-muted-foreground group-hover:text-foreground">Open Source</span>
-              </a>
+              </Link>
               <Link href="/research#papers" className="flex items-center space-x-2 group">
                 <FileText className="h-5 w-5 transition-colors text-muted-foreground group-hover:text-foreground" />
                 <span className="text-sm transition-colors text-muted-foreground group-hover:text-foreground">130+ Papers</span>

@@ -38,7 +38,7 @@ export default function ServicesOverview() {
       icon: Cloud,
       title: "Platform & Infrastructure",
       description: "Enterprise-grade AI platform with LLM gateway supporting 200+ models, secure deployment, and resilient infrastructure — from edge to cloud",
-      capabilities: ["Hanzo AI — Full AI platform", "LLM Gateway — 200+ models, one API", "Hanzo Engine — Cloud GPU inference", "Hanzo Edge — On-device AI inference"],
+      capabilities: ["Hanzo AI — Full AI platform", "LLM Gateway — 200+ models, one API", "Hanzo Engine — Cloud GPU inference", "Hanzo Edge — On-device AI inference", "SBOM-verified OSS revenue sharing (25%)"],
       link: "https://hanzo.ai",
       cta: "Try Hanzo AI",
       external: true,

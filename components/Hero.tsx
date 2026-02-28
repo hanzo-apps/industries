@@ -57,6 +57,7 @@ export default function Hero() {
             Hanzo builds open-weight models, cloud infrastructure, and agent frameworks
             — freely available to researchers, developers, and the broader AI ecosystem.
             727+ open source repos. MIT and Apache licensed.
+            25% of compute revenue goes back to OSS contributors.
           </motion.p>
 
           <motion.div

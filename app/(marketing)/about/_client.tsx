@@ -279,6 +279,50 @@ export default function PageClient() {
             </div>
           </motion.div>
 
+          {/* OSS Revenue Sharing */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className={cn(
+              "mb-20 p-8 md:p-10 rounded-lg border",
+              "border-border bg-foreground/[0.03]"
+            )}
+          >
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold mb-2">OSS Revenue Sharing</h3>
+                <p className={cn("text-sm leading-relaxed", "text-muted-foreground")}>
+                  We dedicate 25% of all compute costs to open source contributors
+                  — distributed transparently based on verified SBOMs. Connect your
+                  GitHub and wallet to earn.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                <Link
+                  href="/open-source"
+                  className={cn(
+                    "px-5 py-2.5 rounded-lg border text-sm font-medium text-center transition-colors",
+                    "border-border hover:bg-accent"
+                  )}
+                >
+                  Learn More
+                </Link>
+                <a
+                  href="https://hanzo.ai/oss/connect"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "px-5 py-2.5 rounded-lg text-sm font-medium text-center transition-colors",
+                    "bg-foreground text-background hover:bg-foreground/90"
+                  )}
+                >
+                  Connect & Earn
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Mission */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

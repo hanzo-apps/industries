@@ -63,6 +63,7 @@ export const productPages = [
       'Developer-friendly SDKs and integrations',
     ],
     documentation: 'https://hanzo.ai',
+    ossRevShare: true,
   },
   {
     path: 'hanzo-dx',
@@ -79,6 +80,7 @@ export const productPages = [
       'Open source libraries and frameworks',
     ],
     documentation: 'https://github.com/hanzoai',
+    ossRevShare: true,
   },
   {
     path: 'hanzo-engine',
@@ -95,6 +97,7 @@ export const productPages = [
       'Docker and Kubernetes native deployment',
     ],
     documentation: 'https://engine.hanzo.ai',
+    ossRevShare: true,
   },
   {
     path: 'hanzo-edge',
@@ -111,6 +114,7 @@ export const productPages = [
       'Browser inference via WebAssembly',
     ],
     documentation: 'https://edge.hanzo.ai',
+    ossRevShare: true,
   },
   {
     path: 'hanzo-ml',
@@ -143,6 +147,7 @@ export const productPages = [
       'Integrated learning resources',
     ],
     documentation: 'https://hanzo.ai/dev',
+    ossRevShare: true,
   },
   {
     path: 'hanzo-team',
