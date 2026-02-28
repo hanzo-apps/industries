@@ -49,8 +49,8 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-        {/* Hanzo Insights */}
-        <script defer src={site.analytics.scriptUrl} data-website-id={site.analytics.siteId} />
+        {/* Hanzo Analytics — privacy-first, respects DNT, no cookies */}
+        <script defer src={site.analytics.scriptUrl} data-website-id={site.analytics.siteId} data-do-not-track="true" data-exclude-search="true" />
       </body>
     </html>
   )
