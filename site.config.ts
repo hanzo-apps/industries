@@ -38,8 +38,7 @@ const siteConfig = {
   },
   analytics: {
     scriptUrl: 'https://analytics.hanzo.ai/script.js',
-    // Create site in analytics.hanzo.ai dashboard to get a UUID for this domain
-    siteId: process.env.NEXT_PUBLIC_ANALYTICS_SITE_ID ?? '',
+    siteId: '68f5fcb6-c767-434c-bb78-a05fdece2b92',
   },
   chat: {
     apiUrl: 'https://api.hanzo.ai',
