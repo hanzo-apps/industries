@@ -27,7 +27,7 @@ export default function Logo({ className = '', showText = true, size = 'md' }: L
           sizes[size].text,
           'text-foreground group-hover:text-foreground/90'
         )}>
-          Hanzo
+          {site.brand.name}
         </span>
       )}
     </Link>

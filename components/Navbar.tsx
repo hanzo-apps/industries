@@ -189,7 +189,7 @@ const navMenus: Record<string, MenuConfig> = {
       { label: 'Cryptography', href: '/research#crypto', description: 'Post-quantum and FHE research', icon: Shield },
       { label: 'Consensus & Networks', href: '/research#consensus', description: 'Distributed systems and blockchain', icon: Network },
       { label: 'Papers', href: '/research#papers', description: '130+ published research papers', icon: FileText },
-      { label: 'Open Source', href: 'https://github.com/hanzoai', description: 'GitHub repositories', icon: Github, external: true },
+      { label: 'Open Source', href: site.links.github, description: 'GitHub repositories', icon: Github, external: true },
     ],
   },
   models: {
@@ -198,27 +198,27 @@ const navMenus: Record<string, MenuConfig> = {
       { label: 'Zen Models', href: '/models', description: '600M-1T+ parameter models', icon: Sparkles },
       { label: 'Zen Coder', href: '/models#coder', description: 'Code generation and analysis', icon: Code2 },
       { label: 'Zen Omni', href: '/models#omni', description: 'Multimodal vision & audio', icon: Boxes },
-      { label: 'Model API', href: 'https://hanzo.ai/api', description: 'API access and pricing', icon: Cpu, external: true },
-      { label: 'Hugging Face', href: 'https://huggingface.co/zenlm', description: 'Download models', icon: Bot, external: true },
+      { label: 'Model API', href: site.links.modelApi, description: 'API access and pricing', icon: Cpu, external: true },
+      { label: 'Hugging Face', href: site.links.huggingFace, description: 'Download models', icon: Bot, external: true },
     ],
   },
   products: {
     title: 'Products',
     items: [
-      { label: 'Hanzo AI', href: 'https://hanzo.ai', description: 'Full AI platform and cloud', icon: Brain, external: true },
-      { label: 'Hanzo Bot', href: 'https://hanzo.bot', description: 'AI team in a box', icon: Bot, external: true },
-      { label: 'Hanzo Dev', href: 'https://hanzo.ai/dev', description: 'AI coding agent', icon: Code2, external: true },
-      { label: 'Hanzo Team', href: 'https://hanzo.team', description: 'Work with Hanzo engineers', icon: Boxes, external: true },
-      { label: 'Hanzo Chat', href: 'https://hanzo.chat', description: 'AI chat & bot manager', icon: MessageSquare, external: true },
+      { label: 'Hanzo AI', href: site.links.platform, description: 'Full AI platform and cloud', icon: Brain, external: true },
+      { label: 'Hanzo Bot', href: site.links.bot, description: 'AI team in a box', icon: Bot, external: true },
+      { label: 'Hanzo Dev', href: site.links.dev, description: 'AI coding agent', icon: Code2, external: true },
+      { label: 'Hanzo Team', href: site.links.team, description: 'Work with Hanzo engineers', icon: Boxes, external: true },
+      { label: 'Hanzo Chat', href: site.links.chat, description: 'AI chat & bot manager', icon: MessageSquare, external: true },
       { label: 'LLM Gateway', href: 'https://docs.hanzo.ai/docs/llm', description: '200+ AI models, one API', icon: Cpu, external: true },
-      { label: 'Hanzo Engine', href: 'https://engine.hanzo.ai', description: 'Cloud GPU inference engine', icon: Server, external: true },
-      { label: 'Hanzo Edge', href: 'https://edge.hanzo.ai', description: 'On-device AI inference', icon: Smartphone, external: true },
+      { label: 'Hanzo Engine', href: site.links.engine, description: 'Cloud GPU inference engine', icon: Server, external: true },
+      { label: 'Hanzo Edge', href: site.links.edge, description: 'On-device AI inference', icon: Smartphone, external: true },
     ],
   },
   developers: {
     title: 'Developers',
     items: [
-      { label: 'Documentation', href: 'https://docs.hanzo.ai', description: 'Technical guides', icon: BookOpen, external: true },
+      { label: 'Documentation', href: site.links.docs, description: 'Technical guides', icon: BookOpen, external: true },
       { label: 'Hanzo MCP', href: 'https://docs.hanzo.ai/docs/mcp', description: '260+ tools for AI models', icon: Cpu, external: true },
       { label: 'SDKs', href: 'https://docs.hanzo.ai/docs/sdks', description: 'Python, TS, Go, Rust', icon: Code2, external: true },
       { label: 'LLM Gateway', href: 'https://docs.hanzo.ai/docs/llm', description: '200+ models, one API', icon: Network, external: true },
@@ -392,7 +392,7 @@ export default function Navbar() {
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="outline" className="w-full border-border text-foreground hover:bg-accent">Contact</Button>
                 </Link>
-                <a href="https://hanzo.ai" target="_blank" rel="noopener noreferrer">
+                <a href={site.links.platform} target="_blank" rel="noopener noreferrer">
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Try Zen</Button>
                 </a>
               </div>

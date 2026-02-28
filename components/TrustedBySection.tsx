@@ -3,23 +3,7 @@
 import { motion } from "framer-motion";
 import { partnerLogos } from "@/lib/constants/partner-logos";
 import { cn } from "@/lib/utils";
-
-const clients = [
-  "Triller",
-  "Damon",
-  "Bellabeat",
-  "Unikrn",
-  "Cover",
-  "Casper",
-  "Myle",
-  "Drumpants",
-  "Cove",
-  "Aura",
-  "KANOA",
-  "SKULLY",
-  "Zoo Labs Foundation",
-  "Lux Network",
-];
+import site from "@/site.config";
 
 export default function TrustedBySection() {
   return (
@@ -100,7 +84,7 @@ export default function TrustedBySection() {
               )}
               style={{ animation: "brand-marquee 30s linear infinite" }}
             >
-              {[...clients, ...clients].map((client, index) => (
+              {[...site.clients, ...site.clients].map((client, index) => (
                 <span key={`${client}-${index}`} className="whitespace-nowrap">
                   {client}
                 </span>

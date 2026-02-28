@@ -4,6 +4,7 @@ import { Button } from '@hanzo/ui'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Sparkles, Bot } from 'lucide-react'
+import site from '@/site.config'
 
 export default function Hero() {
   return (
@@ -70,13 +71,13 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
-            <a href="https://hanzo.ai" target="_blank" rel="noopener noreferrer">
+            <a href={site.links.platform} target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 h-12 rounded-full border-border text-foreground hover:bg-accent">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Try Zen AI
               </Button>
             </a>
-            <a href="https://hanzo.bot" target="_blank" rel="noopener noreferrer">
+            <a href={site.links.bot} target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="w-full sm:w-auto text-base px-8 h-12 rounded-full border-border text-foreground hover:bg-accent">
                 <Bot className="w-4 h-4 mr-2" />
                 Deploy AI Team
@@ -91,12 +92,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-border pt-12"
         >
-          {[
-            { value: "Techstars '17", label: 'Backed Company' },
-            { value: '130+', label: 'Research Papers' },
-            { value: '2,500+', label: 'OSS Projects' },
-            { value: 'Safety First', label: 'Aligned AI Systems' },
-          ].map((stat) => (
+          {site.stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl sm:text-3xl font-bold text-foreground">{stat.value}</div>
               <div className="text-sm mt-1 text-muted-foreground">{stat.label}</div>

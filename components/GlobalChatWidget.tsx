@@ -18,18 +18,19 @@ import {
   Lock,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import site from "@/site.config";
 
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
 
-const API_URL = "https://api.hanzo.ai";
+const API_URL = site.chat.apiUrl;
 const API_KEY = process.env.NEXT_PUBLIC_LLM_API_KEY ?? "";
-const IAM_AUTHORIZE_URL = "https://hanzo.id/login/oauth/authorize";
-const IAM_CLIENT_ID = "hanzo-app-client-id";
+const IAM_AUTHORIZE_URL = site.chat.iamAuthorizeUrl;
+const IAM_CLIENT_ID = site.chat.iamClientId;
 const AUTH_TOKEN_KEY = "hanzo_auth_token";
 const CHAT_COUNT_KEY = "hanzo_chat_count";
-const FREE_MESSAGE_LIMIT = 1;
+const FREE_MESSAGE_LIMIT = site.chat.freeMessageLimit;
 
 interface ZenModel {
   id: string;
