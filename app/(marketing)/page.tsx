@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import PageClient from './_home-client'
 
 export const metadata: Metadata = {
-  title: 'Frontier AI Research Lab',
+  title: 'Open AI Research & Infrastructure',
   description:
-    'Hanzo Industries — frontier AI research lab advancing machine learning, cryptography, consensus protocols, and distributed systems. 130+ papers, 2,500+ OSS projects, 41+ AI models.',
+    'Hanzo Industries — open AI research and infrastructure. Open-weight models, cloud infrastructure, and agent frameworks freely available to researchers and developers. 727+ open source repos, MIT and Apache licensed.',
 }
 
 export default function Page() {

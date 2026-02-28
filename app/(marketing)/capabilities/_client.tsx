@@ -14,26 +14,26 @@ export default function PageClient() {
   }[] = [
     {
       icon: Brain,
-      title: "Frontier AI Models",
-      description: "Production-grade language and multimodal models with built-in safety mechanisms",
-      link: "/models",
+      title: "Open-Weight AI Models",
+      description: "Frontier language and multimodal models — open weights, no gates, freely available to researchers and developers",
+      link: "/ai-models",
       features: [
         "Advanced language understanding",
         "Multimodal processing",
-        "Constitutional AI integration",
-        "Safety-first architecture"
+        "Unbiased, neutral inference",
+        "Apache 2.0 and MIT licensed"
       ]
     },
     {
       icon: Shield,
-      title: "AI Safety & Alignment",
-      description: "Research and tools for building safe, aligned, and beneficial AI systems",
-      link: "https://hanzo.ai/ai",
+      title: "Interpretability Research",
+      description: "Mechanistic interpretability and model transparency research published as open scientific work",
+      link: "/research",
       features: [
         "Mechanistic interpretability",
-        "Value alignment research",
+        "Activation analysis",
         "Robustness testing",
-        "Safety monitoring"
+        "Open research publications"
       ]
     },
     {

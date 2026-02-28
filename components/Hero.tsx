@@ -43,9 +43,9 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-foreground"
           >
-            AI research and products
+            AI research and infrastructure
             <br />
-            <span className="text-muted-foreground">that put safety at the frontier</span>
+            <span className="text-muted-foreground">as open, public goods.</span>
           </motion.h1>
 
           <motion.p
@@ -54,9 +54,9 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-8 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed text-muted-foreground"
           >
-            Hanzo builds frontier AI systems with a focus on safety, interpretability,
-            and alignment. We develop foundation models and deploy them through secure,
-            decentralized infrastructure.
+            Hanzo builds open-weight models, cloud infrastructure, and agent frameworks
+            — freely available to researchers, developers, and the broader AI ecosystem.
+            727+ open source repos. MIT and Apache licensed.
           </motion.p>
 
           <motion.div

@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hanzo/og": "file:../../ui/packages/og",
+    "@hanzo/og": "file:../ui/packages/og",
     "@hanzo/logo": "^1.0.5",
     "@hanzo/ui": "^5.3.34",
     "@hookform/resolvers": "^3.9.0",

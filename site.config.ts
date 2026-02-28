@@ -37,8 +37,8 @@ const siteConfig = {
     modelApi: 'https://hanzo.ai/api',
   },
   analytics: {
-    posthogKey: 'ha_WGshOAwqRvyGIfOlYtksynG4LNkhS7GtE1ft2ZjdvaIfs5m',
-    posthogHost: 'https://insights.hanzo.ai',
+    scriptUrl: 'https://insights.hanzo.ai/script.js',
+    siteId: 'ha_WGshOAwqRvyGIfOlYtksynG4LNkhS7GtE1ft2ZjdvaIfs5m',
   },
   chat: {
     apiUrl: 'https://api.hanzo.ai',
