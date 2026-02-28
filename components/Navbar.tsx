@@ -13,6 +13,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import NavbarContainer from './navigation/NavbarContainer'
 import Logo from './Logo'
 import { cn } from '@/lib/utils'
+import site from '@/site.config'
 
 const zenModels = [
   { name: 'zen-eco', params: '4B', description: 'Fast general-purpose LLM', icon: Brain, href: 'https://huggingface.co/zenlm/zen-eco-4b-instruct' },
@@ -22,16 +23,16 @@ const zenModels = [
 ]
 
 const quickAccess = [
-  { label: 'Hanzo Dev', desc: 'AI coding agent', href: 'https://hanzo.ai/dev', external: true },
-  { label: 'Hanzo Bot', desc: 'AI team in a box', href: 'https://hanzo.bot', external: true },
-  { label: 'Hanzo Team', desc: 'Work with Hanzo engineers', href: 'https://hanzo.team', external: true },
+  { label: 'Hanzo Dev', desc: 'AI coding agent', href: site.links.dev, external: true },
+  { label: 'Hanzo Bot', desc: 'AI team in a box', href: site.links.bot, external: true },
+  { label: 'Hanzo Team', desc: 'Work with Hanzo engineers', href: site.links.team, external: true },
   { label: 'All Zen Models', desc: '600M-1T+ parameters', href: '/models', external: false },
 ]
 
 const loginItems = [
-  { label: 'Hanzo AI', href: 'https://hanzo.ai', external: true },
-  { label: 'Hanzo Chat', href: 'https://hanzo.chat', external: true },
-  { label: 'Hanzo Bot', href: 'https://app.hanzo.bot', external: true },
+  { label: 'Hanzo AI', href: site.links.platform, external: true },
+  { label: 'Hanzo Chat', href: site.links.chat, external: true },
+  { label: 'Hanzo Bot', href: site.links.botApp, external: true },
 ]
 
 function TryHanzoDropdown() {

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { HanzoLogo } from '@hanzo/logo/react'
 import { cn } from '@/lib/utils'
+import site from '@/site.config'
 
 interface LogoProps {
   className?: string
