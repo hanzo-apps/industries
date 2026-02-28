@@ -35,7 +35,7 @@ const modelFamilies = {
         performance: "1M+ context",
         memory: "MoDE + CoT",
         capabilities: ["Text", "Code", "Reasoning", "Agents", "CoT"],
-        href: "/contact",
+        href: "https://hanzo.ai/research-access",
         requestAccess: true,
       },
       {
@@ -45,7 +45,7 @@ const modelFamilies = {
         performance: "512K context",
         memory: "MoDE + CoT",
         capabilities: ["Text", "Code", "Reasoning", "Production"],
-        href: "/contact",
+        href: "https://hanzo.ai/research-access",
         requestAccess: true,
       },
       {
@@ -55,7 +55,7 @@ const modelFamilies = {
         performance: "2M context",
         memory: "MoDE + CoT",
         capabilities: ["Text", "Long Context", "Analysis", "Reasoning"],
-        href: "/contact",
+        href: "https://hanzo.ai/research-access",
         requestAccess: true,
       },
       {
@@ -65,7 +65,7 @@ const modelFamilies = {
         performance: "1M context",
         memory: "MoDE + Deep CoT",
         capabilities: ["Text", "Code", "Deep Reasoning", "Verification"],
-        href: "/contact",
+        href: "https://hanzo.ai/research-access",
         requestAccess: true,
       },
       {
@@ -75,7 +75,7 @@ const modelFamilies = {
         performance: "256K context",
         memory: "MoDE + CoT",
         capabilities: ["Text", "Code", "Agents", "Efficient"],
-        href: "/contact",
+        href: "https://hanzo.ai/research-access",
         requestAccess: true,
       },
     ],
@@ -608,7 +608,7 @@ export default function PageClient() {
                           <span className={cn("text-sm font-mono", "text-muted-foreground")}>{model.params}</span>
                         </div>
                         {(model as any).requestAccess ? (
-                          <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">Request Access</span>
+                          <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">Research Preview</span>
                         ) : (
                           <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-muted-foreground")} />
                         )}
