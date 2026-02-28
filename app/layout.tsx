@@ -50,7 +50,6 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         {/* Hanzo Insights */}
-        {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
         <script defer src={site.analytics.scriptUrl} data-website-id={site.analytics.siteId} />
       </body>
     </html>
