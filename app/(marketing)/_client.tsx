@@ -1,10 +1,12 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { Toaster } from '@hanzo/ui/sonner'
 import { TooltipProvider } from '@hanzo/ui/tooltip'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import GlobalChatWidget from '@/components/GlobalChatWidget'
+
+const GlobalChatWidget = dynamic(() => import('@/components/GlobalChatWidget'), { ssr: false })
 
 export default function MarketingShell({
   children,
