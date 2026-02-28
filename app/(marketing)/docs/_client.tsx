@@ -212,7 +212,7 @@ const projects = [
 const infrastructure = [
   {
     title: "Zen Models",
-    description: "45+ AI models from 600M to 1T+ params across text, vision, video, audio, 3D, code, and agents.",
+    description: "41 AI models across 8 families — text, vision, image, audio, code, embeddings, and reranking.",
     href: "https://zenlm.org",
     icon: Brain,
   },

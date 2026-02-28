@@ -680,7 +680,7 @@ export default function PageClient() {
               <div className={cn("text-sm", "text-muted-foreground")}>Research Papers</div>
             </div>
             <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
-              <div className="text-3xl font-bold mb-1">45+</div>
+              <div className="text-3xl font-bold mb-1">41+</div>
               <div className={cn("text-sm", "text-muted-foreground")}>AI Models</div>
             </div>
             <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>

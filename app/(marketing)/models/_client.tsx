@@ -9,12 +9,8 @@ import {
   ExternalLink,
   Github,
   Brain,
-  Video,
-  Music,
-  Box,
   Cpu,
   Zap,
-  Globe,
   Code,
   Eye,
   Mic,
@@ -22,431 +18,433 @@ import {
   Layers,
   Network,
   Server,
-  Terminal,
-  Shield,
   Search,
 } from "lucide-react";
 
-// Model family categories
+// Model family categories — 8 families, 41 models
 const modelFamilies = {
-  foundation: {
-    title: "Foundation Models",
-    icon: Brain,
-    description: "Core LLMs for text generation, reasoning, and instruction following — from 0.6B edge to 1T+ frontier",
+  zen5: {
+    title: "Zen 5 — Next Generation",
+    icon: Zap,
+    description: "Fifth-generation agentic models with MoDE (Mixture of Distilled Experts) and native chain-of-thought reasoning",
     models: [
       {
-        name: "zen-nano",
-        params: "0.6B",
-        description: "Ultra-lightweight LLM for edge and mobile deployment",
-        performance: "44K tokens/sec",
-        memory: "0.4–1.2GB",
-        capabilities: ["Text", "Code", "Math"],
-        href: "https://huggingface.co/zenlm/zen-nano-0.6b",
+        name: "zen5",
+        params: "TBA",
+        description: "Agentic frontier model with native chain-of-thought",
+        performance: "1M+ context",
+        memory: "MoDE + CoT",
+        capabilities: ["Text", "Code", "Reasoning", "Agents", "CoT"],
+        href: "https://huggingface.co/zenlm/zen5",
       },
       {
-        name: "zen-eco",
-        params: "4B",
-        description: "Efficient general-purpose instruction following",
-        performance: "28K tokens/sec",
-        memory: "2–8GB",
-        capabilities: ["Text", "Code", "Math", "Reasoning"],
-        href: "https://huggingface.co/zenlm/zen-eco-4b-instruct",
+        name: "zen5-pro",
+        params: "TBA",
+        description: "High-throughput agentic model for production",
+        performance: "512K context",
+        memory: "MoDE + CoT",
+        capabilities: ["Text", "Code", "Reasoning", "Production"],
+        href: "https://huggingface.co/zenlm/zen5-pro",
       },
       {
-        name: "zen",
-        params: "8B–32B",
-        description: "General-purpose foundation model with strong multilingual support",
-        performance: "Varies by size",
-        memory: "8–64GB",
-        capabilities: ["Text", "Code", "Math", "Reasoning", "Multilingual"],
-        href: "https://huggingface.co/zenlm",
+        name: "zen5-max",
+        params: "TBA",
+        description: "Maximum context for document-scale analysis",
+        performance: "2M context",
+        memory: "MoDE + CoT",
+        capabilities: ["Text", "Long Context", "Analysis", "Reasoning"],
+        href: "https://huggingface.co/zenlm/zen5-max",
       },
       {
-        name: "zen-pro",
-        params: "32B",
-        description: "High-performance model balancing capability and efficiency",
-        performance: "12K tokens/sec",
-        memory: "32–64GB",
-        capabilities: ["Text", "Code", "Reasoning", "Analysis"],
-        href: "https://huggingface.co/zenlm/zen-pro-32b",
+        name: "zen5-ultra",
+        params: "TBA",
+        description: "Deepest reasoning with self-verification",
+        performance: "1M context",
+        memory: "MoDE + Deep CoT",
+        capabilities: ["Text", "Code", "Deep Reasoning", "Verification"],
+        href: "https://huggingface.co/zenlm/zen5-ultra",
       },
       {
-        name: "zen-max (zen4-max)",
-        params: "1T+ (MoE)",
-        description: "Frontier MoE — 1.04T total, 32B active params, 256K context. See Zen4 Max below",
-        performance: "Cloud only",
-        memory: "Cloud API",
-        capabilities: ["Text", "Code", "Math", "Reasoning", "Agents"],
-        href: "https://huggingface.co/zenlm/zen-max",
-      },
-      {
-        name: "zen-next",
-        params: "8B–80B (MoE)",
-        description: "Next-generation hybrid architecture with extended context up to 1M tokens",
-        performance: "Varies by size",
-        memory: "8–144GB",
-        capabilities: ["Text", "Code", "Long Context", "Reasoning"],
-        href: "https://huggingface.co/zenlm/zen-next",
+        name: "zen5-mini",
+        params: "TBA",
+        description: "Efficient agentic model, zen5-class intelligence",
+        performance: "256K context",
+        memory: "MoDE + CoT",
+        capabilities: ["Text", "Code", "Agents", "Efficient"],
+        href: "https://huggingface.co/zenlm/zen5-mini",
       },
     ],
   },
   zen4: {
-    title: "Zen 4 — Latest Generation",
+    title: "Zen 4 — Flagship",
     icon: Sparkles,
-    description: "Fourth-generation models with MoE architecture, long context, and state-of-the-art benchmarks",
+    description: "Fourth-generation flagship models with MoE architecture, long context, and state-of-the-art benchmarks",
     models: [
       {
-        name: "zen4-mini",
-        params: "8B",
-        description: "Fast and efficient model for low-latency tasks, 40K context",
-        performance: "32K tokens/sec",
-        memory: "8–16GB",
-        capabilities: ["Text", "Code", "Math", "Edge"],
-        href: "https://huggingface.co/zenlm/zen4-mini",
-      },
-      {
-        name: "zen4-pro",
-        params: "80B (MoE, 3B active)",
-        description: "Production workhorse — 80B MoE with 3B active, 131K context, strong reasoning and tool use",
-        performance: "Real-time",
-        memory: "16–32GB",
-        capabilities: ["Text", "Code", "Reasoning", "Tools"],
-        href: "https://huggingface.co/zenlm/zen4-pro",
-      },
-      {
         name: "zen4",
-        params: "744B (MoE, 40B active)",
-        description: "Flagship model — 744B MoE with 40B active, 202K context, top-tier multilingual reasoning",
-        performance: "Cloud / high-end GPU",
-        memory: "Cloud API",
+        params: "744B MoE (40B active)",
+        description: "Flagship model for complex reasoning",
+        performance: "202K context",
+        memory: "MoE",
         capabilities: ["Text", "Code", "Math", "Reasoning"],
         href: "https://huggingface.co/zenlm/zen4",
       },
       {
-        name: "zen4-max",
-        params: "1.04T (MoE, 32B active)",
-        description: "Maximum scale — 1.04T MoE with 32B active, 256K context, frontier reasoning",
-        performance: "Cloud only",
-        memory: "Cloud API",
-        capabilities: ["Text", "Code", "Reasoning", "Frontier"],
-        href: "https://huggingface.co/zenlm/zen4-max",
-      },
-      {
         name: "zen4-ultra",
-        params: "744B (MoE, 40B active)",
-        description: "Maximum reasoning — extended thinking mode, 202K context, deep chain-of-thought",
-        performance: "Cloud only",
-        memory: "Cloud API",
+        params: "744B MoE (40B active)",
+        description: "Maximum reasoning with chain-of-thought",
+        performance: "262K context",
+        memory: "MoE + CoT",
         capabilities: ["Text", "Code", "Reasoning", "Thinking"],
         href: "https://huggingface.co/zenlm/zen4-ultra",
       },
-    ],
-  },
-  code: {
-    title: "Code Models",
-    icon: Code,
-    description: "Specialized models for software engineering, code generation, and developer tooling",
-    models: [
       {
-        name: "zen4-coder-flash",
-        params: "30B (MoE, 3B active)",
-        description: "Fast code completion — 30B MoE with 3B active, 262K context, real-time inline suggestions",
-        performance: "Real-time",
-        memory: "8–16GB",
-        capabilities: ["Code", "Completions", "Fast", "262K ctx"],
-        href: "https://huggingface.co/zenlm/zen4-coder-flash",
+        name: "zen4-pro",
+        params: "80B MoE (3B active)",
+        description: "High-capability efficient MoE",
+        performance: "131K context",
+        memory: "MoE",
+        capabilities: ["Text", "Code", "Reasoning", "Tools"],
+        href: "https://huggingface.co/zenlm/zen4-pro",
       },
       {
+        name: "zen4-max",
+        params: "Dense",
+        description: "Most capable model, agentic tasks",
+        performance: "1M context",
+        memory: "Dense",
+        capabilities: ["Text", "Code", "Reasoning", "Agents", "Frontier"],
+        href: "https://huggingface.co/zenlm/zen4-max",
+      },
+      {
+        name: "zen4.6",
+        params: "Dense",
+        description: "Extended context, cost efficient",
+        performance: "1M context",
+        memory: "Dense",
+        capabilities: ["Text", "Code", "Long Context", "Efficient"],
+        href: "https://huggingface.co/zenlm/zen4.6",
+      },
+      {
+        name: "zen4-mini",
+        params: "Dense",
+        description: "Ultra-fast, free tier",
+        performance: "128K context",
+        memory: "Dense",
+        capabilities: ["Text", "Code", "Math", "Free Tier"],
+        href: "https://huggingface.co/zenlm/zen4-mini",
+      },
+      {
+        name: "zen4-thinking",
+        params: "80B MoE (3B active)",
+        description: "Dedicated reasoning",
+        performance: "131K context",
+        memory: "MoE + CoT",
+        capabilities: ["Text", "Reasoning", "Thinking", "CoT"],
+        href: "https://huggingface.co/zenlm/zen4-thinking",
+      },
+    ],
+  },
+  zen4coder: {
+    title: "Zen 4 Coder",
+    icon: Code,
+    description: "Specialized code models for software engineering, generation, review, and debugging",
+    models: [
+      {
         name: "zen4-coder",
-        params: "480B (MoE, 35B active)",
-        description: "Professional code model — 480B MoE with 35B active, 262K context, agentic coding",
-        performance: "Cloud / high-end GPU",
-        memory: "Cloud API",
+        params: "480B MoE (35B active)",
+        description: "Code generation, review, debugging",
+        performance: "163K context",
+        memory: "MoE",
         capabilities: ["Code", "Agents", "Tools", "Agentic"],
         href: "https://huggingface.co/zenlm/zen4-coder",
       },
       {
         name: "zen4-coder-pro",
-        params: "480B (dense, BF16)",
-        description: "Maximum code accuracy — 480B full precision BF16, 262K context",
-        performance: "Cloud only",
-        memory: "Cloud API",
+        params: "480B Dense BF16",
+        description: "Full-precision code analysis",
+        performance: "131K context",
+        memory: "Dense BF16",
         capabilities: ["Code", "Precision", "Deep Reasoning"],
         href: "https://huggingface.co/zenlm/zen4-coder-pro",
       },
       {
-        name: "zen-coder",
-        params: "7B–32B",
-        description: "General-purpose code generation and software engineering assistant",
-        performance: "22K tokens/sec",
-        memory: "4–64GB",
-        capabilities: ["Code", "Debugging", "Refactoring", "Tests"],
-        href: "https://huggingface.co/zenlm/zen-coder-7b",
+        name: "zen4-coder-flash",
+        params: "30B MoE (3B active)",
+        description: "Fast inline completions",
+        performance: "262K context",
+        memory: "MoE",
+        capabilities: ["Code", "Completions", "Fast", "Real-time"],
+        href: "https://huggingface.co/zenlm/zen4-coder-flash",
       },
     ],
   },
-  vision: {
-    title: "Vision & Image",
+  zen3: {
+    title: "Zen 3 — Multimodal",
+    icon: Brain,
+    description: "Third-generation multimodal models spanning text, vision, audio, and safety",
+    models: [
+      {
+        name: "zen3-omni",
+        params: "~200B Dense Multimodal",
+        description: "Text, vision, audio",
+        performance: "202K context",
+        memory: "Dense Multimodal",
+        capabilities: ["Text", "Vision", "Audio", "Multimodal"],
+        href: "https://huggingface.co/zenlm/zen3-omni",
+      },
+      {
+        name: "zen3-vl",
+        params: "30B MoE (3B active)",
+        description: "Vision-language",
+        performance: "262K context",
+        memory: "MoE",
+        capabilities: ["Vision", "Language", "OCR", "VQA"],
+        href: "https://huggingface.co/zenlm/zen3-vl",
+      },
+      {
+        name: "zen3-nano",
+        params: "8B Dense",
+        description: "Edge deployment, free tier",
+        performance: "128K context",
+        memory: "Dense",
+        capabilities: ["Text", "Code", "Edge", "Free Tier"],
+        href: "https://huggingface.co/zenlm/zen3-nano",
+      },
+      {
+        name: "zen3-guard",
+        params: "4B Dense",
+        description: "Content safety, 119 languages",
+        performance: "65K context",
+        memory: "Dense",
+        capabilities: ["Safety", "Moderation", "119 Languages"],
+        href: "https://huggingface.co/zenlm/zen3-guard",
+      },
+    ],
+  },
+  zen3image: {
+    title: "Zen 3 Image",
     icon: Eye,
-    description: "Multimodal models for image understanding, generation, and editing",
+    description: "Diffusion models for image generation, editing, and creative workflows",
     models: [
       {
-        name: "zen-vl",
-        params: "4B–30B",
-        description: "Vision-language model for image understanding, OCR, and visual Q&A",
-        performance: "Real-time",
-        memory: "4–60GB",
-        capabilities: ["Image Understanding", "OCR", "VQA", "Charts"],
-        href: "https://huggingface.co/zenlm/zen-vl-7b",
-      },
-      {
-        name: "zen-omni",
-        params: "8B",
-        description: "Unified multimodal model across vision, audio, and text",
-        performance: "Real-time",
-        memory: "10–20GB",
-        capabilities: ["Vision", "Audio", "Text", "Speech"],
-        href: "https://huggingface.co/zenlm/zen-omni-8b",
-      },
-      {
-        name: "zen-artist",
-        params: "12B",
-        description: "High-quality image generation from text descriptions",
-        performance: "~10s per image",
-        memory: "12–24GB",
+        name: "zen3-image",
+        params: "Diffusion",
+        description: "Best general-purpose image generation",
+        performance: "Text-to-Image",
+        memory: "Diffusion",
         capabilities: ["Text-to-Image", "Art", "Photography"],
-        href: "https://huggingface.co/zenlm/zen-artist",
+        href: "https://huggingface.co/zenlm/zen3-image",
       },
       {
-        name: "zen-artist-edit",
-        params: "12B",
-        description: "Instruction-guided image editing and manipulation",
-        performance: "~12s per edit",
-        memory: "12–24GB",
-        capabilities: ["Image Editing", "Inpainting", "Style"],
-        href: "https://huggingface.co/zenlm/zen-artist-edit",
+        name: "zen3-image-max",
+        params: "Diffusion",
+        description: "Maximum quality, professional creative",
+        performance: "Text-to-Image",
+        memory: "Diffusion",
+        capabilities: ["Max Quality", "Professional", "Creative"],
+        href: "https://huggingface.co/zenlm/zen3-image-max",
       },
       {
-        name: "zen-designer",
-        params: "8B",
-        description: "Design-focused generation for UI, logos, and marketing assets",
-        performance: "~8s per image",
-        memory: "10–20GB",
-        capabilities: ["Design", "UI", "Branding", "Layouts"],
-        href: "https://huggingface.co/zenlm/zen-designer",
+        name: "zen3-image-dev",
+        params: "Diffusion",
+        description: "Development and iteration",
+        performance: "Text-to-Image",
+        memory: "Diffusion",
+        capabilities: ["Development", "Iteration", "Fast"],
+        href: "https://huggingface.co/zenlm/zen3-image-dev",
+      },
+      {
+        name: "zen3-image-fast",
+        params: "Diffusion",
+        description: "Real-time generation",
+        performance: "Text-to-Image",
+        memory: "Diffusion",
+        capabilities: ["Real-time", "Fast", "Low Latency"],
+        href: "https://huggingface.co/zenlm/zen3-image-fast",
+      },
+      {
+        name: "zen3-image-sdxl",
+        params: "Diffusion",
+        description: "1024px high-resolution",
+        performance: "Text-to-Image",
+        memory: "Diffusion",
+        capabilities: ["1024px", "High-res", "SDXL"],
+        href: "https://huggingface.co/zenlm/zen3-image-sdxl",
+      },
+      {
+        name: "zen3-image-playground",
+        params: "Diffusion",
+        description: "Aesthetic artistic generation",
+        performance: "Text-to-Image",
+        memory: "Diffusion",
+        capabilities: ["Aesthetic", "Artistic", "Creative"],
+        href: "https://huggingface.co/zenlm/zen3-image-playground",
+      },
+      {
+        name: "zen3-image-ssd",
+        params: "1B Diffusion",
+        description: "Fastest diffusion model",
+        performance: "Text-to-Image",
+        memory: "1B Diffusion",
+        capabilities: ["Fastest", "SSD", "Real-time"],
+        href: "https://huggingface.co/zenlm/zen3-image-ssd",
+      },
+      {
+        name: "zen3-image-jp",
+        params: "Diffusion",
+        description: "Japanese-specialized",
+        performance: "Text-to-Image",
+        memory: "Diffusion",
+        capabilities: ["Japanese", "Specialized", "Localized"],
+        href: "https://huggingface.co/zenlm/zen3-image-jp",
       },
     ],
   },
-  video: {
-    title: "Video Generation",
-    icon: Video,
-    description: "Text-to-video, image-to-video, and camera-controlled video synthesis",
-    models: [
-      {
-        name: "zen-director",
-        params: "5B",
-        description: "Text/image-to-video generation up to 10 seconds",
-        performance: "~60s for 5s video",
-        memory: "12–16GB",
-        capabilities: ["Text-to-Video", "Image-to-Video"],
-        href: "https://huggingface.co/zenlm/zen-director-5b",
-      },
-      {
-        name: "zen-video",
-        params: "8B",
-        description: "High-quality professional video synthesis",
-        performance: "~45s for 5s video",
-        memory: "16–24GB",
-        capabilities: ["HD Video", "Long-form"],
-        href: "https://huggingface.co/zenlm/zen-video",
-      },
-      {
-        name: "zen-video-i2v",
-        params: "8B",
-        description: "Animate static images into dynamic video",
-        performance: "~45s for 5s video",
-        memory: "16–24GB",
-        capabilities: ["Image Animation", "Motion"],
-        href: "https://huggingface.co/zenlm/zen-video-i2v",
-      },
-      {
-        name: "zen-voyager",
-        params: "5B",
-        description: "Camera-controlled 3D world exploration video",
-        performance: "~30s for 60 frames",
-        memory: "16–24GB",
-        capabilities: ["3D Video", "Depth", "Point Clouds"],
-        href: "https://huggingface.co/zenlm/zen-voyager",
-      },
-    ],
-  },
-  audio: {
-    title: "Audio & Speech",
+  zen3audio: {
+    title: "Zen 3 Audio & Speech",
     icon: Mic,
-    description: "Music generation, voice synthesis, transcription, dubbing, and real-time speech",
+    description: "Transcription, text-to-speech, real-time ASR, and broadcast-quality audio",
     models: [
       {
-        name: "zen-musician",
-        params: "7B",
-        description: "Generate full songs with vocals and accompaniment",
-        performance: "~360s for 30s audio",
-        memory: "16–24GB",
-        capabilities: ["Music", "Vocals", "Multilingual"],
-        href: "https://huggingface.co/zenlm/zen-musician-7b",
+        name: "zen3-audio",
+        params: "1.5B ASR",
+        description: "100+ language transcription",
+        performance: "ASR",
+        memory: "1.5B",
+        capabilities: ["ASR", "100+ Languages", "Transcription"],
+        href: "https://huggingface.co/zenlm/zen3-audio",
       },
       {
-        name: "zen-foley",
-        params: "3B",
-        description: "Professional sound effects and ambient audio for video",
-        performance: "~15s for 10s audio",
-        memory: "12–24GB",
-        capabilities: ["SFX", "Ambient", "Foley"],
-        href: "https://huggingface.co/zenlm/zen-foley",
+        name: "zen3-audio-fast",
+        params: "809M ASR",
+        description: "Fastest transcription",
+        performance: "ASR",
+        memory: "809M",
+        capabilities: ["ASR", "Fast", "Real-time"],
+        href: "https://huggingface.co/zenlm/zen3-audio-fast",
       },
       {
-        name: "zen-dub",
-        params: "4B",
-        description: "Voice dubbing and multilingual speech synthesis",
-        performance: "Real-time",
-        memory: "4–8GB",
-        capabilities: ["Dubbing", "TTS", "Voice Cloning"],
-        href: "https://huggingface.co/zenlm/zen-dub",
+        name: "zen3-asr",
+        params: "Streaming ASR",
+        description: "Real-time <500ms latency",
+        performance: "<500ms latency",
+        memory: "Streaming ASR",
+        capabilities: ["Streaming", "Real-time", "<500ms"],
+        href: "https://huggingface.co/zenlm/zen3-asr",
       },
       {
-        name: "zen-dub-live",
-        params: "4B",
-        description: "Real-time streaming voice dubbing for live content",
-        performance: "Real-time streaming",
-        memory: "4–8GB",
-        capabilities: ["Live Dubbing", "Streaming", "Low Latency"],
-        href: "https://huggingface.co/zenlm/zen-dub-live",
+        name: "zen3-asr-v1",
+        params: "Streaming ASR",
+        description: "Legacy compatibility",
+        performance: "Streaming",
+        memory: "Streaming ASR",
+        capabilities: ["Streaming", "Legacy", "Compatible"],
+        href: "https://huggingface.co/zenlm/zen3-asr-v1",
       },
       {
-        name: "zen-scribe",
-        params: "3B",
-        description: "Automatic speech recognition and transcription (ASR)",
-        performance: "Real-time",
-        memory: "4–8GB",
-        capabilities: ["ASR", "Transcription", "Multilingual"],
-        href: "https://huggingface.co/zenlm/zen-scribe",
+        name: "zen3-tts",
+        params: "82M TTS",
+        description: "40+ voices, 8 languages",
+        performance: "TTS",
+        memory: "82M",
+        capabilities: ["TTS", "40+ Voices", "8 Languages"],
+        href: "https://huggingface.co/zenlm/zen3-tts",
       },
       {
-        name: "zen-translator",
-        params: "4B",
-        description: "Real-time multilingual translation for speech and text",
-        performance: "Real-time",
-        memory: "4–8GB",
-        capabilities: ["Translation", "Multilingual", "Speech"],
-        href: "https://huggingface.co/zenlm/zen-translator",
+        name: "zen3-tts-hd",
+        params: "TTS HD",
+        description: "Broadcast-quality 48kHz",
+        performance: "48kHz TTS",
+        memory: "TTS HD",
+        capabilities: ["TTS", "48kHz", "Broadcast Quality"],
+        href: "https://huggingface.co/zenlm/zen3-tts-hd",
       },
       {
-        name: "zen-live",
-        params: "4B",
-        description: "Live conversational speech model for real-time dialogue",
-        performance: "Real-time streaming",
-        memory: "4–8GB",
-        capabilities: ["Conversation", "Live", "Interactive"],
-        href: "https://huggingface.co/zenlm/zen-live",
+        name: "zen3-tts-fast",
+        params: "82M TTS",
+        description: "Low-latency voice agents",
+        performance: "Low-latency TTS",
+        memory: "82M",
+        capabilities: ["TTS", "Low Latency", "Voice Agents"],
+        href: "https://huggingface.co/zenlm/zen3-tts-fast",
       },
     ],
   },
-  spatial: {
-    title: "3D & Spatial",
-    icon: Box,
-    description: "3D asset generation and large-scale world simulation",
-    models: [
-      {
-        name: "zen-3d",
-        params: "3.3B",
-        description: "Controllable 3D asset generation from text/image",
-        performance: "~30s per model",
-        memory: "10GB",
-        capabilities: ["3D Models", "OBJ", "GLB", "USD"],
-        href: "https://huggingface.co/zenlm/zen-3d",
-      },
-      {
-        name: "zen-world",
-        params: "12B",
-        description: "Large-scale 3D world and environment generation",
-        performance: "Scene-dependent",
-        memory: "24GB+",
-        capabilities: ["World Gen", "City-scale", "Environments"],
-        href: "https://huggingface.co/zenlm/zen-world",
-      },
-    ],
-  },
-  safety: {
-    title: "Safety & Guardrails",
-    icon: Shield,
-    description: "Content moderation, safety classification, and real-time guardrails for AI pipelines",
-    models: [
-      {
-        name: "zen-guard",
-        params: "4B",
-        description: "Content safety classifier for input/output filtering",
-        performance: "< 5ms",
-        memory: "4–6GB",
-        capabilities: ["Safety", "Moderation", "Classification"],
-        href: "https://huggingface.co/zenlm/zen-guard",
-      },
-      {
-        name: "zen-guard-gen",
-        params: "1B",
-        description: "Safety guardrails for generated content review",
-        performance: "< 5ms",
-        memory: "1–2GB",
-        capabilities: ["Output Safety", "Toxicity", "Bias"],
-        href: "https://huggingface.co/zenlm/zen-guard-gen",
-      },
-      {
-        name: "zen-guard-stream",
-        params: "1B",
-        description: "Streaming safety filter for real-time content moderation",
-        performance: "Real-time",
-        memory: "1–2GB",
-        capabilities: ["Streaming", "Real-time", "Low Latency"],
-        href: "https://huggingface.co/zenlm/zen-guard-stream",
-      },
-    ],
-  },
-  embedding: {
-    title: "Embedding & Retrieval",
+  zen3embedding: {
+    title: "Zen 3 Embedding",
     icon: Search,
-    description: "Dense embeddings and reranking for search, RAG, and similarity tasks",
+    description: "Dense embeddings for semantic search, RAG, classification, and retrieval",
     models: [
       {
-        name: "zen-embedding",
-        params: "1.5B",
-        description: "High-quality dense embeddings for semantic search and RAG",
-        performance: "10K docs/sec",
-        memory: "2–4GB",
-        capabilities: ["Embeddings", "Search", "RAG", "Clustering"],
-        href: "https://huggingface.co/zenlm/zen-embedding",
+        name: "zen3-embedding",
+        params: "3072 dimensions",
+        description: "RAG, search, classification",
+        performance: "8K context",
+        memory: "3072d",
+        capabilities: ["Embeddings", "RAG", "Search", "Classification"],
+        href: "https://huggingface.co/zenlm/zen3-embedding",
       },
       {
-        name: "zen-reranker",
-        params: "1.5B",
-        description: "Cross-encoder reranker for improving search relevance",
-        performance: "5K pairs/sec",
-        memory: "2–4GB",
-        capabilities: ["Reranking", "Search", "Relevance"],
-        href: "https://huggingface.co/zenlm/zen-reranker",
+        name: "zen3-embedding-medium",
+        params: "4B",
+        description: "Cost-effective retrieval",
+        performance: "40K context",
+        memory: "4B",
+        capabilities: ["Embeddings", "Retrieval", "Cost-effective"],
+        href: "https://huggingface.co/zenlm/zen3-embedding-medium",
+      },
+      {
+        name: "zen3-embedding-small",
+        params: "0.6B",
+        description: "High-throughput",
+        performance: "32K context",
+        memory: "0.6B",
+        capabilities: ["Embeddings", "High-throughput", "Lightweight"],
+        href: "https://huggingface.co/zenlm/zen3-embedding-small",
+      },
+      {
+        name: "zen3-embedding-openai",
+        params: "3072 dimensions",
+        description: "OpenAI-compatible drop-in",
+        performance: "8K context",
+        memory: "3072d",
+        capabilities: ["Embeddings", "OpenAI-compatible", "Drop-in"],
+        href: "https://huggingface.co/zenlm/zen3-embedding-openai",
       },
     ],
   },
-  agents: {
-    title: "Agent Models",
-    icon: Network,
-    description: "Tool-calling and agentic models with MCP support for autonomous workflows",
+  zen3reranker: {
+    title: "Zen 3 Reranker",
+    icon: Layers,
+    description: "Cross-encoder rerankers for improving search and RAG pipeline accuracy",
     models: [
       {
-        name: "zen-agent",
+        name: "zen3-reranker",
+        params: "8B",
+        description: "RAG pipeline accuracy",
+        performance: "40K context",
+        memory: "8B",
+        capabilities: ["Reranking", "RAG", "Search", "Accuracy"],
+        href: "https://huggingface.co/zenlm/zen3-reranker",
+      },
+      {
+        name: "zen3-reranker-medium",
         params: "4B",
-        description: "Tool-calling LLM with native MCP support for agentic workflows",
-        performance: "28K tokens/sec",
-        memory: "2–8GB",
-        capabilities: ["Agents", "Tools", "MCP", "Function Calling"],
-        href: "https://huggingface.co/zenlm/zen-agent-4b",
+        description: "Cost-effective reranking",
+        performance: "40K context",
+        memory: "4B",
+        capabilities: ["Reranking", "Cost-effective", "Balanced"],
+        href: "https://huggingface.co/zenlm/zen3-reranker-medium",
+      },
+      {
+        name: "zen3-reranker-small",
+        params: "0.6B",
+        description: "High-throughput minimal cost",
+        performance: "40K context",
+        memory: "0.6B",
+        capabilities: ["Reranking", "High-throughput", "Minimal Cost"],
+        href: "https://huggingface.co/zenlm/zen3-reranker-small",
       },
     ],
   },
@@ -480,27 +478,22 @@ const infrastructure = [
   },
 ];
 
-// Capabilities matrix data
+// Capabilities matrix data — representative models from each family
 const capabilitiesMatrix = [
-  { model: "zen-nano", text: true, image: false, video: false, audio: false, threeD: false, code: true, agents: false },
-  { model: "zen-eco", text: true, image: false, video: false, audio: false, threeD: false, code: true, agents: false },
+  { model: "zen5", text: true, image: false, video: false, audio: false, threeD: false, code: true, agents: true },
   { model: "zen4", text: true, image: false, video: false, audio: false, threeD: false, code: true, agents: true },
   { model: "zen4-max", text: true, image: false, video: false, audio: false, threeD: false, code: true, agents: true },
   { model: "zen4-ultra", text: true, image: false, video: false, audio: false, threeD: false, code: true, agents: true },
   { model: "zen4-coder", text: true, image: false, video: false, audio: false, threeD: false, code: true, agents: true },
-  { model: "zen-agent", text: true, image: false, video: false, audio: false, threeD: false, code: true, agents: true },
-  { model: "zen-coder", text: true, image: false, video: false, audio: false, threeD: false, code: true, agents: true },
-  { model: "zen-vl", text: true, image: true, video: false, audio: false, threeD: false, code: false, agents: false },
-  { model: "zen-omni", text: true, image: true, video: false, audio: true, threeD: false, code: false, agents: false },
-  { model: "zen-artist", text: true, image: true, video: false, audio: false, threeD: false, code: false, agents: false },
-  { model: "zen-director", text: true, image: true, video: true, audio: false, threeD: false, code: false, agents: false },
-  { model: "zen-video", text: true, image: true, video: true, audio: false, threeD: false, code: false, agents: false },
-  { model: "zen-musician", text: true, image: false, video: false, audio: true, threeD: false, code: false, agents: false },
-  { model: "zen-scribe", text: true, image: false, video: false, audio: true, threeD: false, code: false, agents: false },
-  { model: "zen-3d", text: true, image: true, video: false, audio: false, threeD: true, code: false, agents: false },
-  { model: "zen-world", text: true, image: true, video: true, audio: false, threeD: true, code: false, agents: false },
-  { model: "zen-guard", text: true, image: false, video: false, audio: false, threeD: false, code: false, agents: false },
-  { model: "zen-embedding", text: true, image: false, video: false, audio: false, threeD: false, code: false, agents: false },
+  { model: "zen3-omni", text: true, image: true, video: false, audio: true, threeD: false, code: false, agents: false },
+  { model: "zen3-vl", text: true, image: true, video: false, audio: false, threeD: false, code: false, agents: false },
+  { model: "zen3-nano", text: true, image: false, video: false, audio: false, threeD: false, code: true, agents: false },
+  { model: "zen3-guard", text: true, image: false, video: false, audio: false, threeD: false, code: false, agents: false },
+  { model: "zen3-image", text: true, image: true, video: false, audio: false, threeD: false, code: false, agents: false },
+  { model: "zen3-audio", text: true, image: false, video: false, audio: true, threeD: false, code: false, agents: false },
+  { model: "zen3-tts", text: true, image: false, video: false, audio: true, threeD: false, code: false, agents: false },
+  { model: "zen3-embedding", text: true, image: false, video: false, audio: false, threeD: false, code: false, agents: false },
+  { model: "zen3-reranker", text: true, image: false, video: false, audio: false, threeD: false, code: false, agents: false },
 ];
 
 export default function PageClient() {
@@ -522,8 +515,7 @@ export default function PageClient() {
                 Hypermodal AI
               </h1>
               <p className={cn("text-xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
-                The world's most comprehensive open-weight AI model ecosystem.
-                100+ model weights from 0.6B to 1T+ parameters, covering text, vision, video, audio, 3D, code, and agents.
+                41 models across 8 families. Open-weight AI covering text, vision, image, audio, code, embeddings, and reranking — from edge to frontier.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
@@ -548,12 +540,12 @@ export default function PageClient() {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold mb-1">100+</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>Model Weights</div>
+                <div className="text-4xl font-bold mb-1">41</div>
+                <div className={cn("text-sm", "text-muted-foreground")}>AI Models</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-1">1T+</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>Max Parameters</div>
+                <div className="text-4xl font-bold mb-1">8</div>
+                <div className={cn("text-sm", "text-muted-foreground")}>Model Families</div>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-1">7</div>
@@ -564,71 +556,6 @@ export default function PageClient() {
                 <div className={cn("text-sm", "text-muted-foreground")}>License</div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Zen5 Teaser */}
-        <section className={cn("py-16 px-4", "bg-gradient-to-r from-white/[0.03] via-white/[0.08] to-white/[0.03]")}>
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className={cn("p-8 md:p-12 rounded-2xl border relative overflow-hidden", "border-border bg-background/50")}
-            >
-              <div className={cn("absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider", "bg-primary text-primary-foreground")}>
-                Coming Soon
-              </div>
-              <div className="flex items-center gap-2 mb-4">
-                <Zap className={cn("w-6 h-6", "text-foreground")} />
-                <span className={cn("text-sm font-medium uppercase tracking-wider", "text-muted-foreground")}>Next Generation</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Zen 5 Ultra
-              </h2>
-              <p className={cn("text-xl mb-6 max-w-2xl", "text-muted-foreground")}>
-                2T+ parameter MoDE (Mixture of Distilled Experts). The largest open-weight model in history — trained on-chain via NVIDIA TEE confidential compute on{" "}
-                <a href="https://hanzo.network" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">hanzo.network</a>.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-8">
-                <div className={cn("p-4 rounded-lg", "bg-foreground/5")}>
-                  <div className="text-2xl font-bold mb-1">2T+</div>
-                  <div className={cn("text-sm", "text-muted-foreground")}>Parameters</div>
-                </div>
-                <div className={cn("p-4 rounded-lg", "bg-foreground/5")}>
-                  <div className="text-2xl font-bold mb-1">MoDE</div>
-                  <div className={cn("text-sm", "text-muted-foreground")}>Distilled Expert Routing</div>
-                </div>
-                <div className={cn("p-4 rounded-lg", "bg-foreground/5")}>
-                  <div className="text-2xl font-bold mb-1">On-Chain</div>
-                  <div className={cn("text-sm", "text-muted-foreground")}>Verifiable Training</div>
-                </div>
-                <div className={cn("p-4 rounded-lg", "bg-foreground/5")}>
-                  <div className="text-2xl font-bold mb-1">TEE</div>
-                  <div className={cn("text-sm", "text-muted-foreground")}>NVIDIA Confidential Compute</div>
-                </div>
-              </div>
-              <p className={cn("text-sm mb-6", "text-muted-foreground")}>
-                Private beta available. Researchers and institutions can request early access to preprints and weights under a special research license. Built on our{" "}
-                <a href="https://zenlm.org/papers/zen4-ultra-gt-qlora.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">GT-QLoRA</a>{" "}
-                MoE fine-tuning research.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a href="https://hanzo.ai/contact" target="_blank" rel="noopener noreferrer">
-                  <Button className={cn("rounded-full px-6 gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
-                    Request Research Access
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </a>
-                <a href="https://hanzo.network" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="rounded-full px-6 gap-2">
-                    <Globe className="w-4 h-4" />
-                    Learn About On-Chain Training
-                  </Button>
-                </a>
-              </div>
-            </motion.div>
           </div>
         </section>
 

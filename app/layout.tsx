@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: 'Hanzo Industries — Frontier AI Research Lab',
   },
   description:
-    'Frontier AI research lab advancing machine learning, cryptography, consensus protocols, and distributed systems. 130+ papers, 2,500+ OSS projects, 45+ AI models.',
+    'Frontier AI research lab advancing machine learning, cryptography, consensus protocols, and distributed systems. 130+ papers, 2,500+ OSS projects, 41+ AI models.',
   openGraph: {
     images: '/og-image.png',
     siteName: 'Hanzo Industries',

@@ -864,7 +864,7 @@ export default function GlobalChatWidget() {
                             href="/models"
                             className="text-xs text-neutral-500 hover:text-white transition-colors"
                           >
-                            View all 45+ models
+                            View all 41+ models
                           </a>
                         </div>
                       </motion.div>
