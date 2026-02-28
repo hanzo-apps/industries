@@ -35,7 +35,8 @@ const modelFamilies = {
         performance: "1M+ context",
         memory: "MoDE + CoT",
         capabilities: ["Text", "Code", "Reasoning", "Agents", "CoT"],
-        href: "https://huggingface.co/zenlm/zen5",
+        href: "/contact",
+        requestAccess: true,
       },
       {
         name: "zen5-pro",
@@ -44,7 +45,8 @@ const modelFamilies = {
         performance: "512K context",
         memory: "MoDE + CoT",
         capabilities: ["Text", "Code", "Reasoning", "Production"],
-        href: "https://huggingface.co/zenlm/zen5-pro",
+        href: "/contact",
+        requestAccess: true,
       },
       {
         name: "zen5-max",
@@ -53,7 +55,8 @@ const modelFamilies = {
         performance: "2M context",
         memory: "MoDE + CoT",
         capabilities: ["Text", "Long Context", "Analysis", "Reasoning"],
-        href: "https://huggingface.co/zenlm/zen5-max",
+        href: "/contact",
+        requestAccess: true,
       },
       {
         name: "zen5-ultra",
@@ -62,7 +65,8 @@ const modelFamilies = {
         performance: "1M context",
         memory: "MoDE + Deep CoT",
         capabilities: ["Text", "Code", "Deep Reasoning", "Verification"],
-        href: "https://huggingface.co/zenlm/zen5-ultra",
+        href: "/contact",
+        requestAccess: true,
       },
       {
         name: "zen5-mini",
@@ -71,7 +75,8 @@ const modelFamilies = {
         performance: "256K context",
         memory: "MoDE + CoT",
         capabilities: ["Text", "Code", "Agents", "Efficient"],
-        href: "https://huggingface.co/zenlm/zen5-mini",
+        href: "/contact",
+        requestAccess: true,
       },
     ],
   },
@@ -587,8 +592,8 @@ export default function PageClient() {
                     <motion.a
                       key={model.name}
                       href={model.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={(model as any).requestAccess ? undefined : "_blank"}
+                      rel={(model as any).requestAccess ? undefined : "noopener noreferrer"}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -602,7 +607,11 @@ export default function PageClient() {
                           </h3>
                           <span className={cn("text-sm font-mono", "text-muted-foreground")}>{model.params}</span>
                         </div>
-                        <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-muted-foreground")} />
+                        {(model as any).requestAccess ? (
+                          <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">Request Access</span>
+                        ) : (
+                          <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-muted-foreground")} />
+                        )}
                       </div>
                       <p className={cn("text-sm mb-4", "text-muted-foreground")}>{model.description}</p>
                       <div className="flex flex-wrap gap-2 mb-4">
