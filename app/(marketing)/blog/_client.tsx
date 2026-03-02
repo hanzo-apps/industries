@@ -63,7 +63,7 @@ const blogPosts = [
   {
     slug: "zen-mode-model-architecture",
     title: "Zen MoDE: 47 Models, One Architecture",
-    excerpt: "Inside Zen — Mixture of Distilled Experts (MoDE) architecture that activates only the parameters it needs. 47 models spanning text, code, vision, audio, video, 3D, and agents.",
+    excerpt: "Inside Zen — Mixture of Diverse Experts (MoDE) architecture that activates only the parameters it needs. 47 models spanning text, code, vision, audio, video, 3D, and agents.",
     category: "Research",
     date: "September 15, 2025",
   },

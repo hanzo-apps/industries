@@ -147,7 +147,7 @@ enterprise→NY/Marbella, research→SF/LA/Paris, operations→SF/KC/Vancouver.
 - Never reference upstream model names (GLM-5, Kimi K2.5, Qwen3, Moonshot, Zhipu, etc.)
 - Keep factual specs (params, context, architecture type) accurate
 - Private upstream mapping lives in zen-gateway at `~/work/hanzo/zen/gateway/config.yaml`
-- Brand methodology: **Zen MoDE (Mixture of Distilled Experts)**
+- Brand methodology: **Zen MoDE (Mixture of Diverse Experts)**
 - Applies to: hanzo.industries, hanzo.ai, zenlm.org (zen-docs), GitHub READMEs, HuggingFace model cards
 - Cleaned across all surfaces on 2026-02-21
 

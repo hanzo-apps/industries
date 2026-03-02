@@ -77,7 +77,7 @@ export default function PageClient() {
         "671B MoE (zen-max) with 71.3% SWE-bench",
         "Zen5 (2T+) in training — on-chain via NVIDIA TEE"
       ],
-      technologies: ["Zen MoDE", "Flash Attention", "MoE", "Mixture of Distilled Experts"],
+      technologies: ["Zen MoDE", "Flash Attention", "MoE", "Mixture of Diverse Experts"],
       impact: "Providing accessible, efficient frontier AI to the research community",
       link: "https://huggingface.co/zenlm"
     },

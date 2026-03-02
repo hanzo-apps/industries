@@ -19,14 +19,33 @@ import {
   Network,
   Server,
   Search,
+  Shield,
 } from "lucide-react";
+import type { FamilyData } from "./page";
 
-// Model family categories — 8 families, 41 models
-const modelFamilies = {
+// Icon lookup by family ID — icons are client-only (React components)
+const FAMILY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  zen5:       Zap,
+  zen4:       Sparkles,
+  code:       Code,
+  zen3:       Brain,
+  embedding:  Search,
+  image:      Eye,
+  audio:      Mic,
+  foundation: Brain,
+  vision:     Eye,
+  safety:     Shield,
+  agents:     Network,
+}
+
+// ---- LEGACY HARDCODED BLOCK (kept for reference only — DO NOT USE) ----
+// All model data is now served server-side from @zenlm/models via page.tsx.
+// This block is intentionally unreachable. --------------------------------
+const _unused_modelFamilies = {
   zen5: {
     title: "Zen 5 — Next Generation",
     icon: Zap,
-    description: "Fifth-generation agentic models with MoDE (Mixture of Distilled Experts) and native chain-of-thought reasoning",
+    description: "Fifth-generation agentic models with MoDE (Mixture of Diverse Experts) and native chain-of-thought reasoning",
     models: [
       {
         name: "zen5",
@@ -453,7 +472,8 @@ const modelFamilies = {
       },
     ],
   },
-};
+}
+// ---- END LEGACY BLOCK ----
 
 // Infrastructure tools
 const infrastructure = [
@@ -501,7 +521,13 @@ const capabilitiesMatrix = [
   { model: "zen3-reranker", text: true, image: false, video: false, audio: false, threeD: false, code: false, agents: false },
 ];
 
-export default function PageClient() {
+export default function PageClient({
+  familyData,
+  totalModels,
+}: {
+  familyData: FamilyData[]
+  totalModels: number
+}) {
   return (
     <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main className="pt-16">
@@ -520,7 +546,7 @@ export default function PageClient() {
                 Hypermodal AI
               </h1>
               <p className={cn("text-xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
-                41 models across 8 families. Open-weight AI covering text, vision, image, audio, code, embeddings, and reranking — from edge to frontier.
+                {totalModels}+ models across {familyData.length} families. Open-weight AI covering text, vision, image, audio, code, embeddings, and reranking — from edge to frontier.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
@@ -545,11 +571,11 @@ export default function PageClient() {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold mb-1">41</div>
+                <div className="text-4xl font-bold mb-1">{totalModels}+</div>
                 <div className={cn("text-sm", "text-muted-foreground")}>AI Models</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-1">8</div>
+                <div className="text-4xl font-bold mb-1">{familyData.length}</div>
                 <div className={cn("text-sm", "text-muted-foreground")}>Model Families</div>
               </div>
               <div>
@@ -564,12 +590,12 @@ export default function PageClient() {
           </div>
         </section>
 
-        {/* Model Families */}
-        {Object.entries(modelFamilies).map(([key, family], familyIndex) => {
-          const FamilyIcon = family.icon;
+        {/* Model Families — data served server-side from @zenlm/models */}
+        {familyData.map((family, familyIndex) => {
+          const FamilyIcon = FAMILY_ICONS[family.id] ?? Brain;
           return (
             <section
-              key={key}
+              key={family.id}
               className={cn("py-20 px-4", familyIndex % 2 === 0 ? "" : "bg-foreground/5")}
             >
               <div className="max-w-6xl mx-auto">
