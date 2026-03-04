@@ -42,7 +42,7 @@ const siteConfig = {
   },
   chat: {
     apiUrl: 'https://api.hanzo.ai',
-    iamAuthorizeUrl: 'https://hanzo.id/login/oauth/authorize',
+    iamAuthorizeUrl: 'https://hanzo.id/oauth/authorize',
     iamClientId: 'hanzo-app-client-id',
     freeMessageLimit: 1,
   },
