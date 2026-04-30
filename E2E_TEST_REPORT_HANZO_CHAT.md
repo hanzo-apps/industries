@@ -371,7 +371,7 @@ SELECT owner, name, email FROM "user" WHERE email = 'z@hanzo.ai';
 - MCP Server: 260+ tool integrations
 - Billing: Hanzo Commerce service
 - IAM: OpenID Connect provider
-- Analytics: Hanzo Insights (PostHog fork)
+- Analytics: Hanzo Insights
 
 ---
 
