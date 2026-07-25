@@ -42,7 +42,9 @@ const siteConfig = {
   },
   chat: {
     apiUrl: 'https://api.hanzo.ai',
-    iamAuthorizeUrl: 'https://hanzo.id/oauth/authorize',
+    // CANONICAL HIP-0111 path (what hanzo.id's discovery advertises). The bare
+    // /oauth/authorize was only ever served by the hanzo.id-worker shim.
+    iamAuthorizeUrl: 'https://hanzo.id/v1/iam/oauth/authorize',
     iamClientId: 'hanzo-app-client-id',
     freeMessageLimit: 1,
   },

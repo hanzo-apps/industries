@@ -60,7 +60,7 @@ const authMethods = [
   {
     method: "OAuth 2.0 Client Credentials",
     description: "For server-to-server integation. Exchange client ID and secret for an access token.",
-    example: `curl -X POST https://hanzo.id/oauth/token \\
+    example: `curl -X POST https://hanzo.id/v1/iam/oauth/token \\
   -d "grant_type=client_credentials" \\
   -d "client_id=$CLIENT_ID" \\
   -d "client_secret=$CLIENT_SECRET"`,
