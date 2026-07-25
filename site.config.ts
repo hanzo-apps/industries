@@ -36,10 +36,6 @@ const siteConfig = {
     zenModels: 'https://hanzo.ai/zen',
     modelApi: 'https://hanzo.ai/api',
   },
-  analytics: {
-    scriptUrl: 'https://analytics.hanzo.ai/script.js',
-    siteId: '68f5fcb6-c767-434c-bb78-a05fdece2b92',
-  },
   chat: {
     apiUrl: 'https://api.hanzo.ai',
     // CANONICAL HIP-0111 path (what hanzo.id's discovery advertises). The bare

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useAnalytics } from "@hanzo/event/react";
 import { Bot, Send, XCircle } from "lucide-react";
 import { Button } from "@hanzo/ui";
 import { Drawer, DrawerContent, DrawerTrigger } from "@hanzo/ui/drawer";
@@ -20,13 +21,11 @@ const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const { toast } = useToast();
+  const analytics = useAnalytics();
 
   useEffect(() => {
-    // Track 404 via analytics if available
-    if (typeof window !== "undefined" && (window as any).ha) {
-      (window as any).ha.capture("404_page_view", { path: pathname });
-    }
-  }, [pathname]);
+    analytics.capture("404_page_view", { path: pathname });
+  }, [analytics, pathname]);
 
   const handleSendMessage = async () => {
     if (!message.trim()) return;

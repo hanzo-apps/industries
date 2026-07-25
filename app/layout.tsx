@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { Analytics } from '@/components/Analytics'
 import site from '@/site.config'
 import './globals.css'
 
@@ -47,10 +48,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Analytics>{children}</Analytics>
         </ThemeProvider>
-        {/* Hanzo Analytics — privacy-first, respects DNT, no cookies */}
-        <script defer src={site.analytics.scriptUrl} data-website-id={site.analytics.siteId} data-do-not-track="true" data-exclude-search="true" />
       </body>
     </html>
   )
