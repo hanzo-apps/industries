@@ -59,7 +59,7 @@ hanzo.chat/oauth/openid (redirects to IAM)
     ↓
 hanzo.id/login/oauth/authorize (with PKCE challenge)
     ↓ (user authenticates)
-hanzo.id/api/login (POST with credentials)
+hanzo.id/v1/iam/login (POST with credentials)
     ↓ (success response with authorization code)
 hanzo.chat/oauth/openid/callback (exchanges code for tokens)
     ↓
@@ -133,7 +133,7 @@ Auth Methods: All (code, password, client_credentials, refresh_token, token)
 - And 15+ more for various services
 
 **Dynamic Configuration**:
-- `/api/get-app-login` endpoint supports dynamic app/org lookup
+- `/v1/iam/get-app-login` endpoint supports dynamic app/org lookup
 - Fallback map used if IAM lookup unavailable
 - Multi-org support configured (hanzo, lux, zoo, pars)
 
