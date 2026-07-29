@@ -359,7 +359,7 @@ SELECT owner, name, email FROM "user" WHERE email = 'z@hanzo.ai';
 - Build: Vite (inferred from modern SPA patterns)
 
 ### Backend Stack
-- Auth: Casdoor (hanzo.id fork/rebranding)
+- Auth: Hanzo IAM (hanzo.id)
 - Database: PostgreSQL (in-cluster)
 - Cache: Redis for sessions
 - API Gateway: KrakenD (likely)
