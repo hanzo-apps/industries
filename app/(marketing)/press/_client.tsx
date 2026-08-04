@@ -130,7 +130,7 @@ const LogoPreview = () => (
 export default function PageClient() {
   return (
     <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
-      <main className="hz-pt-6">
+      <div>
         {/* Hero */}
         <section className={cn("hz-py-7 hz-px-4", "")}>
           <div className="hz-container-wide hz-align-center">
@@ -453,7 +453,7 @@ export default function PageClient() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

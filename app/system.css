@@ -47,6 +47,20 @@
   flex-direction: column;
 }
 
+/* The header is `position: fixed`, so it is out of flow and covers whatever
+   starts at y=0. The space it needs is stated HERE, once, by the element it
+   displaces — not re-guessed by each page's hero. Pages own their section
+   rhythm (`hz-pt-*`); they do not own the header's height.
+
+   This is the bug's origin: every page root used to carry Tailwind's `pt-32`
+   (8rem = header + a lead-in). `32` there counts quarter-rems, but the design
+   scale counts steps, so it landed on `--space-8` = 2rem — a third of the
+   intent and less than the 4rem header, and eleven pages' <h1> rendered
+   underneath the nav. A page cannot restate a number only the header knows. */
+.hz-main {
+  padding-top: var(--header-height);
+}
+
 .hz-container,
 .hz-container-narrow,
 .hz-container-wide {

@@ -1017,7 +1017,7 @@ const [searchQuery, setSearchQuery] = useState("");
   };
 
   return (
-      <main className="hz-pt-6">
+      <div>
         {/* Hero Section */}
         <section className="hz-rel hz-py-7 hz-px-4 hz-clip">
           {/* Background gradient */}
@@ -1376,6 +1376,6 @@ const [searchQuery, setSearchQuery] = useState("");
             </div>
           </div>
         </section>
-      </main>
+      </div>
   );
 }

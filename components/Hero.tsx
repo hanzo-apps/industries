@@ -8,7 +8,7 @@ import site from '@/site.config'
 
 export default function Hero() {
   return (
-    <div className="hz-rel hz-row hz-ai-center hz-jc-center hz-clip hz-pt-6 hz-bg">
+    <div className="hz-rel hz-row hz-ai-center hz-jc-center hz-clip hz-bg">
       {/* Grid pattern background */}
       <div className="hz-abs hz-inset">
         <div className="hz-abs hz-inset hz-dim-more"

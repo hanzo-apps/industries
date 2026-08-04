@@ -17,7 +17,7 @@ export default function MarketingShell({
   return (
     <div className="hz-page">
       <Navbar />
-      <main>{children}</main>
+      <main className="hz-main">{children}</main>
       <Footer />
       <GlobalChatWidget />
     </div>
