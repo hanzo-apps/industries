@@ -1,49 +1,21 @@
+/* TOKENS COME FROM @hanzo/design — the same ladder every Hanzo surface reads.
+   Dark is the default (`:root` IS the dark palette) and `.light` retunes it,
+   which is exactly what next-themes emits here: `attribute="class"` puts
+   `light` or `dark` on <html>, so `.dark` needs no block of its own and
+   `.light` is already written upstream — including `color-scheme`.
+
+   The palette that used to live here was a local approximation: a #000000
+   ground rather than #0a0a0a, solid #1a1a1a borders that vanish the moment
+   they land on a lifted surface, and a mid-grey #666666 destructive that is
+   indistinguishable from a disabled control. Only the values moved home; the
+   @theme block below still names every colour this app draws with.
+
+   Colours only. Tailwind v4 owns --text-*, --spacing and --radius-* as theme
+   namespaces, so importing design's typography/spacing/radius here would
+   silently restyle every size utility in the app. Fonts are next/font's. */
+@import '@hanzo/design/tokens/colors.css';
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
-
-:root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
-  --card: #f5f5f5;
-  --card-foreground: #0a0a0a;
-  --popover: #f5f5f5;
-  --popover-foreground: #0a0a0a;
-  --primary: #0a0a0a;
-  --primary-foreground: #ffffff;
-  --secondary: #f5f5f5;
-  --secondary-foreground: #0a0a0a;
-  --muted: #f5f5f5;
-  --muted-foreground: #525252;
-  --accent: #f5f5f5;
-  --accent-foreground: #0a0a0a;
-  --destructive: #999999;
-  --destructive-foreground: #0a0a0a;
-  --border: #e5e5e5;
-  --input: #e5e5e5;
-  --ring: #d4d4d4;
-}
-
-.dark {
-  --background: #000000;
-  --foreground: #f5f5f5;
-  --card: #0a0a0a;
-  --card-foreground: #f5f5f5;
-  --popover: #0a0a0a;
-  --popover-foreground: #f5f5f5;
-  --primary: #ffffff;
-  --primary-foreground: #000000;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #f5f5f5;
-  --muted: #111111;
-  --muted-foreground: #a3a3a3;
-  --accent: #1a1a1a;
-  --accent-foreground: #f5f5f5;
-  --destructive: #666666;
-  --destructive-foreground: #f5f5f5;
-  --border: #1a1a1a;
-  --input: #1a1a1a;
-  --ring: #333333;
-}
 
 @theme {
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
@@ -75,18 +47,14 @@ html {
   scrollbar-gutter: stable;
 }
 
-html.dark {
-  color-scheme: dark;
-}
-
-html:not(.dark) {
-  color-scheme: light;
-}
-
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+::selection {
+  background-color: var(--selection);
 }
 
 * {
