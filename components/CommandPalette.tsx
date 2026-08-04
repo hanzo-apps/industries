@@ -8,7 +8,7 @@ import {
   Code, Server, Globe, CreditCard, Users, FileText, Settings, ExternalLink,
   Command, Lock, BookOpen, Newspaper, Building, Network, Cpu,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from '@hanzo/ui'
 
 interface CommandItem {
   id: string;
@@ -142,7 +142,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-background/60 backdrop-blur-sm z-[100]"
+            className="hz-fixed hz-inset hz-bg-surface hz-glass hz-z-overlay"
           />
 
           <motion.div
@@ -150,17 +150,17 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.15 }}
-            className="fixed top-[10%] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] max-w-xl z-[101]"
+            className="hz-center-x hz-fixed hz-mw-md hz-z-overlay"
           >
             <div className={cn(
-              "border rounded-xl shadow-2xl overflow-hidden",
-              "bg-secondary border-border"
+              "hz-bordered hz-r-lg hz-shadow-lg hz-clip",
+              "hz-bg-surface"
             )}>
               <div className={cn(
-                "flex items-center gap-3 px-4 py-3 border-b",
-                "border-border"
+                "hz-row hz-ai-center hz-gap-3 hz-px-4 hz-py-3 hz-border-b",
+                ""
               )}>
-                <Search className={cn("w-5 h-5", "text-muted-foreground")} />
+                <Search className={cn("hz-sq-3", "hz-fg")} />
                 <input
                   ref={inputRef}
                   type="text"
@@ -169,23 +169,23 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                   onKeyDown={handleKeyDown}
                   placeholder="Search pages, products, docs..."
                   className={cn(
-                    "flex-1 bg-transparent text-sm outline-none",
-                    "text-foreground placeholder-muted-foreground"
+                    "hz-grow hz-bg-none hz-t-sm",
+                    "hz-fg"
                   )}
                 />
                 <kbd className={cn(
-                  "px-2 py-1 text-[10px] font-mono rounded",
-                  "bg-foreground/10 text-muted-foreground"
+                  "hz-px-2 hz-py-1 hz-t-xs hz-mono hz-r-md",
+                  "hz-bg-surface hz-fg"
                 )}>
                   ESC
                 </kbd>
               </div>
 
-              <div className="max-h-[400px] overflow-y-auto py-2">
+              <div className="hz-scroll-y hz-py-2">
                 {Object.keys(groupedCommands).length === 0 ? (
                   <div className={cn(
-                    "px-4 py-8 text-center text-sm",
-                    "text-muted-foreground"
+                    "hz-px-4 hz-py-6 hz-align-center hz-t-sm",
+                    "hz-fg"
                   )}>
                     No results found for "{search}"
                   </div>
@@ -193,8 +193,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                   Object.entries(groupedCommands).map(([category, items]) => (
                     <div key={category}>
                       <div className={cn(
-                        "px-4 py-2 text-[10px] font-semibold uppercase tracking-wider",
-                        "text-muted-foreground"
+                        "hz-px-4 hz-py-2 hz-t-xs hz-w-semibold hz-upper hz-tracking-wide",
+                        "hz-fg"
                       )}>
                         {category}
                       </div>
@@ -209,39 +209,39 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                             onClick={() => handleSelect(cmd)}
                             onMouseEnter={() => setSelectedIndex(index)}
                             className={cn(
-                              "w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors",
+                              "hz-w-full hz-row hz-ai-center hz-gap-3 hz-px-4 hz-py-2 hz-align-left hz-transition",
                               isSelected
-                                ? "bg-foreground/10 text-foreground"
-                                : "text-muted-foreground hover:bg-accent"
+                                ? "hz-bg-surface hz-fg"
+                                : "hz-fg hz-hoverable"
                             )}
                           >
                             <div className={cn(
-                              "w-8 h-8 rounded-lg flex items-center justify-center",
+                              "hz-sq-5 hz-r-lg hz-row hz-ai-center hz-jc-center",
                               isSelected
-                                ? "bg-foreground/15"
-                                : "bg-foreground/10"
+                                ? "hz-bg-surface"
+                                : "hz-bg-surface"
                             )}>
                               <Icon className={cn(
-                                "w-4 h-4",
+                                "hz-sq-2",
                                 isSelected
-                                  ? "text-foreground"
-                                  : "text-muted-foreground"
+                                  ? "hz-fg"
+                                  : "hz-fg"
                               )} />
                             </div>
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-2">
-                                <span className="text-sm font-medium truncate">{cmd.title}</span>
+                            <div className="hz-grow">
+                              <div className="hz-row hz-ai-center hz-gap-2">
+                                <span className="hz-t-sm hz-w-medium hz-truncate">{cmd.title}</span>
                                 {cmd.external && (
                                   <ExternalLink className={cn(
-                                    "w-3 h-3",
-                                    "text-muted-foreground"
+                                    "hz-sq-1",
+                                    "hz-fg"
                                   )} />
                                 )}
                               </div>
                               {cmd.description && (
                                 <div className={cn(
-                                  "text-xs truncate",
-                                  "text-muted-foreground"
+                                  "hz-t-xs hz-truncate",
+                                  "hz-fg"
                                 )}>
                                   {cmd.description}
                                 </div>
@@ -249,8 +249,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                             </div>
                             {isSelected && (
                               <ArrowRight className={cn(
-                                "w-4 h-4",
-                                "text-muted-foreground"
+                                "hz-sq-2",
+                                "hz-fg"
                               )} />
                             )}
                           </button>
@@ -262,28 +262,28 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
               </div>
 
               <div className={cn(
-                "px-4 py-2 border-t flex items-center justify-between",
-                "border-border"
+                "hz-px-4 hz-py-2 hz-border-t hz-row hz-ai-center hz-jc-between",
+                ""
               )}>
                 <div className={cn(
-                  "flex items-center gap-4 text-[10px]",
-                  "text-muted-foreground"
+                  "hz-row hz-ai-center hz-gap-4 hz-t-xs",
+                  "hz-fg"
                 )}>
-                  <span className="flex items-center gap-1">
-                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>up</kbd>
-                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>down</kbd>
+                  <span className="hz-row hz-ai-center hz-gap-1">
+                    <kbd className={cn("hz-px-2 hz-py-1 hz-r-md", "hz-bg-surface")}>up</kbd>
+                    <kbd className={cn("hz-px-2 hz-py-1 hz-r-md", "hz-bg-surface")}>down</kbd>
                     Navigate
                   </span>
-                  <span className="flex items-center gap-1">
-                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>enter</kbd>
+                  <span className="hz-row hz-ai-center hz-gap-1">
+                    <kbd className={cn("hz-px-2 hz-py-1 hz-r-md", "hz-bg-surface")}>enter</kbd>
                     Select
                   </span>
                 </div>
                 <div className={cn(
-                  "flex items-center gap-1 text-[10px]",
-                  "text-muted-foreground"
+                  "hz-row hz-ai-center hz-gap-1 hz-t-xs",
+                  "hz-fg"
                 )}>
-                  <Command className="w-3 h-3" />
+                  <Command className="hz-sq-1" />
                   <span>K to toggle</span>
                 </div>
               </div>

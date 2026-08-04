@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Button } from '@hanzo/ui'
+import { Button, cn } from '@hanzo/ui'
 import {
   ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSquare,
   BookOpen, Microscope, Brain, Shield, Network, Boxes, FlaskConical, FileText,
@@ -12,7 +12,6 @@ import {
 import { motion, AnimatePresence } from 'framer-motion'
 import NavbarContainer from './navigation/NavbarContainer'
 import Logo from './Logo'
-import { cn } from '@/lib/utils'
 import site from '@/site.config'
 
 const zenModels = [
@@ -54,19 +53,19 @@ function TryHanzoDropdown() {
   }, [isOpen])
 
   return (
-    <div className="relative" ref={menuRef}
+    <div className="hz-rel" ref={menuRef}
       onMouseEnter={() => { clearTimeoutRef(); setIsOpen(true) }}
       onMouseLeave={() => { clearTimeoutRef(); timeoutRef.current = setTimeout(() => setIsOpen(false), 300) }}
     >
       <Button size="sm" onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'rounded-full px-5 font-medium transition-all duration-200 hover:scale-[1.02] shadow-lg',
-          'bg-primary text-primary-foreground hover:bg-primary/90 shadow-foreground/10',
-          isOpen && 'bg-primary/90'
+          'hz-r-full hz-px-4 hz-w-medium hz-transition hz-shadow-lg',
+          'hz-bg-inverse hz-shadow hz-hoverable',
+          isOpen && 'hz-bg-surface'
         )}
       >
         Try Zen
-        <ChevronDown className={cn('w-4 h-4 ml-1 transition-transform duration-200', isOpen && 'rotate-180')} />
+        <ChevronDown className={cn('hz-sq-2 hz-ml-1 hz-transition', isOpen && '')} />
       </Button>
 
       <AnimatePresence>
@@ -76,39 +75,39 @@ function TryHanzoDropdown() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="absolute right-0 top-full w-[420px] max-w-[calc(100vw-2rem)] z-50"
+            className="hz-abs hz-right-0 hz-mw-full hz-z-overlay"
           >
-            <div className="h-2" />
-            <div className="backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden bg-secondary/95 border-border shadow-background/50">
+            <div className="hz-bh-1" />
+            <div className="hz-glass hz-bordered hz-r-xl hz-shadow-lg hz-clip hz-bg-surface hz-shadow">
               {/* Zen AI Models */}
-              <div className="p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2">
-                    <Brain className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-xs font-semibold uppercase tracking-wider text-foreground">Zen AI Models</span>
+              <div className="hz-p-4">
+                <div className="hz-row hz-ai-center hz-jc-between hz-mb-3">
+                  <div className="hz-row hz-ai-center hz-gap-2">
+                    <Brain className="hz-sq-2 hz-fg" />
+                    <span className="hz-t-xs hz-w-semibold hz-upper hz-tracking-wide hz-fg">Zen AI Models</span>
                   </div>
                   <button onClick={() => { setIsOpen(false); router.push('/models') }}
-                    className="text-xs transition-colors text-muted-foreground hover:text-foreground">
+                    className="hz-t-xs hz-transition hz-fg hz-hoverable">
                     View all &rarr;
                   </button>
                 </div>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="hz-grid hz-grid-2 hz-gap-2">
                   {zenModels.map((model) => {
                     const ModelIcon = model.icon
                     return (
                       <a key={model.name} href={model.href} target="_blank" rel="noopener noreferrer"
                         onClick={() => setIsOpen(false)}
-                        className="group flex items-start gap-3 p-3 rounded-xl transition-colors bg-foreground/5 hover:bg-accent"
+                        className="hz-row hz-ai-start hz-gap-3 hz-p-3 hz-r-lg hz-transition hz-bg-surface hz-hoverable"
                       >
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-foreground/10">
-                          <ModelIcon className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
+                        <div className="hz-sq-5 hz-r-lg hz-row hz-ai-center hz-jc-center hz-none hz-bg-surface">
+                          <ModelIcon className="hz-sq-2 hz-fg hz-hoverable" />
                         </div>
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-foreground">{model.name}</span>
-                            <span className="text-[10px] font-mono text-muted-foreground">{model.params}</span>
+                        <div className="">
+                          <div className="hz-row hz-ai-center hz-gap-2">
+                            <span className="hz-t-sm hz-w-medium hz-fg">{model.name}</span>
+                            <span className="hz-t-xs hz-mono hz-fg">{model.params}</span>
                           </div>
-                          <p className="text-xs truncate text-muted-foreground">{model.description}</p>
+                          <p className="hz-t-xs hz-truncate hz-fg">{model.description}</p>
                         </div>
                       </a>
                     )
@@ -116,53 +115,53 @@ function TryHanzoDropdown() {
                 </div>
               </div>
 
-              <div className="border-t border-border" />
+              <div className="hz-border-t" />
 
               {/* Quick Access */}
-              <div className="py-2">
-                <div className="px-4 py-1.5">
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Quick Access</span>
+              <div className="hz-py-2">
+                <div className="hz-px-4 hz-py-2">
+                  <span className="hz-t-xs hz-w-medium hz-upper hz-tracking-wide hz-fg">Quick Access</span>
                 </div>
                 {quickAccess.map((item) =>
                   item.external ? (
                     <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-between w-full py-2 px-4 transition-colors text-foreground hover:bg-accent"
+                      className="hz-row hz-ai-center hz-jc-between hz-w-full hz-py-2 hz-px-4 hz-transition hz-fg hz-hoverable"
                     >
                       <div>
-                        <span className="text-sm">{item.label}</span>
-                        {item.desc && <span className="text-xs ml-2 text-foreground/30">{item.desc}</span>}
+                        <span className="hz-t-sm">{item.label}</span>
+                        {item.desc && <span className="hz-t-xs hz-ml-2 hz-fg-soft">{item.desc}</span>}
                       </div>
-                      <ExternalLink className="w-3.5 h-3.5 text-foreground/30" />
+                      <ExternalLink className="hz-sq-2 hz-fg-soft" />
                     </a>
                   ) : (
                     <button key={item.label}
                       onClick={() => { setIsOpen(false); router.push(item.href) }}
-                      className="flex items-center justify-between w-full py-2 px-4 text-left transition-colors text-foreground hover:bg-accent"
+                      className="hz-row hz-ai-center hz-jc-between hz-w-full hz-py-2 hz-px-4 hz-align-left hz-transition hz-fg hz-hoverable"
                     >
                       <div>
-                        <span className="text-sm">{item.label}</span>
-                        {item.desc && <span className="text-xs ml-2 text-foreground/30">{item.desc}</span>}
+                        <span className="hz-t-sm">{item.label}</span>
+                        {item.desc && <span className="hz-t-xs hz-ml-2 hz-fg-soft">{item.desc}</span>}
                       </div>
                     </button>
                   )
                 )}
               </div>
 
-              <div className="border-t border-border" />
+              <div className="hz-border-t" />
 
               {/* Login */}
-              <div className="py-2">
-                <div className="px-4 py-1.5">
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Log in</span>
+              <div className="hz-py-2">
+                <div className="hz-px-4 hz-py-2">
+                  <span className="hz-t-xs hz-w-medium hz-upper hz-tracking-wide hz-fg">Log in</span>
                 </div>
                 {loginItems.map((item) => (
                   <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-between w-full py-2 px-4 transition-colors text-foreground hover:bg-accent"
+                    className="hz-row hz-ai-center hz-jc-between hz-w-full hz-py-2 hz-px-4 hz-transition hz-fg hz-hoverable"
                   >
-                    <span className="text-sm">{item.label}</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-foreground/30" />
+                    <span className="hz-t-sm">{item.label}</span>
+                    <ExternalLink className="hz-sq-2 hz-fg-soft" />
                   </a>
                 ))}
               </div>
@@ -255,18 +254,18 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
   }
 
   return (
-    <div className="relative" ref={menuRef}
+    <div className="hz-rel" ref={menuRef}
       onMouseEnter={() => { clearTimeoutRef(); onOpen() }}
       onMouseLeave={() => { clearTimeoutRef(); timeoutRef.current = setTimeout(onClose, 300) }}
     >
       <button onClick={() => isOpen ? onClose() : onOpen()}
         className={cn(
-          'flex items-center gap-1 font-medium transition-all duration-200 text-sm py-2 px-3 rounded-lg',
-          isOpen ? 'text-foreground bg-foreground/10' : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+          'hz-btn hz-btn-ghost hz-gap-1 hz-transition',
+          isOpen ? 'hz-fg hz-bg-surface' : 'hz-fg hz-hoverable'
         )}
       >
         {menu.title}
-        <ChevronDown className={cn('w-4 h-4 transition-transform duration-200', isOpen && 'rotate-180')} />
+        <ChevronDown className={cn('hz-sq-2 hz-transition', isOpen && '')} />
       </button>
 
       <AnimatePresence>
@@ -276,30 +275,30 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="absolute left-0 top-full w-80 max-w-[calc(100vw-2rem)] z-50"
+            className="hz-abs hz-left-0 hz-bw-8 hz-mw-full hz-z-overlay"
             onMouseEnter={() => { clearTimeoutRef(); onOpen() }}
             onMouseLeave={() => { clearTimeoutRef(); timeoutRef.current = setTimeout(onClose, 300) }}
           >
-            <div className="h-2" />
-            <div className="backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden bg-secondary/95 border-border shadow-background/50">
-              <div className="py-2">
+            <div className="hz-bh-1" />
+            <div className="hz-glass hz-bordered hz-r-lg hz-shadow-lg hz-clip hz-bg-surface hz-shadow">
+              <div className="hz-py-2">
                 {menu.items.map((item) => {
                   const Icon = item.icon
                   return (
                     <button key={item.label} onClick={() => handleItemClick(item)}
-                      className="w-full text-left px-4 py-3 transition-all duration-150 group flex items-center gap-3 hover:bg-accent"
+                      className="hz-w-full hz-align-left hz-px-4 hz-py-3 hz-transition hz-row hz-ai-center hz-gap-3 hz-hoverable"
                     >
                       {Icon && (
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors bg-foreground/10 group-hover:bg-accent">
-                          <Icon className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
+                        <div className="hz-sq-5 hz-r-lg hz-row hz-ai-center hz-jc-center hz-none hz-transition hz-bg-surface hz-hoverable">
+                          <Icon className="hz-sq-2 hz-fg hz-hoverable" />
                         </div>
                       )}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between">
-                          <span className="font-medium text-sm transition-colors duration-150 text-foreground/90 group-hover:text-foreground">{item.label}</span>
-                          {item.external && <ExternalLink className="w-3.5 h-3.5 flex-shrink-0 text-foreground/30 group-hover:text-muted-foreground" />}
+                      <div className="hz-grow">
+                        <div className="hz-row hz-ai-center hz-jc-between">
+                          <span className="hz-w-medium hz-t-sm hz-transition hz-fg-soft hz-hoverable">{item.label}</span>
+                          {item.external && <ExternalLink className="hz-sq-2 hz-none hz-fg-soft hz-hoverable" />}
                         </div>
-                        <p className="text-xs mt-0.5 transition-colors duration-150 truncate text-muted-foreground group-hover:text-muted-foreground">{item.description}</p>
+                        <p className="hz-t-xs hz-mt-1 hz-transition hz-truncate hz-fg hz-hoverable">{item.description}</p>
                       </div>
                     </button>
                   )
@@ -329,7 +328,7 @@ export default function Navbar() {
     <NavbarContainer>
       <Logo size="md" showText={true} />
 
-      <div className="hidden md:flex items-center space-x-1">
+      <div className="hz-desktop-only hz-row hz-ai-center hz-inline-1">
         {Object.entries(navMenus).map(([key, menu]) => (
           <DropdownMenu key={key} menu={menu}
             isOpen={openMenu === key}
@@ -339,22 +338,22 @@ export default function Navbar() {
         ))}
       </div>
 
-      <div className="hidden md:flex items-center space-x-3">
+      <div className="hz-desktop-only hz-row hz-ai-center hz-inline-3">
         <TryHanzoDropdown />
       </div>
 
       <button
-        className="md:hidden p-2 rounded-lg transition-all duration-200 text-muted-foreground hover:text-foreground hover:bg-accent"
+        className="hz-mobile-only hz-p-2 hz-r-lg hz-transition hz-fg hz-hoverable"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       >
         <AnimatePresence mode="wait">
           {isMobileMenuOpen ? (
             <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <X className="w-6 h-6" />
+              <X className="hz-sq-4" />
             </motion.div>
           ) : (
             <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <Menu className="w-6 h-6" />
+              <Menu className="hz-sq-4" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -367,12 +366,12 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 md:hidden backdrop-blur-xl border-t rounded-b-2xl overflow-hidden bg-secondary/98 border-border"
+            className="hz-mobile-only hz-abs hz-left-0 hz-right-0 hz-glass hz-border-t hz-clip hz-bg-surface"
           >
-            <div className="py-4 space-y-4 px-4 max-h-[70vh] overflow-y-auto">
+            <div className="hz-py-4 hz-stack-4 hz-px-4 hz-scroll-y">
               {Object.entries(navMenus).map(([key, menu]) => (
-                <div key={key} className="space-y-2">
-                  <div className="text-xs font-medium uppercase tracking-wider px-2 text-muted-foreground">{menu.title}</div>
+                <div key={key} className="hz-stack-2">
+                  <div className="hz-t-xs hz-w-medium hz-upper hz-tracking-wide hz-px-2 hz-fg">{menu.title}</div>
                   {menu.items.map((item) => (
                     <Link key={item.label}
                       href={item.external ? '#' : item.href}
@@ -380,20 +379,20 @@ export default function Navbar() {
                         if (item.external) { e.preventDefault(); window.open(item.href, '_blank') }
                         setIsMobileMenuOpen(false)
                       }}
-                      className="flex items-center justify-between py-2 px-2 rounded-lg transition-all duration-150 text-muted-foreground hover:text-foreground hover:bg-accent"
+                      className="hz-btn hz-btn-ghost hz-jc-between hz-transition hz-fg"
                     >
                       <span>{item.label}</span>
-                      {item.external && <ExternalLink className="w-3.5 h-3.5 text-foreground/30" />}
+                      {item.external && <ExternalLink className="hz-sq-2 hz-fg-soft" />}
                     </Link>
                   ))}
                 </div>
               ))}
-              <div className="pt-4 space-y-2 border-t border-border">
+              <div className="hz-pt-4 hz-stack-2 hz-border-t">
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button variant="outline" className="w-full border-border text-foreground hover:bg-accent">Contact</Button>
+                  <Button variant="outline" className="hz-w-full hz-fg hz-hoverable">Contact</Button>
                 </Link>
                 <a href={site.links.platform} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Try Zen</Button>
+                  <Button className="hz-w-full hz-bg-inverse hz-hoverable">Try Zen</Button>
                 </a>
               </div>
             </div>

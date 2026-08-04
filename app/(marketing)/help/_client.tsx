@@ -2,14 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@hanzo/ui";
-import { Input } from "@hanzo/ui";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@hanzo/ui/accordion";
+import { Button, Input, cn } from '@hanzo/ui'
 import {
   Search,
   Book,
@@ -23,8 +16,6 @@ import {
   ExternalLink,
   HelpCircle,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-
 const faqs = [
   {
     category: "Getting Started",
@@ -137,37 +128,37 @@ const documentationLinks = [
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-24">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <main className="hz-pt-6">
         {/* Hero Section */}
-        <section className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-center mb-12"
+              className="hz-align-center hz-mb-7"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/10 border border-border rounded-full mb-6">
-                <HelpCircle className="w-4 h-4 text-foreground" />
-                <span className="text-foreground text-sm font-medium">Help Center</span>
+              <div className="hz-btn hz-btn-primary hz-gap-2 hz-mb-5">
+                <HelpCircle className="hz-sq-2 hz-fg" />
+                <span className="hz-fg hz-t-sm hz-w-medium">Help Center</span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="hz-t-4xl hz-w-bold hz-mb-5">
                 How can we help?
               </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto mb-8", "text-muted-foreground")}>
+              <p className={cn("hz-container-narrow hz-mw-md hz-t-xl hz-mb-6", "hz-fg")}>
                 Find answers to common questions, explore our documentation, or get in touch with our support team.
               </p>
 
               {/* Search */}
-              <div className="max-w-xl mx-auto relative">
-                <Search className={cn("absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5", "text-muted-foreground")} />
+              <div className="hz-container-narrow hz-mw-md hz-rel">
+                <Search className={cn("hz-center-y hz-sq-3 hz-abs", "hz-fg")} />
                 <Input
                   type="text"
                   placeholder="Search for help articles..."
                   className={cn(
-                    "w-full pl-12 pr-4 py-6 rounded-xl text-lg",
-                    "bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground"
+                    "hz-w-full hz-px-6 hz-px-4 hz-py-5 hz-r-lg hz-t-lg",
+                    "hz-bg-surface hz-fg"
                   )}
                 />
               </div>
@@ -176,20 +167,20 @@ export default function PageClient() {
         </section>
 
         {/* Documentation Links */}
-        <section className={cn("py-24 px-4", "bg-foreground/[0.03]")}>
-          <div className="max-w-7xl mx-auto">
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")}>
+          <div className="hz-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="hz-align-center hz-mb-7"
             >
-              <h2 className="text-3xl font-bold mb-4">Documentation</h2>
-              <p className={cn("text-muted-foreground")}>Explore our comprehensive documentation and guides</p>
+              <h2 className="hz-t-3xl hz-w-bold hz-mb-4">Documentation</h2>
+              <p className={cn("hz-fg")}>Explore our comprehensive documentation and guides</p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="hz-grid hz-grid-3 hz-gap-5">
               {documentationLinks.map((doc, index) => {
                 const Icon = doc.icon;
                 return (
@@ -203,20 +194,20 @@ export default function PageClient() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className={cn(
-                      "border rounded-xl p-6 hover:border-border transition-colors group",
-                      "bg-foreground/5 border-border"
+                      "hz-bordered hz-r-lg hz-p-5 hz-transition hz-hoverable",
+                      "hz-bg-surface"
                     )}
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-12 h-12 bg-foreground/10 rounded-lg flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-foreground" />
+                    <div className="hz-row hz-ai-start hz-jc-between hz-mb-4">
+                      <div className="hz-sq-7 hz-bg-surface hz-r-lg hz-row hz-ai-center hz-jc-center">
+                        <Icon className="hz-sq-4 hz-fg" />
                       </div>
-                      <ExternalLink className={cn("w-4 h-4 group-hover:text-foreground transition-colors", "text-foreground/20")} />
+                      <ExternalLink className={cn("hz-sq-2 hz-transition hz-hoverable", "hz-fg-soft")} />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-foreground transition-colors">
+                    <h3 className="hz-t-xl hz-w-semibold hz-mb-2 hz-transition hz-hoverable">
                       {doc.title}
                     </h3>
-                    <p className={cn("text-sm", "text-muted-foreground")}>{doc.description}</p>
+                    <p className={cn("hz-t-sm", "hz-fg")}>{doc.description}</p>
                   </motion.a>
                 );
               })}
@@ -225,20 +216,20 @@ export default function PageClient() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="hz-align-center hz-mb-7"
             >
-              <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-              <p className={cn("text-muted-foreground")}>Quick answers to common questions</p>
+              <h2 className="hz-t-3xl hz-w-bold hz-mb-4">Frequently Asked Questions</h2>
+              <p className={cn("hz-fg")}>Quick answers to common questions</p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="hz-grid hz-grid-2 hz-gap-6">
               {faqs.map((category, categoryIndex) => (
                 <motion.div
                   key={category.category}
@@ -247,30 +238,24 @@ export default function PageClient() {
                   transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
                   viewport={{ once: true }}
                   className={cn(
-                    "border rounded-xl p-6",
-                    "bg-foreground/5 border-border"
+                    "hz-bordered hz-r-lg hz-p-5",
+                    "hz-bg-surface"
                   )}
                 >
-                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-primary rounded-full" />
+                  <h3 className="hz-t-xl hz-w-semibold hz-mb-4 hz-row hz-ai-center hz-gap-2">
+                    <span className="hz-sq-1 hz-bg-inverse hz-r-full" />
                     {category.category}
                   </h3>
-                  <Accordion type="single" collapsible className="space-y-2">
+                  {/* <details> is the disclosure: no component, no JavaScript,
+                      and it is open when the browser prints or finds text. */}
+                  <div className="hz-stack-2">
                     {category.questions.map((faq, faqIndex) => (
-                      <AccordionItem
-                        key={faqIndex}
-                        value={`${categoryIndex}-${faqIndex}`}
-                        className={cn("border-border")}
-                      >
-                        <AccordionTrigger className="text-left hover:text-foreground hover:no-underline py-3">
-                          {faq.q}
-                        </AccordionTrigger>
-                        <AccordionContent className={cn("pb-4", "text-muted-foreground")}>
-                          {faq.a}
-                        </AccordionContent>
-                      </AccordionItem>
+                      <details key={faqIndex} className="hz-faq">
+                        <summary>{faq.q}</summary>
+                        <p>{faq.a}</p>
+                      </details>
                     ))}
-                  </Accordion>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -278,39 +263,39 @@ export default function PageClient() {
         </section>
 
         {/* Contact Support Section */}
-        <section className={cn("py-24 px-4", "bg-foreground/[0.03]")}>
-          <div className="max-w-7xl mx-auto">
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")}>
+          <div className="hz-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="hz-align-center hz-mb-7"
             >
-              <h2 className="text-3xl font-bold mb-4">Need More Help?</h2>
-              <p className={cn("text-muted-foreground")}>Our support team is here to assist you</p>
+              <h2 className="hz-t-3xl hz-w-bold hz-mb-4">Need More Help?</h2>
+              <p className={cn("hz-fg")}>Our support team is here to assist you</p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="hz-grid hz-grid-3 hz-gap-5">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
                 className={cn(
-                  "border rounded-xl p-8 text-center hover:border-border transition-colors",
-                  "bg-foreground/5 border-border"
+                  "hz-bordered hz-r-lg hz-p-6 hz-align-center hz-transition hz-hoverable",
+                  "hz-bg-surface"
                 )}
               >
-                <div className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <MessageCircle className="w-8 h-8 text-foreground" />
+                <div className="hz-sq-8 hz-bg-surface hz-r-full hz-row hz-ai-center hz-jc-center hz-mx-auto hz-mb-5">
+                  <MessageCircle className="hz-sq-5 hz-fg" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Live Chat</h3>
-                <p className={cn("mb-6", "text-muted-foreground")}>
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-3">Live Chat</h3>
+                <p className={cn("hz-mb-5", "hz-fg")}>
                   Chat with our support team in real-time for immediate assistance.
                 </p>
                 <a href="https://hanzo.bot" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-primary hover:bg-primary/90 text-foreground w-full">
+                  <Button className="hz-bg-inverse hz-w-full hz-hoverable">
                     Start Chat
                   </Button>
                 </a>
@@ -322,21 +307,21 @@ export default function PageClient() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
                 className={cn(
-                  "border rounded-xl p-8 text-center hover:border-border transition-colors",
-                  "bg-foreground/5 border-border"
+                  "hz-bordered hz-r-lg hz-p-6 hz-align-center hz-transition hz-hoverable",
+                  "hz-bg-surface"
                 )}
               >
-                <div className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Mail className="w-8 h-8 text-foreground" />
+                <div className="hz-sq-8 hz-bg-surface hz-r-full hz-row hz-ai-center hz-jc-center hz-mx-auto hz-mb-5">
+                  <Mail className="hz-sq-5 hz-fg" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Email Support</h3>
-                <p className={cn("mb-6", "text-muted-foreground")}>
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-3">Email Support</h3>
+                <p className={cn("hz-mb-5", "hz-fg")}>
                   Send us a detailed message and we'll respond within 24 hours.
                 </p>
                 <a href="mailto:support@hanzo.ai">
                   <Button variant="outline" className={cn(
-                    "w-full",
-                    "border-border text-foreground hover:bg-accent"
+                    "hz-w-full",
+                    "hz-fg hz-hoverable"
                   )}>
                     support@hanzo.ai
                   </Button>
@@ -349,21 +334,21 @@ export default function PageClient() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
                 className={cn(
-                  "border rounded-xl p-8 text-center hover:border-border transition-colors",
-                  "bg-foreground/5 border-border"
+                  "hz-bordered hz-r-lg hz-p-6 hz-align-center hz-transition hz-hoverable",
+                  "hz-bg-surface"
                 )}
               >
-                <div className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Book className="w-8 h-8 text-foreground" />
+                <div className="hz-sq-8 hz-bg-surface hz-r-full hz-row hz-ai-center hz-jc-center hz-mx-auto hz-mb-5">
+                  <Book className="hz-sq-5 hz-fg" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Community</h3>
-                <p className={cn("mb-6", "text-muted-foreground")}>
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-3">Community</h3>
+                <p className={cn("hz-mb-5", "hz-fg")}>
                   Join our Discord community to connect with other developers.
                 </p>
                 <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className={cn(
-                    "w-full",
-                    "border-border text-foreground hover:bg-accent"
+                    "hz-w-full",
+                    "hz-fg hz-hoverable"
                   )}>
                     Join Discord
                   </Button>
@@ -374,50 +359,50 @@ export default function PageClient() {
         </section>
 
         {/* Enterprise Support */}
-        <section className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-white/10 to-transparent border border-border rounded-2xl p-8 md:p-12"
+              className="hz-card"
             >
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="hz-grid hz-grid-2 hz-gap-6 hz-ai-center">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  <h2 className="hz-t-3xl hz-w-bold hz-mb-4">
                     Enterprise Support
                   </h2>
-                  <p className={cn("mb-6", "text-muted-foreground")}>
+                  <p className={cn("hz-mb-5", "hz-fg")}>
                     Get dedicated support, custom SLAs, and direct access to our engineering team with an enterprise plan.
                   </p>
-                  <ul className={cn("space-y-3 mb-8", "text-muted-foreground")}>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                  <ul className={cn("hz-stack-3 hz-mb-6", "hz-fg")}>
+                    <li className="hz-row hz-ai-center hz-gap-2">
+                      <span className="hz-sq-1 hz-bg-inverse hz-r-full" />
                       24/7 priority support
                     </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    <li className="hz-row hz-ai-center hz-gap-2">
+                      <span className="hz-sq-1 hz-bg-inverse hz-r-full" />
                       Dedicated success manager
                     </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    <li className="hz-row hz-ai-center hz-gap-2">
+                      <span className="hz-sq-1 hz-bg-inverse hz-r-full" />
                       Custom SLA agreements
                     </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    <li className="hz-row hz-ai-center hz-gap-2">
+                      <span className="hz-sq-1 hz-bg-inverse hz-r-full" />
                       Direct engineering support
                     </li>
                   </ul>
                   <Link href="/contact">
-                    <Button className="bg-primary hover:bg-primary/90 text-foreground">
+                    <Button className="hz-bg-inverse hz-hoverable">
                       Contact Sales
                     </Button>
                   </Link>
                 </div>
-                <div className="hidden md:flex justify-center">
-                  <div className="w-48 h-48 bg-foreground/10 rounded-full flex items-center justify-center">
-                    <Shield className="w-24 h-24 text-foreground" />
+                <div className="hz-desktop-only hz-row hz-jc-center">
+                  <div className="hz-sq-8 hz-bg-surface hz-r-full hz-row hz-ai-center hz-jc-center">
+                    <Shield className="hz-sq-8 hz-fg" />
                   </div>
                 </div>
               </div>

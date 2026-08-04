@@ -15,8 +15,8 @@ const activeSet = new Set([0, 33, 56, 57, 58, 59, 60, 61, 62, 63]);
 
 export default function PhilosophyBridge() {
   return (
-    <section className="py-24 px-4 border-t border-border/30">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="hz-py-7 hz-px-4 hz-border-t">
+      <div className="hz-container-narrow hz-align-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,14 +24,14 @@ export default function PhilosophyBridge() {
           transition={{ duration: 0.7 }}
         >
           {/* All 64 hexagram grid */}
-          <div className="grid grid-cols-8 gap-1 max-w-xs mx-auto mb-10">
+          <div className="hz-grid hz-grid-6 hz-container-narrow hz-mw-xs hz-gap-1 hz-mb-6">
             {ALL_64.map((g, i) => (
               <div
                 key={i}
-                className={`flex items-center justify-center w-9 h-9 text-xl rounded transition-colors ${
+                className={`hz-sq-5 hz-row hz-ai-center hz-jc-center hz-t-xl hz-r-md hz-transition ${
                   activeSet.has(i)
-                    ? "text-foreground/80"
-                    : "text-foreground/15"
+                    ? "hz-fg-soft"
+                    : "hz-fg-soft"
                 }`}
               >
                 {g}
@@ -39,23 +39,23 @@ export default function PhilosophyBridge() {
             ))}
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">
+          <h2 className="hz-t-2xl hz-w-bold hz-mb-3">
             易經 · The Engineering Philosophy
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-sm mb-2">
+          <p className="hz-container-narrow hz-mw-md hz-fg hz-t-sm hz-mb-2">
             Ten principles drawn from the 64 hexagrams of the I-Ching.
             Orthogonality. Smallness. Completeness. Clarity. Composability.
           </p>
-          <p className="text-muted-foreground/60 max-w-xl mx-auto text-xs mb-8 font-mono">
+          <p className="hz-container-narrow hz-mw-md hz-fg-muted hz-t-xs hz-mb-6 hz-mono">
             Ancient pattern language for systems that last.
             The same framework behind every model, protocol, and line of code we ship.
           </p>
 
           <Link
             href="https://hanzo.ai/philosophy"
-            className="inline-flex items-center px-6 py-3 rounded-full font-medium border border-border/50 bg-transparent hover:bg-white/5 text-sm text-foreground transition-colors gap-2"
+            className="hz-btn hz-btn-ghost hz-fg hz-transition hz-gap-2"
           >
-            The Zen of Hanzo <ArrowRight className="w-4 h-4" />
+            The Zen of Hanzo <ArrowRight className="hz-sq-2" />
           </Link>
         </motion.div>
       </div>

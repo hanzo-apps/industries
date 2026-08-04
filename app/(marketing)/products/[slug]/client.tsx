@@ -17,40 +17,40 @@ export default function ProductPageClient({ slug }: { slug: string }) {
   const Icon = product.icon
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="hz-min-h-screen hz-bg hz-fg">
       {/* Hero */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-5xl mx-auto">
+      <section className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className="hz-container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
-                <Icon className="w-6 h-6 text-foreground" />
+            <div className="hz-inline hz-ai-center hz-gap-3 hz-mb-6">
+              <div className="hz-sq-7 hz-r-lg hz-bg-surface hz-row hz-ai-center hz-jc-center">
+                <Icon className="hz-sq-4 hz-fg" />
               </div>
-              <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Product</span>
+              <span className="hz-t-sm hz-w-medium hz-fg hz-upper hz-tracking-wide">Product</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+            <h1 className="hz-t-5xl hz-w-bold hz-tracking-tight hz-mb-5">
               {product.title}
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mb-10">
+            <p className="hz-t-xl hz-fg hz-mw-lg hz-mb-6">
               {product.description}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="hz-row hz-wrap hz-gap-4">
               {product.documentation && (
                 <a href={product.documentation} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
+                  <Button size="lg" className="hz-r-full hz-px-6 hz-bg-inverse hz-gap-2 hz-hoverable">
                     Documentation
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="hz-sq-2" />
                   </Button>
                 </a>
               )}
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="rounded-full px-8 border-border text-foreground hover:bg-accent">
+                <Button size="lg" variant="outline" className="hz-r-full hz-px-6 hz-fg hz-hoverable">
                   Contact Sales
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="hz-sq-2 hz-ml-2" />
                 </Button>
               </Link>
             </div>
@@ -59,16 +59,16 @@ export default function ProductPageClient({ slug }: { slug: string }) {
       </section>
 
       {/* Features */}
-      <section className="py-20 px-4 border-t border-border">
-        <div className="max-w-5xl mx-auto">
+      <section className="hz-py-7 hz-px-4 hz-border-t">
+        <div className="hz-container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold mb-12">Key Features</h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-7">Key Features</h2>
+            <div className="hz-grid hz-grid-2 hz-gap-5">
               {product.features.map((feature, index) => (
                 <motion.div
                   key={feature}
@@ -76,10 +76,10 @@ export default function ProductPageClient({ slug }: { slug: string }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="flex items-start gap-4 p-6 rounded-xl border border-border bg-foreground/[0.02]"
+                  className="hz-card hz-row hz-ai-start hz-gap-4"
                 >
-                  <Check className="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground/80">{feature}</span>
+                  <Check className="hz-sq-3 hz-fg hz-mt-1 hz-none" />
+                  <span className="hz-fg-soft">{feature}</span>
                 </motion.div>
               ))}
             </div>
@@ -88,21 +88,21 @@ export default function ProductPageClient({ slug }: { slug: string }) {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-4 border-t border-border">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Get Started with {product.title}</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+      <section className="hz-py-7 hz-px-4 hz-border-t">
+        <div className="hz-container-narrow hz-align-center">
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-4">Get Started with {product.title}</h2>
+          <p className="hz-t-lg hz-fg hz-mb-6">
             Ready to integrate {product.title} into your workflow? Get in touch with our team.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="hz-row hz-wrap hz-gap-4 hz-jc-center">
             <Link href="/contact">
-              <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button size="lg" className="hz-r-full hz-px-6 hz-bg-inverse hz-hoverable">
                 Contact Us
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="hz-sq-2 hz-ml-2" />
               </Button>
             </Link>
             <Link href="/research">
-              <Button size="lg" variant="outline" className="rounded-full px-8 border-border text-foreground hover:bg-accent">
+              <Button size="lg" variant="outline" className="hz-r-full hz-px-6 hz-fg hz-hoverable">
                 View Research
               </Button>
             </Link>

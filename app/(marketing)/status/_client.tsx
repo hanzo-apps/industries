@@ -16,8 +16,7 @@ import {
   ExternalLink,
   RefreshCw,
 } from "lucide-react";
-import { Button } from "@hanzo/ui";
-import { cn } from "@/lib/utils";
+import { Button, cn } from '@hanzo/ui'
 
 interface ServiceStatus {
   name: string;
@@ -136,41 +135,21 @@ const historicalIncidents = [
   },
 ];
 
-const statusColors = {
-  operational: {
-    bg: "bg-foreground/20",
-    text: "text-muted-foreground",
-    border: "border-border",
-    bgLight: "bg-foreground/10",
-  },
-  degraded: {
-    bg: "bg-foreground/40",
-    text: "text-muted-foreground",
-    border: "border-border",
-    bgLight: "bg-foreground/10",
-  },
-  outage: {
-    bg: "bg-foreground/20",
-    text: "text-muted-foreground",
-    border: "border-border",
-    bgLight: "bg-foreground/10",
-  },
-  maintenance: {
-    bg: "bg-foreground/20",
-    text: "text-muted-foreground",
-    border: "border-border",
-    bgLight: "bg-foreground/10",
-  },
-  resolved: {
-    bg: "bg-foreground/50",
-    text: "text-muted-foreground",
-    border: "border-border",
-    bgLight: "bg-foreground/50/10",
-  },
+/* Monochrome by brand policy, so a state is a FILL, not a hue: solid reads
+   healthy, dimmed reads degraded, hollow reads down. The five states used to
+   carry five copies of one identical class set, which rendered every service
+   the same and hid the one thing this page exists to say. */
+const stateDot: Record<ServiceStatus["status"], string> = {
+  operational: "hz-bg-inverse",
+  degraded: "hz-bg-inverse hz-dim",
+  outage: "hz-bordered hz-border-strong",
+  maintenance: "hz-bg-inverse hz-dim-more",
 };
 
 export default function PageClient() {
-  const [lastUpdated, setLastUpdated] = useState(new Date());
+  // Null until mounted: this page is statically exported, so a clock rendered
+  // during the build can never match the browser's (React hydration #418).
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const allOperational = services.every((s) => s.status === "operational");
@@ -185,6 +164,7 @@ export default function PageClient() {
 
   // Auto-refresh every 60 seconds
   useEffect(() => {
+    setLastUpdated(new Date());
     const interval = setInterval(() => {
       setLastUpdated(new Date());
     }, 60000);
@@ -200,54 +180,54 @@ export default function PageClient() {
   };
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-24">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <main className="hz-pt-6">
         {/* Status Banner */}
-        <section className="py-16 px-4">
-          <div className="max-w-5xl mx-auto">
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container-wide">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className={cn(
-                "rounded-2xl p-8 mb-8",
+                "hz-r-xl hz-p-6 hz-mb-6",
                 allOperational
-                  ? "bg-foreground/10 border border-border"
-                  : "bg-foreground/10 border border-border"
+                  ? "hz-bg-surface hz-bordered"
+                  : "hz-bg-surface hz-bordered"
               )}
             >
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-4">
+              <div className="hz-row hz-ai-center hz-jc-between hz-wrap hz-gap-4">
+                <div className="hz-row hz-ai-center hz-gap-4">
                   {allOperational ? (
-                    <CheckCircle className="w-12 h-12 text-muted-foreground" />
+                    <CheckCircle className="hz-sq-7 hz-fg" />
                   ) : (
-                    <AlertCircle className="w-12 h-12 text-muted-foreground" />
+                    <AlertCircle className="hz-sq-7 hz-fg" />
                   )}
                   <div>
-                    <h1 className="text-3xl md:text-4xl font-bold">
+                    <h1 className="hz-t-3xl hz-w-bold">
                       {allOperational ? "All Systems Operational" : "Partial System Outage"}
                     </h1>
-                    <p className={cn("mt-1", "text-muted-foreground")}>
+                    <p className={cn("hz-mt-1", "hz-fg")}>
                       {allOperational
                         ? "All Hanzo services are running smoothly."
                         : "Some services are experiencing issues."}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="hz-row hz-ai-center hz-gap-4">
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={handleRefresh}
                     disabled={isRefreshing}
-                    className={cn("text-muted-foreground hover:text-foreground")}
+                    className={cn("hz-fg hz-hoverable")}
                   >
-                    <RefreshCw className={cn("w-4 h-4 mr-2", isRefreshing ? "animate-spin" : "")} />
+                    <RefreshCw className={cn("hz-sq-2 hz-mr-2", isRefreshing ? "" : "")} />
                     Refresh
                   </Button>
-                  <div className={cn("flex items-center gap-2 text-sm", "text-muted-foreground")}>
-                    <Clock className="w-4 h-4" />
-                    <span>Updated {formatTime(lastUpdated)}</span>
+                  <div className={cn("hz-row hz-ai-center hz-gap-2 hz-t-sm", "hz-fg")}>
+                    <Clock className="hz-sq-2" />
+                    <span>{lastUpdated ? `Updated ${formatTime(lastUpdated)}` : "Updating…"}</span>
                   </div>
                 </div>
               </div>
@@ -258,17 +238,16 @@ export default function PageClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-12"
+              className="hz-mb-7"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <Activity className="w-5 h-5" />
-                <h2 className="text-xl font-semibold">Services</h2>
+              <div className="hz-row hz-ai-center hz-gap-3 hz-mb-5">
+                <Activity className="hz-sq-3" />
+                <h2 className="hz-t-xl hz-w-semibold">Services</h2>
               </div>
 
-              <div className="grid gap-3">
+              <div className="hz-grid hz-gap-3">
                 {services.map((service, index) => {
                   const Icon = service.icon;
-                  const colors = statusColors[service.status];
 
                   return (
                     <motion.div
@@ -277,35 +256,35 @@ export default function PageClient() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       className={cn(
-                        "border rounded-lg p-4 transition-colors",
-                        "bg-foreground/5 border-border hover:border-border"
+                        "hz-bordered hz-r-lg hz-p-4 hz-transition",
+                        "hz-bg-surface hz-hoverable"
                       )}
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center", "bg-foreground/10")}>
-                            <Icon className={cn("w-5 h-5", "text-muted-foreground")} />
+                      <div className="hz-row hz-ai-center hz-jc-between">
+                        <div className="hz-row hz-ai-center hz-gap-3">
+                          <div className={cn("hz-sq-6 hz-r-lg hz-row hz-ai-center hz-jc-center", "hz-bg-surface")}>
+                            <Icon className={cn("hz-sq-3", "hz-fg")} />
                           </div>
                           <div>
-                            <div className="flex items-center gap-2">
-                              <h3 className="font-medium">{service.name}</h3>
+                            <div className="hz-row hz-ai-center hz-gap-2">
+                              <h3 className="hz-w-medium">{service.name}</h3>
                               {service.url && (
                                 <a
                                   href={service.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className={cn("text-muted-foreground hover:text-muted-foreground")}
+                                  className={cn("hz-fg hz-hoverable")}
                                 >
-                                  <ExternalLink className="w-3 h-3" />
+                                  <ExternalLink className="hz-sq-1" />
                                 </a>
                               )}
                             </div>
-                            <p className={cn("text-sm", "text-muted-foreground")}>{service.description}</p>
+                            <p className={cn("hz-t-sm", "hz-fg")}>{service.description}</p>
                           </div>
                         </div>
-                        <div className={cn("flex items-center gap-2 px-3 py-1 rounded-full", colors.bgLight)}>
-                          <div className={cn("w-2 h-2 rounded-full", colors.bg)} />
-                          <span className={cn("text-xs font-medium capitalize", colors.text)}>
+                        <div className="hz-row hz-ai-center hz-gap-2 hz-px-3 hz-py-1 hz-r-full hz-bg-surface">
+                          <div className={cn("hz-sq-1 hz-r-full", stateDot[service.status])} />
+                          <span className="hz-t-xs hz-w-medium hz-fg-muted">
                             {service.status}
                           </span>
                         </div>
@@ -321,17 +300,17 @@ export default function PageClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-12"
+              className="hz-mb-7"
             >
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold">90-Day Uptime</h2>
-                <span className="text-muted-foreground font-medium">99.99%</span>
+              <div className="hz-row hz-ai-center hz-jc-between hz-mb-4">
+                <h2 className="hz-t-xl hz-w-semibold">90-Day Uptime</h2>
+                <span className="hz-fg hz-w-medium">99.99%</span>
               </div>
               <div className={cn(
-                "border rounded-lg p-4",
-                "bg-foreground/5 border-border"
+                "hz-bordered hz-r-lg hz-p-4",
+                "hz-bg-surface"
               )}>
-                <div className="flex gap-0.5">
+                <div className="hz-row hz-gap-1">
                   {Array.from({ length: 90 }).map((_, i) => {
                     // Real uptime data - mark actual maintenance windows
                     const isMaintenance = i === 25 || i === 45 || i === 70 || i === 85;
@@ -339,22 +318,22 @@ export default function PageClient() {
                       <div
                         key={i}
                         className={cn(
-                          "flex-1 h-8 rounded-sm transition-colors hover:opacity-80",
-                          isMaintenance ? "bg-foreground/20" : "bg-foreground/20"
+                          "hz-grow hz-bh-5 hz-r-sm hz-transition",
+                          isMaintenance ? "hz-bg-surface" : "hz-bg-surface"
                         )}
                         title={`Day ${90 - i}: ${isMaintenance ? "Scheduled Maintenance" : "Operational"}`}
                       />
                     );
                   })}
                 </div>
-                <div className={cn("flex justify-between mt-3 text-xs", "text-muted-foreground")}>
+                <div className={cn("hz-row hz-jc-between hz-mt-3 hz-t-xs", "hz-fg")}>
                   <span>90 days ago</span>
-                  <div className="flex items-center gap-4">
-                    <span className="flex items-center gap-1">
-                      <div className="w-2 h-2 rounded-sm bg-foreground/20" /> Operational
+                  <div className="hz-row hz-ai-center hz-gap-4">
+                    <span className="hz-row hz-ai-center hz-gap-1">
+                      <div className="hz-sq-1 hz-r-sm hz-bg-surface" /> Operational
                     </span>
-                    <span className="flex items-center gap-1">
-                      <div className="w-2 h-2 rounded-sm bg-foreground/20" /> Maintenance
+                    <span className="hz-row hz-ai-center hz-gap-1">
+                      <div className="hz-sq-1 hz-r-sm hz-bg-surface" /> Maintenance
                     </span>
                   </div>
                   <span>Today</span>
@@ -368,8 +347,8 @@ export default function PageClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
-              <div className="space-y-3">
+              <h2 className="hz-t-xl hz-w-semibold hz-mb-4">Recent Activity</h2>
+              <div className="hz-stack-3">
                 {historicalIncidents.map((incident, index) => (
                   <motion.div
                     key={incident.title}
@@ -377,27 +356,27 @@ export default function PageClient() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
                     className={cn(
-                      "border rounded-lg p-4",
-                      "bg-foreground/5 border-border"
+                      "hz-bordered hz-r-lg hz-p-4",
+                      "hz-bg-surface"
                     )}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-medium">{incident.title}</h3>
-                          <span className={cn("px-2 py-0.5 text-xs rounded-full",
+                    <div className="hz-row hz-ai-start hz-jc-between hz-gap-4">
+                      <div className="hz-grow">
+                        <div className="hz-row hz-ai-center hz-gap-2 hz-mb-1">
+                          <h3 className="hz-w-medium">{incident.title}</h3>
+                          <span className={cn("hz-px-2 hz-py-1 hz-t-xs hz-r-full",
                             incident.type === "maintenance"
-                              ? "bg-foreground/10 text-muted-foreground"
-                              : "bg-foreground/10 text-muted-foreground"
+                              ? "hz-bg-surface hz-fg"
+                              : "hz-bg-surface hz-fg"
                           )}>
                             {incident.status}
                           </span>
                         </div>
-                        <p className={cn("text-sm", "text-muted-foreground")}>{incident.description}</p>
+                        <p className={cn("hz-t-sm", "hz-fg")}>{incident.description}</p>
                       </div>
-                      <div className="text-right text-sm">
-                        <div className={cn("text-muted-foreground")}>{incident.date}</div>
-                        <div className={cn("text-muted-foreground")}>{incident.duration}</div>
+                      <div className="hz-align-right hz-t-sm">
+                        <div className={cn("hz-fg")}>{incident.date}</div>
+                        <div className={cn("hz-fg")}>{incident.duration}</div>
                       </div>
                     </div>
                   </motion.div>
@@ -410,22 +389,22 @@ export default function PageClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className={cn("mt-12 text-center py-12 border-t", "border-border")}
+              className={cn("hz-mt-7 hz-align-center hz-py-7 hz-border-t", "")}
             >
-              <h2 className="text-2xl font-bold mb-3">
+              <h2 className="hz-t-2xl hz-w-bold hz-mb-3">
                 Get Status Updates
               </h2>
-              <p className={cn("mb-6 max-w-md mx-auto", "text-muted-foreground")}>
+              <p className={cn("hz-container-narrow hz-mw-sm hz-mb-5", "hz-fg")}>
                 Subscribe to receive notifications about system status and scheduled maintenance.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <div className="hz-col-row hz-gap-3 hz-jc-center">
                 <a href="https://x.com/hanzoai" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className={cn("border-border hover:bg-accent")}>
+                  <Button variant="outline" className={cn("hz-hoverable")}>
                     Follow @hanzoai
                   </Button>
                 </a>
                 <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className={cn("border-border hover:bg-accent")}>
+                  <Button variant="outline" className={cn("hz-hoverable")}>
                     Join Discord
                   </Button>
                 </a>

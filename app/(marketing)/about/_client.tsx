@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HanzoLogo } from "@hanzo/logo/react";
-import { cn } from "@/lib/utils";
+import { cn } from '@hanzo/ui'
 
 // The full stack — organized by layer
 const stackLayers = [
@@ -82,23 +82,21 @@ const capabilities = [
 
 export default function PageClient() {
   return (
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+      <main className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className="hz-container-wide">
           {/* Logo + Headline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-20"
+            className="hz-mb-7"
           >
-            <HanzoLogo
-              variant="white"
-              className="w-16 h-16 mb-8"
-            />
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            {/* size is a prop, not a class — HanzoLogo writes width/height inline. */}
+            <HanzoLogo variant="mono" size={64} className="hz-mb-6" />
+            <h1 className="hz-t-5xl hz-w-bold hz-mb-5">
               Full-Stack Private AI
             </h1>
-            <p className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
+            <p className={cn("hz-t-xl hz-mw-lg", "hz-fg")}>
               Hanzo is a Techstars-backed AI company building a vertically integrated
               stack — from frontier models to confidential compute to developer tools.
               We make powerful AI private by default, enabling sensitive workloads in
@@ -113,14 +111,14 @@ export default function PageClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
-              "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20 py-8 border-y",
-              "border-border"
+              "hz-grid hz-grid-6 hz-gap-5 hz-mb-7 hz-py-6 hz-bordered",
+              ""
             )}
           >
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl font-bold mb-1">{stat.value}</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>{stat.label}</div>
+              <div key={stat.label} className="hz-align-center">
+                <div className="hz-t-2xl hz-w-bold hz-mb-1">{stat.value}</div>
+                <div className={cn("hz-t-sm", "hz-fg")}>{stat.label}</div>
               </div>
             ))}
           </motion.div>
@@ -130,20 +128,20 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mb-20"
+            className="hz-mb-7"
           >
-            <h2 className="text-3xl font-bold mb-8">Why Hanzo</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-6">Why Hanzo</h2>
+            <div className="hz-grid hz-grid-2 hz-gap-5">
               {capabilities.map((cap) => (
                 <div
                   key={cap.title}
                   className={cn(
-                    "p-6 rounded-lg border",
-                    "border-border"
+                    "hz-p-5 hz-r-lg hz-bordered",
+                    ""
                   )}
                 >
-                  <h3 className="text-lg font-semibold mb-2">{cap.title}</h3>
-                  <p className={cn("text-sm", "text-muted-foreground")}>
+                  <h3 className="hz-t-lg hz-w-semibold hz-mb-2">{cap.title}</h3>
+                  <p className={cn("hz-t-sm", "hz-fg")}>
                     {cap.description}
                   </p>
                 </div>
@@ -156,41 +154,41 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-20"
+            className="hz-mb-7"
           >
-            <h2 className="text-3xl font-bold mb-2">The Stack</h2>
-            <p className={cn("text-lg mb-10", "text-muted-foreground")}>
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-2">The Stack</h2>
+            <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
               Vertically integrated from models to cloud — every layer built to work together.
             </p>
 
             {stackLayers.map((layer, layerIndex) => (
-              <div key={layer.label} className="mb-10 last:mb-0">
-                <div className="flex items-center gap-3 mb-4">
+              <div key={layer.label} className="hz-mb-6">
+                <div className="hz-row hz-ai-center hz-gap-3 hz-mb-4">
                   <span className={cn(
-                    "text-xs font-mono font-medium px-2 py-1 rounded",
-                    "bg-foreground/10 text-muted-foreground"
+                    "hz-t-xs hz-mono hz-w-medium hz-px-2 hz-py-1 hz-r-md",
+                    "hz-bg-surface hz-fg"
                   )}>
                     {String(layerIndex + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="text-xl font-semibold">{layer.label}</h3>
+                  <h3 className="hz-t-xl hz-w-semibold">{layer.label}</h3>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ml-10">
+                <div className="hz-grid hz-grid-2 hz-gap-3 hz-ml-4">
                   {layer.items.map((item) => (
                     <Link
                       key={item.name}
                       href={item.link}
                       className={cn(
-                        "flex items-center justify-between px-5 py-3 rounded-lg border transition-colors group",
-                        "border-border hover:bg-accent"
+                        "hz-btn hz-btn-ghost hz-jc-between hz-transition",
+                        "hz-hoverable"
                       )}
                     >
                       <div>
-                        <div className="font-semibold text-sm group-hover:underline">{item.name}</div>
-                        <div className={cn("text-xs", "text-muted-foreground")}>
+                        <div className="hz-w-semibold hz-t-sm">{item.name}</div>
+                        <div className={cn("hz-t-xs", "hz-fg")}>
                           {item.description}
                         </div>
                       </div>
-                      <span className={cn("text-sm", "text-foreground/20")}>→</span>
+                      <span className={cn("hz-t-sm", "hz-fg-soft")}>→</span>
                     </Link>
                   ))}
                 </div>
@@ -203,10 +201,10 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="mb-20"
+            className="hz-mb-7"
           >
-            <h2 className="text-3xl font-bold mb-8">Platforms</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-6">Platforms</h2>
+            <div className="hz-grid hz-grid-3 hz-gap-4">
               {[
                 { name: "hanzo.ai", description: "AI platform", href: "https://hanzo.ai" },
                 { name: "hanzo.industries", description: "Enterprise & defense", href: "https://hanzo.industries" },
@@ -221,12 +219,12 @@ export default function PageClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    "px-5 py-4 rounded-lg border transition-colors group",
-                    "border-border hover:bg-accent"
+                    "hz-px-4 hz-py-4 hz-r-lg hz-bordered hz-transition",
+                    "hz-hoverable"
                   )}
                 >
-                  <div className="font-medium font-mono text-sm group-hover:underline">{platform.name}</div>
-                  <div className={cn("text-sm", "text-muted-foreground")}>
+                  <div className="hz-w-medium hz-mono hz-t-sm">{platform.name}</div>
+                  <div className={cn("hz-t-sm", "hz-fg")}>
                     {platform.description}
                   </div>
                 </a>
@@ -239,10 +237,10 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="mb-20"
+            className="hz-mb-7"
           >
-            <h2 className="text-3xl font-bold mb-8">Open Source</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-6">Open Source</h2>
+            <div className="hz-grid hz-grid-2 hz-gap-5">
               {[
                 {
                   name: "Hanzo AI",
@@ -263,15 +261,15 @@ export default function PageClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    "p-6 rounded-lg border transition-colors group",
-                    "border-border hover:border-border"
+                    "hz-p-5 hz-r-lg hz-bordered hz-transition",
+                    "hz-hoverable"
                   )}
                 >
-                  <h3 className="text-xl font-semibold mb-1 group-hover:underline">{org.name}</h3>
-                  <p className={cn("text-sm font-medium mb-2", "text-muted-foreground")}>
+                  <h3 className="hz-t-xl hz-w-semibold hz-mb-1">{org.name}</h3>
+                  <p className={cn("hz-t-sm hz-w-medium hz-mb-2", "hz-fg")}>
                     {org.role}
                   </p>
-                  <p className={cn("text-sm", "text-muted-foreground")}>
+                  <p className={cn("hz-t-sm", "hz-fg")}>
                     {org.detail}
                   </p>
                 </a>
@@ -285,25 +283,25 @@ export default function PageClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.35 }}
             className={cn(
-              "mb-20 p-8 md:p-10 rounded-lg border",
-              "border-border bg-foreground/[0.03]"
+              "hz-mb-7 hz-p-6 hz-r-lg hz-bordered",
+              "hz-bg-surface"
             )}
           >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2">OSS Revenue Sharing</h3>
-                <p className={cn("text-sm leading-relaxed", "text-muted-foreground")}>
+            <div className="hz-col-row hz-gap-5">
+              <div className="hz-grow">
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-2">OSS Revenue Sharing</h3>
+                <p className={cn("hz-t-sm hz-leading-relaxed", "hz-fg")}>
                   We dedicate 25% of all compute costs to open source contributors
                   — distributed transparently based on verified SBOMs. Connect your
                   GitHub and wallet to earn.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <div className="hz-col-row hz-gap-3 hz-none">
                 <Link
                   href="/open-source"
                   className={cn(
-                    "px-5 py-2.5 rounded-lg border text-sm font-medium text-center transition-colors",
-                    "border-border hover:bg-accent"
+                    "hz-px-4 hz-py-2 hz-r-lg hz-bordered hz-t-sm hz-w-medium hz-align-center hz-transition",
+                    "hz-hoverable"
                   )}
                 >
                   Learn More
@@ -313,8 +311,8 @@ export default function PageClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    "px-5 py-2.5 rounded-lg text-sm font-medium text-center transition-colors",
-                    "bg-foreground text-background hover:bg-foreground/90"
+                    "hz-px-4 hz-py-2 hz-r-lg hz-t-sm hz-w-medium hz-align-center hz-transition",
+                    "hz-bg-inverse hz-fg-inverse hz-hoverable"
                   )}
                 >
                   Connect & Earn
@@ -329,12 +327,12 @@ export default function PageClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className={cn(
-              "p-8 md:p-12 rounded-lg border",
-              "border-border bg-foreground/[0.02]"
+              "hz-p-6 hz-r-lg hz-bordered",
+              "hz-bg-surface"
             )}
           >
-            <h2 className="text-3xl font-bold mb-4">Mission</h2>
-            <p className={cn("text-lg", "text-muted-foreground")}>
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-4">Mission</h2>
+            <p className={cn("hz-t-lg", "hz-fg")}>
               Make powerful AI private by default. We build full-stack AI infrastructure
               that converts compute into operational advantage — enabling sensitive workloads
               in healthcare, finance, defense, and government without requiring organizations

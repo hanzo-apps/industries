@@ -3,21 +3,20 @@
 import { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, MessageSquare, Rocket } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from '@hanzo/ui'
 
 interface TeamMemberCardProps {
   name: string;
   role: string;
   description: string;
   icon: LucideIcon;
-  gradient: string;
   image?: string;
   link?: string;
   emoji?: string;
   botId?: string;
 }
 
-export default function TeamMemberCard({ name, role, description, icon: Icon, gradient, image, link, emoji, botId }: TeamMemberCardProps) {
+export default function TeamMemberCard({ name, role, description, icon: Icon, image, link, emoji, botId }: TeamMemberCardProps) {
   const isHuman = !!image;
 
   // Generate social links from name for human members
@@ -27,125 +26,125 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
     <motion.div
       whileHover={{ y: -5 }}
       className={cn(
-        "relative group rounded-2xl border p-8 backdrop-blur-sm overflow-hidden",
-        "border-border bg-foreground/5"
+        "hz-rel hz-r-xl hz-bordered hz-p-6 hz-glass hz-clip",
+        "hz-bg-surface"
       )}
     >
-      <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 ease-in-out -z-10" />
-      <div className="block mb-4 relative z-10">
+      <div className="hz-abs hz-inset hz-invisible hz-transition hz-z-behind" />
+      <div className="hz-mb-4 hz-rel hz-z-raised">
         {image ? (
           <div className={cn(
-            "w-16 h-16 rounded-full overflow-hidden ring-2 mb-4",
-            "ring-ring bg-card"
+            "hz-sq-8 hz-r-full hz-clip hz-ring hz-mb-4",
+            "hz-bg-surface"
           )}>
             <img
               src={image}
               alt={name}
-              className="w-full h-full object-cover grayscale"
+              className="hz-w-full hz-h-full hz-object-cover"
             />
           </div>
         ) : emoji ? (
-          <div className="mb-4 text-5xl leading-none">
+          <div className="hz-mb-4 hz-t-5xl hz-leading-none">
             {emoji}
           </div>
         ) : (
-          <div className={cn("inline-flex p-3 rounded-xl bg-gradient-to-br mb-4", gradient)}>
-            <Icon className="h-6 w-6 text-foreground" />
+          <div className="hz-inline hz-p-3 hz-r-lg hz-mb-4 hz-bg-surface">
+            <Icon className="hz-sq-4 hz-fg" />
           </div>
         )}
         <h3 className={cn(
-          "text-xl font-semibold mb-2 transition-colors",
-          "text-foreground"
+          "hz-t-xl hz-w-semibold hz-mb-2 hz-transition",
+          "hz-fg"
         )}>
           {name}
         </h3>
         <p className={cn(
-          "font-medium mb-3 text-sm",
-          "text-muted-foreground"
+          "hz-w-medium hz-mb-3 hz-t-sm",
+          "hz-fg"
         )}>
           {role}
         </p>
         <p className={cn(
-          "mb-4 text-sm",
-          "text-muted-foreground"
+          "hz-mb-4 hz-t-sm",
+          "hz-fg"
         )}>
           {description}
         </p>
       </div>
 
       {isHuman ? (
-        <div className="flex items-center gap-3 relative z-10">
+        <div className="hz-row hz-ai-center hz-gap-3 hz-rel hz-z-raised">
           <a
             href={`https://linkedin.com/in/${slug}`}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "p-2 rounded-lg border transition-colors",
-              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
+              "hz-p-2 hz-r-lg hz-bordered hz-transition",
+              "hz-fg hz-hoverable"
             )}
           >
-            <Linkedin className="h-4 w-4" />
+            <Linkedin className="hz-sq-2" />
           </a>
           <a
             href={`https://x.com/${slug}`}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "p-2 rounded-lg border transition-colors",
-              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
+              "hz-p-2 hz-r-lg hz-bordered hz-transition",
+              "hz-fg hz-hoverable"
             )}
           >
-            <Twitter className="h-4 w-4" />
+            <Twitter className="hz-sq-2" />
           </a>
           <a
             href="https://github.com/hanzoai"
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "p-2 rounded-lg border transition-colors",
-              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
+              "hz-p-2 hz-r-lg hz-bordered hz-transition",
+              "hz-fg hz-hoverable"
             )}
           >
-            <Github className="h-4 w-4" />
+            <Github className="hz-sq-2" />
           </a>
         </div>
       ) : (
-        <div className="flex items-center gap-3 relative z-10">
+        <div className="hz-row hz-ai-center hz-gap-3 hz-rel hz-z-raised">
           <a
             href={botId ? `https://app.hanzo.bot/${botId}` : "https://app.hanzo.bot"}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "p-2 rounded-lg border transition-colors",
-              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
+              "hz-p-2 hz-r-lg hz-bordered hz-transition",
+              "hz-fg hz-hoverable"
             )}
             title="Launch"
           >
-            <Rocket className="h-4 w-4" />
+            <Rocket className="hz-sq-2" />
           </a>
           <a
             href="https://hanzo.chat"
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "p-2 rounded-lg border transition-colors",
-              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
+              "hz-p-2 hz-r-lg hz-bordered hz-transition",
+              "hz-fg hz-hoverable"
             )}
             title="Chat"
           >
-            <MessageSquare className="h-4 w-4" />
+            <MessageSquare className="hz-sq-2" />
           </a>
           <a
             href="https://github.com/hanzoai/bot"
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "p-2 rounded-lg border transition-colors",
-              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
+              "hz-p-2 hz-r-lg hz-bordered hz-transition",
+              "hz-fg hz-hoverable"
             )}
             title="GitHub"
           >
-            <Github className="h-4 w-4" />
+            <Github className="hz-sq-2" />
           </a>
         </div>
       )}

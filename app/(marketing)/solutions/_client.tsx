@@ -5,8 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { getIcon } from "@/lib/constants/iconMappings";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function PageClient() {
   const [expandedSections, setExpandedSections] = useState<Record<string, number>>({});
 
@@ -18,32 +17,32 @@ export default function PageClient() {
   };
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
       {/* Hero Section with Gradient Background */}
-      <section className="relative py-24 px-4 overflow-hidden">
+      <section className="hz-rel hz-py-7 hz-px-4 hz-clip">
         {/* Subtle gradient background */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="hz-abs hz-inset hz-no-pointer"
           style={{
             background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255,255,255,0.05), transparent)'
           }}
         />
 
-        <div className="relative max-w-7xl mx-auto">
+        <div className="hz-container hz-rel">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
+            className="hz-container-narrow hz-align-center"
           >
             <h1 className={cn(
-              "text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent",
-              "bg-gradient-to-b from-white to-white/70"
+              "hz-t-4xl hz-w-bold hz-mb-5 hz-chrome",
+              ""
             )}>
               Solutions for Every Industry
             </h1>
-            <p className={cn("text-lg md:text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
+            <p className={cn("hz-container-narrow hz-mw-md hz-t-lg", "hz-fg")}>
               Explore our comprehensive suite of solutions designed to transform businesses
               across industries and capabilities.
             </p>
@@ -51,8 +50,8 @@ export default function PageClient() {
         </div>
       </section>
 
-      <main className="pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <main className="hz-pb-6 hz-px-4">
+        <div className="hz-container">
 
           {solutions.map((section) => {
             const displayCount = expandedSections[section.title] || 6;
@@ -60,9 +59,9 @@ export default function PageClient() {
             const displayItems = section.items.slice(0, displayCount);
 
             return (
-              <div key={section.title} className="mb-20">
-                <h2 className="text-3xl font-bold mb-8 text-center">{section.title}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div key={section.title} className="hz-mb-7">
+                <h2 className="hz-t-3xl hz-w-bold hz-mb-6 hz-align-center">{section.title}</h2>
+                <div className="hz-grid hz-grid-3 hz-gap-5">
                   <AnimatePresence initial={false}>
                     {displayItems.map((item, index) => {
                       const Icon = getIcon(item);
@@ -75,20 +74,20 @@ export default function PageClient() {
                           transition={{ duration: 0.2, delay: index * 0.1 }}
                           whileHover={{ y: -5 }}
                           className={cn(
-                            "relative group rounded-xl border p-6 backdrop-blur-sm overflow-hidden",
-                            "border-border bg-background/50"
+                            "hz-rel hz-r-lg hz-bordered hz-p-5 hz-glass hz-clip",
+                            "hz-bg-surface"
                           )}
                         >
-                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          <div className="relative">
-                            <div className="flex items-center justify-between mb-4">
-                              <Icon className="h-6 w-6 text-muted-foreground" strokeWidth={1.5} />
-                              <ChevronRight className={cn("h-5 w-5 group-hover:text-muted-foreground transition-colors", "text-muted-foreground")} />
+                          <div className="hz-abs hz-inset hz-invisible hz-transition" />
+                          <div className="hz-rel">
+                            <div className="hz-row hz-ai-center hz-jc-between hz-mb-4">
+                              <Icon className="hz-sq-4 hz-fg" strokeWidth={1.5} />
+                              <ChevronRight className={cn("hz-sq-3 hz-transition hz-hoverable", "hz-fg")} />
                             </div>
-                            <h3 className="text-xl font-semibold mb-2 group-hover:text-muted-foreground transition-colors">
+                            <h3 className="hz-t-xl hz-w-semibold hz-mb-2 hz-transition hz-hoverable">
                               {item}
                             </h3>
-                            <p className={cn("text-sm", "text-muted-foreground")}>
+                            <p className={cn("hz-t-sm", "hz-fg")}>
                               End-to-end {item.toLowerCase()} solutions built on Hanzo AI infrastructure.
                             </p>
                           </div>
@@ -99,17 +98,17 @@ export default function PageClient() {
                 </div>
                 {hasMore && (
                   <motion.div
-                    className="text-center mt-8"
+                    className="hz-align-center hz-mt-6"
                     initial={false}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.2 }}
                   >
                     <button
                       onClick={() => toggleSection(section.title)}
-                      className="inline-flex items-center px-6 py-3 rounded-lg border border-border text-muted-foreground hover:bg-accent transition-colors"
+                      className="hz-btn hz-btn-ghost hz-fg hz-transition"
                     >
                       View More {section.title}
-                      <ChevronRight className="ml-2 h-5 w-5" />
+                      <ChevronRight className="hz-sq-3 hz-ml-2" />
                     </button>
                   </motion.div>
                 )}
@@ -117,18 +116,18 @@ export default function PageClient() {
             );
           })}
 
-          <div className="mt-20 text-center">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
-              <p className={cn("mb-8", "text-muted-foreground")}>
+          <div className="hz-mt-7 hz-align-center">
+            <div className="hz-container-narrow">
+              <h2 className="hz-t-3xl hz-w-bold hz-mb-5">Ready to Transform Your Business?</h2>
+              <p className={cn("hz-mb-6", "hz-fg")}>
                 Connect with our team to learn how our solutions can help you achieve your goals.
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center px-6 py-3 rounded-lg bg-foreground/10 hover:bg-accent text-foreground font-medium transition-colors"
+                className="hz-btn hz-btn-primary hz-fg hz-transition"
               >
                 Get Started
-                <ChevronRight className="ml-2 h-5 w-5" />
+                <ChevronRight className="hz-sq-3 hz-ml-2" />
               </a>
             </div>
           </div>

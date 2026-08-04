@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import { ThemeProvider } from '@/components/ThemeProvider'
-import { Analytics } from '@/components/Analytics'
 import site from '@/site.config'
+import { Providers } from './providers'
 import './globals.css'
 
-const geist = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const mono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
+// Geist Sans and Geist Mono arrive self-hosted with @hanzo/design (globals.css),
+// so there is no build-time fetch from fonts.googleapis.com and no second place
+// the site's typeface is named.
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.brand.url),
@@ -40,16 +39,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${geist.variable} ${mono.variable}`} suppressHydrationWarning>
-      <body className="antialiased bg-background text-foreground">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Analytics>{children}</Analytics>
-        </ThemeProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

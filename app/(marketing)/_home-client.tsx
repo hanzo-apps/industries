@@ -8,8 +8,7 @@ import Leadership from "@/components/Leadership";
 import TrustedBySection from "@/components/TrustedBySection";
 import Contact from "@/components/Contact";
 import PhilosophyBridge from "@/components/PhilosophyBridge";
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function PageClient() {
   useEffect(() => {
     const smoothScroll = (e: MouseEvent) => {

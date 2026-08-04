@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { HanzoLogo } from '@hanzo/logo/react'
-import { cn } from '@/lib/utils'
+import { cn } from '@hanzo/ui'
 import site from '@/site.config'
 
 interface LogoProps {
@@ -11,22 +11,28 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg'
 }
 
+/**
+ * The mark's size is the component's `size` PROP, not a class: `HanzoLogo` puts
+ * `className` on a wrapper and then writes `width`/`height` inline from `size`
+ * (default 64), so an inline style always beat the class and the header mark
+ * rendered 64px square regardless of what it was asked for.
+ *
+ * `mono` rather than `white`: the mono mark inherits `currentColor`, so one call
+ * is correct on the black page and the white one. A white mark is invisible on
+ * light.
+ */
 const sizes = {
-  sm: { logo: 'h-6 w-6', text: 'text-lg' },
-  md: { logo: 'h-8 w-8', text: 'text-xl' },
-  lg: { logo: 'h-10 w-10', text: 'text-2xl' },
+  sm: { mark: 24, text: 'hz-t-lg' },
+  md: { mark: 32, text: 'hz-t-xl' },
+  lg: { mark: 40, text: 'hz-t-2xl' },
 }
 
 export default function Logo({ className = '', showText = true, size = 'md' }: LogoProps) {
   return (
-    <Link href="/" className={cn('flex items-center space-x-3 group', className)}>
-      <HanzoLogo variant="white" className={cn(sizes[size].logo, 'transition-all duration-300')} />
+    <Link href="/" className={cn('hz-row hz-ai-center hz-inline-3', className)}>
+      <HanzoLogo variant="mono" size={sizes[size].mark} className="hz-transition" />
       {showText && (
-        <span className={cn(
-          'font-semibold transition-colors duration-300',
-          sizes[size].text,
-          'text-foreground group-hover:text-foreground/90'
-        )}>
+        <span className={cn('hz-w-semibold hz-transition', sizes[size].text, 'hz-fg hz-hoverable')}>
           {site.brand.name}
         </span>
       )}

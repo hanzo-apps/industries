@@ -12,7 +12,9 @@ test('Screenshot case studies page', async ({ page }) => {
   await page.goto('/case-studies', { waitUntil: 'networkidle' });
 
   // Count how many case study cards are visible
-  const cards = await page.locator('.space-y-12 > a').count();
+  // A data hook, not a styling class: the selector must not break every
+  // time the design system renames a spacing role.
+  const cards = await page.locator('[data-case-studies] > a').count();
   console.log(`Found ${cards} case study cards`);
 
   // Scroll to bottom to trigger animations

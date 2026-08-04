@@ -2,35 +2,34 @@
 
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Microscope, Building2 } from "lucide-react";
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function Contact() {
   return (
     <section id="contact" className={cn(
-      "py-24 relative overflow-hidden transition-colors duration-300",
-      "bg-background"
+      "hz-py-7 hz-rel hz-clip hz-transition",
+      "hz-bg"
     )}>
       {/* Background decoration */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="hz-abs hz-inset hz-no-pointer">
         <div className={cn(
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-3xl",
-          "bg-foreground/[0.02]"
+          "hz-center-xy hz-abs hz-r-full hz-blur-bg",
+          "hz-bg-surface"
         )} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+      <div className="hz-container hz-rel hz-z-raised">
+        <div className="hz-align-center hz-mb-7">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-6",
-              "bg-foreground/5 border-border"
+              "hz-btn hz-btn-ghost hz-gap-2 hz-mb-5",
+              "hz-bg-surface"
             )}
           >
-            <Microscope className={cn("w-4 h-4", "text-muted-foreground")} />
-            <span className={cn("text-sm font-medium", "text-muted-foreground")}>
+            <Microscope className={cn("hz-sq-2", "hz-fg")} />
+            <span className={cn("hz-t-sm hz-w-medium", "hz-fg")}>
               Research Collaboration
             </span>
           </motion.div>
@@ -39,8 +38,8 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
             className={cn(
-              "text-4xl md:text-5xl font-bold mb-4",
-              "text-foreground"
+              "hz-t-4xl hz-w-bold hz-mb-4",
+              "hz-fg"
             )}
           >
             Let's Build Together
@@ -50,8 +49,8 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
-              "text-lg max-w-3xl mx-auto",
-              "text-muted-foreground"
+              "hz-container-narrow hz-t-lg",
+              "hz-fg"
             )}
           >
             From research collaborations to enterprise AI deployments,
@@ -59,74 +58,74 @@ export default function Contact() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="hz-grid hz-grid-2 hz-gap-6 hz-mb-7">
           {/* Research Division */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "backdrop-blur-sm p-8 rounded-2xl border transition-colors",
-              "bg-secondary/50 border-border hover:border-border"
+              "hz-glass hz-p-6 hz-r-xl hz-bordered hz-transition",
+              "hz-bg-surface hz-hoverable"
             )}
           >
-            <div className="flex items-center gap-3 mb-6">
+            <div className="hz-row hz-ai-center hz-gap-3 hz-mb-5">
               <div className={cn(
-                "p-2 rounded-lg",
-                "bg-foreground/5"
+                "hz-p-2 hz-r-lg",
+                "hz-bg-surface"
               )}>
-                <Microscope className={cn("w-5 h-5", "text-foreground")} />
+                <Microscope className={cn("hz-sq-3", "hz-fg")} />
               </div>
               <h3 className={cn(
-                "text-2xl font-semibold",
-                "text-foreground"
+                "hz-t-2xl hz-w-semibold",
+                "hz-fg"
               )}>
                 Research Division
               </h3>
             </div>
 
-            <div className="space-y-6">
-              <div className="group">
+            <div className="hz-stack-5">
+              <div className="">
                 <h4 className={cn(
-                  "font-semibold mb-1 transition-colors",
-                  "text-foreground group-hover:text-foreground/80"
+                  "hz-w-semibold hz-mb-1 hz-transition",
+                  "hz-fg hz-hoverable"
                 )}>
                   Antje Karina Worring
                 </h4>
-                <p className={cn("text-sm mb-2", "text-muted-foreground")}>
+                <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>
                   Chief Operating Officer
                 </p>
                 <a
                   href="mailto:a@hanzo.industries"
                   className={cn(
-                    "inline-flex items-center gap-2 transition-colors",
-                    "text-muted-foreground hover:text-foreground"
+                    "hz-inline hz-ai-center hz-gap-2 hz-transition",
+                    "hz-fg hz-hoverable"
                   )}
                 >
-                  <Mail className="w-4 h-4" />
-                  <span className="text-sm">a@hanzo.industries</span>
+                  <Mail className="hz-sq-2" />
+                  <span className="hz-t-sm">a@hanzo.industries</span>
                 </a>
               </div>
 
-              <div className="group">
+              <div className="">
                 <h4 className={cn(
-                  "font-semibold mb-1 transition-colors",
-                  "text-foreground group-hover:text-foreground/80"
+                  "hz-w-semibold hz-mb-1 hz-transition",
+                  "hz-fg hz-hoverable"
                 )}>
                   Research Partnerships
                 </h4>
-                <p className={cn("text-sm mb-2", "text-muted-foreground")}>
+                <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>
                   Academic & Industry Collaboration
                 </p>
                 <a
                   href="mailto:research@hanzo.industries"
                   className={cn(
-                    "inline-flex items-center gap-2 transition-colors",
-                    "text-muted-foreground hover:text-foreground"
+                    "hz-inline hz-ai-center hz-gap-2 hz-transition",
+                    "hz-fg hz-hoverable"
                   )}
                 >
-                  <Mail className="w-4 h-4" />
-                  <span className="text-sm">research@hanzo.industries</span>
+                  <Mail className="hz-sq-2" />
+                  <span className="hz-t-sm">research@hanzo.industries</span>
                 </a>
               </div>
             </div>
@@ -138,67 +137,67 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "backdrop-blur-sm p-8 rounded-2xl border transition-colors",
-              "bg-secondary/50 border-border hover:border-border"
+              "hz-glass hz-p-6 hz-r-xl hz-bordered hz-transition",
+              "hz-bg-surface hz-hoverable"
             )}
           >
-            <div className="flex items-center gap-3 mb-6">
+            <div className="hz-row hz-ai-center hz-gap-3 hz-mb-5">
               <div className={cn(
-                "p-2 rounded-lg",
-                "bg-foreground/5"
+                "hz-p-2 hz-r-lg",
+                "hz-bg-surface"
               )}>
-                <Building2 className={cn("w-5 h-5", "text-foreground")} />
+                <Building2 className={cn("hz-sq-3", "hz-fg")} />
               </div>
               <h3 className={cn(
-                "text-2xl font-semibold",
-                "text-foreground"
+                "hz-t-2xl hz-w-semibold",
+                "hz-fg"
               )}>
                 Commercial Division
               </h3>
             </div>
 
-            <div className="space-y-6">
-              <div className="group">
+            <div className="hz-stack-5">
+              <div className="">
                 <h4 className={cn(
-                  "font-semibold mb-1 transition-colors",
-                  "text-foreground group-hover:text-foreground/80"
+                  "hz-w-semibold hz-mb-1 hz-transition",
+                  "hz-fg hz-hoverable"
                 )}>
                   Zach Kelling
                 </h4>
-                <p className={cn("text-sm mb-2", "text-muted-foreground")}>
+                <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>
                   Founding CTO
                 </p>
                 <a
                   href="mailto:zach@hanzo.industries"
                   className={cn(
-                    "inline-flex items-center gap-2 transition-colors",
-                    "text-muted-foreground hover:text-foreground"
+                    "hz-inline hz-ai-center hz-gap-2 hz-transition",
+                    "hz-fg hz-hoverable"
                   )}
                 >
-                  <Mail className="w-4 h-4" />
-                  <span className="text-sm">zach@hanzo.industries</span>
+                  <Mail className="hz-sq-2" />
+                  <span className="hz-t-sm">zach@hanzo.industries</span>
                 </a>
               </div>
 
-              <div className="group">
+              <div className="">
                 <h4 className={cn(
-                  "font-semibold mb-1 transition-colors",
-                  "text-foreground group-hover:text-foreground/80"
+                  "hz-w-semibold hz-mb-1 hz-transition",
+                  "hz-fg hz-hoverable"
                 )}>
                   Dave Lorenzini
                 </h4>
-                <p className={cn("text-sm mb-2", "text-muted-foreground")}>
+                <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>
                   Chief Strategy Officer
                 </p>
                 <a
                   href="mailto:dave@hanzo.industries"
                   className={cn(
-                    "inline-flex items-center gap-2 transition-colors",
-                    "text-muted-foreground hover:text-foreground"
+                    "hz-inline hz-ai-center hz-gap-2 hz-transition",
+                    "hz-fg hz-hoverable"
                   )}
                 >
-                  <Mail className="w-4 h-4" />
-                  <span className="text-sm">dave@hanzo.industries</span>
+                  <Mail className="hz-sq-2" />
+                  <span className="hz-t-sm">dave@hanzo.industries</span>
                 </a>
               </div>
             </div>
@@ -211,56 +210,56 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className={cn(
-            "backdrop-blur-sm p-8 rounded-2xl border",
-            "bg-foreground/5 border-border"
+            "hz-glass hz-p-6 hz-r-xl hz-bordered",
+            "hz-bg-surface"
           )}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center group">
+          <div className="hz-grid hz-grid-3 hz-gap-6">
+            <div className="hz-align-center">
               <div className={cn(
-                "inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors",
-                "bg-foreground/5 group-hover:bg-accent"
+                "hz-sq-7 hz-inline hz-ai-center hz-jc-center hz-r-lg hz-mb-4 hz-transition",
+                "hz-bg-surface hz-hoverable"
               )}>
-                <MapPin className={cn("w-6 h-6", "text-foreground")} />
+                <MapPin className={cn("hz-sq-4", "hz-fg")} />
               </div>
-              <h4 className={cn("font-semibold mb-2", "text-foreground")}>
+              <h4 className={cn("hz-w-semibold hz-mb-2", "hz-fg")}>
                 Corporate Headquarters
               </h4>
-              <p className={cn("text-sm", "text-muted-foreground")}>
+              <p className={cn("hz-t-sm", "hz-fg")}>
                 1824 S. Fairfax Ave<br />
                 Los Angeles, CA 90019<br />
                 United States
               </p>
             </div>
-            <div className="text-center group">
+            <div className="hz-align-center">
               <div className={cn(
-                "inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors",
-                "bg-foreground/5 group-hover:bg-accent"
+                "hz-sq-7 hz-inline hz-ai-center hz-jc-center hz-r-lg hz-mb-4 hz-transition",
+                "hz-bg-surface hz-hoverable"
               )}>
-                <Phone className={cn("w-6 h-6", "text-foreground")} />
+                <Phone className={cn("hz-sq-4", "hz-fg")} />
               </div>
-              <h4 className={cn("font-semibold mb-2", "text-foreground")}>
+              <h4 className={cn("hz-w-semibold hz-mb-2", "hz-fg")}>
                 Secure Line
               </h4>
-              <p className={cn("text-sm", "text-muted-foreground")}>
+              <p className={cn("hz-t-sm", "hz-fg")}>
                 +1 (913) 777-4443<br />
                 Available 24/7
               </p>
             </div>
-            <div className="text-center group">
+            <div className="hz-align-center">
               <div className={cn(
-                "inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors",
-                "bg-foreground/5 group-hover:bg-accent"
+                "hz-sq-7 hz-inline hz-ai-center hz-jc-center hz-r-lg hz-mb-4 hz-transition",
+                "hz-bg-surface hz-hoverable"
               )}>
-                <Mail className={cn("w-6 h-6", "text-foreground")} />
+                <Mail className={cn("hz-sq-4", "hz-fg")} />
               </div>
-              <h4 className={cn("font-semibold mb-2", "text-foreground")}>
+              <h4 className={cn("hz-w-semibold hz-mb-2", "hz-fg")}>
                 General Inquiries
               </h4>
-              <p className={cn("text-sm", "text-muted-foreground")}>
-                <a href="mailto:info@hanzo.industries" className={cn("transition-colors", "hover:text-foreground")}>info@hanzo.industries</a><br />
-                <a href="mailto:contracts@hanzo.industries" className={cn("transition-colors", "hover:text-foreground")}>contracts@hanzo.industries</a><br />
-                <a href="mailto:security@hanzo.industries" className={cn("transition-colors", "hover:text-foreground")}>security@hanzo.industries</a>
+              <p className={cn("hz-t-sm", "hz-fg")}>
+                <a href="mailto:info@hanzo.industries" className={cn("hz-transition", "hz-hoverable")}>info@hanzo.industries</a><br />
+                <a href="mailto:contracts@hanzo.industries" className={cn("hz-transition", "hz-hoverable")}>contracts@hanzo.industries</a><br />
+                <a href="mailto:security@hanzo.industries" className={cn("hz-transition", "hz-hoverable")}>security@hanzo.industries</a>
               </p>
             </div>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from '@hanzo/ui'
 import { Code2, Terminal, FileCode, Package, Rocket, BookOpen, Cpu, Lock, Users, Zap, Globe } from "lucide-react";
 
 export default function PageClient() {
@@ -185,20 +185,20 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <main className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className="hz-container">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="hz-align-center hz-mb-7"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <h1 className="hz-t-5xl hz-w-bold hz-mb-5">
               Code Examples
             </h1>
-            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
+            <p className={cn("hz-container-narrow hz-t-xl", "hz-fg")}>
               Ready-to-use code examples to accelerate your AI development
             </p>
           </motion.div>
@@ -208,7 +208,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16"
+            className="hz-grid hz-grid-6 hz-gap-4 hz-mb-7"
           >
             {integrations.map((integration, index) => {
               const Icon = integration.icon;
@@ -219,19 +219,19 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    "p-4 rounded-lg border transition-colors text-center",
-                    "bg-foreground/5 border-border hover:border-border"
+                    "hz-p-4 hz-r-lg hz-bordered hz-transition hz-align-center",
+                    "hz-bg-surface hz-hoverable"
                   )}
                 >
-                  <Icon className="w-8 h-8 mx-auto mb-2" />
-                  <div className="text-sm font-medium">{integration.name}</div>
+                  <Icon className="hz-sq-5 hz-mx-auto hz-mb-2" />
+                  <div className="hz-t-sm hz-w-medium">{integration.name}</div>
                 </a>
               );
             })}
           </motion.div>
 
           {/* Code Examples */}
-          <div className="space-y-12">
+          <div className="hz-stack-6">
             {examples.map((example, index) => {
               const Icon = example.icon;
               return (
@@ -241,29 +241,29 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={cn(
-                    "border rounded-lg overflow-hidden",
-                    "bg-foreground/5 border-border"
+                    "hz-bordered hz-r-lg hz-clip",
+                    "hz-bg-surface"
                   )}
                 >
-                  <div className={cn("p-6 border-b", "border-border")}>
-                    <div className="flex items-center space-x-3">
-                      <Icon className="w-6 h-6" />
-                      <h3 className="text-xl font-semibold">{example.title}</h3>
+                  <div className={cn("hz-p-5 hz-border-b", "")}>
+                    <div className="hz-row hz-ai-center hz-inline-3">
+                      <Icon className="hz-sq-4" />
+                      <h3 className="hz-t-xl hz-w-semibold">{example.title}</h3>
                     </div>
-                    <p className={cn("mt-2", "text-muted-foreground")}>{example.description}</p>
+                    <p className={cn("hz-mt-2", "hz-fg")}>{example.description}</p>
                   </div>
 
-                  <div className="relative">
-                    <div className="absolute top-4 right-4">
+                  <div className="hz-rel">
+                    <div className="hz-abs">
                       <span className={cn(
-                        "text-xs px-2 py-1 rounded",
-                        "text-muted-foreground bg-foreground/10"
+                        "hz-t-xs hz-px-2 hz-py-1 hz-r-md",
+                        "hz-fg hz-bg-surface"
                       )}>
                         {example.language}
                       </span>
                     </div>
-                    <pre className="p-6 overflow-x-auto">
-                      <code className={cn("text-sm whitespace-pre", "text-muted-foreground")}>
+                    <pre className="hz-p-5 hz-scroll-x">
+                      <code className={cn("hz-t-sm", "hz-fg")}>
                         {example.code}
                       </code>
                     </pre>
@@ -279,33 +279,33 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "mt-20 p-12 rounded-lg border",
-              "bg-gradient-to-r from-white/5 to-transparent border-border"
+              "hz-mt-7 hz-p-6 hz-r-lg hz-bordered",
+              ""
             )}
           >
-            <h2 className="text-3xl font-bold mb-8 text-center">Developer Resources</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-6 hz-align-center">Developer Resources</h2>
+            <div className="hz-grid hz-grid-3 hz-gap-6 hz-align-center">
               <div>
-                <Terminal className="w-12 h-12 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Interactive Playground</h3>
-                <p className={cn("mb-4", "text-muted-foreground")}>Test our APIs in your browser</p>
-                <a href="https://playground.hanzo.ai" className={cn("text-foreground hover:text-muted-foreground")}>
+                <Terminal className="hz-sq-7 hz-mx-auto hz-mb-4" />
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-2">Interactive Playground</h3>
+                <p className={cn("hz-mb-4", "hz-fg")}>Test our APIs in your browser</p>
+                <a href="https://playground.hanzo.ai" className={cn("hz-fg hz-hoverable")}>
                   Try Playground →
                 </a>
               </div>
               <div>
-                <BookOpen className="w-12 h-12 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">API Reference</h3>
-                <p className={cn("mb-4", "text-muted-foreground")}>Complete API documentation</p>
-                <a href="https://docs.hanzo.ai/api" className={cn("text-foreground hover:text-muted-foreground")}>
+                <BookOpen className="hz-sq-7 hz-mx-auto hz-mb-4" />
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-2">API Reference</h3>
+                <p className={cn("hz-mb-4", "hz-fg")}>Complete API documentation</p>
+                <a href="https://docs.hanzo.ai/api" className={cn("hz-fg hz-hoverable")}>
                   View Docs →
                 </a>
               </div>
               <div>
-                <Users className="w-12 h-12 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Community</h3>
-                <p className={cn("mb-4", "text-muted-foreground")}>Join our developer community</p>
-                <a href="https://community.hanzo.ai" className={cn("text-foreground hover:text-muted-foreground")}>
+                <Users className="hz-sq-7 hz-mx-auto hz-mb-4" />
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-2">Community</h3>
+                <p className={cn("hz-mb-4", "hz-fg")}>Join our developer community</p>
+                <a href="https://community.hanzo.ai" className={cn("hz-fg hz-hoverable")}>
                   Join Discord →
                 </a>
               </div>
@@ -317,20 +317,20 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mt-20 text-center"
+            className="hz-mt-7 hz-align-center"
           >
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-5">
               Ready to Build?
             </h2>
-            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
+            <p className={cn("hz-container-narrow hz-mw-md hz-t-xl hz-mb-6", "hz-fg")}>
               Start building with Hanzo AI today
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="hz-col-row hz-gap-4 hz-jc-center">
               <a
                 href="https://console.hanzo.ai/signup"
                 className={cn(
-                  "inline-block px-8 py-4 rounded-lg font-semibold transition-colors",
-                  "bg-primary text-primary-foreground hover:bg-primary/90"
+                  "hz-px-6 hz-py-4 hz-r-lg hz-w-semibold hz-transition",
+                  "hz-bg-inverse hz-hoverable"
                 )}
               >
                 Get API Key
@@ -340,8 +340,8 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "inline-block border px-8 py-4 rounded-lg font-semibold transition-colors",
-                  "border-primary text-foreground hover:bg-primary hover:text-primary-foreground"
+                  "hz-bordered hz-px-6 hz-py-4 hz-r-lg hz-w-semibold hz-transition",
+                  "hz-fg hz-hoverable"
                 )}
               >
                 View on GitHub

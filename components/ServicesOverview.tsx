@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Shield, Database, Cloud, Brain, ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function ServicesOverview() {
   const services = [
     {
@@ -47,18 +46,18 @@ export default function ServicesOverview() {
 
   return (
     <section id="capabilities" className={cn(
-      "py-20 transition-colors duration-300",
-      "bg-secondary"
+      "hz-py-7 hz-transition",
+      "hz-bg-surface"
     )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="hz-container">
+        <div className="hz-align-center hz-mb-7">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "text-4xl font-bold mb-4",
-              "text-foreground"
+              "hz-t-4xl hz-w-bold hz-mb-4",
+              "hz-fg"
             )}
           >
             Building the Future of Safe AI
@@ -68,8 +67,8 @@ export default function ServicesOverview() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
-              "text-xl max-w-3xl mx-auto",
-              "text-muted-foreground"
+              "hz-container-narrow hz-t-xl",
+              "hz-fg"
             )}
           >
             From frontier model development to edge deployment, we're advancing AI capabilities
@@ -77,7 +76,7 @@ export default function ServicesOverview() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="hz-grid hz-grid-2 hz-gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -87,44 +86,44 @@ export default function ServicesOverview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={cn(
-                  "p-8 rounded-lg border transition-shadow",
-                  "bg-foreground/5 border-border hover:shadow-lg hover:shadow-foreground/5"
+                  "hz-p-6 hz-r-lg hz-bordered hz-transition",
+                  "hz-bg-surface"
                 )}
               >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
+                <div className="hz-row hz-ai-start hz-inline-4">
+                  <div className="hz-none">
                     <div className={cn(
-                      "w-12 h-12 rounded-lg flex items-center justify-center",
-                      "bg-foreground/10"
+                      "hz-sq-7 hz-r-lg hz-row hz-ai-center hz-jc-center",
+                      "hz-bg-surface"
                     )}>
                       <Icon className={cn(
-                        "w-6 h-6",
-                        "text-foreground"
+                        "hz-sq-4",
+                        "hz-fg"
                       )} />
                     </div>
                   </div>
-                  <div className="flex-1">
+                  <div className="hz-grow">
                     <h3 className={cn(
-                      "text-2xl font-semibold mb-3",
-                      "text-foreground"
+                      "hz-t-2xl hz-w-semibold hz-mb-3",
+                      "hz-fg"
                     )}>
                       {service.title}
                     </h3>
                     <p className={cn(
-                      "mb-4",
-                      "text-muted-foreground"
+                      "hz-mb-4",
+                      "hz-fg"
                     )}>
                       {service.description}
                     </p>
-                    <div className="space-y-2 mb-4">
+                    <div className="hz-stack-2 hz-mb-4">
                       {service.capabilities.map((capability) => (
                         <div key={capability} className={cn(
-                          "flex items-center text-sm",
-                          "text-muted-foreground"
+                          "hz-row hz-ai-center hz-t-sm",
+                          "hz-fg"
                         )}>
                           <div className={cn(
-                            "w-1.5 h-1.5 rounded-full mr-2",
-                            "bg-primary"
+                            "hz-sq-1 hz-r-full hz-mr-2",
+                            "hz-bg-inverse"
                           )} />
                           {capability}
                         </div>
@@ -136,20 +135,20 @@ export default function ServicesOverview() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={cn(
-                          "inline-flex items-center gap-1.5 text-sm font-medium transition-colors",
-                          "text-muted-foreground hover:text-foreground"
+                          "hz-inline hz-ai-center hz-gap-2 hz-t-sm hz-w-medium hz-transition",
+                          "hz-fg hz-hoverable"
                         )}
                       >
-                        {service.cta} <ArrowRight className="w-3.5 h-3.5" />
+                        {service.cta} <ArrowRight className="hz-sq-2" />
                       </a>
                     ) : (
                       <Link href={service.link}
                         className={cn(
-                          "inline-flex items-center gap-1.5 text-sm font-medium transition-colors",
-                          "text-muted-foreground hover:text-foreground"
+                          "hz-inline hz-ai-center hz-gap-2 hz-t-sm hz-w-medium hz-transition",
+                          "hz-fg hz-hoverable"
                         )}
                       >
-                        {service.cta} <ArrowRight className="w-3.5 h-3.5" />
+                        {service.cta} <ArrowRight className="hz-sq-2" />
                       </Link>
                     )}
                   </div>

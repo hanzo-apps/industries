@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function CaseStudies() {
   const caseStudies = [
     {
@@ -46,16 +45,16 @@ export default function CaseStudies() {
 
   return (
     <section className={cn(
-      "py-20 transition-colors duration-300",
-      "bg-foreground/[0.03]"
+      "hz-py-7 hz-transition",
+      "hz-bg-surface"
     )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="hz-container">
+        <div className="hz-align-center hz-mb-7">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold mb-4"
+            className="hz-t-4xl hz-w-bold hz-mb-4"
           >
             Research Impact
           </motion.h2>
@@ -64,8 +63,8 @@ export default function CaseStudies() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
-              "text-xl max-w-3xl mx-auto",
-              "text-muted-foreground"
+              "hz-container-narrow hz-t-xl",
+              "hz-fg"
             )}
           >
             Delivering measurable breakthroughs in AI efficiency, cryptography,
@@ -73,7 +72,7 @@ export default function CaseStudies() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="hz-grid hz-grid-2 hz-gap-6">
           {caseStudies.map((study, index) => (
             <motion.a
               key={study.title}
@@ -84,43 +83,43 @@ export default function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={cn(
-                "p-8 rounded-lg border transition-all group cursor-pointer",
-                "bg-background/50 border-border hover:border-border"
+                "hz-p-6 hz-r-lg hz-bordered hz-transition hz-pointer",
+                "hz-bg-surface hz-hoverable"
               )}
             >
-              <div className="flex justify-between items-start mb-4">
+              <div className="hz-row hz-jc-between hz-ai-start hz-mb-4">
                 <span className={cn(
-                  "text-sm font-medium uppercase tracking-wider",
-                  "text-muted-foreground"
+                  "hz-t-sm hz-w-medium hz-upper hz-tracking-wide",
+                  "hz-fg"
                 )}>
                   {study.category}
                 </span>
                 <span className={cn(
-                  "text-sm",
-                  "text-muted-foreground"
+                  "hz-t-sm",
+                  "hz-fg"
                 )}>{study.year}</span>
               </div>
 
-              <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
+              <h3 className="hz-t-xl hz-w-semibold hz-mb-2">{study.title}</h3>
               <p className={cn(
-                "text-sm mb-4 font-medium",
-                "text-muted-foreground"
+                "hz-t-sm hz-mb-4 hz-w-medium",
+                "hz-fg"
               )}>{study.client}</p>
               <p className={cn(
-                "mb-6",
-                "text-muted-foreground"
+                "hz-mb-5",
+                "hz-fg"
               )}>{study.description}</p>
 
-              <div className="flex items-center justify-between">
+              <div className="hz-row hz-ai-center hz-jc-between">
                 <div className={cn(
-                  "px-4 py-2 rounded-md",
-                  "bg-foreground/10"
+                  "hz-px-4 hz-py-2 hz-r-md",
+                  "hz-bg-surface"
                 )}>
-                  <span className="text-sm font-semibold">{study.impact}</span>
+                  <span className="hz-t-sm hz-w-semibold">{study.impact}</span>
                 </div>
                 <ExternalLink className={cn(
-                  "w-5 h-5 transition-colors",
-                  "text-foreground/30 group-hover:text-foreground"
+                  "hz-sq-3 hz-transition",
+                  "hz-fg-soft hz-hoverable"
                 )} />
               </div>
             </motion.a>
@@ -131,14 +130,14 @@ export default function CaseStudies() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-12 text-center"
+          className="hz-mt-7 hz-align-center"
         >
           <a
             href="/research#papers"
-            className="inline-flex items-center font-semibold hover:underline"
+            className="hz-inline hz-ai-center hz-w-semibold"
           >
             View All Research Papers
-            <ArrowRight className="w-4 h-4 ml-2" />
+            <ArrowRight className="hz-sq-2 hz-ml-2" />
           </a>
         </motion.div>
       </div>

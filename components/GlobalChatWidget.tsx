@@ -17,7 +17,7 @@ import {
   Check,
   Lock,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from '@hanzo/ui'
 import site from "@/site.config";
 
 // ---------------------------------------------------------------------------
@@ -158,7 +158,7 @@ function renderMarkdown(text: string): React.ReactNode[] {
       result.push(
         <pre
           key={key++}
-          className="my-2 rounded-lg bg-white/5 border border-white/10 p-3 overflow-x-auto text-xs font-mono leading-relaxed"
+          className="hz-card hz-card-tight hz-mt-2 hz-mb-2 hz-scroll-x hz-t-xs hz-mono hz-leading-relaxed"
         >
           <code>{codeLines.join("\n")}</code>
         </pre>
@@ -168,7 +168,7 @@ function renderMarkdown(text: string): React.ReactNode[] {
 
     // Empty line
     if (line.trim() === "") {
-      result.push(<div key={key++} className="h-2" />);
+      result.push(<div key={key++} className="hz-bh-1" />);
       i++;
       continue;
     }
@@ -179,14 +179,14 @@ function renderMarkdown(text: string): React.ReactNode[] {
       while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
         const content = lines[i].replace(/^\s*[-*]\s+/, "");
         items.push(
-          <li key={key++} className="ml-4 list-disc">
+          <li key={key++} className="hz-ml-4">
             {renderInline(content)}
           </li>
         );
         i++;
       }
       result.push(
-        <ul key={key++} className="my-1 space-y-0.5">
+        <ul key={key++} className="hz-mt-1 hz-mb-1 hz-stack-1">
           {items}
         </ul>
       );
@@ -199,14 +199,14 @@ function renderMarkdown(text: string): React.ReactNode[] {
       while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) {
         const content = lines[i].replace(/^\s*\d+\.\s+/, "");
         items.push(
-          <li key={key++} className="ml-4 list-decimal">
+          <li key={key++} className="hz-ml-4">
             {renderInline(content)}
           </li>
         );
         i++;
       }
       result.push(
-        <ol key={key++} className="my-1 space-y-0.5">
+        <ol key={key++} className="hz-mt-1 hz-mb-1 hz-stack-1">
           {items}
         </ol>
       );
@@ -220,10 +220,10 @@ function renderMarkdown(text: string): React.ReactNode[] {
       const text = headingMatch[2];
       const cls =
         level === 1
-          ? "text-base font-bold mt-3 mb-1"
+          ? "hz-t-base hz-w-bold hz-mt-3 hz-mb-1"
           : level === 2
-          ? "text-sm font-semibold mt-2 mb-1"
-          : "text-sm font-medium mt-2 mb-0.5";
+          ? "hz-t-sm hz-w-semibold hz-mt-2 hz-mb-1"
+          : "hz-t-sm hz-w-medium hz-mt-2 hz-mb-1";
       result.push(
         <div key={key++} className={cls}>
           {renderInline(text)}
@@ -235,7 +235,7 @@ function renderMarkdown(text: string): React.ReactNode[] {
 
     // Regular paragraph
     result.push(
-      <p key={key++} className="my-0.5 leading-relaxed">
+      <p key={key++} className="hz-mt-1 hz-mb-1 hz-leading-relaxed">
         {renderInline(line)}
       </p>
     );
@@ -263,14 +263,14 @@ function renderInline(text: string): React.ReactNode[] {
     if (match[1]) {
       // Bold
       parts.push(
-        <strong key={key++} className="font-semibold text-white">
+        <strong key={key++} className="hz-w-semibold hz-fg">
           {match[2]}
         </strong>
       );
     } else if (match[3]) {
       // Italic
       parts.push(
-        <em key={key++} className="italic">
+        <em key={key++} className="hz-italic">
           {match[4]}
         </em>
       );
@@ -279,7 +279,7 @@ function renderInline(text: string): React.ReactNode[] {
       parts.push(
         <code
           key={key++}
-          className="px-1 py-0.5 rounded bg-white/10 text-white/90 text-xs font-mono"
+          className="hz-px-1 hz-py-1 hz-r-md hz-bg-quiet hz-fg-soft hz-t-xs hz-mono"
         >
           {match[6]}
         </code>
@@ -290,7 +290,7 @@ function renderInline(text: string): React.ReactNode[] {
         <a
           key={key++}
           href={match[9]}
-          className="underline underline-offset-2 text-white/80 hover:text-white transition-colors"
+          className="hz-underline hz-fg-soft hz-transition hz-hoverable"
           target={match[9]?.startsWith("http") ? "_blank" : undefined}
           rel={match[9]?.startsWith("http") ? "noopener noreferrer" : undefined}
         >
@@ -751,9 +751,9 @@ export default function GlobalChatWidget() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center bg-black border border-white/10"
+            className="hz-sq-7 hz-fixed hz-z-overlay hz-r-full hz-shadow-lg hz-row hz-ai-center hz-jc-center hz-bg hz-bordered"
           >
-            <img src="/zen-logo.png" alt="Zen AI" className="w-8 h-8" />
+            <img src="/zen-logo.png" alt="Zen AI" className="hz-sq-5" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -767,38 +767,38 @@ export default function GlobalChatWidget() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             className={cn(
-              "fixed z-50 rounded-2xl shadow-2xl overflow-hidden flex flex-col",
-              "bg-neutral-950 border border-white/10",
+              "hz-fixed hz-z-overlay hz-r-xl hz-shadow-lg hz-clip hz-col",
+              "hz-bg-surface hz-bordered",
               isExpanded
-                ? "inset-4 md:inset-8"
-                : "bottom-6 right-6 w-[400px] max-w-[calc(100vw-48px)] h-[560px] max-h-[80vh]"
+                ? ""
+                : "hz-mw-full"
             )}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/50">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center bg-black border border-white/10 overflow-hidden">
-                  <img src="/zen-logo.png" alt="Zen AI" className="w-5 h-5" />
+            <div className="hz-row hz-ai-center hz-jc-between hz-px-4 hz-py-3 hz-border-b hz-bg-surface">
+              <div className="hz-row hz-ai-center hz-gap-3">
+                <div className="hz-sq-5 hz-r-full hz-row hz-ai-center hz-jc-center hz-bg hz-bordered hz-clip">
+                  <img src="/zen-logo.png" alt="Zen AI" className="hz-sq-3" />
                 </div>
 
                 {/* Model selector */}
-                <div className="relative" ref={modelDropdownRef}>
+                <div className="hz-rel" ref={modelDropdownRef}>
                   <button
                     onClick={() => setIsModelDropdownOpen(!isModelDropdownOpen)}
-                    className="flex items-center gap-1.5 rounded-md px-2 py-1 transition-colors hover:bg-white/5"
+                    className="hz-row hz-ai-center hz-gap-2 hz-r-md hz-px-2 hz-py-1 hz-transition hz-hoverable"
                   >
-                    <div className="text-left">
-                      <div className="text-sm font-medium flex items-center gap-1.5 text-white">
+                    <div className="hz-align-left">
+                      <div className="hz-t-sm hz-w-medium hz-row hz-ai-center hz-gap-2 hz-fg">
                         Zen AI
-                        <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/10 text-neutral-400">
+                        <span className="hz-t-xs hz-mono hz-px-2 hz-py-1 hz-r-md hz-bg-quiet hz-fg-muted">
                           {selectedModel.name}
                         </span>
                         <span
                           className={cn(
-                            "text-[9px] font-medium uppercase tracking-wider px-1 py-0.5 rounded",
+                            "hz-t-xs hz-w-medium hz-upper hz-tracking-wide hz-px-1 hz-py-1 hz-r-md",
                             selectedModel.tier === "free"
-                              ? "bg-white/10 text-neutral-400"
-                              : "bg-white/15 text-neutral-300"
+                              ? "hz-bg-quiet hz-fg-muted"
+                              : "hz-bg-quiet hz-fg-soft"
                           )}
                         >
                           {selectedModel.tier === "free" ? "Free" : "Pro"}
@@ -807,8 +807,8 @@ export default function GlobalChatWidget() {
                     </div>
                     <ChevronDown
                       className={cn(
-                        "w-3.5 h-3.5 transition-transform text-neutral-500",
-                        isModelDropdownOpen && "rotate-180"
+                        "hz-sq-2 hz-transition hz-fg-muted",
+                        isModelDropdownOpen && ""
                       )}
                     />
                   </button>
@@ -820,7 +820,7 @@ export default function GlobalChatWidget() {
                         initial={{ opacity: 0, y: -4 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -4 }}
-                        className="absolute left-0 top-full mt-1 w-64 border border-white/10 rounded-lg shadow-xl overflow-hidden z-10 bg-neutral-900"
+                        className="hz-abs hz-left-0 hz-mt-1 hz-bw-8 hz-bordered hz-r-lg hz-shadow-lg hz-clip hz-z-raised hz-bg-surface"
                       >
                         {allModels.map((model) => (
                           <button
@@ -830,40 +830,40 @@ export default function GlobalChatWidget() {
                               setIsModelDropdownOpen(false);
                             }}
                             className={cn(
-                              "w-full flex items-center justify-between px-3 py-2.5 text-left transition-colors hover:bg-white/5",
-                              selectedModel.id === model.id && "bg-white/5"
+                              "hz-w-full hz-row hz-ai-center hz-jc-between hz-px-3 hz-py-2 hz-align-left hz-transition hz-hoverable",
+                              selectedModel.id === model.id && "hz-bg-quiet"
                             )}
                           >
                             <div>
-                              <div className="text-sm flex items-center gap-2 text-white">
+                              <div className="hz-t-sm hz-row hz-ai-center hz-gap-2 hz-fg">
                                 {model.name}
-                                <span className="text-[10px] font-mono text-neutral-500">
+                                <span className="hz-t-xs hz-mono hz-fg-muted">
                                   {model.params}
                                 </span>
                                 <span
                                   className={cn(
-                                    "text-[9px] font-medium uppercase tracking-wider px-1 py-0.5 rounded",
+                                    "hz-t-xs hz-w-medium hz-upper hz-tracking-wide hz-px-1 hz-py-1 hz-r-md",
                                     model.tier === "free"
-                                      ? "bg-white/10 text-neutral-400"
-                                      : "bg-white/15 text-neutral-300"
+                                      ? "hz-bg-quiet hz-fg-muted"
+                                      : "hz-bg-quiet hz-fg-soft"
                                   )}
                                 >
                                   {model.tier === "free" ? "Free" : "Pro"}
                                 </span>
                               </div>
-                              <div className="text-[10px] text-neutral-500 mt-0.5">
+                              <div className="hz-t-xs hz-fg-muted hz-mt-1">
                                 {model.description}
                               </div>
                             </div>
                             {selectedModel.id === model.id && (
-                              <Check className="w-4 h-4 text-neutral-400 shrink-0" />
+                              <Check className="hz-sq-2 hz-fg-muted hz-none" />
                             )}
                           </button>
                         ))}
-                        <div className="border-t border-white/10 px-3 py-2">
+                        <div className="hz-border-t hz-px-3 hz-py-2">
                           <a
                             href="/models"
-                            className="text-xs text-neutral-500 hover:text-white transition-colors"
+                            className="hz-t-xs hz-fg-muted hz-transition hz-link"
                           >
                             View all 41+ models
                           </a>
@@ -874,15 +874,15 @@ export default function GlobalChatWidget() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1">
+              <div className="hz-row hz-ai-center hz-gap-1">
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="p-1.5 rounded-md transition-colors text-neutral-500 hover:text-white hover:bg-white/5"
+                  className="hz-p-2 hz-r-md hz-transition hz-fg-muted hz-link"
                 >
                   {isExpanded ? (
-                    <Minimize2 className="w-4 h-4" />
+                    <Minimize2 className="hz-sq-2" />
                   ) : (
-                    <Maximize2 className="w-4 h-4" />
+                    <Maximize2 className="hz-sq-2" />
                   )}
                 </button>
                 <button
@@ -890,45 +890,45 @@ export default function GlobalChatWidget() {
                     setIsOpen(false);
                     abortRef.current?.abort();
                   }}
-                  className="p-1.5 rounded-md transition-colors text-neutral-500 hover:text-white hover:bg-white/5"
+                  className="hz-p-2 hz-r-md hz-transition hz-fg-muted hz-link"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="hz-sq-2" />
                 </button>
               </div>
             </div>
 
             {/* Demo mode banner */}
             {isDemoMode && (
-              <div className="px-4 py-1.5 bg-white/5 border-b border-white/5 text-center">
-                <span className="text-[10px] text-neutral-500">
+              <div className="hz-px-4 hz-py-2 hz-bg-quiet hz-border-b hz-align-center">
+                <span className="hz-t-xs hz-fg-muted">
                   Demo mode -- AI responses coming soon
                 </span>
               </div>
             )}
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 relative">
+            <div className="hz-grow hz-scroll-y hz-p-4 hz-stack-4 hz-rel">
               {messages.map((message) => (
                 <div
                   key={message.id}
                   className={cn(
-                    "flex",
-                    message.role === "user" ? "justify-end" : "justify-start"
+                    "hz-row",
+                    message.role === "user" ? "hz-jc-end" : "hz-jc-start"
                   )}
                 >
                   <div
                     className={cn(
-                      "max-w-[85%] px-3 py-2 rounded-2xl text-sm",
+                      "hz-mw-full hz-px-3 hz-py-2 hz-r-xl hz-t-sm",
                       message.role === "user"
-                        ? "rounded-br-md bg-white text-black"
-                        : "rounded-bl-md bg-white/5 text-neutral-300"
+                        ? "hz-bg-inverse hz-fg-inverse"
+                        : "hz-bg-quiet hz-fg-soft"
                     )}
                   >
                     {message.role === "assistant" ? (
-                      <div className="space-y-0">
+                      <div className="hz-stack-0">
                         {renderMarkdown(message.content)}
                         {message.isStreaming && (
-                          <span className="inline-block w-1.5 h-4 ml-0.5 bg-neutral-400 animate-pulse" />
+                          <span className="hz-bw-1 hz-bh-2 hz-ml-1 hz-bg-raised" />
                         )}
                       </div>
                     ) : (
@@ -941,19 +941,19 @@ export default function GlobalChatWidget() {
               {/* Loading indicator (only when no streaming message is visible) */}
               {isLoading &&
                 !messages.some((m) => m.isStreaming) && (
-                  <div className="flex justify-start">
-                    <div className="px-4 py-2 rounded-2xl rounded-bl-md bg-white/5">
-                      <div className="flex gap-1">
+                  <div className="hz-row hz-jc-start">
+                    <div className="hz-px-4 hz-py-2 hz-r-xl hz-bg-quiet">
+                      <div className="hz-row hz-gap-1">
                         <span
-                          className="w-1.5 h-1.5 rounded-full bg-neutral-500 animate-bounce"
+                          className="hz-sq-1 hz-r-full hz-bg-raised"
                           style={{ animationDelay: "0ms" }}
                         />
                         <span
-                          className="w-1.5 h-1.5 rounded-full bg-neutral-500 animate-bounce"
+                          className="hz-sq-1 hz-r-full hz-bg-raised"
                           style={{ animationDelay: "150ms" }}
                         />
                         <span
-                          className="w-1.5 h-1.5 rounded-full bg-neutral-500 animate-bounce"
+                          className="hz-sq-1 hz-r-full hz-bg-raised"
                           style={{ animationDelay: "300ms" }}
                         />
                       </div>
@@ -970,33 +970,33 @@ export default function GlobalChatWidget() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 z-20 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+                    className="hz-abs hz-inset hz-z-raised hz-row hz-ai-center hz-jc-center hz-bg-surface hz-glass"
                   >
                     <motion.div
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       exit={{ scale: 0.9, opacity: 0 }}
-                      className="mx-6 p-6 rounded-xl bg-neutral-900 border border-white/10 text-center max-w-[300px]"
+                      className="hz-card hz-align-center hz-mw-full"
                     >
-                      <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                        <Lock className="w-5 h-5 text-neutral-400" />
+                      <div className="hz-sq-7 hz-mx-auto hz-mb-4 hz-r-full hz-bg-quiet hz-bordered hz-row hz-ai-center hz-jc-center">
+                        <Lock className="hz-sq-3 hz-fg-muted" />
                       </div>
-                      <h3 className="text-base font-semibold text-white mb-2">
+                      <h3 className="hz-t-base hz-w-semibold hz-fg hz-mb-2">
                         Sign in to continue
                       </h3>
-                      <p className="text-xs text-neutral-400 mb-5 leading-relaxed">
+                      <p className="hz-t-xs hz-fg-muted hz-mb-4 hz-leading-relaxed">
                         You have used your free message. Sign in to unlock
                         unlimited chat and access premium Zen models.
                       </p>
                       <a
                         href={buildLoginUrl()}
-                        className="inline-block w-full px-4 py-2.5 rounded-lg bg-white text-black text-sm font-medium hover:bg-neutral-200 transition-colors"
+                        className="hz-w-full hz-px-4 hz-py-2 hz-r-lg hz-bg-inverse hz-fg-inverse hz-t-sm hz-w-medium hz-transition hz-hoverable"
                       >
                         Sign in with Hanzo
                       </a>
                       <button
                         onClick={() => setShowLoginGate(false)}
-                        className="mt-3 text-xs text-neutral-500 hover:text-neutral-300 transition-colors"
+                        className="hz-mt-3 hz-t-xs hz-fg-muted hz-transition hz-link"
                       >
                         Dismiss
                       </button>
@@ -1008,17 +1008,17 @@ export default function GlobalChatWidget() {
 
             {/* Preset buttons */}
             {messages.length <= 1 && !showLoginGate && (
-              <div className="px-4 pb-2">
-                <div className="flex flex-wrap gap-2">
+              <div className="hz-px-4 hz-pb-4">
+                <div className="hz-row hz-wrap hz-gap-2">
                   {chatPresets.map((preset) => {
                     const Icon = preset.icon;
                     return (
                       <button
                         key={preset.label}
                         onClick={() => handlePreset(preset)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border text-xs font-medium transition-colors bg-white/5 border-white/10 text-neutral-400 hover:bg-white/10 hover:text-white"
+                        className="hz-btn hz-btn-primary hz-gap-2 hz-t-xs hz-transition hz-fg-muted"
                       >
-                        <Icon className="w-3 h-3" />
+                        <Icon className="hz-sq-1" />
                         {preset.label}
                       </button>
                     );
@@ -1028,8 +1028,8 @@ export default function GlobalChatWidget() {
             )}
 
             {/* Input */}
-            <div className="p-3 border-t border-white/10">
-              <div className="relative">
+            <div className="hz-p-3 hz-border-t">
+              <div className="hz-rel">
                 <input
                   ref={inputRef}
                   type="text"
@@ -1039,30 +1039,30 @@ export default function GlobalChatWidget() {
                   placeholder={showLoginGate ? "Sign in to continue..." : "Ask anything..."}
                   disabled={showLoginGate}
                   className={cn(
-                    "w-full rounded-full px-4 py-2.5 pr-12 text-sm focus:outline-none transition-colors border",
-                    "bg-white/5 border-white/10 text-white placeholder-neutral-500",
-                    "focus:border-white/20",
-                    showLoginGate && "opacity-50 cursor-not-allowed"
+                    "hz-w-full hz-r-full hz-px-4 hz-py-2 hz-px-6 hz-t-sm hz-transition hz-bordered",
+                    "hz-bg-quiet hz-fg",
+                    "",
+                    showLoginGate && "hz-dim-more"
                   )}
                 />
                 <button
                   onClick={handleSend}
                   disabled={!input.trim() || isLoading || showLoginGate}
                   className={cn(
-                    "absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all disabled:opacity-30",
-                    input.trim() ? "bg-white" : "bg-transparent"
+                    "hz-center-y hz-sq-5 hz-abs hz-r-full hz-row hz-ai-center hz-jc-center hz-transition",
+                    input.trim() ? "hz-bg-inverse" : "hz-bg-none"
                   )}
                 >
                   <Send
                     className={cn(
-                      "w-4 h-4",
-                      input.trim() ? "text-black" : "text-neutral-500"
+                      "hz-sq-2",
+                      input.trim() ? "hz-fg-inverse" : "hz-fg-muted"
                     )}
                   />
                 </button>
               </div>
-              <div className="mt-2 text-center">
-                <span className="text-[10px] text-neutral-600">
+              <div className="hz-mt-2 hz-align-center">
+                <span className="hz-t-xs hz-fg-faint">
                   {authed
                     ? "Press Enter to send"
                     : `${Math.max(0, FREE_MESSAGE_LIMIT - getChatCount())} free message${FREE_MESSAGE_LIMIT - getChatCount() !== 1 ? "s" : ""} remaining`}

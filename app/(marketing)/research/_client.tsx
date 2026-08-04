@@ -4,8 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@hanzo/ui";
-import { cn } from "@/lib/utils";
+import { Button, cn } from '@hanzo/ui'
 import {
   ArrowRight,
   ExternalLink,
@@ -69,7 +68,7 @@ const researchAreas = [
     icon: Cpu,
     title: "Edge AI",
     description: "Efficient models and deployment strategies for on-device and edge computing.",
-    link: "/research/edge",
+    link: "https://github.com/hanzoai/papers",
   },
 ];
 
@@ -1018,32 +1017,32 @@ const [searchQuery, setSearchQuery] = useState("");
   };
 
   return (
-      <main className="pt-16">
+      <main className="hz-pt-6">
         {/* Hero Section */}
-        <section className="relative py-24 px-4 overflow-hidden">
+        <section className="hz-rel hz-py-7 hz-px-4 hz-clip">
           {/* Background gradient */}
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="hz-abs hz-inset hz-no-pointer"
             style={{
               background: 'radial-gradient(ellipse 800px 800px at 50% 0%, rgba(255, 255, 255, 0.05), transparent)',
             }}
           />
-          <div className="max-w-5xl mx-auto text-center relative z-10">
+          <div className="hz-container-wide hz-align-center hz-rel hz-z-raised">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/10 border border-border mb-6">
-                <Sparkles className="w-4 h-4 text-foreground" />
-                <span className={cn("text-sm font-medium", "text-muted-foreground")}>
+              <div className="hz-btn hz-btn-primary hz-gap-2 hz-mb-5">
+                <Sparkles className="hz-sq-2 hz-fg" />
+                <span className={cn("hz-t-sm hz-w-medium", "hz-fg")}>
                   130+ Research Papers
                 </span>
               </div>
-              <h1 className={cn("text-5xl md:text-6xl font-bold tracking-tight mb-6", "text-foreground")}>
+              <h1 className={cn("hz-t-5xl hz-w-bold hz-tracking-tight hz-mb-5", "hz-fg")}>
                 Research & Publications
               </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
+              <p className={cn("hz-container-narrow hz-mw-md hz-t-xl", "hz-fg")}>
                 Pioneering research in AI infrastructure, decentralized systems, and frontier models.
                 All papers are CC BY 4.0 licensed and available on GitHub.
               </p>
@@ -1052,10 +1051,10 @@ const [searchQuery, setSearchQuery] = useState("");
         </section>
 
         {/* Research Areas */}
-        <section className={cn("py-16 px-4", "bg-foreground/5")}>
-          <div className="max-w-6xl mx-auto">
-            <h2 className={cn("text-3xl font-bold mb-12", "text-foreground")}>Research Areas</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")}>
+          <div className="hz-container-wide">
+            <h2 className={cn("hz-t-3xl hz-w-bold hz-mb-7", "hz-fg")}>Research Areas</h2>
+            <div className="hz-grid hz-grid-2 hz-gap-6">
               {researchAreas.map((area, index) => {
                 const Icon = area.icon;
                 return (
@@ -1065,17 +1064,17 @@ const [searchQuery, setSearchQuery] = useState("");
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className={cn(
-                      "p-8 rounded-xl border transition-colors group",
-                      "bg-foreground/5 border-border hover:border-border"
+                      "hz-p-6 hz-r-lg hz-bordered hz-transition",
+                      "hz-bg-surface hz-hoverable"
                     )}
                   >
-                    <Icon className={cn("w-10 h-10 mb-4", "text-muted-foreground")} />
-                    <h3 className={cn("text-xl font-semibold mb-3", "text-foreground")}>{area.title}</h3>
-                    <p className={cn("mb-4", "text-muted-foreground")}>{area.description}</p>
+                    <Icon className={cn("hz-sq-6 hz-mb-4", "hz-fg")} />
+                    <h3 className={cn("hz-t-xl hz-w-semibold hz-mb-3", "hz-fg")}>{area.title}</h3>
+                    <p className={cn("hz-mb-4", "hz-fg")}>{area.description}</p>
                     <Link href={area.link}
-                      className={cn("text-sm font-medium hover:underline inline-flex items-center gap-1", "text-foreground")}
+                      className={cn("hz-t-sm hz-w-medium hz-inline hz-ai-center hz-gap-1", "hz-fg")}
                     >
-                      Learn more <ArrowRight className="w-3 h-3" />
+                      Learn more <ArrowRight className="hz-sq-1" />
                     </Link>
                   </motion.div>
                 );
@@ -1085,12 +1084,12 @@ const [searchQuery, setSearchQuery] = useState("");
         </section>
 
         {/* Open Source Section */}
-        <section className="py-24 px-4" id="open-source">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center justify-between mb-12">
+        <section className="hz-py-7 hz-px-4" id="open-source">
+          <div className="hz-container-wide">
+            <div className="hz-row hz-ai-center hz-jc-between hz-mb-7">
               <div>
-                <h2 className={cn("text-3xl font-bold mb-2", "text-foreground")}>Open Source</h2>
-                <p className={"text-muted-foreground"}>
+                <h2 className={cn("hz-t-3xl hz-w-bold hz-mb-2", "hz-fg")}>Open Source</h2>
+                <p className={"hz-fg"}>
                   We believe in open research and share our tools with the community.
                 </p>
               </div>
@@ -1099,14 +1098,14 @@ const [searchQuery, setSearchQuery] = useState("");
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" className={cn("gap-2", "border-border text-foreground hover:bg-accent")}>
-                  <Github className="w-4 h-4" />
+                <Button variant="outline" className={cn("hz-gap-2", "hz-fg hz-hoverable")}>
+                  <Github className="hz-sq-2" />
                   View all on GitHub
                 </Button>
               </a>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="hz-grid hz-grid-3 hz-gap-5">
               {openSourceProjects.map((project, index) => (
                 <motion.a
                   key={project.name}
@@ -1117,23 +1116,23 @@ const [searchQuery, setSearchQuery] = useState("");
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   className={cn(
-                    "block p-6 rounded-xl transition-all group",
-                    "bg-foreground/5 border border-border hover:border-border"
+                    "hz-p-5 hz-r-lg hz-transition",
+                    "hz-bg-surface hz-bordered hz-hoverable"
                   )}
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <Github className={cn("w-5 h-5", "text-muted-foreground")} />
-                      <span className={cn("font-semibold group-hover:underline", "text-foreground")}>
+                  <div className="hz-row hz-ai-start hz-jc-between hz-mb-3">
+                    <div className="hz-row hz-ai-center hz-gap-2">
+                      <Github className={cn("hz-sq-3", "hz-fg")} />
+                      <span className={cn("hz-w-semibold", "hz-fg")}>
                         {project.name}
                       </span>
                     </div>
-                    <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-muted-foreground")} />
+                    <ExternalLink className={cn("hz-sq-2 hz-invisible hz-transition", "hz-fg")} />
                   </div>
-                  <p className={cn("text-sm mb-4", "text-muted-foreground")}>{project.description}</p>
-                  <div className={cn("flex items-center gap-4 text-xs", "text-muted-foreground")}>
-                    <span className="flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-foreground/50"></span>
+                  <p className={cn("hz-t-sm hz-mb-4", "hz-fg")}>{project.description}</p>
+                  <div className={cn("hz-row hz-ai-center hz-gap-4 hz-t-xs", "hz-fg")}>
+                    <span className="hz-row hz-ai-center hz-gap-1">
+                      <span className="hz-sq-1 hz-r-full hz-bg-surface"></span>
                       {project.language}
                     </span>
                     <span>⭐ {project.stars}</span>
@@ -1145,12 +1144,12 @@ const [searchQuery, setSearchQuery] = useState("");
         </section>
 
         {/* Papers Section */}
-        <section className={cn("py-24 px-4", "bg-foreground/5")} id="papers">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")} id="papers">
+          <div className="hz-container-wide">
+            <div className="hz-col-row hz-jc-between hz-mb-6 hz-gap-4">
               <div>
-                <h2 className={cn("text-3xl font-bold mb-2", "text-foreground")}>Research Papers</h2>
-                <p className={"text-muted-foreground"}>
+                <h2 className={cn("hz-t-3xl hz-w-bold hz-mb-2", "hz-fg")}>Research Papers</h2>
+                <p className={"hz-fg"}>
                   {filteredPapers.length} papers from Hanzo AI, Lux Network, Zoo Labs, and Zen LM.
                 </p>
               </div>
@@ -1159,59 +1158,59 @@ const [searchQuery, setSearchQuery] = useState("");
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" className={cn("gap-2", "border-border text-foreground hover:bg-accent")}>
-                  <Github className="w-4 h-4" />
+                <Button variant="outline" className={cn("hz-gap-2", "hz-fg hz-hoverable")}>
+                  <Github className="hz-sq-2" />
                   View on GitHub
                 </Button>
               </a>
             </div>
 
             {/* Search Bar */}
-            <div className="mb-6">
-              <div className={cn("relative flex items-center rounded-lg", "bg-foreground/10")}>
-                <Search className={cn("absolute left-4 w-5 h-5", "text-muted-foreground")} />
+            <div className="hz-mb-5">
+              <div className={cn("hz-rel hz-row hz-ai-center hz-r-lg", "hz-bg-surface")}>
+                <Search className={cn("hz-sq-3 hz-abs", "hz-fg")} />
                 <input
                   type="text"
                   placeholder="Search papers by title, author, or topic..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className={cn("w-full pl-12 pr-4 py-3 bg-transparent rounded-lg outline-none", "text-foreground placeholder-muted-foreground")}
+                  className={cn("hz-w-full hz-px-6 hz-px-4 hz-py-3 hz-bg-none hz-r-lg", "hz-fg")}
                 />
                 {(searchQuery || activeOrg !== "all" || activeTopic !== "all") && (
                   <button
                     onClick={clearFilters}
-                    className={cn("absolute right-4 p-1 rounded-full", "hover:bg-accent")}
+                    className={cn("hz-abs hz-p-1 hz-r-full", "hz-hoverable")}
                   >
-                    <X className={cn("w-4 h-4", "text-muted-foreground")} />
+                    <X className={cn("hz-sq-2", "hz-fg")} />
                   </button>
                 )}
               </div>
             </div>
 
             {/* Organization Filter */}
-            <div className="mb-4">
-              <div className={cn("text-xs font-semibold uppercase tracking-wider mb-2", "text-muted-foreground")}>
+            <div className="hz-mb-4">
+              <div className={cn("hz-t-xs hz-w-semibold hz-upper hz-tracking-wide hz-mb-2", "hz-fg")}>
                 Organization
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="hz-row hz-wrap hz-gap-2">
                 {(["all", "hanzo", "lux", "zoo", "zen"] as const).map((org) => (
                   <button
                     key={org}
                     onClick={() => setActiveOrg(org)}
                     className={cn(
-                      "px-3 py-1.5 rounded-full text-sm font-medium transition-all",
+                      "hz-px-3 hz-py-2 hz-r-full hz-t-sm hz-w-medium hz-transition",
                       activeOrg === org
-                        ? org === "hanzo" ? "bg-foreground/20 text-foreground" :
-                          org === "lux" ? "bg-foreground/20 text-foreground" :
-                          org === "zoo" ? "bg-foreground/20 text-foreground" :
-                          org === "zen" ? "bg-foreground/20 text-foreground" :
-                          "bg-primary text-foreground"
-                        : "bg-foreground/10 text-muted-foreground hover:bg-accent"
+                        ? org === "hanzo" ? "hz-bg-surface hz-fg" :
+                          org === "lux" ? "hz-bg-surface hz-fg" :
+                          org === "zoo" ? "hz-bg-surface hz-fg" :
+                          org === "zen" ? "hz-bg-surface hz-fg" :
+                          "hz-bg-inverse"
+                        : "hz-bg-surface hz-fg hz-hoverable"
                     )}
                   >
                     {orgMeta[org].label}
                     {org !== "all" && (
-                      <span className="ml-1.5 opacity-70">({orgCounts[org] || 0})</span>
+                      <span className="hz-ml-2 hz-dim">({orgCounts[org] || 0})</span>
                     )}
                   </button>
                 ))}
@@ -1219,25 +1218,25 @@ const [searchQuery, setSearchQuery] = useState("");
             </div>
 
             {/* Topic Filter */}
-            <div className="mb-8">
-              <div className={cn("text-xs font-semibold uppercase tracking-wider mb-2", "text-muted-foreground")}>
+            <div className="hz-mb-6">
+              <div className={cn("hz-t-xs hz-w-semibold hz-upper hz-tracking-wide hz-mb-2", "hz-fg")}>
                 Topic
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="hz-row hz-wrap hz-gap-2">
                 {(["all", "consensus", "ai", "models", "agents", "fhe", "mpc", "zkp", "pqc", "defi", "identity", "infrastructure"] as const).map((topic) => (
                   <button
                     key={topic}
                     onClick={() => setActiveTopic(topic)}
                     className={cn(
-                      "px-3 py-1.5 rounded-full text-xs font-medium transition-all",
+                      "hz-px-3 hz-py-2 hz-r-full hz-t-xs hz-w-medium hz-transition",
                       activeTopic === topic
-                        ? "bg-primary text-foreground"
-                        : "bg-foreground/10 text-muted-foreground hover:bg-accent"
+                        ? "hz-bg-inverse"
+                        : "hz-bg-surface hz-fg hz-hoverable"
                     )}
                   >
                     {topicMeta[topic].label}
                     {topic !== "all" && topicCounts[topic] && (
-                      <span className="ml-1.5 opacity-70">({topicCounts[topic]})</span>
+                      <span className="hz-ml-2 hz-dim">({topicCounts[topic]})</span>
                     )}
                   </button>
                 ))}
@@ -1245,19 +1244,19 @@ const [searchQuery, setSearchQuery] = useState("");
             </div>
 
             {/* Sort Controls */}
-            <div className="flex items-center justify-between mb-6">
-              <div className={cn("text-sm", "text-muted-foreground")}>
+            <div className="hz-row hz-ai-center hz-jc-between hz-mb-5">
+              <div className={cn("hz-t-sm", "hz-fg")}>
                 Showing {filteredPapers.length} of {papers.length} papers
               </div>
-              <div className="flex items-center gap-2">
-                <span className={cn("text-sm", "text-muted-foreground")}>Sort:</span>
+              <div className="hz-row hz-ai-center hz-gap-2">
+                <span className={cn("hz-t-sm", "hz-fg")}>Sort:</span>
                 <button
                   onClick={() => setSortBy("date")}
                   className={cn(
-                    "px-3 py-1 rounded text-sm",
+                    "hz-px-3 hz-py-1 hz-r-md hz-t-sm",
                     sortBy === "date"
-                      ? "bg-foreground/10 text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "hz-bg-surface hz-fg"
+                      : "hz-fg hz-hoverable"
                   )}
                 >
                   Date
@@ -1265,10 +1264,10 @@ const [searchQuery, setSearchQuery] = useState("");
                 <button
                   onClick={() => setSortBy("title")}
                   className={cn(
-                    "px-3 py-1 rounded text-sm",
+                    "hz-px-3 hz-py-1 hz-r-md hz-t-sm",
                     sortBy === "title"
-                      ? "bg-foreground/10 text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "hz-bg-surface hz-fg"
+                      : "hz-fg hz-hoverable"
                   )}
                 >
                   Title
@@ -1276,7 +1275,7 @@ const [searchQuery, setSearchQuery] = useState("");
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="hz-stack-4">
               {filteredPapers.map((paper, index) => (
                 <motion.a
                   key={`${paper.title}-${index}`}
@@ -1287,61 +1286,61 @@ const [searchQuery, setSearchQuery] = useState("");
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.3) }}
                   className={cn(
-                    "block p-6 rounded-xl transition-all group",
+                    "hz-p-5 hz-r-lg hz-transition",
                     paper.featured
-                      ? "bg-gradient-to-br from-white/10 to-transparent border-2 border-border hover:border-border"
-                      : "bg-background/50 border border-border hover:border-border"
+                      ? "hz-bordered hz-border-strong hz-hoverable"
+                      : "hz-bg-surface hz-bordered hz-hoverable"
                   )}
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2 flex-wrap">
-                        <FileText className={cn("w-5 h-5", "text-muted-foreground")} />
-                        <span className={cn("text-sm", "text-muted-foreground")}>{paper.date}</span>
+                  <div className="hz-row hz-ai-start hz-jc-between">
+                    <div className="hz-grow">
+                      <div className="hz-row hz-ai-center hz-gap-3 hz-mb-2 hz-wrap">
+                        <FileText className={cn("hz-sq-3", "hz-fg")} />
+                        <span className={cn("hz-t-sm", "hz-fg")}>{paper.date}</span>
                         {paper.featured && (
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-foreground/10 text-foreground font-medium">
+                          <span className="hz-t-xs hz-px-2 hz-py-1 hz-r-full hz-bg-surface hz-fg hz-w-medium">
                             Featured
                           </span>
                         )}
                         <span className={cn(
-                          "text-xs px-2 py-0.5 rounded-full",
-                          paper.org === "hanzo" ? "bg-foreground/10 text-muted-foreground" :
-                          paper.org === "lux" ? "bg-foreground/10 text-muted-foreground" :
-                          paper.org === "zoo" ? "bg-foreground/10 text-muted-foreground" :
-                          "bg-foreground/10 text-muted-foreground"
+                          "hz-t-xs hz-px-2 hz-py-1 hz-r-full",
+                          paper.org === "hanzo" ? "hz-bg-surface hz-fg" :
+                          paper.org === "lux" ? "hz-bg-surface hz-fg" :
+                          paper.org === "zoo" ? "hz-bg-surface hz-fg" :
+                          "hz-bg-surface hz-fg"
                         )}>
                           {orgMeta[paper.org].label}
                         </span>
                       </div>
-                      <h3 className={cn("text-lg font-semibold mb-2 group-hover:underline", "text-foreground")}>
+                      <h3 className={cn("hz-t-lg hz-w-semibold hz-mb-2", "hz-fg")}>
                         {paper.title}
                       </h3>
-                      <p className={cn("text-sm mb-2", "text-muted-foreground")}>{paper.authors}</p>
-                      <p className={cn("mb-3", "text-muted-foreground")}>{paper.abstract}</p>
+                      <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>{paper.authors}</p>
+                      <p className={cn("hz-mb-3", "hz-fg")}>{paper.abstract}</p>
                       {/* Topic tags */}
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="hz-row hz-wrap hz-gap-2">
                         {paper.topics.map(topic => (
                           <span
                             key={topic}
-                            className={cn("text-xs px-2 py-0.5 rounded", "bg-foreground/10 text-muted-foreground")}
+                            className={cn("hz-t-xs hz-px-2 hz-py-1 hz-r-md", "hz-bg-surface hz-fg")}
                           >
                             {topicMeta[topic].label}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0", "text-muted-foreground")} />
+                    <ExternalLink className={cn("hz-sq-2 hz-invisible hz-transition hz-ml-4 hz-none", "hz-fg")} />
                   </div>
                 </motion.a>
               ))}
             </div>
 
             {filteredPapers.length === 0 && (
-              <div className={cn("text-center py-12", "text-muted-foreground")}>
+              <div className={cn("hz-align-center hz-py-7", "hz-fg")}>
                 No papers found matching your search.
                 <button
                   onClick={clearFilters}
-                  className="block mx-auto mt-4 text-foreground hover:underline"
+                  className="hz-mx-auto hz-mt-4 hz-fg"
                 >
                   Clear filters
                 </button>
@@ -1351,26 +1350,26 @@ const [searchQuery, setSearchQuery] = useState("");
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-24 px-4 overflow-hidden">
+        <section className="hz-rel hz-py-7 hz-px-4 hz-clip">
           {/* Decorative blur */}
-          <div className={cn("absolute top-1/2 left-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-foreground/5")} />
-          <div className={cn("absolute top-1/2 right-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-foreground/[0.03]")} />
+          <div className={cn("hz-center-y hz-sq-8 hz-abs hz-r-full hz-blur-bg hz-no-pointer", "hz-bg-surface")} />
+          <div className={cn("hz-center-y hz-sq-8 hz-abs hz-r-full hz-blur-bg hz-no-pointer", "hz-bg-surface")} />
 
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className={cn("text-3xl font-bold mb-4", "text-foreground")}>
+          <div className="hz-container-narrow hz-align-center hz-rel hz-z-raised">
+            <h2 className={cn("hz-t-3xl hz-w-bold hz-mb-4", "hz-fg")}>
               Join our research efforts
             </h2>
-            <p className={cn("text-xl mb-8", "text-muted-foreground")}>
+            <p className={cn("hz-t-xl hz-mb-6", "hz-fg")}>
               We're looking for talented researchers to help build the future of safe AI.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="hz-col-row hz-gap-4 hz-jc-center">
               <Link href="/careers">
-                <Button size="lg" className={cn("rounded-full px-8", "bg-primary text-primary-foreground hover:bg-primary/90")}>
+                <Button size="lg" className={cn("hz-r-full hz-px-6", "hz-bg-inverse hz-hoverable")}>
                   View Open Positions
                 </Button>
               </Link>
               <a href="mailto:research@hanzo.ai">
-                <Button size="lg" variant="outline" className={cn("rounded-full px-8", "border-border text-foreground hover:bg-accent")}>
+                <Button size="lg" variant="outline" className={cn("hz-r-full hz-px-6", "hz-fg hz-hoverable")}>
                   Contact Research Team
                 </Button>
               </a>

@@ -1,15 +1,14 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className={cn("max-w-4xl mx-auto prose", "prose-invert")}>
-          <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <main className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className={cn("hz-container-narrow hz-prose", "")}>
+          <h1 className="hz-t-4xl hz-w-bold hz-mb-6">Terms of Service</h1>
 
-          <div className="space-y-8">
+          <div className="hz-stack-6">
             <section>
               <h2>1. Agreement to Terms</h2>
               <p>By accessing or using Hanzo's services, you agree to be bound by these Terms of Service and all applicable laws and regulations. These terms constitute a legal agreement between you and Hanzo Industries, Inc. ("Hanzo", "we", "us", or "our").</p>
