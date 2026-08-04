@@ -753,7 +753,7 @@ export default function GlobalChatWidget() {
             onClick={() => setIsOpen(true)}
             className="hz-sq-7 hz-fixed hz-z-overlay hz-r-full hz-shadow-lg hz-row hz-ai-center hz-jc-center hz-bg hz-bordered"
           >
-            <img src="/zen-logo.png" alt="Zen AI" className="hz-sq-5" />
+            <img src="/zen-logo.png" alt="Zen AI" className="hz-sq-5 hz-ink-black" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -778,7 +778,7 @@ export default function GlobalChatWidget() {
             <div className="hz-row hz-ai-center hz-jc-between hz-px-4 hz-py-3 hz-border-b hz-bg-surface">
               <div className="hz-row hz-ai-center hz-gap-3">
                 <div className="hz-sq-5 hz-r-full hz-row hz-ai-center hz-jc-center hz-bg hz-bordered hz-clip">
-                  <img src="/zen-logo.png" alt="Zen AI" className="hz-sq-3" />
+                  <img src="/zen-logo.png" alt="Zen AI" className="hz-sq-3 hz-ink-black" />
                 </div>
 
                 {/* Model selector */}

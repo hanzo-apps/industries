@@ -50,9 +50,8 @@ export default function TrustedBySection() {
                   alt={`${logo.name} logo`}
                   loading="lazy"
                   className={cn(
-                    "hz-w-auto hz-dim hz-transition",
-                    logo.className ?? "hz-bh-4",
-                    "invert"
+                    "hz-w-auto hz-bh-4 hz-dim hz-transition",
+                    `hz-ink-${logo.ink}`
                   )}
                 />
               </div>

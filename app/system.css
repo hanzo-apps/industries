@@ -218,6 +218,7 @@
 .hz-pb-6 { padding-bottom: var(--space-8); }
 
 /* `space-y-*` — the gap between siblings, without turning the parent into flex */
+.hz-stack-0 > * + * { margin-top: 0; }
 .hz-stack-1 > * + * { margin-top: var(--space-1); }
 .hz-stack-2 > * + * { margin-top: var(--space-2); }
 .hz-stack-3 > * + * { margin-top: var(--space-3); }
@@ -510,6 +511,22 @@
 .hz-dim-more { opacity: .4; }
 .hz-invisible { opacity: 0; }
 .hz-blur-bg { filter: blur(64px); }
+
+/* ── monochrome assets ────────────────────────────────────────────────── */
+
+/* A one-ink logo on transparency can only be right in ONE theme as authored;
+   the other theme has to invert it. So the ASSET states its ink, once, where
+   the asset is named — and the theme decides the filter. No call site repeats
+   the list of which logos flip.
+
+   This replaces Tailwind's `invert`, which was unconditional. It read correctly
+   only while the site was dark-only, and it did not survive the move: with the
+   class dead, every black logo vanished on dark and the two white ones
+   (Techstars, Zoo) vanished on light — each theme dropped a different subset. */
+.hz-ink-black { filter: none; }
+.hz-ink-white { filter: invert(1); }
+:root:not(.light) .hz-ink-black { filter: invert(1); }
+:root:not(.light) .hz-ink-white { filter: none; }
 
 .hz-sr {
   position: absolute; width: 1px; height: 1px;
