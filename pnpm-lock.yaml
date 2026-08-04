@@ -21,8 +21,8 @@ importers:
         specifier: ^1.0.14
         version: 1.0.14(react@19.2.8)
       '@hanzo/ui':
-        specifier: ^8.0.39
-        version: 8.0.39(g2ktwerpikngb6iwlq56sdjn6a)
+        specifier: ^8.0.40
+        version: 8.0.40(g2ktwerpikngb6iwlq56sdjn6a)
       '@zenlm/models':
         specifier: ^1.0.3
         version: 1.0.3
@@ -477,8 +477,8 @@ packages:
   '@hanzo/tokens@1.0.0':
     resolution: {integrity: sha512-My8shZPFXATfl81XdaN8QVqFgFxD82rzZOXkna7tMNC9I9Bof+qG8Chc48GO5pWMJvc6YpApRSqbvLY1vG68Dw==}
 
-  '@hanzo/ui@8.0.39':
-    resolution: {integrity: sha512-nGK9Y6W5FWD9DL/E7P71AuSLjki+A1JAy+cnkcCy6SGIHn8sOAFQPA+vJaqAj6Vtfcy0+Uh+VmG9PniHLwZT0g==}
+  '@hanzo/ui@8.0.40':
+    resolution: {integrity: sha512-kneqG20bGvHKneiNrDi6lqIu85lT7mb1P7yB9eYd7XizXoMbL927T5f3QyOCeglN8Ds9tJ4vg8nxon/IVmsa5g==}
     peerDependencies:
       '@hanzo/canvas': '>=0.1.0'
       '@hanzo/cd': '>=0.1.0'
@@ -1613,8 +1613,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.399:
-    resolution: {integrity: sha512-lEcqhErbHjXRvd41rnWLpzbyU/IXfIYo7QwaFWmxGeLiLyY2TBCdHnWY88vB+p3ubnihRypDm66panXl7TylLA==}
+  electron-to-chromium@1.5.400:
+    resolution: {integrity: sha512-96EWDNjM59SYflgeV5Ylsf4EMiq1a25YjCnJH7cxn/AF2H3pILRweaUnoLax0yKHWdpOzY6JKEu45e8irqZIHA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2032,8 +2032,8 @@ packages:
   node-int64@0.4.0:
     resolution: {integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==}
 
-  node-releases@2.0.51:
-    resolution: {integrity: sha512-wRNIrw4DmVLKQlbgOMdkMx27Wrpzes2hh5Jtbi2bjPd+4wJstWIqP5A+lscnqbm0xxmT5Bpg8Lec5ItEBwx6BQ==}
+  node-releases@2.0.52:
+    resolution: {integrity: sha512-MRlTqhAfoMx/4mhEbPo3Hi02g9LJZaJkka69V6h67Cb1gjrAG0jsTE4CZX1eptNx+VCAwJmfpnDIF4P0Nh1A7A==}
     engines: {node: '>=18'}
 
   nth-check@2.1.1:
@@ -2332,8 +2332,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  terser@5.49.0:
-    resolution: {integrity: sha512-SNiDnXyHSrxVcIOtVbULzcTmniUiwcV7Nwdyj1twVubeTmbjoa8p69KKDpfkdoOavuM4/GRm1+ykI8qqnavHoA==}
+  terser@5.49.1:
+    resolution: {integrity: sha512-7A2xlQ5EnGT8KPA92dUh6RbRYTVw8hEaEN9L1K68l4UOXFuV511NnAqObGoRqGOQofQcMypisu1s3xawCEHrvA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -3014,7 +3014,7 @@ snapshots:
 
   '@hanzo/tokens@1.0.0': {}
 
-  '@hanzo/ui@8.0.39(g2ktwerpikngb6iwlq56sdjn6a)':
+  '@hanzo/ui@8.0.40(g2ktwerpikngb6iwlq56sdjn6a)':
     dependencies:
       '@hanzo/data': 1.2.2(@hanzo/gui@8.0.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
       '@hanzo/gui': 8.0.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
@@ -4576,8 +4576,8 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.11.12
       caniuse-lite: 1.0.30001806
-      electron-to-chromium: 1.5.399
-      node-releases: 2.0.51
+      electron-to-chromium: 1.5.400
+      node-releases: 2.0.52
       update-browserslist-db: 1.2.3(browserslist@4.28.7)
 
   bser@2.1.1:
@@ -4723,7 +4723,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.399: {}
+  electron-to-chromium@1.5.400: {}
 
   emoji-regex@8.0.0: {}
 
@@ -5017,7 +5017,7 @@ snapshots:
   metro-minify-terser@0.84.4:
     dependencies:
       flow-enums-runtime: 0.0.6
-      terser: 5.49.0
+      terser: 5.49.1
 
   metro-resolver@0.84.4:
     dependencies:
@@ -5202,7 +5202,7 @@ snapshots:
 
   node-int64@0.4.0: {}
 
-  node-releases@2.0.51: {}
+  node-releases@2.0.52: {}
 
   nth-check@2.1.1:
     dependencies:
@@ -5564,7 +5564,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  terser@5.49.0:
+  terser@5.49.1:
     dependencies:
       '@jridgewell/source-map': 0.3.11
       acorn: 8.18.0
