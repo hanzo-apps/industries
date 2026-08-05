@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from '@hanzo/ui'
+import site from "@/site.config";
 export default function Leadership() {
   const leaders = [
     {
@@ -173,7 +174,7 @@ export default function Leadership() {
               "hz-t-3xl hz-w-bold hz-mb-2",
               "hz-fg"
             )}>
-              2,500+
+              {site.brand.ossRepos}
             </h4>
             <p className={"hz-fg"}>
               OSS Projects

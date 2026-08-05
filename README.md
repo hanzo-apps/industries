@@ -1,7 +1,7 @@
 # Hanzo Industries
 
 <p align="center">
-  <img src="public/hanzo-logo.png" alt="Hanzo" width="64" height="64" />
+  <img src="public/favicon.svg" alt="Hanzo" width="64" height="64" />
 </p>
 
 Defense and enterprise sector marketing site for [Hanzo AI](https://hanzo.ai) --

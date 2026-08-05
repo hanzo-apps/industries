@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Check, Github, FileText, Award, ExternalLink } from 'lucide-react'
+import { Activity, Github, FileText, Award, ExternalLink } from 'lucide-react'
 import Logo from './Logo'
 import { cn } from '@hanzo/ui'
 import site from '@/site.config'
@@ -85,9 +85,13 @@ export default function Footer() {
               <div className="hz-t-sm hz-fg">
                 &copy; {site.brand.foundedYear}-{new Date().getFullYear()} {site.brand.legalName}. All rights reserved.
               </div>
+              {/* A link to the status page, not a verdict about it. This read
+                  "All systems operational" as a hardcoded string on every page
+                  of the site, with no health check behind it — it would have
+                  gone on saying that straight through an outage. */}
               <Link href="/status" className="hz-inline hz-ai-center hz-inline-2 hz-t-sm hz-transition hz-fg hz-hoverable">
-                <Check className="hz-sq-2 hz-fg" />
-                <span>All systems operational</span>
+                <Activity className="hz-sq-2 hz-fg" />
+                <span>System status</span>
               </Link>
             </div>
             <div className="hz-row hz-wrap hz-ai-center hz-gap-5 hz-gap-2">

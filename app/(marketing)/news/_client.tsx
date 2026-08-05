@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button, cn } from '@hanzo/ui'
 import { Calendar, ExternalLink, FileText, Megaphone } from "lucide-react";
+import site from "@/site.config";
 
 const announcements = [
   {
@@ -86,8 +87,8 @@ const announcements = [
       },
       {
         day: "15",
-        title: "2,500+ Open Source Projects",
-        description: "Hanzo's open source ecosystem reaches 2,500+ repositories across AI infrastructure, blockchain, and developer tools.",
+        title: `${site.brand.ossRepos} Open Source Projects`,
+        description: `Hanzo's open source ecosystem reaches ${site.brand.ossRepos} repositories across AI infrastructure, blockchain, and developer tools.`,
         type: "Milestone",
         link: "https://github.com/hanzoai",
       },

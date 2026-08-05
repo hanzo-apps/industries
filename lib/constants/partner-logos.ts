@@ -20,10 +20,4 @@ export const partnerLogos: PartnerLogo[] = [
   { name: "AWS", src: "/logos/partners/aws.svg", ink: "black" },
   { name: "DigitalOcean", src: "/logos/partners/digitalocean.svg", ink: "black" },
   { name: "Nebius", src: "/logos/partners/nebius.svg", ink: "black" },
-  { name: "Lux Network", src: "/logos/partners/lux-network.svg", ink: "black" },
-  {
-    name: "Zoo Labs Foundation",
-    src: "/logos/partners/zoo-labs-foundation.svg",
-    ink: "white",
-  },
 ];

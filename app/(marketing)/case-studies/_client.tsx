@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Brain, Shield, Network, Sparkles, Cpu, Lock, Zap } from "lucide-react";
 import { cn } from '@hanzo/ui'
+import site from "@/site.config";
 export default function PageClient() {
   const caseStudies = [
     {
@@ -148,7 +149,7 @@ export default function PageClient() {
               <div className={cn("hz-t-sm", "hz-fg")}>AI Model Weights</div>
             </div>
             <div className={cn("hz-p-5 hz-r-lg hz-align-center", "hz-bg-surface hz-bordered")}>
-              <div className="hz-t-3xl hz-w-bold hz-mb-2">2,500+</div>
+              <div className="hz-t-3xl hz-w-bold hz-mb-2">{site.brand.ossRepos}</div>
               <div className={cn("hz-t-sm", "hz-fg")}>OSS Projects</div>
             </div>
             <div className={cn("hz-p-5 hz-r-lg hz-align-center", "hz-bg-surface hz-bordered")}>

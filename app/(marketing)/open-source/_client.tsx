@@ -30,7 +30,7 @@ import site from '@/site.config'
 /* ------------------------------------------------------------------ */
 
 const HERO_STATS = [
-  { value: '727+', label: 'Open Source Repos', icon: Github },
+  { value: site.brand.ossRepos, label: 'Open Source Repos', icon: Github },
   { value: '6', label: 'GitHub Orgs', icon: Layers },
   { value: '20+', label: 'Upstream Foundations', icon: Star },
   { value: '25%', label: 'Compute Revenue Shared', icon: DollarSign },
@@ -150,7 +150,7 @@ export default function PageClient() {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="hz-container-narrow hz-t-lg hz-fg hz-leading-relaxed hz-mb-6"
             >
-              Hanzo is built on open source and gives back. 727+ repos across 6 GitHub
+              Hanzo is built on open source and gives back. {site.brand.ossRepos} repos across 6 GitHub
               orgs, MIT and Apache licensed. We dedicate 25% of compute revenue to the
               open source projects that power everything we ship.
             </motion.p>

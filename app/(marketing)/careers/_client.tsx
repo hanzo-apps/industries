@@ -9,6 +9,7 @@ import {
   BookOpen, Globe, Zap, Shield, Brain, Code2, Database
 } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, cn } from '@hanzo/ui'
+import site from "@/site.config";
 
 interface Job {
   id: string;
@@ -510,7 +511,7 @@ export default function PageClient() {
               <p className={cn("hz-fg")}>
                 We're a quickly growing team of committed researchers, engineers, and business leaders working
                 together to build beneficial AI systems. We've published over 130 research papers, released
-                the Zen model family (100+ model weights, 600M–1T+ parameters), and maintain over 2,500 open-source
+                the Zen model family (100+ model weights, 600M–1T+ parameters), and maintain {site.brand.ossRepos} open-source
                 projects across AI, cryptography, and distributed systems.
               </p>
             </div>
@@ -669,7 +670,7 @@ export default function PageClient() {
             className="hz-grid hz-grid-4 hz-gap-4 hz-mb-7"
           >
             <div className={cn("hz-bordered hz-r-lg hz-p-5 hz-align-center", "hz-bg-surface")}>
-              <div className="hz-t-3xl hz-w-bold hz-mb-1">2,500+</div>
+              <div className="hz-t-3xl hz-w-bold hz-mb-1">{site.brand.ossRepos}</div>
               <div className={cn("hz-t-sm", "hz-fg")}>OSS Projects</div>
             </div>
             <div className={cn("hz-bordered hz-r-lg hz-p-5 hz-align-center", "hz-bg-surface")}>

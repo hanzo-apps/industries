@@ -284,6 +284,30 @@
 .hz-center-x { left: 50%; transform: translateX(-50%); }
 .hz-center-y { top: 50%; transform: translateY(-50%); }
 .hz-center-xy { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+/* The floating affordance, docked. `hz-fixed` alone sets `position: fixed` and
+   NOTHING else, so a fixed element with no offsets stays at its static position
+   — which for the chat launcher is the top-left corner, 48px square, directly
+   over the header logo. It covered the Hanzo mark on every page, in both
+   themes, at both widths, and no build check can see it: every class it
+   carried had a rule, the missing one was simply never written.
+   One role, one gutter, both the launcher and the panel. */
+.hz-dock {
+  position: fixed;
+  right: var(--space-6);
+  bottom: var(--space-6);
+  z-index: var(--z-overlay, 500);
+}
+/* Sized against the viewport, not the content, so the panel cannot grow past
+   the screen it is docked to. Mobile-first: the gutter is subtracted twice. */
+.hz-dock-panel {
+  width: min(24rem, calc(100vw - 2 * var(--space-6)));
+  height: min(32rem, calc(100vh - 2 * var(--space-6)));
+}
+.hz-dock-panel-lg {
+  width: min(48rem, calc(100vw - 2 * var(--space-6)));
+  height: min(44rem, calc(100vh - 2 * var(--space-6)));
+}
+
 .hz-z-behind { z-index: -1; }
 .hz-z-base { z-index: var(--z-base, 0); }
 .hz-z-raised { z-index: var(--z-raised, 10); }

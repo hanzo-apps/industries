@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { HanzoLogo } from "@hanzo/logo/react";
 import { cn } from '@hanzo/ui'
+import site from "@/site.config";
 
 // The full stack — organized by layer
 const stackLayers = [
@@ -55,7 +56,7 @@ const stackLayers = [
 const stats = [
   { value: "Techstars '17", label: "Backed Company" },
   { value: "130+", label: "Research Papers" },
-  { value: "2,500+", label: "OSS Projects" },
+  { value: site.brand.ossRepos, label: "OSS Projects" },
   { value: "100+", label: "AI Model Weights" },
   { value: "100+", label: "LLM Providers" },
   { value: "260+", label: "MCP Tools" },

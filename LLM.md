@@ -101,8 +101,20 @@ Full docs: README.md
 
 The palette is `@hanzo/design`, reaching this app inside `@hanzo/ui/styles.css`.
 `:root` is Hanzo's dark palette and `.light` retunes it (next-themes writes both
-classes; `defaultTheme="dark"`, and Hanzo is dark-first). Do not declare a local
-`:root`/`.dark` palette — retune upstream in `~/work/hanzo/design`.
+classes). Do not declare a local `:root`/`.dark` palette — retune upstream in
+`~/work/hanzo/design`.
+
+`app/providers.tsx` sets **`defaultTheme="light"`**, so a first visit with no
+stored preference paints light even under `prefers-color-scheme: dark`. This
+page used to claim `"dark"` and "Hanzo is dark-first"; the code has said `light`
+throughout, and both live builds render light. The token base being dark while
+the default is light is a real open question — decide it in `providers.tsx`,
+which is the one place that sets it, and correct this paragraph in the same
+commit rather than letting the two drift again.
+
+A token can be translucent. On dark, `--surface-card` is `rgba(38,38,38,.5)`:
+right for a card sitting ON the page, wrong for anything floating OVER it, which
+will show the page straight through itself. Overlays take `hz-bg`.
 
 The whole ladder arrives now, not colours only: type, spacing, radius, elevation,
 motion and the z-index scale as well. The old carve-out existed because Tailwind

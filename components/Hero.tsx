@@ -55,8 +55,8 @@ export default function Hero() {
             className="hz-container-narrow hz-mw-md hz-mt-6 hz-t-lg hz-leading-relaxed hz-fg"
           >
             Hanzo builds open-weight models, cloud infrastructure, and agent frameworks
-            — freely available to researchers, developers, and the broader AI ecosystem.
-            727+ open source repos. MIT and Apache licensed.
+            — freely available to researchers, developers, and the broader AI ecosystem.{' '}
+            {site.brand.ossRepos} open source repos. MIT and Apache licensed.
             25% of compute revenue goes back to OSS contributors.
           </motion.p>
 

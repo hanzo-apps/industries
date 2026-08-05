@@ -188,7 +188,7 @@ const navMenus: Record<string, MenuConfig> = {
       { label: 'Cryptography', href: '/research#crypto', description: 'Post-quantum and FHE research', icon: Shield },
       { label: 'Consensus & Networks', href: '/research#consensus', description: 'Distributed systems and blockchain', icon: Network },
       { label: 'Papers', href: '/research#papers', description: '130+ published research papers', icon: FileText },
-      { label: 'Open Source', href: '/open-source', description: '727+ repos, revenue sharing', icon: Github },
+      { label: 'Open Source', href: '/open-source', description: `${site.brand.ossRepos} repos, revenue sharing`, icon: Github },
     ],
   },
   models: {

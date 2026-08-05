@@ -751,7 +751,7 @@ export default function GlobalChatWidget() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="hz-sq-7 hz-fixed hz-z-overlay hz-r-full hz-shadow-lg hz-row hz-ai-center hz-jc-center hz-bg hz-bordered"
+            className="hz-sq-7 hz-dock hz-r-full hz-shadow-lg hz-row hz-ai-center hz-jc-center hz-bg hz-bordered"
           >
             <img src="/zen-logo.png" alt="Zen AI" className="hz-sq-5 hz-ink-black" />
           </motion.button>
@@ -767,11 +767,15 @@ export default function GlobalChatWidget() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             className={cn(
-              "hz-fixed hz-z-overlay hz-r-xl hz-shadow-lg hz-clip hz-col",
-              "hz-bg-surface hz-bordered",
+              "hz-dock hz-r-xl hz-shadow-lg hz-clip hz-col",
+              // `hz-bg`, not `hz-bg-surface`: on dark `--surface-card` is
+              // rgba(38,38,38,.5) — fine for a card sitting ON the page, wrong
+              // for a panel floating OVER it, which showed the hero text
+              // straight through itself. The border and shadow still raise it.
+              "hz-bg hz-bordered",
               isExpanded
-                ? ""
-                : "hz-mw-full"
+                ? "hz-dock-panel-lg"
+                : "hz-dock-panel"
             )}
           >
             {/* Header */}

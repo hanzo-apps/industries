@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Button, cn } from '@hanzo/ui'
 import { ArrowRight } from "lucide-react";
+import site from "@/site.config";
 export default function CallToAction() {
   return (
     <div className="hz-mt-7">
@@ -13,7 +14,7 @@ export default function CallToAction() {
       )}>
         <div className="hz-align-center">
           <div className={cn("hz-t-2xl hz-w-bold", "hz-fg")}>
-            2,500+
+            {site.brand.ossRepos}
           </div>
           <div className={cn("hz-t-sm", "hz-fg")}>
             OSS Projects
