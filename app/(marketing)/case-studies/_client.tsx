@@ -109,7 +109,7 @@ export default function PageClient() {
       ],
       technologies: ["ZAP Binary Format", "Zero-copy", "Metastable Consensus", "Post-Quantum"],
       impact: "Enabling real-time agent swarms with native consensus and capability security",
-      link: "https://github.com/zap-proto/zap"
+      link: "https://github.com/zap-proto/spec"
     }
   ];
 

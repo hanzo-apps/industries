@@ -63,7 +63,7 @@ const researchAreas = [
     icon: Network,
     title: "Decentralized AI",
     description: "Distributed inference, federated learning, and privacy-preserving AI infrastructure.",
-    link: "https://github.com/zoofoundation/papers",
+    link: "https://github.com/zoo-labs/papers",
   },
   {
     icon: Cpu,
@@ -80,7 +80,7 @@ const openSourceProjects = [
     description: "Zero-copy Agent Protocol - MCP killer with ~500x faster performance via zero-copy RPC",
     stars: "3.1k",
     language: "Rust",
-    href: "https://github.com/zap-proto/zap",
+    href: "https://github.com/zap-proto/spec",
   },
   {
     name: "hanzo-mcp",
@@ -149,7 +149,7 @@ const papers: Paper[] = [
     authors: "Hanzo AI Research",
     date: "2026",
     abstract: "The MCP Killer—unified protocol using zero-copy RPC for ~500x faster agent communication. Features zero-copy performance (<1μs latency), capability-secure routing, native metastable consensus, and post-quantum security. Achieves 1.2M/s throughput vs MCP's 2.2k/s.",
-    link: "https://github.com/zap-proto/zap",
+    link: "https://github.com/zap-proto/spec",
     org: "hanzo",
     topics: ["agents", "infrastructure", "consensus"],
     featured: true,

@@ -36,7 +36,7 @@ export default function ResearchHighlights() {
       papers: [
         { title: "Lux Multi-Consensus", href: "https://github.com/luxfi/papers", result: "Wave, Focus, Quasar protocols" },
         { title: "Hamiltonian Market Maker", href: "https://github.com/hanzoai/papers", result: "<200ms quote latency" },
-        { title: "ZAP Protocol", href: "https://github.com/zap-protocol/zap", result: "Zero-copy AI agent RPC" },
+        { title: "ZAP Protocol", href: "https://github.com/zap-proto/spec", result: "Zero-copy AI agent RPC" },
       ],
       link: "/research#consensus"
     },

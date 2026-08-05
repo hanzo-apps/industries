@@ -28,7 +28,7 @@ const pressReleases = [
     date: "January 2025",
     title: "ZAP Protocol: The MCP Killer",
     description: "Hanzo announces ZAP (Zero-copy Agent Protocol), achieving ~500x faster agent communication than MCP with zero-copy RPC and native consensus.",
-    link: "https://github.com/zap-proto/zap",
+    link: "https://github.com/zap-proto/spec",
     type: "Product",
   },
   {
