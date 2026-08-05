@@ -1,12 +1,13 @@
 # Hanzo Industries
 
-Defense and enterprise marketing site for Hanzo AI ([hanzo.industries](https://hanzo.industries)). Next.js 15 App Router (React 19, `@hanzo/gui` + `@hanzo/ui`), static export to `out/`, served via GitHub Pages.
+Defense and enterprise marketing site for Hanzo AI ([hanzo.industries](https://hanzo.industries)). Next.js 15 App Router (React 19, `@hanzo/gui` + `@hanzo/ui`), static export to `out/`, shipped on the Hanzo Sites plane.
 
 ## Structure
 - `app/(marketing)/` — all pages share one layout (Navbar + Footer + GlobalChatWidget). ~31 routes plus `products/[slug]` (14 dynamic product pages).
 - `components/` — Navbar, Hero, Logo, GlobalChatWidget (SSE chat over Zen models), CommandPalette (Cmd+K).
 - `lib/data/products.ts` — the 14 product definitions.
-- `public/CNAME` — `hanzo.industries`; `public/llms.txt` — LLM site summary.
+- `public/llms.txt` — LLM site summary.
+- `components/Analytics.tsx` — the telemetry root (`@hanzo/event` → `api.hanzo.ai/v1/event`). The one client; there is no GA, no Plausible, no separate error SDK.
 
 ## Commands
 - Dev: `pnpm dev` (http://localhost:8080)
@@ -78,6 +79,13 @@ read, and the ~40 unresolved `@/*` imports above.
 Revisit when Next ships a TS7-compatible config loader. Do **not** add
 `@typescript/native-preview` to work around it: that package is `7.0.0-dev`,
 behind 7.0.2 stable, and has the same JS-API surface.
+
+## How it ships
+`.hanzo/workflows/deploy.yml` on the git.hanzo.ai forge (`hanzo-build-linux-amd64`):
+build `out/` → `POST /v1/projects/hanzo-industries/deploy` (202) → `aws s3 sync`
+to the bucket+prefix cloud names → `POST …/complete {"status":"live"}`. The bytes
+never pass through the API — BodyLimit is 16 MiB. No GitHub Pages, no Cloudflare
+Pages, and no image: a static export has no compute to run.
 
 ## Brand policy (load-bearing)
 Monochrome only (black/white, no accent colors). Present Zen models as Hanzo's own family — never name upstream models (GLM, Kimi, Qwen, etc.). Keep factual specs accurate.

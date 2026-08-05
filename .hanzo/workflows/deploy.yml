@@ -1,24 +1,26 @@
 name: deploy
-# THE pipeline that ships hanzo.industries. It publishes
-# ghcr.io/hanzoai/hanzo-industries, served by ghcr.io/hanzoai/static behind
-# hanzoai/ingress — the same mechanism as hanzo.ai, cloud.hanzo.ai, ui.hanzo.ai
-# and papers.hanzo.ai.
+
+# hanzo.industries is a SITE, not an App: a static export with no compute. It ships on the
+# Sites plane — enqueue, sync the bytes to S3, flip live. Not GitHub Pages, not
+# Cloudflare Pages, and not an image the cluster has to run to hand back files
+# that never execute.
 #
-# It replaces .github/workflows/deploy.yml (actions/deploy-pages), which is
-# DELETED rather than neutralized: this forge collects workflows from the FIRST of
-# WORKFLOW_DIRS that exists, so the moment .hanzo/workflows appeared the whole
-# .github/workflows tree went dark here while GitHub.com kept publishing the old
-# Pages copy.
+#   build -> out
+#     -> POST /v1/projects/hanzo-industries/deploy {"source":"git"}   (202, queued)
+#     -> aws s3 sync out s3://<bucket>/<prefix>        (bytes skip the API)
+#     -> POST .../deployments/<id>/complete {"status":"live"}
 #
-# The smoke test below is the one the Pages job carried, kept because it has
-# caught real breakage; it runs against the SAME out/ the image is built from.
-#
-# A BUILD NEVER DEPLOYS ITSELF. This publishes the image and stops. A human sets
-# image.tag on the App in hanzoai/universe.
+# Three steps because the bytes never pass through the API. BodyLimit is 16 MiB,
+# so an artifact POST of a real export is refused by fasthttp before any handler
+# runs — and it fails as an opaque 400 that reads like a malformed payload rather
+# than a size cap. cloud names the bucket and prefix in the 202, so CI writes
+# exactly where the site is served from; never hardcode them, prefix is
+# sitePrefix(org, slug) server-side and a local guess drifts the moment the org or
+# slug changes.
+
 on:
   push:
     branches: [main]
-    tags: ['v*']
   workflow_dispatch:
 
 concurrency:
@@ -26,9 +28,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  image:
-    # NOT ubuntu-latest. hanzoai/* repos run on the hanzoai pool; a cross-org or
-    # decommissioned label queues silently and cancels at the 24h timeout.
+  site:
+    # NOT ubuntu-latest. This file lives in .hanzo/workflows, which GitHub never
+    # reads — git.hanzo.ai is the only thing that can run it, and its fleet
+    # advertises hanzo-build-linux-amd64. An unmatched label is not an error here,
+    # it is silence: the job queues until the 24h timeout and nothing says so.
     runs-on: hanzo-build-linux-amd64
     timeout-minutes: 30
     steps:
@@ -38,82 +42,117 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Enable pnpm
-        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
+      - name: build the static export
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+          NEXT_PUBLIC_EVENT_INGEST_KEY: ${{ secrets.EVENT_INGEST_KEY }}
+        run: |
+          set -euo pipefail
+          corepack enable && corepack prepare pnpm@9.15.4 --activate
+          pnpm install --frozen-lockfile
+          pnpm build
+          test -s out/index.html || { echo "::error::next build produced no out/index.html"; exit 1; }
+          echo "exported $(find out -type f | wc -l) files"
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build
-        run: pnpm build
-
-      # Same export the image ships. No `cp out/index.html out/404.html` here:
-      # that clobbers the real 404 with the homepage, so a broken link answers 404
-      # while rendering the front page.
-      - name: Smoke test static build
+      # This gate has caught real breakage, so it runs against the SAME out/ that
+      # gets synced. No `cp out/index.html out/404.html`: every route here is a
+      # real exported file, so clobbering the 404 would make a broken link answer
+      # 404 while rendering the front page.
+      - name: smoke test the export
         run: |
           set -euo pipefail
           pnpm dlx serve out -l 3333 &
           SERVER_PID=$!
           for i in $(seq 1 30); do
-            if curl -s -o /dev/null http://localhost:3333 2>/dev/null; then
-              echo "Server ready after ${i}s"; break
-            fi
+            curl -sf -o /dev/null http://localhost:3333 && { echo "server ready after ${i}s"; break; }
             sleep 1
           done
           BODY=$(curl -s http://localhost:3333)
-          if echo "$BODY" | grep -q "Application error"; then
-            echo "FATAL: Homepage contains 'Application error'"; kill $SERVER_PID 2>/dev/null; exit 1
-          fi
+          kill $SERVER_PID 2>/dev/null || true
+          echo "$BODY" | grep -q "Application error" && { echo "::error::homepage renders 'Application error'"; exit 1; }
           FAILED=0
           for page in index about research contact careers news ai-models; do
-            if [ ! -f "out/${page}.html" ] && [ ! -f "out/${page}/index.html" ]; then
-              echo "FATAL: Missing page: ${page}"; FAILED=1
-            fi
+            [ -f "out/${page}.html" ] || [ -f "out/${page}/index.html" ] || { echo "::error::missing page ${page}"; FAILED=1; }
           done
-          kill $SERVER_PID 2>/dev/null
-          if [ "$FAILED" = "1" ]; then exit 1; fi
-          echo "All smoke tests passed"
+          [ "$FAILED" = "0" ]
+          echo "all smoke tests passed"
 
-      - uses: docker/setup-buildx-action@v3
-
-      - name: Login to GHCR (GH_PAT — the instance token is not valid at ghcr.io)
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: hanzo-dev
-          password: ${{ secrets.GH_PAT }}
-
-      # Semver from a v* tag, an immutable sha- tag from anything else. Never a
-      # floating :latest/:main — a deployment has to be able to name the build it
-      # runs, and a moving tag makes "which build serves?" unanswerable.
-      - name: Resolve the tag this build publishes
-        id: meta
+      - name: enqueue the deployment
+        id: enqueue
+        env:
+          DEPLOY_TOKEN: ${{ secrets.HANZO_DEPLOY_TOKEN }}
         run: |
           set -euo pipefail
-          case "${GITHUB_REF}" in
-            refs/tags/v*) tag="${GITHUB_REF#refs/tags/}" ;;
-            *)            tag="sha-${GITHUB_SHA}" ;;
-          esac
-          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
-          echo "publishing ghcr.io/hanzoai/hanzo-industries:${tag}"
+          if [ -z "${DEPLOY_TOKEN:-}" ]; then
+            echo "::error::HANZO_DEPLOY_TOKEN is unset — it is configured org-wide on the forge."
+            exit 1
+          fi
+          CODE=$(curl -sS -o /tmp/enq.json -w '%{http_code}' \
+            -X POST "https://api.hanzo.ai/v1/projects/hanzo-industries/deploy" \
+            -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
+            -H 'Content-Type: application/json' \
+            -d "{\"source\":\"git\",\"commit\":\"${GITHUB_SHA}\",\"branch\":\"main\"}")
+          # 202 Accepted is the success code: the deployment is queued, not live.
+          if [ "$CODE" != "202" ]; then
+            echo "::error::enqueue returned HTTP $CODE — does project 'hanzo-industries' exist?"
+            head -c 600 /tmp/enq.json; exit 1
+          fi
+          echo "id=$(jq -r .id /tmp/enq.json)"         >> "$GITHUB_OUTPUT"
+          echo "bucket=$(jq -r .bucket /tmp/enq.json)" >> "$GITHUB_OUTPUT"
+          echo "prefix=$(jq -r .prefix /tmp/enq.json)" >> "$GITHUB_OUTPUT"
+          jq -c '{id,version,status,bucket,prefix}' /tmp/enq.json
 
-      - name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64
-          tags: ghcr.io/hanzoai/hanzo-industries:${{ steps.meta.outputs.tag }}
-          provenance: false
-          push: true
-
-      # build-push-action can exit 0 before the manifest resolves, so a green run
-      # could still leave a CR pinned to a tag that ImagePullBackOffs. Prove it
-      # pulls before the job goes green.
-      - name: Verify the pushed image resolves
+      - name: sync the export to S3
+        id: sync
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.SITES_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SITES_S3_SECRET_ACCESS_KEY }}
+          BUCKET: ${{ steps.enqueue.outputs.bucket }}
+          PREFIX: ${{ steps.enqueue.outputs.prefix }}
         run: |
           set -euo pipefail
-          img="ghcr.io/hanzoai/hanzo-industries:${{ steps.meta.outputs.tag }}"
-          docker buildx imagetools inspect "$img" >/dev/null
-          echo "resolves: $img"
+          if [ -z "${AWS_ACCESS_KEY_ID:-}" ] || [ -z "${AWS_SECRET_ACCESS_KEY:-}" ]; then
+            echo "::error::SITES_S3_* secrets unset — cannot sync. These are the hanzo-sites bucket credentials."
+            exit 1
+          fi
+          # CNAME is a GitHub Pages artifact. It means nothing to S3 and would ship
+          # a stale hostname claim into the bucket, so it does not travel.
+          rm -f out/CNAME
+          # --delete so a removed page actually disappears: without it the prefix
+          # only ever grows and deleted routes keep serving.
+          aws s3 sync out "s3://${BUCKET}/${PREFIX}" \
+            --endpoint-url https://s3.hanzo.ai --delete --only-show-errors
+          echo "files=$(find out -type f | wc -l | tr -d ' ')" >> "$GITHUB_OUTPUT"
+          echo "bytes=$(du -sk out | awk '{print $1*1024}')"  >> "$GITHUB_OUTPUT"
+
+      - name: flip it live
+        env:
+          DEPLOY_TOKEN: ${{ secrets.HANZO_DEPLOY_TOKEN }}
+          DEP: ${{ steps.enqueue.outputs.id }}
+          FILES: ${{ steps.sync.outputs.files }}
+          BYTES: ${{ steps.sync.outputs.bytes }}
+        run: |
+          set -euo pipefail
+          CODE=$(curl -sS -o /tmp/done.json -w '%{http_code}' \
+            -X POST "https://api.hanzo.ai/v1/projects/hanzo-industries/deployments/${DEP}/complete" \
+            -H "Authorization: Bearer ${DEPLOY_TOKEN}" \
+            -H 'Content-Type: application/json' \
+            -d "{\"status\":\"live\",\"commit\":\"${GITHUB_SHA}\",\"files\":${FILES},\"bytes\":${BYTES}}")
+          if [ "$CODE" != "200" ]; then
+            echo "::error::complete returned HTTP $CODE"; head -c 600 /tmp/done.json; exit 1
+          fi
+          jq -c '{status,liveUrl,version,files,bytes}' /tmp/done.json
+
+      # A build that dies after the enqueue would leave the deployment "queued"
+      # and the project stuck "building" forever. Report the failure so cloud
+      # records an honest terminal state instead of a lie by omission.
+      - name: report a failed build
+        if: failure() && steps.enqueue.outputs.id != ''
+        env:
+          DEPLOY_TOKEN: ${{ secrets.HANZO_DEPLOY_TOKEN }}
+          DEP: ${{ steps.enqueue.outputs.id }}
+        run: |
+          curl -sS -X POST "https://api.hanzo.ai/v1/projects/hanzo-industries/deployments/${DEP}/complete" \
+            -H "Authorization: Bearer ${DEPLOY_TOKEN}" -H 'Content-Type: application/json' \
+            -d '{"status":"error","message":"CI build or sync failed"}' >/dev/null || true
+          echo "marked deployment ${DEP} as error"
