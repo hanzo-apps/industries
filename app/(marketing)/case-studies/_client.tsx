@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Brain, Shield, Network, Sparkles, Cpu, Lock, Zap } from "lucide-react";
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function PageClient() {
   const caseStudies = [
     {
@@ -114,20 +113,20 @@ export default function PageClient() {
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <main className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className="hz-container">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="hz-align-center hz-mb-7"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <h1 className="hz-t-5xl hz-w-bold hz-mb-5">
               Research Impact
             </h1>
-            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
+            <p className={cn("hz-container-narrow hz-t-xl", "hz-fg")}>
               Delivering measurable breakthroughs in AI efficiency, cryptography, and distributed systems
             </p>
           </motion.div>
@@ -138,28 +137,28 @@ export default function PageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
+            className="hz-grid hz-grid-4 hz-gap-5 hz-mb-7"
           >
-            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
-              <div className="text-3xl font-bold mb-2">130+</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>Research Papers</div>
+            <div className={cn("hz-p-5 hz-r-lg hz-align-center", "hz-bg-surface hz-bordered")}>
+              <div className="hz-t-3xl hz-w-bold hz-mb-2">130+</div>
+              <div className={cn("hz-t-sm", "hz-fg")}>Research Papers</div>
             </div>
-            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
-              <div className="text-3xl font-bold mb-2">100+</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>AI Model Weights</div>
+            <div className={cn("hz-p-5 hz-r-lg hz-align-center", "hz-bg-surface hz-bordered")}>
+              <div className="hz-t-3xl hz-w-bold hz-mb-2">100+</div>
+              <div className={cn("hz-t-sm", "hz-fg")}>AI Model Weights</div>
             </div>
-            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
-              <div className="text-3xl font-bold mb-2">2,500+</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>OSS Projects</div>
+            <div className={cn("hz-p-5 hz-r-lg hz-align-center", "hz-bg-surface hz-bordered")}>
+              <div className="hz-t-3xl hz-w-bold hz-mb-2">2,500+</div>
+              <div className={cn("hz-t-sm", "hz-fg")}>OSS Projects</div>
             </div>
-            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
-              <div className="text-3xl font-bold mb-2">4</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>Research Organizations</div>
+            <div className={cn("hz-p-5 hz-r-lg hz-align-center", "hz-bg-surface hz-bordered")}>
+              <div className="hz-t-3xl hz-w-bold hz-mb-2">4</div>
+              <div className={cn("hz-t-sm", "hz-fg")}>Research Organizations</div>
             </div>
           </motion.div>
 
           {/* Case Studies Grid */}
-          <div className="space-y-12">
+          <div className="hz-stack-6" data-case-studies>
             {caseStudies.map((study, index) => {
               const Icon = study.icon;
               return (
@@ -172,46 +171,46 @@ export default function PageClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.5, delay: Math.min(index * 0.1, 0.3) }}
-                  className={cn("block rounded-lg p-8 transition-colors group", "bg-foreground/5 border border-border hover:border-border")}
+                  className={cn("hz-r-lg hz-p-6 hz-transition", "hz-bg-surface hz-bordered hz-hoverable")}
                 >
-                  <div className="flex items-start space-x-4 mb-6">
-                    <div className="flex-shrink-0">
-                      <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center transition-colors", "bg-primary group-hover:bg-primary/90")}>
-                        <Icon className={cn("w-6 h-6", "text-primary-foreground")} />
+                  <div className="hz-row hz-ai-start hz-inline-4 hz-mb-5">
+                    <div className="hz-none">
+                      <div className={cn("hz-sq-7 hz-r-lg hz-row hz-ai-center hz-jc-center hz-transition", "hz-bg-inverse hz-hoverable")}>
+                        <Icon className={cn("hz-sq-4", "hz-fg")} />
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <div className={cn("text-sm mb-1", "text-muted-foreground")}>{study.category}</div>
-                      <h3 className={cn("text-2xl font-semibold mb-2 transition-colors", "group-hover:text-foreground/80")}>{study.title}</h3>
-                      <p className={cn("text-muted-foreground")}>{study.description}</p>
+                    <div className="hz-grow">
+                      <div className={cn("hz-t-sm hz-mb-1", "hz-fg")}>{study.category}</div>
+                      <h3 className={cn("hz-t-2xl hz-w-semibold hz-mb-2 hz-transition", "hz-hoverable")}>{study.title}</h3>
+                      <p className={cn("hz-fg")}>{study.description}</p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                  <div className="hz-grid hz-grid-2 hz-gap-6 hz-mb-5">
                     <div>
-                      <h4 className="text-lg font-semibold mb-3">Key Results</h4>
-                      <ul className="space-y-2">
+                      <h4 className="hz-t-lg hz-w-semibold hz-mb-3">Key Results</h4>
+                      <ul className="hz-stack-2">
                         {study.results.map((result, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
-                            <span className={cn("text-sm", "text-muted-foreground")}>{result}</span>
+                          <li key={idx} className="hz-row hz-ai-start">
+                            <div className={cn("hz-sq-1 hz-r-full hz-mt-2 hz-mr-3 hz-none", "hz-bg-inverse")} />
+                            <span className={cn("hz-t-sm", "hz-fg")}>{result}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold mb-3">Technologies Used</h4>
-                      <div className="flex flex-wrap gap-2 mb-4">
+                      <h4 className="hz-t-lg hz-w-semibold hz-mb-3">Technologies Used</h4>
+                      <div className="hz-row hz-wrap hz-gap-2 hz-mb-4">
                         {study.technologies.map((tech, idx) => (
                           <span
                             key={idx}
-                            className={cn("px-3 py-1 rounded-full text-sm", "bg-foreground/10 text-muted-foreground")}
+                            className={cn("hz-px-3 hz-py-1 hz-r-full hz-t-sm", "hz-bg-surface hz-fg")}
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
-                      <div className={cn("text-sm", "text-muted-foreground")}>
+                      <div className={cn("hz-t-sm", "hz-fg")}>
                         <strong>Impact:</strong> {study.impact}
                       </div>
                     </div>
@@ -227,18 +226,18 @@ export default function PageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5 }}
-            className="mt-20 text-center"
+            className="hz-mt-7 hz-align-center"
           >
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-5">
               Explore Our Research
             </h2>
-            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
+            <p className={cn("hz-container-narrow hz-mw-md hz-t-xl hz-mb-6", "hz-fg")}>
               Dive deeper into our published papers and open source projects
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="hz-col-row hz-gap-4 hz-jc-center">
               <a
                 href="/research#papers"
-                className={cn("inline-block px-8 py-4 rounded-lg font-semibold transition-colors", "bg-primary text-primary-foreground hover:bg-primary/90")}
+                className={cn("hz-px-6 hz-py-4 hz-r-lg hz-w-semibold hz-transition", "hz-bg-inverse hz-hoverable")}
               >
                 View All Papers
               </a>
@@ -246,7 +245,7 @@ export default function PageClient() {
                 href="https://github.com/hanzoai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn("inline-block bg-transparent px-8 py-4 rounded-lg font-semibold transition-colors", "border border-primary text-foreground hover:bg-accent")}
+                className={cn("hz-bg-none hz-px-6 hz-py-4 hz-r-lg hz-w-semibold hz-transition", "hz-bordered hz-fg hz-hoverable")}
               >
                 Open Source
               </a>

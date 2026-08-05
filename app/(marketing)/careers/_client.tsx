@@ -8,10 +8,7 @@ import {
   ArrowLeft, Calendar, Clock, DollarSign, Users, Laptop, Heart,
   BookOpen, Globe, Zap, Shield, Brain, Code2, Database
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import {
-  Select, SelectContent, SelectItem, SelectTrigger, SelectValue
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, cn } from '@hanzo/ui'
 
 interface Job {
   id: string;
@@ -483,34 +480,34 @@ export default function PageClient() {
   // Job Detail View
   if (selectedJob) {
     return (
-      <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-        <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+      <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+        <main className="hz-pt-6 hz-pb-6 hz-px-4">
+          <div className="hz-container-narrow">
             <button
               onClick={() => setSelectedJob(null)}
-              className={cn("flex items-center gap-2 mb-8 transition-colors", "text-muted-foreground hover:text-foreground")}
+              className={cn("hz-row hz-ai-center hz-gap-2 hz-mb-6 hz-transition", "hz-fg hz-hoverable")}
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="hz-sq-2" />
               Back to Careers
             </button>
 
             {selectedJob.new && (
-              <span className={cn("inline-block px-3 py-1 text-sm font-medium rounded mb-4", "bg-primary text-primary-foreground")}>
+              <span className={cn("hz-px-3 hz-py-1 hz-t-sm hz-w-medium hz-r-md hz-mb-4", "hz-bg-inverse")}>
                 New
               </span>
             )}
 
-            <h1 className="text-4xl font-bold mb-4">{selectedJob.title}</h1>
-            <p className={cn("text-xl mb-6", "text-muted-foreground")}>{selectedJob.location}</p>
+            <h1 className="hz-t-4xl hz-w-bold hz-mb-4">{selectedJob.title}</h1>
+            <p className={cn("hz-t-xl hz-mb-5", "hz-fg")}>{selectedJob.location}</p>
 
-            <div className={cn("border rounded-lg p-8 mb-8", "bg-foreground/5 border-border")}>
-              <h2 className="text-xl font-semibold mb-4">About Hanzo Industries</h2>
-              <p className={cn("mb-4", "text-muted-foreground")}>
+            <div className={cn("hz-bordered hz-r-lg hz-p-6 hz-mb-6", "hz-bg-surface")}>
+              <h2 className="hz-t-xl hz-w-semibold hz-mb-4">About Hanzo Industries</h2>
+              <p className={cn("hz-mb-4", "hz-fg")}>
                 Hanzo Industries is a frontier AI research lab advancing the state of the art in machine learning,
                 cryptography, consensus protocols, and distributed systems. Our mission is to create reliable,
                 interpretable, and steerable AI systems that are safe and beneficial for humanity.
               </p>
-              <p className={cn("text-muted-foreground")}>
+              <p className={cn("hz-fg")}>
                 We're a quickly growing team of committed researchers, engineers, and business leaders working
                 together to build beneficial AI systems. We've published over 130 research papers, released
                 the Zen model family (100+ model weights, 600M–1T+ parameters), and maintain over 2,500 open-source
@@ -518,20 +515,20 @@ export default function PageClient() {
               </p>
             </div>
 
-            <div className={cn("border rounded-lg p-8 mb-8", "bg-foreground/5 border-border")}>
-              <h2 className="text-xl font-semibold mb-4">About the Role</h2>
-              <p className={cn("mb-4", "text-muted-foreground")}>{selectedJob.description}</p>
+            <div className={cn("hz-bordered hz-r-lg hz-p-6 hz-mb-6", "hz-bg-surface")}>
+              <h2 className="hz-t-xl hz-w-semibold hz-mb-4">About the Role</h2>
+              <p className={cn("hz-mb-4", "hz-fg")}>{selectedJob.description}</p>
 
-              <h3 className="font-semibold mt-6 mb-3">Responsibilities</h3>
-              <ul className={cn("list-disc list-inside space-y-2", "text-muted-foreground")}>
+              <h3 className="hz-w-semibold hz-mt-5 hz-mb-3">Responsibilities</h3>
+              <ul className={cn("hz-stack-2", "hz-fg")}>
                 <li>Contribute to cutting-edge research and engineering projects</li>
                 <li>Collaborate with world-class researchers and engineers</li>
                 <li>Publish research and contribute to open source</li>
                 <li>Help shape the direction of our technology and products</li>
               </ul>
 
-              <h3 className="font-semibold mt-6 mb-3">You May Be a Good Fit If You Have</h3>
-              <ul className={cn("list-disc list-inside space-y-2", "text-muted-foreground")}>
+              <h3 className="hz-w-semibold hz-mt-5 hz-mb-3">You May Be a Good Fit If You Have</h3>
+              <ul className={cn("hz-stack-2", "hz-fg")}>
                 <li>Strong technical background relevant to the role</li>
                 <li>Track record of impactful work</li>
                 <li>Excellent communication and collaboration skills</li>
@@ -539,51 +536,51 @@ export default function PageClient() {
               </ul>
             </div>
 
-            <div className={cn("border rounded-lg p-8 mb-8", "bg-foreground/5 border-border")}>
-              <h2 className="text-xl font-semibold mb-4">Compensation & Benefits</h2>
+            <div className={cn("hz-bordered hz-r-lg hz-p-6 hz-mb-6", "hz-bg-surface")}>
+              <h2 className="hz-t-xl hz-w-semibold hz-mb-4">Compensation & Benefits</h2>
 
               {selectedJob.salary && (
-                <div className="flex items-center gap-3 mb-4">
-                  <DollarSign className={cn("w-5 h-5", "text-muted-foreground")} />
-                  <span className={cn("text-muted-foreground")}>Annual Salary: {selectedJob.salary} USD</span>
+                <div className="hz-row hz-ai-center hz-gap-3 hz-mb-4">
+                  <DollarSign className={cn("hz-sq-3", "hz-fg")} />
+                  <span className={cn("hz-fg")}>Annual Salary: {selectedJob.salary} USD</span>
                 </div>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                <div className="flex items-start gap-3">
-                  <Heart className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
+              <div className="hz-grid hz-grid-2 hz-gap-4 hz-mt-5">
+                <div className="hz-row hz-ai-start hz-gap-3">
+                  <Heart className={cn("hz-sq-3 hz-mt-1", "hz-fg")} />
                   <div>
-                    <div className="font-medium">Health & Wellness</div>
-                    <div className={cn("text-sm", "text-muted-foreground")}>Comprehensive medical, dental, and vision</div>
+                    <div className="hz-w-medium">Health & Wellness</div>
+                    <div className={cn("hz-t-sm", "hz-fg")}>Comprehensive medical, dental, and vision</div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <DollarSign className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
+                <div className="hz-row hz-ai-start hz-gap-3">
+                  <DollarSign className={cn("hz-sq-3 hz-mt-1", "hz-fg")} />
                   <div>
-                    <div className="font-medium">Equity</div>
-                    <div className={cn("text-sm", "text-muted-foreground")}>Competitive equity package</div>
+                    <div className="hz-w-medium">Equity</div>
+                    <div className={cn("hz-t-sm", "hz-fg")}>Competitive equity package</div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Laptop className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
+                <div className="hz-row hz-ai-start hz-gap-3">
+                  <Laptop className={cn("hz-sq-3 hz-mt-1", "hz-fg")} />
                   <div>
-                    <div className="font-medium">Equipment</div>
-                    <div className={cn("text-sm", "text-muted-foreground")}>Top-tier equipment and setup</div>
+                    <div className="hz-w-medium">Equipment</div>
+                    <div className={cn("hz-t-sm", "hz-fg")}>Top-tier equipment and setup</div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <BookOpen className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
+                <div className="hz-row hz-ai-start hz-gap-3">
+                  <BookOpen className={cn("hz-sq-3 hz-mt-1", "hz-fg")} />
                   <div>
-                    <div className="font-medium">Learning</div>
-                    <div className={cn("text-sm", "text-muted-foreground")}>Generous learning budget</div>
+                    <div className="hz-w-medium">Learning</div>
+                    <div className={cn("hz-t-sm", "hz-fg")}>Generous learning budget</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className={cn("border rounded-lg p-8 mb-8", "bg-foreground/5 border-border")}>
-              <h2 className="text-xl font-semibold mb-4">Logistics</h2>
-              <div className={cn("space-y-4", "text-muted-foreground")}>
+            <div className={cn("hz-bordered hz-r-lg hz-p-6 hz-mb-6", "hz-bg-surface")}>
+              <h2 className="hz-t-xl hz-w-semibold hz-mb-4">Logistics</h2>
+              <div className={cn("hz-stack-4", "hz-fg")}>
                 <p><strong>Location:</strong> {selectedJob.location}</p>
                 <p><strong>Type:</strong> {selectedJob.type.charAt(0).toUpperCase() + selectedJob.type.slice(1)}</p>
                 <p><strong>Visa Sponsorship:</strong> We sponsor visas and will make every reasonable effort to support your visa process.</p>
@@ -592,34 +589,34 @@ export default function PageClient() {
             </div>
 
             {/* Apply Section */}
-            <div className={cn("rounded-lg p-8", "bg-primary text-primary-foreground")}>
-              <h2 className="text-xl font-semibold mb-4">Apply for this Role</h2>
-              <p className={cn("mb-6", "text-primary-foreground/70")}>
+            <div className={cn("hz-r-lg hz-p-6", "hz-bg-inverse")}>
+              <h2 className="hz-t-xl hz-w-semibold hz-mb-4">Apply for this Role</h2>
+              <p className={cn("hz-mb-5", "hz-fg-soft")}>
                 We encourage you to apply even if you don't meet every qualification.
                 Research shows that people from underrepresented groups often doubt their candidacy—don't exclude yourself.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="hz-col-row hz-gap-4">
                 <a
                   href="https://cal.com/hanzo/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    "flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors",
-                    "bg-background text-foreground hover:bg-background/80"
+                    "hz-btn hz-btn-ghost hz-gap-2 hz-transition",
+                    "hz-bg hz-fg hz-hoverable"
                   )}
                 >
-                  <Calendar className="w-5 h-5" />
+                  <Calendar className="hz-sq-3" />
                   Schedule a Call
                 </a>
                 <a
                   href={`mailto:careers@hanzo.ai?subject=Application: ${encodeURIComponent(selectedJob.title)}&body=Hi,%0A%0AI'm interested in the ${encodeURIComponent(selectedJob.title)} position.%0A%0A[Please attach your resume and include a brief introduction]`}
                   className={cn(
-                    "flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors",
-                    "bg-secondary text-secondary-foreground hover:bg-accent"
+                    "hz-btn hz-btn-ghost hz-gap-2 hz-transition",
+                    "hz-bg-surface hz-fg hz-hoverable"
                   )}
                 >
-                  <ExternalLink className="w-5 h-5" />
+                  <ExternalLink className="hz-sq-3" />
                   Email Application
                 </a>
               </div>
@@ -632,33 +629,33 @@ export default function PageClient() {
 
   // Job Listings View
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <main className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className="hz-container-wide">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="hz-align-center hz-mb-7"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <h1 className="hz-t-5xl hz-w-bold hz-mb-5">
               Join Our Team
             </h1>
-            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
+            <p className={cn("hz-container-narrow hz-t-xl hz-mb-6", "hz-fg")}>
               Help us build the future of AI. We're looking for exceptional people to join our mission of creating safe, beneficial AI systems.
             </p>
-            <div className={cn("flex flex-wrap justify-center gap-6 text-sm", "text-muted-foreground")}>
-              <span className="flex items-center gap-2">
-                <Building2 className="w-4 h-4" />
+            <div className={cn("hz-row hz-wrap hz-jc-center hz-gap-5 hz-t-sm", "hz-fg")}>
+              <span className="hz-row hz-ai-center hz-gap-2">
+                <Building2 className="hz-sq-2" />
                 7 Global Offices
               </span>
-              <span className="flex items-center gap-2">
-                <Briefcase className="w-4 h-4" />
+              <span className="hz-row hz-ai-center hz-gap-2">
+                <Briefcase className="hz-sq-2" />
                 {jobs.length} Open Roles
               </span>
-              <span className="flex items-center gap-2">
-                <Globe className="w-4 h-4" />
+              <span className="hz-row hz-ai-center hz-gap-2">
+                <Globe className="hz-sq-2" />
                 Remote-Friendly
               </span>
             </div>
@@ -669,23 +666,23 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+            className="hz-grid hz-grid-4 hz-gap-4 hz-mb-7"
           >
-            <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
-              <div className="text-3xl font-bold mb-1">2,500+</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>OSS Projects</div>
+            <div className={cn("hz-bordered hz-r-lg hz-p-5 hz-align-center", "hz-bg-surface")}>
+              <div className="hz-t-3xl hz-w-bold hz-mb-1">2,500+</div>
+              <div className={cn("hz-t-sm", "hz-fg")}>OSS Projects</div>
             </div>
-            <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
-              <div className="text-3xl font-bold mb-1">130+</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>Research Papers</div>
+            <div className={cn("hz-bordered hz-r-lg hz-p-5 hz-align-center", "hz-bg-surface")}>
+              <div className="hz-t-3xl hz-w-bold hz-mb-1">130+</div>
+              <div className={cn("hz-t-sm", "hz-fg")}>Research Papers</div>
             </div>
-            <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
-              <div className="text-3xl font-bold mb-1">41+</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>AI Models</div>
+            <div className={cn("hz-bordered hz-r-lg hz-p-5 hz-align-center", "hz-bg-surface")}>
+              <div className="hz-t-3xl hz-w-bold hz-mb-1">41+</div>
+              <div className={cn("hz-t-sm", "hz-fg")}>AI Models</div>
             </div>
-            <div className={cn("border rounded-lg p-6 text-center", "bg-foreground/5 border-border")}>
-              <div className="text-3xl font-bold mb-1">$1B+</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>Client Revenue</div>
+            <div className={cn("hz-bordered hz-r-lg hz-p-5 hz-align-center", "hz-bg-surface")}>
+              <div className="hz-t-3xl hz-w-bold hz-mb-1">$1B+</div>
+              <div className={cn("hz-t-sm", "hz-fg")}>Client Revenue</div>
             </div>
           </motion.div>
 
@@ -694,28 +691,28 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className={cn("border rounded-lg p-6 mb-8", "bg-foreground/5 border-border")}
+            className={cn("hz-bordered hz-r-lg hz-p-5 hz-mb-6", "hz-bg-surface")}
           >
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="hz-grid hz-grid-4 hz-gap-4">
               {/* Search */}
-              <div className="md:col-span-2 relative">
-                <Search className={cn("absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5", "text-muted-foreground")} />
+              <div className="hz-rel">
+                <Search className={cn("hz-center-y hz-sq-3 hz-abs", "hz-fg")} />
                 <input
                   type="text"
                   placeholder="Search roles..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className={cn(
-                    "w-full border rounded-lg pl-10 pr-4 py-3 focus:outline-none",
-                    "bg-foreground/10 border-border text-foreground placeholder-muted-foreground focus:border-border"
+                    "hz-w-full hz-bordered hz-r-lg hz-px-6 hz-px-4 hz-py-3",
+                    "hz-bg-surface hz-fg"
                   )}
                 />
               </div>
 
               {/* Team Filter */}
               <Select value={selectedTeam} onValueChange={setSelectedTeam}>
-                <SelectTrigger className="w-full rounded-lg">
-                  <Building2 className="h-4 w-4 shrink-0 text-muted-foreground mr-2" />
+                <SelectTrigger className="hz-w-full hz-r-lg">
+                  <Building2 className="hz-sq-2 hz-none hz-fg hz-mr-2" />
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -727,8 +724,8 @@ export default function PageClient() {
 
               {/* Location Filter */}
               <Select value={selectedLocation} onValueChange={setSelectedLocation}>
-                <SelectTrigger className="w-full rounded-lg">
-                  <MapPin className="h-4 w-4 shrink-0 text-muted-foreground mr-2" />
+                <SelectTrigger className="hz-w-full hz-r-lg">
+                  <MapPin className="hz-sq-2 hz-none hz-fg hz-mr-2" />
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -741,12 +738,12 @@ export default function PageClient() {
           </motion.div>
 
           {/* Results Count */}
-          <div className={cn("mb-6", "text-muted-foreground")}>
+          <div className={cn("hz-mb-5", "hz-fg")}>
             {filteredJobs.length} {filteredJobs.length === 1 ? 'role' : 'roles'} found
           </div>
 
           {/* Job Listings */}
-          <div className="space-y-8">
+          <div className="hz-stack-6">
             {Object.entries(groupedJobs).map(([team, teamJobs], groupIndex) => (
               <motion.div
                 key={team}
@@ -754,38 +751,38 @@ export default function PageClient() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 * Math.min(groupIndex, 3) }}
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold">{team}</h3>
-                  <span className={cn("text-sm", "text-muted-foreground")}>{teamJobs.length} {teamJobs.length === 1 ? 'role' : 'roles'}</span>
+                <div className="hz-row hz-ai-center hz-jc-between hz-mb-4">
+                  <h3 className="hz-t-xl hz-w-semibold">{team}</h3>
+                  <span className={cn("hz-t-sm", "hz-fg")}>{teamJobs.length} {teamJobs.length === 1 ? 'role' : 'roles'}</span>
                 </div>
-                <div className={cn("border rounded-lg overflow-hidden", "bg-foreground/5 border-border divide-y divide-white/10")}>
+                <div className={cn("hz-bordered hz-r-lg hz-clip", "hz-bg-surface")}>
                   {teamJobs.map((job) => (
                     <button
                       key={job.id}
                       onClick={() => setSelectedJob(job)}
-                      className={cn("w-full flex items-center justify-between p-4 transition-colors group text-left", "hover:bg-accent")}
+                      className={cn("hz-w-full hz-row hz-ai-center hz-jc-between hz-p-4 hz-transition hz-align-left", "hz-hoverable")}
                     >
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="font-medium truncate">
+                      <div className="hz-grow">
+                        <div className="hz-row hz-ai-center hz-gap-2 hz-mb-1">
+                          <span className="hz-w-medium hz-truncate">
                             {job.title}
                           </span>
                           {job.new && (
-                            <span className={cn("px-2 py-0.5 text-xs font-medium rounded", "bg-primary text-primary-foreground")}>
+                            <span className={cn("hz-px-2 hz-py-1 hz-t-xs hz-w-medium hz-r-md", "hz-bg-inverse")}>
                               New
                             </span>
                           )}
                         </div>
-                        <div className={cn("flex items-center gap-4 text-sm", "text-muted-foreground")}>
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-3.5 h-3.5" />
+                        <div className={cn("hz-row hz-ai-center hz-gap-4 hz-t-sm", "hz-fg")}>
+                          <span className="hz-row hz-ai-center hz-gap-1">
+                            <MapPin className="hz-sq-2" />
                             {job.location}
                           </span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span className="text-sm">View</span>
-                        <ExternalLink className="w-4 h-4" />
+                      <div className="hz-row hz-ai-center hz-gap-2 hz-invisible hz-transition">
+                        <span className="hz-t-sm">View</span>
+                        <ExternalLink className="hz-sq-2" />
                       </div>
                     </button>
                   ))}
@@ -796,15 +793,15 @@ export default function PageClient() {
 
           {/* No Results */}
           {filteredJobs.length === 0 && (
-            <div className="text-center py-16">
-              <p className={cn("mb-4", "text-muted-foreground")}>No roles match your search criteria.</p>
+            <div className="hz-align-center hz-py-7">
+              <p className={cn("hz-mb-4", "hz-fg")}>No roles match your search criteria.</p>
               <button
                 onClick={() => {
                   setSearchQuery("");
                   setSelectedTeam("All Teams");
                   setSelectedLocation("All Locations");
                 }}
-                className="underline hover:no-underline"
+                className="hz-underline"
               >
                 Clear filters
               </button>
@@ -816,30 +813,30 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className={cn("mt-16 border rounded-lg p-8 text-center", "bg-foreground/5 border-border")}
+            className={cn("hz-mt-7 hz-bordered hz-r-lg hz-p-6 hz-align-center", "hz-bg-surface")}
           >
-            <h2 className="text-2xl font-bold mb-4">Don't see the right role?</h2>
-            <p className={cn("mb-6 max-w-2xl mx-auto", "text-muted-foreground")}>
+            <h2 className="hz-t-2xl hz-w-bold hz-mb-4">Don't see the right role?</h2>
+            <p className={cn("hz-container-narrow hz-mw-md hz-mb-5", "hz-fg")}>
               We're always looking for exceptional talent. Schedule a call to discuss how you could contribute to our mission.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="hz-col-row hz-gap-4 hz-jc-center">
               <a
                 href="https://cal.com/hanzo/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold transition-colors",
-                  "bg-primary text-primary-foreground hover:bg-primary/90"
+                  "hz-btn hz-btn-ghost hz-btn-lg hz-gap-2 hz-transition",
+                  "hz-bg-inverse hz-hoverable"
                 )}
               >
-                <Calendar className="w-5 h-5" />
+                <Calendar className="hz-sq-3" />
                 Schedule a Call
               </a>
               <a
                 href="mailto:careers@hanzo.ai?subject=General Application"
                 className={cn(
-                  "inline-flex items-center justify-center gap-2 bg-transparent border px-8 py-3 rounded-lg font-semibold transition-colors",
-                  "border-primary text-foreground hover:bg-accent"
+                  "hz-btn hz-btn-ghost hz-btn-lg hz-gap-2 hz-transition",
+                  "hz-fg hz-hoverable"
                 )}
               >
                 Send Resume
@@ -852,49 +849,49 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-16"
+            className="hz-mt-7"
           >
-            <h2 className="text-2xl font-bold mb-8 text-center">Why Hanzo?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <Brain className="w-8 h-8 mb-4" />
-                <h3 className="font-semibold mb-2">Frontier Research</h3>
-                <p className={cn("text-sm", "text-muted-foreground")}>
+            <h2 className="hz-t-2xl hz-w-bold hz-mb-6 hz-align-center">Why Hanzo?</h2>
+            <div className="hz-grid hz-grid-3 hz-gap-5">
+              <div className={cn("hz-bordered hz-r-lg hz-p-5", "hz-bg-surface")}>
+                <Brain className="hz-sq-5 hz-mb-4" />
+                <h3 className="hz-w-semibold hz-mb-2">Frontier Research</h3>
+                <p className={cn("hz-t-sm", "hz-fg")}>
                   Work on frontier AI models, post-quantum cryptography, and novel consensus protocols alongside world-class researchers.
                 </p>
               </div>
-              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <DollarSign className="w-8 h-8 mb-4" />
-                <h3 className="font-semibold mb-2">Competitive Compensation</h3>
-                <p className={cn("text-sm", "text-muted-foreground")}>
+              <div className={cn("hz-bordered hz-r-lg hz-p-5", "hz-bg-surface")}>
+                <DollarSign className="hz-sq-5 hz-mb-4" />
+                <h3 className="hz-w-semibold hz-mb-2">Competitive Compensation</h3>
+                <p className={cn("hz-t-sm", "hz-fg")}>
                   Competitive salary, equity, comprehensive health benefits, and 401(k) matching.
                 </p>
               </div>
-              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <Laptop className="w-8 h-8 mb-4" />
-                <h3 className="font-semibold mb-2">Flexible Work</h3>
-                <p className={cn("text-sm", "text-muted-foreground")}>
+              <div className={cn("hz-bordered hz-r-lg hz-p-5", "hz-bg-surface")}>
+                <Laptop className="hz-sq-5 hz-mb-4" />
+                <h3 className="hz-w-semibold hz-mb-2">Flexible Work</h3>
+                <p className={cn("hz-t-sm", "hz-fg")}>
                   Remote-friendly culture with offices in San Francisco, Los Angeles, New York, Kansas City, Vancouver, Marbella, and Paris.
                 </p>
               </div>
-              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <BookOpen className="w-8 h-8 mb-4" />
-                <h3 className="font-semibold mb-2">Learning & Growth</h3>
-                <p className={cn("text-sm", "text-muted-foreground")}>
+              <div className={cn("hz-bordered hz-r-lg hz-p-5", "hz-bg-surface")}>
+                <BookOpen className="hz-sq-5 hz-mb-4" />
+                <h3 className="hz-w-semibold hz-mb-2">Learning & Growth</h3>
+                <p className={cn("hz-t-sm", "hz-fg")}>
                   Generous learning budget, conference attendance, and opportunities to publish research.
                 </p>
               </div>
-              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <Zap className="w-8 h-8 mb-4" />
-                <h3 className="font-semibold mb-2">Meaningful Impact</h3>
-                <p className={cn("text-sm", "text-muted-foreground")}>
+              <div className={cn("hz-bordered hz-r-lg hz-p-5", "hz-bg-surface")}>
+                <Zap className="hz-sq-5 hz-mb-4" />
+                <h3 className="hz-w-semibold hz-mb-2">Meaningful Impact</h3>
+                <p className={cn("hz-t-sm", "hz-fg")}>
                   Your work directly contributes to building safe, beneficial AI systems that will shape the future.
                 </p>
               </div>
-              <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <Users className="w-8 h-8 mb-4" />
-                <h3 className="font-semibold mb-2">Diverse Team</h3>
-                <p className={cn("text-sm", "text-muted-foreground")}>
+              <div className={cn("hz-bordered hz-r-lg hz-p-5", "hz-bg-surface")}>
+                <Users className="hz-sq-5 hz-mb-4" />
+                <h3 className="hz-w-semibold hz-mb-2">Diverse Team</h3>
+                <p className={cn("hz-t-sm", "hz-fg")}>
                   Join a team of researchers, engineers, and operators from diverse backgrounds united by a shared mission.
                 </p>
               </div>
@@ -906,19 +903,19 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className={cn("mt-16 border rounded-lg p-8", "bg-foreground/5 border-border")}
+            className={cn("hz-mt-7 hz-bordered hz-r-lg hz-p-6", "hz-bg-surface")}
           >
-            <h2 className="text-2xl font-bold mb-6">How We're Different</h2>
-            <div className="prose prose-invert max-w-none">
-              <p className={cn("mb-4", "text-muted-foreground")}>
+            <h2 className="hz-t-2xl hz-w-bold hz-mb-5">How We're Different</h2>
+            <div className="hz-prose">
+              <p className={cn("hz-mb-4", "hz-fg")}>
                 We believe that the highest-impact AI research requires combining rigorous science with practical engineering.
                 At Hanzo, we work as a cohesive team on large-scale research efforts across AI, cryptography, and distributed systems.
               </p>
-              <p className={cn("mb-4", "text-muted-foreground")}>
+              <p className={cn("hz-mb-4", "hz-fg")}>
                 Our research spans multiple domains: from frontier AI models (the Zen family) to post-quantum cryptography,
                 from novel consensus protocols to privacy-preserving computation. We publish openly and contribute to open source.
               </p>
-              <p className={cn("text-muted-foreground")}>
+              <p className={cn("hz-fg")}>
                 We value impact over individual publications. We're looking for people who want to work on hard problems
                 that matter and who can collaborate effectively across disciplines.
               </p>

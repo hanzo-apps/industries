@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function Leadership() {
   const leaders = [
     {
@@ -87,18 +86,18 @@ export default function Leadership() {
 
   return (
     <section className={cn(
-      "py-20 transition-colors duration-300",
-      "bg-secondary"
+      "hz-py-7 hz-transition",
+      "hz-bg-surface"
     )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="hz-container">
+        <div className="hz-align-center hz-mb-7">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "text-4xl font-bold mb-4",
-              "text-foreground"
+              "hz-t-4xl hz-w-bold hz-mb-4",
+              "hz-fg"
             )}
           >
             Leadership Team
@@ -108,8 +107,8 @@ export default function Leadership() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
-              "text-xl max-w-3xl mx-auto",
-              "text-muted-foreground"
+              "hz-container-narrow hz-t-xl",
+              "hz-fg"
             )}
           >
             Our leadership team combines deep AI expertise with operational excellence,
@@ -117,42 +116,42 @@ export default function Leadership() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+        <div className="hz-grid hz-grid-5 hz-gap-6">
           {leaders.map((leader, index) => (
             <motion.div
               key={leader.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="text-center group"
+              className="hz-align-center"
             >
-              <div className="mb-4">
+              <div className="hz-mb-4">
                 <div className={cn(
-                  "w-32 h-32 mx-auto rounded-full overflow-hidden ring-2 transition-all duration-300",
-                  "bg-card ring-border group-hover:ring-ring"
+                  "hz-sq-8 hz-mx-auto hz-r-full hz-clip hz-ring hz-transition",
+                  "hz-bg-surface"
                 )}>
                   <img
                     src={leader.image}
                     alt={leader.name}
-                    className="w-full h-full object-cover grayscale transition-all duration-500"
+                    className="hz-w-full hz-h-full hz-object-cover hz-transition"
                   />
                 </div>
               </div>
               <h3 className={cn(
-                "text-lg font-semibold mb-1",
-                "text-foreground"
+                "hz-t-lg hz-w-semibold hz-mb-1",
+                "hz-fg"
               )}>
                 {leader.name}
               </h3>
               <p className={cn(
-                "text-sm font-medium mb-3",
-                "text-muted-foreground"
+                "hz-t-sm hz-w-medium hz-mb-3",
+                "hz-fg"
               )}>
                 {leader.title}
               </p>
               <p className={cn(
-                "text-sm",
-                "text-muted-foreground"
+                "hz-t-sm",
+                "hz-fg"
               )}>
                 {leader.bio}
               </p>
@@ -165,40 +164,40 @@ export default function Leadership() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           className={cn(
-            "mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t pt-16",
-            "border-border"
+            "hz-grid hz-grid-3 hz-mt-7 hz-gap-6 hz-border-t hz-pt-6",
+            ""
           )}
         >
-          <div className="text-center">
+          <div className="hz-align-center">
             <h4 className={cn(
-              "text-3xl font-bold mb-2",
-              "text-foreground"
+              "hz-t-3xl hz-w-bold hz-mb-2",
+              "hz-fg"
             )}>
               2,500+
             </h4>
-            <p className={"text-muted-foreground"}>
+            <p className={"hz-fg"}>
               OSS Projects
             </p>
           </div>
-          <div className="text-center">
+          <div className="hz-align-center">
             <h4 className={cn(
-              "text-3xl font-bold mb-2",
-              "text-foreground"
+              "hz-t-3xl hz-w-bold hz-mb-2",
+              "hz-fg"
             )}>
               130+
             </h4>
-            <p className={"text-muted-foreground"}>
+            <p className={"hz-fg"}>
               Research Papers
             </p>
           </div>
-          <div className="text-center">
+          <div className="hz-align-center">
             <h4 className={cn(
-              "text-3xl font-bold mb-2",
-              "text-foreground"
+              "hz-t-3xl hz-w-bold hz-mb-2",
+              "hz-fg"
             )}>
               100+
             </h4>
-            <p className={"text-muted-foreground"}>
+            <p className={"hz-fg"}>
               AI Model Weights
             </p>
           </div>

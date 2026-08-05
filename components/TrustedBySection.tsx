@@ -2,16 +2,16 @@
 
 import { motion } from "framer-motion";
 import { partnerLogos } from "@/lib/constants/partner-logos";
-import { cn } from "@/lib/utils";
+import { cn } from '@hanzo/ui'
 import site from "@/site.config";
 
 export default function TrustedBySection() {
   return (
     <section className={cn(
-      "py-20 px-4 md:px-8 transition-colors",
-      "bg-background"
+      "hz-py-7 hz-px-4 hz-transition",
+      "hz-bg"
     )}>
-      <div className="max-w-7xl mx-auto">
+      <div className="hz-container">
         <style>
           {`@keyframes brand-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}
         </style>
@@ -22,15 +22,15 @@ export default function TrustedBySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="hz-align-center hz-mb-7"
         >
           <h2 className={cn(
-            "text-3xl md:text-4xl font-medium mb-4",
-            "text-foreground"
+            "hz-t-3xl hz-w-medium hz-mb-4",
+            "hz-fg"
           )}>
             Investors & Partners
           </h2>
-          <p className={"text-muted-foreground"}>
+          <p className={"hz-fg"}>
             Backed by world-class partners
           </p>
         </motion.div>
@@ -40,19 +40,18 @@ export default function TrustedBySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mb-16"
+          className="hz-mb-7"
         >
-          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6">
+          <div className="hz-row hz-wrap hz-jc-center hz-ai-center hz-gap-6 hz-gap-5">
             {partnerLogos.map((logo) => (
-              <div key={logo.name} className="flex items-center justify-center">
+              <div key={logo.name} className="hz-row hz-ai-center hz-jc-center">
                 <img
                   src={logo.src}
                   alt={`${logo.name} logo`}
                   loading="lazy"
                   className={cn(
-                    "w-auto opacity-60 transition-opacity duration-200 hover:opacity-100",
-                    logo.className ?? "h-6",
-                    "invert"
+                    "hz-w-auto hz-bh-4 hz-dim hz-transition",
+                    `hz-ink-${logo.ink}`
                   )}
                 />
               </div>
@@ -68,24 +67,24 @@ export default function TrustedBySection() {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <p className={cn(
-            "text-xs uppercase tracking-widest mb-6 text-center",
-            "text-foreground/30"
+            "hz-t-xs hz-upper hz-tracking-widest hz-mb-5 hz-align-center",
+            "hz-fg-soft"
           )}>
             Trusted By
           </p>
           <div className={cn(
-            "relative overflow-hidden border rounded-full",
-            "border-border bg-foreground/5"
+            "hz-rel hz-clip hz-bordered hz-r-full",
+            "hz-bg-surface"
           )}>
             <div
               className={cn(
-                "flex gap-10 py-4 px-6 text-sm w-max",
-                "text-muted-foreground"
+                "hz-row hz-gap-6 hz-py-4 hz-px-5 hz-t-sm hz-w-fit",
+                "hz-fg"
               )}
               style={{ animation: "brand-marquee 30s linear infinite" }}
             >
               {[...site.clients, ...site.clients].map((client, index) => (
-                <span key={`${client}-${index}`} className="whitespace-nowrap">
+                <span key={`${client}-${index}`} className="hz-whitespace-nowrap">
                   {client}
                 </span>
               ))}

@@ -1,15 +1,14 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className={cn("max-w-4xl mx-auto prose", "prose-invert")}>
-          <h1 className={cn("text-4xl font-bold mb-8", "text-foreground")}>Privacy Policy</h1>
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg")}>
+      <main className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className={cn("hz-container-narrow hz-prose", "")}>
+          <h1 className={cn("hz-t-4xl hz-w-bold hz-mb-6", "hz-fg")}>Privacy Policy</h1>
 
-          <div className="space-y-8">
+          <div className="hz-stack-6">
             <section>
               <h2>Data Controller</h2>
               <p>Hanzo Industries, Inc. ("Hanzo", "we", "us", or "our") is the data controller for the personal information we process under this policy.</p>

@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Brain, Shield, Network, Sparkles } from "lucide-react";
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function ResearchHighlights() {
   const researchAreas = [
     {
@@ -79,19 +78,19 @@ export default function ResearchHighlights() {
 
   return (
     <section className={cn(
-      "py-20 transition-colors duration-300",
-      "bg-secondary"
+      "hz-py-7 hz-transition",
+      "hz-bg-surface"
     )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="hz-container">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="hz-align-center hz-mb-7">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "text-4xl font-bold mb-4",
-              "text-foreground"
+              "hz-t-4xl hz-w-bold hz-mb-4",
+              "hz-fg"
             )}
           >
             Research at the Frontier
@@ -101,8 +100,8 @@ export default function ResearchHighlights() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className={cn(
-              "text-xl max-w-3xl mx-auto",
-              "text-muted-foreground"
+              "hz-container-narrow hz-t-xl",
+              "hz-fg"
             )}
           >
             58 published papers across AI, cryptography, consensus, and distributed systems.
@@ -111,7 +110,7 @@ export default function ResearchHighlights() {
         </div>
 
         {/* Research Areas Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="hz-grid hz-grid-2 hz-gap-6 hz-mb-7">
           {researchAreas.map((area, index) => {
             const Icon = area.icon;
             return (
@@ -121,37 +120,37 @@ export default function ResearchHighlights() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={cn(
-                  "p-8 rounded-xl border transition-all duration-300 group",
-                  "bg-foreground/5 border-border hover:border-border"
+                  "hz-p-6 hz-r-lg hz-bordered hz-transition",
+                  "hz-bg-surface hz-hoverable"
                 )}
               >
-                <div className="flex items-start gap-4 mb-4">
+                <div className="hz-row hz-ai-start hz-gap-4 hz-mb-4">
                   <div className={cn(
-                    "w-12 h-12 rounded-xl flex items-center justify-center",
-                    "bg-foreground/10"
+                    "hz-sq-7 hz-r-lg hz-row hz-ai-center hz-jc-center",
+                    "hz-bg-surface"
                   )}>
                     <Icon className={cn(
-                      "w-6 h-6",
-                      "text-foreground"
+                      "hz-sq-4",
+                      "hz-fg"
                     )} />
                   </div>
                   <div>
                     <h3 className={cn(
-                      "text-xl font-semibold mb-1",
-                      "text-foreground"
+                      "hz-t-xl hz-w-semibold hz-mb-1",
+                      "hz-fg"
                     )}>
                       {area.title}
                     </h3>
                     <p className={cn(
-                      "text-sm",
-                      "text-muted-foreground"
+                      "hz-t-sm",
+                      "hz-fg"
                     )}>
                       {area.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="space-y-3 mb-4">
+                <div className="hz-stack-3 hz-mb-4">
                   {area.papers.map((paper) => (
                     <a
                       key={paper.title}
@@ -159,19 +158,19 @@ export default function ResearchHighlights() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={cn(
-                        "flex items-center justify-between py-2 px-3 rounded-lg transition-colors group/paper",
-                        "hover:bg-accent"
+                        "hz-btn hz-btn-ghost hz-jc-between hz-transition",
+                        "hz-hoverable"
                       )}
                     >
                       <span className={cn(
-                        "text-sm font-medium",
-                        "text-foreground/80"
+                        "hz-t-sm hz-w-medium",
+                        "hz-fg-soft"
                       )}>
                         {paper.title}
                       </span>
                       <span className={cn(
-                        "text-xs px-2 py-1 rounded-full",
-                        "bg-foreground/10 text-muted-foreground"
+                        "hz-t-xs hz-px-2 hz-py-1 hz-r-full",
+                        "hz-bg-surface hz-fg"
                       )}>
                         {paper.result}
                       </span>
@@ -181,12 +180,12 @@ export default function ResearchHighlights() {
 
                 <Link href={area.link}
                   className={cn(
-                    "inline-flex items-center text-sm font-medium transition-colors",
-                    "text-muted-foreground hover:text-foreground"
+                    "hz-inline hz-ai-center hz-t-sm hz-w-medium hz-transition",
+                    "hz-fg hz-hoverable"
                   )}
                 >
                   View all papers
-                  <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="hz-sq-2 hz-ml-1 hz-transition" />
                 </Link>
               </motion.div>
             );
@@ -200,12 +199,12 @@ export default function ResearchHighlights() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <h3 className={cn(
-            "text-2xl font-semibold mb-6",
-            "text-foreground"
+            "hz-t-2xl hz-w-semibold hz-mb-5",
+            "hz-fg"
           )}>
             Latest Publications
           </h3>
-          <div className="space-y-4">
+          <div className="hz-stack-4">
             {featuredPapers.map((paper, index) => (
               <a
                 key={paper.title}
@@ -213,39 +212,39 @@ export default function ResearchHighlights() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "flex items-start gap-6 p-6 rounded-xl border transition-all duration-300 group",
-                  "bg-foreground/5 border-border hover:border-border"
+                  "hz-row hz-ai-start hz-gap-5 hz-p-5 hz-r-lg hz-bordered hz-transition",
+                  "hz-bg-surface hz-hoverable"
                 )}
               >
                 <div className={cn(
-                  "text-sm shrink-0",
-                  "text-muted-foreground"
+                  "hz-t-sm hz-none",
+                  "hz-fg"
                 )}>
                   {paper.date}
                 </div>
-                <div className="flex-1 min-w-0">
+                <div className="hz-grow">
                   <div className={cn(
-                    "text-xs font-medium uppercase tracking-wider mb-1",
-                    "text-muted-foreground"
+                    "hz-t-xs hz-w-medium hz-upper hz-tracking-wide hz-mb-1",
+                    "hz-fg"
                   )}>
                     {paper.category}
                   </div>
                   <h4 className={cn(
-                    "text-lg font-semibold mb-2 group-hover:underline",
-                    "text-foreground"
+                    "hz-t-lg hz-w-semibold hz-mb-2",
+                    "hz-fg"
                   )}>
                     {paper.title}
                   </h4>
                   <p className={cn(
-                    "text-sm",
-                    "text-muted-foreground"
+                    "hz-t-sm",
+                    "hz-fg"
                   )}>
                     {paper.description}
                   </p>
                 </div>
                 <ExternalLink className={cn(
-                  "w-5 h-5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity",
-                  "text-muted-foreground"
+                  "hz-sq-3 hz-none hz-invisible hz-transition",
+                  "hz-fg"
                 )} />
               </a>
             ))}
@@ -257,19 +256,19 @@ export default function ResearchHighlights() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-12 text-center"
+          className="hz-mt-7 hz-align-center"
         >
           <Link href="/research">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className={cn(
-                "inline-flex items-center px-6 py-3 rounded-full font-medium transition-colors",
-                "bg-primary text-primary-foreground hover:bg-primary/90"
+                "hz-btn hz-btn-ghost hz-transition",
+                "hz-bg-inverse hz-hoverable"
               )}
             >
               View All Research
-              <ArrowRight className="w-4 h-4 ml-2" />
+              <ArrowRight className="hz-sq-2 hz-ml-2" />
             </motion.button>
           </Link>
         </motion.div>

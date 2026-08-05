@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@hanzo/ui";
-import { cn } from "@/lib/utils";
+import { Button, cn } from '@hanzo/ui'
 import {
   ArrowRight,
   ExternalLink,
@@ -529,35 +528,35 @@ export default function PageClient({
   totalModels: number
 }) {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-16">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <div>
         {/* Hero Section */}
-        <section className={cn("py-24 px-4 bg-gradient-to-b", "from-white/5 to-transparent")}>
-          <div className="max-w-5xl mx-auto text-center">
+        <section className={cn("hz-py-7 hz-px-4", "")}>
+          <div className="hz-container-wide hz-align-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className={cn("inline-block px-4 py-1 rounded-full text-sm font-medium mb-6", "bg-primary text-primary-foreground")}>
+              <div className={cn("hz-px-4 hz-py-1 hz-r-full hz-t-sm hz-w-medium hz-mb-5", "hz-bg-inverse")}>
                 Zen AI Model Family
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+              <h1 className="hz-t-5xl hz-w-bold hz-tracking-tight hz-mb-5">
                 Hypermodal AI
               </h1>
-              <p className={cn("text-xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
+              <p className={cn("hz-container-narrow hz-t-xl hz-mb-6", "hz-fg")}>
                 {totalModels}+ models across {familyData.length} families. Open-weight AI covering text, vision, image, audio, code, embeddings, and reranking — from edge to frontier.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="hz-row hz-wrap hz-gap-4 hz-jc-center">
                 <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className={cn("rounded-full px-8 gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
-                    <Sparkles className="w-4 h-4" />
+                  <Button size="lg" className={cn("hz-r-full hz-px-6 hz-gap-2", "hz-bg-inverse hz-hoverable")}>
+                    <Sparkles className="hz-sq-2" />
                     Browse Models
                   </Button>
                 </a>
                 <a href="https://github.com/zenlm" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline" className="rounded-full px-8 gap-2">
-                    <Github className="w-4 h-4" />
+                  <Button size="lg" variant="outline" className="hz-r-full hz-px-6 hz-gap-2">
+                    <Github className="hz-sq-2" />
                     GitHub
                   </Button>
                 </a>
@@ -567,24 +566,24 @@ export default function PageClient({
         </section>
 
         {/* Stats */}
-        <section className={cn("py-12 px-4 border-y", "border-border")}>
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <section className={cn("hz-py-7 hz-px-4 hz-bordered", "")}>
+          <div className="hz-container-wide">
+            <div className="hz-grid hz-grid-4 hz-gap-6 hz-align-center">
               <div>
-                <div className="text-4xl font-bold mb-1">{totalModels}+</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>AI Models</div>
+                <div className="hz-t-4xl hz-w-bold hz-mb-1">{totalModels}+</div>
+                <div className={cn("hz-t-sm", "hz-fg")}>AI Models</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-1">{familyData.length}</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>Model Families</div>
+                <div className="hz-t-4xl hz-w-bold hz-mb-1">{familyData.length}</div>
+                <div className={cn("hz-t-sm", "hz-fg")}>Model Families</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-1">7</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>Modalities</div>
+                <div className="hz-t-4xl hz-w-bold hz-mb-1">7</div>
+                <div className={cn("hz-t-sm", "hz-fg")}>Modalities</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-1">Apache 2.0</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>License</div>
+                <div className="hz-t-4xl hz-w-bold hz-mb-1">Apache 2.0</div>
+                <div className={cn("hz-t-sm", "hz-fg")}>License</div>
               </div>
             </div>
           </div>
@@ -596,24 +595,24 @@ export default function PageClient({
           return (
             <section
               key={family.id}
-              className={cn("py-20 px-4", familyIndex % 2 === 0 ? "" : "bg-foreground/5")}
+              className={cn("hz-py-7 hz-px-4", familyIndex % 2 === 0 ? "" : "hz-bg-surface")}
             >
-              <div className="max-w-6xl mx-auto">
+              <div className="hz-container-wide">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="mb-12"
+                  className="hz-mb-7"
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <FamilyIcon className={cn("w-8 h-8", "text-muted-foreground")} />
-                    <h2 className="text-3xl font-bold">{family.title}</h2>
+                  <div className="hz-row hz-ai-center hz-gap-3 hz-mb-4">
+                    <FamilyIcon className={cn("hz-sq-5", "hz-fg")} />
+                    <h2 className="hz-t-3xl hz-w-bold">{family.title}</h2>
                   </div>
-                  <p className={cn("max-w-2xl", "text-muted-foreground")}>{family.description}</p>
+                  <p className={cn("hz-mw-md", "hz-fg")}>{family.description}</p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="hz-grid hz-grid-3 hz-gap-5">
                   {family.models.map((model, index) => (
                     <motion.a
                       key={model.name}
@@ -624,39 +623,39 @@ export default function PageClient({
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className={cn("block p-6 border rounded-xl hover:shadow-lg transition-all group", "bg-foreground/5 border-border hover:border-border")}
+                      className={cn("hz-p-5 hz-bordered hz-r-lg hz-transition", "hz-bg-surface hz-hoverable")}
                     >
-                      <div className="flex items-start justify-between mb-4">
+                      <div className="hz-row hz-ai-start hz-jc-between hz-mb-4">
                         <div>
-                          <h3 className="text-lg font-semibold group-hover:underline">
+                          <h3 className="hz-t-lg hz-w-semibold">
                             {model.name}
                           </h3>
-                          <span className={cn("text-sm font-mono", "text-muted-foreground")}>{model.params}</span>
+                          <span className={cn("hz-t-sm hz-mono", "hz-fg")}>{model.params}</span>
                         </div>
                         {(model as any).requestAccess ? (
-                          <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">Research Preview</span>
+                          <span className="hz-t-xs hz-px-2 hz-py-1 hz-r-full hz-bg-surface hz-fg hz-w-medium">Research Preview</span>
                         ) : (
-                          <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-muted-foreground")} />
+                          <ExternalLink className={cn("hz-sq-2 hz-invisible hz-transition", "hz-fg")} />
                         )}
                       </div>
-                      <p className={cn("text-sm mb-4", "text-muted-foreground")}>{model.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-4">
+                      <p className={cn("hz-t-sm hz-mb-4", "hz-fg")}>{model.description}</p>
+                      <div className="hz-row hz-wrap hz-gap-2 hz-mb-4">
                         {model.capabilities.map((cap) => (
                           <span
                             key={cap}
-                            className={cn("px-2 py-0.5 text-xs rounded-full", "bg-foreground/10 text-muted-foreground")}
+                            className={cn("hz-px-2 hz-py-1 hz-t-xs hz-r-full", "hz-bg-surface hz-fg")}
                           >
                             {cap}
                           </span>
                         ))}
                       </div>
-                      <div className={cn("flex items-center justify-between text-xs pt-4 border-t", "text-muted-foreground border-border")}>
-                        <span className="flex items-center gap-1">
-                          <Zap className="w-3 h-3" />
+                      <div className={cn("hz-row hz-ai-center hz-jc-between hz-t-xs hz-pt-4 hz-border-t", "hz-fg")}>
+                        <span className="hz-row hz-ai-center hz-gap-1">
+                          <Zap className="hz-sq-1" />
                           {model.performance}
                         </span>
-                        <span className="flex items-center gap-1">
-                          <Cpu className="w-3 h-3" />
+                        <span className="hz-row hz-ai-center hz-gap-1">
+                          <Cpu className="hz-sq-1" />
                           {model.memory}
                         </span>
                       </div>
@@ -669,46 +668,46 @@ export default function PageClient({
         })}
 
         {/* Capabilities Matrix */}
-        <section className={cn("py-20 px-4", "bg-foreground/5")}>
-          <div className="max-w-6xl mx-auto">
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")}>
+          <div className="hz-container-wide">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="hz-align-center hz-mb-7"
             >
-              <h2 className="text-3xl font-bold mb-4 text-foreground">Capabilities Matrix</h2>
-              <p className="text-muted-foreground">
+              <h2 className="hz-t-3xl hz-w-bold hz-mb-4 hz-fg">Capabilities Matrix</h2>
+              <p className="hz-fg">
                 Each model specializes in different modalities and tasks
               </p>
             </motion.div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+            <div className="hz-scroll-x">
+              <table className="hz-w-full hz-t-sm">
                 <thead>
-                  <tr className={cn("border-b", "border-border")}>
-                    <th className="text-left py-4 px-4 font-semibold">Model</th>
-                    <th className="text-center py-4 px-4 font-semibold">Text</th>
-                    <th className="text-center py-4 px-4 font-semibold">Image</th>
-                    <th className="text-center py-4 px-4 font-semibold">Video</th>
-                    <th className="text-center py-4 px-4 font-semibold">Audio</th>
-                    <th className="text-center py-4 px-4 font-semibold">3D</th>
-                    <th className="text-center py-4 px-4 font-semibold">Code</th>
-                    <th className="text-center py-4 px-4 font-semibold">Agents</th>
+                  <tr className={cn("hz-border-b", "")}>
+                    <th className="hz-align-left hz-py-4 hz-px-4 hz-w-semibold">Model</th>
+                    <th className="hz-align-center hz-py-4 hz-px-4 hz-w-semibold">Text</th>
+                    <th className="hz-align-center hz-py-4 hz-px-4 hz-w-semibold">Image</th>
+                    <th className="hz-align-center hz-py-4 hz-px-4 hz-w-semibold">Video</th>
+                    <th className="hz-align-center hz-py-4 hz-px-4 hz-w-semibold">Audio</th>
+                    <th className="hz-align-center hz-py-4 hz-px-4 hz-w-semibold">3D</th>
+                    <th className="hz-align-center hz-py-4 hz-px-4 hz-w-semibold">Code</th>
+                    <th className="hz-align-center hz-py-4 hz-px-4 hz-w-semibold">Agents</th>
                   </tr>
                 </thead>
                 <tbody>
                   {capabilitiesMatrix.map((row) => (
-                    <tr key={row.model} className={cn("border-b", "border-border hover:bg-accent")}>
-                      <td className="py-3 px-4 font-mono text-foreground">{row.model}</td>
-                      <td className="text-center py-3 px-4">{row.text ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.image ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.video ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.audio ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.threeD ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.code ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.agents ? "\u2713" : "\u2014"}</td>
+                    <tr key={row.model} className={cn("hz-border-b", "hz-hoverable")}>
+                      <td className="hz-py-3 hz-px-4 hz-mono hz-fg">{row.model}</td>
+                      <td className="hz-align-center hz-py-3 hz-px-4">{row.text ? "\u2713" : "\u2014"}</td>
+                      <td className="hz-align-center hz-py-3 hz-px-4">{row.image ? "\u2713" : "\u2014"}</td>
+                      <td className="hz-align-center hz-py-3 hz-px-4">{row.video ? "\u2713" : "\u2014"}</td>
+                      <td className="hz-align-center hz-py-3 hz-px-4">{row.audio ? "\u2713" : "\u2014"}</td>
+                      <td className="hz-align-center hz-py-3 hz-px-4">{row.threeD ? "\u2713" : "\u2014"}</td>
+                      <td className="hz-align-center hz-py-3 hz-px-4">{row.code ? "\u2713" : "\u2014"}</td>
+                      <td className="hz-align-center hz-py-3 hz-px-4">{row.agents ? "\u2713" : "\u2014"}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -718,22 +717,22 @@ export default function PageClient({
         </section>
 
         {/* Infrastructure */}
-        <section className="py-20 px-4">
-          <div className="max-w-6xl mx-auto">
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container-wide">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="hz-align-center hz-mb-7"
             >
-              <h2 className="text-3xl font-bold mb-4">Infrastructure</h2>
-              <p className={cn("text-muted-foreground")}>
+              <h2 className="hz-t-3xl hz-w-bold hz-mb-4">Infrastructure</h2>
+              <p className={cn("hz-fg")}>
                 Production-ready tools for training and deploying Zen models
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="hz-grid hz-grid-3 hz-gap-6">
               {infrastructure.map((tool, index) => {
                 const ToolIcon = tool.icon;
                 return (
@@ -746,15 +745,15 @@ export default function PageClient({
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className={cn("block p-8 rounded-2xl border hover:shadow-lg transition-all group text-center", "bg-foreground/5 border-border hover:border-border")}
+                    className={cn("hz-p-6 hz-r-xl hz-bordered hz-transition hz-align-center", "hz-bg-surface hz-hoverable")}
                   >
-                    <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4", "bg-primary")}>
-                      <ToolIcon className={cn("w-6 h-6", "text-primary-foreground")} />
+                    <div className={cn("hz-sq-7 hz-r-lg hz-row hz-ai-center hz-jc-center hz-mx-auto hz-mb-4", "hz-bg-inverse")}>
+                      <ToolIcon className={cn("hz-sq-4", "hz-fg")} />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:underline">
+                    <h3 className="hz-t-xl hz-w-semibold hz-mb-2">
                       {tool.name}
                     </h3>
-                    <p className={cn("text-sm", "text-muted-foreground")}>{tool.description}</p>
+                    <p className={cn("hz-t-sm", "hz-fg")}>{tool.description}</p>
                   </motion.a>
                 );
               })}
@@ -763,17 +762,17 @@ export default function PageClient({
         </section>
 
         {/* Code Example */}
-        <section className={cn("py-20 px-4", "bg-foreground/5")}>
-          <div className="max-w-4xl mx-auto">
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")}>
+          <div className="hz-container-narrow">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-center mb-8"
+              className="hz-align-center hz-mb-6"
             >
-              <h2 className="text-3xl font-bold mb-4">Quick Start</h2>
-              <p className={cn("text-muted-foreground")}>Get started with any Zen model in seconds</p>
+              <h2 className="hz-t-3xl hz-w-bold hz-mb-4">Quick Start</h2>
+              <p className={cn("hz-fg")}>Get started with any Zen model in seconds</p>
             </motion.div>
 
             <motion.div
@@ -781,9 +780,9 @@ export default function PageClient({
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-secondary rounded-xl p-6 overflow-x-auto"
+              className="hz-bg-surface hz-r-lg hz-p-5 hz-scroll-x"
             >
-              <pre className="text-sm text-muted-foreground font-mono">
+              <pre className="hz-t-sm hz-fg hz-mono">
 {`# Install and run any model
 pip install transformers torch
 
@@ -807,30 +806,30 @@ response = client.chat.completions.create(
         </section>
 
         {/* CTA */}
-        <section className="py-24 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container-narrow hz-align-center">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-4">
               Build with Zen AI
             </h2>
-            <p className={cn("text-xl mb-8", "text-muted-foreground")}>
+            <p className={cn("hz-t-xl hz-mb-6", "hz-fg")}>
               Open-weight models, Apache 2.0 licensed. Free to use for research and commercial applications.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="hz-row hz-wrap hz-gap-4 hz-jc-center">
               <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className={cn("rounded-full px-8 gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
+                <Button size="lg" className={cn("hz-r-full hz-px-6 hz-gap-2", "hz-bg-inverse hz-hoverable")}>
                   Get Started
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="hz-sq-2" />
                 </Button>
               </a>
               <Link href="/research">
-                <Button size="lg" variant="outline" className="rounded-full px-8">
+                <Button size="lg" variant="outline" className="hz-r-full hz-px-6">
                   Research Papers
                 </Button>
               </Link>
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

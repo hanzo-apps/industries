@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, BookOpen } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from '@hanzo/ui'
 
 const blogPosts = [
   {
@@ -101,28 +101,28 @@ const BLOG_BASE = "https://blog.hanzo.ai/blog";
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-24">
-        <section className="py-24 px-4">
-          <div className="max-w-5xl mx-auto">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <main className="hz-pt-6">
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container-wide">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-center mb-16"
+              className="hz-align-center hz-mb-7"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 bg-primary/20 text-foreground">
-                <BookOpen className="w-3.5 h-3.5" />Blog
+              <div className="hz-inline hz-ai-center hz-gap-2 hz-px-3 hz-py-1 hz-r-full hz-t-xs hz-w-medium hz-mb-5 hz-bg-surface hz-fg">
+                <BookOpen className="hz-sq-2" />Blog
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="hz-t-4xl hz-w-bold hz-mb-5">
                 News & Guides
               </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
+              <p className={cn("hz-container-narrow hz-mw-md hz-t-xl", "hz-fg")}>
                 Product launches, architecture deep dives, and how-to guides from the team building the AI workforce platform.
               </p>
             </motion.div>
 
-            <div className="space-y-4">
+            <div className="hz-stack-4">
               {blogPosts.map((post, index) => (
                 <motion.div
                   key={post.slug}
@@ -135,31 +135,31 @@ export default function PageClient() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      "block p-6 rounded-xl transition-all group",
-                      "bg-foreground/5 border border-border hover:border-foreground/20"
+                      "hz-p-5 hz-r-lg hz-transition",
+                      "hz-bg-surface hz-bordered hz-hoverable"
                     )}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-foreground/80">
+                    <div className="hz-row hz-ai-start hz-jc-between hz-gap-4">
+                      <div className="">
+                        <div className="hz-row hz-ai-center hz-gap-3 hz-mb-2">
+                          <span className="hz-inline hz-ai-center hz-px-2 hz-py-1 hz-r-full hz-t-xs hz-w-medium hz-bg-surface hz-fg-soft">
                             {post.category}
                           </span>
                           {post.date && (
-                            <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                              <Calendar className="w-3 h-3" />
+                            <span className="hz-row hz-ai-center hz-gap-2 hz-t-xs hz-fg">
+                              <Calendar className="hz-sq-1" />
                               {post.date}
                             </span>
                           )}
                         </div>
-                        <h2 className="font-semibold text-foreground mb-2 group-hover:text-foreground/80 transition-colors">
+                        <h2 className="hz-w-semibold hz-fg hz-mb-2 hz-transition hz-hoverable">
                           {post.title}
                         </h2>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        <p className="hz-t-sm hz-fg hz-leading-relaxed">
                           {post.excerpt}
                         </p>
                       </div>
-                      <ArrowRight className="w-5 h-5 text-muted-foreground/60 group-hover:text-foreground group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
+                      <ArrowRight className="hz-sq-3 hz-fg-muted hz-transition hz-none hz-mt-1 hz-link" />
                     </div>
                   </a>
                 </motion.div>

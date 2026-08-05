@@ -3,36 +3,36 @@
 import Link from 'next/link'
 import { Check, Github, FileText, Award, ExternalLink } from 'lucide-react'
 import Logo from './Logo'
-import { cn } from '@/lib/utils'
+import { cn } from '@hanzo/ui'
 import site from '@/site.config'
 
-const linkCn = 'text-sm transition-colors text-muted-foreground hover:text-foreground'
+const linkCn = 'hz-t-sm hz-link'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background text-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-          <div className="md:col-span-2">
-            <Logo size="md" showText={true} className="mb-6" />
-            <p className="mb-6 max-w-md text-muted-foreground">
+    <footer className="hz-border-t hz-bg hz-fg">
+      <div className="hz-container hz-py-7">
+        <div className="hz-grid hz-grid-5 hz-gap-6">
+          <div className="">
+            <Logo size="md" showText={true} className="hz-mb-5" />
+            <p className="hz-mb-5 hz-mw-sm hz-fg">
               {site.brand.description}
             </p>
-            <div className="flex items-center space-x-6">
-              <Link href="/open-source" className="flex items-center space-x-2 group">
-                <Github className="h-5 w-5 transition-colors text-muted-foreground group-hover:text-foreground" />
-                <span className="text-sm transition-colors text-muted-foreground group-hover:text-foreground">Open Source</span>
+            <div className="hz-row hz-ai-center hz-inline-4">
+              <Link href="/open-source" className="hz-row hz-ai-center hz-inline-2">
+                <Github className="hz-sq-3 hz-transition hz-fg hz-hoverable" />
+                <span className="hz-t-sm hz-transition hz-fg hz-hoverable">Open Source</span>
               </Link>
-              <Link href="/research#papers" className="flex items-center space-x-2 group">
-                <FileText className="h-5 w-5 transition-colors text-muted-foreground group-hover:text-foreground" />
-                <span className="text-sm transition-colors text-muted-foreground group-hover:text-foreground">130+ Papers</span>
+              <Link href="/research#papers" className="hz-row hz-ai-center hz-inline-2">
+                <FileText className="hz-sq-3 hz-transition hz-fg hz-hoverable" />
+                <span className="hz-t-sm hz-transition hz-fg hz-hoverable">130+ Papers</span>
               </Link>
             </div>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Products</h4>
-            <ul className="space-y-3">
+            <h4 className="hz-w-semibold hz-mb-4">Products</h4>
+            <ul className="hz-stack-3">
               <li><a href={site.links.platform} target="_blank" rel="noopener noreferrer" className={linkCn}>Hanzo AI</a></li>
               <li><a href={site.links.bot} target="_blank" rel="noopener noreferrer" className={linkCn}>Hanzo Bot</a></li>
               <li><a href={site.links.dev} target="_blank" rel="noopener noreferrer" className={linkCn}>Hanzo Dev</a></li>
@@ -43,8 +43,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Research</h4>
-            <ul className="space-y-3">
+            <h4 className="hz-w-semibold hz-mb-4">Research</h4>
+            <ul className="hz-stack-3">
               <li><Link href="/research#ai" className={linkCn}>AI & Machine Learning</Link></li>
               <li><Link href="/research#crypto" className={linkCn}>Cryptography</Link></li>
               <li><Link href="/research#consensus" className={linkCn}>Consensus & Networks</Link></li>
@@ -54,8 +54,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
+            <h4 className="hz-w-semibold hz-mb-4">Company</h4>
+            <ul className="hz-stack-3">
               <li><Link href="/about" className={linkCn}>About Us</Link></li>
               <li><Link href="/team" className={linkCn}>Team</Link></li>
               <li><Link href="/careers" className={linkCn}>Careers</Link></li>
@@ -66,34 +66,34 @@ export default function Footer() {
         </div>
 
         {/* Powered by Zen banner */}
-        <div className="mt-12 pt-8 border-t border-border">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
-            <span className="text-sm text-foreground/30">Powered by</span>
+        <div className="hz-mt-7 hz-pt-6 hz-border-t">
+          <div className="hz-col-row hz-ai-center hz-jc-center hz-gap-3 hz-mb-6">
+            <span className="hz-t-sm hz-fg-soft">Powered by</span>
             <a href={site.links.zenModels} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border transition-colors border-border bg-foreground/5 hover:bg-accent text-muted-foreground hover:text-foreground"
+              className="hz-btn hz-btn-primary hz-gap-2 hz-transition hz-fg"
             >
-              <span className="text-muted-foreground text-sm">&#9889;</span>
-              <span className="text-sm font-medium">Zen 4 Models</span>
-              <span className="text-xs text-muted-foreground">600M-1T+ params</span>
+              <span className="hz-fg hz-t-sm">&#9889;</span>
+              <span className="hz-t-sm hz-w-medium">Zen 4 Models</span>
+              <span className="hz-t-xs hz-fg">600M-1T+ params</span>
             </a>
           </div>
         </div>
 
-        <div className="pt-6 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
-              <div className="text-sm text-muted-foreground">
+        <div className="hz-pt-6 hz-border-t">
+          <div className="hz-col-row hz-jc-between hz-ai-center hz-stack-4">
+            <div className="hz-row hz-wrap hz-ai-center hz-gap-6 hz-gap-2">
+              <div className="hz-t-sm hz-fg">
                 &copy; {site.brand.foundedYear}-{new Date().getFullYear()} {site.brand.legalName}. All rights reserved.
               </div>
-              <Link href="/status" className="inline-flex items-center space-x-2 text-sm transition-colors text-muted-foreground hover:text-foreground">
-                <Check className="h-4 w-4 text-muted-foreground" />
+              <Link href="/status" className="hz-inline hz-ai-center hz-inline-2 hz-t-sm hz-transition hz-fg hz-hoverable">
+                <Check className="hz-sq-2 hz-fg" />
                 <span>All systems operational</span>
               </Link>
             </div>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <div className="flex items-center space-x-2">
-                <Award className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">{site.brand.badge}</span>
+            <div className="hz-row hz-wrap hz-ai-center hz-gap-5 hz-gap-2">
+              <div className="hz-row hz-ai-center hz-inline-2">
+                <Award className="hz-sq-2 hz-fg" />
+                <span className="hz-t-sm hz-fg">{site.brand.badge}</span>
               </div>
               <Link href="/privacy" className={linkCn}>Privacy Policy</Link>
               <Link href="/terms" className={linkCn}>Terms of Service</Link>

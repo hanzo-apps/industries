@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@hanzo/ui";
-import { cn } from "@/lib/utils";
+import { Button, cn } from '@hanzo/ui'
 import {
   ArrowLeft,
   ArrowRight,
@@ -319,26 +318,26 @@ function CopyButton({ text }: { text: string }) {
         setTimeout(() => setCopied(false), 2000);
       }}
       className={cn(
-        "p-1.5 rounded transition-colors",
-        "hover:bg-foreground/10 text-muted-foreground hover:text-foreground"
+        "hz-p-2 hz-r-md hz-transition",
+        "hz-fg hz-hoverable"
       )}
       title="Copy"
     >
-      {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+      {copied ? <Check className="hz-sq-2" /> : <Copy className="hz-sq-2" />}
     </button>
   );
 }
 
 function CodeBlock({ code, label }: { code: string; label?: string }) {
   return (
-    <div className={cn("rounded-lg border overflow-hidden", "border-border")}>
+    <div className={cn("hz-r-lg hz-bordered hz-clip", "")}>
       {label && (
-        <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-foreground/[0.02]">
-          <span className="text-xs font-mono text-muted-foreground">{label}</span>
+        <div className="hz-row hz-ai-center hz-jc-between hz-px-4 hz-py-2 hz-border-b hz-bg-surface">
+          <span className="hz-t-xs hz-mono hz-fg">{label}</span>
           <CopyButton text={code} />
         </div>
       )}
-      <pre className="p-4 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50">
+      <pre className="hz-p-4 hz-scroll-x hz-t-sm hz-mono hz-leading-relaxed hz-bg-surface">
         <code>{code}</code>
       </pre>
     </div>
@@ -351,23 +350,23 @@ function CodeBlock({ code, label }: { code: string; label?: string }) {
 
 export default function PageClient() {
   return (
-    <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <main className="hz-pt-6 hz-pb-6 hz-px-4">
+      <div className="hz-container-wide">
         {/* Breadcrumb + Hero */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-16"
+          className="hz-mb-7"
         >
           <Link
             href="/docs"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
+            className="hz-inline hz-ai-center hz-gap-2 hz-t-sm hz-fg hz-transition hz-mb-5 hz-hoverable"
           >
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to Docs
+            <ArrowLeft className="hz-sq-2" /> Back to Docs
           </Link>
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6">SDKs</h1>
-          <p className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
+          <h1 className="hz-t-5xl hz-w-bold hz-mb-5">SDKs</h1>
+          <p className={cn("hz-t-xl hz-mw-lg", "hz-fg")}>
             Install and configure Hanzo SDKs for Python, TypeScript, Go, and
             Rust. Every SDK is open source, fully typed, and supports streaming,
             retries, and all Hanzo API endpoints.
@@ -380,30 +379,30 @@ export default function PageClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
           className={cn(
-            "p-6 rounded-lg border mb-16",
-            "border-border bg-foreground/[0.02]"
+            "hz-p-5 hz-r-lg hz-bordered hz-mb-7",
+            "hz-bg-surface"
           )}
         >
-          <h2 className="text-lg font-semibold mb-3">Prerequisites</h2>
-          <p className="text-sm text-muted-foreground mb-4">
+          <h2 className="hz-t-lg hz-w-semibold hz-mb-3">Prerequisites</h2>
+          <p className="hz-t-sm hz-fg hz-mb-4">
             All SDKs authenticate using an API key. Set it as an environment variable:
           </p>
-          <div className="flex items-center gap-2 bg-muted/50 rounded-lg px-4 py-2.5">
-            <Terminal className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-            <code className="text-sm font-mono flex-1">export HANZO_API_KEY=&quot;your-api-key&quot;</code>
+          <div className="hz-btn hz-gap-2">
+            <Terminal className="hz-sq-2 hz-fg hz-none" />
+            <code className="hz-t-sm hz-mono hz-grow">export HANZO_API_KEY=&quot;your-api-key&quot;</code>
             <CopyButton text='export HANZO_API_KEY="your-api-key"' />
           </div>
-          <p className="text-xs text-muted-foreground mt-3">
+          <p className="hz-t-xs hz-fg hz-mt-3">
             Get your API key from{" "}
             <a
               href="https://console.hanzo.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-foreground transition-colors"
+              className="hz-underline hz-transition hz-hoverable"
             >
               console.hanzo.ai
             </a>
-            . All SDKs default to reading <code className="font-mono">HANZO_API_KEY</code> from the environment.
+            . All SDKs default to reading <code className="hz-mono">HANZO_API_KEY</code> from the environment.
           </p>
         </motion.div>
 
@@ -415,78 +414,78 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 + sectionIndex * 0.05 }}
-            className="mb-20"
+            className="hz-mb-7"
           >
             {/* Header */}
-            <div className="flex items-center gap-4 mb-6">
-              <span className="flex items-center justify-center w-12 h-12 rounded-lg bg-foreground/5 font-mono text-base font-bold">
+            <div className="hz-row hz-ai-center hz-gap-4 hz-mb-5">
+              <span className="hz-sq-7 hz-row hz-ai-center hz-jc-center hz-r-lg hz-bg-surface hz-mono hz-t-base hz-w-bold">
                 {sdk.icon}
               </span>
               <div>
-                <h2 className="text-3xl font-bold">{sdk.language}</h2>
-                <p className="text-sm font-mono text-muted-foreground">{sdk.pkg}</p>
+                <h2 className="hz-t-3xl hz-w-bold">{sdk.language}</h2>
+                <p className="hz-t-sm hz-mono hz-fg">{sdk.pkg}</p>
               </div>
             </div>
 
-            <p className="text-muted-foreground mb-6">{sdk.description}</p>
+            <p className="hz-fg hz-mb-5">{sdk.description}</p>
 
             {/* Install */}
-            <div className="flex items-center gap-2 bg-muted/50 rounded-lg px-4 py-3 mb-6">
-              <Terminal className="w-4 h-4 text-muted-foreground shrink-0" />
-              <code className="text-sm font-mono flex-1">{sdk.install}</code>
+            <div className="hz-btn hz-gap-2 hz-mb-5">
+              <Terminal className="hz-sq-2 hz-fg hz-none" />
+              <code className="hz-t-sm hz-mono hz-grow">{sdk.install}</code>
               <CopyButton text={sdk.install} />
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-8">
+            <div className="hz-grid hz-grid-3 hz-gap-2 hz-mb-6">
               {sdk.features.map((feature) => (
                 <div
                   key={feature}
-                  className="flex items-center gap-2 text-sm text-muted-foreground"
+                  className="hz-row hz-ai-center hz-gap-2 hz-t-sm hz-fg"
                 >
-                  <Check className="w-3.5 h-3.5 shrink-0" />
+                  <Check className="hz-sq-2 hz-none" />
                   {feature}
                 </div>
               ))}
             </div>
 
             {/* Quick Start */}
-            <div className="space-y-4 mb-6">
+            <div className="hz-stack-4 hz-mb-5">
               <CodeBlock code={sdk.quickStart} label="Quick Start" />
               <CodeBlock code={sdk.asyncExample} label={sdk.asyncLabel} />
             </div>
 
             {/* Links */}
-            <div className="flex flex-wrap gap-4 text-sm">
+            <div className="hz-row hz-wrap hz-gap-4 hz-t-sm">
               <a
                 href={sdk.registryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
+                className="hz-fg hz-transition hz-inline hz-ai-center hz-gap-2 hz-hoverable"
               >
-                {sdk.registry} <ExternalLink className="w-3 h-3" />
+                {sdk.registry} <ExternalLink className="hz-sq-1" />
               </a>
               <a
                 href={sdk.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
+                className="hz-fg hz-transition hz-inline hz-ai-center hz-gap-2 hz-hoverable"
               >
-                GitHub <Github className="w-3 h-3" />
+                GitHub <Github className="hz-sq-1" />
               </a>
               <a
                 href={sdk.docs}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
+                className="hz-fg hz-transition hz-inline hz-ai-center hz-gap-2 hz-hoverable"
               >
-                Full Documentation <BookOpen className="w-3 h-3" />
+                Full Documentation <BookOpen className="hz-sq-1" />
               </a>
             </div>
 
             {/* Divider (except last) */}
             {sectionIndex < sdkSections.length - 1 && (
-              <div className="border-b border-border mt-16" />
+              <div className="hz-border-b hz-mt-7" />
             )}
           </motion.div>
         ))}
@@ -497,17 +496,17 @@ export default function PageClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
           className={cn(
-            "p-8 md:p-12 rounded-lg border text-center",
-            "border-border bg-foreground/[0.02]"
+            "hz-p-6 hz-r-lg hz-bordered hz-align-center",
+            "hz-bg-surface"
           )}
         >
-          <h2 className="text-2xl font-bold mb-4">Need the API directly?</h2>
-          <p className={cn("text-lg mb-6 max-w-2xl mx-auto", "text-muted-foreground")}>
+          <h2 className="hz-t-2xl hz-w-bold hz-mb-4">Need the API directly?</h2>
+          <p className={cn("hz-container-narrow hz-mw-md hz-t-lg hz-mb-5", "hz-fg")}>
             All SDKs wrap the same REST API. If you prefer raw HTTP, check the API reference.
           </p>
           <Link href="/docs/api">
-            <Button variant="outline" className="gap-2">
-              API Reference <ArrowRight className="w-4 h-4" />
+            <Button variant="outline" className="hz-gap-2">
+              API Reference <ArrowRight className="hz-sq-2" />
             </Button>
           </Link>
         </motion.div>

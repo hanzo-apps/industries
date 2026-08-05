@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@hanzo/ui";
-import { cn } from "@/lib/utils";
+import { Button, cn } from '@hanzo/ui'
 import { Calendar, ExternalLink, FileText, Megaphone } from "lucide-react";
 
 const announcements = [
@@ -168,37 +167,27 @@ const pressReleases = [
   },
 ];
 
-const typeColors: Record<string, string> = {
-  "Product Launch": "bg-primary",
-  "Funding": "bg-foreground/20",
-  "Partnership": "bg-foreground/20",
-  "Product Update": "bg-foreground/20",
-  "Milestone": "bg-foreground/30",
-  "Research": "bg-foreground/40",
-  "Company News": "bg-foreground/50",
-};
-
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-24">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <main className="hz-pt-6">
         {/* Hero Section */}
-        <section className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-center mb-16"
+              className="hz-align-center hz-mb-7"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/10 border border-border rounded-full mb-6">
-                <Megaphone className="w-4 h-4 text-foreground" />
-                <span className="text-foreground text-sm font-medium">News & Announcements</span>
+              <div className="hz-btn hz-btn-primary hz-gap-2 hz-mb-5">
+                <Megaphone className="hz-sq-2 hz-fg" />
+                <span className="hz-fg hz-t-sm hz-w-medium">News & Announcements</span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="hz-t-4xl hz-w-bold hz-mb-5">
                 Latest from Hanzo
               </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
+              <p className={cn("hz-container-narrow hz-mw-md hz-t-xl", "hz-fg")}>
                 Stay up to date with product launches, company milestones, partnerships, and research breakthroughs.
               </p>
             </motion.div>
@@ -206,38 +195,38 @@ export default function PageClient() {
         </section>
 
         {/* Timeline Section */}
-        <section className={cn("py-24 px-4", "bg-foreground/5")}>
-          <div className="max-w-7xl mx-auto">
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")}>
+          <div className="hz-container">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-3xl font-bold mb-12"
+              className="hz-t-3xl hz-w-bold hz-mb-7"
             >
               Timeline
             </motion.h2>
 
-            <div className="relative">
+            <div className="hz-rel">
               {/* Timeline line */}
-              <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5", "bg-foreground/10")} />
+              <div className={cn("hz-abs hz-left-0 hz-top-0 hz-bottom-0 hz-bw-1", "hz-bg-surface")} />
 
               {announcements.map((month, monthIndex) => (
-                <div key={month.date} className="mb-16">
+                <div key={month.date} className="hz-mb-7">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: monthIndex * 0.1 }}
                     viewport={{ once: true }}
-                    className="relative flex items-center mb-8"
+                    className="hz-rel hz-row hz-ai-center hz-mb-6"
                   >
-                    <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4", "border-background")} />
-                    <div className="ml-8 md:ml-0 md:absolute md:left-1/2 md:transform md:translate-x-6">
-                      <span className="text-xl font-bold">{month.date}</span>
+                    <div className={cn("hz-sq-2 hz-abs hz-left-0 hz-bg-inverse hz-r-full hz-bordered hz-border-strong", "")} />
+                    <div className="hz-ml-4">
+                      <span className="hz-t-xl hz-w-bold">{month.date}</span>
                     </div>
                   </motion.div>
 
-                  <div className="space-y-6 ml-8 md:ml-0">
+                  <div className="hz-stack-5 hz-ml-4">
                     {month.items.map((item, itemIndex) => (
                       <motion.div
                         key={item.title}
@@ -246,33 +235,33 @@ export default function PageClient() {
                         transition={{ duration: 0.5, delay: itemIndex * 0.1 }}
                         viewport={{ once: true }}
                         className={cn(
-                          "md:w-[calc(50%-2rem)]",
-                          itemIndex % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
+                          "",
+                          itemIndex % 2 === 0 ? "" : ""
                         )}
                       >
                         <div className={cn(
-                          "border rounded-xl p-6 transition-colors group hover:border-border",
-                          "bg-foreground/5 border-border"
+                          "hz-bordered hz-r-lg hz-p-5 hz-transition hz-hoverable",
+                          "hz-bg-surface"
                         )}>
-                          <div className="flex items-center gap-3 mb-3">
-                            <span className={cn("px-2 py-1 text-xs font-medium text-foreground rounded", typeColors[item.type] || "bg-background/50")}>
+                          <div className="hz-row hz-ai-center hz-gap-3 hz-mb-3">
+                            <span className="hz-badge hz-bg-surface hz-fg">
                               {item.type}
                             </span>
-                            <span className={cn("text-sm flex items-center gap-1", "text-muted-foreground")}>
-                              <Calendar className="w-3 h-3" />
+                            <span className={cn("hz-t-sm hz-row hz-ai-center hz-gap-1", "hz-fg")}>
+                              <Calendar className="hz-sq-1" />
                               {month.date.split(" ")[0]} {item.day}
                             </span>
                           </div>
-                          <h3 className="text-xl font-bold mb-2 group-hover:text-foreground transition-colors">
+                          <h3 className="hz-t-xl hz-w-bold hz-mb-2 hz-transition hz-hoverable">
                             {item.title}
                           </h3>
-                          <p className={cn("text-sm mb-4", "text-muted-foreground")}>{item.description}</p>
+                          <p className={cn("hz-t-sm hz-mb-4", "hz-fg")}>{item.description}</p>
                           <a
                             href={item.link}
-                            className="text-foreground text-sm font-medium flex items-center gap-1 hover:underline"
+                            className="hz-fg hz-t-sm hz-w-medium hz-row hz-ai-center hz-gap-1"
                           >
                             Read more
-                            <ExternalLink className="w-3 h-3" />
+                            <ExternalLink className="hz-sq-1" />
                           </a>
                         </div>
                       </motion.div>
@@ -285,25 +274,25 @@ export default function PageClient() {
         </section>
 
         {/* Press Releases Section */}
-        <section className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="flex items-center justify-between mb-12"
+              className="hz-row hz-ai-center hz-jc-between hz-mb-7"
             >
-              <div className="flex items-center gap-3">
-                <FileText className="w-6 h-6 text-foreground" />
-                <h2 className="text-3xl font-bold">Press Releases</h2>
+              <div className="hz-row hz-ai-center hz-gap-3">
+                <FileText className="hz-sq-4 hz-fg" />
+                <h2 className="hz-t-3xl hz-w-bold">Press Releases</h2>
               </div>
-              <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
+              <Button variant="outline" className={cn("hz-fg hz-hoverable")}>
                 View All
               </Button>
             </motion.div>
 
-            <div className="grid gap-6">
+            <div className="hz-grid hz-gap-5">
               {pressReleases.map((release, index) => (
                 <motion.div
                   key={release.title}
@@ -312,24 +301,24 @@ export default function PageClient() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className={cn(
-                    "border rounded-xl p-6 transition-colors group cursor-pointer hover:border-border",
-                    "bg-foreground/5 border-border"
+                    "hz-bordered hz-r-lg hz-p-5 hz-transition hz-pointer hz-hoverable",
+                    "hz-bg-surface"
                   )}
                 >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="flex-1">
-                      <span className={cn("text-sm", "text-muted-foreground")}>{release.date}</span>
-                      <h3 className="text-xl font-bold mt-1 mb-2 group-hover:text-foreground transition-colors">
+                  <div className="hz-col-row hz-jc-between hz-gap-4">
+                    <div className="hz-grow">
+                      <span className={cn("hz-t-sm", "hz-fg")}>{release.date}</span>
+                      <h3 className="hz-t-xl hz-w-bold hz-mt-1 hz-mb-2 hz-transition hz-hoverable">
                         {release.title}
                       </h3>
-                      <p className={cn("text-sm", "text-muted-foreground")}>{release.summary}</p>
+                      <p className={cn("hz-t-sm", "hz-fg")}>{release.summary}</p>
                     </div>
                     <Button
                       variant="ghost"
-                      className="text-foreground hover:text-foreground hover:bg-accent whitespace-nowrap"
+                      className="hz-fg hz-whitespace-nowrap hz-hoverable"
                     >
                       Read Release
-                      <ExternalLink className="w-4 h-4 ml-2" />
+                      <ExternalLink className="hz-sq-2 hz-ml-2" />
                     </Button>
                   </div>
                 </motion.div>
@@ -339,28 +328,28 @@ export default function PageClient() {
         </section>
 
         {/* Media Contact */}
-        <section className={cn("py-24 px-4", "bg-foreground/5")}>
-          <div className="max-w-7xl mx-auto">
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")}>
+          <div className="hz-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="hz-align-center"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="hz-t-4xl hz-w-bold hz-mb-5">
                 Media Inquiries
               </h2>
-              <p className={cn("mb-8 max-w-xl mx-auto", "text-muted-foreground")}>
+              <p className={cn("hz-container-narrow hz-mw-md hz-mb-6", "hz-fg")}>
                 For press inquiries, interviews, or additional information, please contact our media relations team.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="hz-col-row hz-gap-4 hz-jc-center">
                 <a href="mailto:press@hanzo.ai">
-                  <Button className="bg-primary hover:bg-primary/90 text-foreground">
+                  <Button className="hz-bg-inverse hz-hoverable">
                     Contact Press Team
                   </Button>
                 </a>
-                <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
+                <Button variant="outline" className={cn("hz-fg hz-hoverable")}>
                   Download Press Kit
                 </Button>
               </div>

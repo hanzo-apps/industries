@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@hanzo/ui";
+import { Button, cn } from '@hanzo/ui'
 import { HanzoLogo } from "@hanzo/logo/react";
-import { cn } from "@/lib/utils";
 import {
   Download,
   Mail,
@@ -124,50 +123,42 @@ const brandColors = [
   { name: "Gray 400", hex: "#9CA3AF", usage: "Secondary text" },
 ];
 
-const typeColors: Record<string, string> = {
-  "Product": "bg-foreground/10 text-muted-foreground border-border",
-  "Research": "bg-foreground/10 text-muted-foreground border-border/20",
-  "Infrastructure": "bg-foreground/10 text-muted-foreground border-border",
-  "Organization": "bg-foreground/10 text-muted-foreground border-border",
-  "Milestone": "bg-foreground/10 text-muted-foreground border-border",
-};
-
 const LogoPreview = () => (
-  <HanzoLogo variant="white" className="w-12 h-12" />
+  <HanzoLogo variant="mono" size={48} />
 );
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-16">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <div>
         {/* Hero */}
-        <section className={cn("py-24 px-4 bg-gradient-to-b", "from-white/5 to-transparent")}>
-          <div className="max-w-5xl mx-auto text-center">
+        <section className={cn("hz-py-7 hz-px-4", "")}>
+          <div className="hz-container-wide hz-align-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className={cn("inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium mb-6", "bg-primary text-primary-foreground")}>
-                <FileText className="w-4 h-4" />
+              <div className={cn("hz-inline hz-ai-center hz-gap-2 hz-px-4 hz-py-1 hz-r-full hz-t-sm hz-w-medium hz-mb-5", "hz-bg-inverse")}>
+                <FileText className="hz-sq-2" />
                 Press Room
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+              <h1 className="hz-t-5xl hz-w-bold hz-tracking-tight hz-mb-5">
                 Press & Media
               </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto mb-8", "text-muted-foreground")}>
+              <p className={cn("hz-container-narrow hz-mw-md hz-t-xl hz-mb-6", "hz-fg")}>
                 Download brand assets, access press releases, and find everything you need to write about Hanzo AI.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="hz-row hz-wrap hz-gap-4 hz-jc-center">
                 <a href="mailto:press@hanzo.ai">
-                  <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
-                    <Mail className="w-4 h-4" />
+                  <Button className={cn("hz-gap-2", "hz-bg-inverse hz-hoverable")}>
+                    <Mail className="hz-sq-2" />
                     Contact Press Team
                   </Button>
                 </a>
                 <a href="https://github.com/hanzoai/brand" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="gap-2">
-                    <Download className="w-4 h-4" />
+                  <Button variant="outline" className="hz-gap-2">
+                    <Download className="hz-sq-2" />
                     Download Press Kit
                   </Button>
                 </a>
@@ -177,20 +168,20 @@ export default function PageClient() {
         </section>
 
         {/* Company Overview */}
-        <section className="py-16 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <Building2 className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">About Hanzo AI</h2>
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container-wide">
+            <div className="hz-row hz-ai-center hz-gap-3 hz-mb-5">
+              <Building2 className={cn("hz-sq-4", "hz-fg")} />
+              <h2 className="hz-t-2xl hz-w-bold">About Hanzo AI</h2>
             </div>
-            <div className="max-w-3xl">
-              <p className={cn("text-lg leading-relaxed mb-4", "text-muted-foreground")}>
+            <div className="hz-mw-lg">
+              <p className={cn("hz-t-lg hz-leading-relaxed hz-mb-4", "hz-fg")}>
                 <strong>Hanzo AI Inc</strong> (Techstars '17) is a frontier AI research lab building next-generation AI infrastructure. Founded in 2016 in Los Angeles, Hanzo develops large language models, AI training frameworks, and enterprise AI platforms.
               </p>
-              <p className={cn("text-lg leading-relaxed mb-4", "text-muted-foreground")}>
+              <p className={cn("hz-t-lg hz-leading-relaxed hz-mb-4", "hz-fg")}>
                 Our research spans efficient model training (Training-Free GRPO, ASO), post-quantum cryptography, fully homomorphic encryption, and decentralized AI infrastructure. We publish open research and release open-source AI models through the Zen LM family.
               </p>
-              <p className={cn("text-lg leading-relaxed", "text-muted-foreground")}>
+              <p className={cn("hz-t-lg hz-leading-relaxed", "hz-fg")}>
                 Hanzo operates alongside partner organizations: <strong>Zoo Labs Foundation</strong> (501c3 open AI research), <strong>Zen LM</strong> (frontier models), and <strong>Lux Network</strong> (blockchain infrastructure).
               </p>
             </div>
@@ -198,43 +189,43 @@ export default function PageClient() {
         </section>
 
         {/* Press Contact */}
-        <section className={cn("py-16 px-4", "bg-foreground/5")}>
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <Mail className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">Press Contact</h2>
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")}>
+          <div className="hz-container-wide">
+            <div className="hz-row hz-ai-center hz-gap-3 hz-mb-6">
+              <Mail className={cn("hz-sq-4", "hz-fg")} />
+              <h2 className="hz-t-2xl hz-w-bold">Press Contact</h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
-                <h3 className="font-semibold mb-4">Media Inquiries</h3>
-                <div className="space-y-3">
+            <div className="hz-grid hz-grid-3 hz-gap-5">
+              <div className={cn("hz-p-5 hz-r-lg hz-bordered", "hz-bg-surface")}>
+                <h3 className="hz-w-semibold hz-mb-4">Media Inquiries</h3>
+                <div className="hz-stack-3">
                   <a
                     href="mailto:press@hanzo.ai"
-                    className={cn("flex items-center gap-2 transition-colors", "text-muted-foreground hover:text-foreground")}
+                    className={cn("hz-row hz-ai-center hz-gap-2 hz-transition", "hz-fg hz-hoverable")}
                   >
-                    <Mail className="w-4 h-4" />
+                    <Mail className="hz-sq-2" />
                     press@hanzo.ai
                   </a>
-                  <div className={cn("flex items-center gap-2", "text-muted-foreground")}>
-                    <Phone className="w-4 h-4" />
+                  <div className={cn("hz-row hz-ai-center hz-gap-2", "hz-fg")}>
+                    <Phone className="hz-sq-2" />
                     +1 (913) 777-4443
                   </div>
                 </div>
               </div>
-              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
-                <h3 className="font-semibold mb-4">Headquarters</h3>
-                <div className={cn("space-y-1", "text-muted-foreground")}>
-                  <p className={cn("font-medium", "text-muted-foreground")}>Hanzo AI Inc</p>
+              <div className={cn("hz-p-5 hz-r-lg hz-bordered", "hz-bg-surface")}>
+                <h3 className="hz-w-semibold hz-mb-4">Headquarters</h3>
+                <div className={cn("hz-stack-1", "hz-fg")}>
+                  <p className={cn("hz-w-medium", "hz-fg")}>Hanzo AI Inc</p>
                   <p>Los Angeles, California</p>
                   <p>United States</p>
                 </div>
               </div>
-              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
-                <h3 className="font-semibold mb-4">Schedule Interview</h3>
-                <p className={cn("text-sm mb-4", "text-muted-foreground")}>Book time with our communications team.</p>
+              <div className={cn("hz-p-5 hz-r-lg hz-bordered", "hz-bg-surface")}>
+                <h3 className="hz-w-semibold hz-mb-4">Schedule Interview</h3>
+                <p className={cn("hz-t-sm hz-mb-4", "hz-fg")}>Book time with our communications team.</p>
                 <a href="https://cal.com/hanzo" target="_blank" rel="noopener noreferrer">
-                  <Button size="sm" variant="outline" className="w-full gap-2">
-                    <Calendar className="w-4 h-4" />
+                  <Button size="sm" variant="outline" className="hz-w-full hz-gap-2">
+                    <Calendar className="hz-sq-2" />
                     Schedule via Cal.com
                   </Button>
                 </a>
@@ -244,53 +235,53 @@ export default function PageClient() {
         </section>
 
         {/* Brand Assets */}
-        <section className="py-16 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-3">
-                <Palette className={cn("w-6 h-6", "text-muted-foreground")} />
-                <h2 className="text-2xl font-bold">Brand Assets</h2>
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container-wide">
+            <div className="hz-row hz-ai-center hz-jc-between hz-mb-6">
+              <div className="hz-row hz-ai-center hz-gap-3">
+                <Palette className={cn("hz-sq-4", "hz-fg")} />
+                <h2 className="hz-t-2xl hz-w-bold">Brand Assets</h2>
               </div>
               <a href="https://github.com/hanzoai/brand" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="sm" className="gap-2">
-                  <Github className="w-4 h-4" />
+                <Button variant="outline" size="sm" className="hz-gap-2">
+                  <Github className="hz-sq-2" />
                   View on GitHub
                 </Button>
               </a>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="hz-grid hz-grid-3 hz-gap-5 hz-mb-6">
               {/* Dark Background Logo */}
-              <div className={cn("rounded-xl border overflow-hidden", "border-border")}>
-                <div className="h-32 bg-background flex items-center justify-center">
+              <div className={cn("hz-r-lg hz-bordered hz-clip", "")}>
+                <div className="hz-bh-8 hz-bg hz-row hz-ai-center hz-jc-center">
                   <LogoPreview />
                 </div>
-                <div className={cn("p-4", "bg-foreground/5")}>
-                  <h3 className="font-semibold mb-1">Logo - Dark Background</h3>
-                  <p className={cn("text-sm mb-2", "text-muted-foreground")}>White logo for dark backgrounds</p>
-                  <p className={cn("text-xs", "text-foreground/30")}>SVG, PNG available</p>
+                <div className={cn("hz-p-4", "hz-bg-surface")}>
+                  <h3 className="hz-w-semibold hz-mb-1">Logo - Dark Background</h3>
+                  <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>White logo for dark backgrounds</p>
+                  <p className={cn("hz-t-xs", "hz-fg-soft")}>SVG, PNG available</p>
                 </div>
               </div>
 
               {/* Light Background Logo */}
-              <div className={cn("rounded-xl border overflow-hidden", "border-border")}>
-                <div className={cn("h-32 flex items-center justify-center border-b", "bg-primary border-border")}>
+              <div className={cn("hz-r-lg hz-bordered hz-clip", "")}>
+                <div className={cn("hz-bh-8 hz-row hz-ai-center hz-jc-center hz-border-b", "hz-bg-inverse")}>
                   <LogoPreview />
                 </div>
-                <div className={cn("p-4", "bg-foreground/5")}>
-                  <h3 className="font-semibold mb-1">Logo - Light Background</h3>
-                  <p className={cn("text-sm mb-2", "text-muted-foreground")}>Black logo for light backgrounds</p>
-                  <p className={cn("text-xs", "text-foreground/30")}>SVG, PNG available</p>
+                <div className={cn("hz-p-4", "hz-bg-surface")}>
+                  <h3 className="hz-w-semibold hz-mb-1">Logo - Light Background</h3>
+                  <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>Black logo for light backgrounds</p>
+                  <p className={cn("hz-t-xs", "hz-fg-soft")}>SVG, PNG available</p>
                 </div>
               </div>
 
               {/* Brand Colors */}
-              <div className={cn("rounded-xl border overflow-hidden", "border-border")}>
-                <div className="h-32 grid grid-cols-2 grid-rows-2">
+              <div className={cn("hz-r-lg hz-bordered hz-clip", "")}>
+                <div className="hz-grid hz-grid-2 hz-bh-8">
                   {brandColors.map((color) => (
                     <div
                       key={color.name}
-                      className="flex items-center justify-center text-xs font-medium"
+                      className="hz-row hz-ai-center hz-jc-center hz-t-xs hz-w-medium"
                       style={{
                         backgroundColor: color.hex,
                         color: color.hex === "#000000" || color.hex === "#111111" ? "#fff" : "#000"
@@ -300,24 +291,24 @@ export default function PageClient() {
                     </div>
                   ))}
                 </div>
-                <div className={cn("p-4", "bg-foreground/5")}>
-                  <h3 className="font-semibold mb-1">Brand Colors</h3>
-                  <p className={cn("text-sm mb-2", "text-muted-foreground")}>Primary color palette</p>
-                  <p className={cn("text-xs", "text-foreground/30")}>Black, White, Grays</p>
+                <div className={cn("hz-p-4", "hz-bg-surface")}>
+                  <h3 className="hz-w-semibold hz-mb-1">Brand Colors</h3>
+                  <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>Primary color palette</p>
+                  <p className={cn("hz-t-xs", "hz-fg-soft")}>Black, White, Grays</p>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="hz-row hz-wrap hz-gap-4">
               <a href="https://github.com/hanzoai/brand/archive/refs/heads/main.zip">
-                <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
-                  <Download className="w-4 h-4" />
+                <Button className={cn("hz-gap-2", "hz-bg-inverse hz-hoverable")}>
+                  <Download className="hz-sq-2" />
                   Download All Assets (ZIP)
                 </Button>
               </a>
               <a href="https://github.com/hanzoai/brand/blob/main/GUIDELINES.md" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="gap-2">
-                  <BookOpen className="w-4 h-4" />
+                <Button variant="outline" className="hz-gap-2">
+                  <BookOpen className="hz-sq-2" />
                   Brand Guidelines
                 </Button>
               </a>
@@ -326,13 +317,13 @@ export default function PageClient() {
         </section>
 
         {/* Press Releases Timeline */}
-        <section className={cn("py-16 px-4", "bg-foreground/5")}>
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <Calendar className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">Press Releases & Announcements</h2>
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")}>
+          <div className="hz-container-wide">
+            <div className="hz-row hz-ai-center hz-gap-3 hz-mb-6">
+              <Calendar className={cn("hz-sq-4", "hz-fg")} />
+              <h2 className="hz-t-2xl hz-w-bold">Press Releases & Announcements</h2>
             </div>
-            <div className="space-y-4">
+            <div className="hz-stack-4">
               {pressReleases.map((release, index) => (
                 <motion.div
                   key={release.title}
@@ -340,31 +331,31 @@ export default function PageClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className={cn("p-6 rounded-xl border transition-colors group", "bg-foreground/5 border-border hover:border-border")}
+                  className={cn("hz-p-5 hz-r-lg hz-bordered hz-transition", "hz-bg-surface hz-hoverable")}
                 >
-                  <div className="flex flex-col md:flex-row md:items-start gap-4">
-                    <div className="flex-shrink-0 w-24">
-                      <div className={cn("text-sm font-medium", "text-foreground/90")}>{release.date}</div>
+                  <div className="hz-col-row hz-gap-4">
+                    <div className="hz-none hz-bw-8">
+                      <div className={cn("hz-t-sm hz-w-medium", "hz-fg-soft")}>{release.date}</div>
                       {release.type && (
-                        <span className={cn("inline-block mt-1 px-2 py-0.5 text-xs rounded-full border", typeColors[release.type] || ("bg-foreground/10 text-muted-foreground border-border"))}>
+                        <span className="hz-badge hz-mt-1 hz-bordered hz-bg-surface hz-fg-muted">
                           {release.type}
                         </span>
                       )}
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold mb-2 group-hover:underline">{release.title}</h3>
-                      <p className={cn("text-sm", "text-muted-foreground")}>{release.description}</p>
+                    <div className="hz-grow">
+                      <h3 className="hz-w-semibold hz-mb-2">{release.title}</h3>
+                      <p className={cn("hz-t-sm", "hz-fg")}>{release.description}</p>
                     </div>
                     {release.link && (
                       <a
                         href={release.link}
                         target={release.link.startsWith("http") ? "_blank" : undefined}
                         rel={release.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="flex-shrink-0"
+                        className="hz-none"
                       >
-                        <Button variant="ghost" size="sm" className={cn("gap-1", "text-muted-foreground hover:text-foreground")}>
+                        <Button variant="ghost" size="sm" className={cn("hz-gap-1", "hz-fg hz-hoverable")}>
                           Learn more
-                          <ExternalLink className="w-3 h-3" />
+                          <ExternalLink className="hz-sq-1" />
                         </Button>
                       </a>
                     )}
@@ -376,13 +367,13 @@ export default function PageClient() {
         </section>
 
         {/* Social Media */}
-        <section className="py-16 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <Globe className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">Connect With Us</h2>
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container-wide">
+            <div className="hz-row hz-ai-center hz-gap-3 hz-mb-6">
+              <Globe className={cn("hz-sq-4", "hz-fg")} />
+              <h2 className="hz-t-2xl hz-w-bold">Connect With Us</h2>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="hz-grid hz-grid-4 hz-gap-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -391,11 +382,11 @@ export default function PageClient() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={cn("p-4 rounded-xl border transition-colors text-center group", "bg-foreground/5 border-border hover:border-border")}
+                    className={cn("hz-p-4 hz-r-lg hz-bordered hz-transition hz-align-center", "hz-bg-surface hz-hoverable")}
                   >
-                    <Icon className={cn("w-5 h-5 mx-auto mb-2 transition-colors", "text-muted-foreground group-hover:text-foreground")} />
-                    <div className="font-semibold mb-1">{social.name}</div>
-                    <div className={cn("text-sm", "text-muted-foreground")}>{social.handle}</div>
+                    <Icon className={cn("hz-sq-3 hz-mx-auto hz-mb-2 hz-transition", "hz-fg hz-hoverable")} />
+                    <div className="hz-w-semibold hz-mb-1">{social.name}</div>
+                    <div className={cn("hz-t-sm", "hz-fg")}>{social.handle}</div>
                   </a>
                 );
               })}
@@ -404,27 +395,27 @@ export default function PageClient() {
         </section>
 
         {/* Leadership */}
-        <section className={cn("py-16 px-4", "bg-foreground/5")}>
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <Users className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">Leadership & Executive Bios</h2>
+        <section className={cn("hz-py-7 hz-px-4", "hz-bg-surface")}>
+          <div className="hz-container-wide">
+            <div className="hz-row hz-ai-center hz-gap-3 hz-mb-6">
+              <Users className={cn("hz-sq-4", "hz-fg")} />
+              <h2 className="hz-t-2xl hz-w-bold">Leadership & Executive Bios</h2>
             </div>
-            <div className={cn("p-8 rounded-xl border text-center", "bg-foreground/5 border-border")}>
-              <Award className={cn("w-12 h-12 mx-auto mb-4", "text-muted-foreground")} />
-              <p className={cn("mb-6", "text-muted-foreground")}>
+            <div className={cn("hz-p-6 hz-r-lg hz-bordered hz-align-center", "hz-bg-surface")}>
+              <Award className={cn("hz-sq-7 hz-mx-auto hz-mb-4", "hz-fg")} />
+              <p className={cn("hz-mb-5", "hz-fg")}>
                 For executive bios, headshots, and interview requests, please contact our press team directly.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="hz-row hz-wrap hz-gap-4 hz-jc-center">
                 <Link href="/team">
-                  <Button variant="outline" className="gap-2">
-                    <Users className="w-4 h-4" />
+                  <Button variant="outline" className="hz-gap-2">
+                    <Users className="hz-sq-2" />
                     View Team Page
                   </Button>
                 </Link>
                 <a href="mailto:press@hanzo.ai">
-                  <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
-                    <Mail className="w-4 h-4" />
+                  <Button className={cn("hz-gap-2", "hz-bg-inverse hz-hoverable")}>
+                    <Mail className="hz-sq-2" />
                     Request Executive Bios
                   </Button>
                 </a>
@@ -434,35 +425,35 @@ export default function PageClient() {
         </section>
 
         {/* Coverage Guidelines */}
-        <section className="py-16 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <BookOpen className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">Coverage Guidelines</h2>
+        <section className="hz-py-7 hz-px-4">
+          <div className="hz-container-wide">
+            <div className="hz-row hz-ai-center hz-gap-3 hz-mb-6">
+              <BookOpen className={cn("hz-sq-4", "hz-fg")} />
+              <h2 className="hz-t-2xl hz-w-bold">Coverage Guidelines</h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
-                <h3 className="font-semibold mb-3">Preferred Terminology</h3>
-                <ul className={cn("space-y-2 text-sm", "text-muted-foreground")}>
+            <div className="hz-grid hz-grid-2 hz-gap-5">
+              <div className={cn("hz-p-5 hz-r-lg hz-bordered", "hz-bg-surface")}>
+                <h3 className="hz-w-semibold hz-mb-3">Preferred Terminology</h3>
+                <ul className={cn("hz-stack-2 hz-t-sm", "hz-fg")}>
                   <li><strong>Company Name:</strong> Hanzo AI or Hanzo Industries Inc</li>
                   <li><strong>Not:</strong> HANZO, Hanzo, or Hanzo.ai</li>
                   <li><strong>Products:</strong> Zen, KOAN, Hanzo Dev, Hanzo Cloud</li>
                   <li><strong>Partners:</strong> Zoo Labs Foundation, Lux Network, Zen LM</li>
                 </ul>
               </div>
-              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
-                <h3 className="font-semibold mb-3">Key Facts</h3>
-                <ul className={cn("space-y-2 text-sm", "text-muted-foreground")}>
+              <div className={cn("hz-p-5 hz-r-lg hz-bordered", "hz-bg-surface")}>
+                <h3 className="hz-w-semibold hz-mb-3">Key Facts</h3>
+                <ul className={cn("hz-stack-2 hz-t-sm", "hz-fg")}>
                   <li><strong>Founded:</strong> 2016 in Los Angeles</li>
                   <li><strong>Accelerator:</strong> Techstars Boulder 2017</li>
-                  <li><strong>Research:</strong> <a href="/research#papers" className="underline hover:opacity-80">Published papers</a></li>
-                  <li><strong>Models:</strong> <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80">Zen LM family</a></li>
+                  <li><strong>Research:</strong> <a href="/research#papers" className="hz-underline">Published papers</a></li>
+                  <li><strong>Models:</strong> <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer" className="hz-underline">Zen LM family</a></li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

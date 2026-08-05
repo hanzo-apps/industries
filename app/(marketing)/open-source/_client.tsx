@@ -107,39 +107,39 @@ const REVENUE_FEATURES = [
 
 export default function PageClient() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="hz-min-h-screen hz-bg hz-fg">
       <main>
         {/* Hero */}
-        <section className="relative pt-24 pb-20 px-4 md:px-8 lg:px-12 overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
+        <section className="hz-rel hz-pt-6 hz-pb-6 hz-px-4 hz-clip">
+          <div className="hz-abs hz-inset hz-clip hz-z-base hz-no-pointer">
             <div
-              className="absolute inset-0 opacity-[0.03]"
+              className="hz-abs hz-inset hz-dim-more"
               style={{
                 backgroundImage:
                   'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
                 backgroundSize: '64px 64px',
               }}
             />
-            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[120px] bg-foreground/5" />
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[100px] bg-foreground/[0.03]" />
+            <div className="hz-abs hz-r-full hz-blur-bg hz-bg-surface" />
+            <div className="hz-abs hz-r-full hz-blur-bg hz-bg-surface" />
           </div>
 
-          <div className="max-w-5xl mx-auto relative z-10 text-center">
+          <div className="hz-container-wide hz-rel hz-z-raised hz-align-center">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 border bg-foreground/5 border-border"
+              className="hz-inline hz-ai-center hz-gap-2 hz-px-3 hz-py-1 hz-r-full hz-t-xs hz-w-medium hz-mb-5 hz-bordered hz-bg-surface"
             >
-              <Github className="w-3.5 h-3.5 text-muted-foreground" />
-              <span className="text-muted-foreground">Open Core Company</span>
+              <Github className="hz-sq-2 hz-fg" />
+              <span className="hz-fg">Open Core Company</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-foreground"
+              className="hz-t-4xl hz-w-bold hz-tracking-tight hz-mb-5 hz-fg"
             >
               Open Source at Hanzo
             </motion.h1>
@@ -148,7 +148,7 @@ export default function PageClient() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-3xl mx-auto"
+              className="hz-container-narrow hz-t-lg hz-fg hz-leading-relaxed hz-mb-6"
             >
               Hanzo is built on open source and gives back. 727+ repos across 6 GitHub
               orgs, MIT and Apache licensed. We dedicate 25% of compute revenue to the
@@ -159,14 +159,14 @@ export default function PageClient() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
-              className="flex flex-wrap items-center justify-center gap-4 mb-16"
+              className="hz-row hz-wrap hz-ai-center hz-jc-center hz-gap-4 hz-mb-7"
             >
               <a href={site.links.github} target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
-                  className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="hz-r-full hz-px-6 hz-bh-7 hz-bg-inverse hz-hoverable"
                 >
-                  <Github className="w-4 h-4 mr-2" />
+                  <Github className="hz-sq-2 hz-mr-2" />
                   Browse GitHub
                 </Button>
               </a>
@@ -174,9 +174,9 @@ export default function PageClient() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-8 h-12 border-border text-foreground hover:bg-accent"
+                  className="hz-r-full hz-px-6 hz-bh-7 hz-fg hz-hoverable"
                 >
-                  <DollarSign className="w-4 h-4 mr-2" />
+                  <DollarSign className="hz-sq-2 hz-mr-2" />
                   Connect &amp; Start Earning
                 </Button>
               </a>
@@ -186,18 +186,18 @@ export default function PageClient() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4"
+              className="hz-grid hz-grid-4 hz-gap-4"
             >
               {HERO_STATS.map((stat) => {
                 const Icon = stat.icon
                 return (
                   <div
                     key={stat.label}
-                    className="rounded-xl border border-border bg-secondary/50 p-5 text-center"
+                    className="hz-card hz-align-center"
                   >
-                    <Icon className="w-5 h-5 text-muted-foreground mb-2 mx-auto" />
-                    <div className="text-3xl font-bold text-foreground">{stat.value}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+                    <Icon className="hz-sq-3 hz-fg hz-mb-2 hz-mx-auto" />
+                    <div className="hz-t-3xl hz-w-bold hz-fg">{stat.value}</div>
+                    <div className="hz-t-xs hz-fg hz-mt-1">{stat.label}</div>
                   </div>
                 )
               })}
@@ -206,26 +206,26 @@ export default function PageClient() {
         </section>
 
         {/* Standing on Giants */}
-        <section className="py-20 px-4 md:px-8 border-t border-border">
-          <div className="max-w-6xl mx-auto">
+        <section className="hz-py-7 hz-px-4 hz-border-t">
+          <div className="hz-container-wide">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="mb-10"
+              className="hz-mb-6"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              <h2 className="hz-t-2xl hz-w-bold hz-fg hz-mb-3">
                 Standing on Giants
               </h2>
-              <p className="text-muted-foreground max-w-2xl">
+              <p className="hz-fg hz-mw-md">
                 The upstream open source projects that power Hanzo. We use them, we credit
                 them, we contribute back, and we fund them through our revenue sharing
                 program.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="hz-grid hz-grid-4 hz-gap-4">
               {UPSTREAM_PROJECTS.map((proj, i) => (
                 <motion.div
                   key={proj.name}
@@ -233,13 +233,13 @@ export default function PageClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.04 }}
-                  className="group rounded-xl border border-border bg-secondary/30 p-5 hover:border-foreground/20 hover:bg-secondary/60 transition-all"
+                  className="hz-card hz-transition hz-card-interactive"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-semibold text-foreground text-sm">{proj.name}</h3>
-                    <div className="flex items-center gap-1.5">
+                  <div className="hz-row hz-ai-center hz-jc-between hz-mb-3">
+                    <h3 className="hz-w-semibold hz-fg hz-t-sm">{proj.name}</h3>
+                    <div className="hz-row hz-ai-center hz-gap-2">
                       {proj.stars && (
-                        <span className="text-[10px] font-mono text-muted-foreground">
+                        <span className="hz-t-xs hz-mono hz-fg">
                           {proj.stars}
                         </span>
                       )}
@@ -247,17 +247,17 @@ export default function PageClient() {
                         href={proj.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
+                        className="hz-fg hz-transition hz-hoverable"
                         aria-label={`${proj.name} on GitHub`}
                       >
-                        <Github className="w-3.5 h-3.5" />
+                        <Github className="hz-sq-2" />
                       </a>
                     </div>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-2">{proj.role}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-muted-foreground/70">{proj.creator}</span>
-                    <span className="text-[10px] font-mono text-muted-foreground/70">
+                  <p className="hz-t-xs hz-fg hz-mb-2">{proj.role}</p>
+                  <div className="hz-row hz-ai-center hz-jc-between">
+                    <span className="hz-t-xs hz-fg-muted">{proj.creator}</span>
+                    <span className="hz-t-xs hz-mono hz-fg-muted">
                       {proj.license}
                     </span>
                   </div>
@@ -268,25 +268,25 @@ export default function PageClient() {
         </section>
 
         {/* Our Organizations */}
-        <section className="py-20 px-4 md:px-8 border-t border-border">
-          <div className="max-w-6xl mx-auto">
+        <section className="hz-py-7 hz-px-4 hz-border-t">
+          <div className="hz-container-wide">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="mb-10"
+              className="hz-mb-6"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              <h2 className="hz-t-2xl hz-w-bold hz-fg hz-mb-3">
                 Our Organizations
               </h2>
-              <p className="text-muted-foreground max-w-xl">
+              <p className="hz-fg hz-mw-md">
                 Six GitHub organizations spanning AI, blockchain, and developer tooling
                 &mdash; all public, all open.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="hz-grid hz-grid-3 hz-gap-4">
               {GITHUB_ORGS.map((org, i) => {
                 const Icon = org.icon
                 return (
@@ -299,19 +299,19 @@ export default function PageClient() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: i * 0.06 }}
-                    className="group flex items-start gap-4 rounded-xl border border-border bg-secondary/30 p-5 hover:border-foreground/20 hover:bg-secondary/60 transition-all"
+                    className="hz-card hz-row hz-ai-start hz-gap-4 hz-transition hz-card-interactive"
                   >
-                    <div className="mt-0.5 flex-shrink-0 rounded-lg border border-border bg-background p-2">
-                      <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <div className="hz-mt-1 hz-none hz-r-lg hz-bordered hz-bg hz-p-2">
+                      <Icon className="hz-sq-3 hz-fg hz-transition hz-hoverable" />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <span className="font-mono text-sm font-semibold text-foreground group-hover:text-foreground transition-colors">
+                    <div className="hz-grow">
+                      <div className="hz-row hz-ai-center hz-gap-2 hz-mb-1">
+                        <span className="hz-mono hz-t-sm hz-w-semibold hz-fg hz-transition hz-hoverable">
                           @{org.handle}
                         </span>
-                        <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ExternalLink className="hz-sq-1 hz-fg hz-invisible hz-transition" />
                       </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
+                      <p className="hz-t-xs hz-fg hz-leading-relaxed">
                         {org.description}
                       </p>
                     </div>
@@ -323,25 +323,25 @@ export default function PageClient() {
         </section>
 
         {/* Stewardship Commitments */}
-        <section className="py-20 px-4 md:px-8 border-t border-border">
-          <div className="max-w-6xl mx-auto">
+        <section className="hz-py-7 hz-px-4 hz-border-t">
+          <div className="hz-container-wide">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="mb-10"
+              className="hz-mb-6"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              <h2 className="hz-t-2xl hz-w-bold hz-fg hz-mb-3">
                 Our Stewardship Commitments
               </h2>
-              <p className="text-muted-foreground max-w-xl">
+              <p className="hz-fg hz-mw-md">
                 Explicit commitments, not vague promises. We hold ourselves accountable to
                 these publicly.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="hz-grid hz-grid-3 hz-gap-4">
               {COMMITMENTS.map((c, i) => (
                 <motion.div
                   key={c.title}
@@ -349,15 +349,15 @@ export default function PageClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.06 }}
-                  className="rounded-xl border border-border bg-secondary/30 p-5"
+                  className="hz-card"
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex-shrink-0 rounded-full bg-foreground/10 p-1">
-                      <Check className="w-3.5 h-3.5 text-foreground" />
+                  <div className="hz-row hz-ai-start hz-gap-3">
+                    <div className="hz-mt-1 hz-none hz-r-full hz-bg-surface hz-p-1">
+                      <Check className="hz-sq-2 hz-fg" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground text-sm mb-1">{c.title}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{c.body}</p>
+                      <h3 className="hz-w-semibold hz-fg hz-t-sm hz-mb-1">{c.title}</h3>
+                      <p className="hz-t-xs hz-fg hz-leading-relaxed">{c.body}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -367,25 +367,25 @@ export default function PageClient() {
         </section>
 
         {/* Earn from Open Source (Revenue Sharing) */}
-        <section className="py-24 px-4 md:px-8 border-t border-border relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[160px] bg-foreground/[0.04] pointer-events-none" />
+        <section className="hz-py-7 hz-px-4 hz-border-t hz-rel hz-clip">
+          <div className="hz-center-x hz-abs hz-top-0 hz-r-full hz-blur-bg hz-bg-surface hz-no-pointer" />
 
-          <div className="max-w-6xl mx-auto relative z-10">
+          <div className="hz-container-wide hz-rel hz-z-raised">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="text-center mb-16"
+              className="hz-align-center hz-mb-7"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 border bg-foreground/5 border-border">
-                <DollarSign className="w-3.5 h-3.5 text-muted-foreground" />
-                <span className="text-muted-foreground">Revenue Sharing Program</span>
+              <div className="hz-inline hz-ai-center hz-gap-2 hz-px-3 hz-py-1 hz-r-full hz-t-xs hz-w-medium hz-mb-5 hz-bordered hz-bg-surface">
+                <DollarSign className="hz-sq-2 hz-fg" />
+                <span className="hz-fg">Revenue Sharing Program</span>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              <h2 className="hz-t-3xl hz-w-bold hz-fg hz-mb-4">
                 Earn from Open Source
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              <p className="hz-container-narrow hz-mw-md hz-t-lg hz-fg hz-leading-relaxed">
                 We dedicate 25% of all compute costs to open source &mdash; distributed
                 transparently based on verified SBOMs. Your code runs in production, you
                 get paid.
@@ -393,7 +393,7 @@ export default function PageClient() {
             </motion.div>
 
             {/* How It Works - 4 steps */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="hz-grid hz-grid-4 hz-gap-5 hz-mb-7">
               {REVENUE_STEPS.map((step, i) => {
                 const Icon = step.icon
                 return (
@@ -403,22 +403,22 @@ export default function PageClient() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: i * 0.08 }}
-                    className="relative rounded-xl border border-border bg-secondary/30 p-6"
+                    className="hz-card hz-rel"
                   >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 rounded-full border border-border bg-background flex items-center justify-center text-xs font-bold text-foreground">
+                    <div className="hz-row hz-ai-center hz-gap-3 hz-mb-4">
+                      <div className="hz-sq-5 hz-r-full hz-bordered hz-bg hz-row hz-ai-center hz-jc-center hz-t-xs hz-w-bold hz-fg">
                         {step.step}
                       </div>
-                      <div className="w-8 h-8 rounded-lg bg-foreground/10 flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-muted-foreground" />
+                      <div className="hz-sq-5 hz-r-lg hz-bg-surface hz-row hz-ai-center hz-jc-center">
+                        <Icon className="hz-sq-2 hz-fg" />
                       </div>
                     </div>
-                    <h3 className="font-semibold text-foreground text-sm mb-2">{step.title}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    <h3 className="hz-w-semibold hz-fg hz-t-sm hz-mb-2">{step.title}</h3>
+                    <p className="hz-t-xs hz-fg hz-leading-relaxed">
                       {step.description}
                     </p>
                     {i < REVENUE_STEPS.length - 1 && (
-                      <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-border" />
+                      <div className="hz-desktop-only hz-abs hz-bw-4 hz-bg-surface" />
                     )}
                   </motion.div>
                 )
@@ -426,7 +426,7 @@ export default function PageClient() {
             </div>
 
             {/* Feature cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+            <div className="hz-grid hz-grid-4 hz-gap-4 hz-mb-7">
               {REVENUE_FEATURES.map((f, i) => {
                 const Icon = f.icon
                 return (
@@ -436,13 +436,13 @@ export default function PageClient() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: i * 0.06 }}
-                    className="rounded-xl border border-border bg-secondary/20 p-5 text-center"
+                    className="hz-card hz-align-center"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-foreground/10 flex items-center justify-center mx-auto mb-3">
-                      <Icon className="w-5 h-5 text-muted-foreground" />
+                    <div className="hz-sq-6 hz-r-lg hz-bg-surface hz-row hz-ai-center hz-jc-center hz-mx-auto hz-mb-3">
+                      <Icon className="hz-sq-3 hz-fg" />
                     </div>
-                    <h3 className="font-semibold text-foreground text-sm mb-1">{f.title}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    <h3 className="hz-w-semibold hz-fg hz-t-sm hz-mb-1">{f.title}</h3>
+                    <p className="hz-t-xs hz-fg hz-leading-relaxed">
                       {f.description}
                     </p>
                   </motion.div>
@@ -456,17 +456,17 @@ export default function PageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="rounded-xl border border-border bg-secondary/30 p-6 md:p-8 mb-16"
+              className="hz-card hz-mb-7"
             >
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
-                  <Users className="w-6 h-6 text-muted-foreground" />
+              <div className="hz-col-row hz-ai-start hz-gap-5">
+                <div className="hz-sq-7 hz-none hz-r-lg hz-bg-surface hz-row hz-ai-center hz-jc-center">
+                  <Users className="hz-sq-4 hz-fg" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-foreground mb-2">
+                <div className="hz-grow">
+                  <h3 className="hz-w-semibold hz-fg hz-mb-2">
                     Communities Customize Their Splits
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="hz-t-sm hz-fg hz-leading-relaxed">
                     Each project controls how revenue is distributed. For example: 10% to
                     the founder, 40% to top contributors, 50% to a community fund. We
                     actively reach out to every contributor whose code we run in production
@@ -482,16 +482,16 @@ export default function PageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="text-center mb-10"
+              className="hz-align-center hz-mb-6"
             >
-              <p className="text-sm text-muted-foreground mb-6">
+              <p className="hz-t-sm hz-fg hz-mb-5">
                 Payout options:{' '}
-                <span className="text-foreground font-medium">USD (direct deposit)</span>,{' '}
-                <span className="text-foreground font-medium">Hanzo Network tokens</span>,
-                or <span className="text-foreground font-medium">AI coin</span> &mdash; on
+                <span className="hz-fg hz-w-medium">USD (direct deposit)</span>,{' '}
+                <span className="hz-fg hz-w-medium">Hanzo Network tokens</span>,
+                or <span className="hz-fg hz-w-medium">AI coin</span> &mdash; on
                 any major chain.
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
+              <div className="hz-row hz-wrap hz-ai-center hz-jc-center hz-gap-4">
                 <a
                   href="https://hanzo.ai/oss/connect"
                   target="_blank"
@@ -499,11 +499,11 @@ export default function PageClient() {
                 >
                   <Button
                     size="lg"
-                    className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90"
+                    className="hz-r-full hz-px-6 hz-bh-7 hz-bg-inverse hz-hoverable"
                   >
-                    <Wallet className="w-4 h-4 mr-2" />
+                    <Wallet className="hz-sq-2 hz-mr-2" />
                     Connect &amp; Start Earning
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <ArrowRight className="hz-sq-2 hz-ml-2" />
                   </Button>
                 </a>
                 <a
@@ -514,9 +514,9 @@ export default function PageClient() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="rounded-full px-8 h-12 border-border text-foreground hover:bg-accent"
+                    className="hz-r-full hz-px-6 hz-bh-7 hz-fg hz-hoverable"
                   >
-                    <BarChart3 className="w-4 h-4 mr-2" />
+                    <BarChart3 className="hz-sq-2 hz-mr-2" />
                     View Payout Dashboard
                   </Button>
                 </a>
@@ -526,29 +526,29 @@ export default function PageClient() {
         </section>
 
         {/* Research & Papers */}
-        <section className="py-16 px-4 md:px-8 border-t border-border">
-          <div className="max-w-6xl mx-auto">
+        <section className="hz-py-7 hz-px-4 hz-border-t">
+          <div className="hz-container-wide">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-xl border border-border bg-secondary/30 p-6"
+              className="hz-col-row hz-card hz-ai-start hz-jc-between hz-gap-5"
             >
               <div>
-                <h2 className="text-xl font-bold text-foreground mb-1">
+                <h2 className="hz-t-xl hz-w-bold hz-fg hz-mb-1">
                   Research &amp; Papers
                 </h2>
-                <p className="text-sm text-muted-foreground max-w-lg">
+                <p className="hz-t-sm hz-fg hz-mw-sm">
                   130+ technical papers across AI alignment, consensus protocols,
                   post-quantum cryptography, decentralized AI, and more. Open-access and
                   free forever.
                 </p>
               </div>
               <Link href="/research">
-                <Button className="rounded-full px-6 bg-primary text-primary-foreground hover:bg-primary/90">
+                <Button className="hz-r-full hz-px-5 hz-bg-inverse hz-hoverable">
                   Browse Papers
-                  <ArrowRight className="ml-2 w-4 h-4" />
+                  <ArrowRight className="hz-sq-2 hz-ml-2" />
                 </Button>
               </Link>
             </motion.div>
@@ -556,16 +556,16 @@ export default function PageClient() {
         </section>
 
         {/* CTA */}
-        <section className="py-24 px-4 md:px-8 bg-gradient-to-b from-secondary/20 to-background relative overflow-hidden border-t border-border">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-foreground/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-foreground/[0.03] rounded-full blur-3xl pointer-events-none" />
+        <section className="hz-py-7 hz-px-4 hz-rel hz-clip hz-border-t">
+          <div className="hz-sq-8 hz-abs hz-bg-surface hz-r-full hz-blur-bg hz-no-pointer" />
+          <div className="hz-sq-8 hz-abs hz-bg-surface hz-r-full hz-blur-bg hz-no-pointer" />
 
-          <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="hz-container-narrow hz-align-center hz-rel hz-z-raised">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+              className="hz-t-3xl hz-w-bold hz-fg hz-mb-4"
             >
               Contribute &amp; Earn
             </motion.h2>
@@ -575,7 +575,7 @@ export default function PageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto"
+              className="hz-container-narrow hz-mw-md hz-t-lg hz-fg hz-mb-6"
             >
               Star our repos, open a PR, or connect your wallet to earn from the code you
               already contribute. Every contribution matters &mdash; and pays.
@@ -586,25 +586,25 @@ export default function PageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="flex flex-wrap items-center justify-center gap-4"
+              className="hz-row hz-wrap hz-ai-center hz-jc-center hz-gap-4"
             >
               <a href={site.links.github} target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
-                  className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="hz-r-full hz-px-6 hz-bh-7 hz-bg-inverse hz-hoverable"
                 >
-                  <Github className="mr-2 h-5 w-5" />
+                  <Github className="hz-sq-3 hz-mr-2" />
                   View on GitHub
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="hz-sq-3 hz-ml-2" />
                 </Button>
               </a>
               <a href="https://hanzo.ai/oss/connect" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-8 h-12 border-border text-foreground hover:bg-accent"
+                  className="hz-r-full hz-px-6 hz-bh-7 hz-fg hz-hoverable"
                 >
-                  <Wallet className="mr-2 h-5 w-5" />
+                  <Wallet className="hz-sq-3 hz-mr-2" />
                   Connect &amp; Earn
                 </Button>
               </a>

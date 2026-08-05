@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@hanzo/ui";
-import { cn } from "@/lib/utils";
+import { Button, cn } from '@hanzo/ui'
 import {
   ArrowRight,
   BookOpen,
@@ -296,26 +295,13 @@ async fn main() -> Result<(), hanzo::Error> {
 }`,
 };
 
-const langBadgeColor: Record<string, string> = {
-  Python: "bg-foreground/10 text-foreground",
-  TypeScript: "bg-foreground/10 text-foreground",
-  Go: "bg-foreground/10 text-foreground",
-  Rust: "bg-foreground/10 text-foreground",
-  "Python / Rust": "bg-foreground/10 text-foreground",
-};
-
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                           */
 /* ------------------------------------------------------------------ */
 
 function LangBadge({ lang }: { lang: string }) {
   return (
-    <span
-      className={cn(
-        "text-[10px] font-mono font-medium px-2 py-0.5 rounded-full",
-        langBadgeColor[lang] ?? "bg-foreground/10 text-foreground"
-      )}
-    >
+    <span className="hz-badge hz-mono hz-bg-surface hz-fg">
       {lang}
     </span>
   );
@@ -323,7 +309,7 @@ function LangBadge({ lang }: { lang: string }) {
 
 function SdkIconBadge({ icon }: { icon: string }) {
   return (
-    <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-foreground/5 font-mono text-sm font-bold">
+    <span className="hz-sq-6 hz-row hz-ai-center hz-jc-center hz-r-lg hz-bg-surface hz-mono hz-t-sm hz-w-bold">
       {icon}
     </span>
   );
@@ -339,12 +325,12 @@ function CopyButton({ text }: { text: string }) {
         setTimeout(() => setCopied(false), 2000);
       }}
       className={cn(
-        "p-1.5 rounded transition-colors",
-        "hover:bg-foreground/10 text-muted-foreground hover:text-foreground"
+        "hz-p-2 hz-r-md hz-transition",
+        "hz-fg hz-hoverable"
       )}
       title="Copy"
     >
-      {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+      {copied ? <Check className="hz-sq-2" /> : <Copy className="hz-sq-2" />}
     </button>
   );
 }
@@ -357,35 +343,35 @@ export default function PageClient() {
   const [activeTab, setActiveTab] = useState("Python");
 
   return (
-    <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <main className="hz-pt-6 hz-pb-6 hz-px-4">
+      <div className="hz-container-wide">
         {/* Hero */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-20"
+          className="hz-mb-7"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <BookOpen className="w-6 h-6 text-muted-foreground" />
-            <span className="text-sm font-mono text-muted-foreground">docs.hanzo.ai</span>
+          <div className="hz-row hz-ai-center hz-gap-3 hz-mb-5">
+            <BookOpen className="hz-sq-4 hz-fg" />
+            <span className="hz-t-sm hz-mono hz-fg">docs.hanzo.ai</span>
           </div>
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+          <h1 className="hz-t-5xl hz-w-bold hz-mb-5">
             Developer Documentation
           </h1>
-          <p className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
+          <p className={cn("hz-t-xl hz-mw-lg", "hz-fg")}>
             Everything you need to build with Hanzo — SDKs, APIs, guides, and
             reference documentation for every language and framework.
           </p>
-          <div className="flex flex-wrap gap-3 mt-8">
+          <div className="hz-row hz-wrap hz-gap-3 hz-mt-6">
             <Link href="/docs/sdk">
-              <Button variant="primary" className="gap-2">
-                Get Started <ArrowRight className="w-4 h-4" />
+              <Button variant="primary" className="hz-gap-2">
+                Get Started <ArrowRight className="hz-sq-2" />
               </Button>
             </Link>
             <Link href="/docs/api">
-              <Button variant="outline" className="gap-2">
-                API Reference <BookOpen className="w-4 h-4" />
+              <Button variant="outline" className="hz-gap-2">
+                API Reference <BookOpen className="hz-sq-2" />
               </Button>
             </Link>
           </div>
@@ -396,13 +382,13 @@ export default function PageClient() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="mb-20"
+          className="hz-mb-7"
         >
-          <h2 className="text-3xl font-bold mb-2">SDKs</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-2">SDKs</h2>
+          <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
             First-class client libraries for every major language.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="hz-grid hz-grid-2 hz-gap-4">
             {sdks.map((sdk, i) => (
               <motion.div
                 key={sdk.language}
@@ -410,54 +396,54 @@ export default function PageClient() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.05 + i * 0.03 }}
                 className={cn(
-                  "p-6 rounded-lg border transition-colors",
-                  "border-border hover:border-foreground/20"
+                  "hz-p-5 hz-r-lg hz-bordered hz-transition",
+                  "hz-hoverable"
                 )}
               >
-                <div className="flex items-start gap-4 mb-4">
+                <div className="hz-row hz-ai-start hz-gap-4 hz-mb-4">
                   <SdkIconBadge icon={sdk.icon} />
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-semibold">{sdk.language}</h3>
-                    <p className="text-sm text-muted-foreground font-mono">{sdk.pkg}</p>
+                  <div className="hz-grow">
+                    <h3 className="hz-t-lg hz-w-semibold">{sdk.language}</h3>
+                    <p className="hz-t-sm hz-fg hz-mono">{sdk.pkg}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 mb-4 bg-muted/50 rounded-lg px-4 py-2.5">
-                  <Terminal className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-                  <code className="text-sm font-mono flex-1 truncate">{sdk.install}</code>
+                <div className="hz-btn hz-gap-2 hz-mb-4">
+                  <Terminal className="hz-sq-2 hz-fg hz-none" />
+                  <code className="hz-t-sm hz-mono hz-grow hz-truncate">{sdk.install}</code>
                   <CopyButton text={sdk.install} />
                 </div>
-                <div className="flex flex-wrap gap-3 text-sm">
+                <div className="hz-row hz-wrap hz-gap-3 hz-t-sm">
                   <a
                     href={sdk.registryUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
+                    className="hz-fg hz-transition hz-inline hz-ai-center hz-gap-1 hz-hoverable"
                   >
-                    {sdk.registry} <ExternalLink className="w-3 h-3" />
+                    {sdk.registry} <ExternalLink className="hz-sq-1" />
                   </a>
                   <a
                     href={sdk.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
+                    className="hz-fg hz-transition hz-inline hz-ai-center hz-gap-1 hz-hoverable"
                   >
-                    GitHub <Github className="w-3 h-3" />
+                    GitHub <Github className="hz-sq-1" />
                   </a>
                   <a
                     href={sdk.docs}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
+                    className="hz-fg hz-transition hz-inline hz-ai-center hz-gap-1 hz-hoverable"
                   >
-                    Docs <BookOpen className="w-3 h-3" />
+                    Docs <BookOpen className="hz-sq-1" />
                   </a>
                 </div>
               </motion.div>
             ))}
           </div>
-          <div className="mt-4 text-center">
-            <Link href="/docs/sdk" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">
-              View detailed SDK guides <ArrowRight className="w-3 h-3" />
+          <div className="hz-mt-4 hz-align-center">
+            <Link href="/docs/sdk" className="hz-t-sm hz-fg hz-transition hz-inline hz-ai-center hz-gap-1 hz-hoverable">
+              View detailed SDK guides <ArrowRight className="hz-sq-1" />
             </Link>
           </div>
         </motion.div>
@@ -467,13 +453,13 @@ export default function PageClient() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-20"
+          className="hz-mb-7"
         >
-          <h2 className="text-3xl font-bold mb-2">API Reference</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-2">API Reference</h2>
+          <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
             RESTful APIs with OpenAI-compatible endpoints.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="hz-grid hz-grid-2 hz-gap-4">
             {apis.map((api, i) => {
               const Icon = api.icon;
               return (
@@ -486,23 +472,23 @@ export default function PageClient() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 + i * 0.03 }}
                   className={cn(
-                    "p-6 rounded-lg border transition-colors group",
-                    "border-border hover:border-foreground/20"
+                    "hz-p-5 hz-r-lg hz-bordered hz-transition",
+                    "hz-hoverable"
                   )}
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <Icon className="w-5 h-5 text-muted-foreground" />
-                    <h3 className="text-lg font-semibold group-hover:underline">{api.title}</h3>
+                  <div className="hz-row hz-ai-center hz-gap-3 hz-mb-3">
+                    <Icon className="hz-sq-3 hz-fg" />
+                    <h3 className="hz-t-lg hz-w-semibold">{api.title}</h3>
                   </div>
-                  <p className="text-xs font-mono text-muted-foreground mb-2">{api.domain}</p>
-                  <p className="text-sm text-muted-foreground">{api.description}</p>
+                  <p className="hz-t-xs hz-mono hz-fg hz-mb-2">{api.domain}</p>
+                  <p className="hz-t-sm hz-fg">{api.description}</p>
                 </motion.a>
               );
             })}
           </div>
-          <div className="mt-4 text-center">
-            <Link href="/docs/api" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">
-              View full API reference <ArrowRight className="w-3 h-3" />
+          <div className="hz-mt-4 hz-align-center">
+            <Link href="/docs/api" className="hz-t-sm hz-fg hz-transition hz-inline hz-ai-center hz-gap-1 hz-hoverable">
+              View full API reference <ArrowRight className="hz-sq-1" />
             </Link>
           </div>
         </motion.div>
@@ -512,34 +498,34 @@ export default function PageClient() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="mb-20"
+          className="hz-mb-7"
         >
-          <h2 className="text-3xl font-bold mb-2">Quick Start</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-2">Quick Start</h2>
+          <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
             Make your first API call in any language.
           </p>
-          <div className={cn("rounded-lg border overflow-hidden", "border-border")}>
-            <div className="flex border-b border-border">
+          <div className={cn("hz-r-lg hz-bordered hz-clip", "")}>
+            <div className="hz-row hz-border-b">
               {Object.keys(codeExamples).map((lang) => (
                 <button
                   key={lang}
                   onClick={() => setActiveTab(lang)}
                   className={cn(
-                    "px-4 py-2.5 text-sm font-medium transition-colors",
+                    "hz-px-4 hz-py-2 hz-t-sm hz-w-medium hz-transition",
                     activeTab === lang
-                      ? "bg-foreground/5 text-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.02]"
+                      ? "hz-bg-surface hz-fg"
+                      : "hz-fg hz-hoverable"
                   )}
                 >
                   {lang}
                 </button>
               ))}
             </div>
-            <div className="relative">
-              <pre className="p-6 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50">
+            <div className="hz-rel">
+              <pre className="hz-p-5 hz-scroll-x hz-t-sm hz-mono hz-leading-relaxed hz-bg-surface">
                 <code>{codeExamples[activeTab]}</code>
               </pre>
-              <div className="absolute top-3 right-3">
+              <div className="hz-abs">
                 <CopyButton text={codeExamples[activeTab]} />
               </div>
             </div>
@@ -551,13 +537,13 @@ export default function PageClient() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-20"
+          className="hz-mb-7"
         >
-          <h2 className="text-3xl font-bold mb-2">Projects</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-2">Projects</h2>
+          <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
             Open source infrastructure powering the Hanzo ecosystem.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="hz-grid hz-grid-3 hz-gap-4">
             {projects.map((project, i) => {
               const Icon = project.icon;
               return (
@@ -570,21 +556,21 @@ export default function PageClient() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.2 + i * 0.03 }}
                   className={cn(
-                    "p-5 rounded-lg border transition-colors group",
-                    "border-border hover:border-foreground/20"
+                    "hz-p-4 hz-r-lg hz-bordered hz-transition",
+                    "hz-hoverable"
                   )}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <Icon className="w-4 h-4 text-muted-foreground" />
-                      <h3 className="font-semibold group-hover:underline">{project.name}</h3>
+                  <div className="hz-row hz-ai-center hz-jc-between hz-mb-3">
+                    <div className="hz-row hz-ai-center hz-gap-2">
+                      <Icon className="hz-sq-2 hz-fg" />
+                      <h3 className="hz-w-semibold">{project.name}</h3>
                     </div>
                     <LangBadge lang={project.lang} />
                   </div>
-                  <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Github className="w-3 h-3" />
-                    <span className="font-mono">hanzoai/{project.repo}</span>
+                  <p className="hz-t-sm hz-fg hz-mb-3">{project.description}</p>
+                  <div className="hz-row hz-ai-center hz-gap-1 hz-t-xs hz-fg">
+                    <Github className="hz-sq-1" />
+                    <span className="hz-mono">hanzoai/{project.repo}</span>
                   </div>
                 </motion.a>
               );
@@ -597,13 +583,13 @@ export default function PageClient() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="mb-20"
+          className="hz-mb-7"
         >
-          <h2 className="text-3xl font-bold mb-2">Infrastructure</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-2">Infrastructure</h2>
+          <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
             The platforms and networks that power Hanzo.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="hz-grid hz-grid-3 hz-gap-4">
             {infrastructure.map((item, i) => {
               const Icon = item.icon;
               return (
@@ -616,13 +602,13 @@ export default function PageClient() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.25 + i * 0.03 }}
                   className={cn(
-                    "p-6 rounded-lg border transition-colors group",
-                    "border-border hover:border-foreground/20"
+                    "hz-p-5 hz-r-lg hz-bordered hz-transition",
+                    "hz-hoverable"
                   )}
                 >
-                  <Icon className="w-6 h-6 text-muted-foreground mb-3" />
-                  <h3 className="text-lg font-semibold mb-2 group-hover:underline">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <Icon className="hz-sq-4 hz-fg hz-mb-3" />
+                  <h3 className="hz-t-lg hz-w-semibold hz-mb-2">{item.title}</h3>
+                  <p className="hz-t-sm hz-fg">{item.description}</p>
                 </motion.a>
               );
             })}
@@ -635,23 +621,23 @@ export default function PageClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className={cn(
-            "p-8 md:p-12 rounded-lg border text-center",
-            "border-border bg-foreground/[0.02]"
+            "hz-p-6 hz-r-lg hz-bordered hz-align-center",
+            "hz-bg-surface"
           )}
         >
-          <h2 className="text-3xl font-bold mb-4">Start Building</h2>
-          <p className={cn("text-lg mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-4">Start Building</h2>
+          <p className={cn("hz-container-narrow hz-mw-md hz-t-lg hz-mb-6", "hz-fg")}>
             Create an account, grab your API key, and make your first call in under a minute.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="hz-row hz-wrap hz-jc-center hz-gap-3">
             <a href="https://console.hanzo.ai" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" className="gap-2">
-                Get API Key <ArrowRight className="w-4 h-4" />
+              <Button variant="primary" className="hz-gap-2">
+                Get API Key <ArrowRight className="hz-sq-2" />
               </Button>
             </a>
             <a href="https://docs.hanzo.ai" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="gap-2">
-                Full Documentation <ExternalLink className="w-4 h-4" />
+              <Button variant="outline" className="hz-gap-2">
+                Full Documentation <ExternalLink className="hz-sq-2" />
               </Button>
             </a>
           </div>

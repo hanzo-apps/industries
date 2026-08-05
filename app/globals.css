@@ -1,63 +1,54 @@
-/* TOKENS COME FROM @hanzo/design — the same ladder every Hanzo surface reads.
-   Dark is the default (`:root` IS the dark palette) and `.light` retunes it,
-   which is exactly what next-themes emits here: `attribute="class"` puts
-   `light` or `dark` on <html>, so `.dark` needs no block of its own and
-   `.light` is already written upstream — including `color-scheme`.
+/* hanzo.industries — the whole stylesheet, in import order.
+ *
+ * 1. @hanzo/design/tokens/fonts.css — the two faces, self-hosted. Geist Sans and
+ *    Geist Mono ship inside @hanzo/design as variable woff2 (141 KB, SIL OFL-1.1),
+ *    and the @font-face `url()`s there are relative to `tokens/`, so they resolve
+ *    out of node_modules with no configuration and no request to a host we do not
+ *    control. This is the ONE place the site's typeface is named.
+ *
+ *    @hanzo/ui used to declare the same two faces and pointed them at assets it
+ *    did not ship; 8.0.47 dropped the duplicate, leaving @hanzo/design the sole
+ *    owner. So the host declares them — omit this line and the build is still
+ *    green, css-check is still green, and every surface silently renders in
+ *    `ui-sans-serif, system-ui`. `document.fonts.check('16px Geist')` is what
+ *    actually proves it.
+ *
+ * 2. @hanzo/ui/styles.css — the tokens AND the class vocabulary @hanzo/ui's own
+ *    components render into. Its token block is @hanzo/design's, byte-identical
+ *    (257 of 257 values, plus 15 gui adds), which is why design's `styles.css`
+ *    is NOT imported alongside it: that would deliver every token twice to say
+ *    the same thing. The classes are not optional — a Button emits gui atomic
+ *    classes, and without this sheet they name rules that do not exist.
+ *    Dark is `:root`; `.light` is the counterpart (next-themes writes the class).
+ *
+ * 3. system.css — this site's own semantic vocabulary, in those tokens. Last, so
+ *    the page can state what a component only defaults.
+ *
+ * There is no fourth layer, no utility framework and no per-page stylesheet.
+ */
+@import '@hanzo/design/tokens/fonts.css';
+@import '@hanzo/ui/styles.css';
+@import './system.css';
 
-   The palette that used to live here was a local approximation: a #000000
-   ground rather than #0a0a0a, solid #1a1a1a borders that vanish the moment
-   they land on a lifted surface, and a mid-grey #666666 destructive that is
-   indistinguishable from a disabled control. Only the values moved home; the
-   @theme block below still names every colour this app draws with.
-
-   Colours only. Tailwind v4 owns --text-*, --spacing and --radius-* as theme
-   namespaces, so importing design's typography/spacing/radius here would
-   silently restyle every size utility in the app. Fonts are next/font's. */
-@import '@hanzo/design/tokens/colors.css';
-@import "tailwindcss";
-@plugin "tailwindcss-animate";
-
-@theme {
-  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --radius: 0.5rem;
-
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
+/* The document owns its own surface.
+   @hanzo/gui injects `body{background:var(--background);color:var(--color)}`
+   into <head> AFTER this stylesheet, and redefines --background along the way —
+   so the page rendered at 8% grey on dark and 97% grey on light instead of this
+   brand's pure black and white (LLM.md: monochrome, black/white only). It is
+   stated here once, from @hanzo/design's base ladder — the two tokens gui does
+   not name — and `html body` is just the specificity that says so. */
+html body {
+  background: var(--page);
+  color: var(--foreground);
 }
 
 html {
   scrollbar-gutter: stable;
 }
-
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+/* @hanzo/design is dark at :root, so a document with no theme class is dark. */
+html:not(.light) {
+  color-scheme: dark;
 }
-
-::selection {
-  background-color: var(--selection);
-}
-
-* {
-  border-color: var(--border);
-  --tw-ring-color: var(--ring);
+html.light {
+  color-scheme: light;
 }

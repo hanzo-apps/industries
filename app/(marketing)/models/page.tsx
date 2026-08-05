@@ -80,7 +80,10 @@ export default function Page() {
           memory: m.spec.arch,
           capabilities: getCapabilities(m.modalities, m.category, m.features),
           href: m.huggingface ?? `https://huggingface.co/zenlm/${m.id}`,
-          requestAccess: m.status === 'coming-soon' || m.status === 'contact-sales',
+          // @zenlm/models retired 'coming-soon'/'contact-sales'; the surviving
+          // non-downloadable state is 'cloud-only', which is exactly the one
+          // that has to be requested rather than pulled from Hugging Face.
+          requestAccess: m.status === 'cloud-only',
         }))
       return {
         id: family.id,

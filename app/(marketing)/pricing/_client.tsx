@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-import { Button } from "@hanzo/ui";
+import { Button, cn } from '@hanzo/ui'
 import {
   Check,
   Zap,
@@ -146,19 +145,19 @@ function formatPlanPrice(
 
 function PlanSkeleton() {
   return (
-    <div className="rounded-2xl border border-border p-8 animate-pulse">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-lg bg-foreground/10" />
-        <div className="h-6 w-24 bg-foreground/10 rounded" />
+    <div className="hz-r-xl hz-bordered hz-p-6">
+      <div className="hz-row hz-ai-center hz-gap-3 hz-mb-4">
+        <div className="hz-sq-6 hz-r-lg hz-bg-surface" />
+        <div className="hz-bh-4 hz-bw-8 hz-bg-surface hz-r-md" />
       </div>
-      <div className="h-10 w-20 bg-foreground/10 rounded mb-4" />
-      <div className="h-4 w-48 bg-foreground/10 rounded mb-6" />
-      <div className="h-10 w-full bg-foreground/10 rounded mb-6" />
-      <div className="space-y-3">
+      <div className="hz-bh-6 hz-bw-8 hz-bg-surface hz-r-md hz-mb-4" />
+      <div className="hz-bh-2 hz-bw-8 hz-bg-surface hz-r-md hz-mb-5" />
+      <div className="hz-bh-6 hz-w-full hz-bg-surface hz-r-md hz-mb-5" />
+      <div className="hz-stack-3">
         {Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} className="flex items-center gap-3">
-            <div className="w-5 h-5 rounded bg-foreground/10 flex-shrink-0" />
-            <div className="h-4 w-full bg-foreground/10 rounded" />
+          <div key={i} className="hz-row hz-ai-center hz-gap-3">
+            <div className="hz-sq-3 hz-r-md hz-bg-surface hz-none" />
+            <div className="hz-bh-2 hz-w-full hz-bg-surface hz-r-md" />
           </div>
         ))}
       </div>
@@ -168,22 +167,22 @@ function PlanSkeleton() {
 
 function EnterpriseSkeleton() {
   return (
-    <div className="rounded-2xl border border-border p-8 md:p-12 mb-20 animate-pulse">
-      <div className="grid md:grid-cols-2 gap-12">
+    <div className="hz-r-xl hz-bordered hz-p-6 hz-mb-7">
+      <div className="hz-grid hz-grid-2 hz-gap-7">
         <div>
-          <div className="h-6 w-32 bg-foreground/10 rounded-full mb-4" />
-          <div className="h-8 w-64 bg-foreground/10 rounded mb-4" />
-          <div className="h-16 w-full bg-foreground/10 rounded mb-6" />
-          <div className="flex gap-4">
-            <div className="h-10 w-32 bg-foreground/10 rounded" />
-            <div className="h-10 w-32 bg-foreground/10 rounded" />
+          <div className="hz-bh-4 hz-bw-8 hz-bg-surface hz-r-full hz-mb-4" />
+          <div className="hz-bh-5 hz-bw-8 hz-bg-surface hz-r-md hz-mb-4" />
+          <div className="hz-bh-8 hz-w-full hz-bg-surface hz-r-md hz-mb-5" />
+          <div className="hz-row hz-gap-4">
+            <div className="hz-bh-6 hz-bw-8 hz-bg-surface hz-r-md" />
+            <div className="hz-bh-6 hz-bw-8 hz-bg-surface hz-r-md" />
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="hz-grid hz-grid-2 hz-gap-3">
           {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded bg-foreground/10 flex-shrink-0" />
-              <div className="h-4 w-full bg-foreground/10 rounded" />
+            <div key={i} className="hz-row hz-ai-center hz-gap-2">
+              <div className="hz-sq-3 hz-r-md hz-bg-surface hz-none" />
+              <div className="hz-bh-2 hz-w-full hz-bg-surface hz-r-md" />
             </div>
           ))}
         </div>
@@ -194,15 +193,15 @@ function EnterpriseSkeleton() {
 
 function PolicySkeleton() {
   return (
-    <div className="rounded-2xl border border-border p-8 md:p-12 mb-20 animate-pulse">
-      <div className="h-8 w-48 bg-foreground/10 rounded mb-8" />
-      <div className="grid md:grid-cols-2 gap-8 mb-8">
-        <div className="h-32 bg-foreground/10 rounded-xl" />
-        <div className="h-32 bg-foreground/10 rounded-xl" />
+    <div className="hz-r-xl hz-bordered hz-p-6 hz-mb-7">
+      <div className="hz-bh-5 hz-bw-8 hz-bg-surface hz-r-md hz-mb-6" />
+      <div className="hz-grid hz-grid-2 hz-gap-6 hz-mb-6">
+        <div className="hz-bh-8 hz-bg-surface hz-r-lg" />
+        <div className="hz-bh-8 hz-bg-surface hz-r-lg" />
       </div>
-      <div className="flex flex-wrap gap-3">
+      <div className="hz-row hz-wrap hz-gap-3">
         {Array.from({ length: 4 }).map((_, i) => (
-          <div key={i} className="h-8 w-40 bg-foreground/10 rounded-full" />
+          <div key={i} className="hz-bh-5 hz-bw-8 hz-bg-surface hz-r-full" />
         ))}
       </div>
     </div>
@@ -291,40 +290,40 @@ export default function PageClient() {
   return (
     <div
       className={cn(
-        "min-h-screen transition-colors duration-300",
-        "bg-background text-foreground"
+        "hz-min-h-screen hz-transition",
+        "hz-bg hz-fg"
       )}
     >
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <main className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className="hz-container">
           {/* Hero */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center max-w-3xl mx-auto mb-12"
+            className="hz-container-narrow hz-align-center hz-mb-7"
           >
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+            <h1 className="hz-t-4xl hz-w-bold hz-mb-5">
               Simple, transparent pricing
             </h1>
-            <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+            <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
               Start free, scale as you grow. Pay only for what you use.
             </p>
 
             {/* Billing Toggle */}
             <div
               className={cn(
-                "inline-flex items-center gap-4 p-1 rounded-full",
-                "bg-foreground/5"
+                "hz-inline hz-ai-center hz-gap-4 hz-p-1 hz-r-full",
+                "hz-bg-surface"
               )}
             >
               <button
                 onClick={() => setBillingPeriod("monthly")}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-colors",
+                  "hz-px-4 hz-py-2 hz-r-full hz-t-sm hz-w-medium hz-transition",
                   billingPeriod === "monthly"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "hz-bg-inverse"
+                    : "hz-fg hz-hoverable"
                 )}
               >
                 Monthly
@@ -332,19 +331,19 @@ export default function PageClient() {
               <button
                 onClick={() => setBillingPeriod("annual")}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-colors",
+                  "hz-px-4 hz-py-2 hz-r-full hz-t-sm hz-w-medium hz-transition",
                   billingPeriod === "annual"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "hz-bg-inverse"
+                    : "hz-fg hz-hoverable"
                 )}
               >
                 Annual
                 <span
                   className={cn(
-                    "ml-1.5 text-xs",
+                    "hz-ml-2 hz-t-xs",
                     billingPeriod === "annual"
-                      ? "text-primary-foreground/50"
-                      : "text-muted-foreground"
+                      ? "hz-fg-soft"
+                      : "hz-fg"
                   )}
                 >
                   Save 20%
@@ -355,7 +354,7 @@ export default function PageClient() {
 
           {/* Plans Grid */}
           {plansLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <div className="hz-grid hz-grid-3 hz-gap-6 hz-mb-7">
               <PlanSkeleton />
               <PlanSkeleton />
               <PlanSkeleton />
@@ -363,14 +362,14 @@ export default function PageClient() {
           ) : plansError ? (
             <div
               className={cn(
-                "text-center py-16 mb-20",
-                "text-muted-foreground"
+                "hz-align-center hz-py-7 hz-mb-7",
+                "hz-fg"
               )}
             >
               {plansError}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <div className="hz-grid hz-grid-3 hz-gap-6 hz-mb-7">
               {regularPlans.map((plan, index) => {
                 const Icon = PLAN_ICONS[plan.id] ?? Zap;
                 const highlighted = !!plan.popular;
@@ -391,18 +390,18 @@ export default function PageClient() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className={cn(
-                      "relative rounded-2xl border p-8",
+                      "hz-rel hz-r-xl hz-bordered hz-p-6",
                       highlighted
-                        ? "border-primary bg-foreground/5"
-                        : "border-border bg-background/50"
+                        ? "hz-bg-surface"
+                        : "hz-bg-surface"
                     )}
                   >
                     {highlighted && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <div className="hz-center-x hz-abs">
                         <div
                           className={cn(
-                            "px-3 py-1 rounded-full text-xs font-semibold",
-                            "bg-primary text-primary-foreground"
+                            "hz-px-3 hz-py-1 hz-r-full hz-t-xs hz-w-semibold",
+                            "hz-bg-inverse"
                           )}
                         >
                           Most Popular
@@ -410,29 +409,29 @@ export default function PageClient() {
                       </div>
                     )}
 
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="hz-row hz-ai-center hz-gap-3 hz-mb-4">
                       <div
                         className={cn(
-                          "w-10 h-10 rounded-lg flex items-center justify-center",
-                          highlighted ? "bg-primary" : "bg-foreground/10"
+                          "hz-sq-6 hz-r-lg hz-row hz-ai-center hz-jc-center",
+                          highlighted ? "hz-bg-inverse" : "hz-bg-surface"
                         )}
                       >
                         <Icon
                           className={cn(
-                            "w-5 h-5",
-                            highlighted ? "text-primary-foreground" : ""
+                            "hz-sq-3",
+                            highlighted ? "hz-fg" : ""
                           )}
                         />
                       </div>
-                      <h3 className="text-xl font-semibold">{plan.name}</h3>
+                      <h3 className="hz-t-xl hz-w-semibold">{plan.name}</h3>
                     </div>
 
-                    <div className="mb-4">
-                      <span className="text-4xl font-bold">{amount}</span>
+                    <div className="hz-mb-4">
+                      <span className="hz-t-4xl hz-w-bold">{amount}</span>
                       <span
                         className={cn(
-                          "text-sm ml-1",
-                          "text-muted-foreground"
+                          "hz-t-sm hz-ml-1",
+                          "hz-fg"
                         )}
                       >
                         {suffix}
@@ -441,8 +440,8 @@ export default function PageClient() {
 
                     <p
                       className={cn(
-                        "text-sm mb-6",
-                        "text-muted-foreground"
+                        "hz-t-sm hz-mb-5",
+                        "hz-fg"
                       )}
                     >
                       {plan.description}
@@ -455,24 +454,24 @@ export default function PageClient() {
                     >
                       <Button
                         className={cn(
-                          "w-full mb-6",
+                          "hz-w-full hz-mb-5",
                           highlighted
-                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                            : "bg-foreground/10 text-foreground hover:bg-accent"
+                            ? "hz-bg-inverse hz-hoverable"
+                            : "hz-bg-surface hz-fg hz-hoverable"
                         )}
                       >
                         {ctaText}
                       </Button>
                     </a>
 
-                    <ul className="space-y-3">
+                    <ul className="hz-stack-3">
                       {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3">
-                          <Check className="h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                        <li key={feature} className="hz-row hz-ai-start hz-gap-3">
+                          <Check className="hz-sq-3 hz-fg hz-mt-1 hz-none" />
                           <span
                             className={cn(
-                              "text-sm",
-                              "text-muted-foreground"
+                              "hz-t-sm",
+                              "hz-fg"
                             )}
                           >
                             {feature}
@@ -496,37 +495,37 @@ export default function PageClient() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className={cn(
-                "rounded-2xl border p-8 md:p-12 mb-20",
-                "border-border bg-gradient-to-br from-white/5 to-transparent"
+                "hz-r-xl hz-bordered hz-p-6 hz-mb-7",
+                ""
               )}
             >
-              <div className="grid md:grid-cols-2 gap-12">
+              <div className="hz-grid hz-grid-2 hz-gap-7">
                 <div>
                   <div
                     className={cn(
-                      "inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm mb-4",
-                      "bg-foreground/10"
+                      "hz-inline hz-ai-center hz-gap-2 hz-px-3 hz-py-1 hz-r-full hz-t-sm hz-mb-4",
+                      "hz-bg-surface"
                     )}
                   >
-                    <Building2 className="w-4 h-4" />
+                    <Building2 className="hz-sq-2" />
                     {enterprisePlan.name}
                   </div>
-                  <h2 className="text-3xl font-bold mb-4">
+                  <h2 className="hz-t-3xl hz-w-bold hz-mb-4">
                     Custom solutions for your organization
                   </h2>
-                  <p className={cn("mb-6", "text-muted-foreground")}>
+                  <p className={cn("hz-mb-5", "hz-fg")}>
                     {enterprisePlan.description ||
                       "Get dedicated infrastructure, custom model training, and enterprise-grade security. Our team will work with you to build the perfect AI solution."}
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="hz-col-row hz-gap-4">
                     <Link href="/contact">
                       <Button
                         className={cn(
-                          "bg-primary text-primary-foreground hover:bg-primary/90"
+                          "hz-bg-inverse hz-hoverable"
                         )}
                       >
                         Contact Sales
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                        <ArrowRight className="hz-sq-2 hz-ml-2" />
                       </Button>
                     </Link>
                     <a
@@ -537,7 +536,7 @@ export default function PageClient() {
                       <Button
                         variant="outline"
                         className={cn(
-                          "border-border text-foreground hover:bg-accent"
+                          "hz-fg hz-hoverable"
                         )}
                       >
                         Schedule a Demo
@@ -546,14 +545,14 @@ export default function PageClient() {
                   </div>
                 </div>
                 <div>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <ul className="hz-grid hz-grid-2 hz-gap-3">
                     {enterprisePlan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2">
-                        <Check className="h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                      <li key={feature} className="hz-row hz-ai-start hz-gap-2">
+                        <Check className="hz-sq-3 hz-fg hz-mt-1 hz-none" />
                         <span
                           className={cn(
-                            "text-sm",
-                            "text-muted-foreground"
+                            "hz-t-sm",
+                            "hz-fg"
                           )}
                         >
                           {feature}
@@ -576,61 +575,61 @@ export default function PageClient() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className={cn(
-                "rounded-2xl border p-8 md:p-12 mb-20",
-                "border-border bg-gradient-to-br from-white/5 to-transparent"
+                "hz-r-xl hz-bordered hz-p-6 hz-mb-7",
+                ""
               )}
             >
-              <h2 className="text-3xl font-bold mb-2">Transparent Pricing</h2>
-              <p className={cn("mb-8", "text-muted-foreground")}>
+              <h2 className="hz-t-3xl hz-w-bold hz-mb-2">Transparent Pricing</h2>
+              <p className={cn("hz-mb-6", "hz-fg")}>
                 No hidden fees, no surprises. We share revenue with you.
               </p>
 
               {/* Revenue Sharing Cards */}
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="hz-grid hz-grid-2 hz-gap-6 hz-mb-6">
                 {/* Idle Resale */}
                 <div
                   className={cn(
-                    "rounded-xl border p-6",
-                    "border-border bg-foreground/5"
+                    "hz-r-lg hz-bordered hz-p-5",
+                    "hz-bg-surface"
                   )}
                 >
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="hz-row hz-ai-center hz-gap-3 hz-mb-3">
                     <div
                       className={cn(
-                        "w-10 h-10 rounded-lg flex items-center justify-center",
-                        "bg-primary"
+                        "hz-sq-6 hz-r-lg hz-row hz-ai-center hz-jc-center",
+                        "hz-bg-inverse"
                       )}
                     >
-                      <DollarSign className="w-5 h-5 text-primary-foreground" />
+                      <DollarSign className="hz-sq-3 hz-fg" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">
+                      <h3 className="hz-w-semibold">
                         Earn up to {policy.revenueSharing.idleResale.percent}%
                         on idle compute &amp; LLM resale
                       </h3>
                     </div>
                   </div>
                   <p
-                    className={cn("text-sm mb-3", "text-muted-foreground")}
+                    className={cn("hz-t-sm hz-mb-3", "hz-fg")}
                   >
                     When your logged-in account is idle, we resell your
                     allocated compute and LLM capacity and share up to{" "}
                     {policy.revenueSharing.idleResale.percent}% of revenue
                     with you.
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="hz-row hz-wrap hz-gap-2">
                     <span
                       className={cn(
-                        "text-xs px-2 py-0.5 rounded-full",
-                        "bg-foreground/10 text-muted-foreground"
+                        "hz-t-xs hz-px-2 hz-py-1 hz-r-full",
+                        "hz-bg-surface hz-fg"
                       )}
                     >
                       {policy.revenueSharing.idleResale.eligibility}
                     </span>
                     <span
                       className={cn(
-                        "text-xs px-2 py-0.5 rounded-full",
-                        "bg-foreground/10 text-muted-foreground"
+                        "hz-t-xs hz-px-2 hz-py-1 hz-r-full",
+                        "hz-bg-surface hz-fg"
                       )}
                     >
                       {policy.revenueSharing.idleResale.payoutMethod}
@@ -641,37 +640,37 @@ export default function PageClient() {
                 {/* Open Source Fund */}
                 <div
                   className={cn(
-                    "rounded-xl border p-6",
-                    "border-border bg-foreground/5"
+                    "hz-r-lg hz-bordered hz-p-5",
+                    "hz-bg-surface"
                   )}
                 >
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="hz-row hz-ai-center hz-gap-3 hz-mb-3">
                     <div
                       className={cn(
-                        "w-10 h-10 rounded-lg flex items-center justify-center",
-                        "bg-primary"
+                        "hz-sq-6 hz-r-lg hz-row hz-ai-center hz-jc-center",
+                        "hz-bg-inverse"
                       )}
                     >
-                      <Heart className="w-5 h-5 text-primary-foreground" />
+                      <Heart className="hz-sq-3 hz-fg" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">
+                      <h3 className="hz-w-semibold">
                         {policy.revenueSharing.openSource.percent}% of
                         revenue funds open source
                       </h3>
                     </div>
                   </div>
                   <p
-                    className={cn("text-sm mb-3", "text-muted-foreground")}
+                    className={cn("hz-t-sm hz-mb-3", "hz-fg")}
                   >
                     {policy.revenueSharing.openSource.description ||
                       `Via the ${policy.revenueSharing.openSource.program}, proportional to OSS dependency usage.`}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="hz-row hz-wrap hz-gap-2">
                     <span
                       className={cn(
-                        "text-xs px-2 py-0.5 rounded-full",
-                        "bg-foreground/10 text-muted-foreground"
+                        "hz-t-xs hz-px-2 hz-py-1 hz-r-full",
+                        "hz-bg-surface hz-fg"
                       )}
                     >
                       {policy.revenueSharing.openSource.program}
@@ -682,17 +681,17 @@ export default function PageClient() {
 
               {/* Principles */}
               {policy.principles.length > 0 && (
-                <div className="flex flex-wrap gap-3">
+                <div className="hz-row hz-wrap hz-gap-3">
                   {policy.principles.map((principle) => (
                     <div
                       key={principle}
-                      className="flex items-center gap-2"
+                      className="hz-row hz-ai-center hz-gap-2"
                     >
-                      <Shield className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <Shield className="hz-sq-2 hz-fg hz-none" />
                       <span
                         className={cn(
-                          "text-sm",
-                          "text-muted-foreground"
+                          "hz-t-sm",
+                          "hz-fg"
                         )}
                       >
                         {principle}
@@ -710,15 +709,15 @@ export default function PageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-20"
+            className="hz-mb-7"
           >
-            <h2 className="text-3xl font-bold mb-2">Zen Model Pricing</h2>
-            <p className={cn("mb-8", "text-muted-foreground")}>
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-2">Zen Model Pricing</h2>
+            <p className={cn("hz-mb-6", "hz-fg")}>
               Pay-as-you-go per million tokens. All Zen models via{" "}
-              <code className="text-xs">api.hanzo.ai</code>.
+              <code className="hz-t-xs">api.hanzo.ai</code>.
               {modelPricingData?.updated && (
                 <span
-                  className={cn("ml-2 text-xs", "text-foreground/30")}
+                  className={cn("hz-ml-2 hz-t-xs", "hz-fg-soft")}
                 >
                   Updated{" "}
                   {new Date(
@@ -729,73 +728,73 @@ export default function PageClient() {
             </p>
 
             {modelLoading ? (
-              <div className="flex items-center justify-center py-16">
-                <Loader2 className="w-6 h-6 animate-spin mr-2" />
-                <span className={cn("text-muted-foreground")}>
+              <div className="hz-row hz-ai-center hz-jc-center hz-py-7">
+                <Loader2 className="hz-sq-4 hz-mr-2" />
+                <span className={cn("hz-fg")}>
                   Loading live pricing...
                 </span>
               </div>
             ) : modelError ? (
               <div
                 className={cn(
-                  "text-center py-16",
-                  "text-muted-foreground"
+                  "hz-align-center hz-py-7",
+                  "hz-fg"
                 )}
               >
                 {modelError}
               </div>
             ) : (
-              <div className="overflow-x-auto">
+              <div className="hz-scroll-x">
                 <table
                   className={cn(
-                    "w-full border rounded-lg overflow-hidden",
-                    "border-border"
+                    "hz-w-full hz-bordered hz-r-lg hz-clip",
+                    ""
                   )}
                 >
-                  <thead className={cn("bg-foreground/5")}>
+                  <thead className={cn("hz-bg-surface")}>
                     <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold">
+                      <th className="hz-px-5 hz-py-4 hz-align-left hz-t-sm hz-w-semibold">
                         Model
                       </th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold">
+                      <th className="hz-px-5 hz-py-4 hz-align-left hz-t-sm hz-w-semibold">
                         Tier
                       </th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold">
+                      <th className="hz-px-5 hz-py-4 hz-align-left hz-t-sm hz-w-semibold">
                         Context
                       </th>
-                      <th className="px-6 py-4 text-right text-sm font-semibold">
+                      <th className="hz-px-5 hz-py-4 hz-align-right hz-t-sm hz-w-semibold">
                         Input / 1M tok
                       </th>
-                      <th className="px-6 py-4 text-right text-sm font-semibold">
+                      <th className="hz-px-5 hz-py-4 hz-align-right hz-t-sm hz-w-semibold">
                         Output / 1M tok
                       </th>
                     </tr>
                   </thead>
-                  <tbody className={cn("divide-y", "divide-white/10")}>
+                  <tbody className={cn("", "")}>
                     {hanzoModels.map((m) => (
                       <tr
                         key={m.name}
                         className={cn(
-                          "transition-colors",
-                          "hover:bg-accent"
+                          "hz-transition",
+                          "hz-hoverable"
                         )}
                       >
-                        <td className="px-6 py-4">
-                          <div className="font-medium">{m.name}</div>
+                        <td className="hz-px-5 hz-py-4">
+                          <div className="hz-w-medium">{m.name}</div>
                           <div
                             className={cn(
-                              "text-xs",
-                              "text-muted-foreground"
+                              "hz-t-xs",
+                              "hz-fg"
                             )}
                           >
                             {m.fullName}
                           </div>
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="hz-px-5 hz-py-4">
                           <span
                             className={cn(
-                              "text-xs px-2 py-0.5 rounded-full capitalize",
-                              "bg-foreground/10 text-muted-foreground"
+                              "hz-t-xs hz-px-2 hz-py-1 hz-r-full",
+                              "hz-bg-surface hz-fg"
                             )}
                           >
                             {m.tier}
@@ -803,24 +802,24 @@ export default function PageClient() {
                         </td>
                         <td
                           className={cn(
-                            "px-6 py-4 text-sm",
-                            "text-muted-foreground"
+                            "hz-px-5 hz-py-4 hz-t-sm",
+                            "hz-fg"
                           )}
                         >
                           {extractContext(m.features)}
                         </td>
                         <td
                           className={cn(
-                            "px-6 py-4 text-right font-mono text-sm",
-                            "text-muted-foreground"
+                            "hz-px-5 hz-py-4 hz-align-right hz-mono hz-t-sm",
+                            "hz-fg"
                           )}
                         >
                           {formatPrice(m.pricing.input)}
                         </td>
                         <td
                           className={cn(
-                            "px-6 py-4 text-right font-mono text-sm",
-                            "text-muted-foreground"
+                            "hz-px-5 hz-py-4 hz-align-right hz-mono hz-t-sm",
+                            "hz-fg"
                           )}
                         >
                           {formatPrice(m.pricing.output)}
@@ -840,53 +839,53 @@ export default function PageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="mb-20"
+              className="hz-mb-7"
             >
-              <h2 className="text-3xl font-bold mb-2">
+              <h2 className="hz-t-3xl hz-w-bold hz-mb-2">
                 Third-Party Models
               </h2>
-              <p className={cn("mb-8", "text-muted-foreground")}>
+              <p className={cn("hz-mb-6", "hz-fg")}>
                 100+ additional models via the Hanzo LLM Gateway. Same API,
                 same SDK.
               </p>
 
-              <div className="overflow-x-auto">
+              <div className="hz-scroll-x">
                 <table
                   className={cn(
-                    "w-full border rounded-lg overflow-hidden",
-                    "border-border"
+                    "hz-w-full hz-bordered hz-r-lg hz-clip",
+                    ""
                   )}
                 >
-                  <thead className={cn("bg-foreground/5")}>
+                  <thead className={cn("hz-bg-surface")}>
                     <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold">
+                      <th className="hz-px-5 hz-py-4 hz-align-left hz-t-sm hz-w-semibold">
                         Model
                       </th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold">
+                      <th className="hz-px-5 hz-py-4 hz-align-left hz-t-sm hz-w-semibold">
                         Context
                       </th>
-                      <th className="px-6 py-4 text-right text-sm font-semibold">
+                      <th className="hz-px-5 hz-py-4 hz-align-right hz-t-sm hz-w-semibold">
                         Input / 1M tok
                       </th>
-                      <th className="px-6 py-4 text-right text-sm font-semibold">
+                      <th className="hz-px-5 hz-py-4 hz-align-right hz-t-sm hz-w-semibold">
                         Output / 1M tok
                       </th>
                     </tr>
                   </thead>
-                  <tbody className={cn("divide-y", "divide-white/10")}>
+                  <tbody className={cn("", "")}>
                     {thirdPartyModels.map((m) => (
                       <tr
                         key={m.name}
                         className={cn(
-                          "transition-colors",
-                          "hover:bg-accent"
+                          "hz-transition",
+                          "hz-hoverable"
                         )}
                       >
-                        <td className="px-6 py-4 font-medium">{m.name}</td>
+                        <td className="hz-px-5 hz-py-4 hz-w-medium">{m.name}</td>
                         <td
                           className={cn(
-                            "px-6 py-4 text-sm",
-                            "text-muted-foreground"
+                            "hz-px-5 hz-py-4 hz-t-sm",
+                            "hz-fg"
                           )}
                         >
                           {m.contextWindow
@@ -895,16 +894,16 @@ export default function PageClient() {
                         </td>
                         <td
                           className={cn(
-                            "px-6 py-4 text-right font-mono text-sm",
-                            "text-muted-foreground"
+                            "hz-px-5 hz-py-4 hz-align-right hz-mono hz-t-sm",
+                            "hz-fg"
                           )}
                         >
                           {formatPrice(m.pricing.input)}
                         </td>
                         <td
                           className={cn(
-                            "px-6 py-4 text-right font-mono text-sm",
-                            "text-muted-foreground"
+                            "hz-px-5 hz-py-4 hz-align-right hz-mono hz-t-sm",
+                            "hz-fg"
                           )}
                         >
                           {formatPrice(m.pricing.output)}
@@ -915,7 +914,7 @@ export default function PageClient() {
                 </table>
               </div>
               <p
-                className={cn("text-sm mt-4", "text-muted-foreground")}
+                className={cn("hz-t-sm hz-mt-4", "hz-fg")}
               >
                 * Third-party model pricing includes a 20% gateway markup.
                 Prices synced daily from upstream providers.
@@ -930,15 +929,15 @@ export default function PageClient() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold mb-8">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-6">
               Frequently Asked Questions
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="hz-grid hz-grid-2 hz-gap-6">
               <div>
-                <h3 className="font-semibold mb-2">
+                <h3 className="hz-w-semibold hz-mb-2">
                   What counts as a token?
                 </h3>
-                <p className={cn("text-sm", "text-muted-foreground")}>
+                <p className={cn("hz-t-sm", "hz-fg")}>
                   Tokens are pieces of text that our models process. On
                   average, 1 token is about 4 characters or 0.75 words in
                   English. Both input and output tokens are counted toward
@@ -946,30 +945,30 @@ export default function PageClient() {
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold mb-2">
+                <h3 className="hz-w-semibold hz-mb-2">
                   Can I upgrade or downgrade my plan?
                 </h3>
-                <p className={cn("text-sm", "text-muted-foreground")}>
+                <p className={cn("hz-t-sm", "hz-fg")}>
                   Yes, you can change your plan at any time. Upgrades take
                   effect immediately, and downgrades take effect at the
                   start of your next billing cycle.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold mb-2">
+                <h3 className="hz-w-semibold hz-mb-2">
                   What happens if I exceed my token limit?
                 </h3>
-                <p className={cn("text-sm", "text-muted-foreground")}>
+                <p className={cn("hz-t-sm", "hz-fg")}>
                   You'll be charged at the pay-as-you-go rate for
                   additional tokens. We'll notify you when you're
                   approaching your limit so there are no surprises.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold mb-2">
+                <h3 className="hz-w-semibold hz-mb-2">
                   Is my data used to train models?
                 </h3>
-                <p className={cn("text-sm", "text-muted-foreground")}>
+                <p className={cn("hz-t-sm", "hz-fg")}>
                   By default, your data is not used for training. Team and
                   Enterprise plans have explicit data exclusion guarantees.
                   See our privacy policy for details.
@@ -984,21 +983,21 @@ export default function PageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-20 text-center"
+            className="hz-mt-7 hz-align-center"
           >
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="hz-t-2xl hz-w-semibold hz-mb-4">
               Ready to get started?
             </h2>
             <p
               className={cn(
-                "mb-8 max-w-2xl mx-auto",
-                "text-muted-foreground"
+                "hz-container-narrow hz-mw-md hz-mb-6",
+                "hz-fg"
               )}
             >
               Start building with Hanzo AI today. Every new account gets $5
               free credit.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="hz-col-row hz-gap-4 hz-jc-center">
               <a
                 href="https://console.hanzo.ai"
                 target="_blank"
@@ -1006,7 +1005,7 @@ export default function PageClient() {
               >
                 <Button
                   className={cn(
-                    "bg-primary text-primary-foreground hover:bg-primary/90"
+                    "hz-bg-inverse hz-hoverable"
                   )}
                 >
                   Start Building Free
@@ -1016,7 +1015,7 @@ export default function PageClient() {
                 <Button
                   variant="outline"
                   className={cn(
-                    "border-border text-foreground hover:bg-accent"
+                    "hz-fg hz-hoverable"
                   )}
                 >
                   Talk to Sales

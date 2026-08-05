@@ -1,0 +1,11 @@
+{
+  "allow": ["btn", "btn-*", "SelectTrigger", "\"*"],
+
+  "why": {
+    "btn, btn-*": "@hanzo/ui 8.0.47, dist/backends/gui/button.js:132 — `buttonVariants` is documented there as 'A stable class handle for hosts that hook buttons from CSS. Styling lives in the tokens; this only names the variant and size.' The look is the gui atomic classes on the SAME element (_bg-color2, _minH-32px, _pr-c-space-3 …). This is the same contract as `hanzo-button` / `hanzo-button--*`, which css-check.mjs already allows by default; 8.0.47 renamed the handles to the `btn-` namespace and gui 8.0.2's built-in list has not caught up. Defining a local `.btn` rule would fight the tokens, not complete them.",
+
+    "SelectTrigger": "@hanzo/gui's component-name handle, emitted for @hanzo/ui's Select.Trigger (dist/backends/gui/select.js:23, which sets no className of its own). It lands last in the class list behind the gui atomics that style the control — the same family as `is_ListItem` / `is_View`, which css-check allows by default.",
+
+    "\"*": "NOT class names. /install renders an installer script as literal text inside a <pre>, and that text contains an HTML document of its own — `<body class=\"bg-background …\">` — for the stylesheet at https://hanzo.sh, a different origin. React does not escape `\"` in a text node, so the check's class-attribute scan reads those quoted runs as markup and reports the first token of each with its opening quote still attached. A real class token cannot begin with `\"`: the attribute parser would have consumed it. So this pattern cannot mask a genuine miss, and it is scoped to the one shape that only text produces."
+  }
+}

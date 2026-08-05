@@ -1,9 +1,7 @@
 "use client";
 
 import { Shield, Lock, Key, UserCheck, Server, FileCheck } from "lucide-react";
-import { Button } from "@hanzo/ui";
-import { cn } from "@/lib/utils";
-
+import { Button, cn } from '@hanzo/ui'
 export default function PageClient() {
   const securityFeatures = [
     {
@@ -39,38 +37,38 @@ export default function PageClient() {
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold mb-4">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <main className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className="hz-container">
+          <div className="hz-align-center hz-mb-7">
+            <h1 className="hz-t-4xl hz-w-bold hz-mb-4">
               Security First, Always
             </h1>
-            <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
+            <p className={cn("hz-container-narrow hz-mw-md hz-t-xl", "hz-fg")}>
               We prioritize the security and privacy of your data with enterprise-grade protection at every layer
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="hz-grid hz-grid-3 hz-gap-6">
             {securityFeatures.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={index}
                   className={cn(
-                    "border rounded-lg p-6 transition-colors",
-                    "bg-foreground/5 border-border hover:border-border"
+                    "hz-bordered hz-r-lg hz-p-5 hz-transition",
+                    "hz-bg-surface hz-hoverable"
                   )}
                 >
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className={cn("p-2 rounded-lg", "bg-foreground/10")}>
-                      <Icon className="h-6 w-6" />
+                  <div className="hz-row hz-ai-center hz-inline-4 hz-mb-4">
+                    <div className={cn("hz-p-2 hz-r-lg", "hz-bg-surface")}>
+                      <Icon className="hz-sq-4" />
                     </div>
-                    <h3 className="text-lg font-medium">
+                    <h3 className="hz-t-lg hz-w-medium">
                       {feature.title}
                     </h3>
                   </div>
-                  <p className={cn("text-muted-foreground")}>
+                  <p className={cn("hz-fg")}>
                     {feature.description}
                   </p>
                 </div>
@@ -78,22 +76,22 @@ export default function PageClient() {
             })}
           </div>
 
-          <div className="mt-16 text-center space-y-8">
+          <div className="hz-mt-7 hz-align-center hz-stack-6">
             <div className={cn(
-              "rounded-lg p-8",
-              "bg-gradient-to-r from-white/5 to-white/10"
+              "hz-r-lg hz-p-6",
+              ""
             )}>
-              <h2 className="text-2xl font-bold mb-4">
+              <h2 className="hz-t-2xl hz-w-bold hz-mb-4">
                 SOC 2 Type II Certified
               </h2>
-              <p className={cn("mb-6", "text-muted-foreground")}>
+              <p className={cn("hz-mb-5", "hz-fg")}>
                 Our security practices and controls have been audited and certified by independent third-party auditors
               </p>
               <a href="/contact">
                 <Button
                   variant="outline"
                   className={cn(
-                    "text-foreground border-primary hover:bg-accent"
+                    "hz-fg hz-hoverable"
                   )}
                 >
                   Request Security Documentation
@@ -101,27 +99,27 @@ export default function PageClient() {
               </a>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="hz-grid hz-grid-3 hz-gap-4">
               <div className={cn(
-                "border rounded-lg p-6",
-                "bg-foreground/5 border-border"
+                "hz-bordered hz-r-lg hz-p-5",
+                "hz-bg-surface"
               )}>
-                <div className="text-3xl font-bold mb-2">99.99%</div>
-                <div className={cn("text-muted-foreground")}>Uptime SLA</div>
+                <div className="hz-t-3xl hz-w-bold hz-mb-2">99.99%</div>
+                <div className={cn("hz-fg")}>Uptime SLA</div>
               </div>
               <div className={cn(
-                "border rounded-lg p-6",
-                "bg-foreground/5 border-border"
+                "hz-bordered hz-r-lg hz-p-5",
+                "hz-bg-surface"
               )}>
-                <div className="text-3xl font-bold mb-2">24/7</div>
-                <div className={cn("text-muted-foreground")}>Security Monitoring</div>
+                <div className="hz-t-3xl hz-w-bold hz-mb-2">24/7</div>
+                <div className={cn("hz-fg")}>Security Monitoring</div>
               </div>
               <div className={cn(
-                "border rounded-lg p-6",
-                "bg-foreground/5 border-border"
+                "hz-bordered hz-r-lg hz-p-5",
+                "hz-bg-surface"
               )}>
-                <div className="text-3xl font-bold mb-2">100%</div>
-                <div className={cn("text-muted-foreground")}>Data Encryption</div>
+                <div className="hz-t-3xl hz-w-bold hz-mb-2">100%</div>
+                <div className={cn("hz-fg")}>Data Encryption</div>
               </div>
             </div>
           </div>

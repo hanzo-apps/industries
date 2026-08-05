@@ -7,8 +7,7 @@ import {
 import TeamMemberCard from "@/components/team/TeamMemberCard";
 import CallToAction from "@/components/team/CallToAction";
 import { teamMembers, teamDepartments } from "@/lib/constants/team-members";
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function PageClient() {
   // Human Leadership Team
   const humanLeadership = [
@@ -17,7 +16,6 @@ export default function PageClient() {
       role: "President",
       description: "Guiding company strategy and vision for the future.",
       icon: Lightbulb,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/michael-kelling.png"
     },
     {
@@ -25,7 +23,6 @@ export default function PageClient() {
       role: "Chief Operating Officer",
       description: "Driving operational excellence and strategic execution.",
       icon: Settings,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/antje-worring.png"
     },
     {
@@ -33,7 +30,6 @@ export default function PageClient() {
       role: "Founding CTO",
       description: "Technical founder driving Hanzo's mission to build frontier AI.",
       icon: Code2,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/zach-kelling.png"
     },
     {
@@ -41,7 +37,6 @@ export default function PageClient() {
       role: "Chief Strategy Officer",
       description: "Strategy visionary with decades of experience in immersive computing and AI.",
       icon: Code2,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/dave-lorenzini.jpg"
     },
     {
@@ -49,7 +44,6 @@ export default function PageClient() {
       role: "Chief Revenue Officer",
       description: "Driving revenue growth and commercial strategy.",
       icon: MessagesSquare,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/vincent-butta.jpg"
     },
     {
@@ -57,7 +51,6 @@ export default function PageClient() {
       role: "Chief Visionary Officer",
       description: "Visionary leader bridging finance, technology, and global partnerships.",
       icon: Lightbulb,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/major-williams.png"
     },
     {
@@ -65,7 +58,6 @@ export default function PageClient() {
       role: "Chief Brand Officer",
       description: "Building and elevating the Hanzo brand globally.",
       icon: Paintbrush,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/danielle-savage.png"
     },
     {
@@ -73,7 +65,6 @@ export default function PageClient() {
       role: "Chief of Staff",
       description: "Ensuring organizational effectiveness and leadership alignment.",
       icon: HelpCircle,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/ashley-christie.png"
     },
     {
@@ -81,7 +72,6 @@ export default function PageClient() {
       role: "VP Engineering",
       description: "Full-stack and AI engineer leading platform development.",
       icon: Code2,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/woo-bin.png"
     },
     {
@@ -89,7 +79,6 @@ export default function PageClient() {
       role: "VP Engineering",
       description: "Leading engineering teams and technical development.",
       icon: Code2,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/anastasia-zacharaoff.png"
     },
     {
@@ -97,7 +86,6 @@ export default function PageClient() {
       role: "Lead Mobile Engineer",
       description: "Building cross-platform mobile and web applications.",
       icon: Code2,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/jason-xu.png"
     },
     {
@@ -105,7 +93,6 @@ export default function PageClient() {
       role: "Lead Wallet Engineer",
       description: "Full-stack developer specializing in wallet and payment systems.",
       icon: Shield,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/kaori-fujio.png"
     },
     {
@@ -113,7 +100,6 @@ export default function PageClient() {
       role: "VP Strategy",
       description: "Developing strategic initiatives and business intelligence.",
       icon: ChartBar,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/rob-ruiz.png"
     },
     {
@@ -121,7 +107,6 @@ export default function PageClient() {
       role: "VP Research",
       description: "Leading AI research and development initiatives.",
       icon: Lightbulb,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/marcus-white.png"
     },
     {
@@ -129,7 +114,6 @@ export default function PageClient() {
       role: "VP Engineering",
       description: "Engineering leader building scalable distributed systems.",
       icon: Code2,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/jackson-mori.png"
     },
     {
@@ -137,7 +121,6 @@ export default function PageClient() {
       role: "Executive VP",
       description: "Senior executive driving strategic initiatives and partnerships.",
       icon: Lightbulb,
-      gradient: "from-white/20 to-white/10",
       image: "/leadership/ole-brereton.png"
     },
   ];
@@ -152,7 +135,6 @@ export default function PageClient() {
         role: m.role,
         description: m.description,
         icon: m.mainIcon,
-        gradient: m.gradient,
         emoji: (m as any).emoji,
         botId: id,
         link: `/team/${id}`,
@@ -161,30 +143,30 @@ export default function PageClient() {
 
   return (
     <div className={cn(
-      "min-h-screen transition-colors duration-300",
-      "bg-background text-foreground"
+      "hz-min-h-screen hz-transition",
+      "hz-bg hz-fg"
     )}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+      <main className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className="hz-container-narrow hz-align-center hz-mb-7">
+          <h1 className="hz-t-4xl hz-w-bold hz-mb-5">
             People + AI, Building Together
           </h1>
-          <p className={cn("text-lg", "text-muted-foreground")}>
+          <p className={cn("hz-t-lg", "hz-fg")}>
             World-class leadership paired with an autonomous AI workforce that ships around the clock.
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto">
+        <div className="hz-container">
           {/* Human Leadership Section */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-4 text-center">Leadership</h2>
+          <div className="hz-mb-7">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-4 hz-align-center">Leadership</h2>
             <p className={cn(
-              "text-center mb-10 max-w-2xl mx-auto",
-              "text-muted-foreground"
+              "hz-container-narrow hz-mw-md hz-align-center hz-mb-6",
+              "hz-fg"
             )}>
               Decades of combined expertise in AI, distributed systems, and scaling technology companies.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="hz-grid hz-grid-4 hz-gap-5">
               {humanLeadership.map((member) => (
                 <TeamMemberCard key={member.name} {...member} />
               ))}
@@ -192,27 +174,27 @@ export default function PageClient() {
           </div>
 
           {/* AI Team Section — 4x4 Grid */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-4 text-center">AI Workforce</h2>
+          <div className="hz-mb-7">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-4 hz-align-center">AI Workforce</h2>
             <p className={cn(
-              "text-center mb-12 max-w-2xl mx-auto",
-              "text-muted-foreground"
+              "hz-container-narrow hz-mw-md hz-align-center hz-mb-7",
+              "hz-fg"
             )}>
               16 autonomous agents organized across four departments — Build, Create, Ship, Run.
             </p>
 
             {aiTeamByDept.map((dept) => (
-              <div key={dept.key} className="mb-12 last:mb-0">
-                <div className="flex items-center gap-3 mb-6">
-                  <h3 className="text-2xl font-bold">{dept.label}</h3>
+              <div key={dept.key} className="hz-mb-7">
+                <div className="hz-row hz-ai-center hz-gap-3 hz-mb-5">
+                  <h3 className="hz-t-2xl hz-w-bold">{dept.label}</h3>
                   <span className={cn(
-                    "text-xs font-mono px-2 py-1 rounded",
-                    "bg-foreground/10 text-muted-foreground"
+                    "hz-t-xs hz-mono hz-px-2 hz-py-1 hz-r-md",
+                    "hz-bg-surface hz-fg"
                   )}>
                     {dept.description}
                   </span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="hz-grid hz-grid-4 hz-gap-5">
                   {dept.members.map((member) => (
                     <TeamMemberCard key={member.name} {...member} />
                   ))}

@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@hanzo/ui";
-import { cn } from "@/lib/utils";
+import { Button, cn } from '@hanzo/ui'
 import {
   ArrowLeft,
   ArrowRight,
@@ -188,12 +187,12 @@ function CopyButton({ text }: { text: string }) {
         setTimeout(() => setCopied(false), 2000);
       }}
       className={cn(
-        "p-1.5 rounded transition-colors",
-        "hover:bg-foreground/10 text-muted-foreground hover:text-foreground"
+        "hz-p-2 hz-r-md hz-transition",
+        "hz-fg hz-hoverable"
       )}
       title="Copy"
     >
-      {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+      {copied ? <Check className="hz-sq-2" /> : <Copy className="hz-sq-2" />}
     </button>
   );
 }
@@ -202,8 +201,8 @@ function MethodBadge({ method }: { method: string }) {
   return (
     <span
       className={cn(
-        "text-[11px] font-mono font-bold px-2 py-0.5 rounded",
-        "bg-foreground/10 text-foreground"
+        "hz-t-xs hz-mono hz-w-bold hz-px-2 hz-py-1 hz-r-md",
+        "hz-bg-surface hz-fg"
       )}
     >
       {method}
@@ -213,14 +212,14 @@ function MethodBadge({ method }: { method: string }) {
 
 function CodeBlock({ code, label }: { code: string; label?: string }) {
   return (
-    <div className={cn("rounded-lg border overflow-hidden", "border-border")}>
+    <div className={cn("hz-r-lg hz-bordered hz-clip", "")}>
       {label && (
-        <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-foreground/[0.02]">
-          <span className="text-xs font-mono text-muted-foreground">{label}</span>
+        <div className="hz-row hz-ai-center hz-jc-between hz-px-4 hz-py-2 hz-border-b hz-bg-surface">
+          <span className="hz-t-xs hz-mono hz-fg">{label}</span>
           <CopyButton text={code} />
         </div>
       )}
-      <pre className="p-4 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50">
+      <pre className="hz-p-4 hz-scroll-x hz-t-sm hz-mono hz-leading-relaxed hz-bg-surface">
         <code>{code}</code>
       </pre>
     </div>
@@ -233,23 +232,23 @@ function CodeBlock({ code, label }: { code: string; label?: string }) {
 
 export default function PageClient() {
   return (
-    <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <main className="hz-pt-6 hz-pb-6 hz-px-4">
+      <div className="hz-container-wide">
         {/* Breadcrumb + Hero */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-16"
+          className="hz-mb-7"
         >
           <Link
             href="/docs"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
+            className="hz-inline hz-ai-center hz-gap-2 hz-t-sm hz-fg hz-transition hz-mb-5 hz-hoverable"
           >
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to Docs
+            <ArrowLeft className="hz-sq-2" /> Back to Docs
           </Link>
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6">API Reference</h1>
-          <p className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
+          <h1 className="hz-t-5xl hz-w-bold hz-mb-5">API Reference</h1>
+          <p className={cn("hz-t-xl hz-mw-lg", "hz-fg")}>
             Complete REST API reference for Hanzo Cloud, LLM Gateway, IAM, and
             KMS. All LLM endpoints are OpenAI-compatible — switch your base URL
             and use your existing code.
@@ -262,12 +261,12 @@ export default function PageClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
           className={cn(
-            "p-6 rounded-lg border mb-16",
-            "border-border bg-foreground/[0.02]"
+            "hz-p-5 hz-r-lg hz-bordered hz-mb-7",
+            "hz-bg-surface"
           )}
         >
-          <h3 className="font-semibold mb-2">OpenAI Compatible</h3>
-          <p className="text-sm text-muted-foreground mb-3">
+          <h3 className="hz-w-semibold hz-mb-2">OpenAI Compatible</h3>
+          <p className="hz-t-sm hz-fg hz-mb-3">
             The LLM Gateway implements the OpenAI API specification. If you already use the OpenAI
             SDK, point it at Hanzo with zero code changes:
           </p>
@@ -289,27 +288,27 @@ client = OpenAI(
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-16"
+          className="hz-mb-7"
         >
-          <h2 className="text-3xl font-bold mb-2">Base URLs</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-2">Base URLs</h2>
+          <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
             Each service has a dedicated base URL.
           </p>
-          <div className="space-y-3">
+          <div className="hz-stack-3">
             {baseUrls.map((item) => (
               <div
                 key={item.service}
                 className={cn(
-                  "flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-4 rounded-lg border",
-                  "border-border"
+                  "hz-col-row hz-gap-2 hz-p-4 hz-r-lg hz-bordered",
+                  ""
                 )}
               >
-                <div className="flex items-center gap-3 min-w-[180px]">
-                  <Globe className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-semibold text-sm">{item.service}</span>
+                <div className="hz-row hz-ai-center hz-gap-3">
+                  <Globe className="hz-sq-2 hz-fg hz-none" />
+                  <span className="hz-w-semibold hz-t-sm">{item.service}</span>
                 </div>
-                <code className="text-sm font-mono text-muted-foreground">{item.url}</code>
-                <p className="text-xs text-muted-foreground sm:ml-auto max-w-md text-right hidden lg:block">
+                <code className="hz-t-sm hz-mono hz-fg">{item.url}</code>
+                <p className="hz-desktop-only hz-t-xs hz-fg hz-mw-sm hz-align-right">
                   {item.description}
                 </p>
               </div>
@@ -322,20 +321,20 @@ client = OpenAI(
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="mb-16"
+          className="hz-mb-7"
         >
-          <h2 className="text-3xl font-bold mb-2">Authentication</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-2">Authentication</h2>
+          <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
             Two authentication methods are supported.
           </p>
-          <div className="space-y-6">
+          <div className="hz-stack-5">
             {authMethods.map((auth) => (
               <div key={auth.method}>
-                <div className="flex items-center gap-2 mb-2">
-                  <Lock className="w-4 h-4 text-muted-foreground" />
-                  <h3 className="text-lg font-semibold">{auth.method}</h3>
+                <div className="hz-row hz-ai-center hz-gap-2 hz-mb-2">
+                  <Lock className="hz-sq-2 hz-fg" />
+                  <h3 className="hz-t-lg hz-w-semibold">{auth.method}</h3>
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">{auth.description}</p>
+                <p className="hz-t-sm hz-fg hz-mb-4">{auth.description}</p>
                 <CodeBlock code={auth.example} label={auth.method} />
               </div>
             ))}
@@ -347,34 +346,34 @@ client = OpenAI(
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-16"
+          className="hz-mb-7"
         >
-          <h2 className="text-3xl font-bold mb-2">Core Endpoints</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
-            Primary endpoints on the LLM Gateway (<code className="font-mono text-sm">llm.hanzo.ai</code>).
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-2">Core Endpoints</h2>
+          <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
+            Primary endpoints on the LLM Gateway (<code className="hz-mono hz-t-sm">llm.hanzo.ai</code>).
           </p>
-          <div className="space-y-10">
+          <div className="hz-stack-6">
             {endpoints.map((section) => (
               <div key={section.category}>
-                <h3 className="text-xl font-semibold mb-4">{section.category}</h3>
-                <div className="space-y-6">
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-4">{section.category}</h3>
+                <div className="hz-stack-5">
                   {section.items.map((endpoint) => (
                     <div
                       key={endpoint.path}
                       className={cn(
-                        "rounded-lg border overflow-hidden",
-                        "border-border"
+                        "hz-r-lg hz-bordered hz-clip",
+                        ""
                       )}
                     >
-                      <div className="flex items-center gap-3 px-4 py-3 border-b border-border bg-foreground/[0.02]">
+                      <div className="hz-row hz-ai-center hz-gap-3 hz-px-4 hz-py-3 hz-border-b hz-bg-surface">
                         <MethodBadge method={endpoint.method} />
-                        <code className="text-sm font-mono">{endpoint.path}</code>
+                        <code className="hz-t-sm hz-mono">{endpoint.path}</code>
                       </div>
-                      <div className="p-4">
-                        <p className="text-sm text-muted-foreground mb-4">
+                      <div className="hz-p-4">
+                        <p className="hz-t-sm hz-fg hz-mb-4">
                           {endpoint.description}
                         </p>
-                        <pre className="p-4 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50 rounded-lg">
+                        <pre className="hz-p-4 hz-scroll-x hz-t-sm hz-mono hz-leading-relaxed hz-bg-surface hz-r-lg">
                           <code>{endpoint.example}</code>
                         </pre>
                       </div>
@@ -391,40 +390,40 @@ client = OpenAI(
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="mb-16"
+          className="hz-mb-7"
         >
-          <h2 className="text-3xl font-bold mb-2">Rate Limits</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-2">Rate Limits</h2>
+          <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
             Limits vary by plan. Check response headers for current usage.
           </p>
-          <div className={cn("rounded-lg border overflow-hidden", "border-border")}>
-            <table className="w-full text-sm">
+          <div className={cn("hz-r-lg hz-bordered hz-clip", "")}>
+            <table className="hz-w-full hz-t-sm">
               <thead>
-                <tr className="border-b border-border bg-foreground/[0.02]">
-                  <th className="text-left px-4 py-3 font-semibold">Tier</th>
-                  <th className="text-left px-4 py-3 font-semibold">Requests / min</th>
-                  <th className="text-left px-4 py-3 font-semibold">Tokens / min</th>
-                  <th className="text-left px-4 py-3 font-semibold">Requests / day</th>
+                <tr className="hz-border-b hz-bg-surface">
+                  <th className="hz-align-left hz-px-4 hz-py-3 hz-w-semibold">Tier</th>
+                  <th className="hz-align-left hz-px-4 hz-py-3 hz-w-semibold">Requests / min</th>
+                  <th className="hz-align-left hz-px-4 hz-py-3 hz-w-semibold">Tokens / min</th>
+                  <th className="hz-align-left hz-px-4 hz-py-3 hz-w-semibold">Requests / day</th>
                 </tr>
               </thead>
               <tbody>
                 {rateLimits.map((limit) => (
-                  <tr key={limit.tier} className="border-b border-border last:border-b-0">
-                    <td className="px-4 py-3 font-medium">{limit.tier}</td>
-                    <td className="px-4 py-3 font-mono text-muted-foreground">{limit.rpm}</td>
-                    <td className="px-4 py-3 font-mono text-muted-foreground">{limit.tpm}</td>
-                    <td className="px-4 py-3 font-mono text-muted-foreground">{limit.rpd}</td>
+                  <tr key={limit.tier} className="hz-border-b">
+                    <td className="hz-px-4 hz-py-3 hz-w-medium">{limit.tier}</td>
+                    <td className="hz-px-4 hz-py-3 hz-mono hz-fg">{limit.rpm}</td>
+                    <td className="hz-px-4 hz-py-3 hz-mono hz-fg">{limit.tpm}</td>
+                    <td className="hz-px-4 hz-py-3 hz-mono hz-fg">{limit.rpd}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <div className="mt-4">
-            <p className="text-xs text-muted-foreground">
+          <div className="hz-mt-4">
+            <p className="hz-t-xs hz-fg">
               Rate limit headers:{" "}
-              <code className="font-mono">x-ratelimit-limit-requests</code>,{" "}
-              <code className="font-mono">x-ratelimit-remaining-requests</code>,{" "}
-              <code className="font-mono">x-ratelimit-reset-requests</code>
+              <code className="hz-mono">x-ratelimit-limit-requests</code>,{" "}
+              <code className="hz-mono">x-ratelimit-remaining-requests</code>,{" "}
+              <code className="hz-mono">x-ratelimit-reset-requests</code>
             </p>
           </div>
         </motion.div>
@@ -434,33 +433,33 @@ client = OpenAI(
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-16"
+          className="hz-mb-7"
         >
-          <h2 className="text-3xl font-bold mb-2">Error Codes</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <h2 className="hz-t-3xl hz-w-bold hz-mb-2">Error Codes</h2>
+          <p className={cn("hz-t-lg hz-mb-6", "hz-fg")}>
             Standard HTTP status codes with JSON error bodies.
           </p>
-          <div className={cn("rounded-lg border overflow-hidden", "border-border")}>
-            <table className="w-full text-sm">
+          <div className={cn("hz-r-lg hz-bordered hz-clip", "")}>
+            <table className="hz-w-full hz-t-sm">
               <thead>
-                <tr className="border-b border-border bg-foreground/[0.02]">
-                  <th className="text-left px-4 py-3 font-semibold w-20">Code</th>
-                  <th className="text-left px-4 py-3 font-semibold w-40">Name</th>
-                  <th className="text-left px-4 py-3 font-semibold">Description</th>
+                <tr className="hz-border-b hz-bg-surface">
+                  <th className="hz-align-left hz-px-4 hz-py-3 hz-w-semibold hz-bw-8">Code</th>
+                  <th className="hz-align-left hz-px-4 hz-py-3 hz-w-semibold hz-bw-8">Name</th>
+                  <th className="hz-align-left hz-px-4 hz-py-3 hz-w-semibold">Description</th>
                 </tr>
               </thead>
               <tbody>
                 {errorCodes.map((err) => (
-                  <tr key={err.code} className="border-b border-border last:border-b-0">
-                    <td className="px-4 py-3 font-mono font-medium">{err.code}</td>
-                    <td className="px-4 py-3 font-medium">{err.name}</td>
-                    <td className="px-4 py-3 text-muted-foreground">{err.description}</td>
+                  <tr key={err.code} className="hz-border-b">
+                    <td className="hz-px-4 hz-py-3 hz-mono hz-w-medium">{err.code}</td>
+                    <td className="hz-px-4 hz-py-3 hz-w-medium">{err.name}</td>
+                    <td className="hz-px-4 hz-py-3 hz-fg">{err.description}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <div className="mt-4">
+          <div className="hz-mt-4">
             <CodeBlock
               code={`// Error response format
 {
@@ -481,17 +480,17 @@ client = OpenAI(
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
           className={cn(
-            "p-8 md:p-12 rounded-lg border text-center",
-            "border-border bg-foreground/[0.02]"
+            "hz-p-6 hz-r-lg hz-bordered hz-align-center",
+            "hz-bg-surface"
           )}
         >
-          <h2 className="text-2xl font-bold mb-4">Prefer a client library?</h2>
-          <p className={cn("text-lg mb-6 max-w-2xl mx-auto", "text-muted-foreground")}>
+          <h2 className="hz-t-2xl hz-w-bold hz-mb-4">Prefer a client library?</h2>
+          <p className={cn("hz-container-narrow hz-mw-md hz-t-lg hz-mb-5", "hz-fg")}>
             Our SDKs handle authentication, retries, streaming, and typed responses out of the box.
           </p>
           <Link href="/docs/sdk">
-            <Button variant="outline" className="gap-2">
-              View SDKs <ArrowRight className="w-4 h-4" />
+            <Button variant="outline" className="hz-gap-2">
+              View SDKs <ArrowRight className="hz-sq-2" />
             </Button>
           </Link>
         </motion.div>

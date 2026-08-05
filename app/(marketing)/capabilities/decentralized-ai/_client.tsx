@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Globe, Server, Shield, Cpu, Network, Zap, Lock, Database } from "lucide-react";
-import { cn } from "@/lib/utils";
-
+import { cn } from '@hanzo/ui'
 export default function PageClient() {
   const features = [
     {
@@ -95,20 +94,20 @@ export default function PageClient() {
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+    <div className={cn("hz-min-h-screen hz-transition", "hz-bg hz-fg")}>
+      <main className="hz-pt-6 hz-pb-6 hz-px-4">
+        <div className="hz-container">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="hz-align-center hz-mb-7"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <h1 className="hz-t-5xl hz-w-bold hz-mb-5">
               Decentralized AI Infrastructure
             </h1>
-            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
+            <p className={cn("hz-container-narrow hz-t-xl", "hz-fg")}>
               Build resilient, distributed AI systems that operate without central points of failure
             </p>
           </motion.div>
@@ -118,34 +117,34 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
+            className="hz-grid hz-grid-4 hz-gap-5 hz-mb-7"
           >
             {benefits.map((benefit, index) => (
               <div
                 key={index}
                 className={cn(
-                  "p-6 rounded-lg text-center border",
-                  "bg-foreground/5 border-border"
+                  "hz-p-5 hz-r-lg hz-align-center hz-bordered",
+                  "hz-bg-surface"
                 )}
               >
-                <div className="text-3xl font-bold mb-2">{benefit.metric}</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>{benefit.label}</div>
+                <div className="hz-t-3xl hz-w-bold hz-mb-2">{benefit.metric}</div>
+                <div className={cn("hz-t-sm", "hz-fg")}>{benefit.label}</div>
               </div>
             ))}
           </motion.div>
 
           {/* Core Features */}
-          <div className="mb-20">
+          <div className="hz-mb-7">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-3xl font-bold text-center mb-12"
+              className="hz-t-3xl hz-w-bold hz-align-center hz-mb-7"
             >
               Core Capabilities
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="hz-grid hz-grid-2 hz-gap-6">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
@@ -155,27 +154,27 @@ export default function PageClient() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className={cn(
-                      "border rounded-lg p-8",
-                      "bg-foreground/5 border-border"
+                      "hz-bordered hz-r-lg hz-p-6",
+                      "hz-bg-surface"
                     )}
                   >
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0">
+                    <div className="hz-row hz-ai-start hz-inline-4">
+                      <div className="hz-none">
                         <div className={cn(
-                          "w-12 h-12 rounded-lg flex items-center justify-center",
-                          "bg-primary"
+                          "hz-sq-7 hz-r-lg hz-row hz-ai-center hz-jc-center",
+                          "hz-bg-inverse"
                         )}>
-                          <Icon className={cn("w-6 h-6", "text-primary-foreground")} />
+                          <Icon className={cn("hz-sq-4", "hz-fg")} />
                         </div>
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                        <p className={cn("mb-4", "text-muted-foreground")}>{feature.description}</p>
-                        <ul className="space-y-2">
+                      <div className="hz-grow">
+                        <h3 className="hz-t-xl hz-w-semibold hz-mb-3">{feature.title}</h3>
+                        <p className={cn("hz-mb-4", "hz-fg")}>{feature.description}</p>
+                        <ul className="hz-stack-2">
                           {feature.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
-                              <span className={cn("text-sm", "text-muted-foreground")}>{detail}</span>
+                            <li key={idx} className="hz-row hz-ai-start">
+                              <div className={cn("hz-sq-1 hz-r-full hz-mt-2 hz-mr-3 hz-none", "hz-bg-inverse")} />
+                              <span className={cn("hz-t-sm", "hz-fg")}>{detail}</span>
                             </li>
                           ))}
                         </ul>
@@ -193,30 +192,30 @@ export default function PageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "mb-20 border rounded-lg p-12 text-center",
-              "bg-foreground/5 border-border"
+              "hz-mb-7 hz-bordered hz-r-lg hz-p-6 hz-align-center",
+              "hz-bg-surface"
             )}
           >
-            <Network className={cn("w-24 h-24 mx-auto mb-4", "text-foreground/30")} />
-            <h3 className="text-2xl font-semibold mb-4">Decentralized Architecture</h3>
-            <p className={cn("max-w-2xl mx-auto", "text-muted-foreground")}>
+            <Network className={cn("hz-sq-8 hz-mx-auto hz-mb-4", "hz-fg-soft")} />
+            <h3 className="hz-t-2xl hz-w-semibold hz-mb-4">Decentralized Architecture</h3>
+            <p className={cn("hz-container-narrow hz-mw-md", "hz-fg")}>
               Our decentralized AI infrastructure eliminates single points of failure through
               distributed consensus, redundant nodes, and intelligent failover mechanisms.
             </p>
           </motion.div>
 
           {/* Use Cases */}
-          <div className="mb-20">
+          <div className="hz-mb-7">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-3xl font-bold text-center mb-12"
+              className="hz-t-3xl hz-w-bold hz-align-center hz-mb-7"
             >
               Industry Applications
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="hz-grid hz-grid-4 hz-gap-5">
               {useCases.map((useCase, index) => {
                 const Icon = useCase.icon;
                 return (
@@ -226,13 +225,13 @@ export default function PageClient() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className={cn(
-                      "p-6 rounded-lg border text-center transition-colors",
-                      "bg-foreground/5 border-border hover:border-border"
+                      "hz-p-5 hz-r-lg hz-bordered hz-align-center hz-transition",
+                      "hz-bg-surface hz-hoverable"
                     )}
                   >
-                    <Icon className="w-12 h-12 mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">{useCase.title}</h3>
-                    <p className={cn("text-sm", "text-muted-foreground")}>{useCase.description}</p>
+                    <Icon className="hz-sq-7 hz-mx-auto hz-mb-4" />
+                    <h3 className="hz-t-lg hz-w-semibold hz-mb-2">{useCase.title}</h3>
+                    <p className={cn("hz-t-sm", "hz-fg")}>{useCase.description}</p>
                   </motion.div>
                 );
               })}
@@ -245,33 +244,33 @@ export default function PageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "mb-20 p-12 rounded-lg border",
-              "bg-gradient-to-r from-white/5 to-transparent border-border"
+              "hz-mb-7 hz-p-6 hz-r-lg hz-bordered",
+              ""
             )}
           >
-            <h2 className="text-3xl font-bold mb-8 text-center">Technical Specifications</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-6 hz-align-center">Technical Specifications</h2>
+            <div className="hz-grid hz-grid-3 hz-gap-6">
               <div>
-                <h3 className="text-xl font-semibold mb-4">Consensus Protocol</h3>
-                <ul className="space-y-2">
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-4">Consensus Protocol</h3>
+                <ul className="hz-stack-2">
                   {["Byzantine Fault Tolerant (BFT)", "Practical Byzantine Fault Tolerance", "Raft consensus for coordination", "Custom AI workload consensus"].map((item) => (
-                    <li key={item} className={cn("text-muted-foreground")}>• {item}</li>
+                    <li key={item} className={cn("hz-fg")}>• {item}</li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-4">Network Architecture</h3>
-                <ul className="space-y-2">
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-4">Network Architecture</h3>
+                <ul className="hz-stack-2">
                   {["Peer-to-peer mesh network", "Encrypted communication channels", "Dynamic node discovery", "Load balancing algorithms"].map((item) => (
-                    <li key={item} className={cn("text-muted-foreground")}>• {item}</li>
+                    <li key={item} className={cn("hz-fg")}>• {item}</li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-4">Security Features</h3>
-                <ul className="space-y-2">
+                <h3 className="hz-t-xl hz-w-semibold hz-mb-4">Security Features</h3>
+                <ul className="hz-stack-2">
                   {["End-to-end encryption", "Zero-knowledge proofs", "Secure multi-party computation", "Homomorphic encryption support"].map((item) => (
-                    <li key={item} className={cn("text-muted-foreground")}>• {item}</li>
+                    <li key={item} className={cn("hz-fg")}>• {item}</li>
                   ))}
                 </ul>
               </div>
@@ -283,20 +282,20 @@ export default function PageClient() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center"
+            className="hz-align-center"
           >
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="hz-t-3xl hz-w-bold hz-mb-5">
               Ready to Decentralize Your AI Infrastructure?
             </h2>
-            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
+            <p className={cn("hz-container-narrow hz-mw-md hz-t-xl hz-mb-6", "hz-fg")}>
               Join the future of resilient, distributed AI systems
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="hz-col-row hz-gap-4 hz-jc-center">
               <a
                 href="/#contact"
                 className={cn(
-                  "inline-block px-8 py-4 rounded-lg font-semibold transition-colors",
-                  "bg-primary text-primary-foreground hover:bg-primary/90"
+                  "hz-px-6 hz-py-4 hz-r-lg hz-w-semibold hz-transition",
+                  "hz-bg-inverse hz-hoverable"
                 )}
               >
                 Get Started
@@ -306,8 +305,8 @@ export default function PageClient() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "inline-block border px-8 py-4 rounded-lg font-semibold transition-colors",
-                  "border-primary text-foreground hover:bg-primary hover:text-primary-foreground"
+                  "hz-bordered hz-px-6 hz-py-4 hz-r-lg hz-w-semibold hz-transition",
+                  "hz-fg hz-hoverable"
                 )}
               >
                 View Documentation

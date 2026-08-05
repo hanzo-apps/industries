@@ -1,8 +1,9 @@
 'use client'
 
+/** The marketing chrome. The tooltip root and the toast outlet live in
+ *  app/providers.tsx, so every route — including 404, which is outside this
+ *  group and used to render a toast into nothing — gets them. */
 import dynamic from 'next/dynamic'
-import { Toaster } from '@hanzo/ui/sonner'
-import { TooltipProvider } from '@hanzo/ui/tooltip'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
@@ -14,14 +15,11 @@ export default function MarketingShell({
   children: React.ReactNode
 }) {
   return (
-    <TooltipProvider>
-      <Toaster />
-      <div className="min-h-screen bg-background text-foreground">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <GlobalChatWidget />
-      </div>
-    </TooltipProvider>
+    <div className="hz-page">
+      <Navbar />
+      <main className="hz-main">{children}</main>
+      <Footer />
+      <GlobalChatWidget />
+    </div>
   )
 }
