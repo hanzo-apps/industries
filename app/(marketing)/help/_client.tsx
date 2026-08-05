@@ -345,7 +345,7 @@ export default function PageClient() {
                 <p className={cn("hz-mb-5", "hz-fg")}>
                   Join our Discord community to connect with other developers.
                 </p>
-                <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
+                <a href="https://discord.gg/CJCyAsm9Vr" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className={cn(
                     "hz-w-full",
                     "hz-fg hz-hoverable"

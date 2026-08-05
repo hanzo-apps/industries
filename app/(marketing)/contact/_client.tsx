@@ -44,7 +44,7 @@ const socialLinks = [
       </svg>
     ),
     label: "Join Discord",
-    href: "https://discord.gg/hanzo",
+    href: "https://discord.gg/CJCyAsm9Vr",
     color: "#ffffff",
   },
   {

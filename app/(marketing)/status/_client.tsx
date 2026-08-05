@@ -403,7 +403,7 @@ export default function PageClient() {
                     Follow @hanzoai
                   </Button>
                 </a>
-                <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
+                <a href="https://discord.gg/CJCyAsm9Vr" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className={cn("hz-hoverable")}>
                     Join Discord
                   </Button>

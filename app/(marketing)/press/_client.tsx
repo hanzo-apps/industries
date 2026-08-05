@@ -112,7 +112,7 @@ const socialLinks = [
   { name: "X (Twitter)", handle: "@hanzoai", href: "https://x.com/hanzoai", icon: Globe },
   { name: "LinkedIn", handle: "hanzoai", href: "https://linkedin.com/company/hanzoai", icon: Users },
   { name: "GitHub", handle: "hanzoai", href: "https://github.com/hanzoai", icon: Github },
-  { name: "Discord", handle: "hanzo", href: "https://discord.gg/hanzo", icon: Users },
+  { name: "Discord", handle: "hanzo", href: "https://discord.gg/CJCyAsm9Vr", icon: Users },
 ];
 
 // Brand colors
