@@ -1,0 +1,119 @@
+name: deploy
+# THE pipeline that ships hanzo.industries. It publishes
+# ghcr.io/hanzoai/hanzo-industries, served by ghcr.io/hanzoai/static behind
+# hanzoai/ingress — the same mechanism as hanzo.ai, cloud.hanzo.ai, ui.hanzo.ai
+# and papers.hanzo.ai.
+#
+# It replaces .github/workflows/deploy.yml (actions/deploy-pages), which is
+# DELETED rather than neutralized: this forge collects workflows from the FIRST of
+# WORKFLOW_DIRS that exists, so the moment .hanzo/workflows appeared the whole
+# .github/workflows tree went dark here while GitHub.com kept publishing the old
+# Pages copy.
+#
+# The smoke test below is the one the Pages job carried, kept because it has
+# caught real breakage; it runs against the SAME out/ the image is built from.
+#
+# A BUILD NEVER DEPLOYS ITSELF. This publishes the image and stops. A human sets
+# image.tag on the App in hanzoai/universe.
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  image:
+    # NOT ubuntu-latest. hanzoai/* repos run on the hanzoai pool; a cross-org or
+    # decommissioned label queues silently and cancels at the 24h timeout.
+    runs-on: hanzo-build-linux-amd64
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Enable pnpm
+        run: corepack enable && corepack prepare pnpm@9.15.4 --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      # Same export the image ships. No `cp out/index.html out/404.html` here:
+      # that clobbers the real 404 with the homepage, so a broken link answers 404
+      # while rendering the front page.
+      - name: Smoke test static build
+        run: |
+          set -euo pipefail
+          pnpm dlx serve out -l 3333 &
+          SERVER_PID=$!
+          for i in $(seq 1 30); do
+            if curl -s -o /dev/null http://localhost:3333 2>/dev/null; then
+              echo "Server ready after ${i}s"; break
+            fi
+            sleep 1
+          done
+          BODY=$(curl -s http://localhost:3333)
+          if echo "$BODY" | grep -q "Application error"; then
+            echo "FATAL: Homepage contains 'Application error'"; kill $SERVER_PID 2>/dev/null; exit 1
+          fi
+          FAILED=0
+          for page in index about research contact careers news ai-models; do
+            if [ ! -f "out/${page}.html" ] && [ ! -f "out/${page}/index.html" ]; then
+              echo "FATAL: Missing page: ${page}"; FAILED=1
+            fi
+          done
+          kill $SERVER_PID 2>/dev/null
+          if [ "$FAILED" = "1" ]; then exit 1; fi
+          echo "All smoke tests passed"
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR (GH_PAT — the instance token is not valid at ghcr.io)
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: hanzo-dev
+          password: ${{ secrets.GH_PAT }}
+
+      # Semver from a v* tag, an immutable sha- tag from anything else. Never a
+      # floating :latest/:main — a deployment has to be able to name the build it
+      # runs, and a moving tag makes "which build serves?" unanswerable.
+      - name: Resolve the tag this build publishes
+        id: meta
+        run: |
+          set -euo pipefail
+          case "${GITHUB_REF}" in
+            refs/tags/v*) tag="${GITHUB_REF#refs/tags/}" ;;
+            *)            tag="sha-${GITHUB_SHA}" ;;
+          esac
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
+          echo "publishing ghcr.io/hanzoai/hanzo-industries:${tag}"
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64
+          tags: ghcr.io/hanzoai/hanzo-industries:${{ steps.meta.outputs.tag }}
+          provenance: false
+          push: true
+
+      # build-push-action can exit 0 before the manifest resolves, so a green run
+      # could still leave a CR pinned to a tag that ImagePullBackOffs. Prove it
+      # pulls before the job goes green.
+      - name: Verify the pushed image resolves
+        run: |
+          set -euo pipefail
+          img="ghcr.io/hanzoai/hanzo-industries:${{ steps.meta.outputs.tag }}"
+          docker buildx imagetools inspect "$img" >/dev/null
+          echo "resolves: $img"

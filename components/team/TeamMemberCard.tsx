@@ -15,13 +15,13 @@ interface TeamMemberCardProps {
   link?: string;
   emoji?: string;
   botId?: string;
+  // Real handles only — never derive a social URL from a person's name.
+  linkedin?: string;
+  x?: string;
 }
 
-export default function TeamMemberCard({ name, role, description, icon: Icon, gradient, image, link, emoji, botId }: TeamMemberCardProps) {
+export default function TeamMemberCard({ name, role, description, icon: Icon, gradient, image, link, emoji, botId, linkedin, x }: TeamMemberCardProps) {
   const isHuman = !!image;
-
-  // Generate social links from name for human members
-  const slug = name.toLowerCase().replace(/\s+/g, "-");
 
   return (
     <motion.div
@@ -75,28 +75,32 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
 
       {isHuman ? (
         <div className="flex items-center gap-3 relative z-10">
-          <a
-            href={`https://linkedin.com/in/${slug}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              "p-2 rounded-lg border transition-colors",
-              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
-            )}
-          >
-            <Linkedin className="h-4 w-4" />
-          </a>
-          <a
-            href={`https://x.com/${slug}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              "p-2 rounded-lg border transition-colors",
-              "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
-            )}
-          >
-            <Twitter className="h-4 w-4" />
-          </a>
+          {linkedin && (
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "p-2 rounded-lg border transition-colors",
+                "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
+              )}
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+          )}
+          {x && (
+            <a
+              href={x}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "p-2 rounded-lg border transition-colors",
+                "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
+              )}
+            >
+              <Twitter className="h-4 w-4" />
+            </a>
+          )}
           <a
             href="https://github.com/hanzoai"
             target="_blank"
