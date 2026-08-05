@@ -82,10 +82,15 @@ behind 7.0.2 stable, and has the same JS-API surface.
 
 ## How it ships
 `.hanzo/workflows/deploy.yml` on the git.hanzo.ai forge (`hanzo-build-linux-amd64`):
-build `out/` → `POST /v1/projects/hanzo-industries/deploy` (202) → `aws s3 sync`
-to the bucket+prefix cloud names → `POST …/complete {"status":"live"}`. The bytes
-never pass through the API — BodyLimit is 16 MiB. No GitHub Pages, no Cloudflare
-Pages, and no image: a static export has no compute to run.
+build `out/` → `POST /v1/projects/hanzo-industries/deploy` (202, carrying a
+presigned upload grant) → POST each file under that grant → `POST …/complete`
+with the file manifest as `keys`. The bytes never pass through the API —
+BodyLimit is 16 MiB. No GitHub Pages, no Cloudflare Pages, and no image: a static
+export has no compute to run.
+
+This repo holds NO S3 credential. The grant is confined to this site's prefix and
+expires in 30 minutes; deletion rides the manifest, because a write-only grant
+cannot remove a file. The one secret is `HANZO_DEPLOY_TOKEN`, set ON THE FORGE.
 
 ## Brand policy (load-bearing)
 Monochrome only (black/white, no accent colors). Present Zen models as Hanzo's own family — never name upstream models (GLM, Kimi, Qwen, etc.). Keep factual specs accurate.
