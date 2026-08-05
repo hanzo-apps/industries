@@ -10,14 +10,15 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test",
-    "shots": "node scripts/shots.mjs"
+    "shots": "node scripts/shots.mjs",
+    "postbuild": "gui-css-check out"
   },
   "dependencies": {
     "@hanzo/design": "^0.4.6",
     "@hanzo/event": "^0.3.9",
-    "@hanzo/gui": "^8.0.1",
+    "@hanzo/gui": "^8.0.2",
     "@hanzo/logo": "^1.0.14",
-    "@hanzo/ui": "^8.0.40",
+    "@hanzo/ui": "^8.0.47",
     "@zenlm/models": "^1.0.3",
     "framer-motion": "^12.4.2",
     "lucide-react": "^0.462.0",
