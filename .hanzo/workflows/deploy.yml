@@ -47,7 +47,7 @@ jobs:
       - name: build the static export
         env:
           NEXT_TELEMETRY_DISABLED: '1'
-          NEXT_PUBLIC_EVENT_INGEST_KEY: ${{ secrets.EVENT_INGEST_KEY }}
+          NEXT_PUBLIC_PUBLISHABLE_KEY: ${{ secrets.PUBLISHABLE_KEY }}
         run: |
           set -euo pipefail
           corepack enable && corepack prepare pnpm@9.15.4 --activate
