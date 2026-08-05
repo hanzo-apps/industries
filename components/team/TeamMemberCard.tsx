@@ -14,13 +14,13 @@ interface TeamMemberCardProps {
   link?: string;
   emoji?: string;
   botId?: string;
+  // Real handles only — never derive a social URL from a person's name.
+  linkedin?: string;
+  x?: string;
 }
 
-export default function TeamMemberCard({ name, role, description, icon: Icon, image, link, emoji, botId }: TeamMemberCardProps) {
+export default function TeamMemberCard({ name, role, description, icon: Icon, image, link, emoji, botId, linkedin, x }: TeamMemberCardProps) {
   const isHuman = !!image;
-
-  // Generate social links from name for human members
-  const slug = name.toLowerCase().replace(/\s+/g, "-");
 
   return (
     <motion.div
@@ -74,28 +74,32 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, im
 
       {isHuman ? (
         <div className="hz-row hz-ai-center hz-gap-3 hz-rel hz-z-raised">
-          <a
-            href={`https://linkedin.com/in/${slug}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              "hz-p-2 hz-r-lg hz-bordered hz-transition",
-              "hz-fg hz-hoverable"
-            )}
-          >
-            <Linkedin className="hz-sq-2" />
-          </a>
-          <a
-            href={`https://x.com/${slug}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              "hz-p-2 hz-r-lg hz-bordered hz-transition",
-              "hz-fg hz-hoverable"
-            )}
-          >
-            <Twitter className="hz-sq-2" />
-          </a>
+          {linkedin && (
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "hz-p-2 hz-r-lg hz-bordered hz-transition",
+                "hz-fg hz-hoverable"
+              )}
+            >
+              <Linkedin className="hz-sq-2" />
+            </a>
+          )}
+          {x && (
+            <a
+              href={x}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "hz-p-2 hz-r-lg hz-bordered hz-transition",
+                "hz-fg hz-hoverable"
+              )}
+            >
+              <Twitter className="hz-sq-2" />
+            </a>
+          )}
           <a
             href="https://github.com/hanzoai"
             target="_blank"
