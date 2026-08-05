@@ -81,19 +81,40 @@ for (const theme of ['light', 'dark']) {
       const m = await page.evaluate(() => {
         const de = document.documentElement
         const cs = getComputedStyle(document.body)
+        /* The tap target, not the painted box. @hanzo/ui expands a control's hit
+           area with an `::after` overlay driven from `data-touch-y`, so a 32px
+           `size="sm"` button is a legal 44px target and counting its box would
+           report a problem that is not there. */
         const small = [...document.querySelectorAll('a,button,summary,[role=button]')]
           .filter((el) => el.getClientRects().length)
           .filter((el) => {
             const r = el.getBoundingClientRect()
-            return r.height > 0 && r.height < 44
+            const pad = parseFloat(el.dataset.touchY || '0')
+            return r.height > 0 && r.height + 2 * pad < 44
+          })
+        /* A button whose box is shorter than the frame @hanzo/ui asks for is a
+           button clipping its own label — the failure a pinned `height` used to
+           cause, and the reason 8.0.46 moved to `height:auto` + `minHeight`. */
+        const short = [...document.querySelectorAll('[data-slot="button"]')]
+          .filter((el) => el.getClientRects().length)
+          .filter((el) => {
+            const min = parseFloat(getComputedStyle(el).minHeight) || 0
+            return el.getBoundingClientRect().height + 0.5 < min
           })
         return {
           overflow: de.scrollWidth - de.clientWidth,
           bg: cs.backgroundColor,
           font: cs.fontFamily.split(',')[0],
+          /* THE face, not the name of one. The stack falls back to
+             `ui-sans-serif, system-ui` silently — same computed value shape,
+             same green build — if the host stops declaring @font-face, so ask
+             the font loader whether it actually has the file. */
+          geist: document.fonts.check('16px Geist'),
+          geistMono: document.fonts.check('16px "Geist Mono"'),
           text: (document.body.innerText || '').trim().length,
           h1: document.querySelector('h1')?.innerText?.slice(0, 48) ?? null,
           smallTaps: small.length,
+          shortButtons: short.length,
           /* every one-ink mark must resolve to a filter, in every theme */
           inkless: [...document.querySelectorAll('img[alt$="logo"]')].filter(
             (e) => !e.className.includes('hz-ink-')
@@ -112,6 +133,9 @@ for (const theme of ['light', 'dark']) {
       if (!missing && status !== 200) problems.push(`status ${status}`)
       if (m.bg !== SURFACE[theme]) problems.push(`${theme} surface is ${m.bg}`)
       if (m.inkless) problems.push(`${m.inkless} logo(s) with no hz-ink-*`)
+      if (!m.geist) problems.push('Geist did not load — the page is on the fallback face')
+      if (!m.geistMono) problems.push('Geist Mono did not load')
+      if (m.shortButtons) problems.push(`${m.shortButtons} button(s) shorter than their own minHeight`)
       // Console noise is only the page's own once the offsite hosts are excluded
       // — and a `missing` route is SUPPOSED to have served a 404, so the console
       // line the browser logs about it is the expectation being met, not a fault.
@@ -124,7 +148,7 @@ for (const theme of ['light', 'dark']) {
       console.log(
         `${problems.length ? 'BAD ' : 'ok  '} ${theme.padEnd(5)} ${String(width).padEnd(5)} ${path.padEnd(
           22
-        )} ovf=${m.overflow} text=${m.text} taps<44=${m.smallTaps} bg=${m.bg} font=${m.font}` +
+        )} ovf=${m.overflow} text=${m.text} taps<44=${m.smallTaps} bg=${m.bg} font=${m.font} geist=${m.geist}/${m.geistMono}` +
           (offsite.length ? ` offsite=${offsite.length}` : '') +
           (problems.length ? `\n      ${problems.join('\n      ')}` : '')
       )
