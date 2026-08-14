@@ -93,7 +93,7 @@ export default function Contact() {
                   Antje Karina Worring
                 </h4>
                 <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>
-                  Chief Operating Officer
+                  Chief Executive Officer
                 </p>
                 <a
                   href="mailto:a@hanzo.industries"

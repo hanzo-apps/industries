@@ -12,18 +12,18 @@ export default function PageClient() {
   // Human Leadership Team
   const humanLeadership = [
     {
+      name: "Antje Worring",
+      role: "Chief Executive Officer",
+      description: "Setting company direction and driving execution across every division.",
+      icon: Settings,
+      image: "/leadership/antje-worring.png"
+    },
+    {
       name: "Michael Kelling",
       role: "President",
       description: "Guiding company strategy and vision for the future.",
       icon: Lightbulb,
       image: "/leadership/michael-kelling.png"
-    },
-    {
-      name: "Antje Worring",
-      role: "Chief Operating Officer",
-      description: "Driving operational excellence and strategic execution.",
-      icon: Settings,
-      image: "/leadership/antje-worring.png"
     },
     {
       name: "Zach Kelling",

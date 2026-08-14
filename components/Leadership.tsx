@@ -6,6 +6,12 @@ import site from "@/site.config";
 export default function Leadership() {
   const leaders = [
     {
+      name: "Antje Worring",
+      title: "Chief Executive Officer",
+      bio: "Sets company direction and leads Hanzo's execution across every division. Drives strategic initiatives, partnerships, and organizational effectiveness.",
+      image: "/leadership/antje-worring.png"
+    },
+    {
       name: "Zach Kelling",
       title: "Founding CTO",
       bio: "Technical founder driving Hanzo's mission to build frontier AI. Leads architecture, product vision, and technical strategy across the full stack.",
@@ -22,12 +28,6 @@ export default function Leadership() {
       title: "President",
       bio: "Strategic operations leader overseeing commercial expansion and enterprise partnerships. Expert in scaling AI solutions for global impact.",
       image: "/leadership/michael-kelling.png"
-    },
-    {
-      name: "Antje Worring",
-      title: "Chief Operating Officer",
-      bio: "Operational excellence leader ensuring seamless execution across all divisions. Drives strategic initiatives and organizational effectiveness.",
-      image: "/leadership/antje-worring.png"
     },
     {
       name: "Vincent Butta",
