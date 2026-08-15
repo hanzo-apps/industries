@@ -122,6 +122,24 @@ export default function PageClient() {
                 <div className={cn("hz-fg")}>Data Encryption</div>
               </div>
             </div>
+
+            <div className={cn(
+              "hz-bordered hz-r-lg hz-p-6 hz-align-left",
+              "hz-bg-surface"
+            )}>
+              <h2 className="hz-t-2xl hz-w-bold hz-mb-4">
+                Found a problem
+              </h2>
+              <p className={cn("hz-mb-4", "hz-fg")}>
+                Email <a href="mailto:security@hanzo.ai" className="hz-underline">security@hanzo.ai</a> rather
+                than opening a public issue, and include a reproduction if you have one. A real report from a
+                stranger is worth more than an internal review. You will get a reply.
+              </p>
+              <p className={cn("hz-fg")}>
+                Two things to leave alone while you look: anything that degrades the service for other people,
+                and any data that is not yours. Neither one is needed to show us a bug.
+              </p>
+            </div>
           </div>
         </div>
       </main>
