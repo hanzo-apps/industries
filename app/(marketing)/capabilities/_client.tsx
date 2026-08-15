@@ -101,10 +101,10 @@ export default function PageClient() {
       description: "Mission-critical cloud solutions for sensitive workloads",
       link: "/cloud",
       features: [
-        "FedRAMP compliance",
+        "Certification scoped per engagement",
         "Multi-region deployment",
         "Data sovereignty",
-        "99.99% uptime SLA"
+        "Automated failover"
       ]
     },
     {

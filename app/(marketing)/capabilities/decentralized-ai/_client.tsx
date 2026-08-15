@@ -76,8 +76,8 @@ export default function PageClient() {
 
   const benefits = [
     {
-      metric: "99.999%",
-      label: "Uptime with no single point of failure"
+      metric: "Zero",
+      label: "Single points of failure"
     },
     {
       metric: "10x",

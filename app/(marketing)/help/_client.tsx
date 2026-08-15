@@ -56,15 +56,15 @@ const faqs = [
     questions: [
       {
         q: "Is my data secure?",
-        a: "Security is our top priority. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We maintain SOC 2 Type II certification and undergo regular third-party security audits.",
+        a: "All data is encrypted in transit (TLS 1.3) and at rest (AES-256), access is role-based, and every service writes an audit log. We run to the SOC 2 Type II control set.",
       },
       {
         q: "Do you train on my data?",
         a: "No. We never use your API data to train our models. Your data is processed only to fulfill your requests and is automatically deleted after processing unless you explicitly enable data retention.",
       },
       {
-        q: "What compliance certifications do you have?",
-        a: "We maintain SOC 2 Type II, ISO 27001, HIPAA (with BAA), and GDPR compliance. Additional certifications including FedRAMP are in progress for government customers.",
+        q: "What about compliance certifications?",
+        a: "We operate to the SOC 2 Type II control set and comply with GDPR. Formal certification — SOC 2 Type II, ISO 27001, HIPAA with a BAA, FedRAMP — is scoped per enterprise engagement. Tell us what your procurement needs and we will scope it into the deal.",
       },
     ],
   },

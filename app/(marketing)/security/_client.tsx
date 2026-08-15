@@ -32,7 +32,7 @@ export default function PageClient() {
     {
       icon: FileCheck,
       title: "Compliance",
-      description: "SOC 2 Type II certified, GDPR compliant, and ISO 27001 certified"
+      description: "Controls aligned to the SOC 2 Type II control set, GDPR compliant, and certification scoped per enterprise engagement"
     }
   ];
 
@@ -82,10 +82,13 @@ export default function PageClient() {
               ""
             )}>
               <h2 className="hz-t-2xl hz-w-bold hz-mb-4">
-                SOC 2 Type II Certified
+                Built to the SOC 2 Type II Control Set
               </h2>
               <p className={cn("hz-mb-5", "hz-fg")}>
-                Our security practices and controls have been audited and certified by independent third-party auditors
+                Controls aligned to the SOC 2 Type II control set — encryption in transit and at rest,
+                role-based access control, and audit logging. Formal certification — SOC 2 Type II,
+                ISO 27001, HIPAA with a BAA — is scoped per enterprise engagement. Tell us what your
+                procurement needs.
               </p>
               <a href="/contact">
                 <Button
@@ -94,7 +97,7 @@ export default function PageClient() {
                     "hz-fg hz-hoverable"
                   )}
                 >
-                  Request Security Documentation
+                  Talk to Us About Compliance
                 </Button>
               </a>
             </div>
@@ -104,8 +107,8 @@ export default function PageClient() {
                 "hz-bordered hz-r-lg hz-p-5",
                 "hz-bg-surface"
               )}>
-                <div className="hz-t-3xl hz-w-bold hz-mb-2">99.99%</div>
-                <div className={cn("hz-fg")}>Uptime SLA</div>
+                <div className="hz-t-3xl hz-w-bold hz-mb-2">Multi-region</div>
+                <div className={cn("hz-fg")}>Redundancy &amp; Failover</div>
               </div>
               <div className={cn(
                 "hz-bordered hz-r-lg hz-p-5",

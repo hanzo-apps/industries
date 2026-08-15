@@ -4,7 +4,7 @@ import PageClient from './_client'
 export const metadata: Metadata = {
   title: 'Security',
   description:
-    'Enterprise-grade security at Hanzo Industries. SOC 2 Type II certified, GDPR compliant, ISO 27001 certified. 99.99% uptime SLA.',
+    'Enterprise-grade security at Hanzo Industries. Controls aligned to the SOC 2 Type II control set, GDPR compliant, multi-region redundancy. Formal certification scoped per enterprise engagement.',
 }
 
 export default function Page() {
