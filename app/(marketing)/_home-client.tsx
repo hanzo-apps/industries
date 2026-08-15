@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import ServicesOverview from "@/components/ServicesOverview";
 import ResearchHighlights from "@/components/ResearchHighlights";
-import Leadership from "@/components/Leadership";
 import TrustedBySection from "@/components/TrustedBySection";
 import Contact from "@/components/Contact";
 import PhilosophyBridge from "@/components/PhilosophyBridge";
@@ -38,7 +37,6 @@ export default function PageClient() {
         <Hero />
         <ServicesOverview />
         <ResearchHighlights />
-        <Leadership />
         <TrustedBySection />
         <PhilosophyBridge />
         <Contact />

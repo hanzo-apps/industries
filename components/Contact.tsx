@@ -86,46 +86,18 @@ export default function Contact() {
 
             <div className="hz-stack-5">
               <div className="">
-                <h4 className={cn(
-                  "hz-w-semibold hz-mb-1 hz-transition",
-                  "hz-fg hz-hoverable"
-                )}>
-                  Antje Karina Worring
-                </h4>
                 <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>
-                  Chief Executive Officer
+                  Partnerships, commercial terms and enterprise enquiries.
                 </p>
                 <a
-                  href="mailto:a@hanzo.industries"
+                  href="mailto:hello@hanzo.industries"
                   className={cn(
                     "hz-inline hz-ai-center hz-gap-2 hz-transition",
                     "hz-fg hz-hoverable"
                   )}
                 >
                   <Mail className="hz-sq-2" />
-                  <span className="hz-t-sm">a@hanzo.industries</span>
-                </a>
-              </div>
-
-              <div className="">
-                <h4 className={cn(
-                  "hz-w-semibold hz-mb-1 hz-transition",
-                  "hz-fg hz-hoverable"
-                )}>
-                  Research Partnerships
-                </h4>
-                <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>
-                  Academic & Industry Collaboration
-                </p>
-                <a
-                  href="mailto:research@hanzo.industries"
-                  className={cn(
-                    "hz-inline hz-ai-center hz-gap-2 hz-transition",
-                    "hz-fg hz-hoverable"
-                  )}
-                >
-                  <Mail className="hz-sq-2" />
-                  <span className="hz-t-sm">research@hanzo.industries</span>
+                  <span className="hz-t-sm">hello@hanzo.industries</span>
                 </a>
               </div>
             </div>
@@ -158,46 +130,18 @@ export default function Contact() {
 
             <div className="hz-stack-5">
               <div className="">
-                <h4 className={cn(
-                  "hz-w-semibold hz-mb-1 hz-transition",
-                  "hz-fg hz-hoverable"
-                )}>
-                  Zach Kelling
-                </h4>
                 <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>
-                  Founding CTO
+                  Partnerships, commercial terms and enterprise enquiries.
                 </p>
                 <a
-                  href="mailto:zach@hanzo.industries"
+                  href="mailto:hello@hanzo.industries"
                   className={cn(
                     "hz-inline hz-ai-center hz-gap-2 hz-transition",
                     "hz-fg hz-hoverable"
                   )}
                 >
                   <Mail className="hz-sq-2" />
-                  <span className="hz-t-sm">zach@hanzo.industries</span>
-                </a>
-              </div>
-
-              <div className="">
-                <h4 className={cn(
-                  "hz-w-semibold hz-mb-1 hz-transition",
-                  "hz-fg hz-hoverable"
-                )}>
-                  Dave Lorenzini
-                </h4>
-                <p className={cn("hz-t-sm hz-mb-2", "hz-fg")}>
-                  Chief Strategy Officer
-                </p>
-                <a
-                  href="mailto:dave@hanzo.industries"
-                  className={cn(
-                    "hz-inline hz-ai-center hz-gap-2 hz-transition",
-                    "hz-fg hz-hoverable"
-                  )}
-                >
-                  <Mail className="hz-sq-2" />
-                  <span className="hz-t-sm">dave@hanzo.industries</span>
+                  <span className="hz-t-sm">hello@hanzo.industries</span>
                 </a>
               </div>
             </div>
