@@ -115,6 +115,21 @@ the default is light is a real open question — decide it in `providers.tsx`,
 which is the one place that sets it, and correct this paragraph in the same
 commit rather than letting the two drift again.
 
+**That open question has a measurable cost, and the focus ring is where it
+shows.** `@hanzo/ui/styles.css` ships the one indicator,
+`:focus-visible{outline:2px solid var(--ring);outline-offset:2px}`, and this app
+adds none of its own — `.hz-input:focus-visible` restated it at a 1px offset for
+a class with no call site and is deleted. Tabbing a local build of `/`: **73 of
+81 stops ring at 2px, 8 do not clear 3:1.** The page resolves `html.t_light`, so
+`--ring` is `rgb(0 0 0/.5)` — correct on the white ground, invisible on the
+sections that paint themselves dark, where it measures 1.03:1 on "Learn more".
+The five at 1.52:1 are the mirror case, a light `rgba(179,179,179,.6)` ring
+inside a `t_dark` subtree. One ring, one token, two grounds: the fix is at the
+surfaces that invert, never a second focus rule here.
+
+(An earlier count of 11 was taken 35ms after the Tab and caught three rings
+mid-interpolation — `outline-color` animates. Let it settle before reading it.)
+
 A token can be translucent. On dark, `--surface-card` is `rgba(38,38,38,.5)`:
 right for a card sitting ON the page, wrong for anything floating OVER it, which
 will show the page straight through itself. Overlays take `hz-bg`.
