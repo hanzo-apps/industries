@@ -6,19 +6,20 @@ name: deploy
 # image, a push, a tag pinned in a CR and running pods, all to hand back bytes.
 #
 #   build -> out
-#     -> sitedeploy
+#     -> site
 #
-# The publish mechanics are NOT here. They are bin/sitedeploy in hanzoai/ci,
-# reached through its action, and every static surface in the fleet calls that one
+# The publish mechanics are NOT here. They are bin/site in hanzoai/ci, reached
+# through its action, and every static surface in the fleet calls that one
 # script — ensure-project, enqueue, presigned per-file upload, complete. A
 # contract transcribed per repo is a contract that drifts, and this file used to
 # carry its own copy of every call. It also SELF-PROVISIONS: the project is
 # created idempotently before the enqueue, so committing this file is enough to
 # stand the site up.
 #
-# The one secret is HANZO_DEPLOY_TOKEN, which identifies us rather than granting
-# storage. It is set ON THE FORGE: this file lives under .hanzo/workflows/, which
-# only git.hanzo.ai reads, so GitHub's secret store is not in this path at all.
+# The secrets are the KMS machine identity, and the action reads the deploy key
+# from KMS with them. They are set ON THE FORGE: this file lives under
+# .hanzo/workflows/, which only git.hanzo.ai reads, so GitHub's secret store is
+# not in this path at all.
 
 on:
   push:
@@ -79,14 +80,17 @@ jobs:
           [ "$FAILED" = "0" ]
           echo "all smoke tests passed"
 
-      # ONE credential. The 202 carries a prefix-scoped, 30-minute presigned POST
-      # grant, so nothing here holds a bucket key. Do NOT add SITES_S3_* — that is
-      # the standing shared-bucket credential the grant replaced, and it could
-      # overwrite every other org's site.
+      # ONE credential, and the action reads it from KMS: the machine identity is
+      # what travels, and the deploy key is resealed in one place rather than
+      # copied into every org's secret store. The 202 carries a prefix-scoped,
+      # 30-minute presigned POST grant, so nothing here holds a bucket key. Do NOT
+      # add SITES_S3_* — that is the standing shared-bucket credential the grant
+      # replaced, and it could overwrite every other org's site.
       - name: Publish to the Sites plane
-        uses: hanzoai/ci/.github/actions/sitedeploy@v1
+        uses: hanzoai/ci/.github/actions/site@v1
         with:
           slug: hanzo-industries
           dir: out
         env:
-          HANZO_DEPLOY_TOKEN: ${{ secrets.HANZO_DEPLOY_TOKEN }}
+          KMS_CLIENT_ID: ${{ secrets.KMS_CLIENT_ID }}
+          KMS_CLIENT_SECRET: ${{ secrets.KMS_CLIENT_SECRET }}

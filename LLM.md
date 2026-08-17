@@ -90,7 +90,10 @@ export has no compute to run.
 
 This repo holds NO S3 credential. The grant is confined to this site's prefix and
 expires in 30 minutes; deletion rides the manifest, because a write-only grant
-cannot remove a file. The one secret is `HANZO_DEPLOY_TOKEN`, set ON THE FORGE.
+cannot remove a file. The secrets are `KMS_CLIENT_ID` / `KMS_CLIENT_SECRET`, set
+ON THE FORGE; `hanzoai/ci`'s `site` action reads the deploy key out of KMS with
+them, so the key is resealed in one place instead of copied into each org's
+secret store — which is what the action it replaced, `sitedeploy`, could not do.
 
 ## Brand policy (load-bearing)
 Monochrome only (black/white, no accent colors). Present Zen models as Hanzo's own family — never name upstream models (GLM, Kimi, Qwen, etc.). Keep factual specs accurate.
