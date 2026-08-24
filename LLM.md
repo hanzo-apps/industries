@@ -17,10 +17,10 @@ Defense and enterprise marketing site for Hanzo AI ([hanzo.industries](https://h
 ## Styling — no utility framework
 Three layers, in `app/globals.css` import order, and there is no fourth:
 
-1. **`@hanzo/design/tokens/fonts.css`** — the two faces. Geist Sans and Geist Mono
-   ship inside `@hanzo/design` as variable woff2 (141 KB, SIL OFL-1.1) and the
-   `@font-face` `url()`s resolve relative to `tokens/`, so they come out of
-   node_modules with no config and no request to a host we do not control.
+1. **`@hanzo/design/tokens/fonts.css`** — the two faces. Zen and Zen Mono ship
+   inside `@hanzo/design` as variable woff2 (SIL OFL-1.1) and the `@font-face`
+   `url()`s resolve relative to `tokens/`, so they come out of node_modules with
+   no config and no request to a host we do not control.
 2. **`@hanzo/ui/styles.css`** — the tokens AND the classes `@hanzo/ui`'s own
    components render into. Its token block is `@hanzo/design`'s, byte-identical
    (257 of 257 values, plus 15 gui adds), which is why design's `styles.css` is
@@ -51,8 +51,23 @@ Three silent traps, all of which have already been paid for once:
   every colour it touched dies quietly. Consume as `var(--border)`. Full stop.
 - **Delete the fonts import and everything still passes.** Build green, css-check
   green, and every surface renders in `ui-sans-serif, system-ui`. `@hanzo/ui`
-  only NAMES the faces (8.0.47 dropped its duplicate `@font-face`); the host
-  declares them. `document.fonts.check('16px Geist')` is the only real proof.
+  only NAMES the faces; the host declares them. The computed family cannot tell
+  those two apart — only the font loader can, so `document.fonts.check('16px
+  Zen')` is the proof, and `scripts/shots.mjs` asks it on every route. Its mono
+  half is asked only where something on the page actually renders `Zen Mono`: a
+  face loads when a glyph wants it, so `check` is false on a page that uses none.
+  Mutation-checked by aborting `**/*.woff2` — both assertions go false.
+- **`@hanzo/ui`'s `@hanzogui/*` peers are a COHORT, not a pair.** `@hanzo/ui`
+  depends on none of them; it declares them as peers, so THIS app installs them,
+  and pnpm resolving one of them a generation behind is enough to break every
+  component. It did: with only `@hanzo/gui` declared, `@hanzogui/lucide-icons-2`
+  resolved to 8.0.1, dragged a second `@hanzogui/core`, and every `@hanzo/ui`
+  component carrying an icon read a theme context no provider fills — the build
+  died on `Missing theme.` at prerender. The cure is to declare them, which is
+  what `hanzo.ai` and the console already do: `@hanzogui/config`,
+  `@hanzogui/lucide-icons-2`, `@hanzogui/next-theme` and `@hanzogui/web`
+  alongside `@hanzo/gui`, all on one minor. `pnpm why @hanzogui/core` must report
+  ONE version.
 - **A class with no rule is invisible to the compiler.** `pnpm build` runs
   `gui-css-check out` as `postbuild` for exactly that: it reads every class in
   the rendered markup against every selector in every delivered sheet, linked and

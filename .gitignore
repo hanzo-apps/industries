@@ -16,6 +16,13 @@ out
 tsconfig.tsbuildinfo
 next-env.d.ts
 
+# What the checks write: the visual matrix, the playwright report, and the two
+# stills tests/screenshot.spec.ts takes. Evidence of a run, not source.
+shots/
+playwright-report/
+test-results/
+*-screenshot.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

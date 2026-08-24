@@ -3,9 +3,9 @@ import site from '@/site.config'
 import { Providers } from './providers'
 import './globals.css'
 
-// Geist Sans and Geist Mono arrive self-hosted with @hanzo/design (globals.css),
-// so there is no build-time fetch from fonts.googleapis.com and no second place
-// the site's typeface is named.
+// Zen and Zen Mono arrive self-hosted with @hanzo/design (globals.css), so there
+// is no build-time fetch from a font host and no second place the typeface is
+// named.
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.brand.url),

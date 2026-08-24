@@ -109,8 +109,14 @@ for (const theme of ['light', 'dark']) {
              `ui-sans-serif, system-ui` silently — same computed value shape,
              same green build — if the host stops declaring @font-face, so ask
              the font loader whether it actually has the file. */
-          geist: document.fonts.check('16px Geist'),
-          geistMono: document.fonts.check('16px "Geist Mono"'),
+          zen: document.fonts.check('16px Zen'),
+          /* A face loads when a glyph asks for it, so `check` is false on a page
+             that renders no mono at all — true of most of this site. Ask both
+             questions: does anything here render mono, and did that face arrive. */
+          mono: [...document.querySelectorAll('*')].some(
+            (el) => getComputedStyle(el).fontFamily.split(',')[0].replace(/["']/g, '').trim() === 'Zen Mono'
+          ),
+          zenMono: document.fonts.check('16px "Zen Mono"'),
           text: (document.body.innerText || '').trim().length,
           h1: document.querySelector('h1')?.innerText?.slice(0, 48) ?? null,
           smallTaps: small.length,
@@ -133,8 +139,8 @@ for (const theme of ['light', 'dark']) {
       if (!missing && status !== 200) problems.push(`status ${status}`)
       if (m.bg !== SURFACE[theme]) problems.push(`${theme} surface is ${m.bg}`)
       if (m.inkless) problems.push(`${m.inkless} logo(s) with no hz-ink-*`)
-      if (!m.geist) problems.push('Geist did not load — the page is on the fallback face')
-      if (!m.geistMono) problems.push('Geist Mono did not load')
+      if (!m.zen) problems.push('Zen did not load — the page is on the fallback face')
+      if (m.mono && !m.zenMono) problems.push('mono text is on the fallback face')
       if (m.shortButtons) problems.push(`${m.shortButtons} button(s) shorter than their own minHeight`)
       // Console noise is only the page's own once the offsite hosts are excluded
       // — and a `missing` route is SUPPOSED to have served a 404, so the console
@@ -148,7 +154,7 @@ for (const theme of ['light', 'dark']) {
       console.log(
         `${problems.length ? 'BAD ' : 'ok  '} ${theme.padEnd(5)} ${String(width).padEnd(5)} ${path.padEnd(
           22
-        )} ovf=${m.overflow} text=${m.text} taps<44=${m.smallTaps} bg=${m.bg} font=${m.font} geist=${m.geist}/${m.geistMono}` +
+        )} ovf=${m.overflow} text=${m.text} taps<44=${m.smallTaps} bg=${m.bg} font=${m.font} zen=${m.zen}${m.mono ? `/mono=${m.zenMono}` : ''}` +
           (offsite.length ? ` offsite=${offsite.length}` : '') +
           (problems.length ? `\n      ${problems.join('\n      ')}` : '')
       )

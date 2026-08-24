@@ -1,25 +1,23 @@
 /* hanzo.industries — the whole stylesheet, in import order.
  *
- * 1. @hanzo/design/tokens/fonts.css — the two faces, self-hosted. Geist Sans and
- *    Geist Mono ship inside @hanzo/design as variable woff2 (141 KB, SIL OFL-1.1),
- *    and the @font-face `url()`s there are relative to `tokens/`, so they resolve
- *    out of node_modules with no configuration and no request to a host we do not
+ * 1. @hanzo/design/tokens/fonts.css — the two faces, self-hosted. Zen and Zen
+ *    Mono ship inside @hanzo/design as variable woff2 (SIL OFL-1.1), and the
+ *    @font-face `url()`s there are relative to `tokens/`, so they resolve out of
+ *    node_modules with no configuration and no request to a host we do not
  *    control. This is the ONE place the site's typeface is named.
  *
- *    @hanzo/ui used to declare the same two faces and pointed them at assets it
- *    did not ship; 8.0.47 dropped the duplicate, leaving @hanzo/design the sole
- *    owner. So the host declares them — omit this line and the build is still
- *    green, css-check is still green, and every surface silently renders in
- *    `ui-sans-serif, system-ui`. `document.fonts.check('16px Geist')` is what
- *    actually proves it.
+ *    Omit this line and the build is still green, css-check is still green, and
+ *    every surface silently renders in `ui-sans-serif, system-ui`. The computed
+ *    family cannot tell you which of those happened — only the font loader can,
+ *    which is why `scripts/shots.mjs` asks `document.fonts.check('16px Zen')`.
  *
  * 2. @hanzo/ui/styles.css — the tokens AND the class vocabulary @hanzo/ui's own
- *    components render into. Its token block is @hanzo/design's, byte-identical
- *    (257 of 257 values, plus 15 gui adds), which is why design's `styles.css`
- *    is NOT imported alongside it: that would deliver every token twice to say
- *    the same thing. The classes are not optional — a Button emits gui atomic
- *    classes, and without this sheet they name rules that do not exist.
- *    Dark is `:root`; `.light` is the counterpart (next-themes writes the class).
+ *    components render into. Its token block is @hanzo/design's, which is why
+ *    design's `styles.css` is NOT imported alongside it: that would deliver
+ *    every token twice to say the same thing. The classes are not optional — a
+ *    Button emits gui atomic classes, and without this sheet they name rules
+ *    that do not exist. Dark is `:root`; `.light` is the counterpart, and
+ *    next-themes writes the class.
  *
  * 3. system.css — this site's own semantic vocabulary, in those tokens. Last, so
  *    the page can state what a component only defaults.

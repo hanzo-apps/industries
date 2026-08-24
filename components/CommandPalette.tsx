@@ -51,12 +51,13 @@ const commands: CommandItem[] = [
   { id: "solutions", title: "Solutions", description: "Industry solutions", href: "/solutions", icon: Globe, category: "Company", keywords: ["solutions", "industries", "use cases"] },
 ];
 
-interface CommandPaletteProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
+/** A palette IS the thing Cmd+K opens, so it owns the shortcut and its own
+ *  open state. As a controlled component it needed an owner to bind the key,
+ *  nothing ever wrote one, and the global handler below could only ever CLOSE —
+ *  so the palette was unreachable and its test red. */
+const CommandPalette: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const onClose = useCallback(() => setIsOpen(false), []);
   const [search, setSearch] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -120,12 +121,12 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
     const handleGlobalKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        if (isOpen) onClose();
+        setIsOpen((open) => !open);
       }
     };
     document.addEventListener("keydown", handleGlobalKeyDown);
     return () => document.removeEventListener("keydown", handleGlobalKeyDown);
-  }, [isOpen, onClose]);
+  }, []);
 
   const handleSelect = (cmd: CommandItem) => {
     if (cmd.external) window.open(cmd.href, "_blank");

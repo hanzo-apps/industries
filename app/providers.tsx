@@ -21,12 +21,14 @@ import guiConfig from '@hanzo/ui/gui-config'
 import { ThemeProvider, useTheme } from 'next-themes'
 
 import { Analytics } from '@/components/Analytics'
+import CommandPalette from '@/components/CommandPalette'
 
 function Themed({ children }: { children: ReactNode }) {
   const { resolvedTheme } = useTheme()
   return (
     <GuiProvider config={guiConfig} defaultTheme={resolvedTheme === 'dark' ? 'dark' : 'light'}>
       <Toaster />
+      <CommandPalette />
       {children}
     </GuiProvider>
   )

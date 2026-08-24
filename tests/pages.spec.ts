@@ -109,14 +109,23 @@ test('Command palette opens with Cmd+K', async ({ page }) => {
   await expect(page.getByPlaceholder('Search pages, products, docs...')).not.toBeVisible();
 });
 
-test('Fonts load correctly (Geist family)', async ({ page }) => {
+test('Zen is the face, and it actually loaded', async ({ page }) => {
   await page.goto('/', { waitUntil: 'networkidle' });
+  await page.evaluate(() => document.fonts.ready);
 
-  // Check that body uses Geist font
-  const fontFamily = await page.evaluate(() => {
-    return window.getComputedStyle(document.body).fontFamily;
-  });
+  // The computed family and the loaded FILE are different facts, and the old
+  // version of this test only asked the first one — permissively enough
+  // (`/geist|system-ui|sans-serif/`) that it passed on the system fallback,
+  // which is the exact failure it was written to catch.
+  const seen = await page.evaluate(() => ({
+    body: getComputedStyle(document.body).fontFamily,
+    heading: getComputedStyle(document.querySelector('h1') ?? document.body).fontFamily,
+    loaded: document.fonts.check('16px Zen'),
+    mono: document.fonts.check('16px "Zen Mono"'),
+  }));
 
-  // Should contain Geist or system fonts (fallback)
-  expect(fontFamily.toLowerCase()).toMatch(/geist|system-ui|sans-serif/);
+  expect(seen.loaded, 'Zen did not load — the page is on the fallback face').toBe(true);
+  expect(seen.mono, 'Zen Mono did not load').toBe(true);
+  expect(seen.body.toLowerCase()).toContain('zen');
+  expect(seen.heading.toLowerCase()).toContain('zen');
 });
