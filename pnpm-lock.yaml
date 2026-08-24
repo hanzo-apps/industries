@@ -18,8 +18,8 @@ importers:
         specifier: ^8.2.0
         version: 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
       '@hanzo/logo':
-        specifier: ^1.0.14
-        version: 1.0.14(react@19.2.8)
+        specifier: ^1.0.22
+        version: 1.0.22(react@19.2.8)
       '@hanzo/ui':
         specifier: ^8.3.4
         version: 8.3.4(92bda99b593848ca558a8d39d142a4eb)
@@ -494,8 +494,8 @@ packages:
     peerDependencies:
       react: '>=19'
 
-  '@hanzo/logo@1.0.14':
-    resolution: {integrity: sha512-1n4Tv7065OqL3EJyKVnLZze8oh1w7eVdUFM6+/OyNdEpM0DheJHhkMMJhj8d64zNeEjbo7kiw3x6qVjIaCh25g==}
+  '@hanzo/logo@1.0.22':
+    resolution: {integrity: sha512-978DtysmwV38s8DyG050VoYVcVrVBMYCaPL7mx+/LgT5+3MTB13t0i+8TS6i2xVFRSorhcYyUjv53cER2tJrtg==}
     peerDependencies:
       react: '>=16.8.0'
     peerDependenciesMeta:
@@ -2992,7 +2992,7 @@ snapshots:
 
   '@hanzo/brand@1.4.6(react@19.2.8)':
     dependencies:
-      '@hanzo/logo': 1.0.14(react@19.2.8)
+      '@hanzo/logo': 1.0.22(react@19.2.8)
     optionalDependencies:
       react: 19.2.8
 
@@ -3093,7 +3093,7 @@ snapshots:
       - react-dom
       - react-native
 
-  '@hanzo/logo@1.0.14(react@19.2.8)':
+  '@hanzo/logo@1.0.22(react@19.2.8)':
     optionalDependencies:
       react: 19.2.8
 
@@ -3116,7 +3116,7 @@ snapshots:
       '@hanzo/design': 0.5.21
       '@hanzo/font': 1.8.2(next@15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       '@hanzo/gui': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzo/logo': 1.0.14(react@19.2.8)
+      '@hanzo/logo': 1.0.22(react@19.2.8)
       '@hanzo/products': 0.2.0(@hanzogui/lucide-icons-2@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8))(react@19.2.8)
       '@hanzogui/animations-css': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@hanzogui/config': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)

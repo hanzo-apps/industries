@@ -3,9 +3,11 @@
 allowBuilds:
   sharp: false
 
-# pnpm 11 refuses a package published inside its cooldown window. These four pins
-# carry the Zen faces and the matching token block, so the app cannot resolve
-# without them. Exact versions, so the list expires the moment they age out.
+# pnpm 11 refuses a package published inside its cooldown window, and this app
+# runs on the Zen faces, the matching token block, the 8.2.0 gui line and the
+# mark — all published today. pnpm writes each exclusion it needs, which is why
+# the list is long; every entry names an EXACT version, so it expires as those
+# age out rather than standing as a blanket exemption.
 minimumReleaseAgeExclude:
   - '@hanzo/design@0.5.18 || 0.5.21'
   - '@hanzo/font@1.8.2'
@@ -124,3 +126,4 @@ minimumReleaseAgeExclude:
   - '@hanzogui/use-window-dimensions@8.2.0'
   - '@hanzogui/visually-hidden@8.2.0'
   - '@hanzogui/z-index-stack@8.2.0'
+  - '@hanzo/logo@1.0.22'
