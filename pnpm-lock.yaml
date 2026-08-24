@@ -15,26 +15,26 @@ importers:
         specifier: ^0.3.9
         version: 0.3.9(react@19.2.8)
       '@hanzo/gui':
-        specifier: ^8.1.1
-        version: 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+        specifier: ^8.2.0
+        version: 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
       '@hanzo/logo':
         specifier: ^1.0.14
         version: 1.0.14(react@19.2.8)
       '@hanzo/ui':
         specifier: ^8.3.4
-        version: 8.3.4(8fb68f3eef5e38556fd069834cda3f08)
+        version: 8.3.4(92bda99b593848ca558a8d39d142a4eb)
       '@hanzogui/config':
-        specifier: ^8.1.1
-        version: 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
+        specifier: ^8.2.0
+        version: 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
       '@hanzogui/lucide-icons-2':
-        specifier: ^8.1.1
-        version: 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
+        specifier: ^8.2.0
+        version: 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
       '@hanzogui/next-theme':
-        specifier: ^8.1.1
-        version: 8.1.1(next@15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
+        specifier: ^8.2.0
+        version: 8.2.0(next@15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
       '@hanzogui/web':
-        specifier: ^8.1.1
-        version: 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        specifier: ^8.2.0
+        version: 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@zenlm/models':
         specifier: ^1.0.3
         version: 1.0.3
@@ -488,8 +488,8 @@ packages:
     peerDependencies:
       next: '>=13.2.0'
 
-  '@hanzo/gui@8.1.1':
-    resolution: {integrity: sha512-ZZ9h2B8DonQVjefVXxekd1rZ+Gftp5ZLhrf8DWf7/E+hVbwzTpwdumcAWPepovV4C1GodiER15x8F7Z8/JLxnw==}
+  '@hanzo/gui@8.2.0':
+    resolution: {integrity: sha512-+HOwDG9cdcXyRpSY8v41YLIiCHixw39Xz6Ml76l/h1OuToHnZQY2B0xVhACe7rWo2QdKcxsUyehKpgW1s8pfRw==}
     hasBin: true
     peerDependencies:
       react: '>=19'
@@ -559,553 +559,547 @@ packages:
       react-native-web:
         optional: true
 
-  '@hanzogui/accordion@8.1.1':
-    resolution: {integrity: sha512-rV2xco/OPfOxbCl+lB+x1wEn7Qbw71nkJb03ieBldscBLGupJtyCWI2smrL0wSJehpUn95I4x+Y5blOo1X3Ccg==}
+  '@hanzogui/accordion@8.2.0':
+    resolution: {integrity: sha512-nwHoJMGZH+e7I5o1ZODprrJuvvd0iWRSJhrxkOOkdY3WmBgsy3NadYOh0+HKlAwD8V50+oe8Q5gz12Nq+wzcZQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/adapt@8.1.1':
-    resolution: {integrity: sha512-jMa8szJuUcKlOXXEVS/1NYFcYGJzjxlmgbQd0ParYKzKyRlDrt25BSntq3Ip5ebw8Q3hp19eQGApEg+H0ITuvw==}
+  '@hanzogui/adapt@8.2.0':
+    resolution: {integrity: sha512-eRafZYHKpSYyudK4t5psOncHnyR1DYQJK1/xhX30j/s4Deot8S8eylWDYun8a4NeeXat5VnCt0B2T5cpw9wuqA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/alert-dialog@8.1.1':
-    resolution: {integrity: sha512-SejVyyrsuuSZR3eeIoIeuAuBhsJXagJpifi4hrbRO9Jx9vxxi8Z9z+rqF/Z+/p5n10saqEcn5lV3Zdm4c+UTmg==}
+  '@hanzogui/alert-dialog@8.2.0':
+    resolution: {integrity: sha512-ZcavlKwMvp5YzpP4Lg6lmfcknb6kCItDNHNsQ8BFppw7kj75VUaj1u46shLaHy0CdwJPzTuNWv1J8Usrk0zg8A==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/animate-presence@8.1.1':
-    resolution: {integrity: sha512-zGAc+wC+xFvxbqCD2GPvzEJtz5aSvQiG715Xt89/DnFssPEgUE5yuw3JlW/sR7uGFQl6BCPTLW+UbkaYSFw7WQ==}
+  '@hanzogui/animate-presence@8.2.0':
+    resolution: {integrity: sha512-TngdoWK0i2YixVJJaADQJRcFIWu4PCJ0d+gM/k/dzoVAbXZv3RTnNXsD1AiogicmoyXQjpP9Zy16J3sFQCUy5w==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/animate@8.1.1':
-    resolution: {integrity: sha512-uUEqMtv4pxJ7BUiPpctD+x2FuPskHPRnjAqwfxtOeA6xc4Qs32WDuZ4qn2DfKu4N+rPjYX3mBDFH45bAcR9r7Q==}
+  '@hanzogui/animate@8.2.0':
+    resolution: {integrity: sha512-V7w9Q2CwtYQUxLryILZY+eiwgbDplO0jFPnK+dhhVs1tNpHQuoZDbt9dF/cvsSgeHwPUcbZyBH7FP5iar9+duA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/animation-helpers@8.1.1':
-    resolution: {integrity: sha512-2SNY1fpWqRcnBeF3euX9SBUZmpZ2uOwfC6CzTEqmCpPRS5ktFUeXTZ8fdEALYrT7X46g7ybBPg5rmeRiPdlppg==}
+  '@hanzogui/animation-helpers@8.2.0':
+    resolution: {integrity: sha512-/TIo4UgXSibjWJqE4fKxvlUe26L8Y7Hm4OGhq6g/eG/17fi2ANzexrOmPdCgW4w6SD+6tEKM75zdiDbqWeTWfQ==}
 
-  '@hanzogui/animations-css@8.1.1':
-    resolution: {integrity: sha512-EMz7+CtgSIxmA7PIiETRsCDc2HktIZVhoYrcTGpXkzDW9tBgCw95f2dfTA0Hut54HbikR+vQYkNzHbA2/pxRLg==}
+  '@hanzogui/animations-css@8.2.0':
+    resolution: {integrity: sha512-2YuzMrmW572vjL+3NnDn6qqiJhBroYlbW1O5OImvzspFBy+mMqd1qj4qf5fSiDx+J3AnNlFD5EOzqtE1ZstC3Q==}
     peerDependencies:
       react: '>=19'
       react-dom: '*'
 
-  '@hanzogui/animations-motion@8.1.1':
-    resolution: {integrity: sha512-9lCL0iXWIWMrQZjM3c9BuiiZae+G5cl2amGeNn3ELchvlWgRwYJPfR/FYdqhJiaSNq1UvfTHDaz+i09BH3SmQQ==}
+  '@hanzogui/animations-motion@8.2.0':
+    resolution: {integrity: sha512-y3faGFtHxh8rtnBVovuMN0iVB8oeDGGC7PO2A3UEvJo3/6DZWdSn3llA0Qk6VtBffgjZ/XDtCUawJs/8gAh8/Q==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/animations-react-native@8.1.1':
-    resolution: {integrity: sha512-DWPjA6gV6uAjLpiOt9KBvVxCHtywG/DBUTYw6AKfYhTRdfr9JLxaSyOl76bu+nAkrPnaRB+qNCUWa2KDIYCHfg==}
+  '@hanzogui/animations-react-native@8.2.0':
+    resolution: {integrity: sha512-PHlZNvjg+iFVSPYmEYljjk7JIMemBH6EDK25U9Spq+75pxXpb+gQHz5v5H1anjzoa+z4Rl9ARjaV0TdNOaFVKw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/animations-reanimated@8.1.1':
-    resolution: {integrity: sha512-GUuvnemREXwGUciOe9l4cWbrtaWQZHzVl2Jm3BOcDolgtvf8w/BfhUYOCaz8CXL7FDUSrtjZexoJiLKV9CRfIg==}
+  '@hanzogui/animations-reanimated@8.2.0':
+    resolution: {integrity: sha512-eE5p8tfM2cNJCSDn8wPAm5uMsLezXIqn8ewC0EK5rPCTHkT6GQzK/ruyvkIUEVw2ekXNYLy8fHka75QTD//gRA==}
     peerDependencies:
       react: '>=19'
       react-native-reanimated: '>=3.0.0'
 
-  '@hanzogui/avatar@8.1.1':
-    resolution: {integrity: sha512-W0O55k/V0PCzyjaZW3CKWLYtEUULoYVx950ZzMKOdFK1MT8nkLrpvIGeNjjpfL223pTvtNHqOI5GZdsQx963vQ==}
+  '@hanzogui/avatar@8.2.0':
+    resolution: {integrity: sha512-V1rS4NVfnuHtMBlgChfejsmG9Xq63N2OnUUdHMdP276M+7YkimoymnHoy+ALWUnWEuvdK4veKNplB4X9JbWnrg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/button@8.1.1':
-    resolution: {integrity: sha512-cTZtC9c5Dtjyk13BCSpUKvZyQE/Uqjrydy4i1sonft2/3XDidZRMZJrGKVo30hz1nAVmbZC6F1d8J6muramNXA==}
+  '@hanzogui/button@8.2.0':
+    resolution: {integrity: sha512-WqVsRMUWTnX1lfZgMR+Bka5k9Th2yV6AExKOfeJo2SjTe/UCsh3AjDLsgV0vEd33bcZmWHCdc1ByrLFYN+F1Mw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/card@8.1.1':
-    resolution: {integrity: sha512-cfddJXW59rIPRzdproOGg/vQ17vKvvGXOQeJH6k4KDPQ/yIu6K4AP0Z3C7HVRQ7QRlJ817/BHznj+WO/5cOTCw==}
+  '@hanzogui/card@8.2.0':
+    resolution: {integrity: sha512-VBIwpMoBDi9O9yHGc6fJtEbwDQIsfQzkOQmL6Z9Ln7r8CsMcW+Zxge+rw9W+98v1S1uV4NYOknDR0lbgXnK2ew==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/checkbox-headless@8.1.1':
-    resolution: {integrity: sha512-nGi8WzoacjA/9ZkcBhO+U0tTEe1f0LRbwqnSrHq/cDKp+W65Z6nGvNEuLN2HWYigIRT1xiT5zd6nRnVU4Tr7Bw==}
+  '@hanzogui/checkbox-headless@8.2.0':
+    resolution: {integrity: sha512-L+dG4P4NPX3W6eWAJI2AsO6XIMnsxQjEj3B6ADV2x9USypbZZwkr7CUqAipgQJhD5UCdFskxGlxITliJZ3lP8Q==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/checkbox@8.1.1':
-    resolution: {integrity: sha512-EThu4dVJ3mpMI7I+KnrZMt8DlTjyv7zhK7QNvR4OLR6edcsLpFPY3Hup91Wq3JU6JSQxLg+xrNiEKLfke2ovgw==}
+  '@hanzogui/checkbox@8.2.0':
+    resolution: {integrity: sha512-6B//JMQqxBfVr/y737gozSq0vH1ayQDPKpgfpfEAZG2Fzo3qL5xLnaCZkNV5SFw/+m0G269R2pWPxeTRVLsecw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/collapsible@8.1.1':
-    resolution: {integrity: sha512-iEV6lFhPfkcZJ4sfVnYGCkG/rL1HKSotVcrwW+7d+k89RvasvGHvYNtDhH+n0ngnq+ykhY+xmceha2mpgGtjRw==}
+  '@hanzogui/collapsible@8.2.0':
+    resolution: {integrity: sha512-sPfuxD0na102k9zOgHxzVeJ6vOqsRhKkIeh6dLffQ7x/roXzkhfkl2xS7uXkkMjUjozfrbEQbjlvRNLjfGRcgg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/collection@8.1.1':
-    resolution: {integrity: sha512-PPRNUWsR+yosvoIpC97COAHqYfIMInEj0cQEQVmquUfWDTrWrHllIfHOWZCjwvuUDtjS+o4SpL3MJ+5gNndABw==}
+  '@hanzogui/collection@8.2.0':
+    resolution: {integrity: sha512-RYUcBmfMYfVxhEuvDkpCw7ULJUizL5oZwy3xpCN2SDrLPvDOgjhXW7AEaCrHBKPqnT4q0Ka4kqZLtLhWodESkg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/colors@8.1.1':
-    resolution: {integrity: sha512-ZHtD9OYTAYMxPitSw6or/eonusGoH3rAt3n1EHu48l3OsKuUm4bJ0tMXmjnMEDi6hyDiL6iSZvsZflAXhhWwJA==}
+  '@hanzogui/colors@8.2.0':
+    resolution: {integrity: sha512-1ZR4fLO8AFCo/lf5J/4UbWj+ZFeZcwOUSeaR65UNKsIm71lWlTdJbvvb8MrgGNc0FwTIm2dHsbHUSNqz5OQjTg==}
 
-  '@hanzogui/component-helpers@8.1.1':
-    resolution: {integrity: sha512-uqcjww8SI4Wi3sBYO54Cqas5DA3/Z0S2DHgsO8W5ANy276FVwoQh4LkQCByvJUtHJpBwN2VfmrOe2GhfuMS1zw==}
+  '@hanzogui/component-helpers@8.2.0':
+    resolution: {integrity: sha512-wcaVo4HtKQj0Ia8CYxOphsknK+afyKJgq/uhi5Sz9AMYLqIE6MCDSQTxD8SpyFzeIwYeNON/ymNWnOedg2k4/w==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/compose-refs@8.1.1':
-    resolution: {integrity: sha512-iwPeu0pUdZofsVJT8esB0E9dLweDP74J+Dv8k7CgRCmqIIlSEHb9TuIDAYdF9TfZuGYgn5qErZTpMZYKdo1t6Q==}
+  '@hanzogui/compose-refs@8.2.0':
+    resolution: {integrity: sha512-Xlsy7qoLBq4lcBIhzMocoyb65bzlj/lnlhVaAVEM9Yl+jOKAmdiFbRvBlDnWGGkLcWioaMLa0BhOAvloRtKe7g==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/config-default@8.1.1':
-    resolution: {integrity: sha512-fUQdGdqmeHzw2TgKjrdnCHp998NBZYH3uhe1/yUDFOQlcX7w7DZRw7gvFcE9BUZXwoFOmXlwuQzVG013fdC9YA==}
+  '@hanzogui/config-default@8.2.0':
+    resolution: {integrity: sha512-OD2RR0+A5P1U12rD7X/2B0gk+trWuTcgyg1/tCHsHNilbRykwNzYL3//5j6l8012zlFECRQOBNHgvIyX084Blg==}
 
-  '@hanzogui/config@8.1.1':
-    resolution: {integrity: sha512-/nYN2GcoNl+o9TUpRNb0r7bu5zCyiFmE9f7t9mLVTxJ3U3fOmr7023q6cPbUyt6vBUe4DZqTBMlnStgcwgqhBw==}
+  '@hanzogui/config@8.2.0':
+    resolution: {integrity: sha512-xCJbSTVZZw+pfmE+RCLVUA8euJd2bk5A5kn59IldXKQqnlPYTTOTOGdA2D0SxFIYU6HmaKU2yClB020u36LAVA==}
     peerDependencies:
       '@hanzogui/animations-moti': '*'
     peerDependenciesMeta:
       '@hanzogui/animations-moti':
         optional: true
 
-  '@hanzogui/constants@8.1.1':
-    resolution: {integrity: sha512-6E4bwiC0mYVSHim2ubLoaTzRha5k9UZ3rgW9C57t6b2DXs78z2aJH74bzJAxZJRnzWlav4oXLVnLUpjbyfCiFQ==}
+  '@hanzogui/constants@8.2.0':
+    resolution: {integrity: sha512-ERE+Gk7repZLLFl6DoXEiVCLf2BLTt9M30wM9ps43oHxPn9ZYsRpm4/Xcb7t83BOenacOqEgGpYUmh+iRyYozA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/context-menu@8.1.1':
-    resolution: {integrity: sha512-Ncu/S+2aSO8GT5guT9GpzQ++SySZs3m4W64aOH/HZIFRX7aIbcvJ/3KtBAsGIUjQbfNU5B/+5VVE9LG7BX4SAw==}
+  '@hanzogui/context-menu@8.2.0':
+    resolution: {integrity: sha512-iD8tV9RoDa1bcUIaaXvN3uYpNO11rUOhjYjb6YVbZPZEoh6nAFke1MjClHADBNygdt2ZMxIfT/rXRfAh3LUeIQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/core@8.1.1':
-    resolution: {integrity: sha512-cC25/cSpDExXQNe1hodhVqPlkmwsBNgcQGaL6P0lXCKssS+z7K7wdb8F1KGl7k9G3KZraMQHuEReQW7HrBxEuQ==}
+  '@hanzogui/core@8.2.0':
+    resolution: {integrity: sha512-nEToJFLi+Q9JrP8lNZkGOi7CZemi0QEhgOU3d0hRdWaeCbkgOMGHGqSimLqEsqIpP+lQhrZtUxm8297oneZnRw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/create-context@8.1.1':
-    resolution: {integrity: sha512-eNldlPezIz4j5lJe15+zoP9kxGl97uf2AKiq9QLT5wtgcgb83iJRm3BC3OMMrrNOambtMGeUe1EJRXuvnY5edQ==}
+  '@hanzogui/create-context@8.2.0':
+    resolution: {integrity: sha512-pxlBg4ICAt1FL2pKSl8yMMQpKZDUGK+jt+4v626s2EHFqcyrLd9aETd3vNZJWbHXEhPthqRCyLLVHE5AgIJiog==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/create-menu@8.1.1':
-    resolution: {integrity: sha512-2Exu5LfdF0LlucF1tToGYP/norTm6SoCMzHDK0P29eFwf+Weplk+Pje98YCINDj9aL/yNi3D3nXOp8LayOzNhA==}
+  '@hanzogui/create-menu@8.2.0':
+    resolution: {integrity: sha512-XhUpsOrhgcFMAsRzfnwRhqt95P47s9Dup9Z6gofIUmgUdCOpVNeWPbrXrkUY+rSXc+TeSW8RXNUW0FaVP8XOGQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/create-theme@8.1.1':
-    resolution: {integrity: sha512-tjpepriwWmHG2QEMR9wsYYb7NjBLVJdsH78m9trfiFrDqvO3PjCo/tzUqLZco+bi8cDs5oB3ocqRprUKbqW1Zw==}
+  '@hanzogui/create-theme@8.2.0':
+    resolution: {integrity: sha512-2/tTL7zXYz5TaLZcUlDwccmew7608irXc1/0pWMSn9b+hyTEtjzIThqDWsqjdobZsQ4GuvSdX3gWW7/zkiRf4Q==}
 
-  '@hanzogui/cubic-bezier-animator@8.1.1':
-    resolution: {integrity: sha512-aUoisoJHVvv/7WYAt6sUZZdA8snsO6ojpyztsI+1+VohY72q10PW4d7iU/5GVGIktKYW8WtGuPShgZC2hlkHDg==}
+  '@hanzogui/cubic-bezier-animator@8.2.0':
+    resolution: {integrity: sha512-/xE2JaeV0r68mgP7BMvEhfBcv16ty84avcQEJmJOM1Wp7BQ7+n17xFoMM0/Ftb2z4FfBKslR/sVj7Ay2lY5xIQ==}
 
-  '@hanzogui/dialog@8.1.1':
-    resolution: {integrity: sha512-qvUNR53lM/hqAtGQBSSBsNEqptCLWkSKRUEP1NPTAuNR+Mag0W6k+j0Axp4qRq/7aPCSvKQJQq+AYaDpjUcEqw==}
+  '@hanzogui/dialog@8.2.0':
+    resolution: {integrity: sha512-K+BOAZSJ7Pv8AUTPog5/J6OrojGGV/yQS0ZIeR76sGE9W/WGTtvu2D+Rzm8goAclQk11QYFNEjVa1g3AzIGMeQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/dismissable@8.1.1':
-    resolution: {integrity: sha512-HA23VO4tPsEPVmfutB1sti1hpQqmA8RfcjIYdHENTA9k/q8fJQFNsTsaeBWFRCrKuV3poJRudTvanoJDZJkyLg==}
+  '@hanzogui/dismissable@8.2.0':
+    resolution: {integrity: sha512-HohGuK10uDyCprQ26D9UGCCdkJGS4o5ekPOrRqTuIYHJERPfXpA/vpN1XDOXMuTr77QjEj0E0sQXwjLNiKRRbA==}
     peerDependencies:
       react: '>=19'
       react-dom: '*'
 
-  '@hanzogui/element@8.1.1':
-    resolution: {integrity: sha512-MPbEABHm4uQ4LSe4Pxtp/a20WOduMFpcV8s1VLGQQ/DaVDi/+jUkXJUxGTBW1XZ9RMb7c5Xla/Is6CoWMH25Dw==}
+  '@hanzogui/element@8.2.0':
+    resolution: {integrity: sha512-iW7iDVcgVJJvbPw6O87pRoJsIN95Bj1/uyjskXStdlM6w7knaNx5tpre89U8ztTFkolpsDizZmVJb9RHpozBFQ==}
     peerDependencies:
       react: '*'
 
-  '@hanzogui/elements@8.1.1':
-    resolution: {integrity: sha512-GhMEmvshWvbgP4oAFZwTgBDX+m0QXZd3rAYl+sE8oZOHDBwvoEpWCMnG+nucEDy6v+AjAZTr8q0w2IiEBYWRAQ==}
+  '@hanzogui/elements@8.2.0':
+    resolution: {integrity: sha512-BRkkctv7otTMUICUvuvAyBdTv+yc27sToPmpJADJVAGpdSGebUQVeo0kVOzhVcllvrR2bOQ17QzG2sjFzuiWlw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/fake-react-native@8.1.1':
-    resolution: {integrity: sha512-AK+6PLYD3uvScGm5Fx42nGTKY8fvfYHTNui/lNePnW1EN3f6xJs5LqQ4a+rAaU2WfFyTGI23uuGXlxmfrploHg==}
+  '@hanzogui/fake-react-native@8.2.0':
+    resolution: {integrity: sha512-azYWjSnkNpwqGTy/2pwRAyqsS/T3nvFd1exXb69rYHChWH8CgC5cdaiEmYKNU18J0D3JNApPpqxbM4mZ8yDf4g==}
 
-  '@hanzogui/floating@8.1.1':
-    resolution: {integrity: sha512-QOnx2DzE7Z2Fmvd5jbmT0q1SyfO13yKLQ0leSnmAcVm/UhS9I+tZdytcd23PA+ppMTiUfsiVQCq04ljKfaehLw==}
+  '@hanzogui/floating@8.2.0':
+    resolution: {integrity: sha512-D3EehKw5YJ42Xq6eNWTCfdeVhLlNLCPM7pOQjFuLDRoiVrFRNK6og6eV6prDLnPyeSpWf6n2WOhBPkZKko97Og==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/focus-guard@8.1.1':
-    resolution: {integrity: sha512-3NFcMskIVl/lk7SCbGTR0xoJvTfiwv2LACQeelFFczoI0oI+y3Q4fDl/rcYy2aq7iwk1FVKrtMuS5WKrn7qrGg==}
+  '@hanzogui/focus-guard@8.2.0':
+    resolution: {integrity: sha512-Gy4SBL1J/gbRUB+A1zqnQdAMChiOKWcpFKwrbPzV27E5AwBtf0IR3cnh7TMQQVucYivOe8CHLmsjnK1bSfICug==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/focus-scope@8.1.1':
-    resolution: {integrity: sha512-+lzXH8Ab4ZWU+gJGZYD8Wmv5p3Ksk5QDLXtbFgUaOnfwCraBx2lQ1WzQO6VCNrOjnTQ6+7wgBgIA07VAOEefWA==}
+  '@hanzogui/focus-scope@8.2.0':
+    resolution: {integrity: sha512-6trphxP88KFRCy2fj1etHsDYsUlT8wVOh5FSPFiqOZTiTJyJdXd9vSbzE3agL475mwhvS6ogcoH3LgQYn086Qg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/focusable@8.1.1':
-    resolution: {integrity: sha512-tlFySJSuBeTt2chZlCThmZWjGB9AmPgAXII+YhvKo85udpXCvpeJzBw182gfOFaVNwZbOagdbSnOZrpRhw3f1A==}
+  '@hanzogui/focusable@8.2.0':
+    resolution: {integrity: sha512-3wc1WQWhSMtaoTXB0TjcnfMN8HlASy24gtttzkzGWmNTlaJtZmmH0FqA3C60vXqMlcjH51v424pfcyXSWcuUAg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/font-geist@8.1.1':
-    resolution: {integrity: sha512-EM9guObDuIiAKTo7r4AhAHTPSY/8dg3O7+u/HNGlQL3dFymNUG4zE0xmUJjrIVKFt+Z20qSVlwqPZuob+9TB1Q==}
-
-  '@hanzogui/font-inter@8.1.1':
-    resolution: {integrity: sha512-2FsDoCDVQUH/hTSdRZC4vQeE/qfQzSGY2DvDOeFtBvYwEkEHju9wdDh3KA+wUHjRABRZPcTVhRadXr8S5MtqQA==}
-
-  '@hanzogui/font-silkscreen@8.1.1':
-    resolution: {integrity: sha512-poROGDgejud8ZqqXWO+50aMivc2eobt5L68R/U2iZdGiqwqgwga7g4mWjfF2ziS0h6n1N9147+6C9643qeKEtw==}
-
-  '@hanzogui/font-size@8.1.1':
-    resolution: {integrity: sha512-enTQuyNWNc+GodcVl5U9qWt9FnNw+qpJbSl531LowB7fmTwi5Afqlbi7kM6EprIsnrW52BdryKeysjpzEYW3iQ==}
+  '@hanzogui/font-size@8.2.0':
+    resolution: {integrity: sha512-Oc4UnBgg5kHwc2G3Pe/VeYX1lJi7oJ65AsRyK0icojy1C9OMaU5ILf/45Ik77kUSBqT/4aRqs1xWhNuiTlTdyw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/form@8.1.1':
-    resolution: {integrity: sha512-XNZpSlpWLvPlLe2ZI9Wh6nyp/QUAevuoVh6pDTXrYr/KqF1EUATa2EzjMxoXbq4lJRAtaqMyKRf8dNH7gRABRA==}
+  '@hanzogui/font-zen@8.2.0':
+    resolution: {integrity: sha512-0M8f8hr0QZFieijAsgdD5PGHczZZGxmYOPcXV3Ff3Rm25pdQmO3Onm6IaX3eYwz/qmNstHmu816UdjlrYl7fFA==}
+
+  '@hanzogui/form@8.2.0':
+    resolution: {integrity: sha512-M0fR19M+HHXFM15U4OxF0E3AuidCDQvsmjVC1R40duqlikT4y25RfhqJeDI5y0UvdRznPOv+ztfhafc29M9ggw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/get-button-sized@8.1.1':
-    resolution: {integrity: sha512-YFYiKO6XncAutZXE7x5ZGB+o6kAPjy0xZy+iDOmcsNntWsv7NxSkKon2BA+U4TUs6eyQT1whVtfb3RJH9HbocQ==}
+  '@hanzogui/get-button-sized@8.2.0':
+    resolution: {integrity: sha512-h6fv0noSfb9eYqLalsX3o/98CheX+5yqRdX3ia9Relaw9RRRENGEayBw8e+qoyDCyUFFe+rCPo63JFvLxZAsIQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/get-font-sized@8.1.1':
-    resolution: {integrity: sha512-QI5wjMPy36nxN6oSy5AIqgDKTcvXTm1njy9RrDwNtWDaUsWIGXhKcMmRvt58SNHVjo+EbpO/SIU6pG4y+kHsbQ==}
+  '@hanzogui/get-font-sized@8.2.0':
+    resolution: {integrity: sha512-xFzhOKaS1WAZgs4pB/NsA4KkIRQ0lCQqKXs4jasrg+vco+WrLU7BYQ2rh8i+YT7iOyAYbrsTu7QJa03sNIF0kg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/get-token@8.1.1':
-    resolution: {integrity: sha512-pqtuENk5F7CVe76cO3TNKte+eE7gtJfCbMKQKO37gbRx+4XpxAgKV5rqDwuS8uND/revuJFsqpXRgFVQGxKtgg==}
+  '@hanzogui/get-token@8.2.0':
+    resolution: {integrity: sha512-duuZK5ljezPnSkf0SwhT/tvI7sVAO1zhiSlEs/uccxBhgu8ItycYDaXMhn/nTlz5XXAcCx4101xl9KE2TRb0/w==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/group@8.1.1':
-    resolution: {integrity: sha512-/6Ytts/dLinBlZtuostsS8r/EAffLQlinxpob1qOjy9x4rS8T4f1JCw/Roa567uEbJOSt8R0OwhWI2mFjbhDZA==}
+  '@hanzogui/group@8.2.0':
+    resolution: {integrity: sha512-1eY4G4tRJ31B3yfDh4VCZf/FSiHwCtuvnHG0ABczBaXOmqIJ2m1CJyYncuvD1ZEqi2PAWv974PCz+v/kMjLhEw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/helpers-icon@8.1.1':
-    resolution: {integrity: sha512-s7ubV4qsD/hlfy62h6kb5Q0bFfJ5MOqVTuYOEgNpHtDaBONa2hLbmrCAW6NzOqd/CJk62Kpwp+uVqkQwN7Z+aA==}
+  '@hanzogui/helpers-icon@8.2.0':
+    resolution: {integrity: sha512-Nj7Nh0kZRq/2nM94ANcYnh92+UgKAWRHbFp+zlAIZJIiio88BIJ5B8hxICPvzcWwyS5t5x+8Nc41W5luxRTYFw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/helpers@8.1.1':
-    resolution: {integrity: sha512-GF0n4r8811+G4K2AxvqrbF9cz30CxaE+xTr8Y08P4i91Ddtye08rFV3OcJJenRSaOotCFQP8ZvbnHPLNdGJ9Ug==}
+  '@hanzogui/helpers@8.2.0':
+    resolution: {integrity: sha512-7ntQVCjzujXT3FP+EUSKfi7Lvau2/cOmoGURED6hC54iNPFXu/0/5iZ8trtxVRDoiNzDzS6Tm3C1bX1ScHdodg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/image@8.1.1':
-    resolution: {integrity: sha512-YXX2GQGs+ac3ziYhy0RVheDPVUvc6vnLCGj35JZAy2Lz6ETMP/+jYJFUpJVKdN9EZGDhN5JVqOOUyolm+f8cKA==}
+  '@hanzogui/image@8.2.0':
+    resolution: {integrity: sha512-CQkEDAG5gF4zXkpBVUJkmIMJcoQfTHblQnpzc1nuszWjJBDE3UBYzsZD6lCCnpQ+eyLTvEp0hUPlofj95yWf7A==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/input@8.1.1':
-    resolution: {integrity: sha512-7R4kAlj+i9zCf0t844TDwqz7DaBP8ovSuewQMijYUMgR3qUS0uB+uVPyNjge5TeaVXlLQ06NXswKLOWViiOUyw==}
+  '@hanzogui/input@8.2.0':
+    resolution: {integrity: sha512-HyCQcQYGDZ/VlmfNKBOa4568ZcriF3IvPTgeu6DfwZnb2NWxk8+CxxJwahkH2akD14CRCX+YTcUZZxbX47sG+w==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/is-equal-shallow@8.1.1':
-    resolution: {integrity: sha512-UaNcjL/EXzB/gHYyWT3Hid7HVDI9Yug7ZRK9YKKcFWqjSgyYjS47HtE/CDvbclvzBw5IONx+bDn2028RDyxQIA==}
+  '@hanzogui/is-equal-shallow@8.2.0':
+    resolution: {integrity: sha512-dQvlJvkvATzfiGW/aW2Mod31lprSKotedL7iEtQrinPdC9bPZ8vLQ/mhhqtlr3sEcLbEndZDilHc/3uWWHtujQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/label@8.1.1':
-    resolution: {integrity: sha512-VzVwVMUInecPs/Dqc0oqoKjHfOJsffo+cIMq0asfxhhDAwEzhA3pnpgfj0atI62WGobsMp9zMmnXDjwAz8Qfnw==}
+  '@hanzogui/label@8.2.0':
+    resolution: {integrity: sha512-3eK7lT8bwOJ+EKE2pare0ltjqSjx5H5fe053di7qIRahgcq75W5+jn/ZiuuoHuQ638GgzI1ih5GcuV2bMe2QYA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/linear-gradient@8.1.1':
-    resolution: {integrity: sha512-bmiAuLWS6l84zTz7KyuICerpEXqk01d/pe8KmEZly4fZ0TCQc5m0WIY71W2FXdTjZf4Z7KElC7kjWFbZ5jqaKw==}
+  '@hanzogui/linear-gradient@8.2.0':
+    resolution: {integrity: sha512-aRdtAd2+pqd7J5SWUsUDSfPoIs9pA+yb/DY4LVWWM1hm/xQb5ytz0VYt2u3wcN3kptfIyRmru4YNQgM9w+bHmQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/list-item@8.1.1':
-    resolution: {integrity: sha512-CaGvr6hqovoejsoS7uIxlo6gb9CpLk0fAWAAZfjRprp03unmQg4ZQFcQmUP+n+Ao1asaoh6OkQEhLgaUtd6YAg==}
+  '@hanzogui/list-item@8.2.0':
+    resolution: {integrity: sha512-2sNodmzNiY2sf/CHXCKxy8M1CPkvIguRJuq65I9cYDS1MxsuKqgDsYjZZaRcVw3u9T/k8pqeL1Eu/mma6roj8w==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/lucide-icons-2@8.1.1':
-    resolution: {integrity: sha512-ygMk6YZRO2wln+wwWw2GH8HV4IApAiUKVdoqU66qp2lfZUCCPBHFLvpNuhmkh1LHFi/LSR3I8tlAHoLwbmTq8Q==}
+  '@hanzogui/lucide-icons-2@8.2.0':
+    resolution: {integrity: sha512-QeRg95jnnHCG784oS1BseOLb8aSNlPQCdi2ck6VK5/seiJR3e9KTKg1bT+56OdPGIb+ldHz6lPD5U67uBKUSGg==}
     peerDependencies:
       react: '>=19'
       react-native-svg: '>=12'
 
-  '@hanzogui/menu@8.1.1':
-    resolution: {integrity: sha512-voVyxsgyrMAT4hNwpvT4ekVyvPAw6e/hRxu+rS8wKQT/rD5K5mwoNvimJ2BOJKb0xluWjZ/Vb7ufo6weG5lPKg==}
+  '@hanzogui/menu@8.2.0':
+    resolution: {integrity: sha512-x9DAAbuWEtG4vbstj+4mW2X5EtU/DEbAThwFlMLR15Tb4FGQVQhU7dlAGbcNZNNhLd5nyFpv3DmF8n3Ox4WCyw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/native@8.1.1':
-    resolution: {integrity: sha512-7CssYoQwdml/Ondp94mqsezBzxVh0SMcYkCN3b1WbzUW2boBEQ5Y8CBsjM1np+jCzAOJTrf4b56vBqKHgGMSwg==}
+  '@hanzogui/native@8.2.0':
+    resolution: {integrity: sha512-FCJ10zXPV5+VmEfbSryDO1M7RLbY3I62cR3zv72m1SSy8Z3doTHSPF+9mnPzYNQVaf2KbyTSWKXwmydcvi6yZA==}
     peerDependencies:
       react: '*'
 
-  '@hanzogui/next-theme@8.1.1':
-    resolution: {integrity: sha512-iASMtvx+xTzP5q00dDYqkURNZkvT+nXTCQJz5ptIJRvatsWJwPaQyACykUJsc4WEQ4ceQ9bNHdYHsRqU0DOVhQ==}
+  '@hanzogui/next-theme@8.2.0':
+    resolution: {integrity: sha512-eghcQqVUTfG98zskE/Ck9VrAZzjrkFdV/9OIAeKkY9rx/wMe11Sh5M5m+g59H+ILBsNO0GHHPzfWTxC6wT8w+Q==}
     peerDependencies:
       next: '>=14'
       react: '>=19'
 
-  '@hanzogui/normalize-css-color@8.1.1':
-    resolution: {integrity: sha512-O3NBnMTVZbPgEnH0AA3Zxr61obWy/81xHDTBWBOBkiRQuTDxmkYLjXPO+RxtYLBiT8OKv9mcfOLu8mjhgJegQg==}
+  '@hanzogui/normalize-css-color@8.2.0':
+    resolution: {integrity: sha512-b20iL8bc/q9NhrYU8JHGKB1bOfbyyc9fy7XkZ0rgUVCmeY6FnmqI/OV0tmmQAVxy1b2HNs6EiGwInaNT15770w==}
 
-  '@hanzogui/polyfill-dev@8.1.1':
-    resolution: {integrity: sha512-3ZtKeY3EpQXj7dVZAfQ5SBa+XBF6SX210kcufm5qDH7c8f3abwrUK6a33bVFWJbs9FyNnSJ0U+/k+mfKZA312Q==}
+  '@hanzogui/polyfill-dev@8.2.0':
+    resolution: {integrity: sha512-XfBTF0Naxl/HBUa0lPCoc4uCP3qcD8zz9b2s3t+TPzkhEYccqnIZQ2NIFTiBcacJ/KEKArxaL8IN2Hy1JcSpXw==}
 
-  '@hanzogui/popover@8.1.1':
-    resolution: {integrity: sha512-B3zWRn3G74QsIjKeD6tPzix7ztlx2Uro1wNnlMVMj7icAgSbUpD2mKiwrF+Vkl7Os523g0/NIrSrxR32ymuJRw==}
+  '@hanzogui/popover@8.2.0':
+    resolution: {integrity: sha512-eoIqo9h76UXz7kNCjpo2sVZEhDl7cLYM6qpba+fTvrP/tXxjoryNR2GBl6J0FQgA8emW0h63iTO9Klp7mYrd4w==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/popper@8.1.1':
-    resolution: {integrity: sha512-liPsiBgOD8IEASJdYvbsbe7qLS4JYRWMdgFLmuL8+kdZZfv9GJRcgdeS2DUiNVrh7XipkOZKPN7JxXPPRi3AJA==}
+  '@hanzogui/popper@8.2.0':
+    resolution: {integrity: sha512-0oc70D7qfStc9pwn3yXikj3pF3jPleIvSdKpme3RvDfXEM5uKiRZlHWryN5XuqfwJmlnDUGPAWOh8Ilt6R5FdQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/portal@8.1.1':
-    resolution: {integrity: sha512-8l4+pOzr3vNligONHiXbwjmIWnOL5CGne15xIkfhq5eGOPiEFt1tsqHob5nhKgTb12HJ6Qnv97HqZOi1yLa81g==}
-    peerDependencies:
-      react: '>=19'
-      react-dom: '*'
-
-  '@hanzogui/progress@8.1.1':
-    resolution: {integrity: sha512-OU5HCFMDespwC8TYA7V8H4NapVjm9QPecZe+Vj41Ax2Iitp0bJvDCMpEVB2YIBGebPPgcAHtcDF/dAIbc8pjDQ==}
-    peerDependencies:
-      react: '>=19'
-
-  '@hanzogui/radio-group@8.1.1':
-    resolution: {integrity: sha512-LBoEaFjhptGhpSvgYb30uxswxiRnvHz4ENQ3iGpwsTvQO/vx6h8IOC7JL6XP+5LFXY9Nd6jGrSv3+a5QP84euA==}
-    peerDependencies:
-      react: '>=19'
-
-  '@hanzogui/radio-headless@8.1.1':
-    resolution: {integrity: sha512-QKmDv8uUzXEUir7lmyadRPkDBYw4Z2HYTdEhT19lcTDPiLo3khQnXbRBpBcTuBQY1EBSTwU0C1bWoyYGXUizXg==}
-    peerDependencies:
-      react: '>=19'
-
-  '@hanzogui/react-native-media-driver@8.1.1':
-    resolution: {integrity: sha512-z/BlEOV3e2kdbwvQjfxt5UHEubwZt3REdJwzOtwK4ETa8FBtf4JrGu4vkxEl80246sE/g98Z9TItYC8baWSytA==}
-
-  '@hanzogui/react-native-use-pressable@8.1.1':
-    resolution: {integrity: sha512-IGB21O/RNooV2c6cIimESFr3bfOtCYjuCGQ6L2VDHJwnAh+542TTzx4NAs6LhXx9PnAKIkjcXNDlr+o7A7nwqQ==}
-    peerDependencies:
-      react: '>=19'
-
-  '@hanzogui/remove-scroll@8.1.1':
-    resolution: {integrity: sha512-RxUDHkevlGxkDFck0bE6Eb7OiLv2pWHBhtqK+En35pAr7c2pf6MdQjXztOhHsqhoZrtlYrP5PoowbyMZPmWXbA==}
-    peerDependencies:
-      react: '>=19'
-
-  '@hanzogui/roving-focus@8.1.1':
-    resolution: {integrity: sha512-S1XqqNx5If6y+W02Km+e9BqbIcjtbtlovXqmr5j1iaFdoYfnv+Gb2B/e5r69obS4tNPZl3j0ZvCUKSlovQ+XgQ==}
-    peerDependencies:
-      react: '>=19'
-
-  '@hanzogui/scroll-view@8.1.1':
-    resolution: {integrity: sha512-JZB+ADrnne/iVPLP6xAy1Ajk2wUZ66+6uhtTvSfQhAGFN8mnFfE8cy71wzR0Yd1pPXzebvEqhxINvR0/ZT/a4w==}
-    peerDependencies:
-      react: '>=19'
-
-  '@hanzogui/select@8.1.1':
-    resolution: {integrity: sha512-Dl59EZhD669jbQV5mRsyrCfCSNlMjUlKgyzsI8AhA1HfjqPtPbNwXlfl8yYfhQxaVW0aPrrxs3i99TrVC5ceGA==}
+  '@hanzogui/portal@8.2.0':
+    resolution: {integrity: sha512-3M0T46Liff7kz5GJ63x8Rg29Pc3xYiv5CKsHY0+/CeKoDgeld+Ab7yO5spMPKI8w+jciGAdUSb2XXCIR9/OD5Q==}
     peerDependencies:
       react: '>=19'
       react-dom: '*'
 
-  '@hanzogui/separator@8.1.1':
-    resolution: {integrity: sha512-FJgXrazrWjaJTChLRriYTdhxpvBh6Xmadwi0+QYHifEU+wFAMghNgSB7/OhXFyzI7VzZ2+gQChrEstaS/PUWXw==}
+  '@hanzogui/progress@8.2.0':
+    resolution: {integrity: sha512-fmhTexmywxjdpuMKb24dZLvMNjNjq3kmxVjyWRhHGPE8mW77Gm4fFthE0BikgQdwMiThe6PhmftCj8qnlZuZ5A==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/shapes@8.1.1':
-    resolution: {integrity: sha512-Jdq2qRGMpaNxCKnAee46JXA+eTuhCUQBuPCahpaEpXx7pQGUqWWEumXlWRBYPWqx69Pomkc679H/obJq157YMA==}
+  '@hanzogui/radio-group@8.2.0':
+    resolution: {integrity: sha512-0WTVBbzgSOQbwzKjh0UxXrc4yHMFu0pUcBcShc7ukvJsQ8ra8fAvA60aB10d3P9tRP0Mmm4XW9Fnn0QwQLJKEw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/sheet@8.1.1':
-    resolution: {integrity: sha512-wXA+TlTpIrKRo+F/1J4oxMP/1kFWO8cx3JGszYODMRWl3Z7Shf8GZhCJxY5BTpsy24UgjAUlFQ4QAIBFnWYuJg==}
+  '@hanzogui/radio-headless@8.2.0':
+    resolution: {integrity: sha512-hPcxgsy6uLjI4/z2L03uFrE+SQLKPJPhNJgjGgoY/s/1MLbD1cuko07xrydH1itirDIReaT6xZk70SP5M9eXCA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/shorthands@8.1.1':
-    resolution: {integrity: sha512-FQqwUwWCvH871DIAZDEOLs89EzXhVrzPDEnpLnI0fw5ecQz0eJL48bdsWoxMB4y14C7At66ghSTIQe6fWoUJdQ==}
+  '@hanzogui/react-native-media-driver@8.2.0':
+    resolution: {integrity: sha512-1Ye1jadEOIPXaxEkO3ZEXJAXdIiZZkH6+k0tDyH+66QbaAOVW6g5s+PJLMKzFk60J/HS8SefyMU1YgtEI1DbXw==}
 
-  '@hanzogui/simple-hash@8.1.1':
-    resolution: {integrity: sha512-ZDvD9UEFDcyCPKAsIqdJhkR35sTdTpNqVCLMjio9lmLpLuuiIlUeKGQjd07lyRL6Yr3hGz3zp76MQOKnGxRiBQ==}
-
-  '@hanzogui/sizable-context@8.1.1':
-    resolution: {integrity: sha512-4feDN+808ZTmYl30Qgi5jRgt0A5lxlGBwQFz+Bixw+VNH9LOoJ4sN3KLqA/VEnT8qxGHmxjd1pvKrIcUwRlJgA==}
+  '@hanzogui/react-native-use-pressable@8.2.0':
+    resolution: {integrity: sha512-NT6jmvcL6OIaqLXBNY7hlxJ1NnJc+j/6hCLuLhaZ67kILZSvG34pDIOJR5IO4l2R5v+pwyuZIndXxwIHJgCCMA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/slider@8.1.1':
-    resolution: {integrity: sha512-9vc+3QPM0GgnNNjf4AvRHXmoTT4s7WtxucOaK2/uC49Km4fWPKci+yoeulzaX9L1P6rAk/BkqOmA5Le3KRXrRQ==}
+  '@hanzogui/remove-scroll@8.2.0':
+    resolution: {integrity: sha512-AT3440b+iWDiydNe7wC9PWh+RyKPSpVdU8I27tiNQ6oFpnRiaPC4502FU2sSq/Yb+Etyyp1h2jbz9ohasRNqRA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/spacer@8.1.1':
-    resolution: {integrity: sha512-LHS5Xf7dDJblHJhecoKQFfg7ijJPMHPxMeetnwLG1GXB7R10zIxcRq/9pO2C9mHTGHSOt0E+AK13bb2mSyKVcg==}
+  '@hanzogui/roving-focus@8.2.0':
+    resolution: {integrity: sha512-mf78p5EIWQ7mvrxn1/wgdOoDDVIZFpAe0CCNzfNkH0maGwzOyAdnOhHJ5hODrLEGaDqXCFFMEJSosIR9HAoHTA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/spinner@8.1.1':
-    resolution: {integrity: sha512-36YI4Nl10yuq2g4qzLKV8X3QIblW2M02JP/KB8vIeKz+SDLdy5hDZwi25XDCWbCZ9Mhp1Iw0WmqNfWkoIWvu+Q==}
+  '@hanzogui/scroll-view@8.2.0':
+    resolution: {integrity: sha512-Lh48guHd/n83tZ8Lup81ZbmFOJNMgE8s/zlDRuCgJ7pYIYo+1PnHrA6nccVhlmY1jZgIepMtZQ8h7HYNaIWOCw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/stacks@8.1.1':
-    resolution: {integrity: sha512-hW7sG7f4SmxUW+/GSHxBBWLS3LA09eRPeMQymQ733yZJMswYDWTvRTCYb25SXXSJZYtWLdrrJKSXxNAI8PNygA==}
+  '@hanzogui/select@8.2.0':
+    resolution: {integrity: sha512-5XfdUkZ8YKmxwkFc7kkY0qz4kVlu37MNCe3Yge8P7PofeWXL4C0TgkdJSkc8K/DfyefxEEiUIkK7JG9+3/MbNQ==}
+    peerDependencies:
+      react: '>=19'
+      react-dom: '*'
+
+  '@hanzogui/separator@8.2.0':
+    resolution: {integrity: sha512-p9y90pnAQSI9IksFAYIoNo458OKuUtCQMDZX1JNQruYe5xzkQqJXrFHKzC5qYnKs1AceNkkHC1gi1j922SoRUA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/start-transition@8.1.1':
-    resolution: {integrity: sha512-8Crxf/8hY8r9hLMjUM/qnP5+Ay6/7nXJg3JE4RmWrTorYbDIRVwNGC6+PQ9glAJgPmFoi7noLiiNsaKcZTwtYA==}
+  '@hanzogui/shapes@8.2.0':
+    resolution: {integrity: sha512-HTN6+Ypg5gVZD5ZW5tAiNFh2+auzRtxbGvHKN65cKNJfddUgcz8jKhKHSTmPjAsNxH6XCIAiBcKLUzAbwptVCA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/switch-headless@8.1.1':
-    resolution: {integrity: sha512-dVSKu+uPYDTh3N4Cr6YCEhxkWagtqdWD4ZEkVPDxV8k+XCC8K/vbMW2bn+EPKRqYPlfdzSLOjIWQcY7E3mqxBQ==}
+  '@hanzogui/sheet@8.2.0':
+    resolution: {integrity: sha512-cZugMx735yp77rpe7uclNOUaG9+FYe4uH+4JjfPMFKGONZ9KbZS0piryLOmRSKnBQ45zve26lhpxuU+rJNkmmg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/switch@8.1.1':
-    resolution: {integrity: sha512-U+z1rBUcsJQk/6oOqG31zSSB9yOK4pI/q39U4X1WsxgeuhtJ2IR2h1gCuTsVH0l2Qjm8XjUSi7/WnnFS7DRIsw==}
+  '@hanzogui/shorthands@8.2.0':
+    resolution: {integrity: sha512-0358BiegKlzCGhhUSVyoUBW8CKj/aVkQptuUGwrInoFUOKQ1GV8ipQC1GjpTvLOEhUdAfM6LpTMepL7cY/48Hg==}
+
+  '@hanzogui/simple-hash@8.2.0':
+    resolution: {integrity: sha512-hOm8cw6j4gqDWIAQgadlLhSHReTMoCOoxz5r7Js61CF4pwLlv+8mtWRzyEktHWwjLQWMEYGsX+9ZrfQGg7q+nQ==}
+
+  '@hanzogui/sizable-context@8.2.0':
+    resolution: {integrity: sha512-i1zR7am57KPbel7cxXxzhOESnw5uaKMmsKRkQ7B0JDrJaQR89xqXJ8WMhJwySWZlcc4+RpBrPl7vH/4sFgwUmQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/tabs@8.1.1':
-    resolution: {integrity: sha512-VDJGGJEverXdgL+uwrPU1u9A6ndlILag6Kj4+rqIeMhVBlvB5XIzsUfKRl4V7re/fy8W+rrBmxfwhKQB44fJZA==}
+  '@hanzogui/slider@8.2.0':
+    resolution: {integrity: sha512-E8Kyreoq24g7sQdQayJn2GeIyEq8OkMUOmASdZT7MWri9RhaGIFCe4eL4AVwlwbnNrX+o97cmCGSq4hp2JYRnA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/telemetry@8.1.1':
-    resolution: {integrity: sha512-w2+r73AcudQAecGoIfr3D19kYSZCshV5npegZgIr1BeQ9dfOmpzbzNmRvSvOhu+lrhmmcSHRTnPEp5V4tj1u7Q==}
+  '@hanzogui/spacer@8.2.0':
+    resolution: {integrity: sha512-8HO/sCps2JIaHfzEdsMR7G7P8agg3zEqaWZ2U4dGAi0dvFlFEiHuoTBUmA7Y2vYlwKBeWsIvfwYSTXwlCO92cA==}
+    peerDependencies:
+      react: '>=19'
+
+  '@hanzogui/spinner@8.2.0':
+    resolution: {integrity: sha512-vU7RxYJtITtRlvP9MYzK3oAYH+P1V66N3YmM5b19GKluPk+0/c7kelzUk0dririKpF5EbBfUWojIRxQ2QZ/vGg==}
+    peerDependencies:
+      react: '>=19'
+
+  '@hanzogui/stacks@8.2.0':
+    resolution: {integrity: sha512-YIdkia1dZduhezzRB4jhVwyNxqfqqFhgLvmAyC4NW96cUdu10wp2Lf+59/zLpr3F4bZKpYmyF6cNpnJSPlxF0A==}
+    peerDependencies:
+      react: '>=19'
+
+  '@hanzogui/start-transition@8.2.0':
+    resolution: {integrity: sha512-S1IDdWl3F/W3W/spEbg6/06qjs0zt2F5LrVYkK0BYOy9v0n0S3CwKSTYAmJuKqvt7bYLH2wfH4vzWUB6HK21wQ==}
+    peerDependencies:
+      react: '>=19'
+
+  '@hanzogui/switch-headless@8.2.0':
+    resolution: {integrity: sha512-0dcIHZ1jevFA7EHVF4aY+/bAy7xxEo6gG1+PsW34SZLnxyK1XAwjJYHLM8CPZT73xWOidsRWk1zth5vzrRxP6Q==}
+    peerDependencies:
+      react: '>=19'
+
+  '@hanzogui/switch@8.2.0':
+    resolution: {integrity: sha512-B8d4iKk9rlJ+PoPs85gHURs3Okx4S+NiA291TlmDlJj9/2y+wdju9mhCaU8evCXkPViALv8CkJvcUuQRjAYhfQ==}
+    peerDependencies:
+      react: '>=19'
+
+  '@hanzogui/tabs@8.2.0':
+    resolution: {integrity: sha512-kA2LbZ58cmebqyNmof1pUNeguIL22bde9gDwAlfUsV/4GOR8NKFkP9DgcNlsxpWuuPb2yGoj4uR7NiPWj/8hgA==}
+    peerDependencies:
+      react: '>=19'
+
+  '@hanzogui/telemetry@8.2.0':
+    resolution: {integrity: sha512-4jjVDGxf7bCC8Jrv0YgJUTlIks2CbZiusRIBHdU38Fme3NJb5aVaMaczGwvHFTMiLXO7EYOrWxRU8hXkeYWHsw==}
     peerDependencies:
       react: '>=18'
 
-  '@hanzogui/text@8.1.1':
-    resolution: {integrity: sha512-Nm5VY523YQ3sTCn5ZsAneck/uCX7qy3PTaP9BPM4tT3gpYn2+5j5+HOnUucLE2S4KevMAUZBSD2ZI4aL++gjhw==}
+  '@hanzogui/text@8.2.0':
+    resolution: {integrity: sha512-KUK6CQS/Wu576ayCUyeVz825PDFEZ4sG5uMKZN7iIflkSsTPsj6IFjb/mX3YvisCObaWcAldmZfhhPSdoEqPXw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/theme-builder@8.1.1':
-    resolution: {integrity: sha512-+BsSFCdmDGLjBNaJ15k+lauwfyPp5+qqeNKt6h3D8O6PFNEWpK53moFb5/gfrFqSup+9v0FxGa4GC+imqcPR2A==}
+  '@hanzogui/theme-builder@8.2.0':
+    resolution: {integrity: sha512-1peDMQ9BjEl3wi5XdyQeT8UNCyKpKHvr9wfHD3iu/LwuW6hOTuFPQf8KDpIiyPkgQMz/mBQbir+VY3FF6U07Hg==}
 
-  '@hanzogui/theme@8.1.1':
-    resolution: {integrity: sha512-c07UpwvltOuolZPc+Qxj4etzQ82XyO36JHcI4qGZP+UWTbS5r9B0CT8TY7BZswzZUqmw9qwnlvuMlVpEgO30QQ==}
+  '@hanzogui/theme@8.2.0':
+    resolution: {integrity: sha512-lgOIl1mrFZ7TLYMiE0S+6Ug0cR+aSTGZIupfocNQuGCxWk2DGRKGlkOMnuLSPEflqeObRJLQRGl70dlekPAOaw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/themes@8.1.1':
-    resolution: {integrity: sha512-4FgY7aSCCaB7Q5GxoJD3p28t3vHx8+OQVmQxok5FwaVyKFHtpiPjzjObVmRprUERoCaccs5DJGVVU0palBo18g==}
+  '@hanzogui/themes@8.2.0':
+    resolution: {integrity: sha512-ZszLD8R0mzQ4oq13iInMLQ3rlLc14Tgx7Rj9phwaRh/fiwB7JhyKby8AmsvrcAxYl2jSwDjYETkJ+xKykkg7Jg==}
 
-  '@hanzogui/timer@8.1.1':
-    resolution: {integrity: sha512-32eErR10n/nt34dI5xQCvMoBBsHMAOk+zfS84A2cWGkBbqhx8QPlNIzCXoGJgFVYaJFO+szxI4Y9NPPahgSaMA==}
+  '@hanzogui/timer@8.2.0':
+    resolution: {integrity: sha512-MUGNvNGZGIK2BgC98sGbwUFHRKqMLDzHFFdojS96kb8T/sS2DbbFg1RBukjOlbzz9NEL8FPyGUmtfsyaif5OIA==}
 
-  '@hanzogui/toast@8.1.1':
-    resolution: {integrity: sha512-nkJv7tS4914+vnPCKJ03yQjtexWx95pvyzIgA+oMRjl1AdvFJJ1AQvTgZ6xYhZOwD4GYeLBVilSq2AJKzdyvEw==}
+  '@hanzogui/toast@8.2.0':
+    resolution: {integrity: sha512-HD74q1+HuP8X0UoDnnb/5u8XN26CBjflga11SlW32kzHcpvEUM8VULbFgvjy8wBgPHar+1rLPxCoEEE+zweJbQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/toggle-group@8.1.1':
-    resolution: {integrity: sha512-J/cbKBlxtpfQxKSQdNwsB/ixoCnPCnUGTiADBggMMHXyZm2qmAOc6JrbexHGzcQ72VyQgvBQ89PnnaZbu60rbQ==}
+  '@hanzogui/toggle-group@8.2.0':
+    resolution: {integrity: sha512-T+x9ZviGHrOL1T2cQxmz6yoWn7qEVQUXTiLpGEuZ0HbqxUEVybrBDv5ayKdZiC/fizMeGyB0+JY1Qp/zVVVOUw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/tooltip@8.1.1':
-    resolution: {integrity: sha512-BwiT8ie85F8JO6Iq+2JoPetT0D4dibB8udIvV4nuNsVib19K66m0xtyvEj/ygJXTEORIhL6JTrHmv5TGW9ZFww==}
+  '@hanzogui/tooltip@8.2.0':
+    resolution: {integrity: sha512-rrRPEXlu/tYuGFZmK+rA0/JxfUV+8lx80jZJODkMU+j+U5x4hBYffeTzpDL/7qYn1hNzYpmpklG0d5Y9RedKzQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/types@8.1.1':
-    resolution: {integrity: sha512-BpVyhCxTQ6nroHyYFZA9On3Fl9uhBZCaqgF5n9SMh/mgmfC9+oqcyhNN2lBTx72uoETiyzc6w6tGamHajG0Dtw==}
+  '@hanzogui/types@8.2.0':
+    resolution: {integrity: sha512-Fc+gSvjbTxh+ihC17JaKfbo2JP8a56wV1G98PhDT7JsC+xVVOgnvr5AqqdmwJ+6a1DyxDqVWjzxYhmntrOZwWQ==}
 
-  '@hanzogui/use-async@8.1.1':
-    resolution: {integrity: sha512-FDdocO58EMlFIG1uQYaDQb4tRemzDn4H4NNTRrcOG1s/AAJhTOdaPrB1GNrn4CTMeEwcP6SzX1unvAkdcv7F1Q==}
+  '@hanzogui/use-async@8.2.0':
+    resolution: {integrity: sha512-PQW8Of3oieoVh+biTOEKqXIcjPZotvCc9KOMJm9GvEM6fHmIKi1ftkpKExh22vP6u0c4G3Fx0/f2ZZJCOB0Srw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-callback-ref@8.1.1':
-    resolution: {integrity: sha512-jmUp1XP2dG54w9OxxQuO2768btEh3mTzLCMrGhOk7rMu913hPAIl3NBkBj9XqP6Aef4ToKiAJSuG5LEfzJ3NXA==}
+  '@hanzogui/use-callback-ref@8.2.0':
+    resolution: {integrity: sha512-DCl32d8Cbp5saW4aDQuOPmx/oiRxdi9+cbME20S9AX8XflzVPDpRUJP1XoJtwzRQh2CBWaEWjzWOK8vck4xDdw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-constant@8.1.1':
-    resolution: {integrity: sha512-tC0GOpwY7v56G9PB7kVAwFdxn7UKmcONmScb/YgPoaxgehvNUwmDrR/iRiGxwwwi84r4bchS1hO2aVpQBrv7rg==}
+  '@hanzogui/use-constant@8.2.0':
+    resolution: {integrity: sha512-EtC+VTbu9d6Uocp6SSIP1ZuWmHeZm/6mMVP2+HXxjsIBLb8fktTt2tXzyRDPkPFQMKHTjDOvOEiUOaZvYSUJiQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-controllable-state@8.1.1':
-    resolution: {integrity: sha512-dn5iX4PLOqa6/zumGayg/Wx9jb5e1AFtRTiFuOS3gjutyvAuNbnEqtIwFkddEHtXvOs1hYHec/GmnGP0rAM7lw==}
+  '@hanzogui/use-controllable-state@8.2.0':
+    resolution: {integrity: sha512-7D5xBoCzcqgru5yJqe7Acv3Ma6lWIeiLqYTFd1DmFb21MOoW6/frHTd2P1tyhKCXeDVE5dq2UijojKO9xKE5jQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-debounce@8.1.1':
-    resolution: {integrity: sha512-2aW06L8Pbe/aW3d7ZMmVtBW/H5VWJY4TTEINvfCFbeJuERM8gV34WOSrIdaEaXEcwS8bHR33wkpJ0oXx/+ezcg==}
+  '@hanzogui/use-debounce@8.2.0':
+    resolution: {integrity: sha512-2JAecDqF3lrPltbGx8Zhr+L/715mhbqkITn74whgakgL2zsxH3rPik58wXVMqGVaJOzwnHac4nYd+3fj6Fovrg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-did-finish-ssr@8.1.1':
-    resolution: {integrity: sha512-wKVYOCME75V65pq4+zVivNw0yojtLvdt6xHqJeydgiJwrCCXpj3QSO+DE4+l6l6GqogcHIv65T9B8FD3dOX9JA==}
+  '@hanzogui/use-did-finish-ssr@8.2.0':
+    resolution: {integrity: sha512-b4l1L8jbuwQdHmhfXkddWU7MbXG8Sn+oMRzaEWEOz2qGE4AejxOcvcIEuDo7/iXJue2bbgPomCAvW/CQyel8sg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-direction@8.1.1':
-    resolution: {integrity: sha512-ahVftcBzjOTYCeWreraxwOvT5pw7y2EiAWAEm50Vc3uRlfsRTTJfWqg1c5jhKUqHGdoEiEirY/UdzdU5JfvIHw==}
+  '@hanzogui/use-direction@8.2.0':
+    resolution: {integrity: sha512-fzDMr1g8/gxqWAELIEqXxFzG8nAUSw2KTKlx14MqzSN6yN8AWZQpUjvieWvvRsqYDNPnSXjyoc0B3V0GX08sTg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-element-layout@8.1.1':
-    resolution: {integrity: sha512-ZcuS1QgX6Xk4/hWxhgDNskc2e9awxlKpsSu3TfQavX3dSoteunpTRaofpt42yJTLYlQwfOJBA2cpjeqPB0vIyA==}
+  '@hanzogui/use-element-layout@8.2.0':
+    resolution: {integrity: sha512-mnr/4j0ZD3w8v7s7lGn39jyXMxaqasJOjFUtjiJNAgq88pzVvFaVeeKOIZCgsq2vcK/wf/ZhVC07FhTcTMFk+Q==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-escape-keydown@8.1.1':
-    resolution: {integrity: sha512-n7iE8eiYF7CvdVSRaPSVH9yUs3sDgbTiHsLAv041pjdqSmJ35drb+rLNwLehvitsK0NlhgZn85Cm3J3C/6lgWw==}
+  '@hanzogui/use-escape-keydown@8.2.0':
+    resolution: {integrity: sha512-zH322/Iqv4k3/GWsOvnqHC1vrhiXJGQNPb8QfVVeoz7Bpxx0oCZwAJ2vNmlU86Mp+7b8A5OlZdTO5i6KX+MeSw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-event@8.1.1':
-    resolution: {integrity: sha512-yaqXwGLScnGqd/sYlX3c8usF0ZA0945VMQ/20lYEuiS63LCCZWoGGOYU1/nODnijiK3AZngdEgAX5u6uEQTprA==}
+  '@hanzogui/use-event@8.2.0':
+    resolution: {integrity: sha512-pWPqX/rku/8WT5/9g4AoBltUN9oXYXPO92u2GUiF637tqxGVUlxuxW/ArsmmYidPbdnI+nehCRWTc/26x+uG2Q==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-force-update@8.1.1':
-    resolution: {integrity: sha512-L7QB18nBBG7DX8y5GPYEuZ4eFYoXcQTbeXllQEwMo9hxj2vzfoTpT/aMzGZQHbZkG+VtadrO6fl11QWmQTfDyw==}
+  '@hanzogui/use-force-update@8.2.0':
+    resolution: {integrity: sha512-KhZFQ2VV1yFOxA1atWtshprL8xARFxWgp+h5q/btsBj0diPhAJB9yfgCkPM1x3nNAzeJt2IFECYVt3cCQGffYQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-keyboard-visible@8.1.1':
-    resolution: {integrity: sha512-7HAp2or4qyljFTeY8+7zdMCfHWI4aB4V1njImmazfN03DMhdq+/4h0RgBhnrJJEG7YZ5S2p+8AF2IM5dtVFiBA==}
+  '@hanzogui/use-keyboard-visible@8.2.0':
+    resolution: {integrity: sha512-BqGV70h477DMZQlViTgAD7MxH0ObUdVhsawOGTThXIvWuDQUBQldmlPVHQ89c0RVFf9KQa2W3Dk8gOsBBd/aaQ==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-presence@8.1.1':
-    resolution: {integrity: sha512-n2KXD/iVoKYmwdMSrTs4lKrLnQn+NlXXOxNFRRluUJ6vc1oiuezbmDNmnOF4tJ+sufSYdptbfSETKxJ70ThjNA==}
+  '@hanzogui/use-presence@8.2.0':
+    resolution: {integrity: sha512-I6DNYBgxNbx7JvaLpJPA32OyfgrxpeJWgvffRxwb5H5NFzuNhrXNFJDZGKWeZGGK786A4a0PCG5hvXQDimr2Bw==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-previous@8.1.1':
-    resolution: {integrity: sha512-6VudpFgneip/HDMQsA+14TRwH5PhDeWS40hy/tt3S7v8h20fJlIfWdzO3O2g3Fb5NCYCTUQ8QDqP0D+P6VGXcg==}
+  '@hanzogui/use-previous@8.2.0':
+    resolution: {integrity: sha512-ZUBrlb4o0O7hBf2oksrbe5+u7QWBZQnRzdRN3q2nH9Fq6WwbI9ByBkYQkVfbdDMmFYqiFInQwULBZMBSr6PJmg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/use-window-dimensions@8.1.1':
-    resolution: {integrity: sha512-zJoMqU4zc6dgEGAgoosAHogQ7mO7rCKqxfYdbOOh9rYB3zyWPfe+TEBS7N16JTWq/IiN/PCAe111IsjJWDFaeA==}
+  '@hanzogui/use-window-dimensions@8.2.0':
+    resolution: {integrity: sha512-Rr23iyojk+HEJKMH1d0t6E8NJLVAImOfrwMc+34M0G2PUZmLMUFeNK/cFpRVZazn7I4/mpdyBnVYE1gSnOoqVA==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/visually-hidden@8.1.1':
-    resolution: {integrity: sha512-pIVCeIeAHlq55xUQuCHnXtsteUbZKP5PtZu7cBsldXyfFW0Yv/TLz3aoDUncG4YXvv6KBwc63Esj74zrvtCCEA==}
+  '@hanzogui/visually-hidden@8.2.0':
+    resolution: {integrity: sha512-6hj4G/9TOKEwFTi9Ty2non7q3q62Wf7YfbyAxoruKfOz+rmUalcul4gLQNMhtXRGcou/X5Pr/rPc08Xf7/11jg==}
     peerDependencies:
       react: '>=19'
 
-  '@hanzogui/web@8.1.1':
-    resolution: {integrity: sha512-lDDlka0lwuKZ6LmznENFluBQUjD3kF+PkP8RsrA241IXsYJCnDqZE4KPTHM0jRnJr7949a0kbFPCDT5N94N6UA==}
+  '@hanzogui/web@8.2.0':
+    resolution: {integrity: sha512-m5GCYgCUp8Dlkdi1DTK/qcX0fzE8YwGyDumypXVdilbCngg4YPLfTHqvX23aISRXT1dkYGkfEH/W3TXyJmsLuQ==}
     peerDependencies:
       react: '>=19'
       react-dom: '*'
 
-  '@hanzogui/z-index-stack@8.1.1':
-    resolution: {integrity: sha512-qpsiX4LelHFGXI8Dwjn5NcP6Q4xsSyfYxL5OrkfjQ1T4jtcf8b8R1LyQl/y/wxAKT6IDGAln3pJyvDuI6oI4uA==}
+  '@hanzogui/z-index-stack@8.2.0':
+    resolution: {integrity: sha512-EWx0roBR0xMyqwuhbeOStQZpru7sAg+dpiGnmELaueUVY/5f8pQwSFgyd43ua3mAD4bimyXdQXvG4GdjSoB6sw==}
     peerDependencies:
       react: '>=19'
 
@@ -3002,9 +2996,9 @@ snapshots:
     optionalDependencies:
       react: 19.2.8
 
-  '@hanzo/data@1.2.2(@hanzo/gui@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)':
+  '@hanzo/data@1.2.2(@hanzo/gui@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzo/gui': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzo/gui': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
       react: 19.2.8
 
   '@hanzo/design@0.5.18': {}
@@ -3027,73 +3021,73 @@ snapshots:
     dependencies:
       next: 15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
-  '@hanzo/gui@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+  '@hanzo/gui@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/accordion': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/adapt': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/alert-dialog': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animate': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animate-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/avatar': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/button': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/card': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/checkbox': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/collapsible': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/component-helpers': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/context-menu': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/create-menu': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/dialog': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/element': 8.1.1(react@19.2.8)
-      '@hanzogui/elements': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/fake-react-native': 8.1.1
-      '@hanzogui/focusable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/font-size': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/form': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-button-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-font-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/group': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/image': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/input': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/label': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/linear-gradient': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/list-item': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/menu': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/popover': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/popper': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/portal': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/progress': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/radio-group': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/react-native-media-driver': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/scroll-view': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/select': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/separator': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/shapes': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/sheet': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/slider': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/spacer': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/spinner': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/switch': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/tabs': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/telemetry': 8.1.1(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/theme': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/toast': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/toggle-group': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/tooltip': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-debounce': 8.1.1(react@19.2.8)
-      '@hanzogui/use-force-update': 8.1.1(react@19.2.8)
-      '@hanzogui/use-window-dimensions': 8.1.1(react@19.2.8)
-      '@hanzogui/visually-hidden': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/z-index-stack': 8.1.1(react@19.2.8)
+      '@hanzogui/accordion': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/adapt': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/alert-dialog': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/avatar': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/button': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/card': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/checkbox': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/collapsible': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/component-helpers': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/context-menu': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/create-menu': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/dialog': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/element': 8.2.0(react@19.2.8)
+      '@hanzogui/elements': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/fake-react-native': 8.2.0
+      '@hanzogui/focusable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/font-size': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/form': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-button-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-font-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/group': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/image': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/input': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/label': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/linear-gradient': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/list-item': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/menu': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/popover': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/popper': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/portal': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/progress': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/radio-group': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/react-native-media-driver': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/scroll-view': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/select': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/separator': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/shapes': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/sheet': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/slider': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/spacer': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/spinner': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/switch': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/tabs': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/telemetry': 8.2.0(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/theme': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/toast': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/toggle-group': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/tooltip': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-debounce': 8.2.0(react@19.2.8)
+      '@hanzogui/use-force-update': 8.2.0(react@19.2.8)
+      '@hanzogui/use-window-dimensions': 8.2.0(react@19.2.8)
+      '@hanzogui/visually-hidden': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/z-index-stack': 8.2.0(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
@@ -3109,1192 +3103,1176 @@ snapshots:
     optionalDependencies:
       react: 19.2.8
 
-  '@hanzo/products@0.2.0(@hanzogui/lucide-icons-2@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8))(react@19.2.8)':
+  '@hanzo/products@0.2.0(@hanzogui/lucide-icons-2@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8))(react@19.2.8)':
     optionalDependencies:
-      '@hanzogui/lucide-icons-2': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
+      '@hanzogui/lucide-icons-2': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
       react: 19.2.8
 
-  '@hanzo/ui@8.3.4(8fb68f3eef5e38556fd069834cda3f08)':
+  '@hanzo/ui@8.3.4(92bda99b593848ca558a8d39d142a4eb)':
     dependencies:
       '@hanzo/appearance': 0.2.2(react@19.2.8)
       '@hanzo/brand': 1.4.6(react@19.2.8)
-      '@hanzo/data': 1.2.2(@hanzo/gui@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
+      '@hanzo/data': 1.2.2(@hanzo/gui@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
       '@hanzo/design': 0.5.21
       '@hanzo/font': 1.8.2(next@15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
-      '@hanzo/gui': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzo/gui': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
       '@hanzo/logo': 1.0.14(react@19.2.8)
-      '@hanzo/products': 0.2.0(@hanzogui/lucide-icons-2@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animations-css': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/config': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
-      '@hanzogui/lucide-icons-2': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
-      '@hanzogui/telemetry': 8.1.1(react@19.2.8)
-      '@hanzogui/toast': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzo/products': 0.2.0(@hanzogui/lucide-icons-2@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animations-css': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/config': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
+      '@hanzogui/lucide-icons-2': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
+      '@hanzogui/telemetry': 8.2.0(react@19.2.8)
+      '@hanzogui/toast': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       clsx: 2.1.1
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
     optionalDependencies:
-      '@hanzogui/next-theme': 8.1.1(next@15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
+      '@hanzogui/next-theme': 8.2.0(next@15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
       next: 15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       next-themes: 0.4.6(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react-native-web: 0.21.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
-  '@hanzogui/accordion@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/accordion@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/collapsible': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/collection': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-direction': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/collapsible': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/collection': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-direction': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/adapt@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/adapt@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/native': 8.1.1(react@19.2.8)
-      '@hanzogui/portal': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/z-index-stack': 8.1.1(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/native': 8.2.0(react@19.2.8)
+      '@hanzogui/portal': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/z-index-stack': 8.2.0(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/alert-dialog@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/alert-dialog@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/animate-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/dialog': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/dismissable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/focus-scope': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/portal': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/remove-scroll': 8.1.1(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/dialog': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/dismissable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/focus-scope': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/portal': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/remove-scroll': 8.2.0(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/animate-presence@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/animate-presence@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/use-constant': 8.1.1(react@19.2.8)
-      '@hanzogui/use-force-update': 8.1.1(react@19.2.8)
-      '@hanzogui/use-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/use-constant': 8.2.0(react@19.2.8)
+      '@hanzogui/use-force-update': 8.2.0(react@19.2.8)
+      '@hanzogui/use-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/animate@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/animate@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/animate-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/animation-helpers@8.1.1': {}
+  '@hanzogui/animation-helpers@8.2.0': {}
 
-  '@hanzogui/animations-css@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/animations-css@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/animation-helpers': 8.1.1
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/cubic-bezier-animator': 8.1.1
-      '@hanzogui/use-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animation-helpers': 8.2.0
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/cubic-bezier-animator': 8.2.0
+      '@hanzogui/use-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
-  '@hanzogui/animations-motion@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/animations-motion@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/animation-helpers': 8.1.1
-      '@hanzogui/use-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animation-helpers': 8.2.0
+      '@hanzogui/use-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       motion: 12.43.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
       - react-dom
 
-  '@hanzogui/animations-react-native@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/animations-react-native@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/animation-helpers': 8.1.1
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/use-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animation-helpers': 8.2.0
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/use-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/animations-reanimated@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/animations-reanimated@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/animation-helpers': 8.1.1
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animation-helpers': 8.2.0
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@react-native/normalize-colors': 0.83.2
       react: 19.2.8
       react-native-reanimated: 4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/avatar@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/avatar@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/image': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/shapes': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/image': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/shapes': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/button@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/button@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/component-helpers': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/config-default': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/font-size': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-button-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/spacer': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/component-helpers': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/config-default': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/font-size': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-button-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/spacer': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/card@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/card@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/checkbox-headless@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/checkbox-headless@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/focusable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/label': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-previous': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/focusable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/label': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-previous': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/checkbox@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/checkbox@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/checkbox-headless': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/component-helpers': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/focusable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/font-size': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/label': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-previous': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/checkbox-headless': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/component-helpers': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/focusable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/font-size': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/label': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-previous': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/collapsible@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/collapsible@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/animate-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/collection@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/collection@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/colors@8.1.1': {}
+  '@hanzogui/colors@8.2.0': {}
 
-  '@hanzogui/component-helpers@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/component-helpers@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/compose-refs@8.1.1(react@19.2.8)':
+  '@hanzogui/compose-refs@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/config-default@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/config-default@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/animations-css': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animations-react-native': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/font-geist': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/shorthands': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animations-css': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animations-react-native': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/font-zen': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/shorthands': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@hanzogui/config@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/config@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/animations-css': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animations-motion': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animations-react-native': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animations-reanimated': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
-      '@hanzogui/colors': 8.1.1
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/font-geist': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/font-inter': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/font-silkscreen': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/react-native-media-driver': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/shorthands': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/theme-builder': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/themes': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animations-css': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animations-motion': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animations-react-native': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animations-reanimated': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-reanimated@4.5.3(react-native-worklets@0.11.3(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)
+      '@hanzogui/colors': 8.2.0
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/font-zen': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/react-native-media-driver': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/shorthands': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/theme-builder': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/themes': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
       - react
       - react-dom
       - react-native-reanimated
 
-  '@hanzogui/constants@8.1.1(react@19.2.8)':
+  '@hanzogui/constants@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/context-menu@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/context-menu@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-menu': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/popover': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-callback-ref': 8.1.1(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      react: 19.2.8
-    transitivePeerDependencies:
-      - react-dom
-      - react-native
-
-  '@hanzogui/core@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/react-native-media-driver': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/react-native-use-pressable': 8.1.1(react@19.2.8)
-      '@hanzogui/use-element-layout': 8.1.1(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      react: 19.2.8
-    transitivePeerDependencies:
-      - react-dom
-
-  '@hanzogui/create-context@8.1.1(react@19.2.8)':
-    dependencies:
-      react: 19.2.8
-
-  '@hanzogui/create-menu@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@hanzogui/animate': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animate-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/collection': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/dismissable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/focus-guard': 8.1.1(react@19.2.8)
-      '@hanzogui/focus-scope': 8.1.1(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/image': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/native': 8.1.1(react@19.2.8)
-      '@hanzogui/popover': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/popper': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/portal': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/remove-scroll': 8.1.1(react@19.2.8)
-      '@hanzogui/roving-focus': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-callback-ref': 8.1.1(react@19.2.8)
-      '@hanzogui/use-direction': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-menu': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/popover': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-callback-ref': 8.2.0(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
       - react-native
 
-  '@hanzogui/create-theme@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/core@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/react-native-media-driver': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/react-native-use-pressable': 8.2.0(react@19.2.8)
+      '@hanzogui/use-element-layout': 8.2.0(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
+    transitivePeerDependencies:
+      - react-dom
+
+  '@hanzogui/create-context@8.2.0(react@19.2.8)':
+    dependencies:
+      react: 19.2.8
+
+  '@hanzogui/create-menu@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@hanzogui/animate': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/collection': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/dismissable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/focus-guard': 8.2.0(react@19.2.8)
+      '@hanzogui/focus-scope': 8.2.0(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/image': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/native': 8.2.0(react@19.2.8)
+      '@hanzogui/popover': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/popper': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/portal': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/remove-scroll': 8.2.0(react@19.2.8)
+      '@hanzogui/roving-focus': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-callback-ref': 8.2.0(react@19.2.8)
+      '@hanzogui/use-direction': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
+    transitivePeerDependencies:
+      - react-dom
+      - react-native
+
+  '@hanzogui/create-theme@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@hanzogui/cubic-bezier-animator@8.1.1': {}
+  '@hanzogui/cubic-bezier-animator@8.2.0': {}
 
-  '@hanzogui/dialog@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/dialog@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/adapt': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animate': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animate-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/dismissable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/focus-scope': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/portal': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/remove-scroll': 8.1.1(react@19.2.8)
-      '@hanzogui/sheet': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/z-index-stack': 8.1.1(react@19.2.8)
+      '@hanzogui/adapt': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/dismissable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/focus-scope': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/portal': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/remove-scroll': 8.2.0(react@19.2.8)
+      '@hanzogui/sheet': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/z-index-stack': 8.2.0(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/dismissable@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/dismissable@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/use-escape-keydown': 8.1.1(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/use-escape-keydown': 8.2.0(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
-  '@hanzogui/element@8.1.1(react@19.2.8)':
+  '@hanzogui/element@8.2.0(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
       react: 19.2.8
 
-  '@hanzogui/elements@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/elements@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/fake-react-native@8.1.1': {}
+  '@hanzogui/fake-react-native@8.2.0': {}
 
-  '@hanzogui/floating@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/floating@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@floating-ui/react-dom': 2.1.9(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@floating-ui/react-native': 0.10.10(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
       - react-native
 
-  '@hanzogui/focus-guard@8.1.1(react@19.2.8)':
+  '@hanzogui/focus-guard@8.2.0(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
       react: 19.2.8
 
-  '@hanzogui/focus-scope@8.1.1(react@19.2.8)':
+  '@hanzogui/focus-scope@8.2.0(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/start-transition': 8.1.1(react@19.2.8)
-      '@hanzogui/use-async': 8.1.1(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/start-transition': 8.2.0(react@19.2.8)
+      '@hanzogui/use-async': 8.2.0(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
       react: 19.2.8
 
-  '@hanzogui/focusable@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/focusable@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/font-geist@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/font-size@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
     transitivePeerDependencies:
-      - react
       - react-dom
 
-  '@hanzogui/font-inter@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/font-zen@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-    transitivePeerDependencies:
-      - react
-      - react-dom
-
-  '@hanzogui/font-silkscreen@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@hanzogui/font-size@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/form@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/form@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/get-button-sized@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/get-button-sized@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/get-font-sized@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/get-font-sized@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/get-token@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/get-token@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/group@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/spacer': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/group@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/helpers-icon@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/spacer': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/sizable-context': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/helpers-icon@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/helpers@8.2.0(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/sizable-context': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/simple-hash': 8.2.0
+      react: 19.2.8
+
+  '@hanzogui/image@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/helpers@8.1.1(react@19.2.8)':
+  '@hanzogui/input@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/simple-hash': 8.1.1
-      react: 19.2.8
-
-  '@hanzogui/image@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      react: 19.2.8
-    transitivePeerDependencies:
-      - react-dom
-
-  '@hanzogui/input@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@hanzogui/component-helpers': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/element': 8.1.1(react@19.2.8)
-      '@hanzogui/focusable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/font-size': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-button-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-font-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/component-helpers': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/element': 8.2.0(react@19.2.8)
+      '@hanzogui/focusable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/font-size': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-button-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-font-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/is-equal-shallow@8.1.1(react@19.2.8)':
+  '@hanzogui/is-equal-shallow@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/label@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/label@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/focusable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-button-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-font-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      react: 19.2.8
-    transitivePeerDependencies:
-      - react-dom
-
-  '@hanzogui/linear-gradient@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/native': 8.1.1(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/focusable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-button-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-font-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/list-item@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/linear-gradient@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/component-helpers': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/font-size': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-font-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/native': 8.2.0(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/lucide-icons-2@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/list-item@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers-icon': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/component-helpers': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/font-size': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-font-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
+    transitivePeerDependencies:
+      - react-dom
+
+  '@hanzogui/lucide-icons-2@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers-icon': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
       react-native-svg: 15.15.5(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/menu@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/menu@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-menu': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/popover': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/popper': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/scroll-view': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-menu': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/popover': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/popper': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/scroll-view': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
       - react-native
 
-  '@hanzogui/native@8.1.1(react@19.2.8)':
+  '@hanzogui/native@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/next-theme@8.1.1(next@15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/next-theme@8.2.0(next@15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
       next: 15.5.22(@babel/core@7.29.7)(@playwright/test@1.62.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
 
-  '@hanzogui/normalize-css-color@8.1.1':
+  '@hanzogui/normalize-css-color@8.2.0':
     dependencies:
       '@react-native/normalize-color': 2.1.0
 
-  '@hanzogui/polyfill-dev@8.1.1': {}
+  '@hanzogui/polyfill-dev@8.2.0': {}
 
-  '@hanzogui/popover@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/popover@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/adapt': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animate': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animate-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/dismissable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/floating': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/focus-scope': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/popper': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/portal': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/remove-scroll': 8.1.1(react@19.2.8)
-      '@hanzogui/scroll-view': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/sheet': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/z-index-stack': 8.1.1(react@19.2.8)
+      '@hanzogui/adapt': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/dismissable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/floating': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/focus-scope': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/popper': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/portal': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/remove-scroll': 8.2.0(react@19.2.8)
+      '@hanzogui/scroll-view': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/sheet': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/z-index-stack': 8.2.0(react@19.2.8)
       react: 19.2.8
       react-freeze: 1.0.4(react@19.2.8)
     transitivePeerDependencies:
       - react-dom
       - react-native
 
-  '@hanzogui/popper@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/popper@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/floating': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/start-transition': 8.1.1(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/floating': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/start-transition': 8.2.0(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
       - react-native
 
-  '@hanzogui/portal@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/portal@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/native': 8.1.1(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/start-transition': 8.1.1(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/z-index-stack': 8.1.1(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/native': 8.2.0(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/start-transition': 8.2.0(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/z-index-stack': 8.2.0(react@19.2.8)
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
-  '@hanzogui/progress@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/progress@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/radio-group@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/radio-group@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/focusable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/label': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/radio-headless': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/roving-focus': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-previous': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/focusable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/label': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/radio-headless': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/roving-focus': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-previous': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/radio-headless@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/radio-headless@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/focusable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/label': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-previous': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/focusable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/label': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-previous': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/react-native-media-driver@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/react-native-media-driver@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@hanzogui/react-native-use-pressable@8.1.1(react@19.2.8)':
+  '@hanzogui/react-native-use-pressable@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/remove-scroll@8.1.1(react@19.2.8)':
+  '@hanzogui/remove-scroll@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/roving-focus@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/roving-focus@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/collection': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-direction': 8.1.1(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      react: 19.2.8
-    transitivePeerDependencies:
-      - react-dom
-
-  '@hanzogui/scroll-view@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/collection': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-direction': 8.2.0(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/select@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/scroll-view@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/adapt': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animate-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/dismissable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/floating': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/focus-scope': 8.1.1(react@19.2.8)
-      '@hanzogui/focusable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/list-item': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/native': 8.1.1(react@19.2.8)
-      '@hanzogui/portal': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/remove-scroll': 8.1.1(react@19.2.8)
-      '@hanzogui/separator': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/sheet': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/start-transition': 8.1.1(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-debounce': 8.1.1(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
-      '@hanzogui/use-previous': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/z-index-stack': 8.1.1(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
+    transitivePeerDependencies:
+      - react-dom
+
+  '@hanzogui/select@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@hanzogui/adapt': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/dismissable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/floating': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/focus-scope': 8.2.0(react@19.2.8)
+      '@hanzogui/focusable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/list-item': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/native': 8.2.0(react@19.2.8)
+      '@hanzogui/portal': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/remove-scroll': 8.2.0(react@19.2.8)
+      '@hanzogui/separator': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/sheet': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/start-transition': 8.2.0(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-debounce': 8.2.0(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
+      '@hanzogui/use-previous': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/z-index-stack': 8.2.0(react@19.2.8)
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
     transitivePeerDependencies:
       - react-native
 
-  '@hanzogui/separator@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/separator@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/shapes@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/shapes@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/sheet@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/sheet@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/adapt': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animate-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/animations-react-native': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/native': 8.1.1(react@19.2.8)
-      '@hanzogui/portal': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/remove-scroll': 8.1.1(react@19.2.8)
-      '@hanzogui/scroll-view': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-constant': 8.1.1(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-did-finish-ssr': 8.1.1(react@19.2.8)
-      '@hanzogui/use-keyboard-visible': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/z-index-stack': 8.1.1(react@19.2.8)
+      '@hanzogui/adapt': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animations-react-native': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/native': 8.2.0(react@19.2.8)
+      '@hanzogui/portal': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/remove-scroll': 8.2.0(react@19.2.8)
+      '@hanzogui/scroll-view': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-constant': 8.2.0(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-did-finish-ssr': 8.2.0(react@19.2.8)
+      '@hanzogui/use-keyboard-visible': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/z-index-stack': 8.2.0(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/shorthands@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/shorthands@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@hanzogui/simple-hash@8.1.1': {}
+  '@hanzogui/simple-hash@8.2.0': {}
 
-  '@hanzogui/sizable-context@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/sizable-context@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/slider@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/slider@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-debounce': 8.1.1(react@19.2.8)
-      '@hanzogui/use-direction': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-debounce': 8.2.0(react@19.2.8)
+      '@hanzogui/use-direction': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/spacer@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/spacer@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/spinner@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/spinner@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/stacks@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/stacks@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-button-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-button-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/start-transition@8.1.1(react@19.2.8)':
+  '@hanzogui/start-transition@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/switch-headless@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/switch-headless@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/label': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-previous': 8.1.1(react@19.2.8)
-      react: 19.2.8
-    transitivePeerDependencies:
-      - react-dom
-
-  '@hanzogui/switch@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/focusable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/label': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/switch-headless': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-previous': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/label': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-previous': 8.2.0(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/tabs@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/switch@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/element': 8.1.1(react@19.2.8)
-      '@hanzogui/get-button-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/group': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/roving-focus': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/sizable-context': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-direction': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/focusable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/label': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/switch-headless': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-previous': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/telemetry@8.1.1(react@19.2.8)':
+  '@hanzogui/tabs@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/element': 8.2.0(react@19.2.8)
+      '@hanzogui/get-button-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/group': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/roving-focus': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/sizable-context': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-direction': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
+    transitivePeerDependencies:
+      - react-dom
+
+  '@hanzogui/telemetry@8.2.0(react@19.2.8)':
     dependencies:
       '@hanzo/event': 0.3.36(react@19.2.8)
       '@hanzo/observe': 0.1.7(react@19.2.8)
       react: 19.2.8
 
-  '@hanzogui/text@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/text@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/component-helpers': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-font-sized': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/component-helpers': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-font-sized': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/theme-builder@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/theme-builder@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/create-theme': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-theme': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       color2k: 2.0.4
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@hanzogui/theme@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/theme@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/start-transition': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/start-transition': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/themes@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/themes@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/colors': 8.1.1
-      '@hanzogui/create-theme': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/theme-builder': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/colors': 8.2.0
+      '@hanzogui/create-theme': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/theme-builder': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       color2k: 2.0.4
     transitivePeerDependencies:
       - react
       - react-dom
 
-  '@hanzogui/timer@8.1.1': {}
+  '@hanzogui/timer@8.2.0': {}
 
-  '@hanzogui/toast@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/toast@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/animate-presence': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/collection': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/dismissable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/native': 8.1.1(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/portal': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/start-transition': 8.1.1(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/visually-hidden': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/animate-presence': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/collection': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/dismissable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/native': 8.2.0(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/portal': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/start-transition': 8.2.0(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/visually-hidden': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/toggle-group@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/toggle-group@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/component-helpers': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/focusable': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/font-size': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/roving-focus': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/sizable-context': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/use-direction': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/component-helpers': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/focusable': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/font-size': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/roving-focus': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/sizable-context': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/use-direction': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/tooltip@8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/tooltip@8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/core': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/create-context': 8.1.1(react@19.2.8)
-      '@hanzogui/floating': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/get-token': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/polyfill-dev': 8.1.1
-      '@hanzogui/popover': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/popper': 8.1.1(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
-      '@hanzogui/stacks': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/text': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@hanzogui/use-controllable-state': 8.1.1(react@19.2.8)
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/core': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/create-context': 8.2.0(react@19.2.8)
+      '@hanzogui/floating': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/get-token': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/polyfill-dev': 8.2.0
+      '@hanzogui/popover': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/popper': 8.2.0(react-dom@19.2.8(react@19.2.8))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@hanzogui/stacks': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/text': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/use-controllable-state': 8.2.0(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
       - react-native
 
-  '@hanzogui/types@8.1.1': {}
+  '@hanzogui/types@8.2.0': {}
 
-  '@hanzogui/use-async@8.1.1(react@19.2.8)':
+  '@hanzogui/use-async@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/use-callback-ref@8.1.1(react@19.2.8)':
+  '@hanzogui/use-callback-ref@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/use-constant@8.1.1(react@19.2.8)':
+  '@hanzogui/use-constant@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/use-controllable-state@8.1.1(react@19.2.8)':
+  '@hanzogui/use-controllable-state@8.2.0(react@19.2.8)':
     dependencies:
-      '@hanzogui/start-transition': 8.1.1(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
+      '@hanzogui/start-transition': 8.2.0(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
       react: 19.2.8
 
-  '@hanzogui/use-debounce@8.1.1(react@19.2.8)':
-    dependencies:
-      react: 19.2.8
-
-  '@hanzogui/use-did-finish-ssr@8.1.1(react@19.2.8)':
+  '@hanzogui/use-debounce@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/use-direction@8.1.1(react@19.2.8)':
+  '@hanzogui/use-did-finish-ssr@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/use-element-layout@8.1.1(react@19.2.8)':
-    dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/is-equal-shallow': 8.1.1(react@19.2.8)
-      react: 19.2.8
-
-  '@hanzogui/use-escape-keydown@8.1.1(react@19.2.8)':
-    dependencies:
-      '@hanzogui/use-callback-ref': 8.1.1(react@19.2.8)
-      react: 19.2.8
-
-  '@hanzogui/use-event@8.1.1(react@19.2.8)':
+  '@hanzogui/use-direction@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/use-force-update@8.1.1(react@19.2.8)':
+  '@hanzogui/use-element-layout@8.2.0(react@19.2.8)':
+    dependencies:
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/is-equal-shallow': 8.2.0(react@19.2.8)
+      react: 19.2.8
+
+  '@hanzogui/use-escape-keydown@8.2.0(react@19.2.8)':
+    dependencies:
+      '@hanzogui/use-callback-ref': 8.2.0(react@19.2.8)
+      react: 19.2.8
+
+  '@hanzogui/use-event@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/use-keyboard-visible@8.1.1(react@19.2.8)':
+  '@hanzogui/use-force-update@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/use-presence@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      react: 19.2.8
-    transitivePeerDependencies:
-      - react-dom
-
-  '@hanzogui/use-previous@8.1.1(react@19.2.8)':
+  '@hanzogui/use-keyboard-visible@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
-  '@hanzogui/use-window-dimensions@8.1.1(react@19.2.8)':
+  '@hanzogui/use-presence@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      react: 19.2.8
-
-  '@hanzogui/visually-hidden@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
-    dependencies:
-      '@hanzogui/web': 8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     transitivePeerDependencies:
       - react-dom
 
-  '@hanzogui/web@8.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@hanzogui/use-previous@8.2.0(react@19.2.8)':
     dependencies:
-      '@hanzogui/compose-refs': 8.1.1(react@19.2.8)
-      '@hanzogui/constants': 8.1.1(react@19.2.8)
-      '@hanzogui/helpers': 8.1.1(react@19.2.8)
-      '@hanzogui/is-equal-shallow': 8.1.1(react@19.2.8)
-      '@hanzogui/native': 8.1.1(react@19.2.8)
-      '@hanzogui/normalize-css-color': 8.1.1
-      '@hanzogui/timer': 8.1.1
-      '@hanzogui/types': 8.1.1
-      '@hanzogui/use-did-finish-ssr': 8.1.1(react@19.2.8)
-      '@hanzogui/use-event': 8.1.1(react@19.2.8)
-      '@hanzogui/use-force-update': 8.1.1(react@19.2.8)
+      react: 19.2.8
+
+  '@hanzogui/use-window-dimensions@8.2.0(react@19.2.8)':
+    dependencies:
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      react: 19.2.8
+
+  '@hanzogui/visually-hidden@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@hanzogui/web': 8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
+    transitivePeerDependencies:
+      - react-dom
+
+  '@hanzogui/web@8.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@hanzogui/compose-refs': 8.2.0(react@19.2.8)
+      '@hanzogui/constants': 8.2.0(react@19.2.8)
+      '@hanzogui/helpers': 8.2.0(react@19.2.8)
+      '@hanzogui/is-equal-shallow': 8.2.0(react@19.2.8)
+      '@hanzogui/native': 8.2.0(react@19.2.8)
+      '@hanzogui/normalize-css-color': 8.2.0
+      '@hanzogui/timer': 8.2.0
+      '@hanzogui/types': 8.2.0
+      '@hanzogui/use-did-finish-ssr': 8.2.0(react@19.2.8)
+      '@hanzogui/use-event': 8.2.0(react@19.2.8)
+      '@hanzogui/use-force-update': 8.2.0(react@19.2.8)
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
-  '@hanzogui/z-index-stack@8.1.1(react@19.2.8)':
+  '@hanzogui/z-index-stack@8.2.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
