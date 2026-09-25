@@ -170,8 +170,7 @@ export default function Contact() {
                 Corporate Headquarters
               </h4>
               <p className={cn("hz-t-sm", "hz-fg")}>
-                1824 S. Fairfax Ave<br />
-                Los Angeles, CA 90019<br />
+                San Francisco, CA<br />
                 United States
               </p>
             </div>

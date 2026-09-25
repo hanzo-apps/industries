@@ -102,7 +102,7 @@ const pressReleases = [
   {
     date: "2016",
     title: "Hanzo Industries Founded",
-    description: "Hanzo AI Inc founded in Los Angeles to build frontier AI infrastructure and enterprise AI solutions.",
+    description: "Hanzo AI Inc founded to build frontier AI infrastructure and enterprise AI solutions.",
     type: "Milestone",
   },
 ];
@@ -176,7 +176,7 @@ export default function PageClient() {
             </div>
             <div className="hz-mw-lg">
               <p className={cn("hz-t-lg hz-leading-relaxed hz-mb-4", "hz-fg")}>
-                <strong>Hanzo AI Inc</strong> (Techstars '17) is a frontier AI research lab building next-generation AI infrastructure. Founded in 2016 in Los Angeles, Hanzo develops large language models, AI training frameworks, and enterprise AI platforms.
+                <strong>Hanzo AI Inc</strong> (Techstars '17) is a frontier AI research lab building next-generation AI infrastructure. Founded in 2016 and based in San Francisco, Hanzo develops large language models, AI training frameworks, and enterprise AI platforms.
               </p>
               <p className={cn("hz-t-lg hz-leading-relaxed hz-mb-4", "hz-fg")}>
                 Our research spans efficient model training (Training-Free GRPO, ASO), post-quantum cryptography, fully homomorphic encryption, and decentralized AI infrastructure. We publish open research and release open-source AI models through the Zen LM family.
@@ -216,7 +216,7 @@ export default function PageClient() {
                 <h3 className="hz-w-semibold hz-mb-4">Headquarters</h3>
                 <div className={cn("hz-stack-1", "hz-fg")}>
                   <p className={cn("hz-w-medium", "hz-fg")}>Hanzo AI Inc</p>
-                  <p>Los Angeles, California</p>
+                  <p>San Francisco, California</p>
                   <p>United States</p>
                 </div>
               </div>
@@ -444,7 +444,8 @@ export default function PageClient() {
               <div className={cn("hz-p-5 hz-r-lg hz-bordered", "hz-bg-surface")}>
                 <h3 className="hz-w-semibold hz-mb-3">Key Facts</h3>
                 <ul className={cn("hz-stack-2 hz-t-sm", "hz-fg")}>
-                  <li><strong>Founded:</strong> 2016 in Los Angeles</li>
+                  <li><strong>Founded:</strong> 2016</li>
+                  <li><strong>Headquarters:</strong> San Francisco, CA</li>
                   <li><strong>Accelerator:</strong> Techstars Boulder 2017</li>
                   <li><strong>Research:</strong> <a href="/research#papers" className="hz-underline">Published papers</a></li>
                   <li><strong>Models:</strong> <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer" className="hz-underline">Zen LM family</a></li>

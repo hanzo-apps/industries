@@ -121,8 +121,8 @@ const announcements = [
       },
       {
         day: "01",
-        title: "Los Angeles HQ Expansion",
-        description: "Hanzo expands headquarters to accommodate growing team and new research facilities in LA.",
+        title: "San Francisco HQ Expansion",
+        description: "Hanzo expands headquarters to accommodate growing team and new research facilities in San Francisco.",
         type: "Company News",
         link: "/careers",
       },

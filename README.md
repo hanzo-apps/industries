@@ -40,7 +40,7 @@ app/
     blog/                     # Blog index
     capabilities/             # Capability deep-dives
       decentralized-ai/       # Decentralized AI capability
-    careers/                  # 42 listings, 9 locations, 7 offices
+    careers/                  # 42 listings, 8 locations, 6 offices
     case-studies/             # Enterprise case studies
     cloud/                    # Hanzo Cloud
     contact/                  # Form + Cal.com scheduling
@@ -100,7 +100,7 @@ public/
 | `/` | Homepage with hero, stats, case studies, research highlights |
 | `/about` | Company overview, stack layers, capabilities |
 | `/ai-models` | Full Zen model catalog -- 10 families, 45+ models |
-| `/careers` | Job listings across 7 global offices |
+| `/careers` | Job listings across 6 global offices |
 | `/case-studies` | Enterprise deployment case studies |
 | `/contact` | Contact form with Cal.com scheduling |
 | `/defense` | Defense sector solutions |

@@ -365,8 +365,7 @@ export default function PageClient() {
                       <div>
                         <p className="hz-w-medium">Headquarters</p>
                         <p className={cn("hz-t-sm", "hz-fg")}>
-                          1824 S. Fairfax Ave<br />
-                          Los Angeles, CA 90019
+                          San Francisco, CA
                         </p>
                       </div>
                     </div>
